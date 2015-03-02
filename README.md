@@ -39,21 +39,18 @@ start the server hosting the REST API, simply run (inside the repo's directory)
 npm start
 ```
 
-This starts an HTTP server listening on `localhost:6927`. There are several routes
-you may query (with a browser, or `curl` and friends):
+This starts an HTTP server listening on `localhost:6927`.
+
+The main routes you may query (with a browser, or `curl` and friends):
+* `http://localhost:6927/{domain}/v1/mobileapp/lite/{title}`
+
+There are several other routes from the template:
 
 * `http://localhost:6927/_info/`
 * `http://localhost:6927/_info/name`
 * `http://localhost:6927/_info/version`
 * `http://localhost:6927/_info/home`
 * `http://localhost:6927/{domain}/v1/siteinfo{/prop}`
-* `http://localhost:6927/{domain}/v1/page/{title}`
-* `http://localhost:6927/{domain}/v1/page/{title}/lead`
-* `http://localhost:6927/ex/err/array`
-* `http://localhost:6927/ex/err/file`
-* `http://localhost:6927/ex/err/manual/error`
-* `http://localhost:6927/ex/err/manual/deny`
-* `http://localhost:6927/ex/err/auth`
 
 ## Tests
 
