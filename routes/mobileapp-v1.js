@@ -12,7 +12,7 @@
 
 'use strict';
 
-//var BBPromise = require('bluebird');
+var BBPromise = require('bluebird');
 var preq = require('preq');
 var domino = require('domino');
 var sUtil = require('../lib/util');
@@ -30,6 +30,10 @@ var router = sUtil.router();
  * The main application object reported when this module is require()d
  */
 var app;
+
+// gallery constants:
+var MAX_ITEM_COUNT = "256";
+var MIN_IMAGE_SIZE = 64;
 
 
 /**
@@ -63,7 +67,7 @@ function moveFirstParagraphUpInLeadSection(text) {
 }
 
 /**
- * Nuke stuff from the DOM we don't want.
+ * Nukes stuff from the DOM we don't want.
  */
 function runDomTransforms(text) {
     var doc = domino.createDocument(text);
@@ -75,13 +79,22 @@ function runDomTransforms(text) {
     return doc.body.innerHTML;
 }
 
-/**
- * GET {domain}/v1/mobileapp/{title}
- * Gets the mobile app version of a given wiki page.
- */
-router.get('/mobileapp/:title', function (req, res) {
-    // get the page content from MW API mobileview
-    var apiParams = {
+function checkApiResult(apiRes) {
+    // check if the query failed
+    if (apiRes.status > 299) {
+        // there was an error in the MW API, propagate that
+        throw new HTTPError({
+            status: apiRes.status,
+            type: 'api_error',
+            title: 'MW API error',
+            detail: apiRes.body
+        });
+    }
+}
+
+/** Gets the page content from MW API mobileview */
+function getPage(req, res) {
+    return apiGet(req.params.domain, {
         "action": "mobileview",
         "format": "json",
         "page": req.params.title,
@@ -90,21 +103,9 @@ router.get('/mobileapp/:title', function (req, res) {
         "sectionprop": "toclevel|line|anchor",
         "noheadings": true,
         "noimages": true
-    };
-
-    return apiGet(req.params.domain, apiParams)
-        // and then return it
+    })
         .then(function (apiRes) {
-            // check if the query failed
-            if (apiRes.status > 299) {
-                // there was an error in the MW API, propagate that
-                throw new HTTPError({
-                    status: apiRes.status,
-                    type: 'api_error',
-                    title: 'MW API error',
-                    detail: apiRes.body
-                });
-            }
+            checkApiResult(apiRes);
 
             // transform all sections
             var sections = apiRes.body.mobileview.sections;
@@ -120,11 +121,47 @@ router.get('/mobileapp/:title', function (req, res) {
                 section.text = moveFirstParagraphUpInLeadSection(section.text);
             }
 
-            res.status(200).type('json').end(JSON.stringify(apiRes.body.mobileview));
-            //res.status(200).type('json').end(util.inspect(apiRes.body.mobileview));
-            //res.status(200).type('html').end(apiRes.innerHTML);
-            //res.status(200).type('json').end(apiRes);
+            return apiRes.body.mobileview;
         });
+}
+
+/** Gets the gallery content from MW API */
+function getGalleryCollection(req, res) {
+    return apiGet(req.params.domain, {
+        "action": "query",
+        "format": "json",
+        "titles": req.params.title,
+        "continue": "",
+        "prop": "imageinfo",
+        "iiprop": "dimensions|mime",
+        "generator": "images",
+        "gimlimit": MAX_ITEM_COUNT
+    })
+        .then(function (apiRes) {
+            checkApiResult(apiRes);
+
+            // TODO: remove all images that are too small or are of the wrong type
+
+            return apiRes.body;
+        });
+}
+
+/**
+ * GET {domain}/v1/mobileapp/{title}
+ * Gets the mobile app version of a given wiki page.
+ */
+router.get('/mobileapp/:title', function (req, res) {
+    BBPromise.join(
+        getPage(req, res),
+        getGalleryCollection(req, res),
+        function(page, gallery) {
+            var result = {
+                "page": page,
+                "gallery": gallery
+            };
+            res.status(200).type('json').end(JSON.stringify(result));
+        }
+    );
 });
 
 module.exports = function (appObj) {
