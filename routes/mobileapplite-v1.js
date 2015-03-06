@@ -50,31 +50,31 @@ function apiGet(domain, params) {
 }
 
 function rmSelectorAll(doc, selector) {
-  var ps = doc.querySelectorAll(selector) || [];
-  for (var idx = 0; idx < ps.length; idx++) {
-    var node = ps[idx];
-    node.parentNode.removeChild(node);
-  }
+    var ps = doc.querySelectorAll(selector) || [];
+    for (var idx = 0; idx < ps.length; idx++) {
+        var node = ps[idx];
+        node.parentNode.removeChild(node);
+    }
 }
 
 /**
  * Nuke stuff from the DOM we don't want.
  */
 function runDomTransforms(text) {
-  var doc = domino.createDocument(text);
-  rmSelectorAll(doc, 'div.noprint');
-  rmSelectorAll(doc, 'div.infobox');
-  rmSelectorAll(doc, 'div.hatnote');
-  rmSelectorAll(doc, 'div.metadata');
-  rmSelectorAll(doc, 'table'); // TODO: later we may want to transform some of the tables into a JSON structure
-  return doc.body.innerHTML;
+    var doc = domino.createDocument(text);
+    rmSelectorAll(doc, 'div.noprint');
+    rmSelectorAll(doc, 'div.infobox');
+    rmSelectorAll(doc, 'div.hatnote');
+    rmSelectorAll(doc, 'div.metadata');
+    rmSelectorAll(doc, 'table'); // TODO: later we may want to transform some of the tables into a JSON structure
+    return doc.body.innerHTML;
 }
 
 /**
  * GET {domain}/v1/mobileapp/lite/{title}
  * Gets the lite mobile app version of a given wiki page.
  */
-router.get('/mobileapp/lite/:title', function(req, res) {
+router.get('/mobileapp/lite/:title', function (req, res) {
     // get the page content from MW API mobileview
     var apiParams = {
         "action": "mobileview",
@@ -89,7 +89,7 @@ router.get('/mobileapp/lite/:title', function(req, res) {
 
     return apiGet(req.params.domain, apiParams)
         // and then return it
-        .then(function(apiRes) {
+        .then(function (apiRes) {
             // check if the query failed
             if (apiRes.status > 299) {
                 // there was an error in the MW API, propagate that
@@ -115,7 +115,7 @@ router.get('/mobileapp/lite/:title', function(req, res) {
         });
 });
 
-module.exports = function(appObj) {
+module.exports = function (appObj) {
     app = appObj;
     return {
         path: '/',
