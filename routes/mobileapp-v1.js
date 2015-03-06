@@ -1,13 +1,12 @@
 /**
- * mobileapp/lite provides page content for a potential lite Mobile App.
+ * mobileapp provides page content for the Mobile Apps.
  * The goal is to avoid having to use a web view and style the content natively inside the app
  * using plain TextViews.
- * The payload should not have any extra data, and should be easy to consume by the Lite App.
+ * The payload should not have any extra data, and should be easy to consume by the apps.
  *
  * Status: Prototype -- not ready for production
  * Currently using the mobileview action MW API, and removing some data we don't display.
  * TODO: Try Parsoid
- * TODO: Split the "text" objects of each section into paragraph and table objects
  * TODO: add some transformations that currently are being done by the apps and remove some more unneeded data
  */
 
@@ -77,10 +76,10 @@ function runDomTransforms(text) {
 }
 
 /**
- * GET {domain}/v1/mobileapp/lite/{title}
- * Gets the lite mobile app version of a given wiki page.
+ * GET {domain}/v1/mobileapp/{title}
+ * Gets the mobile app version of a given wiki page.
  */
-router.get('/mobileapp/lite/:title', function (req, res) {
+router.get('/mobileapp/:title', function (req, res) {
     // get the page content from MW API mobileview
     var apiParams = {
         "action": "mobileview",
