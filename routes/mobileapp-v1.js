@@ -57,6 +57,12 @@ function rmSelectorAll(doc, selector) {
   }
 }
 
+function moveFirstParagraphUpInLeadSection(text) {
+  var doc = domino.createDocument(text);
+  // TODO: mhurd, feel free to add your magic here
+  return doc.body.innerHTML;
+}
+
 /**
  * Nuke stuff from the DOM we don't want.
  */
@@ -80,7 +86,7 @@ router.get('/mobileapp/lite/:title', function(req, res) {
         "action": "mobileview",
         "format": "json",
         "page": req.params.title,
-        "prop": "text|sections",
+        "prop": "text|sections|thumb|image|id|revision|description|lastmodified|normalizedtitle|displaytitle|protection|editable",
         "sections": "all",
         "sectionprop": "toclevel|line|anchor",
         "noheadings": true,
@@ -106,6 +112,13 @@ router.get('/mobileapp/lite/:title', function(req, res) {
             for (var idx = 0; idx < sections.length; idx++) {
                 var section = sections[idx];
                 section.text = runDomTransforms(section.text);
+            }
+
+            if (!apiRes.body.mobileview.mainpage) {
+                // don't do anything if this is the main page, since many wikis
+                // arrange the main page in a series of tables.
+                // TODO: should we also exclude file and other special pages?
+                section.text = moveFirstParagraphUpInLeadSection(section.text);
             }
 
             res.status(200).type('json').end(JSON.stringify(apiRes.body.mobileview));
