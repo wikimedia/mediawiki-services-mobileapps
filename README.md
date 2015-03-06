@@ -44,6 +44,9 @@ This starts an HTTP server listening on `localhost:6927`.
 The main routes you may query (with a browser, or `curl` and friends):
 * `http://localhost:6927/{domain}/v1/mobileapp/lite/{title}`
 
+Example:
+* `http://localhost:6927/en.m.wikipedia.org/v1/mobileapp/lite/cat`
+
 There are several other routes from the template:
 
 * `http://localhost:6927/_info/`
