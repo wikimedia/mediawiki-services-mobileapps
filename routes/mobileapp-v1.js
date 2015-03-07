@@ -81,28 +81,28 @@ function runDomTransforms(text) {
     return doc.body.innerHTML;
 }
 
-function checkApiResult(apiRes) {
+function checkApiResult(result) {
     // check if the query failed
-    if (apiRes.status > 299) {
+    if (result.status > 299) {
         // there was an error in the MW API, propagate that
         throw new HTTPError({
-            status: apiRes.status,
+            status: result.status,
             type: 'api_error',
             title: 'MW API error',
-            detail: apiRes.body
+            detail: result.body
         });
     }
 }
 
-function checkForQueryPagesIn(apiRes) {
-    if (!apiRes.body.query || !apiRes.body.query.pages) {
+function checkForQueryPagesIn(result) {
+    if (!result.body.query || !result.body.query.pages) {
         // we did not get our expected query.pages from the MW API, propagate that
-        console.log('ERROR: no query.pages in result: ' + JSON.stringify(apiRes, null, 2));
+        console.log('ERROR: no query.pages in result: ' + JSON.stringify(result, null, 2));
         throw new HTTPError({
-            status: apiRes.status,
+            status: result.status,
             type: 'api_error',
             title: 'no query.pages in result',
-            detail: apiRes.body
+            detail: result.body
         });
     }
 }
