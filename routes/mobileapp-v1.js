@@ -32,8 +32,9 @@ var router = sUtil.router();
 var app;
 
 // gallery constants:
-var MAX_ITEM_COUNT = "256";
+var MAX_ITEM_COUNT = 256;
 var MIN_IMAGE_SIZE = 64;
+var MAX_IMAGE_WIDTH = 1280;
 
 
 /**
@@ -62,7 +63,7 @@ function rmSelectorAll(doc, selector) {
 
 function moveFirstParagraphUpInLeadSection(text) {
     var doc = domino.createDocument(text);
-    // TODO: mhurd, feel free to add your magic here
+    // TODO: mhurd, feel free to add your lead section magic here
     return doc.body.innerHTML;
 }
 
@@ -92,12 +93,25 @@ function checkApiResult(apiRes) {
     }
 }
 
-/** Gets the page content from MW API mobileview */
-function getPage(req) {
-    return apiGet(req.params.domain, {
+function checkForQueryPagesIn(apiRes) {
+    if (!apiRes.body.query || !apiRes.body.query.pages) {
+        // we did not get our expected query.pages from the MW API, propagate that
+        console.log('ERROR: no query.pages in result: ' + JSON.stringify(apiRes, null, 2));
+        throw new HTTPError({
+            status: apiRes.status,
+            type: 'api_error',
+            title: 'no query.pages in result',
+            detail: apiRes.body
+        });
+    }
+}
+
+/** Returns a promise to retrieve the page content from MW API mobileview */
+function pagePromise(domain, title) {
+    return apiGet(domain, {
         "action": "mobileview",
         "format": "json",
-        "page": req.params.title,
+        "page": title,
         "prop": "text|sections|thumb|image|id|revision|description|lastmodified|normalizedtitle|displaytitle|protection|editable",
         "sections": "all",
         "sectionprop": "toclevel|line|anchor",
@@ -118,19 +132,48 @@ function getPage(req) {
                 // don't do anything if this is the main page, since many wikis
                 // arrange the main page in a series of tables.
                 // TODO: should we also exclude file and other special pages?
-                section.text = moveFirstParagraphUpInLeadSection(section.text);
+                sections[0].text = moveFirstParagraphUpInLeadSection(sections[0].text);
             }
 
             return apiRes.body.mobileview;
         });
 }
 
-/** Gets the gallery content from MW API */
-function getGalleryCollection(req) {
-    return apiGet(req.params.domain, {
+/** Returns a promise to retrieve one or more gallery items. */
+function galleryItemsPromise(domain, titles, params) {
+    Object.assign(params, {
         "action": "query",
         "format": "json",
-        "titles": req.params.title,
+        "titles": titles,
+        "continue": ""
+    });
+    //console.log("DEBUG: " + JSON.stringify(params, null, 2));
+
+    return apiGet(domain, params)
+        .then(function (apiRes) {
+            checkApiResult(apiRes);
+            checkForQueryPagesIn(apiRes);
+
+            // TODO: iterate over all items and massage the data
+            //var items = apiRes.body.query.pages;
+            //for (var key in items) {
+            //    if (items.hasOwnProperty(key)) {
+            //        var item = items[key];
+            //        //console.log("-----");
+            //        //console.log(item);
+            //    }
+            //}
+
+            return apiRes.body.query.pages;
+        });
+}
+
+/** Gets the gallery content from MW API */
+function galleryCollectionPromise(domain, title) {
+    return apiGet(domain, {
+        "action": "query",
+        "format": "json",
+        "titles": title,
         "continue": "",
         "prop": "imageinfo",
         "iiprop": "dimensions|mime",
@@ -138,16 +181,21 @@ function getGalleryCollection(req) {
         "gimlimit": MAX_ITEM_COUNT
     })
         .then(function (apiRes) {
-            checkApiResult(apiRes);
+            var detailsPromises = [];
+            var videos = [], images = [];
+            var isVideo;
 
-            // iterate over all images
-            var images = apiRes.body.query.pages;
-            for (var key in images) {
-                if (images.hasOwnProperty(key)) {
-                    var image = images[key];
+            checkApiResult(apiRes);
+            checkForQueryPagesIn(apiRes);
+
+            // iterate over all items
+            var items = apiRes.body.query.pages;
+            for (var key in items) {
+                if (items.hasOwnProperty(key)) {
+                    var item = items[key];
 
                     // remove the ones that are too small or are of the wrong type
-                    var imageinfo = image.imageinfo[0];  // TODO: why this is an array?
+                    var imageinfo = item.imageinfo[0];  // TODO: why this is an array?
 
                     // Reject gallery items if they're too small.
                     // Also reject SVG and PNG items by default, because they're likely to be
@@ -157,18 +205,52 @@ function getGalleryCollection(req) {
                         || imageinfo.mime.indexOf("svg") > -1
                         || imageinfo.mime.indexOf("png") > -1
                     ) {
-                        delete images[key];
+                        delete items[key];
                     } else {
-                        delete image.ns;
-                        delete image.imagerepository; // we probably don't care where the repo is
+                        delete item.ns;
+                        delete item.imagerepository; // we probably don't care where the repo is
                         delete imageinfo.size;
+                        // TODO instead of deleting properties we probably want to just add well-known properties
 
-                        // TODO request more info
+                        isVideo = imageinfo.mime.indexOf("ogg") > -1 || imageinfo.mime.indexOf("video") > -1;
+
+                        // request details individually, to keep the order
+                        //detailsPromises.push(galleryItemsPromise(domain, item.title, isVideo));
+
+                        if (isVideo) {
+                            videos.push(item.title);
+                        } else {
+                            images.push(item.title);
+                        }
                     }
                 }
             }
 
-            return apiRes.body;
+            // one more request for all the videos
+            if (videos.length > 0) {
+                detailsPromises.push(galleryItemsPromise(domain, videos.join('|'), {
+                    "prop": "videoinfo",
+                    "viprop": "url|dimensions|mime|extmetadata|derivatives",
+                    "viurlwidth": MAX_IMAGE_WIDTH,
+                }));
+            }
+
+            // another one request for all the images
+            if (images.length > 0) {
+                detailsPromises.push(galleryItemsPromise(domain, images.join('|'), {
+                    "prop": "imageinfo",
+                    "iiprop": "url|dimensions|mime|extmetadata",
+                    "iiurlwidth": MAX_IMAGE_WIDTH
+                }));
+            }
+
+            if (detailsPromises.length > 0) {
+                // bring all gallery info together
+                return BBPromise.all(detailsPromises);
+            } else {
+                // no media associated with the page
+                return BBPromise.resolve({});
+            }
         });
 }
 
@@ -177,18 +259,12 @@ function getGalleryCollection(req) {
  * Gets the mobile app version of a given wiki page.
  */
 router.get('/mobileapp/:title', function (req, res) {
-    BBPromise.join(
-        getPage(req),
-        getGalleryCollection(req),
-
-        function(page, gallery) {
-            var result = {
-                "page": page,
-                "gallery": gallery
-            };
-            res.status(200).type('json').end(JSON.stringify(result));
-        }
-    );
+    BBPromise.props({
+        page: pagePromise(req.params.domain, req.params.title),
+        gallery: galleryCollectionPromise(req.params.domain, req.params.title)
+    }).then(function(result) {
+        res.status(200).type('json').end(JSON.stringify(result));
+    });
 });
 
 module.exports = function (appObj) {
