@@ -93,7 +93,7 @@ function checkApiResult(apiRes) {
 }
 
 /** Gets the page content from MW API mobileview */
-function getPage(req, res) {
+function getPage(req) {
     return apiGet(req.params.domain, {
         "action": "mobileview",
         "format": "json",
@@ -126,7 +126,7 @@ function getPage(req, res) {
 }
 
 /** Gets the gallery content from MW API */
-function getGalleryCollection(req, res) {
+function getGalleryCollection(req) {
     return apiGet(req.params.domain, {
         "action": "query",
         "format": "json",
@@ -140,7 +140,33 @@ function getGalleryCollection(req, res) {
         .then(function (apiRes) {
             checkApiResult(apiRes);
 
-            // TODO: remove all images that are too small or are of the wrong type
+            // iterate over all images
+            var images = apiRes.body.query.pages;
+            for (var key in images) {
+                if (images.hasOwnProperty(key)) {
+                    var image = images[key];
+
+                    // remove the ones that are too small or are of the wrong type
+                    var imageinfo = image.imageinfo[0];  // TODO: why this is an array?
+
+                    // Reject gallery items if they're too small.
+                    // Also reject SVG and PNG items by default, because they're likely to be
+                    // logos and/or presentational images.
+                    if (imageinfo.width < MIN_IMAGE_SIZE
+                        || imageinfo.height < MIN_IMAGE_SIZE
+                        || imageinfo.mime.indexOf("svg") > -1
+                        || imageinfo.mime.indexOf("png") > -1
+                    ) {
+                        delete images[key];
+                    } else {
+                        delete image.ns;
+                        delete image.imagerepository; // we probably don't care where the repo is
+                        delete imageinfo.size;
+
+                        // TODO request more info
+                    }
+                }
+            }
 
             return apiRes.body;
         });
@@ -152,8 +178,9 @@ function getGalleryCollection(req, res) {
  */
 router.get('/mobileapp/:title', function (req, res) {
     BBPromise.join(
-        getPage(req, res),
-        getGalleryCollection(req, res),
+        getPage(req),
+        getGalleryCollection(req),
+
         function(page, gallery) {
             var result = {
                 "page": page,
