@@ -63,7 +63,7 @@ function rmSelectorAll(doc, selector) {
 
 function moveFirstParagraphUpInLeadSection(text) {
     var doc = domino.createDocument(text);
-    // TODO: mhurd, feel free to add your lead section magic here
+    // TODO: mhurd: feel free to add your lead section magic here
     return doc.body.innerHTML;
 }
 
@@ -77,6 +77,7 @@ function runDomTransforms(text) {
     rmSelectorAll(doc, 'div.hatnote');
     rmSelectorAll(doc, 'div.metadata');
     rmSelectorAll(doc, 'table'); // TODO: later we may want to transform some of the tables into a JSON structure
+    // TODO: mhurd: add more references to functions where you do more transforms here
     return doc.body.innerHTML;
 }
 
@@ -107,7 +108,7 @@ function checkForQueryPagesIn(apiRes) {
 }
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
-function pagePromise(domain, title) {
+function pageContentPromise(domain, title) {
     return apiGet(domain, {
         "action": "mobileview",
         "format": "json",
@@ -245,7 +246,7 @@ function galleryCollectionPromise(domain, title) {
             }
 
             if (detailsPromises.length > 0) {
-                // bring all gallery info together
+                // bring all gallery info items together
                 return BBPromise.all(detailsPromises);
             } else {
                 // no media associated with the page
@@ -260,7 +261,7 @@ function galleryCollectionPromise(domain, title) {
  */
 router.get('/mobileapp/:title', function (req, res) {
     BBPromise.props({
-        page: pagePromise(req.params.domain, req.params.title),
+        page: pageContentPromise(req.params.domain, req.params.title),
         gallery: galleryCollectionPromise(req.params.domain, req.params.title)
     }).then(function(result) {
         res.status(200).type('json').end(JSON.stringify(result));
