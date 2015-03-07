@@ -18,8 +18,10 @@
   "keywords": [
     "REST",
     "API",
-    "service template",
-    "MediaWiki"
+    "node service",
+    "mobile apps",
+    "MediaWiki",
+    "Wikipedia"
   ],
   "author": "Wikimedia Service Team <services@wikimedia.org>",
   "contributors": [
