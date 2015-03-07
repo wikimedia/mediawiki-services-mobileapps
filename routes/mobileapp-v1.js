@@ -169,6 +169,74 @@ function galleryItemsPromise(domain, titles, params) {
         });
 }
 
+function handleFirstGalleryResponse(result, domain) {
+    var detailsPromises = [], videos = [], images = [];
+    var isVideo;
+
+    checkApiResult(result);
+    if (!result.body.query || !result.body.query.pages) {
+        return [];
+    }
+
+    // iterate over all items
+    var items = result.body.query.pages;
+    for (var key in items) {
+        if (items.hasOwnProperty(key)) {
+            var item = items[key];
+
+            // remove the ones that are too small or are of the wrong type
+            var imageinfo = item.imageinfo[0];  // TODO: why this is an array?
+
+            // Reject gallery items if they're too small.
+            // Also reject SVG and PNG items by default, because they're likely to be
+            // logos and/or presentational images.
+            if (imageinfo.width < MIN_IMAGE_SIZE
+                || imageinfo.height < MIN_IMAGE_SIZE
+                || imageinfo.mime.indexOf("svg") > -1
+                || imageinfo.mime.indexOf("png") > -1
+            ) {
+                delete items[key];
+            } else {
+                delete item.ns;
+                delete item.imagerepository; // we probably don't care where the repo is
+                delete imageinfo.size;
+                // TODO instead of deleting properties we probably want to just add well-known properties
+
+                isVideo = imageinfo.mime.indexOf("ogg") > -1 || imageinfo.mime.indexOf("video") > -1;
+
+                // request details individually, to keep the order
+                //detailsPromises.push(galleryItemsPromise(domain, item.title, isVideo));
+
+                if (isVideo) {
+                    videos.push(item.title);
+                } else {
+                    images.push(item.title);
+                }
+            }
+        }
+    }
+
+    // one more request for all the videos
+    if (videos.length > 0) {
+        detailsPromises.push(galleryItemsPromise(domain, videos.join('|'), {
+            "prop": "videoinfo",
+            "viprop": "url|dimensions|mime|extmetadata|derivatives",
+            "viurlwidth": MAX_IMAGE_WIDTH,
+        }));
+    }
+
+    // another one request for all the images
+    if (images.length > 0) {
+        detailsPromises.push(galleryItemsPromise(domain, images.join('|'), {
+            "prop": "imageinfo",
+            "iiprop": "url|dimensions|mime|extmetadata",
+            "iiurlwidth": MAX_IMAGE_WIDTH
+        }));
+    }
+
+    return detailsPromises;
+}
+
 /** Gets the gallery content from MW API */
 function galleryCollectionPromise(domain, title) {
     return apiGet(domain, {
@@ -182,75 +250,14 @@ function galleryCollectionPromise(domain, title) {
         "gimlimit": MAX_ITEM_COUNT
     })
         .then(function (result) {
-            var detailsPromises = [];
-            var videos = [], images = [];
-            var isVideo;
-
-            checkApiResult(result);
-            checkForQueryPagesIn(result);
-
-            // iterate over all items
-            var items = result.body.query.pages;
-            for (var key in items) {
-                if (items.hasOwnProperty(key)) {
-                    var item = items[key];
-
-                    // remove the ones that are too small or are of the wrong type
-                    var imageinfo = item.imageinfo[0];  // TODO: why this is an array?
-
-                    // Reject gallery items if they're too small.
-                    // Also reject SVG and PNG items by default, because they're likely to be
-                    // logos and/or presentational images.
-                    if (imageinfo.width < MIN_IMAGE_SIZE
-                        || imageinfo.height < MIN_IMAGE_SIZE
-                        || imageinfo.mime.indexOf("svg") > -1
-                        || imageinfo.mime.indexOf("png") > -1
-                    ) {
-                        delete items[key];
-                    } else {
-                        delete item.ns;
-                        delete item.imagerepository; // we probably don't care where the repo is
-                        delete imageinfo.size;
-                        // TODO instead of deleting properties we probably want to just add well-known properties
-
-                        isVideo = imageinfo.mime.indexOf("ogg") > -1 || imageinfo.mime.indexOf("video") > -1;
-
-                        // request details individually, to keep the order
-                        //detailsPromises.push(galleryItemsPromise(domain, item.title, isVideo));
-
-                        if (isVideo) {
-                            videos.push(item.title);
-                        } else {
-                            images.push(item.title);
-                        }
-                    }
-                }
-            }
-
-            // one more request for all the videos
-            if (videos.length > 0) {
-                detailsPromises.push(galleryItemsPromise(domain, videos.join('|'), {
-                    "prop": "videoinfo",
-                    "viprop": "url|dimensions|mime|extmetadata|derivatives",
-                    "viurlwidth": MAX_IMAGE_WIDTH,
-                }));
-            }
-
-            // another one request for all the images
-            if (images.length > 0) {
-                detailsPromises.push(galleryItemsPromise(domain, images.join('|'), {
-                    "prop": "imageinfo",
-                    "iiprop": "url|dimensions|mime|extmetadata",
-                    "iiurlwidth": MAX_IMAGE_WIDTH
-                }));
-            }
+            var detailsPromises = handleFirstGalleryResponse(result, domain);
 
             if (detailsPromises.length > 0) {
                 // bring all gallery info items together
                 return BBPromise.all(detailsPromises);
             } else {
                 // no media associated with the page
-                return BBPromise.resolve({});
+                return BBPromise.resolve([]);
             }
         });
 }
