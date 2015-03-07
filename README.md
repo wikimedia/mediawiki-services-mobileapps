@@ -1,4 +1,4 @@
-# service-template-node [![Build Status](https://travis-ci.org/wikimedia/service-mobileapp-node.svg?branch=master)](https://travis-ci.org/wikimedia/service-mobileapp-node)
+# service-template-node [![Build Status](https://travis-ci.org/berndsi/service-mobileapp-node.svg?branch=master)](https://travis-ci.org/berndsi/service-mobileapp-node)
 
 Template for creating MediaWiki Services in Node.js
 
