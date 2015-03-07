@@ -118,24 +118,24 @@ function pagePromise(domain, title) {
         "noheadings": true,
         "noimages": true
     })
-        .then(function (apiRes) {
-            checkApiResult(apiRes);
+        .then(function (result) {
+            checkApiResult(result);
 
             // transform all sections
-            var sections = apiRes.body.mobileview.sections;
+            var sections = result.body.mobileview.sections;
             for (var idx = 0; idx < sections.length; idx++) {
                 var section = sections[idx];
                 section.text = runDomTransforms(section.text);
             }
 
-            if (!apiRes.body.mobileview.mainpage) {
+            if (!result.body.mobileview.mainpage) {
                 // don't do anything if this is the main page, since many wikis
                 // arrange the main page in a series of tables.
                 // TODO: should we also exclude file and other special pages?
                 sections[0].text = moveFirstParagraphUpInLeadSection(sections[0].text);
             }
 
-            return apiRes.body.mobileview;
+            return result.body.mobileview;
         });
 }
 
@@ -150,12 +150,12 @@ function galleryItemsPromise(domain, titles, params) {
     //console.log("DEBUG: " + JSON.stringify(params, null, 2));
 
     return apiGet(domain, params)
-        .then(function (apiRes) {
-            checkApiResult(apiRes);
-            checkForQueryPagesIn(apiRes);
+        .then(function (result) {
+            checkApiResult(result);
+            checkForQueryPagesIn(result);
 
             // TODO: iterate over all items and massage the data
-            //var items = apiRes.body.query.pages;
+            //var items = result.body.query.pages;
             //for (var key in items) {
             //    if (items.hasOwnProperty(key)) {
             //        var item = items[key];
@@ -164,7 +164,7 @@ function galleryItemsPromise(domain, titles, params) {
             //    }
             //}
 
-            return apiRes.body.query.pages;
+            return result.body.query.pages;
         });
 }
 
@@ -180,16 +180,16 @@ function galleryCollectionPromise(domain, title) {
         "generator": "images",
         "gimlimit": MAX_ITEM_COUNT
     })
-        .then(function (apiRes) {
+        .then(function (result) {
             var detailsPromises = [];
             var videos = [], images = [];
             var isVideo;
 
-            checkApiResult(apiRes);
-            checkForQueryPagesIn(apiRes);
+            checkApiResult(result);
+            checkForQueryPagesIn(result);
 
             // iterate over all items
-            var items = apiRes.body.query.pages;
+            var items = result.body.query.pages;
             for (var key in items) {
                 if (items.hasOwnProperty(key)) {
                     var item = items[key];
