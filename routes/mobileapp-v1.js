@@ -92,19 +92,21 @@ function moveFirstParagraphUpInLeadSection(text) {
 /**
  * Nukes stuff from the DOM we don't want.
  */
-function runDomTransforms(text) {
+function runDomTransforms(text, sectionIndex) {
     var doc = domino.createDocument(text);
 
     var rmSelectors = [
                        'div.noprint',
                        'div.infobox',
-                       'div.hatnote',
                        'div.metadata',
                        'table.navbox',
                        'div.magnify',
                        'span[style]:not([style="display:none"])',   // Remove <span style=\"display:none;\">&nbsp;</span>
                        'span[class="Z3988"]'                        // Remove <span class=\"Z3988\"></span>
                        ];
+    if(sectionIndex === 0) {
+        rmSelectors.push('div.hatnote');
+    }
     rmSelectorAll(doc, rmSelectors.join(', '));                     // Do single call to rmSelectorAll.
 
     rmAttributeAll(doc, 'a', 'rel');
@@ -162,7 +164,7 @@ function pageContentPromise(domain, title) {
             var sections = result.body.mobileview.sections;
             for (var idx = 0; idx < sections.length; idx++) {
                 var section = sections[idx];
-                section.text = runDomTransforms(section.text);
+                section.text = runDomTransforms(section.text, idx);
             }
 
             if (!result.body.mobileview.mainpage) {
