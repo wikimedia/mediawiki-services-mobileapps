@@ -61,6 +61,28 @@ function rmSelectorAll(doc, selector) {
     }
 }
 
+function rmBracketSpans(doc) {
+    var ps = doc.querySelectorAll('span:not([class],[style],[id])') || [];
+    for (var idx = 0; idx < ps.length; idx++) {
+        var node = ps[idx];
+        if(node.innerHTML === '['){
+            var leftBracket = doc.createTextNode('[');
+            node.parentNode.replaceChild(leftBracket, node);
+        }else if(node.innerHTML === ']'){
+            var rightBracket = doc.createTextNode(']');
+            node.parentNode.replaceChild(rightBracket, node);
+        }
+    }
+}
+
+function rmAttributeAll(doc, selector, attribute) {
+    var ps = doc.querySelectorAll(selector) || [];
+    for (var idx = 0; idx < ps.length; idx++) {
+        var node = ps[idx];
+        node.removeAttribute(attribute);
+    }
+}
+
 function moveFirstParagraphUpInLeadSection(text) {
     var doc = domino.createDocument(text);
     // TODO: mhurd: feel free to add your lead section magic here
@@ -72,12 +94,27 @@ function moveFirstParagraphUpInLeadSection(text) {
  */
 function runDomTransforms(text) {
     var doc = domino.createDocument(text);
-    rmSelectorAll(doc, 'div.noprint');
-    rmSelectorAll(doc, 'div.infobox');
-    rmSelectorAll(doc, 'div.hatnote');
-    rmSelectorAll(doc, 'div.metadata');
-    rmSelectorAll(doc, 'table'); // TODO: later we may want to transform some of the tables into a JSON structure
+
+    var rmSelectors = [
+                       'div.noprint',
+                       'div.infobox',
+                       'div.hatnote',
+                       'div.metadata',
+                       'table.navbox',
+                       'div.magnify',
+                       'span[style]:not([style="display:none"])',   // Remove <span style=\"display:none;\">&nbsp;</span>
+                       'span[class="Z3988"]'                        // Remove <span class=\"Z3988\"></span>
+                       ];
+    rmSelectorAll(doc, rmSelectors.join(', '));                     // Do single call to rmSelectorAll.
+
+    rmAttributeAll(doc, 'a', 'rel');
+    rmAttributeAll(doc, 'a,span', 'title');
+    rmAttributeAll(doc, 'img', 'alt');
+
+    rmBracketSpans(doc);
+
     // TODO: mhurd: add more references to functions where you do more transforms here
+
     return doc.body.innerHTML;
 }
 
@@ -116,8 +153,7 @@ function pageContentPromise(domain, title) {
         "prop": "text|sections|thumb|image|id|revision|description|lastmodified|normalizedtitle|displaytitle|protection|editable",
         "sections": "all",
         "sectionprop": "toclevel|line|anchor",
-        "noheadings": true,
-        "noimages": true
+        "noheadings": true
     })
         .then(function (result) {
             checkApiResult(result);
