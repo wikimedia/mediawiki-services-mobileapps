@@ -184,21 +184,17 @@ function pageContentPromise(domain, title) {
 
 // in the case of video, look for a list of transcodings, so that we might
 // find a WebM version, which is playable in Android.
-function getTranscodedVideoUrl(item, objinfo) {
+function getTranscodedVideoUrl(objinfo) {
     var derivativesArr, index, derivative, url, key;
-    dbg("title", item.title);
     console.log("video");
     if (objinfo.derivatives) {
-        dbg("objinfo.derivatives", objinfo.derivatives);
         derivativesArr = objinfo.derivatives;
         for (key in derivativesArr) {
             if (derivativesArr.hasOwnProperty(key)) {
                 derivative = derivativesArr[key];
-                dbg("derivative", derivative);
                 if (derivative.type && derivative.type.indexOf("webm") > -1) {
                     // that's the one!
                     url = derivative.src;
-                    dbg("url", url);
                     // Note: currently picks the last one
                     // TODO: in the future we could have an extra URL that provides a size parameter for images and videos
                 }
@@ -208,37 +204,33 @@ function getTranscodedVideoUrl(item, objinfo) {
     return url;
 }
 
-function getExtmetadata(extmetadata) {
-    var licenseName, licenseUrl, licenseFree, key;
-
-    // TODO:
-    for (key in extmetadata) {
-        if (extmetadata.hasOwnProperty(key)) {
-            dbg("extmetadata index", key);
-        }
+function getLicenseData(ext) {
+    return {
+        name: ext.License && ext.License.value,
+        url: ext.LicenseUrl && ext.LicenseUrl.value,
+        free: ext.NonFree && !ext.NonFree.value
     }
 }
 
 function handleGalleryItems(item) {
-    var objinfo, url;
+    var obj, url;
 
     if (item.imageinfo) {
-        objinfo = item.imageinfo[0];
+        obj = item.imageinfo[0];
     } else if (item.videoinfo) {
-        objinfo = item.videoinfo[0];
-        url = getTranscodedVideoUrl(item, objinfo);
+        obj = item.videoinfo[0];
+        url = getTranscodedVideoUrl(obj);
     }
     if (!url) {
-        url = objinfo.url;
+        url = obj.url;
     }
     return {
         url: url,
-        thumbUrl: objinfo.thumbUrl,
-        mimeType: objinfo.mimeType,
-        width: objinfo.width,
-        height: objinfo.height,
-        extmetadata: objinfo.extmetadata
-        //extmetadata: getExtmetadata(objinfo.extmetadata)
+        thumbUrl: obj.thumbUrl,
+        mimeType: obj.mimeType,
+        width: obj.width,
+        height: obj.height,
+        license: getLicenseData(obj.extmetadata)
     };
 }
 
@@ -269,7 +261,6 @@ function galleryItemsPromise(domain, titles, params) {
         "titles": titles,
         "continue": ""
     });
-    //console.log("DEBUG: " + JSON.stringify(params, null, 2));
 
     return apiGet(domain, params)
         .then(function (response) {
