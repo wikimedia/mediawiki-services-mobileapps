@@ -326,20 +326,20 @@ function onGalleryCollectionsResponse(response, domain) {
 
     // one more request for all the videos
     if (videos.length > 0) {
-        detailsPromises.push(galleryItemsPromise(domain, videos.join('|'), {
+        detailsPromises.videos = galleryItemsPromise(domain, videos.join('|'), {
             "prop": "videoinfo",
             "viprop": "url|dimensions|mime|extmetadata|derivatives",
             "viurlwidth": MAX_IMAGE_WIDTH,
-        }));
+        });
     }
 
     // another one request for all the images
     if (images.length > 0) {
-        detailsPromises.push(galleryItemsPromise(domain, images.join('|'), {
+        detailsPromises.images = galleryItemsPromise(domain, images.join('|'), {
             "prop": "imageinfo",
             "iiprop": "url|dimensions|mime|extmetadata",
             "iiurlwidth": MAX_IMAGE_WIDTH
-        }));
+        });
     }
 
     return detailsPromises;
@@ -359,14 +359,10 @@ function galleryCollectionPromise(domain, title) {
     })
         .then(function (response) {
             var detailsPromises = onGalleryCollectionsResponse(response, domain);
-
-            if (detailsPromises.length > 0) {
-                // bring all gallery info items together
-                return BBPromise.all(detailsPromises);
-            } else {
-                // no media associated with the page
-                return BBPromise.resolve([]);
-            }
+            return BBPromise.props({
+                videos: detailsPromises.videos,
+                images: detailsPromises.images
+            });
         });
 }
 
@@ -376,7 +372,7 @@ function galleryCollectionPromise(domain, title) {
  */
 router.get('/mobileapp/:title', function (req, res) {
     BBPromise.props({
-        page: pageContentPromise(req.params.domain, req.params.title),
+        //page: pageContentPromise(req.params.domain, req.params.title),
         media: galleryCollectionPromise(req.params.domain, req.params.title)
     }).then(function(response) {
         res.status(200).type('json').end(JSON.stringify(response));
