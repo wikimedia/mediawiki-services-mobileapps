@@ -105,8 +105,8 @@ function runDomTransforms(text, sectionIndex) {
                        'div.metadata',
                        'table.navbox',
                        'div.magnify',
-                       'span[style]:not([style="display:none"])',   // Remove <span style=\"display:none;\">&nbsp;</span>
-                       'span[class="Z3988"]'                        // Remove <span class=\"Z3988\"></span>
+                       'span[style*="display:none"]',    // Remove <span style=\"display:none;\">&nbsp;</span>
+                       'span.Z3988'                      // Remove <span class=\"Z3988\"></span>
                        ];
     if(sectionIndex === 0) {
         rmSelectors.push('div.hatnote');
