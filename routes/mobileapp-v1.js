@@ -37,6 +37,10 @@ var MIN_IMAGE_SIZE = 64;
 var MAX_IMAGE_WIDTH = 1280;
 
 
+function dbg(name, obj) {
+    console.log("DEBUG: " + name + ": " + JSON.stringify(obj, null, 2));
+}
+
 /**
  * A helper function that obtains the HTML from the MW API and
  * loads it into a domino DOM document instance.
@@ -178,6 +182,85 @@ function pageContentPromise(domain, title) {
         });
 }
 
+// in the case of video, look for a list of transcodings, so that we might
+// find a WebM version, which is playable in Android.
+function getTranscodedVideoUrl(item, objinfo) {
+    var derivativesArr, index, derivative, url, key;
+    dbg("title", item.title);
+    console.log("video");
+    if (objinfo.derivatives) {
+        dbg("objinfo.derivatives", objinfo.derivatives);
+        derivativesArr = objinfo.derivatives;
+        for (key in derivativesArr) {
+            if (derivativesArr.hasOwnProperty(key)) {
+                derivative = derivativesArr[key];
+                dbg("derivative", derivative);
+                if (derivative.type && derivative.type.indexOf("webm") > -1) {
+                    // that's the one!
+                    url = derivative.src;
+                    dbg("url", url);
+                    // Note: currently picks the last one
+                    // TODO: in the future we could have an extra URL that provides a size parameter for images and videos
+                }
+            }
+        }
+    }
+    return url;
+}
+
+function getExtmetadata(extmetadata) {
+    var licenseName, licenseUrl, licenseFree, key;
+
+    // TODO:
+    for (key in extmetadata) {
+        if (extmetadata.hasOwnProperty(key)) {
+            dbg("extmetadata index", key);
+        }
+    }
+}
+
+function handleGalleryItems(item) {
+    var objinfo, url;
+
+    if (item.imageinfo) {
+        objinfo = item.imageinfo[0];
+    } else if (item.videoinfo) {
+        objinfo = item.videoinfo[0];
+        url = getTranscodedVideoUrl(item, objinfo);
+    }
+    if (!url) {
+        url = objinfo.url;
+    }
+    return {
+        url: url,
+        thumbUrl: objinfo.thumbUrl,
+        mimeType: objinfo.mimeType,
+        width: objinfo.width,
+        height: objinfo.height,
+        extmetadata: objinfo.extmetadata
+        //extmetadata: getExtmetadata(objinfo.extmetadata)
+    };
+}
+
+function onGalleryItemsResponse(result) {
+    var items, key;
+    var output = [];
+
+    checkApiResult(result);
+    checkForQueryPagesIn(result);
+
+    // TODO: iterate over all items and massage the data
+    items = result.body.query.pages;
+    //console.log("-----");
+    for (key in items) {
+        if (items.hasOwnProperty(key)) {
+            output.push(handleGalleryItems(items[key]));
+        }
+    }
+
+    return output;
+}
+
 /** Returns a promise to retrieve one or more gallery items. */
 function galleryItemsPromise(domain, titles, params) {
     Object.assign(params, {
@@ -190,24 +273,11 @@ function galleryItemsPromise(domain, titles, params) {
 
     return apiGet(domain, params)
         .then(function (result) {
-            checkApiResult(result);
-            checkForQueryPagesIn(result);
-
-            // TODO: iterate over all items and massage the data
-            //var items = result.body.query.pages;
-            //for (var key in items) {
-            //    if (items.hasOwnProperty(key)) {
-            //        var item = items[key];
-            //        //console.log("-----");
-            //        //console.log(item);
-            //    }
-            //}
-
-            return result.body.query.pages;
+            return onGalleryItemsResponse(result);
         });
 }
 
-function handleFirstGalleryResponse(result, domain) {
+function onGalleryCollectionsResponse(result, domain) {
     var detailsPromises = [], videos = [], images = [];
     var isVideo;
 
@@ -288,7 +358,7 @@ function galleryCollectionPromise(domain, title) {
         "gimlimit": MAX_ITEM_COUNT
     })
         .then(function (result) {
-            var detailsPromises = handleFirstGalleryResponse(result, domain);
+            var detailsPromises = onGalleryCollectionsResponse(result, domain);
 
             if (detailsPromises.length > 0) {
                 // bring all gallery info items together
@@ -307,7 +377,7 @@ function galleryCollectionPromise(domain, title) {
 router.get('/mobileapp/:title', function (req, res) {
     BBPromise.props({
         page: pageContentPromise(req.params.domain, req.params.title),
-        gallery: galleryCollectionPromise(req.params.domain, req.params.title)
+        media: galleryCollectionPromise(req.params.domain, req.params.title)
     }).then(function(result) {
         res.status(200).type('json').end(JSON.stringify(result));
     });
