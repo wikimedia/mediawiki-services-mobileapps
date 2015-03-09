@@ -208,7 +208,7 @@ function getLicenseData(ext) {
         name: ext.License && ext.License.value,
         url: ext.LicenseUrl && ext.LicenseUrl.value,
         free: ext.NonFree && !ext.NonFree.value
-    }
+    };
 }
 
 function handleGalleryItems(item) {
