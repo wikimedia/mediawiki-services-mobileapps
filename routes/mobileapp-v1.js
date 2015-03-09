@@ -185,8 +185,7 @@ function pageContentPromise(domain, title) {
 // in the case of video, look for a list of transcodings, so that we might
 // find a WebM version, which is playable in Android.
 function getTranscodedVideoUrl(objinfo) {
-    var derivativesArr, index, derivative, url, key;
-    console.log("video");
+    var derivativesArr, derivative, url, key;
     if (objinfo.derivatives) {
         derivativesArr = objinfo.derivatives;
         for (key in derivativesArr) {
@@ -363,7 +362,7 @@ function galleryCollectionPromise(domain, title) {
  */
 router.get('/mobileapp/:title', function (req, res) {
     BBPromise.props({
-        //page: pageContentPromise(req.params.domain, req.params.title),
+        page: pageContentPromise(req.params.domain, req.params.title),
         media: galleryCollectionPromise(req.params.domain, req.params.title)
     }).then(function(response) {
         res.status(200).type('json').end(JSON.stringify(response));
