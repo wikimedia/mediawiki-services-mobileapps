@@ -124,28 +124,28 @@ function runDomTransforms(text, sectionIndex) {
     return doc.body.innerHTML;
 }
 
-function checkApiResult(result) {
+function checkApiResponse(response) {
     // check if the query failed
-    if (result.status > 299) {
+    if (response.status > 299) {
         // there was an error in the MW API, propagate that
         throw new HTTPError({
-            status: result.status,
+            status: response.status,
             type: 'api_error',
             title: 'MW API error',
-            detail: result.body
+            detail: response.body
         });
     }
 }
 
-function checkForQueryPagesIn(result) {
-    if (!result.body.query || !result.body.query.pages) {
+function checkForQueryPagesIn(response) {
+    if (!response.body.query || !response.body.query.pages) {
         // we did not get our expected query.pages from the MW API, propagate that
-        console.log('ERROR: no query.pages in result: ' + JSON.stringify(result, null, 2));
+        console.log('ERROR: no query.pages in response: ' + JSON.stringify(response, null, 2));
         throw new HTTPError({
-            status: result.status,
+            status: response.status,
             type: 'api_error',
-            title: 'no query.pages in result',
-            detail: result.body
+            title: 'no query.pages in response',
+            detail: response.body
         });
     }
 }
@@ -161,24 +161,24 @@ function pageContentPromise(domain, title) {
         "sectionprop": "toclevel|line|anchor",
         "noheadings": true
     })
-        .then(function (result) {
-            checkApiResult(result);
+        .then(function (response) {
+            checkApiResponse(response);
 
             // transform all sections
-            var sections = result.body.mobileview.sections;
+            var sections = response.body.mobileview.sections;
             for (var idx = 0; idx < sections.length; idx++) {
                 var section = sections[idx];
                 section.text = runDomTransforms(section.text, idx);
             }
 
-            if (!result.body.mobileview.mainpage) {
+            if (!response.body.mobileview.mainpage) {
                 // don't do anything if this is the main page, since many wikis
                 // arrange the main page in a series of tables.
                 // TODO: should we also exclude file and other special pages?
                 sections[0].text = moveFirstParagraphUpInLeadSection(sections[0].text);
             }
 
-            return result.body.mobileview;
+            return response.body.mobileview;
         });
 }
 
@@ -242,15 +242,15 @@ function handleGalleryItems(item) {
     };
 }
 
-function onGalleryItemsResponse(result) {
+function onGalleryItemsResponse(response) {
     var items, key;
     var output = [];
 
-    checkApiResult(result);
-    checkForQueryPagesIn(result);
+    checkApiResponse(response);
+    checkForQueryPagesIn(response);
 
     // TODO: iterate over all items and massage the data
-    items = result.body.query.pages;
+    items = response.body.query.pages;
     //console.log("-----");
     for (key in items) {
         if (items.hasOwnProperty(key)) {
@@ -272,22 +272,22 @@ function galleryItemsPromise(domain, titles, params) {
     //console.log("DEBUG: " + JSON.stringify(params, null, 2));
 
     return apiGet(domain, params)
-        .then(function (result) {
-            return onGalleryItemsResponse(result);
+        .then(function (response) {
+            return onGalleryItemsResponse(response);
         });
 }
 
-function onGalleryCollectionsResponse(result, domain) {
+function onGalleryCollectionsResponse(response, domain) {
     var detailsPromises = [], videos = [], images = [];
     var isVideo;
 
-    checkApiResult(result);
-    if (!result.body.query || !result.body.query.pages) {
+    checkApiResponse(response);
+    if (!response.body.query || !response.body.query.pages) {
         return [];
     }
 
     // iterate over all items
-    var items = result.body.query.pages;
+    var items = response.body.query.pages;
     for (var key in items) {
         if (items.hasOwnProperty(key)) {
             var item = items[key];
@@ -357,8 +357,8 @@ function galleryCollectionPromise(domain, title) {
         "generator": "images",
         "gimlimit": MAX_ITEM_COUNT
     })
-        .then(function (result) {
-            var detailsPromises = onGalleryCollectionsResponse(result, domain);
+        .then(function (response) {
+            var detailsPromises = onGalleryCollectionsResponse(response, domain);
 
             if (detailsPromises.length > 0) {
                 // bring all gallery info items together
@@ -378,8 +378,8 @@ router.get('/mobileapp/:title', function (req, res) {
     BBPromise.props({
         page: pageContentPromise(req.params.domain, req.params.title),
         media: galleryCollectionPromise(req.params.domain, req.params.title)
-    }).then(function(result) {
-        res.status(200).type('json').end(JSON.stringify(result));
+    }).then(function(response) {
+        res.status(200).type('json').end(JSON.stringify(response));
     });
 });
 
