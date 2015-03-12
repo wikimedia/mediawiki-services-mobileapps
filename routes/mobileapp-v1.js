@@ -203,12 +203,17 @@ function getTranscodedVideoUrl(objinfo) {
     return url;
 }
 
-function getLicenseData(ext) {
-    return {
-        name: ext.License && ext.License.value,
-        url: ext.LicenseUrl && ext.LicenseUrl.value,
-        free: ext.NonFree && !ext.NonFree.value
-    };
+function getExtMetadata(extmetadata) {
+    var ext = {};
+    for (var key in extmetadata) {
+        if (extmetadata.hasOwnProperty(key)) {
+            var value = extmetadata[key].value;
+            if (typeof value === "string") {
+                ext[key] = value.trim();
+            }
+        }
+    }
+    return ext;
 }
 
 function handleGalleryItems(item) {
@@ -224,12 +229,13 @@ function handleGalleryItems(item) {
         url = obj.url;
     }
     return {
+        title: item.title,
         url: url,
         thumbUrl: obj.thumbUrl,
         mimeType: obj.mimeType,
         width: obj.width,
         height: obj.height,
-        license: getLicenseData(obj.extmetadata)
+        ext: getExtMetadata(obj.extmetadata)
     };
 }
 
