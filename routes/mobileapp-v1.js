@@ -37,7 +37,8 @@ var MAX_IMAGE_WIDTH = 1280;
 
 
 function dbg(name, obj) {
-    console.log("DEBUG: " + name + ": " + JSON.stringify(obj, null, 2));
+    //console.log("DEBUG: " + name + ": " + JSON.stringify(obj, null, 2));
+    app.logger.log('debug', name + ": " + JSON.stringify(obj));
 }
 
 /**
@@ -139,7 +140,7 @@ function checkApiResponse(response) {
 function checkForQueryPagesIn(response) {
     if (!response.body.query || !response.body.query.pages) {
         // we did not get our expected query.pages from the MW API, propagate that
-        console.log('ERROR: no query.pages in response: ' + JSON.stringify(response, null, 2));
+        app.logger.log('error', 'no query.pages in response: ' + JSON.stringify(response, null, 2));
         throw new HTTPError({
             status: response.status,
             type: 'api_error',
@@ -244,9 +245,7 @@ function onGalleryItemsResponse(response) {
     checkApiResponse(response);
     checkForQueryPagesIn(response);
 
-    // TODO: iterate over all items and massage the data
     items = response.body.query.pages;
-    //console.log("-----");
     for (key in items) {
         if (items.hasOwnProperty(key)) {
             output.push(handleGalleryItems(items[key]));
