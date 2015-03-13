@@ -6,7 +6,6 @@
  *
  * Status: Prototype -- not ready for production
  * Currently using the mobileview action MW API, and removing some data we don't display.
- * TODO: Try Parsoid
  * TODO: add some transformations that currently are being done by the apps and remove some more unneeded data
  */
 
