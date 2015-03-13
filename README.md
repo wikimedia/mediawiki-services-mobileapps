@@ -42,10 +42,13 @@ npm start
 This starts an HTTP server listening on `localhost:6927`.
 
 The main routes you may query (with a browser, or `curl` and friends):
-* `http://localhost:6927/{domain}/v1/mobileapp/lite/{title}`
+* `http://localhost:6927/{domain}/v1/mobile/app/std/html/{title}`
 
 Example:
-* `http://localhost:6927/en.m.wikipedia.org/v1/mobileapp/lite/cat`
+* `http://localhost:6927/en.wikipedia.org/v1/mobile/app/std/html/Cat`
+
+There is also a route for the mobile lite app:
+* `http://localhost:6927/{domain}/v1/mobile/app/lite/html/Cat`
 
 There are several other routes from the template:
 

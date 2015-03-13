@@ -359,10 +359,10 @@ function galleryCollectionPromise(domain, title) {
 }
 
 /**
- * GET {domain}/v1/mobileapp/{title}
+ * GET {domain}/v1/mobile/app/std/html/{title}
  * Gets the mobile app version of a given wiki page.
  */
-router.get('/:title', function (req, res) {
+router.get('/html/:title', function (req, res) {
     BBPromise.props({
         page: pageContentPromise(req.params.domain, req.params.title),
         media: galleryCollectionPromise(req.params.domain, req.params.title)
@@ -374,7 +374,7 @@ router.get('/:title', function (req, res) {
 module.exports = function (appObj) {
     app = appObj;
     return {
-        path: '/mobileapp',
+        path: '/mobile/app/std',
         api_version: 1,
         router: router
     };
