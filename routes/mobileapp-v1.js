@@ -69,10 +69,10 @@ function rmBracketSpans(doc) {
     var ps = doc.querySelectorAll('span:not([class],[style],[id])') || [];
     for (var idx = 0; idx < ps.length; idx++) {
         var node = ps[idx];
-        if(node.innerHTML === '['){
+        if (node.innerHTML === '[') {
             var leftBracket = doc.createTextNode('[');
             node.parentNode.replaceChild(leftBracket, node);
-        }else if(node.innerHTML === ']'){
+        } else if (node.innerHTML === ']') {
             var rightBracket = doc.createTextNode(']');
             node.parentNode.replaceChild(rightBracket, node);
         }
@@ -100,18 +100,18 @@ function runDomTransforms(text, sectionIndex) {
     var doc = domino.createDocument(text);
 
     var rmSelectors = [
-                       'div.noprint',
-                       'div.infobox',
-                       'div.metadata',
-                       'table.navbox',
-                       'div.magnify',
-                       'span[style*="display:none"]',    // Remove <span style=\"display:none;\">&nbsp;</span>
-                       'span.Z3988'                      // Remove <span class=\"Z3988\"></span>
-                       ];
-    if(sectionIndex === 0) {
+        'div.noprint',
+        'div.infobox',
+        'div.metadata',
+        'table.navbox',
+        'div.magnify',
+        'span[style*="display:none"]',             // Remove <span style=\"display:none;\">&nbsp;</span>
+        'span.Z3988'                               // Remove <span class=\"Z3988\"></span>
+    ];
+    if (sectionIndex === 0) {
         rmSelectors.push('div.hatnote');
     }
-    rmSelectorAll(doc, rmSelectors.join(', '));                     // Do single call to rmSelectorAll.
+    rmSelectorAll(doc, rmSelectors.join(', '));    // Do single call to rmSelectorAll.
 
     rmAttributeAll(doc, 'a', 'rel');
     rmAttributeAll(doc, 'a,span', 'title');
@@ -160,26 +160,25 @@ function pageContentPromise(domain, title) {
         "sections": "all",
         "sectionprop": "toclevel|line|anchor",
         "noheadings": true
-    })
-        .then(function (response) {
-            checkApiResponse(response);
+    }).then(function (response) {
+        checkApiResponse(response);
 
-            // transform all sections
-            var sections = response.body.mobileview.sections;
-            for (var idx = 0; idx < sections.length; idx++) {
-                var section = sections[idx];
-                section.text = runDomTransforms(section.text, idx);
-            }
+        // transform all sections
+        var sections = response.body.mobileview.sections;
+        for (var idx = 0; idx < sections.length; idx++) {
+            var section = sections[idx];
+            section.text = runDomTransforms(section.text, idx);
+        }
 
-            if (!response.body.mobileview.mainpage) {
-                // don't do anything if this is the main page, since many wikis
-                // arrange the main page in a series of tables.
-                // TODO: should we also exclude file and other special pages?
-                sections[0].text = moveFirstParagraphUpInLeadSection(sections[0].text);
-            }
+        if (!response.body.mobileview.mainpage) {
+            // don't do anything if this is the main page, since many wikis
+            // arrange the main page in a series of tables.
+            // TODO: should we also exclude file and other special pages?
+            sections[0].text = moveFirstParagraphUpInLeadSection(sections[0].text);
+        }
 
-            return response.body.mobileview;
-        });
+        return response.body.mobileview;
+    });
 }
 
 // in the case of video, look for a list of transcodings, so that we might
@@ -352,14 +351,13 @@ function galleryCollectionPromise(domain, title) {
         "iiprop": "dimensions|mime",
         "generator": "images",
         "gimlimit": MAX_ITEM_COUNT
-    })
-        .then(function (response) {
-            var detailsPromises = onGalleryCollectionsResponse(response, domain);
-            return BBPromise.props({
-                videos: detailsPromises.videos,
-                images: detailsPromises.images
-            });
+    }).then(function (response) {
+        var detailsPromises = onGalleryCollectionsResponse(response, domain);
+        return BBPromise.props({
+            videos: detailsPromises.videos,
+            images: detailsPromises.images
         });
+    });
 }
 
 /**
@@ -370,7 +368,7 @@ router.get('/mobileapp/:title', function (req, res) {
     BBPromise.props({
         page: pageContentPromise(req.params.domain, req.params.title),
         media: galleryCollectionPromise(req.params.domain, req.params.title)
-    }).then(function(response) {
+    }).then(function (response) {
         res.status(200).type('json').end(JSON.stringify(response));
     });
 });
