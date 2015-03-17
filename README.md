@@ -39,10 +39,10 @@ This starts an HTTP server listening on `localhost:6927`. There are several
 routes you may query (with a browser, or `curl` and friends):
 
 The main routes you may query (with a browser, or `curl` and friends):
-* `http://localhost:6927/{domain}/v1/mobile/app/std/html/{title}`
+* `http://localhost:6927/{domain}/v1/mobile/app/main/html/{title}`
 
 Example:
-* `http://localhost:6927/en.wikipedia.org/v1/mobile/app/std/html/Cat`
+* `http://localhost:6927/en.wikipedia.org/v1/mobile/app/main/html/Cat`
 
 There is also a route for the mobile lite app:
 * `http://localhost:6927/{domain}/v1/mobile/app/lite/html/Cat`

@@ -359,7 +359,7 @@ function galleryCollectionPromise(domain, title) {
 }
 
 /**
- * GET {domain}/v1/mobile/app/std/html/{title}
+ * GET {domain}/v1/mobile/app/main/html/{title}
  * Gets the mobile app version of a given wiki page.
  */
 router.get('/html/:title', function (req, res) {
@@ -374,7 +374,7 @@ router.get('/html/:title', function (req, res) {
 module.exports = function (appObj) {
     app = appObj;
     return {
-        path: '/mobile/app/std',
+        path: '/mobile/app/main',
         api_version: 1,
         router: router
     };
