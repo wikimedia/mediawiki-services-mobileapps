@@ -1,11 +1,15 @@
 /**
- * mobileapp provides page content for the Mobile Apps.
+ * mobileapp provides facades for Mobile Apps (Android, iOS)
+ * Initially, this focuses on page (view) content.
  * The goal is to avoid having to use a web view and style the content natively inside the app
  * using plain TextViews.
- * The payload should not have any extra data, and should be easy to consume by the apps.
+ * The payload should not have any extra data, and should be easily consumed by the apps.
  *
  * Status: Prototype -- not ready for production
  * Currently using the mobileview action MW API, and removing some data we don't display.
+ * The output is in HTML, with two script blocks embedded for the JSON metadata:
+ * one at the beginning for things the app needs for initial display and another
+ * one at the end for things that could be used later (gallery).
  * TODO: add some transformations that currently are being done by the apps and remove some more unneeded data
  */
 
@@ -15,6 +19,7 @@ var BBPromise = require('bluebird');
 var preq = require('preq');
 var domino = require('domino');
 var sUtil = require('../lib/util');
+var util = require('util');
 
 // shortcut
 var HTTPError = sUtil.HTTPError;
@@ -30,6 +35,8 @@ var router = sUtil.router();
  */
 var app;
 
+var DEBUG = true;
+
 // gallery constants:
 var MAX_ITEM_COUNT = 256;
 var MIN_IMAGE_SIZE = 64;
@@ -37,8 +44,11 @@ var MAX_IMAGE_WIDTH = 1280;
 
 
 function dbg(name, obj) {
-    //console.log("DEBUG: " + name + ": " + JSON.stringify(obj, null, 2));
-    app.logger.log('debug', name + ": " + JSON.stringify(obj));
+    if (DEBUG) {
+        console.log("DEBUG: " + name + ": " + util.inspect(obj));
+        //console.log("DEBUG: " + name + ": " + JSON.stringify(obj, null, 2));
+        //app.logger.log('debug', name + ": " + JSON.stringify(obj));
+    }
 }
 
 /**
@@ -94,6 +104,34 @@ function moveFirstParagraphUpInLeadSection(text) {
 }
 
 /**
+ * Create HTML for the section heading and edit button.
+ * @param section JSON of section
+ * @returns {string} HTML doc fragment
+ * @see app code sections.js
+ */
+function buildSectionHeading(section) {
+    var document = domino.createDocument();
+    var tocLevel = section.toclevel || 0;
+    var heading = document.createElement("h" + ( tocLevel + 1 ));
+    // TODO: RTL support
+    //heading.setAttribute( "dir", window.directionality );
+    heading.innerHTML = typeof section.line !== "undefined" ? section.line : "";
+    if (section.anchor) {
+        heading.id = section.anchor;
+    }
+    heading.className = "section_heading";
+    heading.setAttribute("data-id", section.id);
+
+    var editButton = document.createElement("a");
+    editButton.setAttribute("data-id", section.id);
+    editButton.setAttribute("data-action", "edit_section");
+    editButton.className = "edit_section_button";
+    heading.appendChild(editButton);
+
+    return heading.outerHTML;
+}
+
+/**
  * Nukes stuff from the DOM we don't want.
  */
 function runDomTransforms(text, sectionIndex) {
@@ -120,8 +158,22 @@ function runDomTransforms(text, sectionIndex) {
     rmBracketSpans(doc);
 
     // TODO: mhurd: add more references to functions where you do more transforms here
+    //content = transformer.transform("section", content);
+    //content = transformer.transform("hideTables", content);
+    //content = transformer.transform("hideIPA", content);
+    //content = transformer.transform("hideRefs", content );
 
     return doc.body.innerHTML;
+}
+
+function buildContentDiv(sectionText, sectionIndex) {
+    var doc = domino.createDocument();
+    var content = doc.createElement("div");
+    // TODO: RTL support
+    //content.setAttribute("dir", window.directionality);
+    content.id = "content_block_" + sectionIndex;
+    content.innerHTML = runDomTransforms(sectionText, sectionIndex);
+    return content.outerHTML;
 }
 
 function checkApiResponse(response) {
@@ -150,6 +202,90 @@ function checkForQueryPagesIn(response) {
     }
 }
 
+/**
+ * Create a JS script tag inside an HTML document
+ */
+function embedJsScriptInHtml(doc, name, json) {
+    var script = doc.createElement("script");
+    script.setAttribute("type", "text/javascript");
+    script.innerHTML = "var " + name + " = " + JSON.stringify(json, null, 2);
+    return script;
+}
+
+/**
+ * Substitute for missing elem.insertAdjacentHTML('beforeend', str).
+ */
+function insertAdjacentHTML(doc, elem, str) {
+    var child = doc.createElement('div');
+    child.innerHTML = str;
+    child = child.firstChild;
+    elem.appendChild(child);
+}
+
+/**
+ * Compiles the final HTML string output.
+ * All sections are combined, plus two JavaScript blocks for the metadata.
+ * One at the beginning, and another one at the end of the HTML body.
+ * The idea of the two script blocks is to have one at the beginning, which should include
+ * whatever is needed to display what's above the fold and some minor, basic metadata.
+ * The rest should go to the second block.
+ * Right now the two script blocks are split up in a fairly straightforward way
+ * to ease coding of this service. Further optimizations are conceivable.
+ * The big item is the ToC, which could go to the end as well.
+ *
+ * @param sections JSON: sections[]
+ * @param meta1 JSON: metadata needed first
+ * @param meta2 metadata needed later
+ * @returns {Document.outerHTML|*|Element.outerHTML|string|exports.outerHTML|outerHTML}
+ */
+function compileHtml(sections, meta1, meta2) {
+    var doc = domino.createDocument();
+    var body = doc.querySelector('body');
+
+    body.appendChild(embedJsScriptInHtml(doc, "app_meta1", meta1));
+
+    for (var idx = 0; idx < sections.length; idx++) {
+        var section = sections[idx];
+        body.innerHTML = body.innerHTML + section.text;
+        //insertAdjacentHTML(doc, body, section.text);
+        //body.insertAdjacentHTML('beforeend', section.text);
+        //body.insertAdjacentHTML('beforeend', "<div>foo</div>");
+    }
+
+    body.appendChild(embedJsScriptInHtml(doc, "app_meta2", meta2));
+
+    return doc.outerHTML;
+}
+
+function buildToCJSON(sections) {
+    var toc = [];
+    for (var idx = 0; idx < sections.length; idx++) {
+        var section = sections[idx];
+        toc.push({
+            id: section.id,
+            toclevel: section.toclevel,
+            line: section.line,
+            anchor: section.anchor
+        });
+    }
+    return toc;
+}
+
+function buildPageContentJSON(orig) {
+    return {
+        lastmodified: orig.lastmodified,
+        id: orig.id,
+        revision: orig.revision,
+        displaytitle: orig.displaytitle,
+        description: orig.description,
+        image: orig.image,
+        thumb: orig.thumb,
+        protection: orig.protection,
+        editable: orig.editable,
+        toc: buildToCJSON(orig.sections)
+    };
+}
+
 /** Returns a promise to retrieve the page content from MW API mobileview */
 function pageContentPromise(domain, title) {
     return apiGet(domain, {
@@ -167,7 +303,12 @@ function pageContentPromise(domain, title) {
         var sections = response.body.mobileview.sections;
         for (var idx = 0; idx < sections.length; idx++) {
             var section = sections[idx];
-            section.text = runDomTransforms(section.text, idx);
+            var html = buildSectionHeading(section) + buildContentDiv(section.text, idx);
+            if (DEBUG) {
+                section.text = "\n\n\n" + html;
+            } else {
+                section.text = html;
+            }
         }
 
         if (!response.body.mobileview.mainpage) {
@@ -177,7 +318,10 @@ function pageContentPromise(domain, title) {
             sections[0].text = moveFirstParagraphUpInLeadSection(sections[0].text);
         }
 
-        return response.body.mobileview;
+        return {
+            sections: sections,
+            json: buildPageContentJSON(response.body.mobileview)
+        };
     });
 }
 
@@ -322,7 +466,7 @@ function onGalleryCollectionsResponse(response, domain) {
         detailsPromises.videos = galleryItemsPromise(domain, videos.join('|'), {
             "prop": "videoinfo",
             "viprop": "url|dimensions|mime|extmetadata|derivatives",
-            "viurlwidth": MAX_IMAGE_WIDTH,
+            "viurlwidth": MAX_IMAGE_WIDTH
         });
     }
 
@@ -367,7 +511,8 @@ router.get('/html/:title', function (req, res) {
         page: pageContentPromise(req.params.domain, req.params.title),
         media: galleryCollectionPromise(req.params.domain, req.params.title)
     }).then(function (response) {
-        res.status(200).type('json').end(JSON.stringify(response));
+        var html = compileHtml(response.page.sections, response.page.json, response.media);
+        res.status(200).type('html').end(html);
     });
 });
 
