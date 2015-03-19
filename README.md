@@ -1,6 +1,22 @@
-# service-template-node [![Build Status](https://travis-ci.org/berndsi/service-mobileapp-node.svg?branch=master)](https://travis-ci.org/berndsi/service-mobileapp-node)
+# service-mobileapp-node [![Build Status](https://travis-ci.org/berndsi/service-mobileapp-node.svg?branch=master)](https://travis-ci.org/berndsi/service-mobileapp-node)
 
-Template for creating MediaWiki Services in Node.js
+MediaWiki Services in Node.js for Mobile Apps.
+This service is a facade the mobile apps can use to improve runtime performance by
+* bundling multiple requests,
+* performing DOM manipulations once on the server instead of on the clients,
+* avoiding downloading of DOM elements that are not displayed in the apps and therefore not needed,
+* taking advantage of caching via RESTBase, and
+* take advantage of streaming by being able to use WebView.loadUrl() instead of piping every page section by section over the JS bridge.
+
+Furthermore this can also speed up development by
+* combining the DOM manipulation code for both apps into a single service,
+* simplifying DOM manipulation code by moving it to JavaScript,
+* flattening the JSON structure, and
+* simplifies code by using WebView.loadUrl() instead of piping every page section by section over the JS bridge.
+
+More improvements and more endpoints are possible. We could also consider using streaming on the service side. But I'll leave that as a later exercise.
+
+Note: This is currently in early development and things are going to change without notice.
 
 ## Getting Started
 
@@ -9,13 +25,13 @@ Template for creating MediaWiki Services in Node.js
 First, clone the repository
 
 ```
-git clone https://github.com/wikimedia/service-template-node.git
+git clone https://github.com/wikimedia/service-mobileapp-node.git
 ```
 
 Install the dependencies
 
 ```
-cd service-template-node
+cd service-mobileapp-node
 npm install
 ```
 
@@ -26,10 +42,9 @@ You are now ready to get to work!
 
 You can also read [the documentation](doc/).
 
-### Running the examples
+### Running the service
 
-The template is a fully-working example, so you may try it right away. To
-start the server hosting the REST API, simply run (inside the repo's directory)
+To start the server hosting the REST API, simply run (inside the repo's directory)
 
 ```
 npm start
@@ -49,8 +64,7 @@ There is also a route for the mobile lite app (but needs a lot more TLC):
 
 ### Tests
 
-The template also includes a test suite a small set of executable tests. To fire
-them up, simply run:
+There is also a small set of executable tests. To fire them up, simply run:
 
 ```
 npm test
@@ -75,5 +89,11 @@ rm -r node_modules
 npm install
 ```
 
-Enjoy!
+This is highly recommended whenever dependencies change.
+
+Go apps!
+
+### Thanks
+
+Big thank you to our services team for providing an awesome template for this and for supporting us along the way.
 
