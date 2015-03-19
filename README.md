@@ -12,7 +12,7 @@ Furthermore this can also speed up development by
 * combining the DOM manipulation code for both apps into a single service,
 * simplifying DOM manipulation code by moving it to JavaScript,
 * flattening the JSON structure, and
-* simplifies code by using WebView.loadUrl() instead of piping every page section by section over the JS bridge.
+* simplifying code because now the apps can use WebView.loadUrl() instead of piping every page section by section over the JS bridge.
 
 More improvements and more endpoints are possible. We could also consider using streaming on the service side. But I'll leave that as a later exercise.
 
