@@ -70,10 +70,10 @@ function runDomTransforms(text) {
 }
 
 /**
- * GET {domain}/v1/mobile/app/lite/html/{title}
+ * GET {domain}/v1/mobile/app/page/lite/{title}
  * Gets the lite mobile app version of a given wiki page.
  */
-router.get('/html/:title', function (req, res) {
+router.get('/:title', function (req, res) {
     // get the page content from MW API mobileview
     var apiParams = {
         "action": "mobileview",
@@ -117,7 +117,7 @@ router.get('/html/:title', function (req, res) {
 module.exports = function (appObj) {
     app = appObj;
     return {
-        path: '/mobile/app/lite',
+        path: '/mobile/app/page/lite',
         api_version: 1,
         router: router
     };
