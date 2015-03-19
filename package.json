@@ -1,6 +1,6 @@
 {
   "name": "service-mobileapp-node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A prototype for MediaWiki REST API services for mobile apps",
   "main": "./app.js",
   "scripts": {
