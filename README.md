@@ -95,5 +95,7 @@ Go apps!
 
 ### Thanks
 
-Big thank you to our services team for providing an awesome template for this and for supporting us along the way.
+Big thank you to our services team for providing an awesome
+[template](https://github.com/wikimedia/service-template-node)
+for this and for supporting us along the way!
 
