@@ -189,10 +189,10 @@ function checkApiResponse(response) {
     }
 }
 
-function checkForQueryPagesIn(response) {
+function checkForQueryPagesInResponse(logger, response) {
     if (!response.body.query || !response.body.query.pages) {
         // we did not get our expected query.pages from the MW API, propagate that
-        app.logger.log('error', 'no query.pages in response: ' + JSON.stringify(response, null, 2));
+        logger.log('error', 'no query.pages in response: ' + JSON.stringify(response, null, 2));
         throw new HTTPError({
             status: response.status,
             type: 'api_error',
@@ -382,12 +382,12 @@ function handleGalleryItems(item) {
     };
 }
 
-function onGalleryItemsResponse(response) {
+function onGalleryItemsResponse(logger, response) {
     var items, key;
     var output = [];
 
     checkApiResponse(response);
-    checkForQueryPagesIn(response);
+    checkForQueryPagesInResponse(logger, response);
 
     items = response.body.query.pages;
     for (key in items) {
@@ -400,7 +400,7 @@ function onGalleryItemsResponse(response) {
 }
 
 /** Returns a promise to retrieve one or more gallery items. */
-function galleryItemsPromise(domain, titles, params) {
+function galleryItemsPromise(logger, domain, titles, params) {
     Object.assign(params, {
         "action": "query",
         "format": "json",
@@ -410,11 +410,11 @@ function galleryItemsPromise(domain, titles, params) {
 
     return apiGet(domain, params)
         .then(function (response) {
-            return onGalleryItemsResponse(response);
+            return onGalleryItemsResponse(logger, response);
         });
 }
 
-function onGalleryCollectionsResponse(response, domain) {
+function onGalleryCollectionsResponse(logger, response, domain) {
     var detailsPromises = [], videos = [], images = [];
     var isVideo;
 
@@ -461,18 +461,18 @@ function onGalleryCollectionsResponse(response, domain) {
         }
     }
 
-    // one more request for all the videos
+    // one more request for all videos
     if (videos.length > 0) {
-        detailsPromises.videos = galleryItemsPromise(domain, videos.join('|'), {
+        detailsPromises.videos = galleryItemsPromise(logger, domain, videos.join('|'), {
             "prop": "videoinfo",
             "viprop": "url|dimensions|mime|extmetadata|derivatives",
             "viurlwidth": MAX_IMAGE_WIDTH
         });
     }
 
-    // another one request for all the images
+    // another request for all images
     if (images.length > 0) {
-        detailsPromises.images = galleryItemsPromise(domain, images.join('|'), {
+        detailsPromises.images = galleryItemsPromise(logger, domain, images.join('|'), {
             "prop": "imageinfo",
             "iiprop": "url|dimensions|mime|extmetadata",
             "iiurlwidth": MAX_IMAGE_WIDTH
@@ -483,7 +483,7 @@ function onGalleryCollectionsResponse(response, domain) {
 }
 
 /** Gets the gallery content from MW API */
-function galleryCollectionPromise(domain, title) {
+function galleryCollectionPromise(logger, domain, title) {
     return apiGet(domain, {
         "action": "query",
         "format": "json",
@@ -494,7 +494,7 @@ function galleryCollectionPromise(domain, title) {
         "generator": "images",
         "gimlimit": MAX_ITEM_COUNT
     }).then(function (response) {
-        var detailsPromises = onGalleryCollectionsResponse(response, domain);
+        var detailsPromises = onGalleryCollectionsResponse(logger, response, domain);
         return BBPromise.props({
             videos: detailsPromises.videos,
             images: detailsPromises.images
@@ -509,7 +509,7 @@ function galleryCollectionPromise(domain, title) {
 router.get('/:title', function (req, res) {
     BBPromise.props({
         page: pageContentPromise(req.params.domain, req.params.title),
-        media: galleryCollectionPromise(req.params.domain, req.params.title)
+        media: galleryCollectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
         var html = compileHtml(response.page.sections, response.page.json, response.media);
         res.status(200).type('html').end(html);
