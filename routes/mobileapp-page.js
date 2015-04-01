@@ -222,6 +222,16 @@ function insertAdjacentHTML(doc, elem, str) {
     elem.appendChild(child);
 }
 
+// from www/js/loader.js
+function addStyleLink(doc, href) {
+    var link = doc.createElement("link");
+    link.setAttribute("rel", "stylesheet");
+    link.setAttribute("type", "text/css");
+    link.setAttribute("charset", "UTF-8");
+    link.setAttribute("href", href);
+    doc.querySelector("head").appendChild(link);
+}
+
 /**
  * Compiles the final HTML string output.
  * All sections are combined, plus two JavaScript blocks for the metadata.
@@ -242,6 +252,7 @@ function compileHtml(sections, meta1, meta2) {
     var doc = domino.createDocument();
     var body = doc.querySelector('body');
 
+    addStyleLink(doc, "/static/styles.css"); // Light mode hard-coded for now
     body.appendChild(embedJsScriptInHtml(doc, "app_meta1", meta1));
 
     for (var idx = 0; idx < sections.length; idx++) {
