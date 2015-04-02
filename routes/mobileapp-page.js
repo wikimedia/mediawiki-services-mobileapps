@@ -235,10 +235,8 @@ function addStyleLink(doc, head, href) {
 function addToHtmlHead(doc) {
     var head = doc.querySelector("head");
 
-    // TODO: this one is Android specific. Figure out a way to make it variable or inject it from the app.
-    // <script src="file:///android_asset/bundle.js"></script>
     var script = doc.createElement("script");
-    script.setAttribute("src", "file:///android_asset/bundle.js");
+    script.setAttribute("src", "/static/bundle.js");
     head.appendChild(script);
 
     // <meta name="viewport" content="width=device-width, user-scalable=no" />
