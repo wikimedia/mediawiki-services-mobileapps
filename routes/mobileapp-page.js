@@ -222,14 +222,32 @@ function insertAdjacentHTML(doc, elem, str) {
     elem.appendChild(child);
 }
 
-// from www/js/loader.js
-function addStyleLink(doc, href) {
+// from Android code: www/js/loader.js
+function addStyleLink(doc, head, href) {
     var link = doc.createElement("link");
     link.setAttribute("rel", "stylesheet");
     link.setAttribute("type", "text/css");
     link.setAttribute("charset", "UTF-8");
     link.setAttribute("href", href);
-    doc.querySelector("head").appendChild(link);
+    head.appendChild(link);
+}
+
+function addToHtmlHead(doc) {
+    var head = doc.querySelector("head");
+
+    // TODO: this one is Android specific. Figure out a way to make it variable or inject it from the app.
+    // <script src="file:///android_asset/bundle.js"></script>
+    var script = doc.createElement("script");
+    script.setAttribute("src", "file:///android_asset/bundle.js");
+    head.appendChild(script);
+
+    // <meta name="viewport" content="width=device-width, user-scalable=no" />
+    var meta = doc.createElement("meta");
+    meta.setAttribute("name", "viewport");
+    meta.setAttribute("content", "width=device-width, user-scalable=no");
+    head.appendChild(meta);
+
+    addStyleLink(doc, head, "/static/styles.css"); // Light mode hard-coded for now
 }
 
 /**
@@ -250,9 +268,21 @@ function addStyleLink(doc, href) {
  */
 function compileHtml(sections, meta1, meta2) {
     var doc = domino.createDocument();
-    var body = doc.querySelector('body');
+    var body = doc.querySelector("body");
 
-    addStyleLink(doc, "/static/styles.css"); // Light mode hard-coded for now
+    addToHtmlHead(doc);
+
+    body.setAttribute("class", "stable");
+
+    var contentDiv = doc.createElement("div");
+    contentDiv.setAttribute("id", "content");
+    contentDiv.setAttribute("class", "content");
+    body.appendChild(contentDiv);
+
+    var loadingSectionsDiv = doc.createElement("div");
+    loadingSectionsDiv.setAttribute("id", "loading_sections");
+    body.appendChild(loadingSectionsDiv);
+
     body.appendChild(embedJsScriptInHtml(doc, "app_meta1", meta1));
 
     for (var idx = 0; idx < sections.length; idx++) {
@@ -518,6 +548,7 @@ function galleryCollectionPromise(logger, domain, title) {
  * Gets the mobile app version of a given wiki page.
  */
 router.get('/:title', function (req, res) {
+    //dbg("req.params", req.params);
     BBPromise.props({
         page: pageContentPromise(req.params.domain, req.params.title),
         media: galleryCollectionPromise(req.logger, req.params.domain, req.params.title)
