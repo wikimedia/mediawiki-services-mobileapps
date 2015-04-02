@@ -1,4 +1,4 @@
-# service-mobileapp-node [![Build Status](https://travis-ci.org/wikimedia/mediawiki-services-mobileapps.svg?branch=master)](https://travis-ci.org/wikimedia/mediawiki-services-mobileapps)
+# mediawiki-services-mobileapps [![Build Status](https://travis-ci.org/wikimedia/mediawiki-services-mobileapps.svg?branch=master)](https://travis-ci.org/wikimedia/mediawiki-services-mobileapps)
 
 MediaWiki Services in Node.js for Mobile Apps.
 This service is a facade the mobile apps can use to improve runtime performance by
