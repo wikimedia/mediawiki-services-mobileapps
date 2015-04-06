@@ -277,6 +277,7 @@ function compileHtml(sections, meta1, meta2) {
     contentDiv.setAttribute("class", "content");
     body.appendChild(contentDiv);
 
+    // TODO: probably not needed anymore
     var loadingSectionsDiv = doc.createElement("div");
     loadingSectionsDiv.setAttribute("id", "loading_sections");
     body.appendChild(loadingSectionsDiv);
@@ -285,7 +286,7 @@ function compileHtml(sections, meta1, meta2) {
 
     for (var idx = 0; idx < sections.length; idx++) {
         var section = sections[idx];
-        body.innerHTML = body.innerHTML + section.text;
+        contentDiv.innerHTML = contentDiv.innerHTML + section.text;
         //insertAdjacentHTML(doc, body, section.text);
         //body.insertAdjacentHTML('beforeend', section.text);
         //body.insertAdjacentHTML('beforeend', "<div>foo</div>");
