@@ -272,6 +272,8 @@ function compileHtml(sections, meta1, meta2) {
 
     body.setAttribute("class", "stable");
 
+    body.appendChild(embedJsScriptInHtml(doc, "app_meta1", meta1));
+
     var contentDiv = doc.createElement("div");
     contentDiv.setAttribute("id", "content");
     contentDiv.setAttribute("class", "content");
@@ -282,14 +284,9 @@ function compileHtml(sections, meta1, meta2) {
     loadingSectionsDiv.setAttribute("id", "loading_sections");
     body.appendChild(loadingSectionsDiv);
 
-    body.appendChild(embedJsScriptInHtml(doc, "app_meta1", meta1));
-
     for (var idx = 0; idx < sections.length; idx++) {
         var section = sections[idx];
         contentDiv.innerHTML = contentDiv.innerHTML + section.text;
-        //insertAdjacentHTML(doc, body, section.text);
-        //body.insertAdjacentHTML('beforeend', section.text);
-        //body.insertAdjacentHTML('beforeend', "<div>foo</div>");
     }
 
     body.appendChild(embedJsScriptInHtml(doc, "app_meta2", meta2));
