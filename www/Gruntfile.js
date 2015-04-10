@@ -67,22 +67,20 @@ module.exports = function ( grunt ) {
                 jshintrc: ".jshintrc"
             }
         },
-        copy: {
-            main: {
-                files: [
-                    // App files
-                    {src: ["bundle.js"], dest: "../static/"}
-
-                    //{src: ["bundle.js", "index.html"], dest: "../wikipedia/assets/"},
-
-                    // Test files
-                    // {src: ["bundle-test.js", "tests/index.html"], dest: "../wikipedia/assets/"},
-
-                    // Preview files
-                    // { src: ["preview.js", "preview.html"], dest: "../wikipedia/assets/" },
-                ]
-            }
-        },
+        //copy: {
+        //    main: {
+        //        files: [
+        //            // App files
+        //            {src: ["bundle.js", "index.html"], dest: "../wikipedia/assets/"},
+        //
+        //            // Test files
+        //             {src: ["bundle-test.js", "tests/index.html"], dest: "../wikipedia/assets/"},
+        //
+        //            // Preview files
+        //             { src: ["preview.js", "preview.html"], dest: "../wikipedia/assets/" },
+        //        ]
+        //    }
+        //},
         watch: {
             scripts: {
                 files: allScriptFiles.concat( allHTMLFiles ),
@@ -96,5 +94,6 @@ module.exports = function ( grunt ) {
     grunt.loadNpmTasks( 'grunt-contrib-copy' );
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
-    grunt.registerTask( 'default', [ 'browserify', 'copy' ] );
+    //grunt.registerTask( 'default', [ 'browserify', 'copy' ] );
+    grunt.registerTask( 'default', [ 'browserify' ] );
 };
