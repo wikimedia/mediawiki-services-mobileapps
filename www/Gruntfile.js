@@ -42,21 +42,21 @@ module.exports = function ( grunt ) {
                         "js/sections.js",
                         "js/rtlsupport.js",
                         "js/util.js"
-                    ].concat( oldDroidPolyfills ),
-                    "bundle-test.js": [
-                        "js/loader.js",
-                        "js/main.js",
-                        "js/bridge.js",
-                        "tests/*.js"
-                    ].concat( oldDroidPolyfills ),
-                    "preview.js": [
-                        "js/loader.js",
-                        "js/bridge.js",
-                        "js/night.js",
-                        "js/actions.js",
-                        "js/preview.js",
-                        "js/rtlsupport.js",
-                        "js/util.js"
+                    //].concat( oldDroidPolyfills ),
+                    //"bundle-test.js": [
+                    //    "js/loader.js",
+                    //    "js/main.js",
+                    //    "js/bridge.js",
+                    //    "tests/*.js"
+                    //].concat( oldDroidPolyfills ),
+                    //"preview.js": [
+                    //    "js/loader.js",
+                    //    "js/bridge.js",
+                    //    "js/night.js",
+                    //    "js/actions.js",
+                    //    "js/preview.js",
+                    //    "js/rtlsupport.js",
+                    //    "js/util.js"
                     ].concat( oldDroidPolyfills )
                 }
             }
@@ -71,13 +71,15 @@ module.exports = function ( grunt ) {
             main: {
                 files: [
                     // App files
-                    {src: ["bundle.js", "index.html"], dest: "../wikipedia/assets/"},
+                    {src: ["bundle.js"], dest: "../static/"}
+
+                    //{src: ["bundle.js", "index.html"], dest: "../wikipedia/assets/"},
 
                     // Test files
-                    {src: ["bundle-test.js", "tests/index.html"], dest: "../wikipedia/assets/"},
+                    // {src: ["bundle-test.js", "tests/index.html"], dest: "../wikipedia/assets/"},
 
                     // Preview files
-                    { src: ["preview.js", "preview.html"], dest: "../wikipedia/assets/" },
+                    // { src: ["preview.js", "preview.html"], dest: "../wikipedia/assets/" },
                 ]
             }
         },
