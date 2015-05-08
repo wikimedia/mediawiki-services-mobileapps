@@ -120,7 +120,7 @@ function collectIssues( sourceNode ) {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./util":13}],2:[function(require,module,exports){
+},{"./bridge":2,"./util":14}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -181,7 +181,7 @@ transformer.register( 'displayDisambigLink', function( content ) {
     return content;
 } );
 
-},{"./transformer":11}],4:[function(require,module,exports){
+},{"./transformer":12}],4:[function(require,module,exports){
 var actions = require('./actions');
 var bridge = require('./bridge');
 
@@ -215,7 +215,7 @@ transformer.register( 'displayIssuesLink', function( content ) {
     return content;
 } );
 
-},{"./transformer":11}],6:[function(require,module,exports){
+},{"./transformer":12}],6:[function(require,module,exports){
 var bridge = require( "./bridge" );
 
 function addStyleLink( href ) {
@@ -286,6 +286,21 @@ bridge.registerListener( "setPageProtected", function( payload ) {
 } );
 
 },{"./bridge":2}],8:[function(require,module,exports){
+var bridge = require('./bridge');
+
+sendAppMetaData = function( cbName, id ) {
+    bridge.sendMessage( cbName, JSON.parse(document.querySelector( '#' + id ).innerHTML) );
+};
+
+document.addEventListener( 'DOMContentLoaded', function(event) {
+    sendAppMetaData( 'onGetAppMeta1', 'app_meta1' );
+});
+
+bridge.registerListener( 'getAppMeta2', function() {
+    sendAppMetaData( 'onGetAppMeta2', 'app_meta2' );
+});
+
+},{"./bridge":2}],9:[function(require,module,exports){
 var parseCSSColor = require("../lib/js/css-color-parser");
 var bridge = require("./bridge");
 var loader = require("./loader");
@@ -367,7 +382,7 @@ module.exports = {
 	invertElement: invertElement
 };
 
-},{"../lib/js/css-color-parser":15,"./bridge":2,"./loader":6,"./util":13}],9:[function(require,module,exports){
+},{"../lib/js/css-color-parser":16,"./bridge":2,"./loader":6,"./util":14}],10:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -377,7 +392,7 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],10:[function(require,module,exports){
+},{"./bridge":2}],11:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 
@@ -596,7 +611,7 @@ bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./transformer":11}],11:[function(require,module,exports){
+},{"./bridge":2,"./transformer":12}],12:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -620,7 +635,7 @@ Transformer.prototype.transform = function( transform, element ) {
 
 module.exports = new Transformer();
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 var transformer = require("./transformer");
 var night = require("./night");
 var bridge = require( "./bridge" );
@@ -1029,7 +1044,7 @@ transformer.register( "section", function( content ) {
 	return content;
 } );
 
-},{"./bridge":2,"./night":8,"./transformer":11}],13:[function(require,module,exports){
+},{"./bridge":2,"./night":9,"./transformer":12}],14:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
     if ( el !== null && el.tagName === tagName) {
@@ -1063,7 +1078,7 @@ module.exports = {
     ancestorContainsClass: ancestorContainsClass
 };
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -1140,7 +1155,7 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 // (c) Dean McNamee <dean@gmail.com>, 2012.
 //
 // https://github.com/deanm/css-color-parser-js
@@ -1342,4 +1357,4 @@ function parseCSSColor(css_str) {
 
 try { module.exports = parseCSSColor } catch(e) { }
 
-},{}]},{},[6,15,7,8,11,12,2,1,4,5,3,10,9,13,14])
+},{}]},{},[6,16,7,8,9,12,13,2,1,4,5,3,11,10,14,15])

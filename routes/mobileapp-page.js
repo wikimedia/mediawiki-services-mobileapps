@@ -203,12 +203,15 @@ function checkForQueryPagesInResponse(logger, response) {
 }
 
 /**
- * Create a JS script tag inside an HTML document
+ * Embeds a JSON object inside HTML
+ * by creating an application/json script tag inside an HTML document.
+ * http://stackoverflow.com/questions/7581133/how-can-i-read-a-json-in-the-script-tag-from-javascript
  */
-function embedJsScriptInHtml(doc, name, json) {
+function embedJsScriptInHtml(doc, name, jsonObj) {
     var script = doc.createElement("script");
-    script.setAttribute("type", "text/javascript");
-    script.innerHTML = "var " + name + " = " + JSON.stringify(json, null, 2);
+    script.setAttribute("type", "application/json");
+    script.setAttribute("id", name);
+    script.innerHTML = JSON.stringify(jsonObj);
     return script;
 }
 

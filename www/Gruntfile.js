@@ -1,6 +1,7 @@
 module.exports = function ( grunt ) {
     var allScriptFiles = [
         "js/main.js",
+        "js/meta.js",
         "js/tranformer.js",
         "js/transforms.js",
         "js/bridge.js",
@@ -31,6 +32,7 @@ module.exports = function ( grunt ) {
                         "js/loader.js",
                         "lib/js/css-color-parser.js",
                         "js/main.js",
+                        "js/meta.js",
                         "js/night.js",
                         "js/transformer.js",
                         "js/transforms.js",
