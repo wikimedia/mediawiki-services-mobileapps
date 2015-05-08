@@ -5,9 +5,9 @@ sendAppMetaData = function( cbName, id ) {
 };
 
 document.addEventListener( 'DOMContentLoaded', function(event) {
-    sendAppMetaData( 'onGetAppMeta1', 'app_meta1' );
+    sendAppMetaData( 'onGetAppMeta1', 'mw-app-meta1' );
 });
 
 bridge.registerListener( 'getAppMeta2', function() {
-    sendAppMetaData( 'onGetAppMeta2', 'app_meta2' );
+    sendAppMetaData( 'onGetAppMeta2', 'mw-app-meta2' );
 });

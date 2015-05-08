@@ -275,7 +275,7 @@ function compileHtml(sections, meta1, meta2) {
 
     body.setAttribute("class", "stable");
 
-    body.appendChild(embedJsScriptInHtml(doc, "app_meta1", meta1));
+    body.appendChild(embedJsScriptInHtml(doc, "mw-app-meta1", meta1));
 
     var contentDiv = doc.createElement("div");
     contentDiv.setAttribute("id", "content");
@@ -292,7 +292,7 @@ function compileHtml(sections, meta1, meta2) {
         contentDiv.innerHTML = contentDiv.innerHTML + section.text;
     }
 
-    body.appendChild(embedJsScriptInHtml(doc, "app_meta2", meta2));
+    body.appendChild(embedJsScriptInHtml(doc, "mw-app-meta2", meta2));
 
     return doc.outerHTML;
 }
