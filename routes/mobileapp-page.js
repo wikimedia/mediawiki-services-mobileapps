@@ -131,31 +131,75 @@ function buildSectionHeading(section) {
     return heading.outerHTML;
 }
 
+function rmTemplates(doc, names) {
+    var nodes = doc.querySelectorAll('[typeof~=mw:Transclusion]');
+    var dataMW;
+    for (var i = 0; i < nodes.length; i++) {
+        var node = nodes[i];
+        dataMW = node.getAttribute('data-mw');
+        if (dataMW) {
+            var name;
+            try {
+                name = JSON.parse(dataMW).parts[0].template.target.wt.trim().toLowerCase();
+            } catch (e) {}
+            if (name && names[name]) {
+                // remove siblings if the about matches
+                var about = node.getAttribute('about');
+                var next = node.nextSibling;
+                while (next
+                        && ( // Skip over inter-element whitespace
+                            next.nodeType === 3 && /^\w+$/.test(next.nodeValue))
+                        // same about
+                        || next.getAttribute && next.getAttribute('about') === about) {
+                    if (next.nodeType !== 3) {
+                        node.parentNode.removeChild(next);
+                    }
+                    next = node.nextSibling;
+                }
+                // finally, remove the transclusion node itself
+                node.parentNode.removeChild(node);
+            }
+        }
+    }
+}
+
+
 /**
  * Nukes stuff from the DOM we don't want.
  */
 function runDomTransforms(doc) {
 
+    // Demo: remove content produced by specific templates
+    //rmTemplates(doc, {
+    //    reflist: true
+    //});
+
     var rmSelectors = [
         'div.noprint',
-        'div.infobox',
+        'div.infobox', // ??
         'div.metadata',
-        'table.navbox',
+        'table.navbox', // template
         'div.magnify',
         'span[style*="display:none"]',             // Remove <span style=\"display:none;\">&nbsp;</span>
         'span.Z3988',                              // Remove <span class=\"Z3988\"></span>
         'div.hatnote',
+
+        // Demo: remove specific extensions, in this case citations
+        //'[typeof~=mw:Extension/ref]'
     ];
 
     rmSelectorAll(doc, rmSelectors.join(', '));    // Do single call to rmSelectorAll.
 
+    rmAttributeAll(doc, 'html', 'prefix');
     rmAttributeAll(doc, 'a', 'rel');
     rmAttributeAll(doc, 'a,span', 'title');
     rmAttributeAll(doc, 'img', 'alt');
-    rmAttributeAll(doc, '*', 'data-mw');
-    rmAttributeAll(doc, '*[id^=mw]', 'id');
+    rmAttributeAll(doc, '*', 'data-mw'); // Remove template parameters etc
+    rmAttributeAll(doc, '*[id^=mw]', 'id'); // Remove Parsoid-assigned IDs
+    rmAttributeAll(doc, '*', 'about'); // RDFa about
 
     rmBracketSpans(doc);
+
 
     // TODO: mhurd: add more references to functions where you do more transforms here
     //content = transformer.transform("section", content);
