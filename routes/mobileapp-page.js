@@ -134,8 +134,7 @@ function buildSectionHeading(section) {
 /**
  * Nukes stuff from the DOM we don't want.
  */
-function runDomTransforms(text, sectionIndex) {
-    var doc = domino.createDocument(text);
+function runDomTransforms(doc) {
 
     var rmSelectors = [
         'div.noprint',
@@ -144,16 +143,17 @@ function runDomTransforms(text, sectionIndex) {
         'table.navbox',
         'div.magnify',
         'span[style*="display:none"]',             // Remove <span style=\"display:none;\">&nbsp;</span>
-        'span.Z3988'                               // Remove <span class=\"Z3988\"></span>
+        'span.Z3988',                              // Remove <span class=\"Z3988\"></span>
+        'div.hatnote',
     ];
-    if (sectionIndex === 0) {
-        rmSelectors.push('div.hatnote');
-    }
+
     rmSelectorAll(doc, rmSelectors.join(', '));    // Do single call to rmSelectorAll.
 
     rmAttributeAll(doc, 'a', 'rel');
     rmAttributeAll(doc, 'a,span', 'title');
     rmAttributeAll(doc, 'img', 'alt');
+    rmAttributeAll(doc, '*', 'data-mw');
+    rmAttributeAll(doc, '*[id^=mw]', 'id');
 
     rmBracketSpans(doc);
 
@@ -162,18 +162,6 @@ function runDomTransforms(text, sectionIndex) {
     //content = transformer.transform("hideTables", content);
     //content = transformer.transform("hideIPA", content);
     //content = transformer.transform("hideRefs", content );
-
-    return doc.body.innerHTML;
-}
-
-function buildContentDiv(sectionText, sectionIndex) {
-    var doc = domino.createDocument();
-    var content = doc.createElement("div");
-    // TODO: RTL support
-    //content.setAttribute("dir", window.directionality);
-    content.id = "content_block_" + sectionIndex;
-    content.innerHTML = runDomTransforms(sectionText, sectionIndex);
-    return content.outerHTML;
 }
 
 function checkApiResponse(response) {
@@ -267,30 +255,41 @@ function addToHtmlHead(doc) {
  * @param meta2 metadata needed later
  * @returns {Document.outerHTML|*|Element.outerHTML|string|exports.outerHTML|outerHTML}
  */
-function compileHtml(sections, meta1, meta2) {
-    var doc = domino.createDocument();
-    var body = doc.querySelector("body");
+function compileHtml(html, meta1, meta2) {
+
+    var doc = domino.createDocument(html);
+
+    doc.head.innerHTML = '';
+
+    // Strip some content
+    runDomTransforms(doc);
 
     addToHtmlHead(doc);
+    var body = doc.body;
+
 
     body.setAttribute("class", "stable");
 
-    body.appendChild(embedJsScriptInHtml(doc, "mw-app-meta1", meta1));
+    doc.head.appendChild(embedJsScriptInHtml(doc, "mw-app-meta1", meta1));
 
+    var contentWrapperDiv = doc.createElement("div");
+    contentWrapperDiv.setAttribute("id", "content");
+    contentWrapperDiv.setAttribute("class", "content");
     var contentDiv = doc.createElement("div");
-    contentDiv.setAttribute("id", "content");
-    contentDiv.setAttribute("class", "content");
-    body.appendChild(contentDiv);
+    contentDiv.setAttribute("id", "content_block_0");
+    contentWrapperDiv.appendChild(contentDiv);
+
+    body.appendChild(contentWrapperDiv);
+
+    while (body.children.length > 1) {
+        contentDiv.appendChild(body.children[0]);
+    }
+
 
     // TODO: probably not needed anymore
     var loadingSectionsDiv = doc.createElement("div");
     loadingSectionsDiv.setAttribute("id", "loading_sections");
     body.appendChild(loadingSectionsDiv);
-
-    for (var idx = 0; idx < sections.length; idx++) {
-        var section = sections[idx];
-        contentDiv.innerHTML = contentDiv.innerHTML + section.text;
-    }
 
     body.appendChild(embedJsScriptInHtml(doc, "mw-app-meta2", meta2));
 
@@ -339,27 +338,14 @@ function pageContentPromise(domain, title) {
     }).then(function (response) {
         checkApiResponse(response);
 
-        // transform all sections
-        var sections = response.body.mobileview.sections;
-        for (var idx = 0; idx < sections.length; idx++) {
-            var section = sections[idx];
-            var html = buildSectionHeading(section) + buildContentDiv(section.text, idx);
-            if (DEBUG) {
-                section.text = "\n\n\n" + html;
-            } else {
-                section.text = html;
-            }
-        }
-
-        if (!response.body.mobileview.mainpage) {
-            // don't do anything if this is the main page, since many wikis
-            // arrange the main page in a series of tables.
-            // TODO: should we also exclude file and other special pages?
-            sections[0].text = moveFirstParagraphUpInLeadSection(sections[0].text);
-        }
+        //if (!response.body.mobileview.mainpage) {
+        //    // don't do anything if this is the main page, since many wikis
+        //    // arrange the main page in a series of tables.
+        //    // TODO: should we also exclude file and other special pages?
+        //    sections[0].text = moveFirstParagraphUpInLeadSection(sections[0].text);
+        //}
 
         return {
-            sections: sections,
             json: buildPageContentJSON(response.body.mobileview)
         };
     });
@@ -549,10 +535,14 @@ function galleryCollectionPromise(logger, domain, title) {
 router.get('/:title', function (req, res) {
     //dbg("req.params", req.params);
     BBPromise.props({
+        html: preq.get({
+            uri: 'http://' + req.params.domain.replace(/^(\w+\.)m\./, '$1')
+                + '/api/rest_v1/page/html/' + encodeURIComponent(req.params.title),
+        }),
         page: pageContentPromise(req.params.domain, req.params.title),
         media: galleryCollectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
-        var html = compileHtml(response.page.sections, response.page.json, response.media);
+        var html = compileHtml(response.html.body, response.page.json, response.media);
         res.status(200).type('html').end(html);
     });
 });
