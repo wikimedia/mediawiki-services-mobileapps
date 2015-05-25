@@ -87,7 +87,6 @@ function runDomTransforms(section) {
     var doc = domino.createDocument(section.text);
     rmSelectorAll(doc, 'div.noprint');
     rmSelectorAll(doc, 'div.infobox');
-    rmSelectorAll(doc, 'div.hatnote');
     rmSelectorAll(doc, 'div.metadata');
     rmSelectorAll(doc, 'table'); // TODO: later we may want to transform some of the tables into a JSON structure
 
@@ -96,6 +95,14 @@ function runDomTransforms(section) {
     section.items = [];
     var itemIndex = 0;
     var thumbnails, tid, thumb;
+
+    var hatnotes = doc.querySelectorAll("div.hatnote") || [];
+    for (var hid = 0; hid < hatnotes.length; hid++) {
+        section.items[itemIndex] = {};
+        section.items[itemIndex].type = "hatnote";
+        section.items[itemIndex].text = hatnotes[hid].innerHTML;
+        itemIndex++;
+    }
 
     var ps = doc.querySelectorAll("p") || [];
     for (var pid = 0; pid < ps.length; pid++) {
