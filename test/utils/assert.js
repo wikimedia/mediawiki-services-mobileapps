@@ -93,6 +93,36 @@ function fails(promise, onRejected) {
 }
 
 
+function selectorExistsOnce(doc, selector, message) {
+
+    if (!message) {
+        message = "querySelectorAll('" + selector + "')";
+    }
+    deepEqual(doc.querySelectorAll(selector).length, 1, message);
+
+}
+
+
+function selectorHasValue(doc, selector, expected, message) {
+
+    if (!message) {
+        message = "querySelector('" + selector + "').innerHTML value is not " + expected;
+    }
+    deepEqual(doc.querySelector(selector).innerHTML, expected, message);
+
+}
+
+
+function selectorContainsValue(doc, selector, expected, message) {
+
+    if (!message) {
+        message = "querySelector('" + selector + "').innerHTML value does not contain " + expected;
+    }
+    assert.ok(doc.querySelector(selector).innerHTML.includes(expected), message);
+
+}
+
+
 module.exports.ok             = assert.ok;
 module.exports.fails          = fails;
 module.exports.deepEqual      = deepEqual;
@@ -100,4 +130,7 @@ module.exports.isDeepEqual    = isDeepEqual;
 module.exports.notDeepEqual   = notDeepEqual;
 module.exports.contentType    = contentType;
 module.exports.status         = status;
+module.exports.selectorExistsOnce = selectorExistsOnce;
+module.exports.selectorHasValue = selectorHasValue;
+module.exports.selectorContainsValue = selectorContainsValue;
 

@@ -247,16 +247,6 @@ function embedJsScriptInHtml(doc, name, jsonObj) {
     return script;
 }
 
-/**
- * Substitute for missing elem.insertAdjacentHTML('beforeend', str).
- */
-function insertAdjacentHTML(doc, elem, str) {
-    var child = doc.createElement('div');
-    child.innerHTML = str;
-    child = child.firstChild;
-    elem.appendChild(child);
-}
-
 // from Android code: www/js/loader.js
 function addStyleLink(doc, head, href) {
     var link = doc.createElement("link");
@@ -382,6 +372,14 @@ function pageContentPromise(domain, title) {
     }).then(function (response) {
         checkApiResponse(response);
 
+        //// transform all sections
+        //var sections = response.body.mobileview.sections;
+        //for (var idx = 0; idx < sections.length; idx++) {
+        //    var section = sections[idx];
+        //    var html = buildSectionHeading(section) + buildContentDiv(section.text, idx);
+        //    section.text = html;
+        //}
+
         //if (!response.body.mobileview.mainpage) {
         //    // don't do anything if this is the main page, since many wikis
         //    // arrange the main page in a series of tables.
@@ -498,6 +496,10 @@ function onGalleryCollectionsResponse(logger, response, domain) {
     for (var key in items) {
         if (items.hasOwnProperty(key)) {
             var item = items[key];
+
+            if (!item.imageinfo || !(item.imageinfo instanceof Array)) {
+                continue;
+            }
 
             // remove the ones that are too small or are of the wrong type
             var imageinfo = item.imageinfo[0];  // TODO: why this is an array?
