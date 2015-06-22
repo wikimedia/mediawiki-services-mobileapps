@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/wikimedia/service-mobileapp-node.git"
+    "url": "https://gerrit.wikimedia.org/r/mediawiki/services/mobileapps"
   },
   "keywords": [
     "REST",
@@ -22,13 +22,19 @@
     "MediaWiki",
     "Wikipedia"
   ],
-  "author": "Wikimedia Service Team <services@wikimedia.org>",
-  "contributors": [],
+  "author": "Wikimedia Reading Team <mobile-l@lists.wikimedia.org>",
+  "contributors": [
+    "Bernd Sitzmann <bernd@wikimedia.org>",
+    "Dmitry Brant <dbrant@wikimedia.org>",
+    "Monte Hurd <mhurd@wikimedia.org>",
+    "Marko Obrovac <mobrovac@wikimedia.org>",
+    "Gabriel Wicke <gwicke@wikimedia.org>"
+  ],
   "license": "Apache2",
   "bugs": {
-    "url": "https://phabricator.wikimedia.org/tag/service-template-node/"
+    "url": "https://phabricator.wikimedia.org/tag/mobile_content_service/"
   },
-  "homepage": "https://github.com/wikimedia/service-mobileapp-node",
+  "homepage": "https://www.mediawiki.org/wiki/RESTBase_services_for_apps",
   "dependencies": {
     "bluebird": "^2.9.24",
     "body-parser": "^1.12.3",
