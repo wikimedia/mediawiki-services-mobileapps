@@ -1,0 +1,93 @@
+swagger: '2.0'
+info:
+  version: 0.0.3
+  title: WMF MobileApps service
+  description: A prototype for MediaWiki REST API services for mobile apps
+  termsOfService: https://wikimediafoundation.org/wiki/Terms_of_Use
+  contact:
+    name: the Wikimedia Reading team
+    url: http://mediawiki.org/wiki/Reading
+  license:
+    name: Apache2
+    url: http://www.apache.org/licenses/LICENSE-2.0
+x-default-params:
+  domain: en.wikipedia.org
+paths:
+  # from routes/root.js
+  /robots.txt:
+    get:
+      tags:
+        - Root
+        - Robots
+      description: Gets robots.txt
+      x-monitor: false
+  /:
+    get:
+      tags:
+        - Root
+      description: The root service end-point
+      produces:
+        - application/json
+      x-amples:
+        - title: spec from root
+          request:
+            query:
+              spec: true
+          response:
+            status: 200
+  # from routes/info.js
+  /_info:
+    get:
+      tags:
+        - Service information
+      description: Gets information about the service
+      produces:
+        - application/json
+      x-amples:
+        - title: retrieve service info
+          request: {}
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              name: /.+/
+              description: /.+/
+              version: /.+/
+              home: /.+/
+  # from routes/mobileapp-page.js
+  /{domain}/v1/mobile/app/page/html/{title}:
+    get:
+      tags:
+        - Page content
+      description: Gets the mobile app version of a given wiki page
+      produces:
+        - text/html
+      x-amples:
+        - title: retrieve en.wp main page
+          request:
+            params:
+              title: Main_Page
+          response:
+            status: 200
+            headers:
+              content-type: text/html
+            body: /.+/
+  # from routes/mobileapp-lite.js
+  /{domain}/v1/mobile/app/page/lite/{title}:
+    get:
+      tags:
+        - Page content
+      description: Gets the lite mobile app version of a given wiki page
+      produces:
+        - application/json
+      x-amples:
+        - title: retrieve the lite en.wp main page
+          request:
+            params:
+              title: Main_Page
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body: /.+/
