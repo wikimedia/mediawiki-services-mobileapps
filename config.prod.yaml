@@ -33,3 +33,4 @@ services:
       port: 6927
       # interface: localhost # uncomment to only listen on localhost
       # more per-service config settings
+      restbase_uri: https://restbase.wikimedia.org

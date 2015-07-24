@@ -47,3 +47,4 @@ services:
       # no_proxy_list:
       #   - domain1.com
       #   - domain2.org
+      restbase_uri: https://restbase.wikimedia.org

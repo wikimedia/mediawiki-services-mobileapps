@@ -582,8 +582,8 @@ router.get('/:title', function (req, res) {
     //dbg("req.params", req.params);
     BBPromise.props({
         html: preq.get({
-            uri: 'http://' + req.params.domain.replace(/^(\w+\.)m\./, '$1')
-                + '/api/rest_v1/page/html/' + encodeURIComponent(req.params.title),
+            uri: app.conf.restbase_uri + '/' + req.params.domain.replace(/^(\w+\.)m\./, '$1')
+            + '/v1/page/html/' + encodeURIComponent(req.params.title),
         }),
         page: pageContentPromise(req.params.domain, req.params.title),
         media: galleryCollectionPromise(req.logger, req.params.domain, req.params.title)
