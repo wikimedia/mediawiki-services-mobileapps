@@ -18,6 +18,8 @@ More improvements and more endpoints are possible. We could also consider using 
 
 Note: This is currently in early development and things are going to change without notice.
 
+More information can be found on the [wiki](https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/RESTBase_services_for_apps).
+
 ## Getting Started
 
 ### Installation
@@ -25,13 +27,13 @@ Note: This is currently in early development and things are going to change with
 First, clone the repository
 
 ```
-git clone https://github.com/wikimedia/service-mobileapp-node.git
+git clone https://gerrit.wikimedia.org/r/mediawiki/services/mobileapps
 ```
 
 Install the dependencies
 
 ```
-cd service-mobileapp-node
+cd mobileapps
 npm install
 ```
 
@@ -54,17 +56,17 @@ This starts an HTTP server listening on `localhost:6927`. There are a few
 routes you may query (with a browser, or `curl` and friends):
 
 The main route you may query (with a browser, or `curl` and friends):
-* `http://localhost:6927/{domain}/v1/mobile/app/page/html/{title}`
+* `http://localhost:6927/{domain}/v1/page/mobile-html-sections/{title}`
 
 Example:
-* `http://localhost:6927/en.wikipedia.org/v1/mobile/app/page/html/Cat`
+* `http://localhost:6927/en.wikipedia.org/v1/page/mobile-html-sections/Cat`
 
 There is also a route for the mobile lite app:
 * `http://localhost:6927/{domain}/v1/page/mobile-text/{title}`
 
 ### Tests
 
-There is also a small set of executable tests. To fire them up, simply run:
+There is also a set of executable tests. To fire them up, simply run:
 
 ```
 npm test
