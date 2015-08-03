@@ -55,8 +55,8 @@ paths:
               description: /.+/
               version: /.+/
               home: /.+/
-  # from routes/mobileapp-page.js
-  /{domain}/v1/mobile/app/page/html/{title}:
+  # from routes/mobile-html.js
+  /{domain}/v1/page/mobile-html/{title}:
     get:
       tags:
         - Page content

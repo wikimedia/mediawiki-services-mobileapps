@@ -8,13 +8,13 @@ var domino = require('domino');
 var preq   = require('preq');
 var server = require('../../utils/server.js');
 
-describe('mobileapp-page', function() {
+describe('mobile-html', function() {
     this.timeout(20000);
 
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/mobile/app/page/html/Test' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Test' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 assert.contentType(res, 'text/html');
@@ -29,7 +29,7 @@ describe('mobileapp-page', function() {
             });
     });
     it('should have right tags in HTML head', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/mobile/app/page/html/Test' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Test' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 var doc = domino.createDocument(res.body);
@@ -39,7 +39,7 @@ describe('mobileapp-page', function() {
             });
     });
     it('should have script tags with embedded JSON', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/mobile/app/page/html/Test' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Test' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 var doc = domino.createDocument(res.body);
@@ -54,7 +54,7 @@ describe('mobileapp-page', function() {
     });
     it('test:EditingHelp article should have edit buttons', function() {
         // I copied a version of that page from enwiki to testwiki so it's more stable
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/mobile/app/page/html/EditingHelp' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/EditingHelp' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 //var doc = domino.createDocument(res.body);
@@ -71,13 +71,13 @@ describe('mobileapp-page', function() {
             });
     });
     it('test:Whatever article should also have some images in gallery', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/mobile/app/page/html/Whatever' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Whatever' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
             });
     });
     it('test:Main_Page since we have some special handling for main pages', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/mobile/app/page/html/Main_Page' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Main_Page' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
             });
