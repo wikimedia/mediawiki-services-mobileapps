@@ -59,8 +59,8 @@ The main route you may query (with a browser, or `curl` and friends):
 Example:
 * `http://localhost:6927/en.wikipedia.org/v1/mobile/app/page/html/Cat`
 
-There is also a route for the mobile lite app (but needs a lot more TLC):
-* `http://localhost:6927/{domain}/v1/mobile/app/page/lite/{title}`
+There is also a route for the mobile lite app:
+* `http://localhost:6927/{domain}/v1/page/mobile-text/{title}`
 
 ### Tests
 

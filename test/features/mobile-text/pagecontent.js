@@ -8,13 +8,13 @@ var domino = require('domino');
 var preq   = require('preq');
 var server = require('../../utils/server.js');
 
-describe('mobileapp-lite', function() {
+describe('mobile-text', function() {
     this.timeout(20000);
 
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/mobile/app/page/lite/Test' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/Test' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 assert.contentType(res, 'application/json');
@@ -29,7 +29,7 @@ describe('mobileapp-lite', function() {
             });
     });
     it('should have the right meta fields in the JSON response', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/mobile/app/page/lite/Test' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/Test' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 assert.notDeepEqual(res.body.lastmodified, undefined);
@@ -42,7 +42,7 @@ describe('mobileapp-lite', function() {
             });
     });
     it('should have the right structure of section objects', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/mobile/app/page/lite/Test' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/Test' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 assert.notDeepEqual(res.body.sections, undefined);
@@ -53,7 +53,7 @@ describe('mobileapp-lite', function() {
             });
     });
     it('should have the right structure of paragraph, image, and video objects', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/mobile/app/page/lite/LiteTest' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/LiteTest' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 var numParagraphs = 0;

@@ -73,8 +73,8 @@ paths:
             headers:
               content-type: text/html
             body: /.+/
-  # from routes/mobileapp-lite.js
-  /{domain}/v1/mobile/app/page/lite/{title}:
+  # from routes/mobile-text.js
+  /{domain}/v1/page/mobile-text/{title}:
     get:
       tags:
         - Page content
