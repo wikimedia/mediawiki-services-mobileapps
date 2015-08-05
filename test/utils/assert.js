@@ -93,12 +93,19 @@ function fails(promise, onRejected) {
 }
 
 
-function selectorExistsOnce(doc, selector, message) {
+function selectorExistsNTimes(doc, selector, n, message) {
 
     if (!message) {
         message = "querySelectorAll('" + selector + "')";
     }
-    deepEqual(doc.querySelectorAll(selector).length, 1, message);
+    deepEqual(doc.querySelectorAll(selector).length, n, message);
+
+}
+
+
+function selectorExistsOnce(doc, selector, message) {
+
+    selectorExistsNTimes(doc, selector, 1, message);
 
 }
 
@@ -130,6 +137,7 @@ module.exports.isDeepEqual    = isDeepEqual;
 module.exports.notDeepEqual   = notDeepEqual;
 module.exports.contentType    = contentType;
 module.exports.status         = status;
+module.exports.selectorExistsNTimes = selectorExistsNTimes;
 module.exports.selectorExistsOnce = selectorExistsOnce;
 module.exports.selectorHasValue = selectorHasValue;
 module.exports.selectorContainsValue = selectorContainsValue;
