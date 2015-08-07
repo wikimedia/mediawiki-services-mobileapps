@@ -8,19 +8,19 @@ var preq   = require('preq');
 var server = require('../../utils/server.js');
 var headers = require('../../utils/headers.js');
 
-describe('mobile-html-sections', function() {
+describe('mobile-html-sections-lead', function() {
     this.timeout(20000);
 
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return headers.checkHeaders(server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections/Test',
+        return headers.checkHeaders(server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections-lead/Test',
             'application/json');
     });
     it('Test page should have a lead object with expected properties', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections/Test' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections-lead/Test' })
             .then(function(res) {
-                var lead = res.body.lead;
+                var lead = res.body;
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Test');
@@ -33,9 +33,9 @@ describe('mobile-html-sections', function() {
             });
     });
     it('en Main page should have a lead object with expected properties', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections/Main_Page' })
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/Main_Page' })
             .then(function(res) {
-                var lead = res.body.lead;
+                var lead = res.body;
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Main Page');
@@ -52,15 +52,12 @@ describe('mobile-html-sections', function() {
                 assert.ok(lead.sections.length > 0, 'Expected at least one section element');
                 assert.deepEqual(lead.sections[0].id, 0);
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
-
-                var remaining = res.body.remaining;
-                assert.ok(remaining.media.images.length > 0, 'Expected at least one image');
             });
     });
-    it('Obama (redirect) should have a lead image, at least one video, and many images', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections/Obama' })
+    it('Obama (redirect) should have a lead image', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/Obama' })
             .then(function(res) {
-                var lead = res.body.lead;
+                var lead = res.body;
                 assert.deepEqual(res.status, 200);
                 assert.contains(lead.image.file, "Obama");
                 assert.contains(lead.image.urls["640"], "//upload.wikimedia.org/wikipedia/commons/thumb");
@@ -69,17 +66,6 @@ describe('mobile-html-sections', function() {
                 assert.contains(lead.image.urls["800"], "800px-");
                 assert.contains(lead.image.urls["1024"], "//upload.wikimedia.org/wikipedia/commons/thumb");
                 assert.contains(lead.image.urls["1024"], "1024px-");
-
-                var remaining = res.body.remaining;
-                assert.ok(remaining.sections.length > 3, 'Expected many remaining sections but got '
-                    + remaining.sections.length); // 1, 2, 3, many ;)
-                assert.deepEqual(remaining.sections[0].id, 1);
-                assert.deepEqual(remaining.sections[0].toclevel, 1);
-                assert.ok(remaining.sections[0].text.length > 3);
-                assert.ok(remaining.sections[0].line.length > 3);
-                assert.ok(remaining.sections[0].anchor.length > 3);
-                assert.ok(remaining.media.videos.length > 0, 'Expected at least one video');
-                assert.ok(remaining.media.images.length > 3, 'Expected many images');
             });
     });
 });

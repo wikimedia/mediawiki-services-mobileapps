@@ -91,7 +91,16 @@ paths:
             headers:
               content-type: application/json
             body:
-                page: /.+/
+              lead:
+                id: /.+/
+                revision: /.+/
+                lastmodified: /.+/
+                displaytitle: /.+/
+                protection: /.+/
+                editable: /.+/
+                sections: [ /.+/ ]
+              remaining:
+                sections: []
                 media: /.+/
   # from routes/mobile-text.js
   /{domain}/v1/page/mobile-text/{title}:

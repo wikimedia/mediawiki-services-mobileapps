@@ -93,6 +93,18 @@ function fails(promise, onRejected) {
 }
 
 
+function contains(result, sub, message) {
+    try {
+        assert.ok(result.indexOf(sub) > -1, message);
+    } catch (e) {
+        console.log('Substring:\n' + sub);
+        console.log('Not in result:\n' + result);
+        throw e;
+    }
+
+}
+
+
 function selectorExistsNTimes(doc, selector, n, message) {
 
     if (!message) {
@@ -137,6 +149,7 @@ module.exports.isDeepEqual    = isDeepEqual;
 module.exports.notDeepEqual   = notDeepEqual;
 module.exports.contentType    = contentType;
 module.exports.status         = status;
+module.exports.contains       = contains;
 module.exports.selectorExistsNTimes = selectorExistsNTimes;
 module.exports.selectorExistsOnce = selectorExistsOnce;
 module.exports.selectorHasValue = selectorHasValue;

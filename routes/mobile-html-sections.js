@@ -61,16 +61,82 @@ function pageContentPromise(domain, title) {
     });
 }
 
+function buildLeadSections(sections) {
+    var out = [],
+        section,
+        len = sections.length;
+
+    out.push(sections[0]);
+    for (var i = 1; i < len; i++) {
+        section = sections[i];
+        var item = {
+            id: section.id,
+            toclevel: section.toclevel,
+            anchor: section.anchor,
+            line: section.line
+        };
+        out.push(item);
+    }
+    return out;
+}
+
+function buildOutput(input) {
+    return {
+        lead: {
+            id: input.page.id,
+            revision: input.page.revision,
+            lastmodified: input.page.lastmodified,
+            displaytitle: input.page.displaytitle,
+            protection: input.page.protection,
+            editable: input.page.editable,
+            image: {
+                file: input.page.image && input.page.image.file,
+                urls: input.page.thumb && mwapi.buildLeadImageUrls(input.page.thumb.url)
+            },
+            sections: buildLeadSections(input.page.sections)
+        },
+        remaining: {
+            sections: input.page.sections.slice(1), // don't repeat the first section
+            media: input.media
+        }
+    };
+}
+
 /**
  * GET {domain}/v1/page/mobile-html-sections/{title}
  * Gets the mobile app version of a given wiki page.
  */
 router.get('/mobile-html-sections/:title', function (req, res) {
-    BBPromise.props({
+    return BBPromise.props({
         page: pageContentPromise(req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
-        res.status(200).type('json').end(JSON.stringify(response));
+        res.status(200).type('json').end(JSON.stringify(buildOutput(response)));
+    });
+});
+
+/**
+ * GET {domain}/v1/page/mobile-html-sections-lead/{title}
+ * Gets the lead section for the mobile app version of a given wiki page.
+ */
+router.get('/mobile-html-sections-lead/:title', function (req, res) {
+    return BBPromise.props({
+        page: pageContentPromise(req.params.domain, req.params.title)
+    }).then(function (response) {
+        res.status(200).type('json').end(JSON.stringify(buildOutput(response).lead));
+    });
+});
+
+/**
+ * GET {domain}/v1/page/mobile-html-sections-remaining/{title}
+ * Gets the remaining sections for the mobile app version of a given wiki page.
+ */
+router.get('/mobile-html-sections-remaining/:title', function (req, res) {
+    return BBPromise.props({
+        page: pageContentPromise(req.params.domain, req.params.title),
+        media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
+    }).then(function (response) {
+        res.status(200).type('json').end(JSON.stringify(buildOutput(response).remaining));
     });
 });
 

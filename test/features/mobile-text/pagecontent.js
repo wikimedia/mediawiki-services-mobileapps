@@ -4,9 +4,9 @@
 /* global describe, it, before, beforeEach, after, afterEach */
 
 var assert = require('../../utils/assert.js');
-var domino = require('domino');
 var preq   = require('preq');
 var server = require('../../utils/server.js');
+var headers = require('../../utils/headers.js');
 
 describe('mobile-text', function() {
     this.timeout(20000);
@@ -14,19 +14,8 @@ describe('mobile-text', function() {
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/Test' })
-            .then(function(res) {
-                assert.deepEqual(res.status, 200);
-                assert.contentType(res, 'application/json');
-                assert.deepEqual(res.headers['content-type'], 'application/json');
-                assert.deepEqual(res.headers['access-control-allow-origin'], '*');
-                assert.deepEqual(res.headers['access-control-allow-headers'], 'Accept, X-Requested-With, Content-Type');
-                assert.deepEqual(res.headers['content-security-policy'],
-                    "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'");
-                assert.deepEqual(res.headers['x-content-security-policy'],
-                    "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'");
-                assert.deepEqual(res.headers['x-frame-options'], 'SAMEORIGIN');
-            });
+        return headers.checkHeaders(server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/Test',
+            'application/json');
     });
     it('should have the right meta fields in the JSON response', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/Test' })

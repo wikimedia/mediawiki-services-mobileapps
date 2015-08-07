@@ -7,6 +7,7 @@ var assert = require('../../utils/assert.js');
 var domino = require('domino');
 var preq   = require('preq');
 var server = require('../../utils/server.js');
+var headers = require('../../utils/headers.js');
 
 describe('mobile-html', function() {
     this.timeout(20000);
@@ -14,19 +15,8 @@ describe('mobile-html', function() {
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Test' })
-            .then(function(res) {
-                assert.deepEqual(res.status, 200);
-                assert.contentType(res, 'text/html');
-                assert.deepEqual(res.headers['content-type'], 'text/html; charset=utf-8');
-                assert.deepEqual(res.headers['access-control-allow-origin'], '*');
-                assert.deepEqual(res.headers['access-control-allow-headers'], 'Accept, X-Requested-With, Content-Type');
-                assert.deepEqual(res.headers['content-security-policy'],
-                    "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'");
-                assert.deepEqual(res.headers['x-content-security-policy'],
-                    "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'");
-                assert.deepEqual(res.headers['x-frame-options'], 'SAMEORIGIN');
-            });
+        return headers.checkHeaders(server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Test',
+            'text/html');
     });
     it('should have right tags in HTML head', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Test' })
