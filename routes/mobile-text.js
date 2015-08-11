@@ -133,19 +133,7 @@ function runDomTransforms(section) {
  * Gets the lite mobile app version of a given wiki page.
  */
 router.get('/mobile-text/:title', function (req, res) {
-    // get the page content from MW API mobileview
-    var apiParams = {
-        "action": "mobileview",
-        "format": "json",
-        "page": req.params.title,
-        "prop": "text|sections|languagecount|thumb|image|id|revision|description|lastmodified|normalizedtitle|displaytitle|protection|editable",
-        "sections": "all",
-        "sectionprop": "toclevel|line|anchor",
-        "thumbsize": "640",
-        "noheadings": true
-    };
-
-    return mwapi.apiGet(req.params.domain, apiParams)
+    return mwapi.getAllSections(req.params.domain, req.params.title)
     // and then return it
     .then(function (apiRes) {
         // transform all sections
@@ -157,9 +145,6 @@ router.get('/mobile-text/:title', function (req, res) {
         }
 
         res.status(200).json(apiRes.body.mobileview).end();
-        //res.status(200).type('json').end(util.inspect(apiRes.body.mobileview));
-        //res.status(200).type('html').end(apiRes.innerHTML);
-        //res.status(200).type('json').end(apiRes);
     });
 });
 

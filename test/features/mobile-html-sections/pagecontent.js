@@ -48,6 +48,7 @@ describe('mobile-html-sections', function() {
                     ]
                 });
                 assert.deepEqual(lead.editable, false);
+                assert.ok(lead.languagecount > 10);
                 assert.deepEqual(lead.image, {});
                 assert.ok(lead.sections.length > 0, 'Expected at least one section element');
                 assert.deepEqual(lead.sections[0].id, 0);

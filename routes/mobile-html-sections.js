@@ -89,6 +89,7 @@ function buildOutput(input) {
             displaytitle: input.page.displaytitle,
             protection: input.page.protection,
             editable: input.page.editable,
+            languagecount: input.page.languagecount,
             image: {
                 file: input.page.image && input.page.image.file,
                 urls: input.page.thumb && mwapi.buildLeadImageUrls(input.page.thumb.url)
