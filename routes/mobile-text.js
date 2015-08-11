@@ -16,6 +16,7 @@
 var preq = require('preq');
 var domino = require('domino');
 var sUtil = require('../lib/util');
+var mwapi = require('../lib/mwapi');
 
 // shortcut
 var HTTPError = sUtil.HTTPError;
@@ -31,22 +32,6 @@ var router = sUtil.router();
  */
 var app;
 
-
-/**
- * A helper function that obtains the HTML from the MW API and
- * loads it into a domino DOM document instance.
- *
- * @param {String} domain the domain to contact
- * @param {Object} params an Object with all the query parameters for the MW API
- * @return {Promise} a promise resolving as the HTML element object
- */
-function apiGet(domain, params) {
-    // get the page from the MW API
-    return preq.get({
-        uri: 'http://' + domain + '/w/api.php',
-        query: params
-    });
-}
 
 function rmSelectorAll(doc, selector) {
     var ps = doc.querySelectorAll(selector) || [];
@@ -140,9 +125,6 @@ function runDomTransforms(section) {
         itemIndex++;
     }
 
-
-
-
     delete section.text;
 }
 
@@ -163,33 +145,22 @@ router.get('/mobile-text/:title', function (req, res) {
         "noheadings": true
     };
 
-    return apiGet(req.params.domain, apiParams)
-        // and then return it
-        .then(function (apiRes) {
-            // check if the query failed
-            if (apiRes.status > 299) {
-                // there was an error in the MW API, propagate that
-                throw new HTTPError({
-                    status: apiRes.status,
-                    type: 'api_error',
-                    title: 'MW API error',
-                    detail: apiRes.body
-                });
-            }
+    return mwapi.apiGet(req.params.domain, apiParams)
+    // and then return it
+    .then(function (apiRes) {
+        // transform all sections
+        var sections = apiRes.body.mobileview.sections;
+        for (var idx = 0; idx < sections.length; idx++) {
+            var section = sections[idx];
+            // run DOM transforms on the section...
+            runDomTransforms(section); 
+        }
 
-            // transform all sections
-            var sections = apiRes.body.mobileview.sections;
-            for (var idx = 0; idx < sections.length; idx++) {
-                var section = sections[idx];
-                // run DOM transforms on the section...
-                runDomTransforms(section);                
-            }
-
-            res.status(200).type('json').end(JSON.stringify(apiRes.body.mobileview));
-            //res.status(200).type('json').end(util.inspect(apiRes.body.mobileview));
-            //res.status(200).type('html').end(apiRes.innerHTML);
-            //res.status(200).type('json').end(apiRes);
-        });
+        res.status(200).json(apiRes.body.mobileview).end();
+        //res.status(200).type('json').end(util.inspect(apiRes.body.mobileview));
+        //res.status(200).type('html').end(apiRes.innerHTML);
+        //res.status(200).type('json').end(apiRes);
+    });
 });
 
 module.exports = function (appObj) {

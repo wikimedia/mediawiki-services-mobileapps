@@ -33,16 +33,16 @@ var router = sUtil.router();
 var app;
 
 function dbg(name, obj) {
-    //console.log("DEBUG: " + name + ": " + JSON.stringify(obj, null, 2));
-    app.logger.log('debug', name + ": " + JSON.stringify(obj));
+    if (app.conf.debug) {
+        //console.log("DEBUG: " + name + ": " + JSON.stringify(obj, null, 2));
+        app.logger.log('debug', name + ": " + JSON.stringify(obj));
+    }
 }
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
 function pageContentPromise(domain, title) {
     return mwapi.getAllSections(domain, title)
     .then(function (response) {
-        mwapi.checkApiResponse(response);
-
         // transform all sections
         var sections = response.body.mobileview.sections;
         for (var idx = 0; idx < sections.length; idx++) {
@@ -111,7 +111,7 @@ router.get('/mobile-html-sections/:title', function (req, res) {
         page: pageContentPromise(req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
-        res.status(200).type('json').end(JSON.stringify(buildOutput(response)));
+        res.status(200).json(buildOutput(response)).end();
     });
 });
 
@@ -123,7 +123,7 @@ router.get('/mobile-html-sections-lead/:title', function (req, res) {
     return BBPromise.props({
         page: pageContentPromise(req.params.domain, req.params.title)
     }).then(function (response) {
-        res.status(200).type('json').end(JSON.stringify(buildOutput(response).lead));
+        res.status(200).json(buildOutput(response).lead).end();
     });
 });
 
@@ -136,7 +136,7 @@ router.get('/mobile-html-sections-remaining/:title', function (req, res) {
         page: pageContentPromise(req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
-        res.status(200).type('json').end(JSON.stringify(buildOutput(response).remaining));
+        res.status(200).json(buildOutput(response).remaining).end();
     });
 });
 

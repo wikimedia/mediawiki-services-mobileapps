@@ -48,3 +48,5 @@ services:
       #   - domain1.com
       #   - domain2.org
       restbase_uri: https://restbase.wikimedia.org
+      # whether to print extra debug info
+      debug: true

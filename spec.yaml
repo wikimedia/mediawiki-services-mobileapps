@@ -64,7 +64,7 @@ paths:
       produces:
         - text/html
       x-amples:
-        - title: retrieve en.wp main page
+        - title: retrieve en.wp main page via mobile-html
           request:
             params:
               title: Main_Page
@@ -82,7 +82,7 @@ paths:
       produces:
         - application/json
       x-amples:
-        - title: retrieve en.wp main page
+        - title: retrieve en.wp main page via mobile-html-sections
           request:
             params:
               title: Main_Page

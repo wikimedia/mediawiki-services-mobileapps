@@ -34,3 +34,5 @@ services:
       # interface: localhost # uncomment to only listen on localhost
       # more per-service config settings
       restbase_uri: https://restbase.wikimedia.org
+      # whether to print extra debug info
+      debug: false

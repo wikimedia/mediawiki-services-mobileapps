@@ -35,10 +35,8 @@ var router = sUtil.router();
  */
 var app;
 
-var DEBUG = true;
-
 function dbg(name, obj) {
-    if (DEBUG) {
+    if (app.conf.debug) {
         console.log("DEBUG: " + name + ": " + util.inspect(obj));
         //console.log("DEBUG: " + name + ": " + JSON.stringify(obj, null, 2));
         //app.logger.log('debug', name + ": " + JSON.stringify(obj));
@@ -235,8 +233,6 @@ function buildPageContentJSON(orig) {
 function pageContentPromise(domain, title) {
     return mwapi.getAllSections(domain, title)
     .then(function (response) {
-        mwapi.checkApiResponse(response);
-
         //// transform all sections
         //var sections = response.body.mobileview.sections;
         //for (var idx = 0; idx < sections.length; idx++) {
@@ -264,7 +260,7 @@ function pageContentPromise(domain, title) {
  */
 router.get('/mobile-html/:title', function (req, res) {
     //dbg("req.params", req.params);
-    BBPromise.props({
+    return BBPromise.props({
         html: preq.get({
             uri: app.conf.restbase_uri + '/' + req.params.domain.replace(/^(\w+\.)m\./, '$1')
             + '/v1/page/html/' + encodeURIComponent(req.params.title),
