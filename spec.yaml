@@ -98,10 +98,55 @@ paths:
                 displaytitle: /.+/
                 protection: /.+/
                 editable: /.+/
+                languagecount: /.+/
                 sections: [ /.+/ ]
               remaining:
                 sections: []
                 media: /.+/
+  /{domain}/v1/page/mobile-html-sections-lead/{title}:
+    get:
+      tags:
+        - Lead section of page content
+      description: Gets the lead section and general metadata of a given wiki page for mobile apps
+      produces:
+        - application/json
+      x-amples:
+        - title: retrieve lead section of en.wp main page via mobile-html-sections-lead
+          request:
+            params:
+              title: Main_Page
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              id: /.+/
+              revision: /.+/
+              lastmodified: /.+/
+              displaytitle: /.+/
+              protection: /.+/
+              editable: /.+/
+              languagecount: /.+/
+              sections: [ /.+/ ]
+  /{domain}/v1/page/mobile-html-sections-remaining/{title}:
+    get:
+      tags:
+        - Lead section of page content
+      description: Gets the remaining sections of a given wiki page for mobile apps
+      produces:
+        - application/json
+      x-amples:
+        - title: retrieve remaining sections of en.wp main page via mobile-html-sections-remaining
+          request:
+            params:
+              title: Main_Page
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              sections: []
+              media: /.+/
   # from routes/mobile-text.js
   /{domain}/v1/page/mobile-text/{title}:
     get:
