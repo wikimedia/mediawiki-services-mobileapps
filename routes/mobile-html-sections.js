@@ -80,26 +80,34 @@ function buildLeadSections(sections) {
     return out;
 }
 
-function buildOutput(input) {
+function buildLead(input) {
     return {
-        lead: {
-            id: input.page.id,
-            revision: input.page.revision,
-            lastmodified: input.page.lastmodified,
-            displaytitle: input.page.displaytitle,
-            protection: input.page.protection,
-            editable: input.page.editable,
-            languagecount: input.page.languagecount,
-            image: {
-                file: input.page.image && input.page.image.file,
-                urls: input.page.thumb && mwapi.buildLeadImageUrls(input.page.thumb.url)
-            },
-            sections: buildLeadSections(input.page.sections)
+        id: input.page.id,
+        revision: input.page.revision,
+        lastmodified: input.page.lastmodified,
+        displaytitle: input.page.displaytitle,
+        protection: input.page.protection,
+        editable: input.page.editable,
+        languagecount: input.page.languagecount,
+        image: {
+            file: input.page.image && input.page.image.file,
+            urls: input.page.thumb && mwapi.buildLeadImageUrls(input.page.thumb.url)
         },
-        remaining: {
-            sections: input.page.sections.slice(1), // don't repeat the first section
+        sections: buildLeadSections(input.page.sections)
+    };
+}
+
+function buildRemaining(input) {
+    return {
+        sections: input.page.sections.slice(1), // don't repeat the first section
             media: input.media
-        }
+    };
+}
+
+function buildAll(input) {
+    return {
+        lead: buildLead(input),
+        remaining: buildRemaining(input)
     };
 }
 
@@ -112,7 +120,7 @@ router.get('/mobile-html-sections/:title', function (req, res) {
         page: pageContentPromise(req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
-        res.status(200).json(buildOutput(response)).end();
+        res.status(200).json(buildAll(response)).end();
     });
 });
 
@@ -124,7 +132,7 @@ router.get('/mobile-html-sections-lead/:title', function (req, res) {
     return BBPromise.props({
         page: pageContentPromise(req.params.domain, req.params.title)
     }).then(function (response) {
-        res.status(200).json(buildOutput(response).lead).end();
+        res.status(200).json(buildLead(response)).end();
     });
 });
 
@@ -137,7 +145,7 @@ router.get('/mobile-html-sections-remaining/:title', function (req, res) {
         page: pageContentPromise(req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
-        res.status(200).json(buildOutput(response).remaining).end();
+        res.status(200).json(buildRemaining(response)).end();
     });
 });
 
