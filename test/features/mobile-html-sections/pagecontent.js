@@ -55,10 +55,10 @@ describe('mobile-html-sections', function() {
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
 
                 var remaining = res.body.remaining;
-                assert.ok(remaining.media.images.length > 0, 'Expected at least one image');
+                assert.ok(remaining.media.items.length > 0, 'Expected at least one media item');
             });
     });
-    it('Obama (redirect) should have a lead image, at least one video, and many images', function() {
+    it('Obama (redirect) should have a lead image and many media items', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections/Obama' })
             .then(function(res) {
                 var lead = res.body.lead;
@@ -79,8 +79,7 @@ describe('mobile-html-sections', function() {
                 assert.ok(remaining.sections[0].text.length > 3);
                 assert.ok(remaining.sections[0].line.length > 3);
                 assert.ok(remaining.sections[0].anchor.length > 3);
-                assert.ok(remaining.media.videos.length > 0, 'Expected at least one video');
-                assert.ok(remaining.media.images.length > 3, 'Expected many images');
+                assert.ok(remaining.media.items.length > 3, 'Expected many media items');
             });
     });
 });

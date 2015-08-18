@@ -17,11 +17,11 @@ describe('mobile-html-sections-remaining', function() {
         return headers.checkHeaders(server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections-remaining/Test',
             'application/json');
     });
-    it('en Main page should have at least on image', function() {
+    it('en Main page should have at least one image', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-remaining/Main_Page' })
             .then(function(res) {
                 var remaining = res.body;
-                assert.ok(remaining.media.images.length > 0, 'Expected at least one image');
+                assert.ok(remaining.media.items.length > 0, 'Expected at least one media item');
             });
     });
     it('Obama (redirect) should have at least one video, and many images', function() {
@@ -35,8 +35,7 @@ describe('mobile-html-sections-remaining', function() {
                 assert.ok(remaining.sections[0].text.length > 3);
                 assert.ok(remaining.sections[0].line.length > 3);
                 assert.ok(remaining.sections[0].anchor.length > 3);
-                assert.ok(remaining.media.videos.length > 0, 'Expected at least one video');
-                assert.ok(remaining.media.images.length > 3, 'Expected many images');
+                assert.ok(remaining.media.items.length > 3, 'Expected many media items');
             });
     });
 });
