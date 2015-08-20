@@ -26,7 +26,6 @@ describe('mobile-html-sections', function() {
                 assert.deepEqual(lead.displaytitle, 'Test');
                 assert.deepEqual(lead.protection, []);
                 assert.deepEqual(lead.editable, true);
-                assert.deepEqual(lead.image, {});
                 assert.ok(lead.sections.length > 0, 'Expected at least one section element');
                 assert.deepEqual(lead.sections[0].id, 0);
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
@@ -49,7 +48,6 @@ describe('mobile-html-sections', function() {
                 });
                 assert.deepEqual(lead.editable, false);
                 assert.ok(lead.languagecount > 10);
-                assert.deepEqual(lead.image, {});
                 assert.ok(lead.sections.length > 0, 'Expected at least one section element');
                 assert.deepEqual(lead.sections[0].id, 0);
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');

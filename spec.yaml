@@ -131,6 +131,26 @@ paths:
               media:
                 items: [ /.+/ ]
               sections: [ /.+/ ]
+        - title: retrieve lead section of en.wp cat page via mobile-html-sections-lead
+          request:
+            params:
+              title: Cat
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              id: /.+/
+              revision: /.+/
+              lastmodified: /.+/
+              displaytitle: /.+/
+              protection: /.+/
+              editable: /.+/
+              languagecount: /.+/
+              media:
+                items: [ /.+/ ]
+              infobox: [ [ /.+/ ] ]
+              sections: [ /.+/ ]
   /{domain}/v1/page/mobile-html-sections-remaining/{title}:
     get:
       tags:

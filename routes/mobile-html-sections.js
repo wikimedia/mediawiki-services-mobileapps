@@ -13,10 +13,12 @@
 
 var BBPromise = require('bluebird');
 var preq = require('preq');
+var mUtil = require('../lib/mobile-util');
 var sUtil = require('../lib/service-util');
 var transforms = require('../lib/transforms');
 var mwapi = require('../lib/mwapi');
 var gallery = require('../lib/gallery');
+var domino = require('domino');
 
 // shortcut
 var HTTPError = sUtil.HTTPError;
@@ -81,6 +83,7 @@ function buildLeadSections(sections) {
 }
 
 function buildLead(input) {
+    var lead = domino.createDocument(input.page.sections[0].text);
     return {
         id: input.page.id,
         revision: input.page.revision,
@@ -89,11 +92,12 @@ function buildLead(input) {
         protection: input.page.protection,
         editable: input.page.editable,
         languagecount: input.page.languagecount,
-        image: {
+        image: mUtil.defaultVal(mUtil.filterEmpty({
             file: input.page.image && input.page.image.file,
             urls: input.page.thumb && mwapi.buildLeadImageUrls(input.page.thumb.url)
-        },
+        })),
         media: input.media,
+        infobox: transforms.parseInfobox(lead),
         sections: buildLeadSections(input.page.sections)
     };
 }
