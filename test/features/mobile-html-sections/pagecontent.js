@@ -54,8 +54,7 @@ describe('mobile-html-sections', function() {
                 assert.deepEqual(lead.sections[0].id, 0);
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
 
-                var remaining = res.body.remaining;
-                assert.ok(remaining.media.items.length > 0, 'Expected at least one media item');
+                assert.ok(lead.media.items.length > 0, 'Expected at least one media item');
             });
     });
     it('Obama (redirect) should have a lead image and many media items', function() {
@@ -71,6 +70,8 @@ describe('mobile-html-sections', function() {
                 assert.contains(lead.image.urls["1024"], "//upload.wikimedia.org/wikipedia/commons/thumb");
                 assert.contains(lead.image.urls["1024"], "1024px-");
 
+                assert.ok(lead.media.items.length > 3, 'Expected many media items');
+
                 var remaining = res.body.remaining;
                 assert.ok(remaining.sections.length > 3, 'Expected many remaining sections but got '
                     + remaining.sections.length); // 1, 2, 3, many ;)
@@ -79,7 +80,6 @@ describe('mobile-html-sections', function() {
                 assert.ok(remaining.sections[0].text.length > 3);
                 assert.ok(remaining.sections[0].line.length > 3);
                 assert.ok(remaining.sections[0].anchor.length > 3);
-                assert.ok(remaining.media.items.length > 3, 'Expected many media items');
             });
     });
 });

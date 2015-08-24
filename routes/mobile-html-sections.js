@@ -93,14 +93,14 @@ function buildLead(input) {
             file: input.page.image && input.page.image.file,
             urls: input.page.thumb && mwapi.buildLeadImageUrls(input.page.thumb.url)
         },
+        media: input.media,
         sections: buildLeadSections(input.page.sections)
     };
 }
 
 function buildRemaining(input) {
     return {
-        sections: input.page.sections.slice(1), // don't repeat the first section
-            media: input.media
+        sections: input.page.sections.slice(1) // don't repeat the first section
     };
 }
 
@@ -130,7 +130,8 @@ router.get('/mobile-html-sections/:title', function (req, res) {
  */
 router.get('/mobile-html-sections-lead/:title', function (req, res) {
     return BBPromise.props({
-        page: pageContentPromise(req.params.domain, req.params.title)
+        page: pageContentPromise(req.params.domain, req.params.title),
+        media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
         res.status(200).json(buildLead(response)).end();
     });
@@ -142,8 +143,7 @@ router.get('/mobile-html-sections-lead/:title', function (req, res) {
  */
 router.get('/mobile-html-sections-remaining/:title', function (req, res) {
     return BBPromise.props({
-        page: pageContentPromise(req.params.domain, req.params.title),
-        media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
+        page: pageContentPromise(req.params.domain, req.params.title)
     }).then(function (response) {
         res.status(200).json(buildRemaining(response)).end();
     });

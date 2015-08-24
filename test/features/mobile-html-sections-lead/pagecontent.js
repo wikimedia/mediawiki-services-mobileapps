@@ -66,6 +66,14 @@ describe('mobile-html-sections-lead', function() {
                 assert.contains(lead.image.urls["800"], "800px-");
                 assert.contains(lead.image.urls["1024"], "//upload.wikimedia.org/wikipedia/commons/thumb");
                 assert.contains(lead.image.urls["1024"], "1024px-");
+                assert.ok(lead.media.items.length > 3, 'Expected many media items');
+            });
+    });
+    it('en Main page should have at least one image', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/Main_Page' })
+            .then(function(res) {
+                var lead = res.body;
+                assert.ok(lead.media.items.length > 0, 'Expected at least one media item');
             });
     });
 });

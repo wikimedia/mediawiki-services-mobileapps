@@ -99,10 +99,11 @@ paths:
                 protection: /.+/
                 editable: /.+/
                 languagecount: /.+/
+                media:
+                  items: [ /.+/ ]
                 sections: [ /.+/ ]
               remaining:
                 sections: []
-                media: /.+/
   /{domain}/v1/page/mobile-html-sections-lead/{title}:
     get:
       tags:
@@ -127,6 +128,8 @@ paths:
               protection: /.+/
               editable: /.+/
               languagecount: /.+/
+              media:
+                items: [ /.+/ ]
               sections: [ /.+/ ]
   /{domain}/v1/page/mobile-html-sections-remaining/{title}:
     get:
@@ -146,7 +149,6 @@ paths:
               content-type: application/json
             body:
               sections: []
-              media: /.+/
   # from routes/mobile-text.js
   /{domain}/v1/page/mobile-text/{title}:
     get:
