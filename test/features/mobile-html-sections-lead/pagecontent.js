@@ -63,6 +63,14 @@ describe('mobile-html-sections-lead', function() {
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
+    it('en San Francisco should have a lead object with a geo property', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/San_Francisco' })
+            .then(function(res) {
+                var lead = res.body;
+                assert.deepEqual(lead.geo.latitude, 37.783);
+                assert.deepEqual(lead.geo.longitude, -122.417);
+            });
+    });
     it('Obama (redirect) should have a lead image', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/Obama' })
             .then(function(res) {

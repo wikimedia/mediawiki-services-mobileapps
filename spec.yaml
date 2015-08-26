@@ -131,10 +131,10 @@ paths:
               media:
                 items: [ /.+/ ]
               sections: [ /.+/ ]
-        - title: retrieve lead section of en.wp cat page via mobile-html-sections-lead
+        - title: retrieve lead section of en.wp San Francisco page via mobile-html-sections-lead
           request:
             params:
-              title: Cat
+              title: San_Francisco
           response:
             status: 200
             headers:
@@ -150,6 +150,9 @@ paths:
               media:
                 items: [ /.+/ ]
               infobox: [ [ /.+/ ] ]
+              geo:
+                latitude: /.+/
+                longitude: /.+/
               sections: [ /.+/ ]
         - title: retrieve lead section of en.wp Barack Obama page via mobile-html-sections-lead
           request:

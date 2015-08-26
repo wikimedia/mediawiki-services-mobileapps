@@ -99,6 +99,7 @@ function buildLead(input) {
         media: input.media,
         infobox: transforms.parseInfobox(lead),
         pronunciation: transforms.parsePronunciation(lead),
+        geo: transforms.parseGeo(lead),
         sections: buildLeadSections(input.page.sections)
     };
 }
