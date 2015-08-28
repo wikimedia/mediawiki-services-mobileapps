@@ -78,6 +78,14 @@ describe('mobile-html-sections-lead', function() {
                 assert.ok(lead.media.items.length > 3, 'Expected many media items');
             });
     });
+    it('Barack Obama should have a pronunciation', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/Barack_Obama' })
+            .then(function(res) {
+                var lead = res.body;
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(lead.pronunciation.url, '/wiki/File:En-us-Barack-Hussein-Obama.ogg');
+            });
+    });
     it('en Main page should have at least one image', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/Main_Page' })
             .then(function(res) {

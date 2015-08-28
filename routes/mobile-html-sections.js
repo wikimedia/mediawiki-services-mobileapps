@@ -98,6 +98,7 @@ function buildLead(input) {
         })),
         media: input.media,
         infobox: transforms.parseInfobox(lead),
+        pronunciation: transforms.parsePronunciation(lead),
         sections: buildLeadSections(input.page.sections)
     };
 }

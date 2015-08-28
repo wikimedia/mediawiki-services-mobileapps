@@ -151,6 +151,28 @@ paths:
                 items: [ /.+/ ]
               infobox: [ [ /.+/ ] ]
               sections: [ /.+/ ]
+        - title: retrieve lead section of en.wp Barack Obama page via mobile-html-sections-lead
+          request:
+            params:
+              title: Barack_Obama
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              id: /.+/
+              revision: /.+/
+              lastmodified: /.+/
+              displaytitle: /.+/
+              protection: /.+/
+              editable: /.+/
+              languagecount: /.+/
+              media:
+                items: [ /.+/ ]
+              infobox: [ [ /.+/ ] ]
+              pronunciation:
+                url: /.+/
+              sections: [ /.+/ ]
   /{domain}/v1/page/mobile-html-sections-remaining/{title}:
     get:
       tags:
