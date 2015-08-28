@@ -13,7 +13,7 @@
 
 var BBPromise = require('bluebird');
 var preq = require('preq');
-var sUtil = require('../lib/util');
+var sUtil = require('../lib/service-util');
 var transforms = require('../lib/transforms');
 var mwapi = require('../lib/mwapi');
 var gallery = require('../lib/gallery');

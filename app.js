@@ -7,7 +7,7 @@ var express = require('express');
 var compression = require('compression');
 var bodyParser = require('body-parser');
 var fs = BBPromise.promisifyAll(require('fs'));
-var sUtil = require('./lib/util');
+var sUtil = require('./lib/service-util');
 var packageInfo = require('./package.json');
 var yaml = require('js-yaml');
 
