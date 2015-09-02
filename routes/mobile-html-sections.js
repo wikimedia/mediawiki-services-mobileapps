@@ -19,6 +19,7 @@ var transforms = require('../lib/transforms');
 var mwapi = require('../lib/mwapi');
 var gallery = require('../lib/gallery');
 var domino = require('domino');
+var extract = require('../lib/extract');
 
 // shortcut
 var HTTPError = sUtil.HTTPError;
@@ -82,6 +83,12 @@ function buildLeadSections(sections) {
     return out;
 }
 
+function parseExtract(body) {
+    var id = Object.keys(body.query.pages)[0];
+    var page = body.query.pages[id];
+    return page && extract.format(page.extract);
+}
+
 function buildLead(input) {
     var lead = domino.createDocument(input.page.sections[0].text);
     return {
@@ -96,6 +103,7 @@ function buildLead(input) {
             file: input.page.image && input.page.image.file,
             urls: input.page.thumb && mwapi.buildLeadImageUrls(input.page.thumb.url)
         })),
+        extract: input.extract && parseExtract(input.extract.body),
         media: input.media,
         infobox: transforms.parseInfobox(lead),
         pronunciation: transforms.parsePronunciation(lead),
@@ -137,7 +145,8 @@ router.get('/mobile-html-sections/:title', function (req, res) {
 router.get('/mobile-html-sections-lead/:title', function (req, res) {
     return BBPromise.props({
         page: pageContentPromise(req.params.domain, req.params.title),
-        media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
+        media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title),
+        extract: mwapi.requestExtract(req.params.domain, req.params.title)
     }).then(function (response) {
         res.status(200).json(buildLead(response)).end();
     });

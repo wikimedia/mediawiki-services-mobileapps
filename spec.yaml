@@ -147,6 +147,7 @@ paths:
               protection: /.+/
               editable: /.+/
               languagecount: /.+/
+              extract: /.+/
               media:
                 items: [ /.+/ ]
               infobox: [ [ /.+/ ] ]
