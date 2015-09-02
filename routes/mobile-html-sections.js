@@ -83,6 +83,13 @@ function buildLeadSections(sections) {
     return out;
 }
 
+function sanitizeEmptyProtection(protection) {
+    if (Array.isArray(protection)) {
+        return undefined; // MediaWiki API returns an empty array instead of an empty object, ouch!
+    }
+    return protection;
+}
+
 function parseExtract(body) {
     var id = Object.keys(body.query.pages)[0];
     var page = body.query.pages[id];
@@ -99,7 +106,7 @@ function buildLead(input) {
         normalizedtitle: input.page.normalizedtitle,
         redirected: input.page.redirected,
         description: input.page.description,
-        protection: input.page.protection,
+        protection: sanitizeEmptyProtection(input.page.protection),
         editable: input.page.editable,
         mainpage: input.page.mainpage,
         languagecount: input.page.languagecount,
