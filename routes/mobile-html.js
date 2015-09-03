@@ -230,8 +230,8 @@ function buildPageContentJSON(orig) {
 }
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
-function pageContentPromise(domain, title) {
-    return mwapi.getAllSections(domain, title)
+function pageContentPromise(logger, domain, title) {
+    return mwapi.getAllSections(logger, domain, title)
     .then(function (response) {
         //// transform all sections
         //var sections = response.body.mobileview.sections;
@@ -265,7 +265,7 @@ router.get('/mobile-html/:title', function (req, res) {
             uri: app.conf.restbase_uri + '/' + req.params.domain.replace(/^(\w+\.)m\./, '$1')
             + '/v1/page/html/' + encodeURIComponent(req.params.title),
         }),
-        page: pageContentPromise(req.params.domain, req.params.title),
+        page: pageContentPromise(req.logger, req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
         var html = compileHtml(response.html.body, response.page.json, response.media);

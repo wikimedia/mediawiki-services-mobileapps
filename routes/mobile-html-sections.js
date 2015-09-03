@@ -44,10 +44,8 @@ function dbg(name, obj) {
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
 function pageContentPromise(logger, domain, title) {
-    return mwapi.getAllSections(domain, title)
+    return mwapi.getAllSections(logger, domain, title)
     .then(function (response) {
-        mwapi.checkForMobileviewInResponse(logger, response);
-
         var sections = response.body.mobileview.sections;
 
         // transform all sections
