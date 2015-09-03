@@ -31,7 +31,7 @@ describe('mobile-html-sections-lead', function() {
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
-    it('en Main page should have a lead object with expected properties', function() {
+    it('en Cat page should have a lead object with expected properties', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/Cat' })
             .then(function(res) {
                 var lead = res.body;
