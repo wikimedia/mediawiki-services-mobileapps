@@ -82,4 +82,16 @@ describe('mobile-html-sections', function() {
                 assert.ok(remaining.sections[0].anchor.length > 3);
             });
     });
+    it('Missing title should respond with 404', function() {
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections/fldksfkjhajkfhjk' })
+            .then(function(res) {
+                assert.fail("expected an exception to be thrown");
+            }).catch(function(res) {
+                var body = res.body;
+                assert.deepEqual(res.status, 404);
+                assert.deepEqual(body.status, 404);
+                assert.deepEqual(body.type, 'missingtitle');
+                assert.deepEqual(body.title, "The page you requested doesn't exist");
+            });
+    });
 });

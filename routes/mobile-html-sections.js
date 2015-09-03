@@ -43,11 +43,14 @@ function dbg(name, obj) {
 }
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
-function pageContentPromise(domain, title) {
+function pageContentPromise(logger, domain, title) {
     return mwapi.getAllSections(domain, title)
     .then(function (response) {
-        // transform all sections
+        mwapi.checkForMobileviewInResponse(logger, response);
+
         var sections = response.body.mobileview.sections;
+
+        // transform all sections
         for (var idx = 0; idx < sections.length; idx++) {
             var section = sections[idx];
             section.text = transforms.runDomTransforms(section.text, idx);
@@ -142,7 +145,7 @@ function buildAll(input) {
  */
 router.get('/mobile-html-sections/:title', function (req, res) {
     return BBPromise.props({
-        page: pageContentPromise(req.params.domain, req.params.title),
+        page: pageContentPromise(req.logger, req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
         res.status(200).json(buildAll(response)).end();
@@ -155,7 +158,7 @@ router.get('/mobile-html-sections/:title', function (req, res) {
  */
 router.get('/mobile-html-sections-lead/:title', function (req, res) {
     return BBPromise.props({
-        page: pageContentPromise(req.params.domain, req.params.title),
+        page: pageContentPromise(req.logger, req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title),
         extract: mwapi.requestExtract(req.params.domain, req.params.title)
     }).then(function (response) {
@@ -169,7 +172,7 @@ router.get('/mobile-html-sections-lead/:title', function (req, res) {
  */
 router.get('/mobile-html-sections-remaining/:title', function (req, res) {
     return BBPromise.props({
-        page: pageContentPromise(req.params.domain, req.params.title)
+        page: pageContentPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
         res.status(200).json(buildRemaining(response)).end();
     });
