@@ -38,6 +38,7 @@ describe('mobile-html-sections-lead', function() {
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Cat');
+                assert.deepEqual(lead.description, 'species');
                 assert.deepEqual(lead.protection, {
                     "edit": [
                         "autoconfirmed"

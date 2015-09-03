@@ -38,6 +38,7 @@ describe('mobile-html-sections', function() {
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Main Page');
+                assert.deepEqual(lead.description, 'main page of a Wikimedia project');
                 assert.deepEqual(lead.protection, {
                     "edit": [
                         "sysop"
@@ -47,6 +48,7 @@ describe('mobile-html-sections', function() {
                     ]
                 });
                 assert.deepEqual(lead.editable, false);
+                assert.deepEqual(lead.mainpage, true);
                 assert.ok(lead.languagecount > 10);
                 assert.ok(lead.sections.length > 0, 'Expected at least one section element');
                 assert.deepEqual(lead.sections[0].id, 0);

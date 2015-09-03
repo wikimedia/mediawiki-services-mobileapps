@@ -96,19 +96,23 @@ function buildLead(input) {
         revision: input.page.revision,
         lastmodified: input.page.lastmodified,
         displaytitle: input.page.displaytitle,
+        normalizedtitle: input.page.normalizedtitle,
+        redirected: input.page.redirected,
+        description: input.page.description,
         protection: input.page.protection,
         editable: input.page.editable,
+        mainpage: input.page.mainpage,
         languagecount: input.page.languagecount,
         image: mUtil.defaultVal(mUtil.filterEmpty({
             file: input.page.image && input.page.image.file,
             urls: input.page.thumb && mwapi.buildLeadImageUrls(input.page.thumb.url)
         })),
         extract: input.extract && parseExtract(input.extract.body),
-        media: input.media,
         infobox: transforms.parseInfobox(lead),
         pronunciation: transforms.parsePronunciation(lead),
         geo: transforms.parseGeo(lead),
-        sections: buildLeadSections(input.page.sections)
+        sections: buildLeadSections(input.page.sections),
+        media: input.media
     };
 }
 

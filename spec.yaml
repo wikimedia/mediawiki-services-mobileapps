@@ -96,12 +96,14 @@ paths:
                 revision: /.+/
                 lastmodified: /.+/
                 displaytitle: /.+/
+                description: main page of a Wikimedia project
                 protection: /.+/
                 editable: /.+/
+                mainpage: true
                 languagecount: /.+/
+                sections: [ /.+/ ]
                 media:
                   items: [ /.+/ ]
-                sections: [ /.+/ ]
               remaining:
                 sections: []
   /{domain}/v1/page/mobile-html-sections-lead/{title}:
@@ -125,12 +127,14 @@ paths:
               revision: /.+/
               lastmodified: /.+/
               displaytitle: /.+/
+              description: main page of a Wikimedia project
               protection: /.+/
               editable: /.+/
+              mainpage: true
               languagecount: /.+/
+              sections: [ /.+/ ]
               media:
                 items: [ /.+/ ]
-              sections: [ /.+/ ]
         - title: retrieve lead section of en.wp San Francisco page via mobile-html-sections-lead
           request:
             params:
@@ -144,17 +148,18 @@ paths:
               revision: /.+/
               lastmodified: /.+/
               displaytitle: /.+/
+              description: /.+/
               protection: /.+/
               editable: /.+/
               languagecount: /.+/
               extract: /.+/
-              media:
-                items: [ /.+/ ]
               infobox: [ [ /.+/ ] ]
               geo:
                 latitude: /.+/
                 longitude: /.+/
               sections: [ /.+/ ]
+              media:
+                items: [ /.+/ ]
         - title: retrieve lead section of en.wp Barack Obama page via mobile-html-sections-lead
           request:
             params:
@@ -168,15 +173,16 @@ paths:
               revision: /.+/
               lastmodified: /.+/
               displaytitle: /.+/
+              description: /.+/
               protection: /.+/
               editable: /.+/
               languagecount: /.+/
-              media:
-                items: [ /.+/ ]
               infobox: [ [ /.+/ ] ]
               pronunciation:
                 url: /.+/
               sections: [ /.+/ ]
+              media:
+                items: [ /.+/ ]
   /{domain}/v1/page/mobile-html-sections-remaining/{title}:
     get:
       tags:
