@@ -96,6 +96,7 @@ paths:
                 revision: /.+/
                 lastmodified: /.+/
                 displaytitle: /.+/
+                normalizedtitle: /.+/
                 description: main page of a Wikimedia project
                 protection: /.+/
                 editable: /.+/
@@ -127,6 +128,7 @@ paths:
               revision: /.+/
               lastmodified: /.+/
               displaytitle: /.+/
+              normalizedtitle: /.+/
               description: main page of a Wikimedia project
               protection: /.+/
               editable: /.+/
@@ -148,6 +150,7 @@ paths:
               revision: /.+/
               lastmodified: /.+/
               displaytitle: /.+/
+              normalizedtitle: /.+/
               description: /.+/
               protection: /.+/
               editable: /.+/
@@ -173,6 +176,7 @@ paths:
               revision: /.+/
               lastmodified: /.+/
               displaytitle: /.+/
+              normalizedtitle: /.+/
               description: /.+/
               protection: /.+/
               editable: /.+/

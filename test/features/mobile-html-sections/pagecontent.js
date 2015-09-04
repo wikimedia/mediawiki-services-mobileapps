@@ -38,6 +38,7 @@ describe('mobile-html-sections', function() {
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Main Page');
+                assert.deepEqual(lead.normalizedtitle, 'Main Page');
                 assert.deepEqual(lead.description, 'main page of a Wikimedia project');
                 assert.deepEqual(lead.protection, {
                     "edit": [
@@ -57,7 +58,7 @@ describe('mobile-html-sections', function() {
                 assert.ok(lead.media.items.length > 0, 'Expected at least one media item');
             });
     });
-    it('Obama (redirect) should have a lead image and many media items', function() {
+    it('Obama (redirect) should have a lead image, expected properties, and many media items', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections/Obama' })
             .then(function(res) {
                 var lead = res.body.lead;
@@ -70,6 +71,8 @@ describe('mobile-html-sections', function() {
                 assert.contains(lead.image.urls["1024"], "//upload.wikimedia.org/wikipedia/commons/thumb");
                 assert.contains(lead.image.urls["1024"], "1024px-");
 
+                assert.deepEqual(lead.description, "44th President of the United States");
+                assert.deepEqual(lead.redirected, "Barack Obama");
                 assert.ok(lead.media.items.length > 3, 'Expected many media items');
 
                 var remaining = res.body.remaining;
