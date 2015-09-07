@@ -57,8 +57,7 @@ for service development.
 - [`app.js`](../app.js) - contains the application declaration and loading logic
 - [`routes`](../routes/) - contains the definitions of the loaded routes; this
   is where most of your coding is to take place
-- [`lib/service-util.js`](../lib/service-util.js) - contains some service
-  utility functions and classes
+- [`lib/util.js`](../lib/util.js) - contains some utility functions and classes
 - [`static`](../static/) - this is where served static files go (HTML, CSS,
   client-side JS, etc.)
 - [`test`](../test/) - contains the test files for the example routes in the

@@ -1,7 +1,7 @@
 'use strict';
 
 
-var sUtil = require('../lib/service-util');
+var sUtil = require('../lib/util');
 
 
 /**

@@ -15,7 +15,7 @@
 //var BBPromise = require('bluebird');
 var preq = require('preq');
 var domino = require('domino');
-var sUtil = require('../lib/service-util');
+var sUtil = require('../lib/util');
 var mwapi = require('../lib/mwapi');
 
 // shortcut
