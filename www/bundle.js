@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var bridge = require('./bridge');
-var util = require('./util');
+var util = require('./utilities');
 
 function ActionsHandler() {
 }
@@ -45,7 +45,7 @@ document.onclick = function() {
     // If an element was clicked, check if it or any of its parents are <a>
     // This handles cases like <a>foo</a>, <a><strong>foo</strong></a>, etc.
     while (curNode) {
-        if (curNode.tagName === "A") {
+        if (curNode.tagName === "A" || curNode.tagName === "AREA") {
             sourceNode = curNode;
             break;
         }
@@ -120,7 +120,7 @@ function collectIssues( sourceNode ) {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./util":14}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":25}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -259,6 +259,7 @@ function replaceImageSrc( payload ) {
         var img = images[i];
         img.setAttribute( "src", payload.newURL );
         img.setAttribute( "data-old-src", payload.originalURL );
+        img.removeAttribute( "srcset" );
     }
 }
 bridge.registerListener( "replaceImageSrc", replaceImageSrc );
@@ -301,57 +302,59 @@ bridge.registerListener( 'getAppMeta2', function() {
 });
 
 },{"./bridge":2}],9:[function(require,module,exports){
-var parseCSSColor = require("../lib/js/css-color-parser");
 var bridge = require("./bridge");
 var loader = require("./loader");
-var util = require("./util");
+var utilities = require("./utilities");
 
-function invertColorProperty( el, propertyName ) {
-	var property = el.style[propertyName];
-	console.log( JSON.stringify( parseCSSColor ) );
-	var bits = parseCSSColor( property );
-	if ( bits === null ) {
-		// We couldn't parse the color, nevermind
-		return;
+function setImageBackgroundsForDarkMode( content ) {
+	var img, allImgs = content.querySelectorAll( 'img' );
+	for ( var i = 0; i < allImgs.length; i++ ) {
+		img = allImgs[i];
+		if ( likelyExpectsLightBackground( img ) ) {
+			img.style.background = '#fff';
+		}
 	}
-	var r = parseInt( bits[0] ), g = parseInt( bits[1] ), b = parseInt( bits[2] );
-	el.style[propertyName] = 'rgb(' + (255 - r) + ', ' + (255 - g) + ', ' + (255 - b ) + ')';
-}
-
-var invertProperties = [ 'color', 'background-color', 'border-color' ];
-function invertOneElement( el ) {
-	var shouldStrip = util.hasAncestor( el, 'TABLE' );
-	for ( var i = 0; i < invertProperties.length; i++ ) {
-		if ( el.style[invertProperties[i]] ) {
-			if ( shouldStrip ) {
-				el.style[invertProperties[i]] = 'inherit';
-			} else {
-				invertColorProperty( el, invertProperties[i] );
-			}
+	// and now, look for Math formula images, and invert them
+	var mathImgs = content.querySelectorAll( "[class*='math-fallback']" );
+	for ( i = 0; i < mathImgs.length; i++ ) {
+		var mathImg = mathImgs[i];
+		// KitKat and higher can use webkit to invert colors
+		if (window.apiLevel >= 19) {
+			mathImg.style.cssText = mathImg.style.cssText + ";-webkit-filter: invert(100%);";
+		} else {
+			// otherwise, just give it a mild background color
+			mathImg.style.backgroundColor = "#ccc";
+			// and give it a little padding, since the text is right up against the edge.
+			mathImg.style.padding = "2px";
 		}
 	}
 }
 
-function invertElement( el ) {
-    // first, invert the colors of tables and other elements
-	var allElements = el.querySelectorAll( '*[style]' );
-	for ( var i = 0; i < allElements.length; i++ ) {
-		invertOneElement( allElements[i] );
-	}
-    // and now, look for Math formula images, and invert them
-    var mathImgs = el.querySelectorAll( "[class*='math-fallback']" );
-    for ( i = 0; i < mathImgs.length; i++ ) {
-        var mathImg = mathImgs[i];
-        // KitKat and higher can use webkit to invert colors
-        if (window.apiLevel >= 19) {
-            mathImg.style.cssText = mathImg.style.cssText + ";-webkit-filter: invert(100%);";
-        } else {
-            // otherwise, just give it a mild background color
-            mathImg.style.backgroundColor = "#ccc";
-            // and give it a little padding, since the text is right up against the edge.
-            mathImg.style.padding = "2px";
-        }
-    }
+/**
+/ An heuristic for determining whether an element tagged 'img' is likely to need a white background applied
+/ (provided a predefined background color is not supplied).
+/
+/ Based on trial, error and observation, this is likely to be the case when a background color is not
+/ explicitly supplied, and:
+/
+/ (1) The element is in the infobox; or
+/ (2) The element is not in a table.  ('img' elements in tables are frequently generated by random
+/ 		templates and should not be altered; see, e.g., T85646).
+*/
+function likelyExpectsLightBackground( element ) {
+	return !hasPredefinedBackgroundColor( element ) && ( isInfoboxImage( element ) || isNotInTable( element ) );
+}
+
+function hasPredefinedBackgroundColor( element ) {
+	return utilities.ancestorHasStyleProperty( element, 'background-color' );
+}
+
+function isInfoboxImage( element ) {
+	return utilities.ancestorContainsClass( element, 'image' ) && utilities.ancestorContainsClass( element, 'infobox' );
+}
+
+function isNotInTable( element ) {
+	return !utilities.isNestedInTable( element );
 }
 
 function toggle( nightCSSURL, hasPageLoaded ) {
@@ -370,7 +373,7 @@ function toggle( nightCSSURL, hasPageLoaded ) {
 		// If we are doing this before the page has loaded, no need to swap colors ourselves
 		// If we are doing this after, that means the transforms in transformers.js won't run
 		// And we have to do this ourselves
-		invertElement( document.querySelector( '.content' ) );
+		setImageBackgroundsForDarkMode( document.querySelector( '.content' ) );
 	}
 }
 
@@ -379,15 +382,21 @@ bridge.registerListener( 'toggleNightMode', function( payload ) {
 } );
 
 module.exports = {
-	invertElement: invertElement
+	setImageBackgroundsForDarkMode: setImageBackgroundsForDarkMode
 };
 
-},{"../lib/js/css-color-parser":16,"./bridge":2,"./loader":6,"./util":14}],10:[function(require,module,exports){
+},{"./bridge":2,"./loader":6,"./utilities":25}],10:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
     window.directionality = payload.contentDirection;
     var html = document.getElementsByTagName( "html" )[0];
+    // first, remove all the possible directionality classes...
+    html.classList.remove( "content-rtl" );
+    html.classList.remove( "content-ltr" );
+    html.classList.remove( "ui-rtl" );
+    html.classList.remove( "ui-ltr" );
+    // and then set the correct class based on our payload.
     html.classList.add( "content-" + window.directionality );
     html.classList.add( "ui-" + payload.uiDirection );
 } );
@@ -424,6 +433,28 @@ bridge.registerListener( "beginNewPage", function( payload ) {
     }, 10);
 });
 
+function getLeadParagraph() {
+    var text = "";
+    var plist = document.getElementsByTagName( "p" );
+    if (plist.length > 0) {
+        text = plist[0].innerText;
+    }
+    return text;
+}
+
+// Returns currently highlighted text.
+// If fewer than two characters are highlighted, returns the text of the first paragraph.
+bridge.registerListener( "getTextSelection", function( payload ) {
+    var text = window.getSelection().toString().trim();
+    if (text.length < 2) {
+        text = getLeadParagraph();
+    }
+    if (text.length > 250) {
+        text = text.substring(0, 249);
+    }
+    bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : text } );
+});
+
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
     clearContents();
@@ -441,10 +472,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     issuesContainer.className = "issues_container";
     document.getElementById( "content" ).appendChild( issuesContainer );
 
-    var editButton = document.createElement( "a" );
-    editButton.setAttribute( 'data-id', payload.section.id );
-    editButton.setAttribute( 'data-action', "edit_section" );
-    editButton.className = "edit_section_button";
+    var editButton = buildEditSectionButton( payload.section.id );
 
     var content = document.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
@@ -465,16 +493,25 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     // dimension measurements for items.
     document.getElementById( "content" ).appendChild( content );
 
-    content = transformer.transform( "leadSection", content );
-    content = transformer.transform( "section", content );
-    content = transformer.transform( "hideTables", content );
-    content = transformer.transform( "hideIPA", content );
+    transformer.transform( "moveFirstGoodParagraphUp" );
+    transformer.transform( "addDarkModeStyles", content );
+    transformer.transform( "hideRedLinks", content );
+    transformer.transform( "setNonGbDivWidth", content );
+    transformer.transform( "setMathFormulaImageMaxWidth", content );
+    transformer.transform( "anchorPopUpMediaTransforms", content );
+    transformer.transform( "hideIPA", content );
+
+    if (!window.isMainPage) {
+        transformer.transform( "hideTables", content );
+        transformer.transform( "addImageOverflowXContainers", content );
+        transformer.transform( "widenImages", content );
+    }
 
     // insert the edit pencil
     content.insertBefore( editButton, content.firstChild );
 
-    content = transformer.transform("displayDisambigLink", content);
-    content = transformer.transform("displayIssuesLink", content);
+    transformer.transform("displayDisambigLink", content);
+    transformer.transform("displayIssuesLink", content);
 
     //if there were no page issues, then hide the container
     if (!issuesContainer.hasChildNodes()) {
@@ -507,6 +544,17 @@ function clearContents() {
     window.scrollTo( 0, 0 );
 }
 
+function buildEditSectionButton(id) {
+    var editButtonWrapper = document.createElement( "span" );
+    editButtonWrapper.className = "edit_section_button_wrapper android";
+    var editButton = document.createElement( "a" );
+    editButton.setAttribute( 'data-id', id );
+    editButton.setAttribute( 'data-action', "edit_section" );
+    editButton.className = "edit_section_button android";
+    editButtonWrapper.appendChild( editButton );
+    return editButtonWrapper;
+}
+
 function elementsForSection( section ) {
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
     heading.setAttribute( "dir", window.directionality );
@@ -515,20 +563,24 @@ function elementsForSection( section ) {
     heading.className = "section_heading";
     heading.setAttribute( 'data-id', section.id );
 
-    var editButton = document.createElement( "a" );
-    editButton.setAttribute( 'data-id', section.id );
-    editButton.setAttribute( 'data-action', "edit_section" );
-    editButton.className = "edit_section_button";
-    heading.appendChild( editButton );
+    heading.appendChild( buildEditSectionButton( section.id ) );
 
     var content = document.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
-    content = transformer.transform( "section", content );
-    content = transformer.transform( "hideTables", content );
-    content = transformer.transform( "hideIPA", content );
-    content = transformer.transform( "hideRefs", content );
+    transformer.transform( "addDarkModeStyles", content );
+    transformer.transform( "hideRedLinks", content );
+    transformer.transform( "setNonGbDivWidth", content );
+    transformer.transform( "setMathFormulaImageMaxWidth", content );
+    transformer.transform( "anchorPopUpMediaTransforms", content );
+    transformer.transform( "hideIPA", content );
+    transformer.transform( "hideRefs", content );
+    if (!window.isMainPage) {
+        transformer.transform( "hideTables", content );
+        transformer.transform( "addImageOverflowXContainers", content );
+        transformer.transform( "widenImages", content );
+    }
 
     return [ heading, content ];
 }
@@ -544,7 +596,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
             scrolledOnLoad = true;
         }
         document.getElementById( "loading_sections").className = "";
-        bridge.sendMessage( "pageLoadComplete", { "sequence": payload.sequence } );
+        bridge.sendMessage( "pageLoadComplete", { "sequence": payload.sequence, "savedPage": payload.savedPage } );
     } else {
         var contentWrapper = document.getElementById( "content" );
         elementsForSection(payload.section).forEach(function (element) {
@@ -559,7 +611,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
         if ( typeof payload.fragment === "string" && payload.fragment.length > 0 && payload.section.anchor === payload.fragment) {
             scrollToSection( payload.fragment );
         }
-        bridge.sendMessage( "requestSection", { "sequence": payload.sequence, "index": payload.section.id + 1 });
+        bridge.sendMessage( "requestSection", { "sequence": payload.sequence, "savedPage": payload.savedPage, "index": payload.section.id + 1 });
     }
 });
 
@@ -630,15 +682,354 @@ Transformer.prototype.transform = function( transform, element ) {
     for ( var i = 0; i < functions.length; i++ ) {
         element = functions[i](element);
     }
-    return element;
 };
 
 module.exports = new Transformer();
 
 },{}],13:[function(require,module,exports){
-var transformer = require("./transformer");
-var night = require("./night");
-var bridge = require( "./bridge" );
+require("./transforms/addDarkModeStyles");
+require("./transforms/addImageOverflowContainers");
+require("./transforms/anchorPopUpMediaTransforms");
+require("./transforms/collapseTables");
+require("./transforms/hideIpa");
+require("./transforms/hideRedLinks");
+require("./transforms/hideRefs");
+require("./transforms/relocateFirstParagraph");
+require("./transforms/setMathFormulaImageMaxWidth");
+require("./transforms/setNonGbDivWidth");
+require("./transforms/widenImages");
+
+},{"./transforms/addDarkModeStyles":14,"./transforms/addImageOverflowContainers":15,"./transforms/anchorPopUpMediaTransforms":16,"./transforms/collapseTables":17,"./transforms/hideIpa":18,"./transforms/hideRedLinks":19,"./transforms/hideRefs":20,"./transforms/relocateFirstParagraph":21,"./transforms/setMathFormulaImageMaxWidth":22,"./transforms/setNonGbDivWidth":23,"./transforms/widenImages":24}],14:[function(require,module,exports){
+var transformer = require("../transformer");
+var night = require("../night");
+
+transformer.register( "addDarkModeStyles", function( content ) {
+	if ( window.isNightMode ) {
+		night.setImageBackgroundsForDarkMode ( content );
+	}
+} );
+},{"../night":9,"../transformer":12}],15:[function(require,module,exports){
+var transformer = require("../transformer");
+var utilities = require("../utilities");
+
+function shouldAddImageOverflowXContainer(image) {
+    if ((image.width > document.getElementById('content').offsetWidth) && !utilities.isNestedInTable(image)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function addImageOverflowXContainer(image, ancestor) {
+    image.setAttribute('hasOverflowXContainer', 'true'); // So "widenImages" transform knows instantly not to widen this one.
+    var div = document.createElement( 'div' );
+    div.className = 'image_overflow_x_container';
+    ancestor.parentElement.insertBefore( div, ancestor );
+    div.appendChild(ancestor);
+}
+
+function maybeAddImageOverflowXContainer() {
+    var image = this;
+    if (shouldAddImageOverflowXContainer(image)) {
+        var ancestor = utilities.firstAncestorWithMultipleChildren(image);
+        if (ancestor) {
+            addImageOverflowXContainer(image, ancestor);
+        }
+    }
+}
+
+transformer.register( "addImageOverflowXContainers", function( content ) {
+    // Wrap wide images in a <div style="overflow-x:auto">...</div> so they can scroll
+    // side to side if needed without causing the entire section to scroll side to side.
+    var images = content.getElementsByTagName('img');
+    for (var i = 0; i < images.length; ++i) {
+        // Load event used so images w/o style or inline width/height
+        // attributes can still have their size determined reliably.
+        images[i].addEventListener('load', maybeAddImageOverflowXContainer, false);
+    }
+} );
+},{"../transformer":12,"../utilities":25}],16:[function(require,module,exports){
+var transformer = require("../transformer");
+
+transformer.register( "anchorPopUpMediaTransforms", function( content ) {
+    // look for video thumbnail containers (divs that have class "PopUpMediaTransform"),
+    // and enclose them in an anchor that will lead to the correct click handler...
+	var mediaDivs = content.querySelectorAll( 'div.PopUpMediaTransform' );
+	for ( var i = 0; i < mediaDivs.length; i++ ) {
+		var mediaDiv = mediaDivs[i];
+		var imgTags = mediaDiv.querySelectorAll( 'img' );
+		if (imgTags.length === 0) {
+		    continue;
+		}
+		// the first img element is the video thumbnail, and its 'alt' attribute is
+		// the file name of the video!
+		if (!imgTags[0].getAttribute( 'alt' )) {
+		    continue;
+		}
+		// also, we should hide the "Play media" link that appears under the thumbnail,
+		// since we don't need it.
+		var aTags = mediaDiv.querySelectorAll( 'a' );
+		if (aTags.length > 0) {
+		    aTags[0].parentNode.removeChild(aTags[0]);
+		}
+		var containerLink = document.createElement( 'a' );
+        containerLink.setAttribute( 'href', imgTags[0].getAttribute( 'alt' ) );
+        containerLink.classList.add( 'app_media' );
+        mediaDiv.parentNode.insertBefore(containerLink, mediaDiv);
+        mediaDiv.parentNode.removeChild(mediaDiv);
+        containerLink.appendChild(imgTags[0]);
+	}
+} );
+},{"../transformer":12}],17:[function(require,module,exports){
+var transformer = require("../transformer");
+
+/*
+Tries to get an array of table header (TH) contents from a given table.
+If there are no TH elements in the table, an empty array is returned.
+*/
+function getTableHeader( element ) {
+    var thArray = [];
+    if (element.children === undefined || element.children === null) {
+        return thArray;
+    }
+    for (var i = 0; i < element.children.length; i++) {
+        var el = element.children[i];
+        if (el.tagName === "TH") {
+            // ok, we have a TH element!
+            // However, if it contains more than two links, then ignore it, because
+            // it will probably appear weird when rendered as plain text.
+            var aNodes = el.querySelectorAll( "a" );
+            if (aNodes.length < 3) {
+                // Also ignore it if it's identical to the page title.
+                if (el.innerText.length > 0 && el.innerText !== window.pageTitle && el.innerHTML !== window.pageTitle) {
+                    thArray.push(el.innerText);
+                }
+            }
+        }
+        //if it's a table within a table, don't worry about it
+        if (el.tagName === "TABLE") {
+            continue;
+        }
+        //recurse into children of this element
+        var ret = getTableHeader(el);
+        //did we get a list of TH from this child?
+        if (ret.length > 0) {
+            thArray = thArray.concat(ret);
+        }
+    }
+    return thArray;
+}
+
+function handleTableCollapseOrExpandClick() {
+    var container = this.parentNode;
+    var divCollapsed = container.children[0];
+    var tableFull = container.children[1];
+    var divBottom = container.children[2];
+    var caption = divCollapsed.querySelector('.app_table_collapsed_caption');
+    if (tableFull.style.display !== 'none') {
+        tableFull.style.display = 'none';
+        divCollapsed.classList.remove('app_table_collapse_close');
+        divCollapsed.classList.remove('app_table_collapse_icon');
+        divCollapsed.classList.add('app_table_collapsed_open');
+        if (caption !== null) {
+            caption.style.visibility = 'visible';
+        }
+        divBottom.style.display = 'none';
+        //if they clicked the bottom div, then scroll back up to the top of the table.
+        if (this === divBottom) {
+            window.scrollTo( 0, container.offsetTop - 48 );
+        }
+    } else {
+        tableFull.style.display = 'block';
+        divCollapsed.classList.remove('app_table_collapsed_open');
+        divCollapsed.classList.add('app_table_collapse_close');
+        divCollapsed.classList.add('app_table_collapse_icon');
+        if (caption !== null) {
+            caption.style.visibility = 'hidden';
+        }
+        divBottom.style.display = 'block';
+    }
+}
+
+transformer.register( "hideTables", function( content ) {
+    var tables = content.querySelectorAll( "table" );
+    for (var i = 0; i < tables.length; i++) {
+        //is the table already hidden? if so, don't worry about it
+        if (tables[i].style.display === 'none' || tables[i].classList.contains( 'navbox' ) || tables[i].classList.contains( 'vertical-navbox' ) || tables[i].classList.contains( 'navbox-inner' ) || tables[i].classList.contains( 'metadata' )) {
+            continue;
+        }
+
+        var isInfobox = tables[i].classList.contains( 'infobox' );
+        var headerText = getTableHeader(tables[i]);
+        if (headerText.length === 0 && !isInfobox) {
+            continue;
+        }
+        var caption = "<strong>" + (isInfobox ? window.string_table_infobox : window.string_table_other) + "</strong>";
+        caption += "<span class='app_span_collapse_text'>";
+        if (headerText.length > 0) {
+            caption += ": " + headerText[0];
+        }
+        if (headerText.length > 1) {
+            caption += ", " + headerText[1];
+        }
+        if (headerText.length > 0) {
+            caption += " ...";
+        }
+        caption += "</span>";
+
+        //create the container div that will contain both the original table
+        //and the collapsed version.
+        var containerDiv = document.createElement( 'div' );
+        containerDiv.className = 'app_table_container';
+        tables[i].parentNode.insertBefore(containerDiv, tables[i]);
+        tables[i].parentNode.removeChild(tables[i]);
+
+        //remove top and bottom margin from the table, so that it's flush with
+        //our expand/collapse buttons
+        tables[i].style.marginTop = "0px";
+        tables[i].style.marginBottom = "0px";
+
+        //create the collapsed div
+        var collapsedDiv = document.createElement( 'div' );
+        collapsedDiv.classList.add('app_table_collapsed_container');
+        collapsedDiv.classList.add('app_table_collapsed_open');
+        collapsedDiv.innerHTML = caption;
+
+        //create the bottom collapsed div
+        var bottomDiv = document.createElement( 'div' );
+        bottomDiv.classList.add('app_table_collapsed_bottom');
+        bottomDiv.classList.add('app_table_collapse_icon');
+        bottomDiv.innerHTML = window.string_table_close;
+
+        //add our stuff to the container
+        containerDiv.appendChild(collapsedDiv);
+        containerDiv.appendChild(tables[i]);
+        containerDiv.appendChild(bottomDiv);
+
+        //set initial visibility
+        tables[i].style.display = 'none';
+        collapsedDiv.style.display = 'block';
+        bottomDiv.style.display = 'none';
+
+        //assign click handler to the collapsed divs
+        collapsedDiv.onclick = handleTableCollapseOrExpandClick;
+        bottomDiv.onclick = handleTableCollapseOrExpandClick;
+    }
+} );
+
+module.exports = {
+    handleTableCollapseOrExpandClick: handleTableCollapseOrExpandClick
+};
+},{"../transformer":12}],18:[function(require,module,exports){
+var transformer = require("../transformer");
+var bridge = require("../bridge");
+
+/*
+OnClick handler function for IPA spans.
+*/
+function ipaClickHandler() {
+    var container = this;
+    bridge.sendMessage( "ipaSpan", { "contents": container.innerHTML });
+}
+
+transformer.register( "hideIPA", function( content ) {
+    var spans = content.querySelectorAll( "span.IPA" );
+    for (var i = 0; i < spans.length; i++) {
+        var parentSpan = spans[i].parentNode;
+        if (parentSpan === null) {
+            continue;
+        }
+        var doTransform = false;
+        // case 1: we have a sequence of IPA spans contained in a parent "nowrap" span
+        if (parentSpan.tagName === "SPAN" && spans[i].classList.contains('nopopups')) {
+            doTransform = true;
+        }
+        if (parentSpan.style.display === 'none') {
+            doTransform = false;
+        }
+        if (!doTransform) {
+            continue;
+        }
+
+        //we have a new IPA span!
+
+        var containerSpan = document.createElement( 'span' );
+        parentSpan.parentNode.insertBefore(containerSpan, parentSpan);
+        parentSpan.parentNode.removeChild(parentSpan);
+
+        //create and add the button
+        var buttonDiv = document.createElement( 'div' );
+        buttonDiv.classList.add('ipa_button');
+        containerSpan.appendChild(buttonDiv);
+        containerSpan.appendChild(parentSpan);
+
+        //set initial visibility
+        parentSpan.style.display = 'none';
+        //and assign the click handler to it
+        containerSpan.onclick = ipaClickHandler;
+    }
+} );
+},{"../bridge":2,"../transformer":12}],19:[function(require,module,exports){
+var transformer = require("../transformer");
+
+transformer.register( "hideRedLinks", function( content ) {
+	var redLinks = content.querySelectorAll( 'a.new' );
+	for ( var i = 0; i < redLinks.length; i++ ) {
+		var redLink = redLinks[i];
+		var replacementSpan = document.createElement( 'span' );
+		replacementSpan.innerHTML = redLink.innerHTML;
+		replacementSpan.setAttribute( 'class', redLink.getAttribute( 'class' ) );
+		redLink.parentNode.replaceChild( replacementSpan, redLink );
+	}
+} );
+},{"../transformer":12}],20:[function(require,module,exports){
+var transformer = require("../transformer");
+var collapseTables = require("./collapseTables");
+
+transformer.register( "hideRefs", function( content ) {
+    var refLists = content.querySelectorAll( "div.reflist" );
+    for (var i = 0; i < refLists.length; i++) {
+        var caption = "<strong class='app_table_collapsed_caption'>" + window.string_expand_refs + "</strong>";
+
+        //create the container div that will contain both the original table
+        //and the collapsed version.
+        var containerDiv = document.createElement( 'div' );
+        containerDiv.className = 'app_table_container';
+        refLists[i].parentNode.insertBefore(containerDiv, refLists[i]);
+        refLists[i].parentNode.removeChild(refLists[i]);
+
+        //create the collapsed div
+        var collapsedDiv = document.createElement( 'div' );
+        collapsedDiv.classList.add('app_table_collapsed_container');
+        collapsedDiv.classList.add('app_table_collapsed_open');
+        collapsedDiv.innerHTML = caption;
+
+        //create the bottom collapsed div
+        var bottomDiv = document.createElement( 'div' );
+        bottomDiv.classList.add('app_table_collapsed_bottom');
+        bottomDiv.classList.add('app_table_collapse_icon');
+        bottomDiv.innerHTML = window.string_table_close;
+
+        //add our stuff to the container
+        containerDiv.appendChild(collapsedDiv);
+        containerDiv.appendChild(refLists[i]);
+        containerDiv.appendChild(bottomDiv);
+
+        //give it just a little padding
+        refLists[i].style.padding = "4px";
+
+        //set initial visibility
+        refLists[i].style.display = 'none';
+        collapsedDiv.style.display = 'block';
+        bottomDiv.style.display = 'none';
+
+        //assign click handler to the collapsed divs
+        collapsedDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
+        bottomDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
+    }
+} );
+},{"../transformer":12,"./collapseTables":17}],21:[function(require,module,exports){
+var transformer = require("../transformer");
 
 // Takes a block of text, and removes any text within parentheses, but only
 // until the end of the first sentence.
@@ -685,20 +1076,20 @@ function removeParensFromText( string ) {
 // Move the first non-empty paragraph of text to the top of the section.
 // This will have the effect of shifting the infobox and/or any images at the top of the page
 // below the first paragraph, allowing the user to start reading the page right away.
-transformer.register( "leadSection", function( leadContent ) {
+transformer.register( "moveFirstGoodParagraphUp", function() {
     if (window.isMainPage) {
         // don't do anything if this is the main page, since many wikis
         // arrange the main page in a series of tables.
-        return leadContent;
+        return;
     }
     var block_0 = document.getElementById( "content_block_0" );
     if (!block_0) {
-        return leadContent;
+        return;
     }
 
     var allPs = block_0.getElementsByTagName( "p" );
     if (!allPs) {
-        return leadContent;
+        return;
     }
 
     for ( var i = 0; i < allPs.length; i++ ) {
@@ -732,254 +1123,31 @@ transformer.register( "leadSection", function( leadContent ) {
         // But only move one P!
         break;
     }
-    return leadContent;
 } );
+},{"../transformer":12}],22:[function(require,module,exports){
+var transformer = require("../transformer");
 
-/*
-Tries to get an array of table header (TH) contents from a given table.
-If there are no TH elements in the table, an empty array is returned.
-*/
-function getTableHeader( element ) {
-    var thArray = [];
-    if (element.children === undefined || element.children === null) {
-        return thArray;
-    }
-    for (var i = 0; i < element.children.length; i++) {
-        var el = element.children[i];
-        if (el.tagName === "TH") {
-            // ok, we have a TH element!
-            // However, if it contains more than two links, then ignore it, because
-            // it will probably appear weird when rendered as plain text.
-            var aNodes = el.querySelectorAll( "a" );
-            if (aNodes.length < 3) {
-                // Also ignore it if it's identical to the page title.
-                if (el.innerText.length > 0 && el.innerText !== window.pageTitle && el.innerHTML !== window.pageTitle) {
-                    thArray.push(el.innerText);
-                }
+transformer.register( "setMathFormulaImageMaxWidth", function( content ) {
+    // Prevent horizontally scrollable pages by checking for math formula images (which are
+    // often quite wide), and explicitly setting their maximum width to fit the viewport.
+    var allImgs = content.querySelectorAll( 'img' );
+    for ( var i = 0; i < allImgs.length; i++ ) {
+        var imgItem = allImgs[i];
+        // is the image a math formula?
+        for ( var c = 0; c < imgItem.classList.length; c++ ) {
+            if (imgItem.classList[c].indexOf("math") > -1) {
+                imgItem.style.maxWidth = "100%";
             }
         }
-        //if it's a table within a table, don't worry about it
-        if (el.tagName === "TABLE") {
-            continue;
-        }
-        //recurse into children of this element
-        var ret = getTableHeader(el);
-        //did we get a list of TH from this child?
-        if (ret.length > 0) {
-            thArray = thArray.concat(ret);
-        }
     }
-    return thArray;
-}
-
-/*
-OnClick handler function for expanding/collapsing tables and infoboxes.
-*/
-function tableCollapseClickHandler() {
-    var container = this.parentNode;
-    var divCollapsed = container.children[0];
-    var tableFull = container.children[1];
-    var divBottom = container.children[2];
-    if (tableFull.style.display !== 'none') {
-        tableFull.style.display = 'none';
-        divCollapsed.classList.remove('app_table_collapse_close');
-        divCollapsed.classList.remove('app_table_collapse_icon');
-        divCollapsed.classList.add('app_table_collapsed_open');
-        divBottom.style.display = 'none';
-        //if they clicked the bottom div, then scroll back up to the top of the table.
-        if (this === divBottom) {
-            window.scrollTo( 0, container.offsetTop - 48 );
-        }
-    } else {
-        tableFull.style.display = 'block';
-        divCollapsed.classList.remove('app_table_collapsed_open');
-        divCollapsed.classList.add('app_table_collapse_close');
-        divCollapsed.classList.add('app_table_collapse_icon');
-        divBottom.style.display = 'block';
-    }
-}
-
-transformer.register( "hideTables", function( content ) {
-    var tables = content.querySelectorAll( "table" );
-    for (var i = 0; i < tables.length; i++) {
-        //is the table already hidden? if so, don't worry about it
-        if (tables[i].style.display === 'none' || tables[i].classList.contains( 'navbox' ) || tables[i].classList.contains( 'vertical-navbox' ) || tables[i].classList.contains( 'navbox-inner' ) || tables[i].classList.contains( 'metadata' )) {
-            continue;
-        }
-
-        var isInfobox = tables[i].classList.contains( 'infobox' );
-        var headerText = getTableHeader(tables[i]);
-        if (headerText.length === 0 && !isInfobox) {
-            continue;
-        }
-        var caption = "<strong>" + (isInfobox ? window.string_table_infobox : window.string_table_other) + "</strong>";
-        caption += "<span class='app_span_collapse_text'>";
-        if (headerText.length > 0) {
-            caption += ": " + headerText[0];
-        }
-        if (headerText.length > 1) {
-            caption += ", " + headerText[1];
-        }
-        if (headerText.length > 0) {
-            caption += ", ...";
-        }
-        caption += "</span>";
-
-        //create the container div that will contain both the original table
-        //and the collapsed version.
-        var containerDiv = document.createElement( 'div' );
-        containerDiv.className = 'app_table_container';
-        tables[i].parentNode.insertBefore(containerDiv, tables[i]);
-        tables[i].parentNode.removeChild(tables[i]);
-
-        //remove top and bottom margin from the table, so that it's flush with
-        //our expand/collapse buttons
-        tables[i].style.marginTop = "0px";
-        tables[i].style.marginBottom = "0px";
-
-        //create the collapsed div
-        var collapsedDiv = document.createElement( 'div' );
-        collapsedDiv.classList.add('app_table_collapsed_container');
-        collapsedDiv.classList.add('app_table_collapsed_open');
-        collapsedDiv.innerHTML = caption;
-
-        //create the bottom collapsed div
-        var bottomDiv = document.createElement( 'div' );
-        bottomDiv.classList.add('app_table_collapsed_bottom');
-        bottomDiv.classList.add('app_table_collapse_icon');
-        bottomDiv.innerHTML = window.string_table_close;
-
-        //add our stuff to the container
-        containerDiv.appendChild(collapsedDiv);
-        containerDiv.appendChild(tables[i]);
-        containerDiv.appendChild(bottomDiv);
-
-        //set initial visibility
-        tables[i].style.display = 'none';
-        collapsedDiv.style.display = 'block';
-        bottomDiv.style.display = 'none';
-
-        //assign click handler to the collapsed divs
-        collapsedDiv.onclick = tableCollapseClickHandler;
-        bottomDiv.onclick = tableCollapseClickHandler;
-    }
-    return content;
 } );
+},{"../transformer":12}],23:[function(require,module,exports){
+var transformer = require("../transformer");
 
-transformer.register( "hideRefs", function( content ) {
-    var refLists = content.querySelectorAll( "div.reflist" );
-    for (var i = 0; i < refLists.length; i++) {
-        var caption = "<strong>" + window.string_expand_refs + "</strong>";
-
-        //create the container div that will contain both the original table
-        //and the collapsed version.
-        var containerDiv = document.createElement( 'div' );
-        containerDiv.className = 'app_table_container';
-        refLists[i].parentNode.insertBefore(containerDiv, refLists[i]);
-        refLists[i].parentNode.removeChild(refLists[i]);
-
-        //create the collapsed div
-        var collapsedDiv = document.createElement( 'div' );
-        collapsedDiv.classList.add('app_table_collapsed_container');
-        collapsedDiv.classList.add('app_table_collapsed_open');
-        collapsedDiv.innerHTML = caption;
-
-        //create the bottom collapsed div
-        var bottomDiv = document.createElement( 'div' );
-        bottomDiv.classList.add('app_table_collapsed_bottom');
-        bottomDiv.classList.add('app_table_collapse_icon');
-        bottomDiv.innerHTML = window.string_table_close;
-
-        //add our stuff to the container
-        containerDiv.appendChild(collapsedDiv);
-        containerDiv.appendChild(refLists[i]);
-        containerDiv.appendChild(bottomDiv);
-
-        //give it just a little padding
-        refLists[i].style.padding = "4px";
-
-        //set initial visibility
-        refLists[i].style.display = 'none';
-        collapsedDiv.style.display = 'block';
-        bottomDiv.style.display = 'none';
-
-        //assign click handler to the collapsed divs
-        collapsedDiv.onclick = tableCollapseClickHandler;
-        bottomDiv.onclick = tableCollapseClickHandler;
-    }
-    return content;
-} );
-
-/*
-OnClick handler function for IPA spans.
-*/
-function ipaClickHandler() {
-    var container = this;
-    bridge.sendMessage( "ipaSpan", { "contents": container.innerHTML });
-}
-
-transformer.register( "hideIPA", function( content ) {
-    var spans = content.querySelectorAll( "span.IPA" );
-    for (var i = 0; i < spans.length; i++) {
-        var parentSpan = spans[i].parentNode;
-        if (parentSpan === null) {
-            continue;
-        }
-        var doTransform = false;
-        // case 1: we have a sequence of IPA spans contained in a parent "nowrap" span
-        if (parentSpan.tagName === "SPAN" && spans[i].classList.contains('nopopups')) {
-            doTransform = true;
-        }
-        if (parentSpan.style.display === 'none') {
-            doTransform = false;
-        }
-        if (!doTransform) {
-            continue;
-        }
-
-        //we have a new IPA span!
-
-        var containerSpan = document.createElement( 'span' );
-        parentSpan.parentNode.insertBefore(containerSpan, parentSpan);
-        parentSpan.parentNode.removeChild(parentSpan);
-
-        //create and add the button
-        var buttonDiv = document.createElement( 'div' );
-        buttonDiv.classList.add('ipa_button');
-        containerSpan.appendChild(buttonDiv);
-        containerSpan.appendChild(parentSpan);
-
-        //set initial visibility
-        parentSpan.style.display = 'none';
-        //and assign the click handler to it
-        containerSpan.onclick = ipaClickHandler;
-    }
-    return content;
-} );
-
-transformer.register( "section", function( content ) {
-	if ( window.isNightMode ) {
-		night.invertElement ( content );
-	}
-	return content;
-} );
-
-transformer.register( "section", function( content ) {
-	var redLinks = content.querySelectorAll( 'a.new' );
-	for ( var i = 0; i < redLinks.length; i++ ) {
-		var redLink = redLinks[i];
-		var replacementSpan = document.createElement( 'span' );
-		replacementSpan.innerHTML = redLink.innerHTML;
-		replacementSpan.setAttribute( 'class', redLink.getAttribute( 'class' ) );
-		redLink.parentNode.replaceChild( replacementSpan, redLink );
-	}
-	return content;
-} );
-
-transformer.register( "section", function( content ) {
+transformer.register( "setNonGbDivWidth", function( content ) {
     if (window.apiLevel < 11) {
         //don't do anything for GB
-        return content;
+        return;
     }
     var allDivs = content.querySelectorAll( 'div' );
     var contentWrapper = document.getElementById( "content" );
@@ -994,60 +1162,119 @@ transformer.register( "section", function( content ) {
             }
         }
     }
-    return content;
 } );
+},{"../transformer":12}],24:[function(require,module,exports){
+var transformer = require("../transformer");
+var utilities = require("../utilities");
 
-transformer.register( "section", function( content ) {
-    // Prevent horizontally scrollable pages by checking for math formula images (which are
-    // often quite wide), and explicitly setting their maximum width to fit the viewport.
-    var allImgs = content.querySelectorAll( 'img' );
-    for ( var i = 0; i < allImgs.length; i++ ) {
-        var imgItem = allImgs[i];
-        // is the image a math formula?
-        for ( var c = 0; c < imgItem.classList.length; c++ ) {
-            if (imgItem.classList[c].indexOf("math") > -1) {
-                imgItem.style.maxWidth = "100%";
+var maxStretchRatioAllowedBeforeRequestingHigherResolution = 1.3;
+
+// If enabled, widened images will have thin red dashed border and
+// and widened images for which a higher resolution version was
+// requested will have thick red dashed border.
+var enableDebugBorders = false;
+
+function widenAncestors (el) {
+    while ((el = el.parentElement) && !el.classList.contains('content_block')) {
+        // Only widen if there was a width setting. Keeps changes minimal.
+        if (el.style.width) {
+            el.style.width = '100%';
+        }
+        if (el.style.maxWidth) {
+            el.style.maxWidth = '100%';
+        }
+        if (el.style.float) {
+            el.style.float = 'none';
+        }
+    }
+}
+
+function shouldWidenImage(image) {
+    if (
+        image.width >= 64 &&
+        image.hasAttribute('srcset') &&
+        !image.hasAttribute('hasOverflowXContainer') &&
+        image.parentNode.className === "image" &&
+        !utilities.isNestedInTable(image)
+        ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function makeRoomForImageWidening(image) {
+    // Expand containment so css wideImageOverride width percentages can take effect.
+    widenAncestors (image);
+
+    // Remove width and height attributes so wideImageOverride width percentages can take effect.
+    image.removeAttribute("width");
+    image.removeAttribute("height");
+}
+
+function getStretchRatio(image) {
+    var widthControllingDiv = utilities.firstDivAncestor(image);
+    if (widthControllingDiv) {
+        return (widthControllingDiv.offsetWidth / image.naturalWidth);
+    }
+    return 1.0;
+}
+
+function useHigherResolutionImageSrcFromSrcsetIfNecessary(image) {
+    if (image.getAttribute('srcset')) {
+        var stretchRatio = getStretchRatio(image);
+        if (stretchRatio > maxStretchRatioAllowedBeforeRequestingHigherResolution) {
+            var srcsetDict = utilities.getDictionaryFromSrcset(image.getAttribute('srcset'));
+            /*
+            Grab the highest res url from srcset - avoids the complexity of parsing urls
+            to retrieve variants - which can get tricky - canonicals have different paths
+            than size variants
+            */
+            var largestSrcsetDictKey = Object.keys(srcsetDict).reduce(function(a, b) {
+              return a > b ? a : b;
+            });
+
+            image.src = srcsetDict[largestSrcsetDictKey];
+
+            if (enableDebugBorders) {
+                image.style.borderWidth = '10px';
             }
         }
     }
-    return content;
-} );
+}
 
-transformer.register( "section", function( content ) {
-    // look for video thumbnail containers (divs that have class "PopUpMediaTransform"),
-    // and enclose them in an anchor that will lead to the correct click handler...
-	var mediaDivs = content.querySelectorAll( 'div.PopUpMediaTransform' );
-	for ( var i = 0; i < mediaDivs.length; i++ ) {
-		var mediaDiv = mediaDivs[i];
-		var imgTags = mediaDiv.querySelectorAll( 'img' );
-		if (imgTags.length === 0) {
-		    continue;
-		}
-		// the first img element is the video thumbnail, and its 'alt' attribute is
-		// the file name of the video!
-		if (!imgTags[0].getAttribute( 'alt' )) {
-		    continue;
-		}
-		// also, we should hide the "Play media" link that appears under the thumbnail,
-		// since we don't need it.
-		var aTags = mediaDiv.querySelectorAll( 'a' );
-		if (aTags.length > 0) {
-		    aTags[0].parentNode.removeChild(aTags[0]);
-		}
-		var containerLink = document.createElement( 'a' );
-        containerLink.setAttribute( 'href', imgTags[0].getAttribute( 'alt' ) );
-        containerLink.classList.add( 'app_media' );
-        mediaDiv.parentNode.insertBefore(containerLink, mediaDiv);
-        mediaDiv.parentNode.removeChild(mediaDiv);
-        containerLink.appendChild(mediaDiv);
-	}
-	return content;
-} );
+function widenImage(image) {
+    makeRoomForImageWidening (image);
+    image.classList.add("wideImageOverride");
 
-},{"./bridge":2,"./night":9,"./transformer":12}],14:[function(require,module,exports){
+    if (enableDebugBorders) {
+        image.style.borderStyle = 'dashed';
+        image.style.borderWidth = '1px';
+        image.style.borderColor = '#f00';
+    }
+
+    useHigherResolutionImageSrcFromSrcsetIfNecessary(image);
+}
+
+function maybeWidenImage() {
+    var image = this;
+    if (shouldWidenImage(image)) {
+        widenImage(image);
+    }
+}
+
+transformer.register( "widenImages", function( content ) {
+    var images = content.querySelectorAll( 'img' );
+    for ( var i = 0; i < images.length; i++ ) {
+        // Load event used so images w/o style or inline width/height
+        // attributes can still have their size determined reliably.
+        images[i].addEventListener('load', maybeWidenImage, false);
+    }
+} );
+},{"../transformer":12,"../utilities":25}],25:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
-    if ( el !== null && el.tagName === tagName) {
+    if (el !== null && el.tagName === tagName) {
         return true;
     } else {
         if ( el.parentNode !== null && el.parentNode.tagName !== 'BODY' ) {
@@ -1062,7 +1289,7 @@ function ancestorContainsClass( element, className ) {
     var contains = false;
     var curNode = element;
     while (curNode) {
-        if ((typeof curNode.classList !== "undefined")) {
+        if (typeof curNode.classList !== "undefined") {
             if (curNode.classList.contains(className)) {
                 contains = true;
                 break;
@@ -1073,12 +1300,73 @@ function ancestorContainsClass( element, className ) {
     return contains;
 }
 
+function ancestorHasStyleProperty( element, styleProperty ) {
+    var hasStyleProperty = false;
+    var curNode = element;
+    while (curNode) {
+        if (typeof curNode.classList !== "undefined") {
+            if (curNode.style[styleProperty]) {
+                hasStyleProperty = true;
+                break;
+            }
+        }
+        curNode = curNode.parentNode;
+    }
+    return hasStyleProperty;
+}
+
+function getDictionaryFromSrcset(srcset) {
+    /*
+    Returns dictionary with density (without "x") as keys and urls as values.
+    Parameter 'srcset' string:
+        '//image1.jpg 1.5x, //image2.jpg 2x, //image3.jpg 3x'
+    Returns dictionary:
+        {1.5: '//image1.jpg', 2: '//image2.jpg', 3: '//image3.jpg'}
+    */
+    var sets = srcset.split(',').map(function(set) {
+        return set.trim().split(' ');
+    });
+    var output = {};
+    sets.forEach(function(set) {
+        output[set[1].replace('x', '')] = set[0];
+    });
+    return output;
+}
+
+function firstDivAncestor (el) {
+    while ((el = el.parentElement)) {
+        if (el.tagName === 'DIV') {
+            return el;
+        }
+    }
+    return null;
+}
+
+function firstAncestorWithMultipleChildren (el) {
+    while ((el = el.parentElement) && (el.childElementCount === 1)){}
+    return el;
+}
+
+function isNestedInTable(el) {
+    while ((el = el.parentElement)) {
+        if (el.tagName === 'TD') {
+            return true;
+        }
+    }
+    return false;
+}
+
 module.exports = {
     hasAncestor: hasAncestor,
-    ancestorContainsClass: ancestorContainsClass
+    ancestorContainsClass: ancestorContainsClass,
+    ancestorHasStyleProperty: ancestorHasStyleProperty,
+    getDictionaryFromSrcset: getDictionaryFromSrcset,
+    firstDivAncestor: firstDivAncestor,
+    isNestedInTable: isNestedInTable,
+    firstAncestorWithMultipleChildren: firstAncestorWithMultipleChildren
 };
 
-},{}],15:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -1155,7 +1443,7 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}],16:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 // (c) Dean McNamee <dean@gmail.com>, 2012.
 //
 // https://github.com/deanm/css-color-parser-js
@@ -1357,4 +1645,4 @@ function parseCSSColor(css_str) {
 
 try { module.exports = parseCSSColor } catch(e) { }
 
-},{}]},{},[6,16,7,8,9,12,13,2,1,4,5,3,11,10,14,15])
+},{}]},{},[6,27,7,8,9,12,13,2,1,4,5,3,11,10,26])

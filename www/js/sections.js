@@ -29,6 +29,28 @@ bridge.registerListener( "beginNewPage", function( payload ) {
     }, 10);
 });
 
+function getLeadParagraph() {
+    var text = "";
+    var plist = document.getElementsByTagName( "p" );
+    if (plist.length > 0) {
+        text = plist[0].innerText;
+    }
+    return text;
+}
+
+// Returns currently highlighted text.
+// If fewer than two characters are highlighted, returns the text of the first paragraph.
+bridge.registerListener( "getTextSelection", function( payload ) {
+    var text = window.getSelection().toString().trim();
+    if (text.length < 2) {
+        text = getLeadParagraph();
+    }
+    if (text.length > 250) {
+        text = text.substring(0, 249);
+    }
+    bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : text } );
+});
+
 bridge.registerListener( "displayLeadSection", function( payload ) {
     // This might be a refresh! Clear out all contents!
     clearContents();
@@ -46,10 +68,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     issuesContainer.className = "issues_container";
     document.getElementById( "content" ).appendChild( issuesContainer );
 
-    var editButton = document.createElement( "a" );
-    editButton.setAttribute( 'data-id', payload.section.id );
-    editButton.setAttribute( 'data-action', "edit_section" );
-    editButton.className = "edit_section_button";
+    var editButton = buildEditSectionButton( payload.section.id );
 
     var content = document.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
@@ -70,16 +89,25 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     // dimension measurements for items.
     document.getElementById( "content" ).appendChild( content );
 
-    content = transformer.transform( "leadSection", content );
-    content = transformer.transform( "section", content );
-    content = transformer.transform( "hideTables", content );
-    content = transformer.transform( "hideIPA", content );
+    transformer.transform( "moveFirstGoodParagraphUp" );
+    transformer.transform( "addDarkModeStyles", content );
+    transformer.transform( "hideRedLinks", content );
+    transformer.transform( "setNonGbDivWidth", content );
+    transformer.transform( "setMathFormulaImageMaxWidth", content );
+    transformer.transform( "anchorPopUpMediaTransforms", content );
+    transformer.transform( "hideIPA", content );
+
+    if (!window.isMainPage) {
+        transformer.transform( "hideTables", content );
+        transformer.transform( "addImageOverflowXContainers", content );
+        transformer.transform( "widenImages", content );
+    }
 
     // insert the edit pencil
     content.insertBefore( editButton, content.firstChild );
 
-    content = transformer.transform("displayDisambigLink", content);
-    content = transformer.transform("displayIssuesLink", content);
+    transformer.transform("displayDisambigLink", content);
+    transformer.transform("displayIssuesLink", content);
 
     //if there were no page issues, then hide the container
     if (!issuesContainer.hasChildNodes()) {
@@ -112,6 +140,17 @@ function clearContents() {
     window.scrollTo( 0, 0 );
 }
 
+function buildEditSectionButton(id) {
+    var editButtonWrapper = document.createElement( "span" );
+    editButtonWrapper.className = "edit_section_button_wrapper android";
+    var editButton = document.createElement( "a" );
+    editButton.setAttribute( 'data-id', id );
+    editButton.setAttribute( 'data-action', "edit_section" );
+    editButton.className = "edit_section_button android";
+    editButtonWrapper.appendChild( editButton );
+    return editButtonWrapper;
+}
+
 function elementsForSection( section ) {
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
     heading.setAttribute( "dir", window.directionality );
@@ -120,20 +159,24 @@ function elementsForSection( section ) {
     heading.className = "section_heading";
     heading.setAttribute( 'data-id', section.id );
 
-    var editButton = document.createElement( "a" );
-    editButton.setAttribute( 'data-id', section.id );
-    editButton.setAttribute( 'data-action', "edit_section" );
-    editButton.className = "edit_section_button";
-    heading.appendChild( editButton );
+    heading.appendChild( buildEditSectionButton( section.id ) );
 
     var content = document.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
-    content = transformer.transform( "section", content );
-    content = transformer.transform( "hideTables", content );
-    content = transformer.transform( "hideIPA", content );
-    content = transformer.transform( "hideRefs", content );
+    transformer.transform( "addDarkModeStyles", content );
+    transformer.transform( "hideRedLinks", content );
+    transformer.transform( "setNonGbDivWidth", content );
+    transformer.transform( "setMathFormulaImageMaxWidth", content );
+    transformer.transform( "anchorPopUpMediaTransforms", content );
+    transformer.transform( "hideIPA", content );
+    transformer.transform( "hideRefs", content );
+    if (!window.isMainPage) {
+        transformer.transform( "hideTables", content );
+        transformer.transform( "addImageOverflowXContainers", content );
+        transformer.transform( "widenImages", content );
+    }
 
     return [ heading, content ];
 }
@@ -149,7 +192,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
             scrolledOnLoad = true;
         }
         document.getElementById( "loading_sections").className = "";
-        bridge.sendMessage( "pageLoadComplete", { "sequence": payload.sequence } );
+        bridge.sendMessage( "pageLoadComplete", { "sequence": payload.sequence, "savedPage": payload.savedPage } );
     } else {
         var contentWrapper = document.getElementById( "content" );
         elementsForSection(payload.section).forEach(function (element) {
@@ -164,7 +207,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
         if ( typeof payload.fragment === "string" && payload.fragment.length > 0 && payload.section.anchor === payload.fragment) {
             scrollToSection( payload.fragment );
         }
-        bridge.sendMessage( "requestSection", { "sequence": payload.sequence, "index": payload.section.id + 1 });
+        bridge.sendMessage( "requestSection", { "sequence": payload.sequence, "savedPage": payload.savedPage, "index": payload.section.id + 1 });
     }
 });
 
