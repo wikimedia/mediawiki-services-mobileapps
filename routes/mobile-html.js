@@ -19,6 +19,7 @@ var BBPromise = require('bluebird');
 var preq = require('preq');
 var domino = require('domino');
 var sUtil = require('../lib/util');
+var mUtil = require('../lib/mobile-util');
 var util = require('util');
 var transforms = require('../lib/transforms');
 var mwapi = require('../lib/mwapi');
@@ -269,7 +270,9 @@ router.get('/mobile-html/:title', function (req, res) {
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
         var html = compileHtml(response.html.body, response.page.json, response.media);
-        res.status(200).type('html').end(html);
+        res.status(200);
+        mUtil.setETag(res, response.page.json.revision);
+        res.type('html').end(html);
     });
 });
 

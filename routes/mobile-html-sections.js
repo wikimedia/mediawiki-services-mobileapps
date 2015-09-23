@@ -13,8 +13,8 @@
 
 var BBPromise = require('bluebird');
 var preq = require('preq');
-var mUtil = require('../lib/mobile-util');
 var sUtil = require('../lib/util');
+var mUtil = require('../lib/mobile-util');
 var transforms = require('../lib/transforms');
 var mwapi = require('../lib/mwapi');
 var gallery = require('../lib/gallery');
@@ -146,7 +146,10 @@ router.get('/mobile-html-sections/:title', function (req, res) {
         page: pageContentPromise(req.logger, req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
-        res.status(200).json(buildAll(response)).end();
+        response = buildAll(response);
+        res.status(200);
+        mUtil.setETag(res, response.lead.revision);
+        res.json(response).end();
     });
 });
 
@@ -160,7 +163,10 @@ router.get('/mobile-html-sections-lead/:title', function (req, res) {
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title),
         extract: mwapi.requestExtract(req.params.domain, req.params.title)
     }).then(function (response) {
-        res.status(200).json(buildLead(response)).end();
+        response = buildLead(response);
+        res.status(200);
+        mUtil.setETag(res, response.revision);
+        res.json(response).end();
     });
 });
 
@@ -172,7 +178,9 @@ router.get('/mobile-html-sections-remaining/:title', function (req, res) {
     return BBPromise.props({
         page: pageContentPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
-        res.status(200).json(buildRemaining(response)).end();
+        res.status(200);
+        mUtil.setETag(res, response.page.revision);
+        res.json(buildRemaining(response)).end();
     });
 });
 

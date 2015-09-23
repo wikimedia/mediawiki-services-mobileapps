@@ -16,6 +16,7 @@
 var preq = require('preq');
 var domino = require('domino');
 var sUtil = require('../lib/util');
+var mUtil = require('../lib/mobile-util');
 var mwapi = require('../lib/mwapi');
 
 // shortcut
@@ -144,7 +145,9 @@ router.get('/mobile-text/:title', function (req, res) {
             runDomTransforms(section);
         }
 
-        res.status(200).json(apiRes.body.mobileview).end();
+        res.status(200);
+        mUtil.setETag(res, apiRes.body.mobileview.revision);
+        res.json(apiRes.body.mobileview).end();
     });
 });
 

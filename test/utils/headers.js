@@ -11,6 +11,7 @@ function checkHeaders(uri, expContentType) {
         .then(function(res) {
             assert.deepEqual(res.status, 200);
             assert.contentType(res, expContentType);
+            assert.deepEqual(!!res.headers.etag, true, 'No ETag header present');
             assert.deepEqual(res.headers['access-control-allow-origin'], '*');
             assert.deepEqual(res.headers['access-control-allow-headers'], 'Accept, X-Requested-With, Content-Type');
             assert.deepEqual(res.headers['content-security-policy'],
