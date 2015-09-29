@@ -46,20 +46,22 @@ function dbg(name, obj) {
 function pageContentPromise(logger, domain, title) {
     return mwapi.getAllSections(logger, domain, title)
     .then(function (response) {
+        var page = response.body.mobileview;
         var sections = response.body.mobileview.sections;
+        var section;
 
         // transform all sections
         for (var idx = 0; idx < sections.length; idx++) {
-            var section = sections[idx];
-            section.text = transforms.runDomTransforms(section.text, idx);
+            section = sections[idx];
+            section.text = transforms.runDomTransforms(section.text, idx, page);
         }
 
-        if (!response.body.mobileview.mainpage) {
+        // if (!response.body.mobileview.mainpage) {
             // don't do anything if this is the main page, since many wikis
             // arrange the main page in a series of tables.
             // TODO: should we also exclude file and other special pages?
-            sections[0].text = transforms.moveFirstParagraphUpInLeadSection(sections[0].text);
-        }
+            // sections[0].text = transforms.moveFirstParagraphUpInLeadSection(sections[0].text);
+        // }
 
         return response.body.mobileview;
     });
@@ -118,6 +120,7 @@ function buildLead(input) {
         extract: input.extract && parseExtract(input.extract.body),
         infobox: transforms.parseInfobox(lead),
         pronunciation: transforms.parsePronunciation(lead),
+        spoken: input.page.spoken,
         geo: transforms.parseGeo(lead),
         sections: buildLeadSections(input.page.sections),
         media: input.media
@@ -192,4 +195,3 @@ module.exports = function (appObj) {
         router: router
     };
 };
-

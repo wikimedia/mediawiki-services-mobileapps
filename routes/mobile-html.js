@@ -284,4 +284,3 @@ module.exports = function (appObj) {
         router: router
     };
 };
-

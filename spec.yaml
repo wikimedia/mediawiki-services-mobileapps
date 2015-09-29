@@ -184,6 +184,8 @@ paths:
               infobox: [ [ /.+/ ] ]
               pronunciation:
                 url: /.+/
+              spoken:
+                urls: [ /.+/ ]
               sections: [ /.+/ ]
               media:
                 items: [ /.+/ ]
