@@ -102,7 +102,7 @@ describe('mobile-html-sections-lead', function() {
             .then(function(res) {
                 var lead = res.body;
                 assert.deepEqual(res.status, 200);
-                assert.deepEqual(lead.pronunciation.url, '/wiki/File:En-us-Barack-Hussein-Obama.ogg');
+                assert.deepEqual(lead.pronunciation.url, '//en.wikipedia.org/wiki/File:En-us-Barack-Hussein-Obama.ogg');
             });
     });
     it('en Main page should have at least one image', function() {

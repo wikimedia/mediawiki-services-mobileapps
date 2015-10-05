@@ -99,7 +99,7 @@ function parseExtract(body) {
     return page && extract.format(page.extract);
 }
 
-function buildLead(input) {
+function buildLead(input, domain) {
     var lead = domino.createDocument(input.page.sections[0].text);
     return {
         id: input.page.id,
@@ -119,7 +119,7 @@ function buildLead(input) {
         })),
         extract: input.extract && parseExtract(input.extract.body),
         infobox: transforms.parseInfobox(lead),
-        pronunciation: transforms.parsePronunciation(lead),
+        pronunciation: transforms.parsePronunciation(lead, domain),
         spoken: input.page.spoken,
         geo: transforms.parseGeo(lead),
         sections: buildLeadSections(input.page.sections),
@@ -133,9 +133,9 @@ function buildRemaining(input) {
     };
 }
 
-function buildAll(input) {
+function buildAll(input, domain) {
     return {
-        lead: buildLead(input),
+        lead: buildLead(input, domain),
         remaining: buildRemaining(input)
     };
 }
@@ -149,7 +149,7 @@ router.get('/mobile-html-sections/:title', function (req, res) {
         page: pageContentPromise(req.logger, req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
-        response = buildAll(response);
+        response = buildAll(response, req.params.domain);
         res.status(200);
         mUtil.setETag(res, response.lead.revision);
         res.json(response).end();
@@ -166,7 +166,7 @@ router.get('/mobile-html-sections-lead/:title', function (req, res) {
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title),
         extract: mwapi.requestExtract(req.params.domain, req.params.title)
     }).then(function (response) {
-        response = buildLead(response);
+        response = buildLead(response, req.params.domain);
         res.status(200);
         mUtil.setETag(res, response.revision);
         res.json(response).end();
