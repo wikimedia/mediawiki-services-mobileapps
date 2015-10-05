@@ -35,7 +35,7 @@ describe('mobile-html', function() {
                 var doc = domino.createDocument(res.body);
                 assert.selectorExistsOnce(doc, 'script[type="application/json"][id="mw-app-meta1"]');
                 assert.selectorContainsValue(doc, 'script[id="mw-app-meta1"]',
-                    '"displaytitle":"Test","protection":[],"editable":true,"toc":[{"id":0');
+                    '"displaytitle":"Test","protection":{"edit":["autoconfirmed"],"move":["sysop"]},"editable":false,"toc":[{"id":0');
 
                 assert.selectorExistsOnce(doc, 'script[type="application/json"][id="mw-app-meta2"]');
                 assert.selectorHasValue(doc, 'script[id="mw-app-meta2"]', '{}',
