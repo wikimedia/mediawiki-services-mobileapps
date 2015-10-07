@@ -18,7 +18,7 @@ describe('mobile-html', function() {
         return headers.checkHeaders(server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Test',
             'text/html');
     });
-    it('should have right tags in HTML head', function() {
+    it('Test page should have right tags in HTML head', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Test' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
@@ -28,14 +28,14 @@ describe('mobile-html', function() {
                 assert.selectorExistsOnce(doc, 'head meta[name="viewport"]');
             });
     });
-    it('should have script tags with embedded JSON', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Test' })
+    it('Sections/deep page should have script tags with embedded JSON', function() {
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html/Sections%2Fdeep' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 var doc = domino.createDocument(res.body);
                 assert.selectorExistsOnce(doc, 'script[type="application/json"][id="mw-app-meta1"]');
                 assert.selectorContainsValue(doc, 'script[id="mw-app-meta1"]',
-                    '"displaytitle":"Test","protection":{"edit":["autoconfirmed"],"move":["sysop"]},"editable":false,"toc":[{"id":0');
+                    '"displaytitle":"Sections/deep","protection":[],"editable":true,"toc":[{"id":0');
 
                 assert.selectorExistsOnce(doc, 'script[type="application/json"][id="mw-app-meta2"]');
                 assert.selectorHasValue(doc, 'script[id="mw-app-meta2"]', '{}',
