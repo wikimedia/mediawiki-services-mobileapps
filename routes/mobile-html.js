@@ -271,7 +271,7 @@ router.get('/mobile-html/:title', function (req, res) {
     }).then(function (response) {
         var html = compileHtml(response.html.body, response.page.json, response.media);
         res.status(200);
-        mUtil.setETag(res, response.page.json.revision);
+        mUtil.setETag(req, res, response.page.json.revision);
         res.type('html').end(html);
     });
 });

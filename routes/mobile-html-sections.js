@@ -151,7 +151,7 @@ router.get('/mobile-html-sections/:title', function (req, res) {
     }).then(function (response) {
         response = buildAll(response, req.params.domain);
         res.status(200);
-        mUtil.setETag(res, response.lead.revision);
+        mUtil.setETag(req, res, response.lead.revision);
         res.json(response).end();
     });
 });
@@ -168,7 +168,7 @@ router.get('/mobile-html-sections-lead/:title', function (req, res) {
     }).then(function (response) {
         response = buildLead(response, req.params.domain);
         res.status(200);
-        mUtil.setETag(res, response.revision);
+        mUtil.setETag(req, res, response.revision);
         res.json(response).end();
     });
 });
@@ -182,7 +182,7 @@ router.get('/mobile-html-sections-remaining/:title', function (req, res) {
         page: pageContentPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
         res.status(200);
-        mUtil.setETag(res, response.page.revision);
+        mUtil.setETag(req, res, response.page.revision);
         res.json(buildRemaining(response)).end();
     });
 });
