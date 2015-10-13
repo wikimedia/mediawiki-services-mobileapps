@@ -167,7 +167,7 @@ function compileHtml(html, meta1, meta2) {
     doc.head.innerHTML = '';
 
     // Strip some content
-    transforms.runDomTransforms(doc);
+    //transforms.runDomTransforms(doc);
 
     addToHtmlHead(doc);
     var body = doc.body;

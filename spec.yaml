@@ -185,7 +185,7 @@ paths:
               pronunciation:
                 url: /.+/
               spoken:
-                urls: [ /.+/ ]
+                files: [ /.+/ ]
               sections: [ /.+/ ]
               media:
                 items: [ /.+/ ]

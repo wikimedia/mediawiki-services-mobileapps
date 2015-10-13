@@ -17,6 +17,7 @@ var sUtil = require('../lib/util');
 var mUtil = require('../lib/mobile-util');
 var transforms = require('../lib/transforms');
 var mwapi = require('../lib/mwapi');
+var parsoid = require('../lib/parsoid-access');
 var gallery = require('../lib/gallery');
 var domino = require('domino');
 var extract = require('../lib/extract');
@@ -35,34 +36,34 @@ var router = sUtil.router();
  */
 var app;
 
-function dbg(name, obj) {
-    if (app.conf.debug) {
-        //console.log("DEBUG: " + name + ": " + JSON.stringify(obj, null, 2));
-        app.logger.log('debug', name + ": " + JSON.stringify(obj));
-    }
+/** Returns a promise to retrieve the page content from MW API mobileview */
+function pageContentPromise(logger, domain, title, revision) {
+    return parsoid.getContent(logger, app.conf.restbase_uri, domain, title, revision)
+    .then(function (response) {
+        var page = { revision: parsoid.getRevisionFromEtag(response.headers) };
+        var doc = domino.createDocument(response.body);
+        page.lastmodified = parsoid.getModified(doc);
+        transforms.parseGeo(doc, page);
+        transforms.parseSpokenWikipedia(doc, page);
+        transforms.runDomTransforms(doc);
+
+        // if (!response.body.mobileview.mainpage) {
+        // don't do anything if this is the main page, since many wikis
+        // arrange the main page in a series of tables.
+        // TODO: should we also exclude file and other special pages?
+        // sections[0].text = transforms.moveFirstParagraphUpInLeadSection(sections[0].text);
+        // }
+
+        page.sections = parsoid.getSectionsText(doc);
+        return page;
+    });
 }
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
-function pageContentPromise(logger, domain, title) {
-    return mwapi.getAllSections(logger, domain, title)
+function pageMetadataPromise(logger, domain, title) {
+    return mwapi.getMetadata(logger, domain, title)
     .then(function (response) {
-        var page = response.body.mobileview;
-        var sections = response.body.mobileview.sections;
-        var section;
-
-        // transform all sections
-        for (var idx = 0; idx < sections.length; idx++) {
-            section = sections[idx];
-            section.text = transforms.runDomTransforms(section.text, idx, page);
-        }
-
-        // if (!response.body.mobileview.mainpage) {
-            // don't do anything if this is the main page, since many wikis
-            // arrange the main page in a series of tables.
-            // TODO: should we also exclude file and other special pages?
-            // sections[0].text = transforms.moveFirstParagraphUpInLeadSection(sections[0].text);
-        // }
-
+        //console.log(response.body.mobileview);
         return response.body.mobileview;
     });
 }
@@ -102,26 +103,26 @@ function parseExtract(body) {
 function buildLead(input, domain) {
     var lead = domino.createDocument(input.page.sections[0].text);
     return {
-        id: input.page.id,
+        id: input.meta.id,
         revision: input.page.revision,
         lastmodified: input.page.lastmodified,
-        displaytitle: input.page.displaytitle,
-        normalizedtitle: input.page.normalizedtitle,
-        redirected: input.page.redirected,
-        description: input.page.description,
-        protection: sanitizeEmptyProtection(input.page.protection),
-        editable: input.page.editable,
-        mainpage: input.page.mainpage,
-        languagecount: input.page.languagecount,
+        displaytitle: input.meta.displaytitle,
+        normalizedtitle: input.meta.normalizedtitle,
+        redirected: input.meta.redirected,
+        description: input.meta.description,
+        protection: sanitizeEmptyProtection(input.meta.protection),
+        editable: input.meta.editable,
+        mainpage: input.meta.mainpage,
+        languagecount: input.meta.languagecount,
         image: mUtil.defaultVal(mUtil.filterEmpty({
-            file: input.page.image && input.page.image.file,
-            urls: input.page.thumb && mwapi.buildLeadImageUrls(input.page.thumb.url)
+            file: input.meta.image && input.meta.image.file,
+            urls: input.meta.thumb && mwapi.buildLeadImageUrls(input.meta.thumb.url)
         })),
         extract: input.extract && parseExtract(input.extract.body),
         infobox: transforms.parseInfobox(lead),
         pronunciation: transforms.parsePronunciation(lead, domain),
         spoken: input.page.spoken,
-        geo: transforms.parseGeo(lead),
+        geo: input.page.geo,
         sections: buildLeadSections(input.page.sections),
         media: input.media
     };
@@ -144,9 +145,10 @@ function buildAll(input, domain) {
  * GET {domain}/v1/page/mobile-html-sections/{title}
  * Gets the mobile app version of a given wiki page.
  */
-router.get('/mobile-html-sections/:title', function (req, res) {
+router.get('/mobile-html-sections/:title/:revision?', function (req, res) {
     return BBPromise.props({
-        page: pageContentPromise(req.logger, req.params.domain, req.params.title),
+        page: pageContentPromise(req.logger, req.params.domain, req.params.title, req.params.revision),
+        meta: pageMetadataPromise(req.logger, req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
         response = buildAll(response, req.params.domain);
@@ -160,9 +162,10 @@ router.get('/mobile-html-sections/:title', function (req, res) {
  * GET {domain}/v1/page/mobile-html-sections-lead/{title}
  * Gets the lead section for the mobile app version of a given wiki page.
  */
-router.get('/mobile-html-sections-lead/:title', function (req, res) {
+router.get('/mobile-html-sections-lead/:title/:revision?', function (req, res) {
     return BBPromise.props({
-        page: pageContentPromise(req.logger, req.params.domain, req.params.title),
+        page: pageContentPromise(req.logger, req.params.domain, req.params.title, req.params.revision),
+        meta: pageMetadataPromise(req.logger, req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title),
         extract: mwapi.requestExtract(req.params.domain, req.params.title)
     }).then(function (response) {
@@ -177,9 +180,9 @@ router.get('/mobile-html-sections-lead/:title', function (req, res) {
  * GET {domain}/v1/page/mobile-html-sections-remaining/{title}
  * Gets the remaining sections for the mobile app version of a given wiki page.
  */
-router.get('/mobile-html-sections-remaining/:title', function (req, res) {
+router.get('/mobile-html-sections-remaining/:title/:revision?', function (req, res) {
     return BBPromise.props({
-        page: pageContentPromise(req.logger, req.params.domain, req.params.title)
+        page: pageContentPromise(req.logger, req.params.domain, req.params.title, req.params.revision)
     }).then(function (response) {
         res.status(200);
         mUtil.setETag(req, res, response.page.revision);

@@ -56,12 +56,12 @@ describe('mobile-html-sections-lead', function() {
                         "1024": "//upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/1024px-Cat_poster_1.jpg"
                     }
                 });
-                assert.ok(lead.spoken.urls.length > 0, 'Expected at least one Spoken Wikipedia audio file');
-                assert.ok(lead.spoken.urls[0].indexOf('.') > -1, 'Expected file extension in spoken file URL');
-                assert.ok(lead.spoken.urls[0].indexOf('//upload.wikimedia.org') > -1, 'Expected hostname of upload.wikimedia.org for spoken file');
+                assert.ok(lead.spoken.files.length > 0, 'Expected at least one Spoken Wikipedia audio file');
+                assert.ok(lead.spoken.files[0].indexOf('.') > -1, 'Expected file extension in spoken filename');
+                assert.ok(lead.spoken.files[0].indexOf('File:') === 0, 'Expected File namespace in filename');
                 assert.ok(lead.infobox.length > 0, 'Expected at least one infobox row');
                 assert.ok(lead.infobox[0].length > 0, 'Expected at least one infobox column');
-                assert.deepEqual(lead.infobox[0][0], 'Domestic cat<sup id="cite_ref-MSW3fc_1-0" class="reference"><a href="#cite_note-MSW3fc-1">[1]</a></sup>');
+                assert.ok(lead.infobox[0][0].indexOf('Domestic cat<s') === 0);
                 assert.ok(lead.sections.length > 0, 'Expected at least one section element');
                 assert.deepEqual(lead.sections[0].id, 0);
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');

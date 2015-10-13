@@ -143,6 +143,7 @@ function selectorContainsValue(doc, selector, expected, message) {
 
 
 module.exports.ok             = assert.ok;
+module.exports.equal          = assert.equal;
 module.exports.fails          = fails;
 module.exports.deepEqual      = deepEqual;
 module.exports.isDeepEqual    = isDeepEqual;
