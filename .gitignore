@@ -1,7 +1,7 @@
 Dockerfile
+.idea/
 coverage
 config.yaml
 node_modules
 npm-debug.log
 .DS_Store
-/.idea/

@@ -13,7 +13,7 @@ function checkHeaders(uri, expContentType) {
             assert.contentType(res, expContentType);
             assert.deepEqual(!!res.headers.etag, true, 'No ETag header present');
             assert.deepEqual(res.headers['access-control-allow-origin'], '*');
-            assert.deepEqual(res.headers['access-control-allow-headers'], 'Accept, X-Requested-With, Content-Type');
+            assert.deepEqual(res.headers['access-control-allow-headers'], 'accept, x-requested-with, content-type');
             assert.deepEqual(res.headers['content-security-policy'],
                 "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'");
             assert.deepEqual(res.headers['x-content-security-policy'],
