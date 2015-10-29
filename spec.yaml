@@ -55,24 +55,6 @@ paths:
               description: /.+/
               version: /.+/
               home: /.+/
-  # from routes/mobile-html.js
-  /{domain}/v1/page/mobile-html/{title}:
-    get:
-      tags:
-        - Page content
-      description: Gets the mobile app version of a given wiki page (all HTML payload, on hold)
-      produces:
-        - text/html
-      x-amples:
-        - title: retrieve en.wp main page via mobile-html
-          request:
-            params:
-              title: Main_Page
-          response:
-            status: 200
-            headers:
-              content-type: text/html
-            body: /.+/
   # from routes/mobile-html-sections.js
   /{domain}/v1/page/mobile-html-sections/{title}:
     get:
