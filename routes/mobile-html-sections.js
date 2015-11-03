@@ -15,6 +15,7 @@ var BBPromise = require('bluebird');
 var preq = require('preq');
 var sUtil = require('../lib/util');
 var mUtil = require('../lib/mobile-util');
+var parse = require('../lib/parseProperty');
 var transforms = require('../lib/transforms');
 var mwapi = require('../lib/mwapi');
 var parsoid = require('../lib/parsoid-access');
@@ -43,8 +44,8 @@ function pageContentPromise(logger, domain, title, revision) {
         var page = { revision: parsoid.getRevisionFromEtag(response.headers) };
         var doc = domino.createDocument(response.body);
         page.lastmodified = parsoid.getModified(doc);
-        transforms.parseGeo(doc, page);
-        transforms.parseSpokenWikipedia(doc, page);
+        parse.parseGeo(doc, page);
+        parse.parseSpokenWikipedia(doc, page);
         transforms.runDomTransforms(doc);
 
         // if (!response.body.mobileview.mainpage) {
@@ -119,8 +120,8 @@ function buildLead(input, domain) {
             urls: input.meta.thumb && mwapi.buildLeadImageUrls(input.meta.thumb.url)
         })),
         extract: input.extract && parseExtract(input.extract.body),
-        infobox: transforms.parseInfobox(lead),
-        pronunciation: transforms.parsePronunciation(lead, domain),
+        infobox: parse.parseInfobox(lead),
+        pronunciation: parse.parsePronunciation(lead, domain),
         spoken: input.page.spoken,
         geo: input.page.geo,
         sections: buildLeadSections(input.page.sections),
