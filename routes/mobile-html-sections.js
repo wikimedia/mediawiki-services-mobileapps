@@ -37,7 +37,7 @@ var router = sUtil.router();
  */
 var app;
 
-/** Returns a promise to retrieve the page content from MW API mobileview */
+/** Returns a promise to retrieve the page content from Parsoid */
 function pageContentPromise(logger, domain, title, revision) {
     return parsoid.getContent(logger, app.conf.restbase_uri, domain, title, revision)
     .then(function (response) {
@@ -46,16 +46,28 @@ function pageContentPromise(logger, domain, title, revision) {
         page.lastmodified = parsoid.getModified(doc);
         parse.parseGeo(doc, page);
         parse.parseSpokenWikipedia(doc, page);
-        transforms.runDomTransforms(doc);
-
-        // if (!response.body.mobileview.mainpage) {
-        // don't do anything if this is the main page, since many wikis
-        // arrange the main page in a series of tables.
-        // TODO: should we also exclude file and other special pages?
-        // sections[0].text = transforms.moveFirstParagraphUpInLeadSection(sections[0].text);
-        // }
+        transforms.runParsoidDomTransforms(doc);
 
         page.sections = parsoid.getSectionsText(doc);
+        return page;
+    });
+}
+
+/** Returns a promise to retrieve the page content from MW API mobileview */
+function pageContentForMainPagePromise(logger, domain, title) {
+    return mwapi.getAllSections(logger, domain, title)
+    .then(function (response) {
+        var page = response.body.mobileview;
+        var sections = page.sections;
+        var section;
+
+        // transform all sections
+        for (var idx = 0; idx < sections.length; idx++) {
+            section = sections[idx];
+            section.text = transforms.runMainPageDomTransforms(section.text);
+        }
+
+        page.sections = sections;
         return page;
     });
 }
@@ -64,7 +76,6 @@ function pageContentPromise(logger, domain, title, revision) {
 function pageMetadataPromise(logger, domain, title) {
     return mwapi.getMetadata(logger, domain, title)
     .then(function (response) {
-        //console.log(response.body.mobileview);
         return response.body.mobileview;
     });
 }
@@ -143,6 +154,22 @@ function buildAll(input, domain) {
 }
 
 /**
+ * For main page only, switch to mobileview content because Parsoid doesn't
+ * provide a good mobile presentation of main pages.
+ */
+function mainPageFixPromise(req, response) {
+    return pageContentForMainPagePromise(req.logger, req.params.domain, req.params.title)
+    .then(function (mainPageContent) {
+        return {
+            page: mainPageContent,
+            meta: response.meta,
+            media: response.media,
+            extract: response.extract
+        };
+    });
+}
+
+/**
  * GET {domain}/v1/page/mobile-html-sections/{title}
  * Gets the mobile app version of a given wiki page.
  */
@@ -151,6 +178,11 @@ router.get('/mobile-html-sections/:title/:revision?', function (req, res) {
         page: pageContentPromise(req.logger, req.params.domain, req.params.title, req.params.revision),
         meta: pageMetadataPromise(req.logger, req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
+    }).then(function (response) {
+        if (response.meta.mainpage) {
+            return mainPageFixPromise(req, response);
+        }
+        return response;
     }).then(function (response) {
         response = buildAll(response, req.params.domain);
         res.status(200);
@@ -169,6 +201,11 @@ router.get('/mobile-html-sections-lead/:title/:revision?', function (req, res) {
         meta: pageMetadataPromise(req.logger, req.params.domain, req.params.title),
         media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title),
         extract: mwapi.requestExtract(req.params.domain, req.params.title)
+    }).then(function (response) {
+        if (response.meta.mainpage) {
+            return mainPageFixPromise(req, response);
+        }
+        return response;
     }).then(function (response) {
         response = buildLead(response, req.params.domain);
         res.status(200);
