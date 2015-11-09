@@ -65,11 +65,9 @@ describe('mobile-html-sections', function() {
                 assert.ok(lead.sections.length > 0, 'Expected at least one section element');
                 assert.deepEqual(lead.sections[0].id, 0);
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
-
-                assert.ok(lead.media.items.length > 0, 'Expected at least one media item');
             });
     });
-    it('Obama (redirect) should have a lead image, expected properties, and many media items', function() {
+    it('Obama (redirect) should have a lead image, description, redirected, and remaining sections', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections/Obama' })
             .then(function(res) {
                 var lead = res.body.lead;
@@ -84,7 +82,6 @@ describe('mobile-html-sections', function() {
 
                 assert.deepEqual(lead.description, "44th President of the United States");
                 assert.deepEqual(lead.redirected, "Barack Obama");
-                assert.ok(lead.media.items.length > 3, 'Expected many media items');
 
                 var remaining = res.body.remaining;
                 assert.ok(remaining.sections.length > 3, 'Expected many remaining sections but got '

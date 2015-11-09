@@ -13,15 +13,14 @@
 
 var BBPromise = require('bluebird');
 var preq = require('preq');
-var sUtil = require('../lib/util');
-var mUtil = require('../lib/mobile-util');
-var parse = require('../lib/parseProperty');
-var transforms = require('../lib/transforms');
-var mwapi = require('../lib/mwapi');
-var parsoid = require('../lib/parsoid-access');
-var gallery = require('../lib/gallery');
 var domino = require('domino');
 var extract = require('../lib/extract');
+var mwapi = require('../lib/mwapi');
+var mUtil = require('../lib/mobile-util');
+var parse = require('../lib/parseProperty');
+var parsoid = require('../lib/parsoid-access');
+var sUtil = require('../lib/util');
+var transforms = require('../lib/transforms');
 
 // shortcut
 var HTTPError = sUtil.HTTPError;
@@ -36,22 +35,6 @@ var router = sUtil.router();
  * The main application object reported when this module is require()d
  */
 var app;
-
-/** Returns a promise to retrieve the page content from Parsoid */
-function pageContentPromise(logger, domain, title, revision) {
-    return parsoid.getContent(logger, app.conf.restbase_uri, domain, title, revision)
-    .then(function (response) {
-        var page = { revision: parsoid.getRevisionFromEtag(response.headers) };
-        var doc = domino.createDocument(response.body);
-        page.lastmodified = parsoid.getModified(doc);
-        parse.parseGeo(doc, page);
-        parse.parseSpokenWikipedia(doc, page);
-        transforms.runParsoidDomTransforms(doc);
-
-        page.sections = parsoid.getSectionsText(doc);
-        return page;
-    });
-}
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
 function pageContentForMainPagePromise(logger, domain, title) {
@@ -135,8 +118,7 @@ function buildLead(input, domain) {
         pronunciation: parse.parsePronunciation(lead, input.meta.displaytitle),
         spoken: input.page.spoken,
         geo: input.page.geo,
-        sections: buildLeadSections(input.page.sections),
-        media: input.media
+        sections: buildLeadSections(input.page.sections)
     };
 }
 
@@ -163,7 +145,6 @@ function mainPageFixPromise(req, response) {
         return {
             page: mainPageContent,
             meta: response.meta,
-            media: response.media,
             extract: response.extract
         };
     });
@@ -175,9 +156,8 @@ function mainPageFixPromise(req, response) {
  */
 router.get('/mobile-html-sections/:title/:revision?', function (req, res) {
     return BBPromise.props({
-        page: pageContentPromise(req.logger, req.params.domain, req.params.title, req.params.revision),
-        meta: pageMetadataPromise(req.logger, req.params.domain, req.params.title),
-        media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
+        page: parsoid.pageContentPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.title, req.params.revision),
+        meta: pageMetadataPromise(req.logger, req.params.domain, req.params.title)
     }).then(function (response) {
         if (response.meta.mainpage) {
             return mainPageFixPromise(req, response);
@@ -197,9 +177,8 @@ router.get('/mobile-html-sections/:title/:revision?', function (req, res) {
  */
 router.get('/mobile-html-sections-lead/:title/:revision?', function (req, res) {
     return BBPromise.props({
-        page: pageContentPromise(req.logger, req.params.domain, req.params.title, req.params.revision),
+        page: parsoid.pageContentPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.title, req.params.revision),
         meta: pageMetadataPromise(req.logger, req.params.domain, req.params.title),
-        media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title),
         extract: mwapi.requestExtract(req.params.domain, req.params.title)
     }).then(function (response) {
         if (response.meta.mainpage) {
@@ -220,7 +199,7 @@ router.get('/mobile-html-sections-lead/:title/:revision?', function (req, res) {
  */
 router.get('/mobile-html-sections-remaining/:title/:revision?', function (req, res) {
     return BBPromise.props({
-        page: pageContentPromise(req.logger, req.params.domain, req.params.title, req.params.revision)
+        page: parsoid.pageContentPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.title, req.params.revision)
     }).then(function (response) {
         res.status(200);
         mUtil.setETag(req, res, response.page.revision);

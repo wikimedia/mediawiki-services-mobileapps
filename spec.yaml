@@ -55,6 +55,29 @@ paths:
               description: /.+/
               version: /.+/
               home: /.+/
+  # from routes/media.js
+  /{domain}/v1/page/media/{title}:
+    get:
+      tags:
+        - Media items on a given page
+      description: Gets the images and videos which appear on a given wiki page
+      produces:
+        - application/json
+      x-amples:
+        - title: retrieve images and videos of en.wp Cat page via media route
+          request:
+            params:
+              title: Cat
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              items:
+                - title: /.+/
+                  url: /.+/
+                  width: /.+/
+                  height: /.+/
   # from routes/mobile-html-sections.js
   /{domain}/v1/page/mobile-html-sections/{title}:
     get:
@@ -85,8 +108,6 @@ paths:
                 mainpage: true
                 languagecount: /.+/
                 sections: [ /.+/ ]
-                media:
-                  items: [ /.+/ ]
               remaining:
                 sections: []
   /{domain}/v1/page/mobile-html-sections-lead/{title}:
@@ -117,8 +138,6 @@ paths:
               mainpage: true
               languagecount: /.+/
               sections: [ /.+/ ]
-              media:
-                items: [ /.+/ ]
         - title: retrieve lead section of en.wp San Francisco page via mobile-html-sections-lead
           request:
             params:
@@ -143,8 +162,6 @@ paths:
                 latitude: /.+/
                 longitude: /.+/
               sections: [ /.+/ ]
-              media:
-                items: [ /.+/ ]
         - title: retrieve lead section of en.wp Barack Obama page via mobile-html-sections-lead
           request:
             params:
@@ -169,8 +186,6 @@ paths:
               spoken:
                 files: [ /.+/ ]
               sections: [ /.+/ ]
-              media:
-                items: [ /.+/ ]
   /{domain}/v1/page/mobile-html-sections-remaining/{title}:
     get:
       tags:

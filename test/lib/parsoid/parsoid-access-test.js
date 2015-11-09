@@ -34,7 +34,7 @@ describe('lib:parsoid', function() {
 
     it('getSectionsText(empty) should produce an empty lead section', function() {
         var doc = domino.createDocument('<body></body>');
-        var sections = parsoid.getSectionsText(doc);
+        var sections = parsoid._getSectionsText(doc);
         assert.deepEqual(sections.length, 1);
         assert.deepEqual(sections[0].id, 0);
         assert.deepEqual(sections[0].text, '');
@@ -42,14 +42,14 @@ describe('lib:parsoid', function() {
 
     it('getSectionsText() with just text should produce a lead section', function() {
         var doc = domino.createDocument('<body>text0</body>');
-        var sections = parsoid.getSectionsText(doc);
+        var sections = parsoid._getSectionsText(doc);
         assert.deepEqual(sections.length, 1);
         assertSection0(sections);
     });
 
     it('getSectionsText() with one h2 should produce two sections', function() {
         var doc = domino.createDocument('<body>text0<h2>foo</h2>text1</body>');
-        var sections = parsoid.getSectionsText(doc);
+        var sections = parsoid._getSectionsText(doc);
         assert.deepEqual(sections.length, 2);
         assertSection0(sections);
         assertSection1(sections);
@@ -57,7 +57,7 @@ describe('lib:parsoid', function() {
 
     it('getSectionsText() with one h2 and h3 should produce three sections', function() {
         var doc = domino.createDocument('<body>text0<h2>foo</h2>text1<h3 id="mwBa">Funny section !@#$%^&*()</h3>text2</body>');
-        var sections = parsoid.getSectionsText(doc);
+        var sections = parsoid._getSectionsText(doc);
         assert.deepEqual(sections.length, 3);
         assertSection0(sections);
         assertSection1(sections);
