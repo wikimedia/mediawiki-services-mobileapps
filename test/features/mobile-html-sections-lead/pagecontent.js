@@ -59,9 +59,6 @@ describe('mobile-html-sections-lead', function() {
                 assert.ok(lead.spoken.files.length > 0, 'Expected at least one Spoken Wikipedia audio file');
                 assert.ok(lead.spoken.files[0].indexOf('.') > -1, 'Expected file extension in spoken filename');
                 assert.ok(lead.spoken.files[0].indexOf('File:') === 0, 'Expected File namespace in filename');
-                assert.ok(lead.infobox.length > 0, 'Expected at least one infobox row');
-                assert.ok(lead.infobox[0].length > 0, 'Expected at least one infobox column');
-                assert.ok(lead.infobox[0][0].indexOf('Domestic cat<s') === 0);
                 assert.ok(lead.sections.length > 0, 'Expected at least one section element');
                 assert.deepEqual(lead.sections[0].id, 0);
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
@@ -73,13 +70,6 @@ describe('mobile-html-sections-lead', function() {
                 var lead = res.body;
                 assert.deepEqual(lead.geo.latitude, 37.783);
                 assert.deepEqual(lead.geo.longitude, -122.417);
-            });
-    });
-    it('en San Francisco should have a lead object with an extract', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/San_Francisco' })
-            .then(function(res) {
-                var lead = res.body;
-                assert.ok(lead.extract.length > 0);
             });
     });
     it('Obama (redirect) should have a lead image', function() {

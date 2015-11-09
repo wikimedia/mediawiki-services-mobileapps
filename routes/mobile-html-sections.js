@@ -14,7 +14,6 @@
 var BBPromise = require('bluebird');
 var preq = require('preq');
 var domino = require('domino');
-var extract = require('../lib/extract');
 var mwapi = require('../lib/mwapi');
 var mUtil = require('../lib/mobile-util');
 var parse = require('../lib/parseProperty');
@@ -89,13 +88,7 @@ function sanitizeEmptyProtection(protection) {
     return protection;
 }
 
-function parseExtract(body) {
-    var id = Object.keys(body.query.pages)[0];
-    var page = body.query.pages[id];
-    return page && extract.format(page.extract);
-}
-
-function buildLead(input, domain) {
+function buildLead(input) {
     var lead = domino.createDocument(input.page.sections[0].text);
     return {
         id: input.meta.id,
@@ -113,8 +106,6 @@ function buildLead(input, domain) {
             file: input.meta.image && input.meta.image.file,
             urls: input.meta.thumb && mwapi.buildLeadImageUrls(input.meta.thumb.url)
         })),
-        extract: input.extract && parseExtract(input.extract.body),
-        infobox: parse.parseInfobox(lead),
         pronunciation: parse.parsePronunciation(lead, input.meta.displaytitle),
         spoken: input.page.spoken,
         geo: input.page.geo,
@@ -128,9 +119,9 @@ function buildRemaining(input) {
     };
 }
 
-function buildAll(input, domain) {
+function buildAll(input) {
     return {
-        lead: buildLead(input, domain),
+        lead: buildLead(input),
         remaining: buildRemaining(input)
     };
 }
@@ -164,7 +155,7 @@ router.get('/mobile-html-sections/:title/:revision?', function (req, res) {
         }
         return response;
     }).then(function (response) {
-        response = buildAll(response, req.params.domain);
+        response = buildAll(response);
         res.status(200);
         mUtil.setETag(req, res, response.lead.revision);
         res.json(response).end();
@@ -186,7 +177,7 @@ router.get('/mobile-html-sections-lead/:title/:revision?', function (req, res) {
         }
         return response;
     }).then(function (response) {
-        response = buildLead(response, req.params.domain);
+        response = buildLead(response);
         res.status(200);
         mUtil.setETag(req, res, response.revision);
         res.json(response).end();
