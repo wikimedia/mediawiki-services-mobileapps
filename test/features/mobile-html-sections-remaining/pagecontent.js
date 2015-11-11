@@ -14,7 +14,7 @@ describe('mobile-html-sections-remaining', function() {
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return headers.checkHeaders(server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections-remaining/Test',
+        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-remaining/Foobar',
             'application/json');
     });
     it('Obama (redirect) should have at least one video, and many images', function() {

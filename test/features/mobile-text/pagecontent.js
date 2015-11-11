@@ -14,11 +14,11 @@ describe('mobile-text', function() {
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return headers.checkHeaders(server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/Test',
+        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/mobile-text/Foobar',
             'application/json');
     });
     it('should have the right meta fields in the JSON response', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/Test' })
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-text/Foobar' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 assert.notDeepEqual(res.body.lastmodified, undefined);
@@ -27,11 +27,11 @@ describe('mobile-text', function() {
                 assert.notDeepEqual(res.body.id, undefined);
                 assert.notDeepEqual(res.body.protection, undefined);
                 assert.notDeepEqual(res.body.editable, undefined);
-                assert.deepEqual(res.body.displaytitle, 'Test');
+                assert.deepEqual(res.body.displaytitle, 'Foobar');
             });
     });
     it('should have the right structure of section objects', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/Test' })
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-text/Foobar' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 assert.notDeepEqual(res.body.sections, undefined);

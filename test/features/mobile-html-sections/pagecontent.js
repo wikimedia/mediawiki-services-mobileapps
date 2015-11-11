@@ -14,13 +14,13 @@ describe('mobile-html-sections', function() {
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return headers.checkHeaders(server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections/Test',
+        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections/Foobar',
             'application/json');
     });
 
     it('return the sent ETag', function() {
         return preq.get({
-            uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections/Test',
+            uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections/Foobar',
             headers: { 'x-restbase-etag': '123456/c3421381-7109-11e5-ac43-8c7f067c3520' }
         }).then(function(res) {
             assert.status(res, 200);
