@@ -132,7 +132,7 @@ function buildLead(input, domain) {
         })),
         extract: input.extract && parseExtract(input.extract.body),
         infobox: parse.parseInfobox(lead),
-        pronunciation: parse.parsePronunciation(lead, domain),
+        pronunciation: parse.parsePronunciation(lead, input.meta.displaytitle),
         spoken: input.page.spoken,
         geo: input.page.geo,
         sections: buildLeadSections(input.page.sections),
