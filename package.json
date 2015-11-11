@@ -52,6 +52,7 @@
   "devDependencies": {
     "extend": "^3.0.0",
     "istanbul": "^0.3.22",
+    "jshint": "^2.8.0",
     "mocha": "^2.3.3",
     "mocha-jshint": "^2.2.3",
     "mocha-lcov-reporter": "^1.0.0",
