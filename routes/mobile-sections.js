@@ -21,10 +21,6 @@ var parsoid = require('../lib/parsoid-access');
 var sUtil = require('../lib/util');
 var transforms = require('../lib/transforms');
 
-// shortcut
-var HTTPError = sUtil.HTTPError;
-
-
 /**
  * The main router object
  */
@@ -142,10 +138,10 @@ function mainPageFixPromise(req, response) {
 }
 
 /**
- * GET {domain}/v1/page/mobile-html-sections/{title}
+ * GET {domain}/v1/page/mobile-sections/{title}
  * Gets the mobile app version of a given wiki page.
  */
-router.get('/mobile-html-sections/:title/:revision?', function (req, res) {
+router.get('/mobile-sections/:title/:revision?', function (req, res) {
     return BBPromise.props({
         page: parsoid.pageContentPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.title, req.params.revision),
         meta: pageMetadataPromise(req.logger, req.params.domain, req.params.title)
@@ -163,10 +159,10 @@ router.get('/mobile-html-sections/:title/:revision?', function (req, res) {
 });
 
 /**
- * GET {domain}/v1/page/mobile-html-sections-lead/{title}
+ * GET {domain}/v1/page/mobile-sections-lead/{title}
  * Gets the lead section for the mobile app version of a given wiki page.
  */
-router.get('/mobile-html-sections-lead/:title/:revision?', function (req, res) {
+router.get('/mobile-sections-lead/:title/:revision?', function (req, res) {
     return BBPromise.props({
         page: parsoid.pageContentPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.title, req.params.revision),
         meta: pageMetadataPromise(req.logger, req.params.domain, req.params.title),
@@ -185,10 +181,10 @@ router.get('/mobile-html-sections-lead/:title/:revision?', function (req, res) {
 });
 
 /**
- * GET {domain}/v1/page/mobile-html-sections-remaining/{title}
+ * GET {domain}/v1/page/mobile-sections-remaining/{title}
  * Gets the remaining sections for the mobile app version of a given wiki page.
  */
-router.get('/mobile-html-sections-remaining/:title/:revision?', function (req, res) {
+router.get('/mobile-sections-remaining/:title/:revision?', function (req, res) {
     return BBPromise.props({
         page: parsoid.pageContentPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.title, req.params.revision)
     }).then(function (response) {

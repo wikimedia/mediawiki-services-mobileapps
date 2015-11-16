@@ -78,8 +78,8 @@ paths:
                   url: /.+/
                   width: /.+/
                   height: /.+/
-  # from routes/mobile-html-sections.js
-  /{domain}/v1/page/mobile-html-sections/{title}:
+  # from routes/mobile-sections.js
+  /{domain}/v1/page/mobile-sections/{title}:
     get:
       tags:
         - Page content
@@ -87,7 +87,7 @@ paths:
       produces:
         - application/json
       x-amples:
-        - title: retrieve en.wp main page via mobile-html-sections
+        - title: retrieve en.wp main page via mobile-sections
           request:
             params:
               title: Main_Page
@@ -110,7 +110,7 @@ paths:
                 sections: [ /.+/ ]
               remaining:
                 sections: []
-  /{domain}/v1/page/mobile-html-sections-lead/{title}:
+  /{domain}/v1/page/mobile-sections-lead/{title}:
     get:
       tags:
         - Lead section of page content
@@ -118,7 +118,7 @@ paths:
       produces:
         - application/json
       x-amples:
-        - title: retrieve lead section of en.wp main page via mobile-html-sections-lead
+        - title: retrieve lead section of en.wp main page via mobile-sections-lead
           request:
             params:
               title: Main_Page
@@ -138,7 +138,7 @@ paths:
               mainpage: true
               languagecount: /.+/
               sections: [ /.+/ ]
-        - title: retrieve lead section of en.wp San Francisco page via mobile-html-sections-lead
+        - title: retrieve lead section of en.wp San Francisco page via mobile-sections-lead
           request:
             params:
               title: San_Francisco
@@ -160,7 +160,7 @@ paths:
                 latitude: /.+/
                 longitude: /.+/
               sections: [ /.+/ ]
-        - title: retrieve lead section of en.wp Barack Obama page via mobile-html-sections-lead
+        - title: retrieve lead section of en.wp Barack Obama page via mobile-sections-lead
           request:
             params:
               title: Barack_Obama
@@ -183,7 +183,7 @@ paths:
               spoken:
                 files: [ /.+/ ]
               sections: [ /.+/ ]
-  /{domain}/v1/page/mobile-html-sections-remaining/{title}:
+  /{domain}/v1/page/mobile-sections-remaining/{title}:
     get:
       tags:
         - Lead section of page content
@@ -191,7 +191,7 @@ paths:
       produces:
         - application/json
       x-amples:
-        - title: retrieve remaining sections of en.wp main page via mobile-html-sections-remaining
+        - title: retrieve remaining sections of en.wp main page via mobile-sections-remaining
           request:
             params:
               title: Main_Page

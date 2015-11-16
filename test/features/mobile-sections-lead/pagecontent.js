@@ -8,17 +8,17 @@ var preq   = require('preq');
 var server = require('../../utils/server.js');
 var headers = require('../../utils/headers.js');
 
-describe('mobile-html-sections-lead', function() {
+describe('mobile-sections-lead', function() {
     this.timeout(20000);
 
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/Foobar',
+        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Foobar',
             'application/json');
     });
     it('Sections/deep page should have a lead object with expected properties', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections-lead/Sections%2Fdeep' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections-lead/Sections%2Fdeep' })
             .then(function(res) {
                 var lead = res.body;
                 assert.deepEqual(res.status, 200);
@@ -32,7 +32,7 @@ describe('mobile-html-sections-lead', function() {
             });
     });
     it('en Cat page should have a lead object with expected properties', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/Cat' })
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Cat' })
             .then(function(res) {
                 var lead = res.body;
                 assert.deepEqual(res.status, 200);
@@ -65,7 +65,7 @@ describe('mobile-html-sections-lead', function() {
             });
     });
     it('en San Francisco should have a lead object with a geo property', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/San_Francisco' })
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/San_Francisco' })
             .then(function(res) {
                 var lead = res.body;
                 assert.deepEqual(lead.geo.latitude, 37.783);
@@ -73,7 +73,7 @@ describe('mobile-html-sections-lead', function() {
             });
     });
     it('Obama (redirect) should have a lead image', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/Obama' })
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Obama' })
             .then(function(res) {
                 var lead = res.body;
                 assert.deepEqual(res.status, 200);
@@ -87,7 +87,7 @@ describe('mobile-html-sections-lead', function() {
             });
     });
     it('Barack Obama should have a pronunciation', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections-lead/Barack_Obama' })
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Barack_Obama' })
             .then(function(res) {
                 var lead = res.body;
                 assert.deepEqual(res.status, 200);

@@ -8,19 +8,19 @@ var preq   = require('preq');
 var server = require('../../utils/server.js');
 var headers = require('../../utils/headers.js');
 
-describe('mobile-html-sections', function() {
+describe('mobile-sections', function() {
     this.timeout(20000);
 
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections/Foobar',
+        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Foobar',
             'application/json');
     });
 
     it('return the sent ETag', function() {
         return preq.get({
-            uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections/Foobar',
+            uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Foobar',
             headers: { 'x-restbase-etag': '123456/c3421381-7109-11e5-ac43-8c7f067c3520' }
         }).then(function(res) {
             assert.status(res, 200);
@@ -29,7 +29,7 @@ describe('mobile-html-sections', function() {
     });
 
     it('Sections/deep page should have a lead object with expected properties', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections/Sections%2Fdeep' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/Sections%2Fdeep' })
             .then(function(res) {
                 var lead = res.body.lead;
                 assert.deepEqual(res.status, 200);
@@ -43,7 +43,7 @@ describe('mobile-html-sections', function() {
             });
     });
     it('en Main page should have a lead object with expected properties', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections/Main_Page' })
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Main_Page' })
             .then(function(res) {
                 var lead = res.body.lead;
                 assert.deepEqual(res.status, 200);
@@ -68,7 +68,7 @@ describe('mobile-html-sections', function() {
             });
     });
     it('Obama (redirect) should have a lead image, description, redirected, and remaining sections', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-html-sections/Obama' })
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Obama' })
             .then(function(res) {
                 var lead = res.body.lead;
                 assert.deepEqual(res.status, 200);
@@ -94,7 +94,7 @@ describe('mobile-html-sections', function() {
             });
     });
     it('Missing title should respond with 404', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-html-sections/weoiuyrxcmxn' })
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/weoiuyrxcmxn' })
             .then(function() {
                 assert.fail("expected an exception to be thrown");
             }).catch(function(res) {
