@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 0.0.3
+  version: 0.1.0
   title: WMF MobileApps service
   description: A prototype for MediaWiki REST API services for mobile apps
   termsOfService: https://wikimediafoundation.org/wiki/Terms_of_Use
