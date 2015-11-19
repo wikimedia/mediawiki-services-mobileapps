@@ -83,7 +83,7 @@ describe('mobile-sections-lead', function() {
                 assert.contains(lead.image.urls["800"], "//upload.wikimedia.org/wikipedia/commons/thumb");
                 assert.contains(lead.image.urls["800"], "800px-");
                 assert.contains(lead.image.urls["1024"], "//upload.wikimedia.org/wikipedia/commons/thumb");
-                assert.contains(lead.image.urls["1024"], "1024px-");
+                assert.contains(lead.image.urls["1024"], "820px-");
             });
     });
     it('Barack Obama should have a pronunciation', function() {
