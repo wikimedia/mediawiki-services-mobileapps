@@ -56,10 +56,10 @@ This starts an HTTP server listening on `localhost:6927`. There are a few
 routes you may query (with a browser, or `curl` and friends):
 
 The main route you may query (with a browser, or `curl` and friends):
-* `http://localhost:6927/{domain}/v1/page/mobile-html-sections/{title}`
+* `http://localhost:6927/{domain}/v1/page/mobile-sections/{title}`
 
 Example:
-* `http://localhost:6927/en.wikipedia.org/v1/page/mobile-html-sections/Cat`
+* `http://localhost:6927/en.wikipedia.org/v1/page/mobile-sections/Cat`
 
 There is also a route for the mobile lite app:
 * `http://localhost:6927/{domain}/v1/page/mobile-text/{title}`
@@ -100,4 +100,3 @@ Go apps!
 Big thank you to our services team for providing an awesome
 [template](https://github.com/wikimedia/service-template-node)
 for this and for supporting us along the way!
-
