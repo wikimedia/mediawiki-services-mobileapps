@@ -23,7 +23,7 @@ describe('mobile-summary', function() {
                 var body = res.body;
                 assert.deepEqual(res.status, 200);
                 assert.deepEqual(body.title, 'Cat');
-                assert.ok(body.extract.indexOf('The domestic cat, often referred to as "Kitty" is a') === 0, 'Expected different start of extract');
+                assert.ok(body.extract.indexOf('The domestic cat is a') === 0, 'Expected different start of extract');
                 assert.deepEqual(body.thumbnail, {
                     "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/320px-Cat_poster_1.jpg"
                 });

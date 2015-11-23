@@ -64,6 +64,14 @@ Example:
 There is also a route for the mobile lite app:
 * `http://localhost:6927/{domain}/v1/page/mobile-text/{title}`
 
+And a route for definitions from Wiktionary:
+* `http://localhost:6927/{language code}.wiktionary.org/v1/definition/{term}`
+
+Example:
+* `http://localhost:6927/en.wiktionary.org/v1/definition/present`
+
+A list of language codes can be found [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix).
+
 ### Tests
 
 There is also a set of executable tests. To fire them up, simply run:

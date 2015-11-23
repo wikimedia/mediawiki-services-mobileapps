@@ -78,6 +78,25 @@ paths:
                   url: /.+/
                   width: /.+/
                   height: /.+/
+  # from routes/definition.js
+  /{domain}/v1/definition/{term}:
+    get:
+      tags:
+        - Wiktionary definition of {term}
+      description: Gets the Wiktionary page for the selected term
+      produces:
+        - application/json
+      x-amples:
+        - title: retrieve en-wiktionary definition for 'cat'
+          request:
+            params:
+              term: cat
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              usages: []
   # from routes/mobile-sections.js
   /{domain}/v1/page/mobile-sections/{title}:
     get:
