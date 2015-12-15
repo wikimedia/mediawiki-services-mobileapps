@@ -94,4 +94,20 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.pronunciation.url, '//upload.wikimedia.org/wikipedia/commons/8/82/En-us-Barack-Hussein-Obama.ogg');
             });
     });
+    it('Enwiki Uranus loads successfully (no pronunciation parsing TypeErrors)', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Uranus' })
+            .then(function (res) {
+                var lead = res.body;
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(lead.pronunciation.url, '//upload.wikimedia.org/wikipedia/commons/1/1c/En-us-Uranus.ogg');
+            });
+    });
+    it('Enwiki Odisha loads successfully (no pronunciation parsing TypeErrors)', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Odisha' })
+            .then(function (res) {
+                var lead = res.body;
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(lead.pronunciation.url, '//upload.wikimedia.org/wikipedia/commons/c/c2/Pronunciation_of_the_Odia_language_word_%22Odisha%22.ogg');
+            });
+    });
 });
