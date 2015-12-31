@@ -14,11 +14,11 @@ describe('definition', function() {
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return headers.checkHeaders(server.config.uri + 'en.wiktionary.org/v1/definition/cat',
+        return headers.checkHeaders(server.config.uri + 'en.wiktionary.org/v1/page/definition/cat',
             'application/json');
     });
     it('en \'cat\' request should have expected structure and content', function() {
-        return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/definition/cat' })
+        return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/page/definition/cat' })
             .then(function(res) {
                 var usages = res.body.usages;
                 assert.deepEqual(res.status, 200);

@@ -79,7 +79,7 @@ paths:
                   width: /.+/
                   height: /.+/
   # from routes/definition.js
-  /{domain}/v1/definition/{term}:
+  /{domain}/v1/page/definition/{term}:
     get:
       tags:
         - Wiktionary definition of {term}

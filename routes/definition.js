@@ -24,7 +24,7 @@ var app;
  * GET {domain}/v1/definition/{term}/{revision?}
  * Gets the Wiktionary definition for a given term (and optional revision ID).
  */
-router.get('/:term/:revision?', function (req, res) {
+router.get('/definition/:term/:revision?', function (req, res) {
     return BBPromise.props({
         usages: parsoid.definitionPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.term, req.params.revision)
     }).then(function (response) {
@@ -37,7 +37,7 @@ router.get('/:term/:revision?', function (req, res) {
 module.exports = function (appObj) {
     app = appObj;
     return {
-        path: '/definition',
+        path: '/page',
         api_version: 1,
         router: router
     };
