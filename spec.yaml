@@ -90,13 +90,14 @@ paths:
         - title: retrieve en-wiktionary definition for 'cat'
           request:
             params:
+              domain: en.wiktionary.org
               term: cat
           response:
             status: 200
             headers:
               content-type: application/json
             body:
-              usages: []
+              usages: /.+/
   # from routes/mobile-sections.js
   /{domain}/v1/page/mobile-sections/{title}:
     get:

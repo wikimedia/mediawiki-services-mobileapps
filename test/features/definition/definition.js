@@ -17,6 +17,7 @@ describe('definition', function() {
         return headers.checkHeaders(server.config.uri + 'en.wiktionary.org/v1/page/definition/cat',
             'application/json');
     });
+
     it('en \'cat\' request should have expected structure and content', function() {
         return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/page/definition/cat' })
             .then(function(res) {
@@ -41,5 +42,22 @@ describe('definition', function() {
             });
     });
 
+    it('missing definitions', function() {
+        return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/page/definition/Dssjbkrt' })
+        .then(function(res) {
+            assert.status(res, 404);
+        }, function(err) {
+            assert.status(err, 404);
+        });
+    });
+
+    it('unsupported language', function() {
+        return preq.get({ uri: server.config.uri + 'ru.wiktionary.org/v1/page/definition/Baba' })
+        .then(function(res) {
+            assert.status(res, 501);
+        }, function(err) {
+            assert.status(err, 501);
+        });
+    });
 
 });
