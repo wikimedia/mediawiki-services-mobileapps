@@ -51,6 +51,15 @@ describe('definition', function() {
         });
     });
 
+    it('non-term page', function() {
+        return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/page/definition/Main_page' })
+        .then(function(res) {
+            assert.status(res, 404);
+        }, function(err) {
+            assert.status(err, 404);
+        });
+    });
+
     it('unsupported language', function() {
         return preq.get({ uri: server.config.uri + 'ru.wiktionary.org/v1/page/definition/Baba' })
         .then(function(res) {
