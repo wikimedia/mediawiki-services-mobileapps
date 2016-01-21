@@ -21,24 +21,24 @@ describe('definition', function() {
     it('en \'cat\' request should have expected structure and content', function() {
         return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/page/definition/cat' })
             .then(function(res) {
-                var usages = res.body.usages;
+                var en = res.body.en;
                 assert.deepEqual(res.status, 200);
-                assert.notDeepEqual(usages, undefined);
-                assert.ok(usages.length == 8)
-                for (var i = 0; i < usages.length; i++) {
-                    assert.notDeepEqual(usages[i].partOfSpeech, undefined);
-                    assert.notDeepEqual(usages[i].definitions, undefined);
-                    for (var j = 0; j < usages[i].definitions.length; j++) {
-                        assert.notDeepEqual(usages[i].definitions[j].definition, undefined);
-                        if (usages[i].definitions[j].examples) {
-                            usages[i].definitions[j].examples.length != 0;
+                assert.notDeepEqual(en, undefined);
+                assert.ok(en.length == 8)
+                for (var i = 0; i < en.length; i++) {
+                    assert.notDeepEqual(en[i].partOfSpeech, undefined);
+                    assert.notDeepEqual(en[i].definitions, undefined);
+                    for (var j = 0; j < en[i].definitions.length; j++) {
+                        assert.notDeepEqual(en[i].definitions[j].definition, undefined);
+                        if (en[i].definitions[j].examples) {
+                            en[i].definitions[j].examples.length != 0;
                         }
                     }
                 }
-                assert.deepEqual(usages[0].partOfSpeech, 'Noun');
-                assert.ok(usages[0].definitions[0].definition.indexOf('An animal of the family <a href=\"/wiki/Felidae\">') === 0, 'Expected different start of definition');
-                assert.deepEqual(usages[1].partOfSpeech, 'Verb');
-                assert.ok(usages[1].definitions[0].definition.indexOf('To <a href=\"/wiki/hoist\">hoist</a>') === 0, 'Expected different start of definition');
+                assert.deepEqual(en[0].partOfSpeech, 'Noun');
+                assert.ok(en[0].definitions[0].definition.indexOf('An animal of the family <a href=\"/wiki/Felidae\">') === 0, 'Expected different start of definition');
+                assert.deepEqual(en[1].partOfSpeech, 'Verb');
+                assert.ok(en[1].definitions[0].definition.indexOf('To <a href=\"/wiki/hoist\">hoist</a>') === 0, 'Expected different start of definition');
             });
     });
 
@@ -69,4 +69,11 @@ describe('definition', function() {
         });
     });
 
+    it('non-English term on English Wiktionary returns valid results', function() {
+        return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/page/definition/%D0%B8%D0%B7%D0%B1%D0%B5%D1%80%D0%B0' })
+        .then(function(res) {
+            assert.status(res, 200);
+            assert.ok(Object.keys(res).length !== 0);
+        });
+    });
 });

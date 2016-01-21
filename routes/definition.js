@@ -25,9 +25,8 @@ var app;
  * Gets the Wiktionary definition for a given term (and optional revision ID).
  */
 router.get('/definition/:term/:revision?', function (req, res) {
-    return BBPromise.props({
-        usages: parsoid.definitionPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.term, req.params.revision)
-    }).then(function (response) {
+    return parsoid.definitionPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.term, req.params.revision)
+    .then(function (response) {
         res.status(200);
         mUtil.setETag(req, res, response.revision);
         res.json(response).end();

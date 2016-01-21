@@ -96,8 +96,7 @@ paths:
             status: 200
             headers:
               content-type: application/json
-            body:
-              usages: /.+/
+            body: /.+/
   # from routes/mobile-sections.js
   /{domain}/v1/page/mobile-sections/{title}:
     get:
