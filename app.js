@@ -31,9 +31,9 @@ function initApp(options) {
     // ensure some sane defaults
     if(!app.conf.port) { app.conf.port = 8888; }
     if(!app.conf.interface) { app.conf.interface = '0.0.0.0'; }
-    if(!app.conf.compression_level) { app.conf.compression_level = 3; }
+    if(app.conf.compression_level === undefined) { app.conf.compression_level = 3; }
     if(app.conf.cors === undefined) { app.conf.cors = '*'; }
-    if(!app.conf.csp) {
+    if(app.conf.csp === undefined) {
         app.conf.csp =
             "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'";
     }
@@ -97,15 +97,15 @@ function initApp(options) {
             res.header('access-control-allow-headers', 'accept, x-requested-with, content-type');
             res.header('access-control-expose-headers', 'etag');
         }
-        res.header('x-xss-protection', '1; mode=block');
-        res.header('x-content-type-options', 'nosniff');
-        res.header('x-frame-options', 'SAMEORIGIN');
-        res.header('content-security-policy', app.conf.csp);
-        res.header('x-content-security-policy', app.conf.csp);
-        res.header('x-webkit-csp', app.conf.csp);
-
+        if(app.conf.csp !== false) {
+            res.header('x-xss-protection', '1; mode=block');
+            res.header('x-content-type-options', 'nosniff');
+            res.header('x-frame-options', 'SAMEORIGIN');
+            res.header('content-security-policy', app.conf.csp);
+            res.header('x-content-security-policy', app.conf.csp);
+            res.header('x-webkit-csp', app.conf.csp);
+        }
         sUtil.initAndLogRequest(req, app);
-
         next();
     });
 
@@ -136,7 +136,7 @@ function loadRoutes (app) {
 
     // get the list of files in routes/
     return fs.readdirAsync(__dirname + '/routes').map(function(fname) {
-        return BBPromise.try(function () {
+        return BBPromise.try(function() {
             // ... and then load each route
             // but only if it's a js file
             if(!/\.js$/.test(fname)) {
@@ -145,12 +145,12 @@ function loadRoutes (app) {
             // import the route file
             var route = require(__dirname + '/routes/' + fname);
             return route(app);
-        }).then(function (route) {
+        }).then(function(route) {
             if(route === undefined) {
                 return undefined;
             }
             // check that the route exports the object we need
-            if (route.constructor !== Object || !route.path || !route.router || !(route.api_version || route.skip_domain)) {
+            if(route.constructor !== Object || !route.path || !route.router || !(route.api_version || route.skip_domain)) {
                 throw new TypeError('routes/' + fname + ' does not export the correct object!');
             }
             // wrap the route handlers with Promise.try() blocks
