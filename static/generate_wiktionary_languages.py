@@ -6,8 +6,10 @@ import unicodecsv as csv
 from itertools import islice
 import json
 
-# Returns CSV of all current wiktionaries
-URL = "https://wikistats.wmflabs.org/api.php?action=dump&table=wiktionaries&format=csv"
+# Returns CSV of all current Wikipedia language names (in English) along with their
+# wiki language codes.  We'll use the Wikipedias table for wider coverage since Wiktionaries
+# can include content for other languages that don't have a Wiktionary of their own.
+URL = "https://wikistats.wmflabs.org/api.php?action=dump&table=wikipedias&format=csv"
 
 data = csv.reader(urlopen(URL))
 
