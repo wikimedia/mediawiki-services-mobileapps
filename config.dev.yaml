@@ -59,6 +59,6 @@ services:
       #   - if-match
       #   - user-agent
       #   - x-request-id
-      restbase_uri: https://restbase.wikimedia.org
+      restbase_uri: https://%DOMAIN%/api/rest_v1
       # whether to print extra debug info
       debug: true
