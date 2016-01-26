@@ -76,4 +76,12 @@ describe('definition', function() {
             assert.ok(Object.keys(res).length !== 0);
         });
     });
+
+    it('translingual term', function() {
+        return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/page/definition/Toxicodendron' })
+        .then(function(res) {
+            assert.status(res, 200);
+            assert.ok(Object.keys(res).length !== 0);
+        });
+    })
 });
