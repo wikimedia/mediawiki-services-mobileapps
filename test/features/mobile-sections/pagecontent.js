@@ -107,4 +107,10 @@ describe('mobile-sections', function() {
                 //assert.deepEqual(body.detail, 'Page or revision not found.');
             });
     });
+    it('Page with known past \'text-decoration\' error should load successfully', function() {
+        return preq.get({ uri: server.config.uri + 'zh.wikipedia.org/v1/page/mobile-sections/%E6%9F%A5%E5%85%8B%C2%B7%E8%91%9B%E9%87%8C%E8%8A%AC%E7%B4%8D%E5%A5%87' })
+            .then(function(res) {
+                assert.deepEqual(res.status, 200);
+            });
+    });
 });
