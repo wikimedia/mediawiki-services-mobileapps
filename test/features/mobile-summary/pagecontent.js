@@ -17,19 +17,16 @@ describe('mobile-summary', function() {
         return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/mobile-summary/Foobar',
             'application/json');
     });
-    it('en Cat page should have expected properties', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-summary/Cat' })
+    it('Page should have expected properties', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-summary/Ann_Arbor_Charter_Township,_Michigan' })
             .then(function(res) {
                 var body = res.body;
                 assert.deepEqual(res.status, 200);
-                assert.deepEqual(body.title, 'Cat');
-                assert.ok(body.extract.indexOf('The domestic cat is a') === 0, 'Expected different start of extract');
+                assert.deepEqual(body.title, 'Ann Arbor Charter Township, Michigan');
+                assert.ok(body.extract.indexOf('Ann Arbor Charter Township is a charter township') === 0, 'Expected different start of extract');
                 assert.deepEqual(body.thumbnail, {
-                    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/320px-Cat_poster_1.jpg"
+                    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Ann_Arbor_Township_hall_and_fire_station.JPG/320px-Ann_Arbor_Township_hall_and_fire_station.JPG"
                 });
-                assert.ok(body.infobox.length > 0, 'Expected at least one infobox row');
-                assert.ok(body.infobox[0].length > 0, 'Expected at least one infobox column');
-                assert.ok(body.infobox[0][0].indexOf('Domestic cat<s') === 0);
             });
     });
 });
