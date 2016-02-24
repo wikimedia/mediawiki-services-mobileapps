@@ -45,8 +45,8 @@ function buildPreview(input) {
  */
 router.get('/mobile-summary/:title', function (req, res) {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.title, req.params.revision),
-        extract: mwapi.requestExtract(req.params.domain, req.params.title)
+        page: parsoid.pageContentPromise(app, req),
+        extract: mwapi.requestExtract(app, req)
     }).then(function (response) {
         response = buildPreview(response);
         res.status(200);

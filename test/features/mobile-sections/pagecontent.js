@@ -113,4 +113,10 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.status, 200);
             });
     });
+    it('Beta cluster request should load successfully', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.beta.wmflabs.org/v1/page/mobile-sections/Foobar' })
+            .then(function(res) {
+                assert.deepEqual(res.status, 200);
+            });
+    });
 });

@@ -134,7 +134,7 @@ function runDomTransforms(section) {
  * Gets the lite mobile app version of a given wiki page.
  */
 router.get('/mobile-text/:title', function (req, res) {
-    return mwapi.getAllSections(req.logger, req.params.domain, req.params.title)
+    return mwapi.getAllSections(app, req)
     // and then return it
     .then(function (apiRes) {
         // transform all sections
@@ -159,4 +159,3 @@ module.exports = function (appObj) {
         router: router
     };
 };
-

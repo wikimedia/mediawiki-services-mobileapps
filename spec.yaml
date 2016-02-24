@@ -79,19 +79,19 @@ paths:
                   width: /.+/
                   height: /.+/
   # from routes/definition.js
-  /{domain}/v1/page/definition/{term}:
+  /{domain}/v1/page/definition/{title}:
     get:
       tags:
-        - Wiktionary definition of {term}
-      description: Gets the Wiktionary page for the selected term
+        - Wiktionary definition of {title}
+      description: Gets definitions parsed from Wiktionary for {title}
       produces:
         - application/json
       x-amples:
-        - title: retrieve en-wiktionary definition for 'cat'
+        - title: retrieve en-wiktionary definitions for 'cat'
           request:
             params:
               domain: en.wiktionary.org
-              term: cat
+              title: cat
           response:
             status: 200
             headers:

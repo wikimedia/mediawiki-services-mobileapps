@@ -32,8 +32,8 @@ var router = sUtil.router();
 var app;
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
-function pageContentForMainPagePromise(logger, domain, title) {
-    return mwapi.getAllSections(logger, domain, title)
+function pageContentForMainPagePromise(req) {
+    return mwapi.getAllSections(app, req)
     .then(function (response) {
         var page = response.body.mobileview;
         var sections = page.sections;
@@ -51,8 +51,8 @@ function pageContentForMainPagePromise(logger, domain, title) {
 }
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
-function pageMetadataPromise(logger, domain, title) {
-    return mwapi.getMetadata(logger, domain, title)
+function pageMetadataPromise(req) {
+    return mwapi.getMetadata(app, req)
     .then(function (response) {
         return response.body.mobileview;
     });
@@ -127,7 +127,7 @@ function buildAll(input) {
  * provide a good mobile presentation of main pages.
  */
 function mainPageFixPromise(req, response) {
-    return pageContentForMainPagePromise(req.logger, req.params.domain, req.params.title)
+    return pageContentForMainPagePromise(req)
     .then(function (mainPageContent) {
         return {
             page: mainPageContent,
@@ -143,8 +143,8 @@ function mainPageFixPromise(req, response) {
  */
 router.get('/mobile-sections/:title/:revision?', function (req, res) {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.title, req.params.revision),
-        meta: pageMetadataPromise(req.logger, req.params.domain, req.params.title)
+        page: parsoid.pageContentPromise(app, req),
+        meta: pageMetadataPromise(req)
     }).then(function (response) {
         if (response.meta.mainpage) {
             return mainPageFixPromise(req, response);
@@ -164,9 +164,9 @@ router.get('/mobile-sections/:title/:revision?', function (req, res) {
  */
 router.get('/mobile-sections-lead/:title/:revision?', function (req, res) {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.title, req.params.revision),
-        meta: pageMetadataPromise(req.logger, req.params.domain, req.params.title),
-        extract: mwapi.requestExtract(req.params.domain, req.params.title)
+        page: parsoid.pageContentPromise(app, req),
+        meta: pageMetadataPromise(req),
+        extract: mwapi.requestExtract(app, req)
     }).then(function (response) {
         if (response.meta.mainpage) {
             return mainPageFixPromise(req, response);
@@ -186,7 +186,7 @@ router.get('/mobile-sections-lead/:title/:revision?', function (req, res) {
  */
 router.get('/mobile-sections-remaining/:title/:revision?', function (req, res) {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.title, req.params.revision)
+        page: parsoid.pageContentPromise(app, req)
     }).then(function (response) {
         res.status(200);
         mUtil.setETag(req, res, response.page.revision);

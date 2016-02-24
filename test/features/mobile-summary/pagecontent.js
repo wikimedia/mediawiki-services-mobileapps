@@ -25,7 +25,7 @@ describe('mobile-summary', function() {
                 assert.deepEqual(body.title, 'Ann Arbor Charter Township, Michigan');
                 assert.ok(body.extract.indexOf('Ann Arbor Charter Township is a charter township') === 0, 'Expected different start of extract');
                 assert.deepEqual(body.thumbnail, {
-                    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Ann_Arbor_Township_hall_and_fire_station.JPG/320px-Ann_Arbor_Township_hall_and_fire_station.JPG"
+                    "source": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Ann_Arbor_Township_hall_and_fire_station.JPG/320px-Ann_Arbor_Township_hall_and_fire_station.JPG"
                 });
             });
     });

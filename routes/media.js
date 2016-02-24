@@ -24,8 +24,8 @@ var app;
  */
 router.get('/media/:title', function (req, res) {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.title, req.params.revision),
-        media: gallery.collectionPromise(req.logger, req.params.domain, req.params.title)
+        page: parsoid.pageContentPromise(app, req),
+        media: gallery.collectionPromise(app, req)
     }).then(function (response) {
         res.status(200);
         mUtil.setETag(req, res, response.page.revision);

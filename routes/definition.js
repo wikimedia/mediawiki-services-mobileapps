@@ -21,11 +21,11 @@ var router = sUtil.router();
 var app;
 
 /**
- * GET {domain}/v1/definition/{term}/{revision?}
+ * GET {domain}/v1/definition/{title}/{revision?}
  * Gets the Wiktionary definition for a given term (and optional revision ID).
  */
-router.get('/definition/:term/:revision?', function (req, res) {
-    return parsoid.definitionPromise(req.logger, app.conf.restbase_uri, req.params.domain, req.params.term, req.params.revision)
+router.get('/definition/:title/:revision?', function (req, res) {
+    return parsoid.definitionPromise(app, req)
     .then(function (response) {
         res.status(200);
         mUtil.setETag(req, res, response.revision);

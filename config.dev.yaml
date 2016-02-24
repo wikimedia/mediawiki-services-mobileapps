@@ -59,6 +59,14 @@ services:
       #   - if-match
       #   - user-agent
       #   - x-request-id
-      restbase_uri: https://%DOMAIN%/api/rest_v1
+      restbase_req:
+        uri: http://{domain}/api/rest_v1/page/html/{title}
+        headers:
+          user-agent: WMF Mobile Content Service dev
+      mwapi_req:
+        method: post
+        uri: http://{domain}/w/api.php
+        headers:
+          user-agent: WMF Mobile Content Service dev
       # whether to print extra debug info
       debug: true
