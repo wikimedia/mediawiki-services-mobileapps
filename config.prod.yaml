@@ -39,7 +39,7 @@ services:
           user-agent: WMF Mobile Content Service
       mwapi_req:
         method: post
-        uri: http://api.svc.eqiad.wmnet
+        uri: http://api.svc.eqiad.wmnet/w/api.php
         headers:
           host: '{request.params.domain}'
           user-agent: WMF Mobile Content Service
