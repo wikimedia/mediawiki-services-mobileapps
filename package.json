@@ -60,7 +60,7 @@
     "mocha-lcov-reporter": "^1.0.0"
   },
   "deploy": {
-    "node": "4.2",
+    "node": "4.3.0",
     "target": "debian",
     "dependencies": {
       "_all": []
