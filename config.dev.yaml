@@ -63,6 +63,7 @@ services:
         uri: http://{domain}/api/rest_v1/page/html/{title}
         headers:
           user-agent: WMF Mobile Content Service dev
+          accept: text/html; charset=utf-8; profile="mediawiki.org/specs/html/1.2.0"
       mwapi_req:
         method: post
         uri: http://{domain}/w/api.php
