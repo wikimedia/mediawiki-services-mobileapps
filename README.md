@@ -65,7 +65,7 @@ There is also a route for the mobile lite app:
 * `http://localhost:6927/{domain}/v1/page/mobile-text/{title}`
 
 And a route for definitions from Wiktionary:
-* `http://localhost:6927/{language code}.wiktionary.org/v1/page/definition/{term}`
+* `http://localhost:6927/{language code}.wiktionary.org/v1/page/definition/{title}`
 
 Example:
 * `http://localhost:6927/en.wiktionary.org/v1/page/definition/present`
