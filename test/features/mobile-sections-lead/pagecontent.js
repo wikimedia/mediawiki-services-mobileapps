@@ -8,7 +8,7 @@ var preq   = require('preq');
 var server = require('../../utils/server.js');
 var headers = require('../../utils/headers.js');
 
-describe('mobile-sections-lead', function() {
+describe.only('mobile-sections-lead', function() {
     this.timeout(20000);
 
     before(function () { return server.start(); });
@@ -108,6 +108,14 @@ describe('mobile-sections-lead', function() {
                 var lead = res.body;
                 assert.deepEqual(res.status, 200);
                 assert.deepEqual(lead.pronunciation.url, '//upload.wikimedia.org/wikipedia/commons/c/c2/Pronunciation_of_the_Odia_language_word_%22Odisha%22.ogg');
+            });
+    });
+    it('Enwiki Lead_paragraph_move has the infobox moved after the lead paragraph', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FLead_paragraph_move' })
+            .then(function (res) {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.sections[0].text.startsWith('<span><p>Lead paragraph should appear first'),
+                    'Expected section text to start with lead paragraph. Actual text ' + res.body.sections[0].text);
             });
     });
 });
