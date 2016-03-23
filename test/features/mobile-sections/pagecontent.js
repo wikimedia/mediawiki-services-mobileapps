@@ -119,12 +119,4 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.status, 200);
             });
     });
-    it('Redlink should be removed', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/User:Mhollo%2Fredlink_test' })
-            .then(function(res) {
-                var leadSection = res.body.lead.sections[0].text;
-                assert.ok(leadSection.indexOf('redlink') > -1, '"redlink" text exists');
-                assert.deepEqual(leadSection.indexOf('href'), -1, 'no link in present in output');
-            })
-    })
 });
