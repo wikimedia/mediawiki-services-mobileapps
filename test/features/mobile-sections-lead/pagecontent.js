@@ -8,7 +8,7 @@ var preq   = require('preq');
 var server = require('../../utils/server.js');
 var headers = require('../../utils/headers.js');
 
-describe.only('mobile-sections-lead', function() {
+describe('mobile-sections-lead', function() {
     this.timeout(20000);
 
     before(function () { return server.start(); });
