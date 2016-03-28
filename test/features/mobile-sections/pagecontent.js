@@ -119,4 +119,11 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.status, 200);
             });
     });
+    it('Page with irregular Spoken Wikipedia template usage should load correctly', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Alliterative_verse' })
+            .then(function(res) {
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.lead.spoken.files[0], 'File:En-Alliterative_verse-article.ogg');
+            });
+    });
 });
