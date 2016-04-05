@@ -126,4 +126,40 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.body.lead.spoken.files[0], 'File:En-Alliterative_verse-article.ogg');
             });
     });
+    it('Page with HTML entity in redirected page title should load', function() {
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FA%26B_redirect' })
+            .then(function(res) {
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.lead.normalizedtitle, 'User:BSitzmann (WMF)/MCS/Test/A&B redirect');
+                assert.deepEqual(res.body.lead.displaytitle, 'User:BSitzmann (WMF)/MCS/Test/A&B');
+                assert.deepEqual(res.body.lead.redirected, 'User:BSitzmann (WMF)/MCS/Test/A&B');
+            });
+    });
+    it('Page with % in redirected page title should load', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.beta.wmflabs.org/v1/page/mobile-sections/User:Pchelolo%2fRedirect_Test' })
+            .then(function(res) {
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.lead.normalizedtitle, 'User:Pchelolo/Redirect Test');
+                assert.deepEqual(res.body.lead.displaytitle, 'User:Pchelolo/Redirect Target %');
+                assert.deepEqual(res.body.lead.redirected, 'User:Pchelolo/Redirect Target %');
+            });
+    });
+    it('Page with % in redirected page title should load 2', function() {
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/User:BSitzmann_%28WMF%29%2FMCS%2FTest%2Fredirect_test2' })
+            .then(function(res) {
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.lead.normalizedtitle, 'User:BSitzmann (WMF)/MCS/Test/redirect test2');
+                assert.deepEqual(res.body.lead.displaytitle, 'User:BSitzmann (WMF)/MCS/Test/redirect test2 target %');
+                assert.deepEqual(res.body.lead.redirected, 'User:BSitzmann (WMF)/MCS/Test/redirect test2 target %');
+            });
+    });
+    it('Page with % in section header of redirected page title should load', function() {
+        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/User:BSitzmann_%28WMF%29%2FMCS%2FTest%2Fredirect_test3' })
+            .then(function(res) {
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.lead.normalizedtitle, 'User:BSitzmann (WMF)/MCS/Test/redirect test3');
+                assert.deepEqual(res.body.lead.displaytitle, 'User:BSitzmann (WMF)/MCS/Test/redirect test3 target');
+                assert.deepEqual(res.body.lead.redirected, 'User:BSitzmann (WMF)/MCS/Test/redirect test3 target#Section_.25');
+            });
+    });
 });
