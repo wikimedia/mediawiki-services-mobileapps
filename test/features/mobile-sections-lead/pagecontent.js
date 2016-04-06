@@ -51,6 +51,7 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.image, {
                     "file": "Cat poster 1.jpg",
                     "urls": {
+                        "320": "//upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/320px-Cat_poster_1.jpg",
                         "640": "//upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/640px-Cat_poster_1.jpg",
                         "800": "//upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/800px-Cat_poster_1.jpg",
                         "1024": "//upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/1024px-Cat_poster_1.jpg"
