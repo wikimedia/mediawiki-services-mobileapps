@@ -80,6 +80,18 @@ describe('lib:parsoid', function() {
         assert.ok(redirect === false);
     });
 
+    it('_getRedirectTitleFromPayload(): HTML entities in redirected title should be decoded', function() {
+        var body = '<link rel="mw:PageProp/redirect" href="./some foo &amp; bar title"';
+        var actual = parsoid._getRedirectTitleFromPayload(body);
+        assert.deepEqual(actual, 'some foo & bar title');
+    });
+
+    it('_getRedirectTitleFromPayload(): %25 in redirected title should be decoded', function() {
+        var body = '<link rel="mw:PageProp/redirect" href="./%25 in title"';
+        var actual = parsoid._getRedirectTitleFromPayload(body);
+        assert.deepEqual(actual, '% in title');
+    });
+
     it('_getRedirectTitleFromLocationHeader() with redirect', function() {
         var response = {
             'status': 301,
