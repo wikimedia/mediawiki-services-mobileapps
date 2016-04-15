@@ -1,10 +1,6 @@
 'use strict';
 
 
-// mocha defines to avoid JSHint breakage
-/* global describe, it, before, beforeEach, after, afterEach */
-
-
 var BBPromise = require('bluebird');
 var ServiceRunner = require('service-runner');
 var logStream = require('./logStream');

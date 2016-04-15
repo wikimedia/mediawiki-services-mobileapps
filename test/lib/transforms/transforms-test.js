@@ -1,8 +1,5 @@
 'use strict';
 
-// mocha defines to avoid JSHint breakage
-/* global describe, it, before, beforeEach, after, afterEach */
-
 var assert = require('../../utils/assert.js');
 var domino = require('domino');
 var transforms = require('../../../lib/transforms');
