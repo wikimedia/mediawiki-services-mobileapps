@@ -85,9 +85,32 @@ connection), you should see all the tests passing. As testing most of the code
 is an important aspect of service development, there is also a bundled tool
 reporting the percentage of code covered. Start it with:
 
+After the first run http interactions should be cached in the `fixtures/`
+folder. If you re-run the tests, they should use the cached fixtures and run
+faster (and offline).
+
+For getting fresh fixtures just remove the `fixtures` folder and re-run the
+tests.
+
+Here are some other options regarding http caching:
+
+```
+npm test # Run tests with cached http interactions (same as VCR_MODE=cache),
+caches new requests. Should be a lot faster, also VCR_MODE=playback plays using
+cached http interactions but goes to network for uncached ones (without caching
+them).
+VCR_MODE=record npm test # Run tests recording http interactions
+```
+
+See [sepia](https://www.npmjs.com/package/sepia) for more documentation about
+the http recording.
+
 ```
 npm run-script coverage
 ```
+
+If you're going to run the tests many times, you can record the external HTTP
+interactions for running the tests faster:
 
 ### Troubleshooting
 

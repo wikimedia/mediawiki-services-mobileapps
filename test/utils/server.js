@@ -1,6 +1,8 @@
 'use strict';
 
-
+// Default to recording+replaying http fixtures
+process.env.VCR_MODE = process.env.VCR_MODE || 'cache';
+var sepia = require('sepia');
 var BBPromise = require('bluebird');
 var ServiceRunner = require('service-runner');
 var logStream = require('./logStream');
