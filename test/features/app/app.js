@@ -1,5 +1,6 @@
 'use strict';
 
+
 var preq   = require('preq');
 var assert = require('../../utils/assert.js');
 var server = require('../../utils/server.js');
@@ -21,16 +22,23 @@ describe('express app', function() {
     });
 
     it('should set CORS headers', function() {
+        if(server.config.service.conf.cors === false) {
+            return true;
+        }
         return preq.get({
             uri: server.config.uri + 'robots.txt'
         }).then(function(res) {
             assert.deepEqual(res.status, 200);
             assert.deepEqual(res.headers['access-control-allow-origin'], '*');
-            assert.notDeepEqual(res.headers['access-control-allow-headers'], undefined);
+            assert.deepEqual(!!res.headers['access-control-allow-headers'], true);
+            assert.deepEqual(!!res.headers['access-control-expose-headers'], true);
         });
     });
 
     it('should set CSP headers', function() {
+        if(server.config.service.conf.csp === false) {
+            return true;
+        }
         return preq.get({
             uri: server.config.uri + 'robots.txt'
         }).then(function(res) {
@@ -41,6 +49,16 @@ describe('express app', function() {
             assert.deepEqual(res.headers['content-security-policy'], 'default-src');
             assert.deepEqual(res.headers['x-content-security-policy'], 'default-src');
             assert.deepEqual(res.headers['x-webkit-csp'], 'default-src');
+        });
+    });
+
+    it.skip('should get static content gzipped', function() {
+        return preq.get({
+            uri: server.config.uri + 'robots.txt'
+        }).then(function(res) {
+            assert.deepEqual(res.status, 200);
+            assert.deepEqual(res.headers['access-control-allow-origin'], '*');
+            assert.notDeepEqual(res.headers['access-control-allow-headers'], undefined);
         });
     });
 
@@ -57,4 +75,3 @@ describe('express app', function() {
     });
 
 });
-
