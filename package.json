@@ -45,7 +45,6 @@
     "compression": "^1.6.1",
     "domino": "^1.0.24",
     "express": "^4.13.4",
-    "html-entities": "^1.2.0",
     "js-yaml": "^3.6.0",
     "phpjs": "^1.3.2",
     "preq": "^0.4.9",

@@ -64,32 +64,6 @@ describe('mobile-sections', function() {
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
-    it('Obama (redirect) should have a lead image, description, redirected, and remaining sections', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Obama' })
-            .then(function(res) {
-                var lead = res.body.lead;
-                assert.deepEqual(res.status, 200);
-                assert.contains(lead.image.file, "Obama");
-                assert.contains(lead.image.urls["640"], "//upload.wikimedia.org/wikipedia/commons/thumb");
-                assert.contains(lead.image.urls["640"], "640px-");
-                assert.contains(lead.image.urls["800"], "//upload.wikimedia.org/wikipedia/commons/thumb");
-                assert.contains(lead.image.urls["800"], "800px-");
-                assert.contains(lead.image.urls["1024"], "//upload.wikimedia.org/wikipedia/commons/thumb");
-                assert.contains(lead.image.urls["1024"], "820px-");
-
-                assert.deepEqual(lead.description, "44th President of the United States");
-                assert.deepEqual(lead.redirected, "Barack Obama");
-
-                var remaining = res.body.remaining;
-                assert.ok(remaining.sections.length > 3, 'Expected many remaining sections but got '
-                    + remaining.sections.length); // 1, 2, 3, many ;)
-                assert.deepEqual(remaining.sections[0].id, 1);
-                assert.deepEqual(remaining.sections[0].toclevel, 1);
-                assert.ok(remaining.sections[0].text.length > 3);
-                assert.ok(remaining.sections[0].line.length > 3);
-                assert.ok(remaining.sections[0].anchor.length > 3);
-            });
-    });
     it('Missing title should respond with 404', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/weoiuyrxcmxn' })
             .then(function() {

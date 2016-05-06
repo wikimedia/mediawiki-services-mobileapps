@@ -70,20 +70,6 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.geo.longitude, -122.417);
             });
     });
-    it('Obama (redirect) should have a lead image', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Obama' })
-            .then(function(res) {
-                var lead = res.body;
-                assert.deepEqual(res.status, 200);
-                assert.contains(lead.image.file, "Obama");
-                assert.contains(lead.image.urls["640"], "//upload.wikimedia.org/wikipedia/commons/thumb");
-                assert.contains(lead.image.urls["640"], "640px-");
-                assert.contains(lead.image.urls["800"], "//upload.wikimedia.org/wikipedia/commons/thumb");
-                assert.contains(lead.image.urls["800"], "800px-");
-                assert.contains(lead.image.urls["1024"], "//upload.wikimedia.org/wikipedia/commons/thumb");
-                assert.contains(lead.image.urls["1024"], "820px-");
-            });
-    });
     it('Barack Obama should have a pronunciation', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Barack_Obama' })
             .then(function(res) {

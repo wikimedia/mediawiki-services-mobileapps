@@ -64,39 +64,4 @@ describe('lib:parsoid', function() {
         assertSection1(sections);
         assertSection2(sections);
     });
-
-    it('_hasRedirectInPayload() with redirect in body should return a redirect', function() {
-        var body = '<body><link rel="mw:PageProp/redirect" href="./Redirected_page" id="mwAQ"/></body>';
-        var redirect = parsoid._hasRedirectInPayload(body);
-        assert.ok(redirect === true);
-    });
-
-    it('_hasRedirectInPayload() without redirect in body should not return a redirect', function() {
-        var body = '<body>foo bar</body>';
-        var redirect = parsoid._hasRedirectInPayload(body);
-        assert.ok(redirect === false);
-    });
-
-    it('_getRedirectTitleFromPayload(): HTML entities in redirected title should be decoded', function() {
-        var body = '<link rel="mw:PageProp/redirect" href="./some foo &amp; bar title"';
-        var actual = parsoid._getRedirectTitleFromPayload(body);
-        assert.deepEqual(actual, 'some foo & bar title');
-    });
-
-    it('_getRedirectTitleFromPayload(): %25 in redirected title should be decoded', function() {
-        var body = '<link rel="mw:PageProp/redirect" href="./%25 in title"';
-        var actual = parsoid._getRedirectTitleFromPayload(body);
-        assert.deepEqual(actual, '% in title');
-    });
-
-    it('_getRedirectTitleFromLocationHeader() with redirect', function() {
-        var response = {
-            'status': 301,
-            'headers': {
-                'location': '//foo/bar/Redirected_page'
-            }
-        };
-        var redirect = parsoid._getRedirectTitleFromLocationHeader(response);
-        assert.deepEqual(redirect, 'Redirected_page');
-    });
 });
