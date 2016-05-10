@@ -121,7 +121,7 @@ paths:
                 lastmodified: /.+/
                 displaytitle: /.+/
                 normalizedtitle: /.+/
-                description: main page of a Wikimedia project
+                description: /[Mm]ain [Pp]age/
                 protection: /.+/
                 editable: /.+/
                 mainpage: true
@@ -151,7 +151,7 @@ paths:
               lastmodified: /.+/
               displaytitle: /.+/
               normalizedtitle: /.+/
-              description: main page of a Wikimedia project
+              description: /[Mm]ain [Pp]age/
               protection: /.+/
               editable: /.+/
               mainpage: true

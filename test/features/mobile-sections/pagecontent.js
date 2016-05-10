@@ -47,7 +47,7 @@ describe('mobile-sections', function() {
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Main Page');
                 assert.deepEqual(lead.normalizedtitle, 'Main Page');
-                assert.deepEqual(lead.description, 'main page of a Wikimedia project');
+                assert.ok(/main page/i.test(lead.description));
                 assert.deepEqual(lead.protection, {
                     "edit": [
                         "sysop"
