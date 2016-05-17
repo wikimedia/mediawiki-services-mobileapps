@@ -71,6 +71,21 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.geo.longitude, -122.417);
             });
     });
+    it('es Savonlinna should have a lead object with a geo property', function() {
+        return preq.get({ uri: server.config.uri + 'es.wikipedia.org/v1/page/mobile-sections-lead/Savonlinna' })
+            .then(function(res) {
+                var lead = res.body;
+                assert.deepEqual(lead.geo.latitude, 61.866666666667);
+                assert.deepEqual(lead.geo.longitude, 28.883055555556);
+            });
+    });
+    it('es Gogland should not have a lead object with a geo property', function() {
+        return preq.get({ uri: server.config.uri + 'es.wikipedia.org/v1/page/mobile-sections-lead/Gogland' })
+            .then(function(res) {
+                var lead = res.body;
+                assert.ok(!lead.hasOwnProperty('geo'));
+            });
+    });
     it('Barack Obama should have a pronunciation', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Barack_Obama' })
             .then(function(res) {
