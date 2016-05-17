@@ -32,7 +32,8 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Sections/deep');
-                assert.ok(!lead.protection, 'Page should not be protected');
+                assert.ok(lead.protection.constructor === Object, 'lead.protection should be an Object');
+                assert.ok(!Object.keys(lead.protection).length, 'Page should not be protected');
                 assert.deepEqual(lead.editable, true);
                 assert.ok(lead.sections.length >= 6, 'Expected at least six section elements');
                 assert.deepEqual(lead.sections[0].id, 0);
