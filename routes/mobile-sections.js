@@ -77,13 +77,6 @@ function buildLeadSections(sections) {
     return out;
 }
 
-function sanitizeEmptyProtection(protection) {
-    if (Array.isArray(protection)) {
-        return undefined; // MediaWiki API returns an empty array instead of an empty object, ouch!
-    }
-    return protection;
-}
-
 function buildLead(input) {
     var lead = domino.createDocument(input.page.sections[0].text);
     return {
@@ -94,7 +87,7 @@ function buildLead(input) {
         normalizedtitle: input.meta.normalizedtitle,
         redirected: input.meta.redirected,
         description: input.meta.description,
-        protection: sanitizeEmptyProtection(input.meta.protection),
+        protection: input.meta.protection,
         editable: input.meta.editable,
         mainpage: input.meta.mainpage,
         languagecount: input.meta.languagecount,
