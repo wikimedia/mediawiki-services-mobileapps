@@ -57,7 +57,8 @@
     "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
     "mocha-jshint": "^2.3.1",
-    "mocha-lcov-reporter": "^1.2.0"
+    "mocha-lcov-reporter": "^1.2.0",
+    "sepia": "^2.0.1"
   },
   "deploy": {
     "node": "4.3.0",
