@@ -55,6 +55,56 @@ paths:
               description: /.+/
               version: /.+/
               home: /.+/
+  # from routes/featured.js
+  /{domain}/v1/page/featured/{yyyy}/{mm}/{dd}:
+    get:
+      tags:
+        - Featured article for a given date
+      description: title of the featured article (only works on enwiki for now)
+      produces:
+        - application/json
+      parameters:
+        - name: yyyy
+          in: path
+          description: "Year the featured article is requested for"
+          type: integer
+          required: true
+          minimum: 2016
+          maximum: 2999
+        - name: mm
+          in: path
+          description: "Month the featured article is requested for"
+          type: integer
+          required: true
+          minimum: 1
+          maximum: 12
+        - name: dd
+          in: path
+          description: "Day of the month the featured article is requested for"
+          type: integer
+          required: true
+          minimum: 1
+          maximum: 31
+      x-amples:
+        - title: retrieve title of the featured article for April 29, 2016
+          request:
+            params:
+              yyyy: 2016
+              mm: 4
+              dd: 29
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              page:
+                title: /.+/
+                description: /.+/
+                extract: /.+/
+                thumbnail:
+                  source: /.+/
+                  width: /.+/
+                  height: /.+/
   # from routes/media.js
   /{domain}/v1/page/media/{title}:
     get:
