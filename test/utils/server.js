@@ -1,7 +1,14 @@
 'use strict';
 
-// Default to recording+replaying http fixtures
-process.env.VCR_MODE = process.env.VCR_MODE || 'cache';
+
+// Default to recording+replaying http fixtures,
+// only if we are not running in Docker
+if (process.env.IN_DOCKER) {
+    process.env.VCR_MODE = undefined;
+} else {
+    process.env.VCR_MODE = process.env.VCR_MODE || 'cache';
+}
+
 var sepia = require('sepia');
 var BBPromise = require('bluebird');
 var ServiceRunner = require('service-runner');
