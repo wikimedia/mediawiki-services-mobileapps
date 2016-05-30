@@ -16,7 +16,7 @@ class ScriptData
   include ERB::Util
 
   @@suffix = {'systemd' => '.service', 'upstart' => '.conf'}
-  
+
   def initialize input_dir
     @template = {}
     self.init input_dir
@@ -68,4 +68,3 @@ end
 data = ScriptData.new indir
 data.set_info rootdir
 data.generate outdir
-

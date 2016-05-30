@@ -54,11 +54,13 @@ describe('express app', function() {
 
     it.skip('should get static content gzipped', function() {
         return preq.get({
-            uri: server.config.uri + 'robots.txt'
+            uri: server.config.uri + 'static/index.html',
+            headers: {
+              'accept-encoding': 'gzip, deflate'
+            }
         }).then(function(res) {
-            assert.deepEqual(res.status, 200);
-            assert.deepEqual(res.headers['access-control-allow-origin'], '*');
-            assert.notDeepEqual(res.headers['access-control-allow-headers'], undefined);
+            // check that the response is gzip-ed
+            assert.deepEqual(res.headers['content-encoding'], 'gzip', 'Expected gzipped contents!');
         });
     });
 

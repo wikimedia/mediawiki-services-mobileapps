@@ -59,15 +59,21 @@ services:
       #   - if-match
       #   - user-agent
       #   - x-request-id
-      restbase_req:
-        uri: http://{domain}/api/rest_v1/page/html/{title}
-        headers:
-          user-agent: WMF Mobile Content Service dev
-          accept: text/html; charset=utf-8; profile="mediawiki.org/specs/html/1.2.0"
+      # the user agent to use when issuing requests
+      user_agent: WMF Mobile Content Service dev
+      # the template used for contacting the MW API
       mwapi_req:
         method: post
-        uri: http://{domain}/w/api.php
+        uri: http://{{domain}}/w/api.php
         headers:
-          user-agent: WMF Mobile Content Service dev
+          user-agent: '{{user-agent}}'
+        body: '{{ default(request.query, {}) }}'
+      # the template used for contacting RESTBase
+      restbase_req:
+        method: get
+        uri: http://{{domain}}/api/rest_v1/{+path}
+        query: '{{ default(request.query, {}) }}'
+        headers: '{{request.headers}}'
+        body: '{{request.body}}'
       # whether to print extra debug info
       debug: true
