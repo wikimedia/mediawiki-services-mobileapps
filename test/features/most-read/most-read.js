@@ -5,12 +5,12 @@ var assert = require('../../utils/assert');
 var mUtil = require('../../../lib/mobile-util');
 var server = require('../../utils/server');
 var headers = require('../../utils/headers');
-var tUtil = require('../../utils/testUtils');
+var dateUtil = require('../../../lib/dateUtil');
 var BLACKLIST = require('../../../etc/feed/blacklist');
 
 var date = new Date();
 date.setDate(date.getDate() - 5);
-var dateString = date.getFullYear() + '/' + tUtil.pad(date.getMonth()) + '/' + tUtil.pad(date.getDate());
+var dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth()) + '/' + dateUtil.pad(date.getUTCDate());
 
 describe('most-read articles', function() {
     this.timeout(20000);
@@ -25,8 +25,9 @@ describe('most-read articles', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/most-read/' + dateString })
           .then(function(res) {
               assert.deepEqual(res.status, 200);
-              assert.ok(res.body.length);
-              res.body.forEach(function (elem) {
+              assert.ok(res.body.date);
+              assert.ok(res.body.articles.length);
+              res.body.articles.forEach(function (elem) {
                   assert.ok(elem.title, 'title should be present');
                   assert.ok(elem.normalizedtitle, 'normalizedtitle should be present');
                   assert.ok(elem.views, 'views should be present');
@@ -42,7 +43,6 @@ describe('most-read articles', function() {
         return preq.get({ uri: server.config.uri + 'en.m.wikipedia.org/v1/page/most-read/' + dateString })
           .then(function(res) {
               assert.deepEqual(res.status, 200);
-              assert.ok(res.body.length);
           });
     });
 });

@@ -8,6 +8,7 @@ var BBPromise = require('bluebird');
 var preq = require('preq');
 var sUtil = require('../lib/util');
 var mUtil = require('../lib/mobile-util');
+var dateUtil = require('../lib/dateUtil');
 var media = require('../lib/feed/media');
 var mostRead = require('../lib/feed/most-read');
 var featured = require('../lib/feed/featured');
@@ -29,12 +30,13 @@ var app;
 router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
     return BBPromise.props({
         tfa: featured.promise(app, req),
-        mostread: mostRead.promise(app, req),
+        mostread: mostRead.promise(app, dateUtil.yesterday(req)),
         random: 'Good random article here',//random.promise(app, req),
         news: 'Articles in the news here', //news.promise(app, req),
         image: 'Today\'s featured image here', //media.featuredImagePromise(app, req),
         video: 'Today\'s featured video here' //media.featuredVideoPromise(app, req)
     }) .then(function (response) {
+        response.tfa = response.tfa.payload;
         res.status(200);
         mUtil.setETag(req, res, response.revision);
         res.json(response).end();

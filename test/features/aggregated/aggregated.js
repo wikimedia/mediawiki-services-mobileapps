@@ -5,11 +5,10 @@ var preq   = require('preq');
 var assert = require('../../utils/assert');
 var server = require('../../utils/server');
 var headers = require('../../utils/headers');
-var tUtil = require('../../utils/testUtils');
+var dateUtil = require('../../../lib/dateUtil');
 
 var date = new Date();
-date.setDate(date.getDate() - 5);
-var dateString = date.getFullYear() + '/' + tUtil.pad(date.getMonth()) + '/' + tUtil.pad(date.getDate());
+var dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth()) + '/' + dateUtil.pad(date.getUTCDate());
 
 describe('aggregated feed endpoint', function() {
     this.timeout(20000);
