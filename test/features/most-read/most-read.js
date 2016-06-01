@@ -3,20 +3,14 @@
 var preq = require('preq');
 var assert = require('../../utils/assert');
 var mUtil = require('../../../lib/mobile-util');
-var server = require('../../utils/server.js');
-var headers = require('../../utils/headers.js');
+var server = require('../../utils/server');
+var headers = require('../../utils/headers');
+var tUtil = require('../../utils/testUtils');
 var BLACKLIST = require('../../../etc/feed/blacklist');
-
-function pad(number) {
-    if (number < 10) {
-        return '0' + number;
-    }
-    return number;
-}
 
 var date = new Date();
 date.setDate(date.getDate() - 5);
-var dateString = date.getFullYear() + '/' + pad(date.getMonth()) + '/' + pad(date.getDate());
+var dateString = date.getFullYear() + '/' + tUtil.pad(date.getMonth()) + '/' + tUtil.pad(date.getDate());
 
 describe('most-read articles', function() {
     this.timeout(20000);
