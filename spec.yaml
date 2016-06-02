@@ -120,11 +120,11 @@ paths:
               yyyy: '2016'
               mm: '01'
               dd: '01'
-            response:
-              status: 200
-              headers:
-                content-type: application/json
-              body: [ /.+/ ]
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body: [ /.+/ ]
   # from routes/media.js
   /{domain}/v1/page/media/{title}:
     get:
