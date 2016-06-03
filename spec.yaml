@@ -97,14 +97,13 @@ paths:
             headers:
               content-type: application/json
             body:
-              page:
-                title: /.+/
-                description: /.+/
-                extract: /.+/
-                thumbnail:
-                  60: /.+/
-                  120: /.+/
-                  320: /.+/
+              title: /.+/
+              description: /.+/
+              extract: /.+/
+              thumbnail:
+                60: /.+/
+                120: /.+/
+                320: /.+/
   # from routes/most-read.js
   /{domain}/v1/page/most-read/{yyyy}/{mm}/{dd}:
     get:
