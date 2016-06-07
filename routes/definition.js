@@ -28,8 +28,8 @@ router.get('/definition/:title/:revision?', function (req, res) {
     return parsoid.definitionPromise(app, req)
     .then(function (response) {
         res.status(200);
-        mUtil.setETag(req, res, response.revision);
-        res.json(response).end();
+        mUtil.setETag(req, res, response.meta.revision);
+        res.json(response.payload).end();
     });
 });
 

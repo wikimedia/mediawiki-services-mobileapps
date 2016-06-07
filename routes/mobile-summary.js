@@ -48,9 +48,10 @@ router.get('/mobile-summary/:title', function (req, res) {
         page: parsoid.pageContentPromise(app, req),
         extract: mwapi.requestExtract(app, req)
     }).then(function (response) {
+        let revision = response.page.revision;
         response = buildPreview(response);
         res.status(200);
-        mUtil.setETag(req, res, response.revision);
+        mUtil.setETag(req, res, revision);
         res.json(response).end();
     });
 });

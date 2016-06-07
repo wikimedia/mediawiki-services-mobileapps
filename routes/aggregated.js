@@ -28,18 +28,26 @@ var app;
  * Returns aggregated feed content for the date requested.
  */
 router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
+    var dateString = dateUtil.dateStringFrom(req);
     return BBPromise.props({
         tfa: featured.promise(app, req),
         mostread: mostRead.promise(app, dateUtil.yesterday(req)),
-        random: 'Good random article here',//random.promise(app, req),
-        news: 'Articles in the news here', //news.promise(app, req),
-        image: 'Today\'s featured image here', //media.featuredImagePromise(app, req),
-        video: 'Today\'s featured video here' //media.featuredVideoPromise(app, req)
+        //random: random.promise(app, req),
+        //news: news.promise(app, req),
+        //image: media.featuredImagePromise(app, req),
+        //video: media.featuredVideoPromise(app, req)
     }) .then(function (response) {
-        response.tfa = response.tfa.payload;
+        var aggregate = {
+            tfa: response.tfa.payload,
+            mostread: response.mostread.payload,
+            random: 'Good random article here',
+            news: 'Articles in the news here',
+            image: 'Today\'s featured image here',
+            video: 'Today\'s featured video here'
+        };
         res.status(200);
-        mUtil.setETag(req, res, response.revision);
-        res.json(response).end();
+        mUtil.setETagToValue(res, mUtil.getDateStringEtag(dateString));
+        res.json(aggregate).end();
     });
 });
 
