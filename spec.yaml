@@ -101,9 +101,9 @@ paths:
               description: /.+/
               extract: /.+/
               thumbnail:
-                60: /.+/
-                120: /.+/
-                320: /.+/
+                source: /.+/
+                width: /.+/
+                height: /.+/
   # from routes/most-read.js
   /{domain}/v1/page/most-read/{yyyy}/{mm}/{dd}:
     get:
