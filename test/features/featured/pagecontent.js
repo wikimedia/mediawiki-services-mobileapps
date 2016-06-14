@@ -22,9 +22,9 @@ describe('featured', function() {
                 // the page id should be stable but not the revision:
                 assert.ok(res.headers.etag.indexOf('50089449/') == 0);
                 assert.equal(res.body.title, 'Cosmic Stories and Stirring Science Stories');
-                assert.equal(res.body.thumbnail['60'], 'http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cosmic_Science-Fiction_May_1941.jpg/60px-Cosmic_Science-Fiction_May_1941.jpg');
-                assert.equal(res.body.thumbnail['120'], 'http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cosmic_Science-Fiction_May_1941.jpg/120px-Cosmic_Science-Fiction_May_1941.jpg');
-                assert.equal(res.body.thumbnail['320'], 'http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cosmic_Science-Fiction_May_1941.jpg/226px-Cosmic_Science-Fiction_May_1941.jpg');
+                assert.equal(res.body.thumbnail['60'], 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cosmic_Science-Fiction_May_1941.jpg/60px-Cosmic_Science-Fiction_May_1941.jpg');
+                assert.equal(res.body.thumbnail['120'], 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cosmic_Science-Fiction_May_1941.jpg/120px-Cosmic_Science-Fiction_May_1941.jpg');
+                assert.equal(res.body.thumbnail['320'], 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cosmic_Science-Fiction_May_1941.jpg/226px-Cosmic_Science-Fiction_May_1941.jpg');
                 assert.ok(res.body.extract.indexOf('Cosmic Stories ') >= 0);
             });
     });

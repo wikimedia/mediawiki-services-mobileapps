@@ -12,7 +12,7 @@ describe('media', function() {
 
     function checkItemHasExpectedProperties(item) {
         assert.ok(item.title.indexOf('File:') === 0, 'Expected title to start with "File:"');
-        assert.ok(item.url.indexOf('http://upload.wikimedia.org/') === 0, 'Expected url to start with certain text');
+        assert.ok(item.url.indexOf('https://upload.wikimedia.org/') === 0, 'Expected url to start with certain text');
     }
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
