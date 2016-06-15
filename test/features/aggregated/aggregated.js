@@ -33,4 +33,18 @@ describe('aggregated feed endpoint', function() {
                 assert.ok(body.hasOwnProperty('video'), 'Should have today\'s featured video');
             });
     });
+
+    it('non-enwiki doesn\'t have tfa entry', function() {
+        return preq.get({ uri: server.config.uri + 'fr.wikipedia.org/v1/feed/featured/' + dateString })
+            .then(function(res) {
+                var body = res.body;
+                assert.deepEqual(res.status, 200);
+                assert.ok(!body.hasOwnProperty('tfa'), 'Should not have today\'s featured article');
+                assert.ok(body.hasOwnProperty('mostread'), 'Should have most-read articles');
+                assert.ok(body.hasOwnProperty('random'), 'Should have random article');
+                assert.ok(body.hasOwnProperty('news'), 'Should have today\'s news');
+                assert.ok(body.hasOwnProperty('image'), 'Should have today\'s featured image');
+                assert.ok(body.hasOwnProperty('video'), 'Should have today\'s featured video');
+            });
+    });
 });

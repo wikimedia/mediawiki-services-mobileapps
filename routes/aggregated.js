@@ -31,7 +31,7 @@ var app;
 router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
     var dateString = dateUtil.dateStringFrom(req);
     return BBPromise.props({
-        tfa: featured.promise(app, req),
+        tfa: featured.promise(app, req, true),
         mostread: mostRead.promise(app, dateUtil.yesterday(req)),
         random: random.promise(app, req)
         //news: news.promise(app, req),
