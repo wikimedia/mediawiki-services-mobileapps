@@ -112,6 +112,28 @@ paths:
       description: Gets the most-read articles for the date provided
       produces:
         - application/json
+      parameters:
+        - name: yyyy
+          in: path
+          description: "Year the most-read articles are requested for"
+          type: integer
+          required: true
+          minimum: 2016
+          maximum: 2999
+        - name: mm
+          in: path
+          description: "Month the most-read articles are requested for"
+          type: integer
+          required: true
+          minimum: 01
+          maximum: 12
+        - name: dd
+          in: path
+          description: "Day of the month the most-read articles are requested for"
+          type: integer
+          required: true
+          minimum: 01
+          maximum: 31
       x-amples:
         - title: retrieve the most-read articles for January 1, 2016
           request:
