@@ -55,6 +55,63 @@ paths:
               description: /.+/
               version: /.+/
               home: /.+/
+  # from routes/aggregated.js
+  /{domain}/v1/feed/featured/{yyyy}/{mm}/{dd}:
+    get:
+      tags:
+        - Aggregated feed content for a given date
+      description: Provides aggregated feed content (featured article of the day, previous day's most-read articles, news, random article, featured image, featured video)
+      produces:
+        - application/json
+      parameters:
+        - name: yyyy
+          in: path
+          description: "Year the aggregated content is requested for"
+          type: integer
+          required: true
+          minimum: 2016
+          maximum: 2999
+        - name: mm
+          in: path
+          description: "Month the aggregated content is requested for"
+          type: integer
+          required: true
+          minimum: 01
+          maximum: 12
+        - name: dd
+          in: path
+          description: "Day of the month the aggregated content is requested for"
+          type: integer
+          required: true
+          minimum: 01
+          maximum: 31
+      x-amples:
+        - title: retrieve aggregated feed content for April 29, 2016
+          request:
+            params:
+              yyyy: 2016
+              mm: 04
+              dd: 29
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              tfa:
+                title: /.+/
+                description: /.+/
+                extract: /.+/
+                thumbnail:
+                  source: /.+/
+                  width: /.+/
+                  height: /.+/
+              mostread:
+                date: /.+/
+                articles: [ /.+/ ]
+              random: /.+/
+              news: /.+/
+              image: /.+/
+              video: /.+/
   # from routes/featured.js
   /{domain}/v1/page/featured/{yyyy}/{mm}/{dd}:
     get:
