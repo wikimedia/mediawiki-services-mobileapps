@@ -29,6 +29,7 @@ router.get('/media/:title', function (req, res) {
     }).then(function (response) {
         res.status(200);
         mUtil.setETag(req, res, response.page.revision);
+        mUtil.setContentType(app, res);
         res.json(response.media).end();
     });
 });

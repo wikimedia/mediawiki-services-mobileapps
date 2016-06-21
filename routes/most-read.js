@@ -26,6 +26,7 @@ router.get('/most-read/:yyyy/:mm/:dd', function (req, res) {
     .then(function (response) {
         res.status(200);
         mUtil.setETagToValue(res, response.meta.etag);
+        mUtil.setContentType(app, res);
         res.json(response.payload).end();
     });
 });

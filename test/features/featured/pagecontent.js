@@ -11,8 +11,7 @@ describe('featured', function() {
     before(function () { return server.start(); });
 
     it('featured article of a specific date should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/featured/2016/04/15',
-            'application/json');
+        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/featured/2016/04/15');
     });
 
     it('featured article of 4/15/2016 should have expected properties', function() {

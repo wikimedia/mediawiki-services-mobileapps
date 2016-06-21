@@ -16,8 +16,7 @@ describe('aggregated feed endpoint', function() {
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/feed/featured/' + dateString,
-            'application/json');
+        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/feed/featured/' + dateString);
     });
 
     it('Response should contain all expected properties', function() {

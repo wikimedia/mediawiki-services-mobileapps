@@ -11,8 +11,7 @@ describe('mobile-sections-lead', function() {
     before(function () { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Foobar',
-            'application/json');
+        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Foobar');
     });
     it('Sections/deep page should have a lead object with expected properties', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections-lead/Sections%2Fdeep' })
