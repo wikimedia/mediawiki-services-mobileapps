@@ -12,6 +12,7 @@ var dateUtil = require('../lib/dateUtil');
 var media = require('../lib/feed/media');
 var mostRead = require('../lib/feed/most-read');
 var featured = require('../lib/feed/featured');
+var random = require('../lib/feed/random');
 
 /**
  * The main router object
@@ -32,15 +33,15 @@ router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
     return BBPromise.props({
         tfa: featured.promise(app, req),
         mostread: mostRead.promise(app, dateUtil.yesterday(req)),
-        //random: random.promise(app, req),
+        random: random.promise(app, req)
         //news: news.promise(app, req),
         //image: media.featuredImagePromise(app, req),
         //video: media.featuredVideoPromise(app, req)
     }) .then(function (response) {
         var aggregate = {
             tfa: response.tfa.payload,
+            random: response.random.payload,
             mostread: response.mostread.payload,
-            random: 'Good random article here',
             news: 'Articles in the news here',
             image: 'Today\'s featured image here',
             video: 'Today\'s featured video here'

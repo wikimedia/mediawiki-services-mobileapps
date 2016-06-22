@@ -108,7 +108,8 @@ paths:
               mostread:
                 date: /.+/
                 articles: [ /.+/ ]
-              random: /.+/
+              random:
+                title: /.+/
               news: /.+/
               image: /.+/
               video: /.+/
