@@ -107,7 +107,12 @@ paths:
                   height: /.+/
               mostread:
                 date: /.+/
-                articles: [ /.+/ ]
+                articles:
+                  - views: /.+/
+                    rank: /.+/
+                    title: /.+/
+                    pageid: /.+/
+                    normalizedtitle: /.+/
               random:
                 title: /.+/
               news: /.+/
@@ -205,7 +210,12 @@ paths:
               content-type: application/json
             body:
               date: /.+/
-              articles: [ /.+/ ]
+              articles:
+                - views: /.+/
+                  rank: /.+/
+                  title: /.+/
+                  pageid: /.+/
+                  normalizedtitle: /.+/
   # from routes/random.js
   /{domain}/v1/page/random/summary:
     get:
