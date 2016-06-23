@@ -410,21 +410,3 @@ paths:
               thumbnail:
                 source: /.+/
               infobox: [ /.+/ ]
-  # from routes/mobile-text.js
-  /{domain}/v1/page/mobile-text/{title}:
-    get:
-      tags:
-        - Page content
-      description: Gets the lite mobile app version of a given wiki page
-      produces:
-        - application/json
-      x-amples:
-        - title: retrieve the lite en.wp main page
-          request:
-            params:
-              title: Main_Page
-          response:
-            status: 200
-            headers:
-              content-type: application/json
-            body: /.+/
