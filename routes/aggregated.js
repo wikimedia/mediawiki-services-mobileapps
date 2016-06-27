@@ -12,6 +12,7 @@ var dateUtil = require('../lib/dateUtil');
 var media = require('../lib/feed/media');
 var mostRead = require('../lib/feed/most-read');
 var featured = require('../lib/feed/featured');
+var featuredImage = require('../lib/feed/featured-image');
 var random = require('../lib/feed/random');
 var news = require('../lib/feed/news');
 
@@ -36,7 +37,7 @@ router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
         mostread: mostRead.promise(app, dateUtil.yesterday(req)),
         random: random.promise(app, req),
         news: news.promise(app, req, true),
-        //image: media.featuredImagePromise(app, req),
+        image: featuredImage.promise(app, req, true)
         //video: media.featuredVideoPromise(app, req)
     }) .then(function (response) {
         var aggregate = {
@@ -44,7 +45,7 @@ router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
             random: response.random.payload,
             mostread: response.mostread.payload,
             news: response.news.payload,
-            image: 'Today\'s featured image here',
+            image: response.image.payload,
             video: 'Today\'s featured video here'
         };
         res.status(200);
