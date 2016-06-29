@@ -1,9 +1,19 @@
 'use strict';
 
 var preq = require('preq');
+var domino = require('domino');
 var assert = require('../../utils/assert');
 var server = require('../../utils/server');
 var headers = require('../../utils/headers');
+var news = require('../../../lib/feed/news');
+var constants = require('./constants');
+
+
+function toElement(str) {
+    var elem = domino.createDocument().createElement('li');
+    elem.innerHTML = str;
+    return elem;
+}
 
 describe('in the news', function() {
     this.timeout(20000);
@@ -35,4 +45,8 @@ describe('in the news', function() {
               });
           });
     });
+    it('Picture caption stripping should behave as expected', function() {
+        assert.deepEqual(news.removePictureCaptionIfPresent(constants.newsHtml1, toElement(constants.newsHtml1).getElementsByTagName('i')), constants.cleanNewsHtml1);
+        assert.deepEqual(news.removePictureCaptionIfPresent(constants.newsHtml2, toElement(constants.newsHtml2).getElementsByTagName('i')), constants.cleanNewsHtml2);
+    })
 });
