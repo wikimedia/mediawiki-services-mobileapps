@@ -173,6 +173,59 @@ paths:
                 source: /.+/
                 width: /.+/
                 height: /.+/
+  # from routes/featured-image.js
+  /{domain}/v1/media/image/featured/{yyyy}/{mm}/{dd}:
+    get:
+      tags:
+        - Featured image for a given date (aka Picture of the day)
+      description: Provides thumbnail and full res image URLs and a localized description based on the domain used.
+      produces:
+        - application/json
+      parameters:
+        - name: yyyy
+          in: path
+          description: "Year the featured image is requested for"
+          type: integer
+          required: true
+          minimum: 2016
+          maximum: 2999
+        - name: mm
+          in: path
+          description: "Month the featured image is requested for"
+          type: integer
+          required: true
+          minimum: 1
+          maximum: 12
+        - name: dd
+          in: path
+          description: "Day of the month the featured image is requested for"
+          type: integer
+          required: true
+          minimum: 1
+          maximum: 31
+      x-amples:
+        - title: retrieve featured image data for April 29, 2016
+          request:
+            params:
+              yyyy: 2016
+              mm: 4
+              dd: 29
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              title: /.+/
+              description: /.+/
+              image:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              thumbnail:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+
   # from routes/most-read.js
   /{domain}/v1/page/most-read/{yyyy}/{mm}/{dd}:
     get:
