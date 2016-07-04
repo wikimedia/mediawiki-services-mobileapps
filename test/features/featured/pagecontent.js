@@ -43,6 +43,7 @@ describe('featured', function() {
     it('incomplete date should return 404', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/featured/2016/04' })
             .then(function(res) {
+                throw new Error('Expected an error, but got status: ' + res.status);
             }, function(err) {
                 assert.status(err, 404);
             });
@@ -51,6 +52,7 @@ describe('featured', function() {
     it('extra uri path parameter after date should return 404', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/featured/2016/04/15/11' })
             .then(function(res) {
+                throw new Error('Expected an error, but got status: ' + res.status);
             }, function(err) {
                 assert.status(err, 404);
             });
@@ -59,6 +61,7 @@ describe('featured', function() {
     it('unsupported language', function() {
         return preq.get({ uri: server.config.uri + 'fr.wikipedia.org/v1/page/featured/2016/04/15' })
             .then(function(res) {
+                throw new Error('Expected an error, but got status: ' + res.status);
             }, function(err) {
                 assert.status(err, 501);
                 assert.equal(err.body.type, 'unsupported_language');
@@ -68,6 +71,7 @@ describe('featured', function() {
     it('featured article of an old date should return 404', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/featured/1970/12/31' })
             .then(function(res) {
+                throw new Error('Expected an error, but got status: ' + res.status);
             }, function(err) {
                 assert.status(err, 404);
                 assert.equal(err.body.type, 'not_found');

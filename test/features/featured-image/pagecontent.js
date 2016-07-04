@@ -48,18 +48,18 @@ describe('featured-image', function() {
     });
 
     it('should return english description where unavailable in request language', function() {
-	      return preq.get({ uri: server.config.uri + 'fr.wikipedia.org/v1/media/image/featured/2016/04/15' })
+        return preq.get({ uri: server.config.uri + 'fr.wikipedia.org/v1/media/image/featured/2016/04/15' })
             .then(function(res) {
                 assert.ok(res.body.description.text.indexOf('Main altar') >= 0);
                 assert.equal(res.body.description.lang, 'en');
-	          });
+            });
     });
 
     it('should return no description when unavailable', function() {
-	      return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2016/06/15' })
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2016/06/15' })
             .then(function(res) {
                 assert.notProperty(res.body, 'description');
-	          });
+            });
     });
 
     it('featured image of an old date should return 404', function() {

@@ -41,7 +41,7 @@ describe('definition', function() {
     it('missing definitions', function() {
         return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/page/definition/Dssjbkrt' })
         .then(function(res) {
-            assert.status(res, 404);
+            throw new Error('Expected an error, but got status: ' + res.status);
         }, function(err) {
             assert.status(err, 404);
         });
@@ -50,7 +50,7 @@ describe('definition', function() {
     it('non-term page', function() {
         return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/page/definition/Main_page' })
         .then(function(res) {
-            assert.status(res, 404);
+            throw new Error('Expected an error, but got status: ' + res.status);
         }, function(err) {
             assert.status(err, 404);
         });
@@ -59,7 +59,7 @@ describe('definition', function() {
     it('unsupported language', function() {
         return preq.get({ uri: server.config.uri + 'ru.wiktionary.org/v1/page/definition/Baba' })
         .then(function(res) {
-            assert.status(res, 501);
+            throw new Error('Expected an error, but got status: ' + res.status);
         }, function(err) {
             assert.status(err, 501);
         });
