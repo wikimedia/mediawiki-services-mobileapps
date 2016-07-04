@@ -48,4 +48,18 @@ describe('aggregated feed endpoint', function() {
                 assert.ok(body.hasOwnProperty('image'), 'Should have today\'s featured image');
             });
     });
+
+    it('featured image for 2016/07/05 has expected properties', function() {
+        return preq.get({ uri: server.config.uri + 'ja.wikipedia.org/v1/feed/featured/2016/07/05' })
+            .then(function(res) {
+                var image = res.body.image;
+                assert.deepEqual(res.status, 200);
+                assert.ok(image, 'Should have today\'s featured image');
+                assert.deepEqual(image.title, 'File:Amari Agia Anna Fresco 02.JPG');
+                assert.deepEqual(image.thumbnail.source, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Amari_Agia_Anna_Fresco_02.JPG/640px-Amari_Agia_Anna_Fresco_02.JPG');
+                assert.deepEqual(image.image.source, 'https://upload.wikimedia.org/wikipedia/commons/6/64/Amari_Agia_Anna_Fresco_02.JPG');
+                assert.deepEqual(image.description.text, 'Byzantine fresco of Saint Andrew of Crete in the church of Agia Anna (Αγία Άννα), Amari Valley, Crete. The frescoes are dated 1225 and the oldest dated frescoes in Crete.');
+                assert.deepEqual(image.description.lang, 'en');
+            });
+    });
 });

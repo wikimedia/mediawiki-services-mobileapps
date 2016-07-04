@@ -122,7 +122,19 @@ paths:
                       ns: /.+/
                       normalizedtitle: /.+/
                       title: /.+/
-              image: /.+/
+              image:
+                title: /.+/
+                description:
+                  text: /.+/
+                  lang: /.+/
+                image:
+                  source: /.+/
+                  width: /.+/
+                  height: /.+/
+                thumbnail:
+                  source: /.+/
+                  width: /.+/
+                  height: /.+/
   # from routes/featured.js
   /{domain}/v1/page/featured/{yyyy}/{mm}/{dd}:
     get:
@@ -215,7 +227,9 @@ paths:
               content-type: application/json
             body:
               title: /.+/
-              description: /.+/
+              description:
+                text: /.+/
+                lang: /.+/
               image:
                 source: /.+/
                 width: /.+/
