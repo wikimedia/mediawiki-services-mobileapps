@@ -123,7 +123,6 @@ paths:
                       normalizedtitle: /.+/
                       title: /.+/
               image: /.+/
-              video: /.+/
   # from routes/featured.js
   /{domain}/v1/page/featured/{yyyy}/{mm}/{dd}:
     get:

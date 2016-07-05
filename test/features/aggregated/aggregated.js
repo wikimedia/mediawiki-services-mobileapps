@@ -31,7 +31,6 @@ describe('aggregated feed endpoint', function() {
                 assert.ok(body.hasOwnProperty('random'), 'Should have random article');
                 assert.ok(body.hasOwnProperty('news'), 'Should have today\'s news');
                 assert.ok(body.hasOwnProperty('image'), 'Should have today\'s featured image');
-                assert.ok(body.hasOwnProperty('video'), 'Should have today\'s featured video');
             });
     });
 
@@ -47,7 +46,6 @@ describe('aggregated feed endpoint', function() {
                 }
                 assert.ok(body.hasOwnProperty('random'), 'Should have random article');
                 assert.ok(body.hasOwnProperty('image'), 'Should have today\'s featured image');
-                assert.ok(body.hasOwnProperty('video'), 'Should have today\'s featured video');
             });
     });
 });

@@ -9,7 +9,6 @@ var preq = require('preq');
 var sUtil = require('../lib/util');
 var mUtil = require('../lib/mobile-util');
 var dateUtil = require('../lib/dateUtil');
-var media = require('../lib/feed/media');
 var mostRead = require('../lib/feed/most-read');
 var featured = require('../lib/feed/featured');
 var featuredImage = require('../lib/feed/featured-image');
@@ -38,7 +37,6 @@ router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
         random: random.promise(app, req),
         news: news.promise(app, req, true),
         image: featuredImage.promise(app, req, true)
-        //video: media.featuredVideoPromise(app, req)
     }) .then(function (response) {
         var aggregate = {
             tfa: response.tfa.payload,
@@ -46,7 +44,6 @@ router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
             mostread: response.mostread.payload,
             news: response.news.payload,
             image: response.image.payload,
-            video: 'Today\'s featured video here'
         };
         res.status(200);
         mUtil.setETagToValue(res, mUtil.getDateStringEtag(dateString));
