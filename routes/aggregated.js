@@ -8,6 +8,7 @@ var BBPromise = require('bluebird');
 var preq = require('preq');
 var sUtil = require('../lib/util');
 var mUtil = require('../lib/mobile-util');
+var mwapi = require('../lib/mwapi');
 var dateUtil = require('../lib/dateUtil');
 var mostRead = require('../lib/feed/most-read');
 var featured = require('../lib/feed/featured');
@@ -40,10 +41,10 @@ router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
     }) .then(function (response) {
         var aggregate = {
             tfa: response.tfa.payload,
-            random: response.random.payload,
+            random: mwapi.buildTitleResponse(response.random.payload),
             mostread: response.mostread.payload,
             news: response.news.payload,
-            image: response.image.payload,
+            image: response.image.payload
         };
         res.status(200);
         mUtil.setETagToValue(res, mUtil.getDateStringEtag(dateString));

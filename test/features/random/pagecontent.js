@@ -15,7 +15,16 @@ describe('random', function() {
             'application/json');
     });
 
-    it('Random page should have expected properties', function() {
+    it('Random page title should have expected properties', function() {
+        return preq.get({ uri: server.config.uri + 'de.wikipedia.org/v1/page/random/title' })
+            .then(function(res) {
+                var lead = res.body.lead;
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.title.length > 0, 'title should not be empty');
+            });
+    });
+
+    it('Random page summary should have expected properties', function() {
         return preq.get({ uri: server.config.uri + 'de.wikipedia.org/v1/page/random/summary' })
             .then(function(res) {
                 var lead = res.body.lead;
