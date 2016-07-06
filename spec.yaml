@@ -289,11 +289,11 @@ paths:
                   pageid: /.+/
                   normalizedtitle: /.+/
   # from routes/random.js
-  /{domain}/v1/page/random/summary:
+  /{domain}/v1/page/random/title:
     get:
       tags:
-        - Random article summary
-      description: Gets the summary of a randomly picked article from main namespace. Preference is given to articles with a thumbnail, long extract, and an associated Wikidata description.
+        - Random article title
+      description: Gets the title of a randomly picked article from main namespace. Preference is given to articles with a thumbnail, long extract, and an associated Wikidata description.
       produces:
         - application/json
       x-amples:
