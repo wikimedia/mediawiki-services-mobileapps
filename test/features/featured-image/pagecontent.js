@@ -55,6 +55,13 @@ describe('featured-image', function() {
 	          });
     });
 
+    it('should return no description when unavailable', function() {
+	      return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2016/06/15' })
+            .then(function(res) {
+                assert.notProperty(res.body, 'description');
+	          });
+    });
+
     it('featured image of an old date should return 404', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/media/image/featured/1970/12/31' })
             .then(function(res) {

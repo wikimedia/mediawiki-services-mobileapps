@@ -73,6 +73,19 @@ function notDeepEqual(result, expected, message) {
 }
 
 
+function property(object, property) {
+    const msg = `expected property="${property}"`;
+    assert.ok(object, msg);
+    assert.ok(object.hasOwnProperty(property), msg);
+}
+
+
+function notProperty(object, property) {
+    assert.ok(!object || !object.hasOwnProperty(property),
+        `unexpected property="${property}"`);
+}
+
+
 function fails(promise, onRejected) {
 
     var failed = false;
@@ -150,6 +163,8 @@ module.exports.fails          = fails;
 module.exports.deepEqual      = deepEqual;
 module.exports.isDeepEqual    = isDeepEqual;
 module.exports.notDeepEqual   = notDeepEqual;
+module.exports.property       = property;
+module.exports.notProperty    = notProperty;
 module.exports.contentType    = contentType;
 module.exports.status         = status;
 module.exports.contains       = contains;
