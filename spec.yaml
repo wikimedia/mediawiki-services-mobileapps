@@ -114,7 +114,8 @@ paths:
                     pageid: /.+/
                     normalizedtitle: /.+/
               random:
-                title: /.+/
+                items:
+                  - title: /.+/
               news:
                 - story: /.+/
                   links:
@@ -303,7 +304,8 @@ paths:
             headers:
               content-type: application/json
             body:
-              title: /.+/
+              items:
+                - title: /.+/
   # from routes/news.js
   /{domain}/v1/page/news:
     get:
