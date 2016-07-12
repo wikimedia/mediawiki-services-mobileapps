@@ -8,7 +8,7 @@ var headers = require('../../utils/headers');
 var dateUtil = require('../../../lib/dateUtil');
 
 var date = new Date();
-var dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth()) + '/' + dateUtil.pad(date.getUTCDate());
+var dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth() + 1) + '/' + dateUtil.pad(date.getUTCDate());
 
 describe('aggregated feed endpoint', function() {
     this.timeout(20000);

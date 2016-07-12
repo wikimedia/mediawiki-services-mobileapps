@@ -10,7 +10,7 @@ var BLACKLIST = require('../../../etc/feed/blacklist');
 
 var date = new Date();
 date.setDate(date.getDate() - 5);
-var dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth()) + '/' + dateUtil.pad(date.getUTCDate());
+var dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth() + 1) + '/' + dateUtil.pad(date.getUTCDate());
 
 describe('most-read articles', function() {
     this.timeout(20000);
