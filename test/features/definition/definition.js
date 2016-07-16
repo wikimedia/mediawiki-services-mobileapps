@@ -18,6 +18,10 @@ describe('definition', function() {
         return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/page/definition/cat' })
             .then(function(res) {
                 var en = res.body.en;
+                var bodytext = JSON.stringify(res.body);
+                assert.ok(bodytext.indexOf('ib-brac') === -1);
+                assert.ok(bodytext.indexOf('ib-content') === -1);
+                assert.ok(bodytext.indexOf('defdate') === -1);
                 assert.deepEqual(res.status, 200);
                 assert.notDeepEqual(en, undefined);
                 assert.ok(en.length == 8)
