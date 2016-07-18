@@ -85,57 +85,58 @@ paths:
           required: true
           minimum: "01"
           maximum: "31"
-      x-amples:
-        - title: retrieve aggregated feed content for April 29, 2016
-          request:
-            params:
-              yyyy: "2016"
-              mm: "04"
-              dd: "29"
-          response:
-            status: 200
-            headers:
-              content-type: application/json
-            body:
-              tfa:
-                title: /.+/
-                description: /.+/
-                extract: /.+/
-                thumbnail:
-                  source: /.+/
-                  width: /.+/
-                  height: /.+/
-              mostread:
-                date: /.+/
-                articles:
-                  - views: /.+/
-                    rank: /.+/
-                    title: /.+/
-                    pageid: /.+/
-                    normalizedtitle: /.+/
-              random:
-                items:
-                  - title: /.+/
-              news:
-                - story: /.+/
-                  links:
-                    - pageid: /.+/
-                      ns: /.+/
-                      normalizedtitle: /.+/
-                      title: /.+/
-              image:
-                title: /.+/
-                description:
-                  text: /.+/
-                  lang: /.+/
-                image:
-                  source: /.+/
-                  width: /.+/
-                  height: /.+/
-                thumbnail:
-                  source: /.+/
-                  width: /.+/
-                  height: /.+/
+      x-monitor: false
+#      x-amples:
+#        - title: retrieve aggregated feed content for April 29, 2016
+#          request:
+#            params:
+#              yyyy: "2016"
+#              mm: "04"
+#              dd: "29"
+#          response:
+#            status: 200
+#            headers:
+#              content-type: application/json
+#            body:
+#              tfa:
+#                title: /.+/
+#                description: /.+/
+#                extract: /.+/
+#                thumbnail:
+#                  source: /.+/
+#                  width: /.+/
+#                  height: /.+/
+#              mostread:
+#                date: /.+/
+#                articles:
+#                  - views: /.+/
+#                    rank: /.+/
+#                    title: /.+/
+#                    pageid: /.+/
+#                    normalizedtitle: /.+/
+#              random:
+#                items:
+#                  - title: /.+/
+#              news:
+#                - story: /.+/
+#                  links:
+#                    - pageid: /.+/
+#                      ns: /.+/
+#                      normalizedtitle: /.+/
+#                      title: /.+/
+#              image:
+#                title: /.+/
+#                description:
+#                  text: /.+/
+#                  lang: /.+/
+#                image:
+#                  source: /.+/
+#                  width: /.+/
+#                  height: /.+/
+#                thumbnail:
+#                  source: /.+/
+#                  width: /.+/
+#                  height: /.+/
   # from routes/featured.js
   /{domain}/v1/page/featured/{yyyy}/{mm}/{dd}:
     get:
@@ -409,10 +410,10 @@ paths:
       produces:
         - application/json
       x-amples:
-        - title: retrieve lead section of en.wp main page via mobile-sections-lead
+        - title: retrieve lead section of en.wp Altrincham page via mobile-sections-lead
           request:
             params:
-              title: Main_Page
+              title: Altrincham
           response:
             status: 200
             headers:
@@ -422,49 +423,6 @@ paths:
               revision: /.+/
               lastmodified: /.+/
               displaytitle: /.+/
-              normalizedtitle: /.+/
-              description: /[Mm]ain [Pp]age/
-              protection: /.+/
-              editable: /.+/
-              mainpage: true
-              languagecount: /.+/
-              sections: [ /.+/ ]
-        - title: retrieve lead section of en.wp San Francisco page via mobile-sections-lead
-          request:
-            params:
-              title: San_Francisco
-          response:
-            status: 200
-            headers:
-              content-type: application/json
-            body:
-              id: /.+/
-              revision: /.+/
-              lastmodified: /.+/
-              displaytitle: /.+/
-              normalizedtitle: /.+/
-              description: /.+/
-              protection: /.+/
-              editable: /.+/
-              languagecount: /.+/
-              geo:
-                latitude: /.+/
-                longitude: /.+/
-              sections: [ /.+/ ]
-        - title: retrieve lead section of en.wp Barack Obama page via mobile-sections-lead
-          request:
-            params:
-              title: Barack_Obama
-          response:
-            status: 200
-            headers:
-              content-type: application/json
-            body:
-              id: /.+/
-              revision: /.+/
-              lastmodified: /.+/
-              displaytitle: /.+/
-              normalizedtitle: /.+/
               description: /.+/
               protection: /.+/
               editable: /.+/
@@ -473,6 +431,9 @@ paths:
                 url: /.+/
               spoken:
                 files: [ /.+/ ]
+              geo:
+                latitude: /.+/
+                longitude: /.+/
               sections: [ /.+/ ]
   /{domain}/v1/page/mobile-sections-remaining/{title}:
     get:
@@ -481,17 +442,7 @@ paths:
       description: Gets the remaining sections of a given wiki page for mobile apps
       produces:
         - application/json
-      x-amples:
-        - title: retrieve remaining sections of en.wp main page via mobile-sections-remaining
-          request:
-            params:
-              title: Main_Page
-          response:
-            status: 200
-            headers:
-              content-type: application/json
-            body:
-              sections: []
+      x-monitor: false
   # from routes/mobile-summary.js
   /{domain}/v1/page/mobile-summary/{title}:
     get:
@@ -523,13 +474,4 @@ paths:
       description: Gets the lite mobile app version of a given wiki page
       produces:
         - application/json
-      x-amples:
-        - title: retrieve the lite en.wp main page
-          request:
-            params:
-              title: Main_Page
-          response:
-            status: 200
-            headers:
-              content-type: application/json
-            body: /.+/
+      x-monitor: false
