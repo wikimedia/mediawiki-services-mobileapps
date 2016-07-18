@@ -10,7 +10,7 @@
   "Ndonga": "ng",
   "Moksha": "mdf",
   "Tigrinya": "ti",
-  "Yoruba": "yo", 
+  "Yoruba": "yo",
   "Bambara": "bm",
   "Sindhi": "sd",
   "French": "fr",
@@ -290,5 +290,6 @@
   "Esperanto": "eo",
   "Kirundi": "rn",
   "Ossetian": "os",
-  "Gova Konknni": "gom"
+  "Gova Konknni": "gom",
+  "Chinese": "zh"
 }
