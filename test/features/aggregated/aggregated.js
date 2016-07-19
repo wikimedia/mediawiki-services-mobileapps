@@ -10,6 +10,12 @@ var dateUtil = require('../../../lib/dateUtil');
 var date = new Date();
 var dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth() + 1) + '/' + dateUtil.pad(date.getUTCDate());
 
+var yesterday = new Date(Date.now() - dateUtil.ONE_DAY);
+var yesterdayString = yesterday.getUTCFullYear() + '-'
+                    + dateUtil.pad(yesterday.getUTCMonth() + 1) + '-'
+                    + dateUtil.pad(yesterday.getUTCDate())
+                    + 'Z';
+
 describe('aggregated feed endpoint', function() {
     this.timeout(20000);
 
@@ -27,6 +33,7 @@ describe('aggregated feed endpoint', function() {
                 assert.ok(body.hasOwnProperty('tfa'), 'Should have today\'s featured article');
                 if (body.hasOwnProperty('mostread')) {
                       assert.ok(body.mostread.articles.length, 'Should have most-read articles');
+                      assert.deepEqual(body.mostread.date, yesterdayString);
                 }
                 assert.ok(body.hasOwnProperty('random'), 'Should have random article');
                 assert.ok(body.hasOwnProperty('news'), 'Should have today\'s news');
