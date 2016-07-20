@@ -1,6 +1,8 @@
 'use strict';
 
 
+require('core-js/shim');
+
 var http = require('http');
 var BBPromise = require('bluebird');
 var express = require('express');
@@ -158,15 +160,20 @@ function loadRoutes (app) {
             if(route.constructor !== Object || !route.path || !route.router || !(route.api_version || route.skip_domain)) {
                 throw new TypeError('routes/' + fname + ' does not export the correct object!');
             }
-            // wrap the route handlers with Promise.try() blocks
-            sUtil.wrapRouteHandlers(route.router);
-            // determine the path prefix
-            var prefix = '';
-            if(!route.skip_domain) {
-                prefix = '/:domain/v' + route.api_version;
+            // normalise the path to be used as the mount point
+            if(route.path[0] !== '/') {
+                route.path = '/' + route.path;
             }
+            if(route.path[route.path.length - 1] !== '/') {
+                route.path = route.path + '/';
+            }
+            if(!route.skip_domain) {
+                route.path = '/:domain/v' + route.api_version + route.path;
+            }
+            // wrap the route handlers with Promise.try() blocks
+            sUtil.wrapRouteHandlers(route, app);
             // all good, use that route
-            app.use(prefix + route.path, route.router);
+            app.use(route.path, route.router);
         });
     }).then(function () {
         // catch errors
@@ -197,7 +204,7 @@ function createServer(app) {
         );
     }).then(function () {
         app.logger.log('info',
-            'Worker ' + process.pid + ' listening on ' + app.conf.interface + ':' + app.conf.port);
+            'Worker ' + process.pid + ' listening on ' + (app.conf.interface || '*') + ':' + app.conf.port);
         return server;
     });
 
