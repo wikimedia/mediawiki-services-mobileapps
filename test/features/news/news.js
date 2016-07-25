@@ -2,11 +2,33 @@
 
 var preq = require('preq');
 var domino = require('domino');
+var news = require('../../../lib/feed/news');
 var assert = require('../../utils/assert');
 var server = require('../../utils/server');
 var headers = require('../../utils/headers');
 var constants = require('./constants');
 
+var hrefs = [
+    '/Sport_of_athletics',
+    '/Kendra_Harrison',
+    '/Women\'s_100_metres_hurdles_world_record_progression',
+    '/100_metres_hurdles',
+    '/100_metres_hurdles#Top_25_fastest_athletes',
+    '/London_Grand_Prix'
+]
+
+var testTitles = [
+    'Kendra_Harrison',
+    '100_metres_hurdles'
+]
+
+var testTitles2 = [
+    'Sport_of_athletics',
+    'Kendra_Harrison',
+    'Women\'s_100_metres_hurdles_world_record_progression',
+    '100_metres_hurdles',
+    'London_Grand_Prix'
+]
 
 function toElement(str) {
     var elem = domino.createDocument().createElement('li');
@@ -45,5 +67,25 @@ describe('in the news', function() {
                     });
                 });
         });
+    });
+
+    it('URL fragments should be stripped correctly', function() {
+        assert.deepEqual(news.removeFragment('100_metres_hurdles#Top_25_fastest_athletes'), '100_metres_hurdles');
+        assert.deepEqual(news.removeFragment('Kendra_Harrison'), 'Kendra_Harrison');
+    });
+
+    it('Duplicate titles handled correctly', function() {
+        news.pushTitleIfNew(testTitles, {}, 'Kendra_Harrison');
+        assert.deepEqual(testTitles, [ 'Kendra_Harrison', '100_metres_hurdles' ]);
+        news.pushTitleIfNew(testTitles, {}, news.removeFragment('100_metres_hurdles#Top_25_fastest_athletes'));
+        assert.deepEqual(testTitles, [ 'Kendra_Harrison', '100_metres_hurdles' ]);
+    });
+
+    it('Links titles list constructed correctly', function() {
+        var linkTitles = [];
+        for (var i = 0, n = hrefs.length; i < n; i++) {
+            news.createLinksList(hrefs[i], linkTitles, { links: [] });
+        }
+        assert.deepEqual(linkTitles, testTitles2);
     });
 });
