@@ -41,7 +41,7 @@ describe('in the news', function() {
 
     before(function () { return server.start(); });
 
-    [ 'de', 'en', 'eo', 'es', 'he', 'pt', 'ru', 'zh' ].forEach(function(lang) {
+    [ 'de', 'en', 'es', 'he', 'pt', 'ru', 'zh' ].forEach(function(lang) {
         it(lang + ': should respond to GET request with expected headers, incl. CORS and CSP headers', function () {
             return headers.checkHeaders(server.config.uri + lang + '.wikipedia.org/v1/page/news',
                 'application/json');
