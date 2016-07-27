@@ -15,12 +15,12 @@ var hrefs = [
     '/100_metres_hurdles',
     '/100_metres_hurdles#Top_25_fastest_athletes',
     '/London_Grand_Prix'
-]
+];
 
 var testTitles = [
     'Kendra_Harrison',
     '100_metres_hurdles'
-]
+];
 
 var testTitles2 = [
     'Sport_of_athletics',
@@ -28,7 +28,7 @@ var testTitles2 = [
     'Women\'s_100_metres_hurdles_world_record_progression',
     '100_metres_hurdles',
     'London_Grand_Prix'
-]
+];
 
 function toElement(str) {
     var elem = domino.createDocument().createElement('li');
@@ -41,7 +41,7 @@ describe('in the news', function() {
 
     before(function () { return server.start(); });
 
-    [ 'de', 'en', 'he', 'ru' ].forEach(function(lang) {
+    [ 'de', 'en', 'eo', 'es', 'he', 'pt', 'ru', 'zh' ].forEach(function(lang) {
         it(lang + ': should respond to GET request with expected headers, incl. CORS and CSP headers', function () {
             return headers.checkHeaders(server.config.uri + lang + '.wikipedia.org/v1/page/news',
                 'application/json');
