@@ -55,6 +55,12 @@ npm start
 This starts an HTTP server listening on `localhost:6927`. There are a few
 routes you may query (with a browser, or `curl` and friends):
 
+Swagger spec:
+* `http://localhost:6927/?spec`
+
+Info:
+* `http://localhost:6927/_info`
+
 The main route you may query (with a browser, or `curl` and friends):
 * `http://localhost:6927/{domain}/v1/page/mobile-sections/{title}`
 
@@ -71,6 +77,16 @@ Example:
 * `http://localhost:6927/en.wiktionary.org/v1/page/definition/present`
 
 A list of language codes can be found [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix).
+
+Feed endpoints:
+* http://localhost:6927/en.wikipedia.org/v1/feed/featured/2016/05/30
+* http://localhost:6927/en.wikipedia.org/v1/page/featured/2016/05/30
+* http://localhost:6927/en.wikipedia.org/v1/media/image/featured/2016/05/30
+* http://localhost:6927/en.wikipedia.org/v1/page/news
+* http://localhost:6927/en.wikipedia.org/v1/page/most-read/2016/05/30
+* http://localhost:6927/en.wikipedia.org/v1/page/random/title
+
+Note that day and month need to be 2 digits to be accepted. 0-pad them if necessary.
 
 ### Tests
 
