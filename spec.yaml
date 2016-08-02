@@ -399,6 +399,7 @@ paths:
                 editable: /.+/
                 mainpage: true
                 languagecount: /.+/
+                ns: /.+/
                 sections: [ /.+/ ]
               remaining:
                 sections: []
@@ -427,6 +428,7 @@ paths:
               protection: /.+/
               editable: /.+/
               languagecount: /.+/
+              ns: /.+/
               pronunciation:
                 url: /.+/
               spoken:

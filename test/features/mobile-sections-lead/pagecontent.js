@@ -70,6 +70,20 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.geo.longitude, -122.417);
             });
     });
+    it('en Talk:San Francisco should have a lead object with correct namespace property', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Talk:San_Francisco' })
+            .then(function(res) {
+                var lead = res.body;
+                assert.ok(lead.ns === 1);
+            });
+    });
+    it('en San Francisco should have a lead object with correct namespace property', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/San_Francisco' })
+            .then(function(res) {
+                var lead = res.body;
+                assert.ok(lead.ns === 0);
+            });
+    });
     it('es Savonlinna should have a lead object with a geo property', function() {
         return preq.get({ uri: server.config.uri + 'es.wikipedia.org/v1/page/mobile-sections-lead/Savonlinna' })
             .then(function(res) {

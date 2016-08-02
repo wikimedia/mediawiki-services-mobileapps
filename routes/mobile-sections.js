@@ -80,6 +80,7 @@ function buildLeadSections(sections) {
 function buildLead(input) {
     var lead = domino.createDocument(input.page.sections[0].text);
     return {
+        ns: input.meta.ns,
         id: input.meta.id,
         revision: input.page.revision,
         lastmodified: input.page.lastmodified,
