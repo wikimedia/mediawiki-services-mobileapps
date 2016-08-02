@@ -56,6 +56,7 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "csv-parse": "1.1.7",
     "extend": "^3.0.0",
     "istanbul": "^0.4.4",
     "mocha": "^2.5.3",
