@@ -84,6 +84,7 @@ function buildLead(input) {
         id: input.meta.id,
         revision: input.page.revision,
         lastmodified: input.page.lastmodified,
+        lastmodifier: input.meta.lastmodifiedby || { anon: true },
         displaytitle: input.meta.displaytitle,
         normalizedtitle: input.meta.normalizedtitle,
         redirected: input.meta.redirected,

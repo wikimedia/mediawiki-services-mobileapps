@@ -62,6 +62,13 @@ describe('mobile-sections-lead', function() {
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
+    it('en San Francisco should have a last modifier', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/San_Francisco' })
+            .then(function(res) {
+                var lead = res.body;
+                assert.ok(lead.lastmodifier !== undefined );
+            });
+    });
     it('en San Francisco should have a lead object with a geo property', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/San_Francisco' })
             .then(function(res) {

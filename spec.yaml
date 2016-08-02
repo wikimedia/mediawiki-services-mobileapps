@@ -392,6 +392,7 @@ paths:
                 id: /.+/
                 revision: /.+/
                 lastmodified: /.+/
+                lastmodifier: /.+/
                 displaytitle: /.+/
                 normalizedtitle: /.+/
                 description: /[Mm]ain [Pp]age/
@@ -423,6 +424,7 @@ paths:
               id: /.+/
               revision: /.+/
               lastmodified: /.+/
+              lastmodifier: /.+/
               displaytitle: /.+/
               description: /.+/
               protection: /.+/
