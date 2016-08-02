@@ -29,6 +29,17 @@ describe('featured-image', function() {
             });
     });
 
+    it('featured image of 5/23/2016 (no extmetadata) should load successfully and have expected properties', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2016/05/23' })
+            .then(function(res) {
+                assert.status(res, 200);
+                assert.equal(res.body.title, 'File:Fra et romersk osteria.jpg');
+                assert.equal(res.body.thumbnail.source, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Fra_et_romersk_osteria.jpg/640px-Fra_et_romersk_osteria.jpg');
+                assert.equal(res.body.image.source, 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Fra_et_romersk_osteria.jpg');
+                assert.ok(!res.body.hasOwnProperty('description'));
+            });
+    });
+
     it('incomplete date should return 404', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2016/04' })
             .then(function(res) {
