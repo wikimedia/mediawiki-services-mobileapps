@@ -64,6 +64,19 @@ describe('mobile-sections', function() {
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
+    it('Titles with special characters should not error out when trying to parse pronunciation files', function() {
+        return preq.get({ uri: server.config.uri + 'vi.wikipedia.org/v1/page/mobile-sections/Sunn_O)))' })
+            .then(function(res) {
+                var lead = res.body.lead;
+                assert.deepEqual(res.status, 200);
+                assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
+                assert.deepEqual(lead.displaytitle, 'Sunn O)))');
+                assert.deepEqual(lead.normalizedtitle, 'Sunn O)))');
+                assert.ok(lead.sections.length > 0, 'Expected at least one section element');
+                assert.deepEqual(lead.sections[0].id, 0);
+                assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
+            });
+    });
     it('Missing title should respond with 404', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/weoiuyrxcmxn' })
             .then(function() {
