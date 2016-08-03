@@ -36,7 +36,7 @@ describe('definition', function() {
                     }
                 }
                 assert.deepEqual(en[0].partOfSpeech, 'Noun');
-                assert.ok(en[0].definitions[0].definition.indexOf('An animal of the family <a href=\"/wiki/Felidae\">') === 0, 'Expected different start of definition');
+                assert.ok(en[0].definitions[0].definition.indexOf('An animal of the family <i><a href="/wiki/Felidae">Felidae</a></i>') === 0, 'Expected different start of definition');
                 assert.deepEqual(en[1].partOfSpeech, 'Verb');
                 assert.ok(en[1].definitions[0].definition.indexOf('To <a href=\"/wiki/hoist\">hoist</a>') === 0, 'Expected different start of definition');
             });

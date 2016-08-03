@@ -47,6 +47,7 @@
     "domino": "^1.0.25",
     "escape-string-regexp": "^1.0.5",
     "express": "^4.14.0",
+    "he": "^1.1.0",
     "js-yaml": "^3.6.1",
     "locutus": "^2.0.5",
     "mediawiki-title": "^0.5.4",
