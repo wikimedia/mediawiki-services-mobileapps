@@ -12,6 +12,8 @@ var BLACKLIST = [
     'Java_(programming_language)',
     'Images/upload/bel.jpg',
     'Superintelligence:_Paths,_Dangers,_Strategies',
+    'Okto',
+    'Proyecto_40'
 ];
 
 module.exports = BLACKLIST;
