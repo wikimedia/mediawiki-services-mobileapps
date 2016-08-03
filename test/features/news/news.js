@@ -60,6 +60,7 @@ describe('in the news', function() {
                             assert.ok(link.ns !== undefined, 'namespace should be present'); // 0 is falsey but good
                             assert.ok(link.title, 'title should be present');
                             assert.ok(link.normalizedtitle, 'normalized title should be present');
+                            assert.ok(link.missing === undefined, 'no missing links should be present');
                             if (link.thumbnail) {
                                 assert.ok(link.thumbnail.source, 'thumbnail should have source URL');
                             }
