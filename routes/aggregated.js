@@ -48,7 +48,7 @@ router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
         };
         res.status(200);
         mUtil.setETagToValue(res, mUtil.getDateStringEtag(dateString));
-        mUtil.setContentType(app, res);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.aggregatedFeed);
         res.json(aggregate).end();
     });
 });

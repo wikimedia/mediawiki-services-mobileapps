@@ -29,7 +29,7 @@ router.get('/definition/:title/:revision?', function (req, res) {
     .then(function (response) {
         res.status(200);
         mUtil.setETag(req, res, response.meta.revision);
-        mUtil.setContentType(app, res);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.definition);
         res.json(response.payload).end();
     });
 });

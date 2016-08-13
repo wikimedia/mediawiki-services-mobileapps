@@ -149,7 +149,7 @@ router.get('/mobile-sections/:title/:revision?', function (req, res) {
         response = buildAll(response);
         res.status(200);
         mUtil.setETag(req, res, response.lead.revision);
-        mUtil.setContentType(app, res);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(response).end();
     });
 });
@@ -172,7 +172,7 @@ router.get('/mobile-sections-lead/:title/:revision?', function (req, res) {
         response = buildLead(response);
         res.status(200);
         mUtil.setETag(req, res, response.revision);
-        mUtil.setContentType(app, res);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(response).end();
     });
 });
@@ -187,7 +187,7 @@ router.get('/mobile-sections-remaining/:title/:revision?', function (req, res) {
     }).then(function (response) {
         res.status(200);
         mUtil.setETag(req, res, response.page.revision);
-        mUtil.setContentType(app, res);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(buildRemaining(response)).end();
     });
 });

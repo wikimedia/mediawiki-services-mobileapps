@@ -52,7 +52,7 @@ router.get('/mobile-summary/:title', function (req, res) {
         response = buildPreview(response);
         res.status(200);
         mUtil.setETag(req, res, revision);
-        mUtil.setContentType(app, res);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
         res.json(response).end();
     });
 });
