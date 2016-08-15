@@ -146,4 +146,11 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.body.lead.redirected, 'User:BSitzmann (WMF)/MCS/Test/redirect test3 target#Section_.25');
             });
     });
+    it('Internal links should have title attribute', function() {
+        return preq.get({uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FTitleLinkEncoding'})
+            .then(function (res) {
+                assert.equal(res.status, 200);
+                assert.contains(res.body.lead.sections[0].text, '<a href="/wiki/Sort_(C++)" title="Sort (C++)">');
+            });
+    });
 });
