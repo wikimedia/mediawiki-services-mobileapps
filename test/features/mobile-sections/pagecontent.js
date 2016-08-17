@@ -153,4 +153,10 @@ describe('mobile-sections', function() {
                 assert.contains(res.body.lead.sections[0].text, '<a href="/wiki/Sort_(C++)" title="Sort (C++)">');
             });
     });
+    it('Page with math formulas should load without error', function() {
+        return preq.get({uri: server.config.uri + 'de.wikipedia.org/v1/page/mobile-sections/Verallgemeinerter_Laplace-Operator'})
+            .then(function (res) {
+                assert.equal(res.status, 200);
+            });
+    });
 });
