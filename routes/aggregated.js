@@ -32,12 +32,15 @@ var app;
  */
 router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
     var dateString = dateUtil.dateStringFrom(req);
+    // signal that this is a request for aggregated resources
+    req.query = req.query || {};
+    req.query.aggregated = true;
     return BBPromise.props({
-        tfa: featured.promise(app, req, true),
-        mostread: mostRead.promise(app, req, true),
+        tfa: featured.promise(app, req),
+        mostread: mostRead.promise(app, req),
         random: random.promise(app, req),
-        news: news.promise(app, req, true),
-        image: featuredImage.promise(app, req, true)
+        news: news.promise(app, req),
+        image: featuredImage.promise(app, req)
     }) .then(function (response) {
         var aggregate = {
             tfa: response.tfa.payload,
