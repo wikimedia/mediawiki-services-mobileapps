@@ -246,4 +246,17 @@ describe('mobile-sections', function() {
                 assert.equal(res.status, 200);
             });
     });
+
+    it('Page with IPA content', () => {
+        const title = 'Sunderland_A.F.C.';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections/${title}`;
+        return preq.get({ uri })
+            .then((res) => {
+                const text = res.body.lead.sections[0].text;
+                const expected = 'style="display: none;"><span class="noexcerpt">';
+                assert.equal(res.status, 200);
+                assert.ok(text.indexOf(expected) > -1,
+                  'IPA information is wrapped in hidden container');
+            });
+    });
 });

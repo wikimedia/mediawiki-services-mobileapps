@@ -100,4 +100,14 @@ describe('mobile-sections-v2', function() {
                   'List element is bundled into paragraph');
             });
     });
+
+    it('Page with IPA content', () => {
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted/Sunderland_A.F.C.`;
+        return preq.get({ uri })
+            .then((res) => {
+                const text = res.body.lead.intro;
+                const expected = '<span class="nowrap mcs-ipa"><span class="noexcerpt">';
+                assert.ok(text.indexOf(expected) > -1, 'mcs-ipa class is found');
+            });
+    });
 });

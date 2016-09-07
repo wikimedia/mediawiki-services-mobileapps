@@ -77,13 +77,13 @@ function buildLeadSections(sections) {
 
 /*
  * @param {Object} input
- * @param {Boolean} [removeNodes] whether to remove nodes from the lead text
+ * @param {Boolean} [legacy] whether to perform legacy transformations
  * @return {Object} lead json
  */
-function buildLead(input, removeNodes) {
+function buildLead(input, legacy) {
     const lead = domino.createDocument(input.page.sections[0].text);
 
-    if (!removeNodes) {
+    if (legacy) {
         // Move the first good paragraph up for any page except main pages.
         // It's ok to do unconditionally since we throw away the page
         // content if this turns out to be a main page.
@@ -91,16 +91,16 @@ function buildLead(input, removeNodes) {
         // TODO: should we also exclude file and other special pages?
         transforms.relocateFirstParagraph(lead);
     }
-    const hatnotes = transforms.extractHatnotes(lead, removeNodes);
+    const hatnotes = transforms.extractHatnotes(lead, !legacy);
     const pronunciation = parse.parsePronunciation(lead, input.meta.displaytitle);
-    const issues = transforms.extractPageIssues(lead, removeNodes);
+    const issues = transforms.extractPageIssues(lead, !legacy);
 
     let infobox;
     let intro;
     let sections;
     let text;
 
-    if (removeNodes) {
+    if (!legacy) {
         if (input.page.sections.length > 1) {
             infobox = transforms.extractInfobox(lead);
             intro = transforms.extractLeadIntroduction(lead);
@@ -175,12 +175,12 @@ function buildReferences(input) {
 
 /*
  * @param {Object} input
- * @param {Boolean} [removeNodes] whether to remove nodes from the lead text
+ * @param {Boolean} [legacy] whether to perform legacy transformations
  * @return {Object}
  */
-function buildAll(input, removeNodes) {
+function buildAll(input, legacy) {
     return {
-        lead: buildLead(input, removeNodes),
+        lead: buildLead(input, legacy),
         remaining: buildRemaining(input)
     };
 }
@@ -199,9 +199,17 @@ function mainPageFixPromise(req, response) {
     });
 }
 
-function buildAllResponse(req, res, removeNodes) {
+/**
+ * @param {Request} req
+ * @param {Response} res
+ * @param {Boolean} [legacy] when true MCS will
+ *  not apply legacy transformations that we are in the process
+ *  of deprecating.
+ * @return {BBPromise}
+ */
+function buildAllResponse(req, res, legacy) {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(app, req),
+        page: parsoid.pageContentPromise(app, req, legacy),
         meta: pageMetadataPromise(req)
     }).then((response) => {
         if (response.meta.mainpage) {
@@ -209,7 +217,7 @@ function buildAllResponse(req, res, removeNodes) {
         }
         return response;
     }).then((response) => {
-        response = buildAll(response, removeNodes);
+        response = buildAll(response, legacy);
         res.status(200);
         mUtil.setETag(res, response.lead.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
@@ -217,9 +225,9 @@ function buildAllResponse(req, res, removeNodes) {
     });
 }
 
-function buildLeadResponse(req, res, removeNodes) {
+function buildLeadResponse(req, res, legacy) {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(app, req),
+        page: parsoid.pageContentPromise(app, req, legacy),
         meta: pageMetadataPromise(req)
     }).then((response) => {
         if (response.meta.mainpage) {
@@ -227,7 +235,7 @@ function buildLeadResponse(req, res, removeNodes) {
         }
         return response;
     }).then((response) => {
-        response = buildLead(response, removeNodes);
+        response = buildLead(response, legacy);
         res.status(200);
         mUtil.setETag(res, response.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
@@ -239,7 +247,7 @@ function buildLeadResponse(req, res, removeNodes) {
  * Gets the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections/:title/:revision?', (req, res) => {
-    return buildAllResponse(req, res, false);
+    return buildAllResponse(req, res, true);
 });
 
 /**
@@ -247,7 +255,7 @@ router.get('/mobile-sections/:title/:revision?', (req, res) => {
  * Gets the lead section for the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections-lead/:title/:revision?', (req, res) => {
-    return buildLeadResponse(req, res, false);
+    return buildLeadResponse(req, res, true);
 });
 
 /**
@@ -256,7 +264,7 @@ router.get('/mobile-sections-lead/:title/:revision?', (req, res) => {
  */
 router.get('/mobile-sections-remaining/:title/:revision?', (req, res) => {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(app, req)
+        page: parsoid.pageContentPromise(app, req, true)
     }).then((response) => {
         res.status(200);
         mUtil.setETag(res, response.page.revision);
@@ -271,7 +279,7 @@ router.get('/mobile-sections-remaining/:title/:revision?', (req, res) => {
  */
 router.get('/references/:title/:revision?', (req, res) => {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(app, req)
+        page: parsoid.pageContentPromise(app, req, false)
     }).then((response) => {
         res.status(200);
         mUtil.setETag(res, response.page.revision);
@@ -285,7 +293,7 @@ router.get('/references/:title/:revision?', (req, res) => {
 * Gets a formatted version of a given wiki page rather than a blob of wikitext.
 */
 router.get('/formatted/:title/:revision?', (req, res) => {
-    return buildAllResponse(req, res, true);
+    return buildAllResponse(req, res, false);
 });
 
 /**
@@ -293,7 +301,7 @@ router.get('/formatted/:title/:revision?', (req, res) => {
 * Gets a formatted version of a given wiki page rather than a blob of wikitext.
 */
 router.get('/formatted-lead/:title/:revision?', (req, res) => {
-    return buildLeadResponse(req, res, true);
+    return buildLeadResponse(req, res, false);
 });
 
 module.exports = function(appObj) {
