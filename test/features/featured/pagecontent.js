@@ -75,7 +75,9 @@ describe('featured', function() {
         })
         .then(function(res) {
             assert.status(res, 200);
-            assert.deepEqual(res.body, {}, 'Expected the body to be empty');
+            console.log(res.body);
+            console.log(JSON.stringify(res.body, null, 2))
+            assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
         });
     });
 
