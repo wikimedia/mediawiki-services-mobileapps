@@ -93,7 +93,11 @@ function buildLead(input, removeNodes) {
         transforms.relocateFirstParagraph(lead);
     }
     var hatnotes = transforms.extractHatnotes(lead, removeNodes);
-
+    var pronunciation = parse.parsePronunciation(lead, input.meta.displaytitle);
+    var infobox, text;
+    if ( removeNodes ) {
+        infobox = transforms.extractInfobox(lead);
+    }
     // update text after extractions have taken place
     input.page.sections[0].text = lead.body.innerHTML;
 
@@ -115,9 +119,10 @@ function buildLead(input, removeNodes) {
             file: input.meta.image && input.meta.image.file,
             urls: input.meta.thumb && mwapi.buildLeadImageUrls(input.meta.thumb.url)
         })),
-        pronunciation: parse.parsePronunciation(lead, input.meta.displaytitle),
+        pronunciation: pronunciation,
         spoken: input.page.spoken,
         hatnotes: hatnotes,
+        infobox: infobox,
         geo: input.page.geo,
         sections: buildLeadSections(input.page.sections)
     };

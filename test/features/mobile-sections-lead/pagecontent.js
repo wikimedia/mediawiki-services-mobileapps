@@ -122,6 +122,13 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.pronunciation.url, '//upload.wikimedia.org/wikipedia/commons/8/82/En-us-Barack-Hussein-Obama.ogg');
             });
     });
+    it('Barack Obama infobox is part of the html', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Barack_Obama' })
+            .then(function(res) {
+                assert.ok(res.body.sections[0].text.indexOf('"infobox') > -1,
+                  'The infobox has not been removed for backwards compatibility.');
+            });
+    });
     it('Enwiki Uranus loads successfully (no pronunciation parsing TypeErrors)', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Uranus' })
             .then(function (res) {
