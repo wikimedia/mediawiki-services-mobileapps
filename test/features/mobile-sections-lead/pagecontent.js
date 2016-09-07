@@ -153,6 +153,8 @@ describe('mobile-sections-lead', function() {
                 assert.ok(res.body.hatnotes[0],
                     'See also: <a href="/wiki/Military_order_(society)" title=\"Military order (society)">Military order (society)</a>',
                      'hatnote property present on lead.');
+                assert.ok(res.body.sections[0].text.indexOf( 'See also:' ) > -1,
+                    'Hatnote is repeated in text for backwards compatibility.' );
             });
     });
     it('Enwiki multiple hatnotes are separated by <br> tag', function() {

@@ -78,21 +78,16 @@ function buildLeadSections(sections) {
 }
 
 /*
- * @param {Document} lead
- * @return {String[]} where each element is the inner html of a hatnote
+ * @param {Object} input
+ * @param {Boolean} [removeNodes] whether to remove nodes from the lead text
+ * @return {Object} lead json
  */
-function extractHatnotes( lead ) {
-    var hatnotes = [];
-    var hatnoteNodes = lead.querySelectorAll( '.hatnote' );
-    Array.prototype.forEach.call( hatnoteNodes, function ( hatnoteNode, i ) {
-        hatnotes.push( hatnoteNode.innerHTML );
-    } );
-    return hatnotes;
-}
-
-function buildLead(input) {
+function buildLead(input, removeNodes) {
     var lead = domino.createDocument(input.page.sections[0].text);
-    var hatnotes = extractHatnotes(lead);
+    var hatnotes = transforms.extractHatnotes(lead, removeNodes);
+
+    // update text after extractions have taken place
+    input.page.sections[0].text = lead.body.innerHTML;
 
     return {
         ns: input.meta.ns,
@@ -126,9 +121,14 @@ function buildRemaining(input) {
     };
 }
 
-function buildAll(input) {
+/*
+ * @param {Object} input
+ * @param {Boolean} [removeNodes] whether to remove nodes from the lead text
+ * @return {Object}
+ */
+function buildAll(input, removeNodes) {
     return {
-        lead: buildLead(input),
+        lead: buildLead(input, removeNodes),
         remaining: buildRemaining(input)
     };
 }
@@ -148,7 +148,7 @@ function mainPageFixPromise(req, response) {
     });
 }
 
-function buildAllResponse(req, res) {
+function buildAllResponse(req, res, removeNodes) {
     return BBPromise.props({
         page: parsoid.pageContentPromise(app, req),
         meta: pageMetadataPromise(req)
@@ -158,7 +158,7 @@ function buildAllResponse(req, res) {
         }
         return response;
     }).then(function (response) {
-        response = buildAll(response);
+        response = buildAll(response, removeNodes);
         res.status(200);
         mUtil.setETag(req, res, response.lead.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
@@ -166,7 +166,7 @@ function buildAllResponse(req, res) {
     });
 }
 
-function buildLeadResponse(req, res) {
+function buildLeadResponse(req, res, removeNodes) {
     return BBPromise.props({
             page: parsoid.pageContentPromise(app, req),
             meta: pageMetadataPromise(req),
@@ -177,7 +177,7 @@ function buildLeadResponse(req, res) {
             }
             return response;
         }).then(function (response) {
-            response = buildLead(response);
+            response = buildLead(response, removeNodes);
             res.status(200);
             mUtil.setETag(req, res, response.revision);
             mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
@@ -189,7 +189,7 @@ function buildLeadResponse(req, res) {
  * Gets the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections/:title/:revision?', function (req, res) {
-    return buildAllResponse.apply(this, arguments);
+    return buildAllResponse( req, res, false );
 });
 
 /**
@@ -197,7 +197,7 @@ router.get('/mobile-sections/:title/:revision?', function (req, res) {
  * Gets the lead section for the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections-lead/:title/:revision?', function (req, res) {
-    return buildLeadResponse.apply(this, arguments);
+    return buildLeadResponse( req, res, false );
 });
 
 /**
@@ -214,6 +214,23 @@ router.get('/mobile-sections-remaining/:title/:revision?', function (req, res) {
         res.json(buildRemaining(response)).end();
     });
 });
+
+if ( process.env.MOBILE_CONTENT_SERVICE_EDGE_VERSION ) {
+    /**
+    * GET {domain}/v1/page/mobile-sections/{title}
+    * Gets the mobile app version of a given wiki page.
+    */
+    router.get('/formatted/:title/:revision?', function (req, res) {
+        return buildAllResponse( req, res, true );
+    });
+    /**
+    * GET {domain}/v1/page/mobile-sections/{title}
+    * Gets the mobile app version of a given wiki page.
+    */
+    router.get('/formatted-lead/:title/:revision?', function (req, res) {
+        return buildLeadResponse( req, res, true );
+    });
+}
 
 module.exports = function (appObj) {
     app = appObj;
