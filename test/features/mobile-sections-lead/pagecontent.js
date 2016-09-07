@@ -99,6 +99,14 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.geo.longitude, 28.883055555556);
             });
     });
+    it('Wikivoyage en Paris should have a lead object with a geo property', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikivoyage.org/v1/page/mobile-sections-lead/Paris' })
+            .then(function(res) {
+                var lead = res.body;
+                assert.deepEqual(lead.geo.latitude, 48.856);
+                assert.deepEqual(lead.geo.longitude, 2.351);
+            });
+    });
     it('es Gogland should not have a lead object with a geo property', function() {
         return preq.get({ uri: server.config.uri + 'es.wikipedia.org/v1/page/mobile-sections-lead/Gogland' })
             .then(function(res) {
