@@ -20,6 +20,7 @@ describe('mobile-sections-v2', function() {
                      'Hatnote should not appear in lead section html.' );
             });
     });
+
     it('Enwiki Barack Obama page has an infobox', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/formatted-lead/Barack_Obama' })
             .then(function (res) {
@@ -27,6 +28,15 @@ describe('mobile-sections-v2', function() {
                 assert.ok(res.body.infobox !== undefined);
                 assert.ok(res.body.sections[0].text.indexOf('"infobox') === -1,
                   'The infobox is removed in version 2 of the api.');
+            });
+    });
+
+    it('Page issues do not appear in the lead', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/formatted-lead/User:Jdlrobson%2Fmcs-tests%2Fissues_bug' })
+            .then(function (res) {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.sections[0].text.indexOf('ambox-multiple_issues') === -1,
+                  'No ambox multiple issues class in response.');
             });
     });
 });
