@@ -68,6 +68,17 @@ describe('featured', function() {
             });
     });
 
+    it('unsupported language with aggregated=true should return 200', function() {
+        return preq.get({
+            uri: server.config.uri + 'zh.wikipedia.org/v1/page/featured/2016/04/15',
+            query: { aggregated: true }
+        })
+        .then(function(res) {
+            assert.status(res, 200);
+            assert.deepEqual(res.body, {}, 'Expected the body to be empty');
+        });
+    });
+
     it('featured article of an old date should return 404', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/featured/1970/12/31' })
             .then(function(res) {

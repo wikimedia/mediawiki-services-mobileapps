@@ -25,9 +25,9 @@ router.get('/most-read/:yyyy/:mm/:dd', function (req, res) {
     return mostRead.promise(app, req)
     .then(function (response) {
         res.status(200);
-        mUtil.setETagToValue(res, response.meta.etag);
+        mUtil.setETagToValue(res, response.meta && response.meta.etag);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
-        res.json(response.payload).end();
+        res.json(response.payload || {}).end();
     });
 });
 
