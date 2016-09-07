@@ -427,6 +427,7 @@ paths:
               lastmodifier: /.+/
               displaytitle: /.+/
               description: /.+/
+              hatnotes: /.+/
               protection: /.+/
               editable: /.+/
               languagecount: /.+/
