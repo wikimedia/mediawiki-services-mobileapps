@@ -39,4 +39,32 @@ describe('mobile-sections-v2', function() {
                   'No ambox multiple issues class in response.');
             });
     });
+
+    it('Barack Obama page lead paragraph', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/formatted-lead/Barack_Obama' })
+            .then(function (res) {
+                var intro = res.body.intro;
+
+                assert.deepEqual(res.status, 200);
+                assert.ok(intro !== undefined, 'Intro property present.');
+                assert.ok(intro.indexOf( 'the first president born outside' ) > -1,
+                  'Intro does not come from infobox.');
+                assert.ok(intro.indexOf( 'undefined' ) === -1,
+                  'No undefined concatenations');
+                assert.ok(res.body.sections[0].text.indexOf(intro) === -1,
+                  'Intro is not present in section text.');
+            });
+    });
+    it('Planet introduction contains nodes other than P (T111958)', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/formatted-lead/Planet' })
+            .then(function (res) {
+                var intro = res.body.intro;
+
+                assert.deepEqual(res.status, 200);
+                assert.ok(intro.indexOf( '<p>' ) > -1, 'intro is html' );
+                assert.ok(intro.indexOf( 'stellar remnant' ) > -1 );
+                assert.ok(intro.indexOf( '</ul>' ) > -1,
+                  'List element is bundled into paragraph');
+            });
+    });
 });

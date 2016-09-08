@@ -94,9 +94,10 @@ function buildLead(input, removeNodes) {
     }
     var hatnotes = transforms.extractHatnotes(lead, removeNodes);
     var pronunciation = parse.parsePronunciation(lead, input.meta.displaytitle);
-    var infobox, text;
+    var infobox, text, intro;
     if ( removeNodes ) {
         infobox = transforms.extractInfobox(lead);
+        intro = transforms.extractLeadIntroduction(lead);
     }
     var issues = transforms.extractPageIssues(lead, removeNodes);
     // update text after extractions have taken place
@@ -125,6 +126,7 @@ function buildLead(input, removeNodes) {
         spoken: input.page.spoken,
         hatnotes: hatnotes,
         infobox: infobox,
+        intro: intro,
         geo: input.page.geo,
         sections: buildLeadSections(input.page.sections)
     };
