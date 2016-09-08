@@ -94,14 +94,19 @@ function buildLead(input, removeNodes) {
     }
     var hatnotes = transforms.extractHatnotes(lead, removeNodes);
     var pronunciation = parse.parsePronunciation(lead, input.meta.displaytitle);
-    var infobox, text, intro;
+    var issues = transforms.extractPageIssues(lead, removeNodes);
+
+    var infobox, text, intro, sections;
+
     if ( removeNodes ) {
         infobox = transforms.extractInfobox(lead);
         intro = transforms.extractLeadIntroduction(lead);
+        text = lead.body.innerHTML;
+    } else {
+        // update text after extractions have taken place
+        sections = buildLeadSections(input.page.sections);
+        input.page.sections[0].text = lead.body.innerHTML;
     }
-    var issues = transforms.extractPageIssues(lead, removeNodes);
-    // update text after extractions have taken place
-    input.page.sections[0].text = lead.body.innerHTML;
 
     return {
         ns: input.meta.ns,
@@ -128,7 +133,8 @@ function buildLead(input, removeNodes) {
         infobox: infobox,
         intro: intro,
         geo: input.page.geo,
-        sections: buildLeadSections(input.page.sections)
+        sections: sections,
+        text: text
     };
 }
 

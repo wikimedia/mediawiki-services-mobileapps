@@ -16,7 +16,7 @@ describe('mobile-sections-v2', function() {
                 assert.ok(res.body.hatnotes[0],
                     'See also: <a href="/wiki/Military_order_(society)" title=\"Military order (society)">Military order (society)</a>',
                      'hatnote property should be present on lead.');
-                assert.ok(res.body.sections[0].text.indexOf('<div class="hatnote">') === -1,
+                assert.ok(res.body.text.indexOf('<div class="hatnote">') === -1,
                      'Hatnote should not appear in lead section html.' );
             });
     });
@@ -26,7 +26,7 @@ describe('mobile-sections-v2', function() {
             .then(function (res) {
                 assert.deepEqual(res.status, 200);
                 assert.ok(res.body.infobox !== undefined);
-                assert.ok(res.body.sections[0].text.indexOf('"infobox') === -1,
+                assert.ok(res.body.text.indexOf('"infobox') === -1,
                   'The infobox is removed in version 2 of the api.');
             });
     });
@@ -35,7 +35,7 @@ describe('mobile-sections-v2', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/formatted-lead/User:Jdlrobson%2Fmcs-tests%2Fissues_bug' })
             .then(function (res) {
                 assert.deepEqual(res.status, 200);
-                assert.ok(res.body.sections[0].text.indexOf('ambox-multiple_issues') === -1,
+                assert.ok(res.body.text.indexOf('ambox-multiple_issues') === -1,
                   'No ambox multiple issues class in response.');
             });
     });
@@ -51,7 +51,7 @@ describe('mobile-sections-v2', function() {
                   'Intro does not come from infobox.');
                 assert.ok(intro.indexOf( 'undefined' ) === -1,
                   'No undefined concatenations');
-                assert.ok(res.body.sections[0].text.indexOf(intro) === -1,
+                assert.ok(res.body.text.indexOf(intro) === -1,
                   'Intro is not present in section text.');
             });
     });
