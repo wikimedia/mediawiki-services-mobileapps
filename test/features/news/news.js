@@ -63,6 +63,17 @@ describe('in the news', function() {
         });
     });
 
+    it('unsupported language with aggregated=true should return 200', function() {
+        return preq.get({
+            uri: server.config.uri + 'is.wikipedia.org/v1/page/news',
+            query: { aggregated: true }
+        })
+        .then(function(res) {
+            assert.status(res, 200);
+            assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
+        });
+    });
+
     it('URL fragments should be stripped correctly', function() {
         assert.deepEqual(news.removeFragment('100_metres_hurdles#Top_25_fastest_athletes'), '100_metres_hurdles');
         assert.deepEqual(news.removeFragment('Kendra_Harrison'), 'Kendra_Harrison');

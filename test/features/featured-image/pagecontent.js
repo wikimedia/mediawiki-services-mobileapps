@@ -82,4 +82,13 @@ describe('featured-image', function() {
                 assert.equal(err.body.type, 'not_found');
             });
     });
+
+    it('404 for date with no featured image should be suppressed when aggregated flag is set', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2002/09/12',
+                          query: { aggregated: true }})
+          .then(function(res) {
+              assert.status(res, 200);
+              assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
+          });
+    });
 });

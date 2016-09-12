@@ -85,5 +85,5 @@ describe('definition', function() {
             assert.status(res, 200);
             assert.ok(Object.keys(res).length !== 0);
         });
-    })
+    });
 });

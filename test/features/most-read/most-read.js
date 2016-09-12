@@ -9,8 +9,11 @@ var dateUtil = require('../../../lib/dateUtil');
 var BLACKLIST = require('../../../etc/feed/blacklist');
 
 var date = new Date();
-date.setDate(date.getDate() - 5);
+var originalDate = date.getDate();
+date.setDate(originalDate - 5);
 var dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth() + 1) + '/' + dateUtil.pad(date.getUTCDate());
+date.setDate(originalDate + 5);
+var futureDateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth() + 1) + '/' + dateUtil.pad(date.getUTCDate());
 
 describe('most-read articles', function() {
     this.timeout(20000);
@@ -20,6 +23,7 @@ describe('most-read articles', function() {
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
         return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/most-read/' + dateString);
     });
+
     it('results list should have expected properties', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/most-read/' + dateString })
           .then(function(res) {
@@ -34,6 +38,7 @@ describe('most-read articles', function() {
               });
           });
     });
+
     it('should load successfully even with no normalizations from the MW API', function() {
         return preq.get({ uri: server.config.uri + 'ja.wikipedia.org/v1/page/most-read/2016/06/15' })
           .then(function(res) {
@@ -48,10 +53,20 @@ describe('most-read articles', function() {
               });
           });
     });
+
     it('Request to mobile domain should complete successfully', function() {
         return preq.get({ uri: server.config.uri + 'en.m.wikipedia.org/v1/page/most-read/' + dateString })
           .then(function(res) {
               assert.deepEqual(res.status, 200);
+          });
+    });
+
+    it('404 for future date should be suppressed when aggregated flag is set', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/most-read/' + futureDateString,
+                          query: { aggregated: true }})
+          .then(function(res) {
+              assert.status(res, 200);
+              assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
           });
     });
 });
