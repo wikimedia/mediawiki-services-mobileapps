@@ -54,16 +54,9 @@ describe('in the news', function() {
                     res.body.forEach(function (elem) {
                         assert.ok(elem.story, 'story should be present');
                         assert.ok(elem.links, 'links should be present');
-
                         elem.links.forEach(function (link) {
-                            assert.ok(link.pageid, 'page id should be present >>> ' + JSON.stringify(link));
-                            assert.ok(link.ns !== undefined, 'namespace should be present'); // 0 is falsey but good
                             assert.ok(link.title, 'title should be present');
-                            assert.ok(link.normalizedtitle, 'normalized title should be present');
                             assert.ok(link.missing === undefined, 'no missing links should be present');
-                            if (link.thumbnail) {
-                                assert.ok(link.thumbnail.source, 'thumbnail should have source URL');
-                            }
                         });
                     });
                 });

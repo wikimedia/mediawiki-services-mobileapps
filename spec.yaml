@@ -112,18 +112,13 @@ paths:
 #                  - views: /.+/
 #                    rank: /.+/
 #                    title: /.+/
-#                    pageid: /.+/
-#                    normalizedtitle: /.+/
 #              random:
 #                items:
 #                  - title: /.+/
 #              news:
 #                - story: /.+/
 #                  links:
-#                    - pageid: /.+/
-#                      ns: /.+/
-#                      normalizedtitle: /.+/
-#                      title: /.+/
+#                    - title: /.+/
 #              image:
 #                title: /.+/
 #                description:
@@ -288,8 +283,6 @@ paths:
                 - views: /.+/
                   rank: /.+/
                   title: /.+/
-                  pageid: /.+/
-                  normalizedtitle: /.+/
   # from routes/random.js
   /{domain}/v1/page/random/title:
     get:
@@ -324,10 +317,7 @@ paths:
             body:
               - story: /.+/
                 links:
-                  - pageid: /.+/
-                    ns: /.+/
-                    normalizedtitle: /.+/
-                    title: /.+/
+                  - title: /.+/
   # from routes/media.js
   /{domain}/v1/page/media/{title}:
     get:
