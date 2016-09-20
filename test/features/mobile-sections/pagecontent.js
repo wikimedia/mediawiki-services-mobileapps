@@ -1,7 +1,7 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
 var preq   = require('preq');
+var assert = require('../../utils/assert.js');
 var server = require('../../utils/server.js');
 var headers = require('../../utils/headers.js');
 
@@ -39,6 +39,7 @@ describe('mobile-sections', function() {
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
+
     it('en Main page should have a lead object with expected properties', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Main_Page' })
             .then(function(res) {
@@ -64,6 +65,7 @@ describe('mobile-sections', function() {
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
+
     it('Titles with special characters should not error out when trying to parse pronunciation files', function() {
         return preq.get({ uri: server.config.uri + 'vi.wikipedia.org/v1/page/mobile-sections/Sunn_O)))' })
             .then(function(res) {
@@ -77,6 +79,7 @@ describe('mobile-sections', function() {
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
+
     it('Missing title should respond with 404', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/weoiuyrxcmxn' })
             .then(function() {
@@ -91,18 +94,21 @@ describe('mobile-sections', function() {
                 //assert.deepEqual(body.detail, 'Page or revision not found.');
             });
     });
+
     it('Page with known past \'text-decoration\' error should load successfully', function() {
         return preq.get({ uri: server.config.uri + 'zh.wikipedia.org/v1/page/mobile-sections/%E6%9F%A5%E5%85%8B%C2%B7%E8%91%9B%E9%87%8C%E8%8A%AC%E7%B4%8D%E5%A5%87' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
             });
     });
+
     it('Beta cluster request should load successfully', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.beta.wmflabs.org/v1/page/mobile-sections/Foobar' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
             });
     });
+
     it('Page with irregular Spoken Wikipedia template usage should load correctly', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Alliterative_verse' })
             .then(function(res) {
@@ -110,6 +116,7 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.body.lead.spoken.files[0], 'File:En-Alliterative_verse-article.ogg');
             });
     });
+
     it('Page with HTML entity in redirected page title should load', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FA%26B_redirect' })
             .then(function(res) {
@@ -119,6 +126,7 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.body.lead.redirected, 'User:BSitzmann (WMF)/MCS/Test/A&B');
             });
     });
+
     it('Page with % in redirected page title should load', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.beta.wmflabs.org/v1/page/mobile-sections/User:Pchelolo%2fRedirect_Test' })
             .then(function(res) {
@@ -128,6 +136,7 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.body.lead.redirected, 'User:Pchelolo/Redirect Target %');
             });
     });
+
     it('Page with % in redirected page title should load 2', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/User:BSitzmann_%28WMF%29%2FMCS%2FTest%2Fredirect_test2' })
             .then(function(res) {
@@ -137,6 +146,7 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.body.lead.redirected, 'User:BSitzmann (WMF)/MCS/Test/redirect test2 target %');
             });
     });
+
     it('Page with % in section header of redirected page title should load', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/User:BSitzmann_%28WMF%29%2FMCS%2FTest%2Fredirect_test3' })
             .then(function(res) {
@@ -146,6 +156,7 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.body.lead.redirected, 'User:BSitzmann (WMF)/MCS/Test/redirect test3 target#Section_.25');
             });
     });
+
     it('Internal links should have title attribute', function() {
         return preq.get({uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FTitleLinkEncoding'})
             .then(function (res) {
@@ -153,6 +164,7 @@ describe('mobile-sections', function() {
                 assert.contains(res.body.lead.sections[0].text, '<a href="/wiki/Sort_(C++)" title="Sort (C++)">');
             });
     });
+
     it('Page with math formulas should load without error', function() {
         return preq.get({uri: server.config.uri + 'de.wikipedia.org/v1/page/mobile-sections/Verallgemeinerter_Laplace-Operator'})
             .then(function (res) {

@@ -4,7 +4,7 @@ var assert = require('../../utils/assert.js');
 var domino = require('domino');
 var transforms = require('../../../lib/transforms');
 
-describe('lib:transforms', function() {
+describe('lib:size-transforms', function() {
     this.timeout(20000);
 
     it('rmBracketSpans should remove the spans around brackets', function() {
