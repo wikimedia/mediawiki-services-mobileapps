@@ -104,6 +104,18 @@ paths:
                 source: /.+/
                 width: /.+/
                 height: /.+/
+        - title: retrieve featured article info for unsupported site (with aggregated=true)
+          request:
+            params:
+              domain: "is.wikipedia.org"
+              yyyy: "2016"
+              mm: "04"
+              dd: "29"
+            query:
+              aggregated: true
+          response:
+            status: 200
+            body: ""
   # from routes/featured-image.js
   /{domain}/v1/media/image/featured/{yyyy}/{mm}/{dd}:
     get:
@@ -158,7 +170,17 @@ paths:
                 source: /.+/
                 width: /.+/
                 height: /.+/
-
+        - title: retrieve featured image data for date with no featured image (with aggregated=true)
+          request:
+            params:
+              yyyy: "2004"
+              mm: "04"
+              dd: "29"
+            query:
+              aggregated: true
+          response:
+            status: 200
+            body: ""
   # from routes/most-read.js
   /{domain}/v1/page/most-read/{yyyy}/{mm}/{dd}:
     get:
@@ -201,11 +223,40 @@ paths:
             headers:
               content-type: application/json
             body:
-              date: /.+/
+              date: "2016-01-01Z"
               articles:
                 - views: /.+/
                   rank: /.+/
                   title: /.+/
+        - title: retrieve the most-read articles for January 1, 2016 (with aggregated=true)
+          request:
+            params:
+              yyyy: "2016"
+              mm: "01"
+              dd: "01"
+            query:
+              aggregated: true
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              date: "2015-12-31Z"
+              articles:
+                - views: /.+/
+                  rank: /.+/
+                  title: /.+/
+        - title: retrieve most-read articles for date with no data (with aggregated=true)
+          request:
+            params:
+              yyyy: "2015"
+              mm: "01"
+              dd: "01"
+            query:
+              aggregated: true
+          response:
+            status: 200
+            body: ""
   # from routes/random.js
   /{domain}/v1/page/random/title:
     get:
@@ -241,6 +292,15 @@ paths:
               - story: /.+/
                 links:
                   - title: /.+/
+        - title: get 'In the News' content for unsupported language (with aggregated=true)
+          request:
+            params:
+              domain: "is.wikipedia.org"
+            query:
+              aggregated: true
+          response:
+            status: 200
+            body: ""
   # from routes/media.js
   /{domain}/v1/page/media/{title}:
     get:
