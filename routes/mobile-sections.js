@@ -77,8 +77,23 @@ function buildLeadSections(sections) {
     return out;
 }
 
+/*
+ * @param {Document} lead
+ * @return {String[]} where each element is the inner html of a hatnote
+ */
+function extractHatnotes( lead ) {
+  var hatnotes = [];
+  var hatnoteNodes = lead.querySelectorAll( '.hatnote' );
+  Array.prototype.forEach.call( hatnoteNodes, function ( hatnoteNode, i ) {
+    hatnotes.push( hatnoteNode.innerHTML );
+  } );
+  return hatnotes;
+}
+
 function buildLead(input) {
     var lead = domino.createDocument(input.page.sections[0].text);
+    var hatnotes = extractHatnotes(lead);
+
     return {
         ns: input.meta.ns,
         id: input.meta.id,
@@ -99,6 +114,7 @@ function buildLead(input) {
         })),
         pronunciation: parse.parsePronunciation(lead, input.meta.displaytitle),
         spoken: input.page.spoken,
+        hatnotes: hatnotes,
         geo: input.page.geo,
         sections: buildLeadSections(input.page.sections)
     };

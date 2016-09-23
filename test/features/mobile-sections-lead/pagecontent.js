@@ -146,4 +146,21 @@ describe('mobile-sections-lead', function() {
                     'Expected section text to start with lead paragraph. Actual text ' + res.body.sections[0].text);
             });
     });
+    it('Enwiki hatnotes are promoted to the lead object', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Chivalric%20order' })
+            .then(function (res) {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.hatnotes[0],
+                    'See also: <a href="/wiki/Military_order_(society)" title=\"Military order (society)">Military order (society)</a>',
+                     'hatnote property present on lead.');
+            });
+    });
+    it('Enwiki multiple hatnotes are separated by <br> tag', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/S' })
+            .then(function (res) {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.hatnotes.length === 4,
+                     '4 lines of hatnote inside hatnote property present on lead.');
+            });
+    });
 });
