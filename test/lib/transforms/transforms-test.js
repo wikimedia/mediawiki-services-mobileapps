@@ -18,11 +18,9 @@ describe('lib:transforms', function() {
         var doc = domino.createDocument('<body><span style=\"display:none\">foo</span></body>');
         assert.selectorExistsNTimes(doc, 'body span', 1);
         transforms._rmElementsWithSelectors(doc, [
-            //'span',                               // Remove <span class=\"Z3988\"></span>
-            'span[style=\"display:none\"]',             // Remove <span style=\"display:none;\">&nbsp;</span>
+            'span[style=\"display:none\"]', // Remove <span style=\"display:none;\">&nbsp;</span>
             'span[style*=none]'             // Remove <span style=\"display:none;\">&nbsp;</span>
         ]);
-        //assert.selectorExistsNTimes(doc, 'body span', 0);
-        // Does not yet work. Filed https://github.com/fgnass/domino/issues/59
+        assert.selectorExistsNTimes(doc, 'body span', 0);
     });
 });
