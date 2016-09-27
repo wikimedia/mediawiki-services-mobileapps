@@ -116,8 +116,14 @@ function buildLead(input, removeNodes) {
 }
 
 function buildRemaining(input) {
+    // don't repeat the first section in remaining
+    var sections = input.page.sections.slice(1);
+    // mark references sections with a flag (if no sections its a stub or main page)
+    if ( sections.length ) {
+        transforms.markReferenceSections( sections, false );
+    }
     return {
-        sections: input.page.sections.slice(1) // don't repeat the first section
+        sections: sections
     };
 }
 

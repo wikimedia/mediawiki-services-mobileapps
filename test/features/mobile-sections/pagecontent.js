@@ -164,7 +164,32 @@ describe('mobile-sections', function() {
                 assert.contains(res.body.lead.sections[0].text, '<a href="/wiki/Sort_(C++)" title="Sort (C++)">');
             });
     });
-
+    it('Any sections that contain references should have a reference flag', function() {
+        return preq.get({uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Barack_Obama'})
+            .then(function (res) {
+                assert.equal(res.status, 200);
+                res.body.remaining.sections.forEach(function(section) {
+                    if ( [ 'Notes and references', 'Notes', 'References', 'Further reading' ].indexOf( section.line ) > -1 ) {
+                        assert.ok(section.isReferenceSection === true, section.line + ' should have a reference flag');
+                    } else {
+                        assert.ok(section.isReferenceSection === undefined, section.line + ' should have no reference flag');
+                    }
+                });
+            });
+    });
+    it('The last section can be marked as a reference section', function() {
+        return preq.get({uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Vallejo_(ferry)'})
+            .then(function (res) {
+                assert.equal(res.status, 200);
+                res.body.remaining.sections.forEach(function(section) {
+                    if ( [ 'References' ].indexOf( section.line ) > -1 ) {
+                        assert.ok(section.isReferenceSection === true, section.line + ' should have a reference flag');
+                    } else {
+                        assert.ok(section.isReferenceSection === undefined, section.line + ' should have no reference flag');
+                    }
+                });
+            });
+    });
     it('Page with math formulas should load without error', function() {
         return preq.get({uri: server.config.uri + 'de.wikipedia.org/v1/page/mobile-sections/Verallgemeinerter_Laplace-Operator'})
             .then(function (res) {
