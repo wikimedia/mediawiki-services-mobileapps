@@ -128,6 +128,24 @@ function buildRemaining(input) {
 }
 
 /*
+ * Build a response which contains only reference sections
+ * @param {Object} input
+ * @return {Object}
+ */
+function buildReferences(input) {
+    var remaining = buildRemaining(input);
+    var sections = [];
+    remaining.sections.forEach(function (section) {
+        if (section.isReferenceSection) {
+            sections.push(section);
+        }
+    });
+    return {
+        sections: sections
+    };
+}
+
+/*
  * @param {Object} input
  * @param {Boolean} [removeNodes] whether to remove nodes from the lead text
  * @return {Object}
@@ -218,6 +236,21 @@ router.get('/mobile-sections-remaining/:title/:revision?', function (req, res) {
         mUtil.setETag(req, res, response.page.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(buildRemaining(response)).end();
+    });
+});
+
+/**
+ * GET {domain}/v1/page/mobile-sections-references/{title}/{revision:?}
+ * Gets any sections which are part of a reference sections for a given wiki page.
+ */
+router.get('/mobile-sections-references/:title/:revision?', function (req, res) {
+    return BBPromise.props({
+        page: parsoid.pageContentPromise(app, req)
+    }).then(function (response) {
+        res.status(200);
+        mUtil.setETag(req, res, response.page.revision);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
+        res.json(buildReferences(response)).end();
     });
 });
 

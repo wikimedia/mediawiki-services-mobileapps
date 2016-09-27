@@ -177,6 +177,15 @@ describe('mobile-sections', function() {
                 });
             });
     });
+
+    it('Requesting just references returns only sections with references', function() {
+        return preq.get({uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-references/Barack_Obama'})
+            .then(function (res) {
+                assert.equal(res.status, 200);
+                assert.equal(res.body.sections.length, 4, 'Barack Obama has 4 reference sections');
+            });
+    });
+
     it('The last section can be marked as a reference section', function() {
         return preq.get({uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Vallejo_(ferry)'})
             .then(function (res) {
@@ -190,6 +199,7 @@ describe('mobile-sections', function() {
                 });
             });
     });
+
     it('Page with math formulas should load without error', function() {
         return preq.get({uri: server.config.uri + 'de.wikipedia.org/v1/page/mobile-sections/Verallgemeinerter_Laplace-Operator'})
             .then(function (res) {
