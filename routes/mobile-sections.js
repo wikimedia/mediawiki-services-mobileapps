@@ -148,11 +148,7 @@ function mainPageFixPromise(req, response) {
     });
 }
 
-/**
- * GET {domain}/v1/page/mobile-sections/{title}
- * Gets the mobile app version of a given wiki page.
- */
-router.get('/mobile-sections/:title/:revision?', function (req, res) {
+function buildAllResponse(req, res) {
     return BBPromise.props({
         page: parsoid.pageContentPromise(app, req),
         meta: pageMetadataPromise(req)
@@ -168,6 +164,32 @@ router.get('/mobile-sections/:title/:revision?', function (req, res) {
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(response).end();
     });
+}
+
+function buildLeadResponse(req, res) {
+    return BBPromise.props({
+            page: parsoid.pageContentPromise(app, req),
+            meta: pageMetadataPromise(req),
+            extract: mwapi.requestExtract(app, req)
+        }).then(function (response) {
+            if (response.meta.mainpage) {
+                return mainPageFixPromise(req, response);
+            }
+            return response;
+        }).then(function (response) {
+            response = buildLead(response);
+            res.status(200);
+            mUtil.setETag(req, res, response.revision);
+            mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
+            res.json(response).end();
+        });
+}
+/**
+ * GET {domain}/v1/page/mobile-sections/{title}
+ * Gets the mobile app version of a given wiki page.
+ */
+router.get('/mobile-sections/:title/:revision?', function (req, res) {
+    return buildAllResponse.apply(this, arguments);
 });
 
 /**
@@ -175,22 +197,7 @@ router.get('/mobile-sections/:title/:revision?', function (req, res) {
  * Gets the lead section for the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections-lead/:title/:revision?', function (req, res) {
-    return BBPromise.props({
-        page: parsoid.pageContentPromise(app, req),
-        meta: pageMetadataPromise(req),
-        extract: mwapi.requestExtract(app, req)
-    }).then(function (response) {
-        if (response.meta.mainpage) {
-            return mainPageFixPromise(req, response);
-        }
-        return response;
-    }).then(function (response) {
-        response = buildLead(response);
-        res.status(200);
-        mUtil.setETag(req, res, response.revision);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
-        res.json(response).end();
-    });
+    return buildLeadResponse.apply(this, arguments);
 });
 
 /**
