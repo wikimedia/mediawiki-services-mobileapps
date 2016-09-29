@@ -5,7 +5,7 @@
   "main": "./app.js",
   "scripts": {
     "start": "service-runner",
-    "test": "mocha && nsp check",
+    "test": "grunt test && mocha && nsp check",
     "docker-start": "service-runner docker-start",
     "docker-test": "service-runner docker-test",
     "coverage": "istanbul cover _mocha -- -R spec"
@@ -58,6 +58,8 @@
   "devDependencies": {
     "csv-parse": "1.1.7",
     "extend": "^3.0.0",
+    "grunt": "^1.0.1",
+    "grunt-jscs": "^3.0.1",
     "istanbul": "^0.4.4",
     "mocha": "^2.5.3",
     "mocha-jshint": "^2.3.1",

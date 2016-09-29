@@ -1,0 +1,34 @@
+{
+  "preset": "wikimedia",
+
+  "requireSpaceAfterLineComment": null,
+  "requireSpacesInsideParentheses": false,
+  "requireSpacesInsideBrackets": false,
+  "requireSpaceAfterKeywords": false,
+  "requireMultipleVarDecl": null,
+  "requireLineBreakAfterVariableAssignment": null,
+  "requireSpaceAfterBinaryOperators": null,
+  "validateQuoteMarks": null,
+  "disallowTrailingComma": null,
+  "disallowQuotedKeysInObjects": null,
+  "requireSpaceBeforeObjectValues": null,
+  "disallowDanglingUnderscores": null,
+  "disallowImplicitTypeConversion": null,
+  "requireCamelCaseOrUpperCaseIdentifiers": null,
+  "disallowSpaceAfterObjectKeys": null,
+  "requireSpaceBeforeBinaryOperators": null,
+  "disallowMultipleLineBreaks": null,
+  "requireDotNotation": null,
+  "disallowSpacesInsideParentheses": null,
+  "validateIndentation": null,
+  "requireSpaceBeforeKeywords": null,
+  "disallowMixedSpacesAndTabs": null,
+  "requireLineFeedAtFileEnd": null,
+  "requireSpacesInsideObjectBrackets": null,
+  "requireSpaceBetweenArguments": null,
+  "requireVarDeclFirst": null,
+  "jsDoc": null,
+  "excludeFiles": [
+    "node_modules/**"
+  ]
+}
