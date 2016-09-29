@@ -7,7 +7,7 @@ var HTTPError = require('../../../lib/util').HTTPError;
 
 var logger = require('bunyan').createLogger({
     name: 'test-logger',
-	  level: 'warn'
+    level: 'warn'
 });
 
 logger.log = function(a, b) {};

@@ -82,12 +82,12 @@ function buildLeadSections(sections) {
  * @return {String[]} where each element is the inner html of a hatnote
  */
 function extractHatnotes( lead ) {
-  var hatnotes = [];
-  var hatnoteNodes = lead.querySelectorAll( '.hatnote' );
-  Array.prototype.forEach.call( hatnoteNodes, function ( hatnoteNode, i ) {
-    hatnotes.push( hatnoteNode.innerHTML );
-  } );
-  return hatnotes;
+    var hatnotes = [];
+    var hatnoteNodes = lead.querySelectorAll( '.hatnote' );
+    Array.prototype.forEach.call( hatnoteNodes, function ( hatnoteNode, i ) {
+        hatnotes.push( hatnoteNode.innerHTML );
+    } );
+    return hatnotes;
 }
 
 function buildLead(input) {

@@ -20,7 +20,7 @@
   "disallowMultipleLineBreaks": null,
   "requireDotNotation": null,
   "disallowSpacesInsideParentheses": null,
-  "validateIndentation": null,
+  "validateIndentation": 4,
   "requireSpaceBeforeKeywords": null,
   "disallowMixedSpacesAndTabs": null,
   "requireLineFeedAtFileEnd": null,

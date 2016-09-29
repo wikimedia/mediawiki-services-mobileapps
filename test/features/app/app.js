@@ -56,7 +56,7 @@ describe('express app', function() {
         return preq.get({
             uri: server.config.uri + 'static/index.html',
             headers: {
-              'accept-encoding': 'gzip, deflate'
+                'accept-encoding': 'gzip, deflate'
             }
         }).then(function(res) {
             // check that the response is gzip-ed
