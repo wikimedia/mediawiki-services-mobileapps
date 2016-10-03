@@ -79,7 +79,6 @@ Example:
 A list of language codes can be found [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix).
 
 Feed endpoints:
-* http://localhost:6927/en.wikipedia.org/v1/feed/featured/2016/05/30
 * http://localhost:6927/en.wikipedia.org/v1/page/featured/2016/05/30
 * http://localhost:6927/en.wikipedia.org/v1/media/image/featured/2016/05/30
 * http://localhost:6927/en.wikipedia.org/v1/page/news
