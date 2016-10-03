@@ -8,12 +8,17 @@ var headers = require('../../utils/headers');
 var dateUtil = require('../../../lib/dateUtil');
 var BLACKLIST = require('../../../etc/feed/blacklist');
 
+function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+}
+
 var date = new Date();
-var originalDate = date.getDate();
-date.setDate(originalDate - 5);
-var dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth() + 1) + '/' + dateUtil.pad(date.getUTCDate());
-date.setDate(originalDate + 5);
-var futureDateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth() + 1) + '/' + dateUtil.pad(date.getUTCDate());
+var beforeDate = addDays(date, -5);
+var dateString = beforeDate.getUTCFullYear() + '/' + dateUtil.pad(beforeDate.getUTCMonth() + 1) + '/' + dateUtil.pad(beforeDate.getUTCDate());
+var afterDate = addDays(date, 5);
+var futureDateString = afterDate.getUTCFullYear() + '/' + dateUtil.pad(afterDate.getUTCMonth() + 1) + '/' + dateUtil.pad(afterDate.getUTCDate());
 
 describe('most-read articles', function() {
     this.timeout(20000);
