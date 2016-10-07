@@ -170,17 +170,6 @@ paths:
                 source: /.+/
                 width: /.+/
                 height: /.+/
-        - title: retrieve featured image data for date with no featured image (with aggregated=true)
-          request:
-            params:
-              yyyy: "2004"
-              mm: "04"
-              dd: "29"
-            query:
-              aggregated: true
-          response:
-            status: 200
-            body: ""
   # from routes/most-read.js
   /{domain}/v1/page/most-read/{yyyy}/{mm}/{dd}:
     get:
