@@ -28,6 +28,7 @@ function drillDown(body) {
 
 function buildPreview(input) {
     var lead = domino.createDocument(input.page.sections[0].text);
+    transforms.relocateFirstParagraph(lead);
     var obj = drillDown(input.extract.body);
     return {
         title: obj && obj.title,
