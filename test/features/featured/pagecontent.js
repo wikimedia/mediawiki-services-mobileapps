@@ -18,12 +18,8 @@ describe('featured', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/featured/2016/04/15' })
             .then(function(res) {
                 assert.status(res, 200);
-                // the page id should be stable but not the revision:
-                assert.ok(res.headers.etag.indexOf('50089449/') == 0);
+                assert.ok(res.headers.etag.indexOf('50089449') == 0);
                 assert.equal(res.body.title, 'Cosmic_Stories_and_Stirring_Science_Stories');
-                assert.equal(res.body.normalizedtitle, 'Cosmic Stories and Stirring Science Stories');
-                assert.equal(res.body.thumbnail.source, 'https://upload.wikimedia.org/wikipedia/commons/1/19/Cosmic_Science-Fiction_May_1941.jpg');
-                assert.ok(res.body.extract.indexOf('Cosmic Stories ') >= 0);
             });
     });
 
@@ -31,12 +27,8 @@ describe('featured', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/featured/2016/04/29' })
             .then(function(res) {
                 assert.status(res, 200);
-                // the page id should be stable but not the revision:
-                assert.ok(res.headers.etag.indexOf('50282338/') == 0);
+                assert.ok(res.headers.etag.indexOf('50282338') == 0);
                 assert.equal(res.body.title, 'Lightning_(Final_Fantasy)');
-                assert.equal(res.body.normalizedtitle, 'Lightning (Final Fantasy)');
-                assert.ok(res.body.description.indexOf('Final Fantasy') >= 0);
-                assert.ok(res.body.extract.indexOf('Lightning ') >= 0);
             });
     });
 

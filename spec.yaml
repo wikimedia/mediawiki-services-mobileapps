@@ -98,12 +98,6 @@ paths:
               content-type: application/json
             body:
               title: /.+/
-              description: /.+/
-              extract: /.+/
-              thumbnail:
-                source: /.+/
-                width: /.+/
-                height: /.+/
         - title: retrieve featured article info for unsupported site (with aggregated=true)
           request:
             params:
