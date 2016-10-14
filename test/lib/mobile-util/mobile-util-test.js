@@ -32,15 +32,15 @@ describe('lib:mobile-util', function() {
     });
 
     it('adjustMemberKeys should make the specified adjustments', function() {
-        mUtil.adjustMemberKeys(arr6, [['goodbye', 'hello'], ['sea', 'world']]);
+        mUtil.adjustMemberKeys(arr6, ['goodbye', 'hello'], ['sea', 'world']);
         assert.deepEqual(arr6, arr7);
 
-        mUtil.adjustMemberKeys(arr3, [['goodbye', 'hello'], ['sea', 'world']]);
+        mUtil.adjustMemberKeys(arr3, ['goodbye', 'hello'], ['sea', 'world']);
         assert.deepEqual(arr3, arr2);
     });
 
     it('fillInMemberKeys should make the specified adjustments', function() {
-        mUtil.fillInMemberKeys(arr3, [['world', 'goodbye'], ['again', 'sea']]);
+        mUtil.fillInMemberKeys(arr3, ['world', 'goodbye'], ['again', 'sea']);
         assert.deepEqual(arr3, arr4);
     });
 });
