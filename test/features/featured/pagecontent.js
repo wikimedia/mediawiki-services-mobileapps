@@ -70,24 +70,35 @@ describe('featured', function() {
             });
     });
 
-    it('unsupported language with aggregated=true should return 200', function() {
+    it('unsupported language with aggregated=true should return 204', function() {
         return preq.get({
             uri: server.config.uri + 'zh.wikipedia.org/v1/page/featured/2016/04/15',
             query: { aggregated: true }
         })
         .then(function(res) {
-            assert.status(res, 200);
+            assert.status(res, 204);
             assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
         });
     });
 
-    it('Missing TFA with aggregated=true should return 200', function() {
+    it('Missing TFA should return 404', function() {
+        return preq.get({
+            uri: server.config.uri + 'en.wikipedia.org/v1/page/featured/' + dateString
+        })
+        .then(function(res) {
+            assert.fails('This should fail!');
+        }, function(err) {
+            assert.status(err, 404);
+        });
+    });
+
+    it('Missing TFA with aggregated=true should return 204', function() {
         return preq.get({
             uri: server.config.uri + 'en.wikipedia.org/v1/page/featured/' + dateString,
             query: { aggregated: true }
         })
         .then(function(res) {
-            assert.status(res, 200);
+            assert.status(res, 204);
             assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
         }, function(err) {
             assert.fails('Should not propagate error when aggregated=true!');

@@ -26,7 +26,7 @@ var app;
 router.get('/featured/:yyyy/:mm/:dd', function (req, res) {
     return featured.promise(app, req)
         .then(function (response) {
-            res.status(200);
+            res.status(!response.payload ? 204 : 200);
             mUtil.setETagToValue(res, response.meta && response.meta.etag);
             mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
             res.json(response.payload || null).end();

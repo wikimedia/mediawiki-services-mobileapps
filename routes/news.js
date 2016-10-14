@@ -23,7 +23,7 @@ var app;
 router.get('/news', function (req, res) {
     return news.promise(app, req)
     .then(function (response) {
-        res.status(200);
+        res.status(!response.payload ? 204 : 200);
         mUtil.setETagToValue(res, response.meta && response.meta.etag);
         res.json(response.payload || null).end();
     });

@@ -66,11 +66,11 @@ describe('most-read articles', function() {
         });
     });
 
-    it('404 for future date should be suppressed when aggregated flag is set', function() {
+    it('Request for future date should return 204 when aggregated flag is set', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/most-read/' + futureDateString,
                         query: { aggregated: true }})
           .then(function(res) {
-            assert.status(res, 200);
+            assert.status(res, 204);
             assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
         });
     });

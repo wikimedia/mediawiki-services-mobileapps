@@ -108,7 +108,7 @@ paths:
             query:
               aggregated: true
           response:
-            status: 200
+            status: 204
             body: ""
   # from routes/featured-image.js
   /{domain}/v1/media/image/featured/{yyyy}/{mm}/{dd}:
@@ -238,7 +238,7 @@ paths:
             query:
               aggregated: true
           response:
-            status: 200
+            status: 204
             body: ""
   # from routes/random.js
   /{domain}/v1/page/random/title:
@@ -282,7 +282,7 @@ paths:
             query:
               aggregated: true
           response:
-            status: 200
+            status: 204
             body: ""
   # from routes/media.js
   /{domain}/v1/page/media/{title}:

@@ -63,13 +63,13 @@ describe('in the news', function() {
         });
     }
 
-    it('unsupported language with aggregated=true should return 200', function() {
+    it('unsupported language with aggregated=true should return 204', function() {
         return preq.get({
             uri: server.config.uri + 'is.wikipedia.org/v1/page/news',
             query: { aggregated: true }
         })
         .then(function(res) {
-            assert.status(res, 200);
+            assert.status(res, 204);
             assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
         });
     });
