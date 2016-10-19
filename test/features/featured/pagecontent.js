@@ -1,9 +1,19 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
 var preq   = require('preq');
-var server = require('../../utils/server.js');
-var headers = require('../../utils/headers.js');
+var assert = require('../../utils/assert');
+var server = require('../../utils/server');
+var headers = require('../../utils/headers');
+var dateUtil = require('../../../lib/dateUtil');
+
+function nextYear() {
+    var result = new Date();
+    result.setUTCFullYear(result.getUTCFullYear() + 1);
+    return result;
+}
+
+var testDate = nextYear();
+var dateString = testDate.getUTCFullYear() + '/' + dateUtil.pad(testDate.getUTCMonth() + 1) + '/' + dateUtil.pad(testDate.getUTCDate());
 
 describe('featured', function() {
     this.timeout(20000);
@@ -68,6 +78,19 @@ describe('featured', function() {
         .then(function(res) {
             assert.status(res, 200);
             assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
+        });
+    });
+
+    it('Missing TFA with aggregated=true should return 200', function() {
+        return preq.get({
+            uri: server.config.uri + 'en.wikipedia.org/v1/page/featured/' + dateString,
+            query: { aggregated: true }
+        })
+        .then(function(res) {
+            assert.status(res, 200);
+            assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
+        }, function(err) {
+            assert.fails('Should not propagate error when aggregated=true!');
         });
     });
 
