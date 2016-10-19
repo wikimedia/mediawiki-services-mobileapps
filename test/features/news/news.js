@@ -7,6 +7,7 @@ var assert = require('../../utils/assert');
 var server = require('../../utils/server');
 var headers = require('../../utils/headers');
 var constants = require('./constants');
+var NEWS_TEMPLATES = require('../../../etc/feed/news-sites');
 
 var hrefs = [
     '/Sport_of_athletics',
@@ -40,7 +41,7 @@ describe('in the news', function() {
     this.timeout(20000);
 
     before(function () { return server.start(); });
-    [ 'da', 'de', 'el', 'en', 'es', 'fi', 'fr', 'he', 'ko', 'no', 'pl', 'pt', 'ru', 'sv', 'vi', 'zh' ].forEach(function(lang) {
+    for (let lang in NEWS_TEMPLATES) {
         it(lang + ': should respond to GET request with expected headers, incl. CORS and CSP headers', function () {
             return headers.checkHeaders(server.config.uri + lang + '.wikipedia.org/v1/page/news',
                 'application/json');
@@ -60,7 +61,7 @@ describe('in the news', function() {
                     });
                 });
         });
-    });
+    }
 
     it('unsupported language with aggregated=true should return 200', function() {
         return preq.get({
