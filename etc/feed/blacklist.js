@@ -13,7 +13,10 @@ var BLACKLIST = [
     'Images/upload/bel.jpg',
     'Superintelligence:_Paths,_Dangers,_Strategies',
     'Okto',
-    'Proyecto_40'
+    'Proyecto_40',
+    'AMGTV',
+    'Lali_Espósito',
+    'La7'
 ];
 
 module.exports = BLACKLIST;
