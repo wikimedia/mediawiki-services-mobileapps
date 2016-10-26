@@ -31,6 +31,8 @@ describe('mobile-sections', function() {
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Sections/deep');
+                assert.equal(lead.wikibase_item, undefined);
+                assert.equal(lead.description, undefined);
                 assert.ok(lead.protection.constructor === Object, 'lead.protection should be an Object');
                 assert.ok(!Object.keys(lead.protection).length, 'Page should not be protected');
                 assert.deepEqual(lead.editable, true);
@@ -48,6 +50,7 @@ describe('mobile-sections', function() {
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Main Page');
                 assert.deepEqual(lead.normalizedtitle, 'Main Page');
+                assert.equal(lead.wikibase_item, 'Q5296');
                 assert.ok(/main page/i.test(lead.description));
                 assert.deepEqual(lead.protection, {
                     "edit": [

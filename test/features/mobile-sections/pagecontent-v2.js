@@ -71,6 +71,9 @@ describe('mobile-sections-v2', function() {
                   'No undefined concatenations');
                 assert.ok(res.body.text.indexOf(intro) === -1,
                   'Intro is not present in section text.');
+                assert.equal(res.body.wikibase_item, 'Q76');
+                assert.ok(res.body.description.indexOf('44th') > -1,
+                  'Description is a string and contains "44th"');
             });
     });
     it('Planet introduction contains nodes other than P (T111958)', function() {
