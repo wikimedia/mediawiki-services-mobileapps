@@ -1,11 +1,10 @@
 'use strict';
 
 var fs = require('fs');
-var preq = require('preq');
 var domino = require('domino');
 var assert = require('../../utils/assert.js');
 var a = require('../../../lib/transformations/anchorPopUpMediaTransforms');
-var html = fs.readFileSync(__dirname + '/bill-clinton.html', 'utf-8');
+var html = fs.readFileSync(__dirname + '/../bill-clinton.html', 'utf-8');
 
 describe('lib:app-transforms', function() {
     it('fixVideoAnchor should apply app_media class to all video anchors', function() {
