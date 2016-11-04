@@ -5,7 +5,7 @@ var assert = require('../../utils/assert');
 var mUtil = require('../../../lib/mobile-util');
 var server = require('../../utils/server');
 var headers = require('../../utils/headers');
-var dateUtil = require('../../../lib/dateUtil');
+var testUtil = require('../../utils/testUtil');
 var BLACKLIST = require('../../../etc/feed/blacklist');
 
 function addDays(date, days) {
@@ -16,9 +16,9 @@ function addDays(date, days) {
 
 var date = new Date();
 var beforeDate = addDays(date, -5);
-var dateString = beforeDate.getUTCFullYear() + '/' + dateUtil.pad(beforeDate.getUTCMonth() + 1) + '/' + dateUtil.pad(beforeDate.getUTCDate());
+var dateString = testUtil.constructTestDate(beforeDate);
 var afterDate = addDays(date, 5);
-var futureDateString = afterDate.getUTCFullYear() + '/' + dateUtil.pad(afterDate.getUTCMonth() + 1) + '/' + dateUtil.pad(afterDate.getUTCDate());
+var futureDateString = testUtil.constructTestDate(afterDate);
 
 describe('most-read articles', function() {
     this.timeout(20000);

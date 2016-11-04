@@ -4,7 +4,7 @@ var preq   = require('preq');
 var assert = require('../../utils/assert');
 var server = require('../../utils/server');
 var headers = require('../../utils/headers');
-var dateUtil = require('../../../lib/dateUtil');
+var testUtil = require('../../utils/testUtil');
 
 function nextYear() {
     var result = new Date();
@@ -13,7 +13,7 @@ function nextYear() {
 }
 
 var testDate = nextYear();
-var dateString = testDate.getUTCFullYear() + '/' + dateUtil.pad(testDate.getUTCMonth() + 1) + '/' + dateUtil.pad(testDate.getUTCDate());
+var dateString = testUtil.constructTestDate(testDate);
 
 describe('featured', function() {
     this.timeout(20000);
