@@ -56,6 +56,7 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "ajv": "^4.7.7",
     "csv-parse": "^1.1.7",
     "extend": "^3.0.0",
     "grunt": "^1.0.1",
