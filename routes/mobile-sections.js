@@ -98,12 +98,14 @@ function buildLead(input, removeNodes) {
     if ( removeNodes ) {
         infobox = transforms.extractInfobox(lead);
     }
+    var issues = transforms.extractPageIssues(lead, removeNodes);
     // update text after extractions have taken place
     input.page.sections[0].text = lead.body.innerHTML;
 
     return {
         ns: input.meta.ns,
         id: input.meta.id,
+        issues: issues,
         revision: input.page.revision,
         lastmodified: input.page.lastmodified,
         lastmodifier: input.meta.lastmodifiedby || { anon: true },

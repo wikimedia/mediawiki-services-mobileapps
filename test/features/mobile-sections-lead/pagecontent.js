@@ -172,4 +172,31 @@ describe('mobile-sections-lead', function() {
                      '4 lines of hatnote inside hatnote property present on lead.');
             });
     });
+    it('Enwiki Multiple page issues are promoted to lead', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/User:Jdlrobson%2Fmcs-tests%2Fissues_bug' })
+            .then(function (res) {
+                assert.deepEqual(res.status, 200);
+                assert.equal(res.body.issues.length, 2,
+                  '2 issues are found in the page. Multiple issues heading is skipped.');
+                assert.ok(res.body.sections[0].text.indexOf('ambox-multiple_issues') > -1,
+                  'The ambox multiple issues class is preserved in the response.');
+            });
+    });
+    it('Enwiki Pages with single issue have issue promoted to lead', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/User:Jdlrobson%2Fmcs-tests%2Fissues_bug_3' })
+            .then(function (res) {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.issues.length === 1,
+                  '1 issue was found on this page.');
+                assert.ok(res.body.sections[0].text.indexOf('"ambox') === -1,
+                  'No ambox issues class in response.');
+            });
+    });
+    it('Enwiki Main page has no issues.', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Main_Page' })
+            .then(function (res) {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.issues === undefined, 'No page issues should be recorded on the main page.');
+            });
+    });
 });
