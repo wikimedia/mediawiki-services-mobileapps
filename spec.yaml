@@ -1,4 +1,5 @@
 swagger: '2.0'
+
 info:
   version: 0.1.0
   title: WMF MobileApps service
@@ -10,8 +11,10 @@ info:
   license:
     name: Apache2
     url: http://www.apache.org/licenses/LICENSE-2.0
+
 x-default-params:
   domain: en.wikipedia.org
+
 paths:
   # from routes/root.js
   /robots.txt:
@@ -21,6 +24,7 @@ paths:
         - Robots
       description: Gets robots.txt
       x-monitor: false
+
   /:
     get:
       tags:
@@ -35,6 +39,7 @@ paths:
               spec: true
           response:
             status: 200
+
   # from routes/info.js
   /_info:
     get:
@@ -55,6 +60,7 @@ paths:
               description: /.+/
               version: /.+/
               home: /.+/
+
   # from routes/featured.js
   /{domain}/v1/page/featured/{yyyy}/{mm}/{dd}:
     get:
@@ -85,6 +91,31 @@ paths:
           required: true
           minimum: "01"
           maximum: "31"
+      responses:
+        '200':
+          description: The title of a Wikipedia's Featured Article of the Day
+          schema:
+            $ref: '#/definitions/article_title'
+        '204':
+          description: Empty response (for feed content aggregation requests from RESTBase)
+          schema:
+            $ref: '#/definitions/empty'
+        '404':
+          description: Not found
+          schema:
+            $ref: '#/definitions/problem'
+        '500':
+          description: API Error
+          schema:
+            $ref: '#/definitions/problem'
+        '501':
+          description: Unsupported language
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
         - title: retrieve title of the featured article for April 29, 2016
           request:
@@ -110,6 +141,7 @@ paths:
           response:
             status: 204
             body: ""
+
   # from routes/featured-image.js
   /{domain}/v1/media/image/featured/{yyyy}/{mm}/{dd}:
     get:
@@ -140,6 +172,23 @@ paths:
           required: true
           minimum: "01"
           maximum: "31"
+      responses:
+        '200':
+          description: Info on the Commons Featured Image of the Day for the requested date
+          schema:
+            $ref: '#/definitions/image'
+        '204':
+          description: Empty response (for feed content aggregation requests from RESTBase)
+          schema:
+            $ref: '#/definitions/empty'
+        '404':
+          description: Not found (no featured image for the requested date)
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
         - title: retrieve featured image data for April 29, 2016
           request:
@@ -164,6 +213,7 @@ paths:
                 source: /.+/
                 width: /.+/
                 height: /.+/
+
   # from routes/most-read.js
   /{domain}/v1/page/most-read/{yyyy}/{mm}/{dd}:
     get:
@@ -194,6 +244,23 @@ paths:
           required: true
           minimum: "01"
           maximum: "31"
+      responses:
+        '200':
+          description: Most-read article titles for this wiki for the requested date
+          schema:
+            $ref: '#/definitions/mostread'
+        '204':
+          description: Empty response (for feed content aggregation requests from RESTBase)
+          schema:
+            $ref: '#/definitions/empty'
+        '404':
+          description: No data found for the requested date
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
         - title: retrieve the most-read articles for January 1, 2016
           request:
@@ -240,6 +307,7 @@ paths:
           response:
             status: 204
             body: ""
+
   # from routes/random.js
   /{domain}/v1/page/random/title:
     get:
@@ -248,6 +316,19 @@ paths:
       description: Gets the title of a randomly picked article from main namespace. Preference is given to articles with a thumbnail, long extract, and an associated Wikidata description.
       produces:
         - application/json
+      responses:
+        '200':
+          description: A random (good) article title
+          schema:
+            $ref: '#/definitions/random'
+        '400':
+          description: Bad request
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
         - title: retrieve a random article
           response:
@@ -257,6 +338,7 @@ paths:
             body:
               items:
                 - title: /.+/
+
   # from routes/news.js
   /{domain}/v1/page/news:
     get:
@@ -265,6 +347,23 @@ paths:
       description: Gets content related to the current In the News template (experimental, English-only).
       produces:
         - application/json
+      responses:
+        '200':
+          description: News content from the a Wikipedia main page
+          schema:
+            $ref: '#/definitions/news'
+        '204':
+          description: Empty response (for feed content aggregation requests from RESTBase)
+          schema:
+            $ref: '#/definitions/empty'
+        '501':
+          description: Unsupported language
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
         - title: get 'In the News' content
           response:
@@ -284,6 +383,7 @@ paths:
           response:
             status: 204
             body: ""
+
   # from routes/media.js
   /{domain}/v1/page/media/{title}:
     get:
@@ -307,6 +407,7 @@ paths:
                   url: /.+/
                   width: /.+/
                   height: /.+/
+
   # from routes/definition.js
   /{domain}/v1/page/definition/{title}:
     get:
@@ -326,6 +427,7 @@ paths:
             headers:
               content-type: application/json
             body: /.+/
+
   # from routes/mobile-sections.js
   /{domain}/v1/page/mobile-sections/{title}:
     get:
@@ -360,6 +462,7 @@ paths:
                 sections: [ /.+/ ]
               remaining:
                 sections: []
+
   /{domain}/v1/page/mobile-sections-lead/{title}:
     get:
       tags:
@@ -396,6 +499,7 @@ paths:
                 latitude: /.+/
                 longitude: /.+/
               sections: [ /.+/ ]
+
   /{domain}/v1/page/mobile-sections-remaining/{title}:
     get:
       tags:
@@ -404,6 +508,7 @@ paths:
       produces:
         - application/json
       x-monitor: false
+
   # from routes/mobile-summary.js
   /{domain}/v1/page/mobile-summary/{title}:
     get:
@@ -427,6 +532,7 @@ paths:
               thumbnail:
                 source: /.+/
               infobox: [ /.+/ ]
+
   # from routes/mobile-text.js
   /{domain}/v1/page/mobile-text/{title}:
     get:
@@ -436,3 +542,155 @@ paths:
       produces:
         - application/json
       x-monitor: false
+
+definitions:
+  # A https://tools.ietf.org/html/draft-nottingham-http-problem
+  problem:
+    required:
+      - type
+    properties:
+      status:
+        type: integer
+      type:
+        type: string
+      title:
+        type: string
+      detail:
+        type: string
+      method:
+        type: string
+      uri:
+        type: string
+
+  article_title:
+    type: object
+    properties:
+      title:
+        type: string
+        description: An article title
+    required:
+      - title
+
+  thumbnail:
+    type: object
+    properties:
+      source:
+        type: string
+        description: Thumbnail image URI
+      width:
+        type: integer
+        minimum: 0
+        description: Thumbnail width
+      height:
+        type: integer
+        minimum: 0
+        description: Thumnail height
+    required:
+      - source
+      - width
+      - height
+
+  mostread_article:
+    type: object
+    properties:
+      title:
+        type: string
+        description: Article title in a form of DB key
+      views:
+        type: integer
+        description: Number of views on the requested day
+      rank:
+        type: integer
+        description: Position in the list of most viewed articles
+    required:
+      - title
+      - views
+      - rank
+
+  mostread:
+    type: object
+    properties:
+      date:
+        type: string
+        description: The date which the data correspond to
+      articles:
+        type: array
+        description: Array of most popular articles
+        items:
+          $ref: '#/definitions/mostread_article'
+    required:
+      - date
+      - articles
+
+  news_item:
+    type: object
+    properties:
+      story:
+        type: string
+        description: A cover story for the news item
+      links:
+        type: array
+        description: A collection of articles related to the news item
+        items:
+          $ref: '#/definitions/article_title'
+    required:
+      - story
+      - links
+
+  news:
+    type: array
+    items:
+      $ref: '#/definitions/news_item'
+
+  random:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/article_title'
+    required:
+      - items
+
+  image_description:
+    properties:
+      text:
+        type: string
+        description: Text of the description
+      lang:
+        type: string
+        description: Language code of the description
+    required:
+      - text
+      - lang
+
+  image:
+    type: object
+    properties:
+      title:
+        type: string
+        description: Image title
+      thumbnail:
+        description: Image thumbnail
+        $ref: '#/definitions/thumbnail'
+      image:
+        description: Full-size image
+        $ref: '#/definitions/thumbnail'
+      description:
+        description: Description of an image
+        $ref: '#/definitions/image_description'
+    required:
+      - title
+      - thumbnail
+      - image
+
+  empty:
+    type: object
+    properties:
+      type:
+        type: string
+        description: description of original content type (buffer)
+      data:
+        type: array
+        description: Buffer contents
+    additionalProperties: false
