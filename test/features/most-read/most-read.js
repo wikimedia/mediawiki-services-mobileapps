@@ -6,7 +6,6 @@ var mUtil = require('../../../lib/mobile-util');
 var server = require('../../utils/server');
 var headers = require('../../utils/headers');
 var testUtil = require('../../utils/testUtil');
-var BLACKLIST = require('../../../etc/feed/blacklist');
 
 function addDays(date, days) {
     var result = new Date(date);
@@ -37,7 +36,6 @@ describe('most-read articles', function() {
             assert.ok(res.body.articles.length);
             res.body.articles.forEach(function (elem) {
                 assert.ok(elem.title, 'title should be present');
-                assert.ok(BLACKLIST.indexOf(elem.title) === -1, 'Should not include blacklisted title');
                 assert.ok(elem.title !== 'Main_Page', 'Should not include the Main Page');
                 assert.ok(elem.title.indexOf('Special:') === -1, 'Should not include Special page');
             });
@@ -52,7 +50,6 @@ describe('most-read articles', function() {
             assert.ok(res.body.articles.length);
             res.body.articles.forEach(function (elem) {
                 assert.ok(elem.title, 'title should be present');
-                assert.ok(BLACKLIST.indexOf(elem.title) === -1, 'Should not include blacklisted title');
                 assert.ok(elem.title !== 'Main_Page', 'Should not include the Main Page');
                 assert.ok(elem.title.indexOf('Special:') === -1, 'Should not include Special page');
             });
