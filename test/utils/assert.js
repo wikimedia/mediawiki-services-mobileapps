@@ -172,4 +172,5 @@ module.exports.selectorExistsNTimes = selectorExistsNTimes;
 module.exports.selectorExistsOnce = selectorExistsOnce;
 module.exports.selectorHasValue = selectorHasValue;
 module.exports.selectorContainsValue = selectorContainsValue;
+module.exports.AssertionError = assert.AssertionError;
 

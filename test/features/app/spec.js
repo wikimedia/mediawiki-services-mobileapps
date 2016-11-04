@@ -2,11 +2,18 @@
 
 
 var preq   = require('preq');
-var assert = require('../../utils/assert.js');
-var server = require('../../utils/server.js');
+var assert = require('../../utils/assert');
+var server = require('../../utils/server');
+var dateUtil = require('../../../lib/dateUtil');
 var URI    = require('swagger-router').URI;
 var yaml   = require('js-yaml');
 var fs     = require('fs');
+var Ajv    = require('ajv');
+
+var date = new Date();
+var yesterday = new Date(Date.now() - dateUtil.ONE_DAY);
+var dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth() + 1) + '/' + dateUtil.pad(date.getUTCDate());
+var yesterdayString = yesterday.getUTCFullYear() + '/' + dateUtil.pad(yesterday.getUTCMonth() + 1) + '/' + dateUtil.pad(yesterday.getUTCDate());
 
 
 function staticSpecLoad() {
@@ -266,7 +273,108 @@ describe('Swagger spec', function() {
         });
     });
 
-    describe('routes', function() {
+    describe('validate responses against schema', function() {
+        var ajv = new Ajv({});
+
+        var assertValidSchema = function(uri, schemaPath) {
+            return preq.get({ uri: uri })
+            .then(function(res) {
+                if (!ajv.validate(schemaPath, res.body)) {
+                    throw new assert.AssertionError({ message: ajv.errorsText() });
+                }
+            });
+        };
+
+        var assertValidSchemaAggregated = function(uri) {
+            return preq.get({ uri: uri, query: { aggregated: true } })
+            .then(function(res) {
+                if (!!res.body) {
+                    throw new assert.AssertionError({ message: 'Response should be empty!' });
+                }
+            });
+        };
+
+        var assertBadRequest = function(uri) {
+            return preq.get({ uri: uri })
+            .then(function(res) {
+                assert.fail("This request should fail!");
+            })
+            .catch(function(err) {
+                if (!ajv.validate('#/definitions/problem', err.body)) {
+                    throw new assert.AssertionError({ message: ajv.errorsText() });
+                }
+            });
+        };
+
+        Object.keys(spec.definitions).forEach(function(defName) {
+            ajv.addSchema(spec.definitions[defName], '#/definitions/' + defName);
+        });
+
+        //Valid non-aggregated requests
+
+        it('featured article response should conform to schema', function() {
+            var uri = server.config.uri + 'en.wikipedia.org/v1/page/featured/' + dateString;
+            return assertValidSchema(uri, '#/definitions/article_title');
+        });
+
+        it('featured image response should conform to schema', function() {
+            var uri = server.config.uri + 'en.wikipedia.org/v1/media/image/featured/' + dateString;
+            return assertValidSchema(uri, '#/definitions/image');
+        });
+
+        it('most-read response should conform to schema', function() {
+            var uri = server.config.uri + 'en.wikipedia.org/v1/page/most-read/' + yesterdayString;
+            return assertValidSchema(uri, '#/definitions/mostread');
+        });
+
+        it('news response should conform to schema', function() {
+            var uri = server.config.uri + 'en.wikipedia.org/v1/page/news';
+            return assertValidSchema(uri, '#/definitions/news');
+        });
+
+        it('random response should conform to schema', function() {
+            var uri = server.config.uri + 'en.wikipedia.org/v1/page/random/title';
+            return assertValidSchema(uri, '#/definitions/random');
+        });
+
+        //Bad requests return empty response for aggregated=true
+
+        it('featured article response should conform to schema (invalid language, aggregated=true)', function() {
+            return assertValidSchemaAggregated(server.config.uri + 'is.wikipedia.org/v1/page/featured/' + dateString);
+        });
+
+        it('featured image response should conform to schema (invalid date, aggregated=true)', function() {
+            return assertValidSchemaAggregated(server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2004/01/01');
+        });
+
+        it('most-read response should conform to schema (invalid date, aggregated=true)', function() {
+            return assertValidSchemaAggregated(server.config.uri + 'en.wikipedia.org/v1/page/most-read/2004/01/01');
+        });
+
+        it('news response (invalid language, aggregated=true) should be empty', function() {
+            return assertValidSchemaAggregated(server.config.uri + 'is.wikipedia.org/v1/page/news');
+        });
+
+        //Bad requests fail without aggregated=true
+
+        it('featured article request should fail for invalid language when not in aggregated request', function() {
+            return assertBadRequest(server.config.uri + 'is.wikipedia.org/v1/page/featured/' + dateString);
+        });
+
+        it('featured image request should fail for invalid date when not in aggregated request', function() {
+            return assertBadRequest(server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2004/01/01');
+        });
+
+        it('most-read request should fail for invalid date when not in aggregated request', function() {
+            return assertBadRequest(server.config.uri + 'en.wikipedia.org/v1/page/most-read/2004/01/01');
+        });
+
+        it('news request should fail for invalid language when not in aggregated request', function() {
+            return assertBadRequest(server.config.uri + 'is.wikipedia.org/v1/page/news');
+        });
+    });
+
+    describe('validate spec examples', function() {
 
         constructTests(spec.paths, defParams).forEach(function(testCase) {
             it(testCase.title, function() {
