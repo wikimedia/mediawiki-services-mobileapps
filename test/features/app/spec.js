@@ -314,7 +314,7 @@ describe('Swagger spec', function() {
 
         it('featured article response should conform to schema', function() {
             var uri = server.config.uri + 'en.wikipedia.org/v1/page/featured/' + dateString;
-            return assertValidSchema(uri, '#/definitions/article_title');
+            return assertValidSchema(uri, '#/definitions/article_summary_merge_link');
         });
 
         it('featured image response should conform to schema', function() {

@@ -35,9 +35,7 @@ describe('most-read articles', function() {
             assert.ok(res.body.date);
             assert.ok(res.body.articles.length);
             res.body.articles.forEach(function (elem) {
-                assert.ok(elem.title, 'title should be present');
-                assert.ok(elem.title !== 'Main_Page', 'Should not include the Main Page');
-                assert.ok(elem.title.indexOf('Special:') === -1, 'Should not include Special page');
+                assert.ok(elem.$merge, '$merge should be present');
             });
         });
     });
@@ -49,9 +47,7 @@ describe('most-read articles', function() {
             assert.ok(res.body.date);
             assert.ok(res.body.articles.length);
             res.body.articles.forEach(function (elem) {
-                assert.ok(elem.title, 'title should be present');
-                assert.ok(elem.title !== 'Main_Page', 'Should not include the Main Page');
-                assert.ok(elem.title.indexOf('Special:') === -1, 'Should not include Special page');
+                assert.ok(elem.$merge, '$merge should be present');
             });
         });
     });

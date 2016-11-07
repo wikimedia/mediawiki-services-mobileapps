@@ -29,7 +29,7 @@ describe('featured', function() {
             .then(function(res) {
                 assert.status(res, 200);
                 assert.ok(res.headers.etag.indexOf('50089449') == 0);
-                assert.equal(res.body.title, 'Cosmic_Stories_and_Stirring_Science_Stories');
+                assert.equal(res.body.$merge, 'https://en.wikipedia.org/api/rest_v1/page/summary/Cosmic_Stories_and_Stirring_Science_Stories');
             });
     });
 
@@ -38,7 +38,7 @@ describe('featured', function() {
             .then(function(res) {
                 assert.status(res, 200);
                 assert.ok(res.headers.etag.indexOf('50282338') == 0);
-                assert.equal(res.body.title, 'Lightning_(Final_Fantasy)');
+                assert.equal(res.body.$merge, 'https://en.wikipedia.org/api/rest_v1/page/summary/Lightning_(Final_Fantasy)');
             });
     });
 
