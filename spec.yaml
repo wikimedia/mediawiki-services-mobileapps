@@ -95,7 +95,7 @@ paths:
         '200':
           description: The title of a Wikipedia's Featured Article of the Day
           schema:
-            $ref: '#/definitions/article_title'
+            $ref: '#/definitions/article_summary_merge_link'
         '204':
           description: Empty response (for feed content aggregation requests from RESTBase)
           schema:
@@ -128,7 +128,7 @@ paths:
             headers:
               content-type: application/json
             body:
-              title: /.+/
+              $merge: [ /.+/ ]
         - title: retrieve featured article info for unsupported site (with aggregated=true)
           request:
             params:
@@ -277,7 +277,7 @@ paths:
               articles:
                 - views: /.+/
                   rank: /.+/
-                  title: /.+/
+                  $merge: [ /.+/ ]
         - title: retrieve the most-read articles for January 1, 2016 (with aggregated=true)
           request:
             params:
@@ -295,7 +295,7 @@ paths:
               articles:
                 - views: /.+/
                   rank: /.+/
-                  title: /.+/
+                  $merge: [ /.+/ ]
         - title: retrieve most-read articles for date with no data (with aggregated=true)
           request:
             params:
@@ -373,7 +373,7 @@ paths:
             body:
               - story: /.+/
                 links:
-                  - title: /.+/
+                  - $merge: [ /.+/ ]
         - title: get 'In the News' content for unsupported language (with aggregated=true)
           request:
             params:
@@ -571,6 +571,15 @@ definitions:
     required:
       - title
 
+  article_summary_merge_link:
+    type: object
+    properties:
+      $merge:
+        type: array
+        description: One-element array containing the link to the RESTBase summary for the article
+    required:
+      - $merge
+
   thumbnail:
     type: object
     properties:
@@ -593,9 +602,9 @@ definitions:
   mostread_article:
     type: object
     properties:
-      title:
-        type: string
-        description: Article title in a form of DB key
+      $merge:
+        type: array
+        description: One-element array containing the link to the RESTBase summary for the article
       views:
         type: integer
         description: Number of views on the requested day
@@ -603,7 +612,7 @@ definitions:
         type: integer
         description: Position in the list of most viewed articles
     required:
-      - title
+      - $merge
       - views
       - rank
 
@@ -632,7 +641,7 @@ definitions:
         type: array
         description: A collection of articles related to the news item
         items:
-          $ref: '#/definitions/article_title'
+          $ref: '#/definitions/article_summary_merge_link'
     required:
       - story
       - links
