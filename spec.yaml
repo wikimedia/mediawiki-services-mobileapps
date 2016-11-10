@@ -61,6 +61,47 @@ paths:
               version: /.+/
               home: /.+/
 
+  # from routes/announcements.js
+  /{domain}/v1/feed/announcements:
+    get:
+      tags:
+        - Announcements for apps
+      description: Gets announcements for display in the official Wikipedia iOS and Android apps
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Announcements for the given Wiki
+          schema:
+            $ref: '#/definitions/announcement'
+        '404':
+          description: Unsupported Wiki
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Retrieve announcements
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              announce:
+                - id: /.+/
+                  type: /.+/
+                  start_time: /.+/
+                  end_time: /.+/
+                  platforms: [ /.+/ ]
+                  text: /.+/
+                  action:
+                    title: /.+/
+                    url: /.+/
+                  caption_HTML: /.+/
+                  countries: [ /.+/ ]
+
   # from routes/featured.js
   /{domain}/v1/page/featured/{yyyy}/{mm}/{dd}:
     get:
@@ -692,6 +733,65 @@ definitions:
       - title
       - thumbnail
       - image
+
+  announcement:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique ID of the announcement
+      type:
+        type: string
+        description: The type of announcement. Possible values are "survey" or "fundraising"
+      start_time:
+        type: string
+        description: The date to begin showing the announcement
+      end_time:
+        type: string
+        description: The date to stop showing the announcement
+      platforms:
+        type: array
+        description: An array of platforms to display the announcement. Possible values are "iOSApp" or "AndroidApp"
+        items: { type: string }
+      text:
+        type: string
+        description: The text of the announcement
+      image:
+        type: string
+        description: The URL of the image for the announcement
+      action:
+        type: object
+        description: The action for the button of the announcement
+        schema:
+          $ref: '#/definitions/action'
+      caption_HTML:
+        type: string
+        description: HTML to display below the announcement. Usually a privacy statment and link to a policy
+      countries:
+        type: array
+        description: An array of country codes in which to display the announcement. Clients should derive the country from 'GeoIP' portion of the Set-Cookie header
+        items: { type: string }
+    required:
+      - id
+      - type
+      - start_time
+      - end_time
+      - platforms
+      - text
+      - countries
+
+  action:
+    type: object
+    properties:
+      title:
+        type: string
+        description: The title to deisplay on the button that performs the action
+      url:
+        type: string
+        description: The URL to navigate to when the button is pressed
+    required:
+      - title
+      - url
 
   empty:
     type: object
