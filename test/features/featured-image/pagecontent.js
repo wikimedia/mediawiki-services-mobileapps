@@ -15,7 +15,7 @@ describe('featured-image', function() {
             'application/json');
     });
 
-    it('featured image of 4/15/2016 should have expected properties', function() {
+    it('featured image of 2016/04/15 should have expected properties', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2016/04/15' })
             .then(function(res) {
                 assert.status(res, 200);
@@ -29,14 +29,15 @@ describe('featured-image', function() {
             });
     });
 
-    it('featured image of 5/23/2016 (no extmetadata) should load successfully and have expected properties', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2016/05/23' })
+    it('featured image of 2016/05/06 (no extmetadata) should load successfully and have expected properties', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2016/05/06' })
             .then(function(res) {
                 assert.status(res, 200);
-                assert.equal(res.body.title, 'File:Fra et romersk osteria.jpg');
-                assert.equal(res.body.thumbnail.source, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Fra_et_romersk_osteria.jpg/640px-Fra_et_romersk_osteria.jpg');
-                assert.equal(res.body.image.source, 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Fra_et_romersk_osteria.jpg');
-                assert.ok(!res.body.hasOwnProperty('description'));
+                assert.equal(res.body.title, 'File:Kazakhstan Altay 3.jpg');
+                assert.equal(res.body.thumbnail.source, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Kazakhstan_Altay_3.jpg/640px-Kazakhstan_Altay_3.jpg');
+                assert.equal(res.body.image.source, 'https://upload.wikimedia.org/wikipedia/commons/9/99/Kazakhstan_Altay_3.jpg');
+                assert.contains(res.body.description.text, 'Altay mountains');
+                assert.equal(res.body.description.lang, 'en');
             });
     });
 
@@ -58,18 +59,19 @@ describe('featured-image', function() {
             });
     });
 
+    it('should return description from File page', function() {
+        return preq.get({ uri: server.config.uri + 'ru.wikipedia.org/v1/media/image/featured/2016/08/27' })
+            .then(function(res) {
+                assert.ok(res.body.description.text.indexOf('Традиционный') >= 0);
+                assert.equal(res.body.description.lang, 'ru');
+            });
+    });
+
     it('should return english description where unavailable in request language', function() {
         return preq.get({ uri: server.config.uri + 'fr.wikipedia.org/v1/media/image/featured/2016/04/15' })
             .then(function(res) {
                 assert.ok(res.body.description.text.indexOf('Main altar') >= 0);
                 assert.equal(res.body.description.lang, 'en');
-            });
-    });
-
-    it('should return no description when unavailable', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/media/image/featured/2016/06/15' })
-            .then(function(res) {
-                assert.notProperty(res.body, 'description');
             });
     });
 
