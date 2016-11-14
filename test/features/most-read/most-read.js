@@ -67,4 +67,22 @@ describe('most-read articles', function() {
             assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
         });
     });
+
+    it('Should throw 404 for request with no results', function() {
+        return preq.get({ uri: server.config.uri + 'zh-classical.wikipedia.org/v1/page/most-read/2016/11/12' })
+            .then(function(res) {
+                throw new Error('Expected an error, but got status: ' + res.status);
+            }), function(err) {
+                assert.status(err, 404);
+            };
+    });
+
+    it('Should return 204 for request with no results, aggregated=true', function() {
+        return preq.get({ uri: server.config.uri + 'zh-classical.wikipedia.org/v1/page/most-read/2016/11/12',
+                        query: { aggregated: true }})
+            .then(function(res) {
+                assert.status(res, 204);
+                assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
+            });
+    });
 });
