@@ -25,8 +25,7 @@ const NEWS_TEMPLATES = {
     pt: {title: 'Portal:Eventos_atuais', selector: 'ul'},
     ru: {title: 'Шаблон:Актуальные_события', selector: 'ul'},
     sv: {title: 'Portal:Huvudsida/Aktuella händelser', selector: 'ul'},
-    vi: {title: 'Bản_mẫu:Tin_tức', selector: 'ul'},
-    zh: {title: 'Portal:新聞動態', selector: 'ul'}
+    vi: {title: 'Bản_mẫu:Tin_tức', selector: 'ul'}
 };
 
 module.exports = NEWS_TEMPLATES;
