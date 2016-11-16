@@ -1,11 +1,9 @@
 'use strict';
 
-
 const preq   = require('preq');
 const assert = require('../../utils/assert.js');
 const server = require('../../utils/server.js');
 const headers = require('../../utils/headers.js');
-
 
 describe('announcements', function() {
 
@@ -41,6 +39,13 @@ describe('announcements', function() {
                 assert.ok(res.body.announce.length == 2);
                 assert.equal(res.body.announce[0].id, 'EN1116SURVEYIOS');
                 assert.equal(res.body.announce[1].id, 'EN11116SURVEYANDROID');
+            });
+    });
+
+    it('should return empty object for other wikis', function() {
+        return preq.get({ uri: server.config.uri + 'de.wikipedia.org/v1/feed/announcements' })
+            .then(function(res) {
+                assert.ok(res.body.announce.length == 0);
             });
     });
 });
