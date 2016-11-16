@@ -1,23 +1,23 @@
 'use strict';
 
-var preq = require('preq');
-var assert = require('../../utils/assert');
-var mUtil = require('../../../lib/mobile-util');
-var server = require('../../utils/server');
-var headers = require('../../utils/headers');
-var testUtil = require('../../utils/testUtil');
+const preq = require('preq');
+const assert = require('../../utils/assert');
+const mUtil = require('../../../lib/mobile-util');
+const server = require('../../utils/server');
+const headers = require('../../utils/headers');
+const testUtil = require('../../utils/testUtil');
 
 function addDays(date, days) {
-    var result = new Date(date);
+    const result = new Date(date);
     result.setDate(result.getDate() + days);
     return result;
 }
 
-var date = new Date();
-var beforeDate = addDays(date, -5);
-var dateString = testUtil.constructTestDate(beforeDate);
-var afterDate = addDays(date, 5);
-var futureDateString = testUtil.constructTestDate(afterDate);
+const date = new Date();
+const beforeDate = addDays(date, -5);
+const dateString = testUtil.constructTestDate(beforeDate);
+const afterDate = addDays(date, 5);
+const futureDateString = testUtil.constructTestDate(afterDate);
 
 describe('most-read articles', function() {
     this.timeout(20000);

@@ -1,9 +1,9 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
-var preq   = require('preq');
-var server = require('../../utils/server.js');
-var headers = require('../../utils/headers.js');
+const assert = require('../../utils/assert.js');
+const preq   = require('preq');
+const server = require('../../utils/server.js');
+const headers = require('../../utils/headers.js');
 
 describe('mobile-text', function() {
     this.timeout(20000);
@@ -32,7 +32,7 @@ describe('mobile-text', function() {
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
                 assert.notDeepEqual(res.body.sections, undefined);
-                for (var i = 0; i < res.body.sections.length; i++) {
+                for (let i = 0; i < res.body.sections.length; i++) {
                     assert.notDeepEqual(res.body.sections[i].id, undefined);
                     assert.notDeepEqual(res.body.sections[i].items, undefined);
                 }
@@ -42,13 +42,13 @@ describe('mobile-text', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/LiteTest' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
-                var numParagraphs = 0;
-                var numImages = 0;
-                var numVideos = 0;
-                for (var i = 0; i < res.body.sections.length; i++) {
-                    var section = res.body.sections[i];
-                    for (var j = 0; j < section.items.length; j++) {
-                        var item = section.items[j];
+                let numParagraphs = 0;
+                let numImages = 0;
+                let numVideos = 0;
+                for (let i = 0; i < res.body.sections.length; i++) {
+                    const section = res.body.sections[i];
+                    for (let j = 0; j < section.items.length; j++) {
+                        const item = section.items[j];
                         if (item.type === 'p') {
                             assert.notDeepEqual(item.text, undefined);
                             numParagraphs++;

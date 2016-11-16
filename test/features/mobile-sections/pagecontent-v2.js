@@ -1,8 +1,8 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
-var preq   = require('preq');
-var server = require('../../utils/server.js');
+const assert = require('../../utils/assert.js');
+const preq   = require('preq');
+const server = require('../../utils/server.js');
 
 describe('mobile-sections-v2', function() {
     this.timeout(20000);
@@ -43,7 +43,7 @@ describe('mobile-sections-v2', function() {
     it('Barack Obama page lead paragraph', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/formatted-lead/Barack_Obama' })
             .then(function (res) {
-                var intro = res.body.intro;
+                const intro = res.body.intro;
 
                 assert.deepEqual(res.status, 200);
                 assert.ok(intro !== undefined, 'Intro property present.');
@@ -58,7 +58,7 @@ describe('mobile-sections-v2', function() {
     it('Planet introduction contains nodes other than P (T111958)', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/formatted-lead/Planet' })
             .then(function (res) {
-                var intro = res.body.intro;
+                const intro = res.body.intro;
 
                 assert.deepEqual(res.status, 200);
                 assert.ok(intro.indexOf( '<p>' ) > -1, 'intro is html' );

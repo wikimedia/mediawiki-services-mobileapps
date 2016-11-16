@@ -1,9 +1,9 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
-var preq   = require('preq');
-var server = require('../../utils/server.js');
-var headers = require('../../utils/headers.js');
+const assert = require('../../utils/assert.js');
+const preq   = require('preq');
+const server = require('../../utils/server.js');
+const headers = require('../../utils/headers.js');
 
 describe('definition', function() {
     this.timeout(20000);
@@ -17,18 +17,18 @@ describe('definition', function() {
     it('en \'cat\' request should have expected structure and content', function() {
         return preq.get({ uri: server.config.uri + 'en.wiktionary.org/v1/page/definition/cat' })
             .then(function(res) {
-                var en = res.body.en;
-                var bodytext = JSON.stringify(res.body);
+                const en = res.body.en;
+                const bodytext = JSON.stringify(res.body);
                 assert.ok(bodytext.indexOf('ib-brac') === -1);
                 assert.ok(bodytext.indexOf('ib-content') === -1);
                 assert.ok(bodytext.indexOf('defdate') === -1);
                 assert.deepEqual(res.status, 200);
                 assert.notDeepEqual(en, undefined);
                 assert.ok(en.length == 8)
-                for (var i = 0; i < en.length; i++) {
+                for (let i = 0; i < en.length; i++) {
                     assert.notDeepEqual(en[i].partOfSpeech, undefined);
                     assert.notDeepEqual(en[i].definitions, undefined);
-                    for (var j = 0; j < en[i].definitions.length; j++) {
+                    for (let j = 0; j < en[i].definitions.length; j++) {
                         assert.notDeepEqual(en[i].definitions[j].definition, undefined);
                         if (en[i].definitions[j].examples) {
                             en[i].definitions[j].examples.length != 0;

@@ -1,9 +1,9 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
-var preq   = require('preq');
-var server = require('../../utils/server.js');
-var headers = require('../../utils/headers.js');
+const assert = require('../../utils/assert.js');
+const preq   = require('preq');
+const server = require('../../utils/server.js');
+const headers = require('../../utils/headers.js');
 
 describe('media', function() {
     this.timeout(20000);
@@ -45,7 +45,7 @@ describe('media', function() {
     it('Obama (redirect) should have a lead image, expected properties, and many media items', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/media/Obama' })
             .then(function(res) {
-                var items = res.body.items;
+                const items = res.body.items;
                 assert.deepEqual(res.status, 200);
                 assert.ok(items.length > 3, 'Expected many media items');
                 checkItemHasExpectedProperties(items[0]);

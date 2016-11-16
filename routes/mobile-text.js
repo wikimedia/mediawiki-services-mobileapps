@@ -13,53 +13,53 @@
 'use strict';
 
 //var BBPromise = require('bluebird');
-var preq = require('preq');
-var domino = require('domino');
-var sUtil = require('../lib/util');
-var mUtil = require('../lib/mobile-util');
-var mwapi = require('../lib/mwapi');
+const preq = require('preq');
+const domino = require('domino');
+const sUtil = require('../lib/util');
+const mUtil = require('../lib/mobile-util');
+const mwapi = require('../lib/mwapi');
 
 // shortcut
-var HTTPError = sUtil.HTTPError;
+const HTTPError = sUtil.HTTPError;
 
 
 /**
  * The main router object
  */
-var router = sUtil.router();
+const router = sUtil.router();
 
 /**
  * The main application object reported when this module is require()d
  */
-var app;
+let app;
 
 
 function rmSelectorAll(doc, selector) {
-    var ps = doc.querySelectorAll(selector) || [];
-    for (var idx = 0; idx < ps.length; idx++) {
-        var node = ps[idx];
+    const ps = doc.querySelectorAll(selector) || [];
+    for (let idx = 0; idx < ps.length; idx++) {
+        const node = ps[idx];
         node.parentNode.removeChild(node);
     }
 }
 
 function structureThumbnail(thumbDiv) {
-    var thumb = {};
-    var thumbimg = thumbDiv.querySelector("img");
+    const thumb = {};
+    const thumbimg = thumbDiv.querySelector("img");
     if (thumbimg) {
         thumb.src = thumbimg.getAttribute("src");
     }
-    var videoDiv = thumbDiv.querySelector("div.PopUpMediaTransform");
+    const videoDiv = thumbDiv.querySelector("div.PopUpMediaTransform");
     if (videoDiv && thumbimg) {
         thumb.type = "video";
         thumb.name = thumbimg.alt;
     } else {
         thumb.type = "image";
-        var alink = thumbDiv.querySelector("a");
+        const alink = thumbDiv.querySelector("a");
         if (alink) {
             thumb.name = alink.href;
         }
     }
-    var caption = thumbDiv.querySelector("div.thumbcaption");
+    const caption = thumbDiv.querySelector("div.thumbcaption");
     if (caption) {
         thumb.caption = caption.innerHTML;
     }
@@ -70,7 +70,7 @@ function structureThumbnail(thumbDiv) {
  * Nuke stuff from the DOM we don't want.
  */
 function runDomTransforms(section) {
-    var doc = domino.createDocument(section.text);
+    const doc = domino.createDocument(section.text);
     rmSelectorAll(doc, 'div.noprint');
     rmSelectorAll(doc, 'div.infobox');
     rmSelectorAll(doc, 'div.metadata');
@@ -79,20 +79,20 @@ function runDomTransforms(section) {
 
     // and break it down into items...
     section.items = [];
-    var itemIndex = 0;
-    var thumbnails, tid, thumb;
+    let itemIndex = 0;
+    let thumbnails, tid, thumb;
 
-    var hatnotes = doc.querySelectorAll("div.hatnote") || [];
-    for (var hid = 0; hid < hatnotes.length; hid++) {
+    const hatnotes = doc.querySelectorAll("div.hatnote") || [];
+    for (let hid = 0; hid < hatnotes.length; hid++) {
         section.items[itemIndex] = {};
         section.items[itemIndex].type = "hatnote";
         section.items[itemIndex].text = hatnotes[hid].innerHTML;
         itemIndex++;
     }
 
-    var ps = doc.querySelectorAll("p") || [];
-    for (var pid = 0; pid < ps.length; pid++) {
-        var p = ps[pid];
+    const ps = doc.querySelectorAll("p") || [];
+    for (let pid = 0; pid < ps.length; pid++) {
+        const p = ps[pid];
 
         if (p.innerHTML.length < 4) {
             continue;
@@ -138,9 +138,9 @@ router.get('/mobile-text/:title', function (req, res) {
     // and then return it
     .then(function (apiRes) {
         // transform all sections
-        var sections = apiRes.body.mobileview.sections;
-        for (var idx = 0; idx < sections.length; idx++) {
-            var section = sections[idx];
+        const sections = apiRes.body.mobileview.sections;
+        for (let idx = 0; idx < sections.length; idx++) {
+            const section = sections[idx];
             // run DOM transforms on the section...
             runDomTransforms(section);
         }

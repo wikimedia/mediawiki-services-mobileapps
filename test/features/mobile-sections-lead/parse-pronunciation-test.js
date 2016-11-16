@@ -1,8 +1,8 @@
 'use strict';
 /* global describe, it */
 
-var assert = require('../../utils/assert.js');
-var pickPronunciatonFilePageUrl = require('../../../lib/parseProperty.js')._pickPronunciationFilePageUrl;
+const assert = require('../../utils/assert.js');
+const pickPronunciatonFilePageUrl = require('../../../lib/parseProperty.js')._pickPronunciationFilePageUrl;
 
 describe('pickPronunciationFilePageUrl', function() {
     function padExpectedUrl(expected) {
@@ -10,25 +10,25 @@ describe('pickPronunciationFilePageUrl', function() {
     }
 
     it('spaces in title should not affect choice', function() {
-        var expected = '/wiki/File:en-us-United-Arab-Emirates.ogg';
-        var urls = padExpectedUrl(expected);
-        var title = 'United Arab Emirates';
-        var result = pickPronunciatonFilePageUrl(urls, title);
+        const expected = '/wiki/File:en-us-United-Arab-Emirates.ogg';
+        const urls = padExpectedUrl(expected);
+        const title = 'United Arab Emirates';
+        const result = pickPronunciatonFilePageUrl(urls, title);
         assert.deepEqual(result, expected);
     });
 
     it('subset of filename should not affect choice', function() {
-        var expected = '/wiki/File:República_de_Cuba.ogg';
-        var urls = padExpectedUrl(expected);
-        var title = 'Cuba';
-        var result = pickPronunciatonFilePageUrl(urls, title);
+        const expected = '/wiki/File:República_de_Cuba.ogg';
+        const urls = padExpectedUrl(expected);
+        const title = 'Cuba';
+        const result = pickPronunciatonFilePageUrl(urls, title);
         assert.deepEqual(result, expected);
     });
 
     it('RegExp title parsing not throw error for special characters', function() {
-        var expected = '/wiki/File:Fake_file_url.ogg';
-        var urls = padExpectedUrl(expected);
-        var title = 'Sunn O)))';
+        const expected = '/wiki/File:Fake_file_url.ogg';
+        const urls = padExpectedUrl(expected);
+        const title = 'Sunn O)))';
         assert.ok(pickPronunciatonFilePageUrl(urls, title));
     })
 });

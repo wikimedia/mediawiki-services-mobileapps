@@ -1,18 +1,18 @@
 'use strict';
 
 
-var sUtil = require('../lib/util');
+const sUtil = require('../lib/util');
 
 
 /**
  * The main router object
  */
-var router = sUtil.router();
+const router = sUtil.router();
 
 /**
  * The main application object reported when this module is require()d
  */
-var app;
+let app;
 
 
 /**
@@ -63,7 +63,7 @@ router.get('/version', function(req, res) {
  */
 router.all('/home', function(req, res) {
 
-    var home = app.info.homepage;
+    const home = app.info.homepage;
     if(home && /^http/.test(home)) {
         // we have a home page URI defined, so send it
         res.redirect(301, home);

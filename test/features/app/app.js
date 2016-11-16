@@ -1,9 +1,9 @@
 'use strict';
 
 
-var preq   = require('preq');
-var assert = require('../../utils/assert.js');
-var server = require('../../utils/server.js');
+const preq   = require('preq');
+const assert = require('../../utils/assert.js');
+const server = require('../../utils/server.js');
 
 
 describe('express app', function() {

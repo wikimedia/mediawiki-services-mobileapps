@@ -4,21 +4,21 @@
 
 'use strict';
 
-var BBPromise = require('bluebird');
-var domino = require('domino');
-var mUtil = require('../lib/mobile-util');
-var sUtil = require('../lib/util');
-var parsoid = require('../lib/parsoid-access');
+const BBPromise = require('bluebird');
+const domino = require('domino');
+const mUtil = require('../lib/mobile-util');
+const sUtil = require('../lib/util');
+const parsoid = require('../lib/parsoid-access');
 
 /**
  * The main router object
  */
-var router = sUtil.router();
+const router = sUtil.router();
 
 /**
  * The main application object reported when this module is require()d
  */
-var app;
+let app;
 
 /**
  * GET {domain}/v1/definition/{title}/{revision?}

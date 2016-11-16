@@ -1,9 +1,9 @@
 'use strict';
 
-var preq   = require('preq');
-var assert = require('../../utils/assert.js');
-var server = require('../../utils/server.js');
-var headers = require('../../utils/headers.js');
+const preq   = require('preq');
+const assert = require('../../utils/assert.js');
+const server = require('../../utils/server.js');
+const headers = require('../../utils/headers.js');
 
 describe('mobile-sections', function() {
     this.timeout(20000);
@@ -27,7 +27,7 @@ describe('mobile-sections', function() {
     it('Sections/deep page should have a lead object with expected properties', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections/Sections%2Fdeep' })
             .then(function(res) {
-                var lead = res.body.lead;
+                const lead = res.body.lead;
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Sections/deep');
@@ -43,7 +43,7 @@ describe('mobile-sections', function() {
     it('en Main page should have a lead object with expected properties', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections/Main_Page' })
             .then(function(res) {
-                var lead = res.body.lead;
+                const lead = res.body.lead;
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Main Page');
@@ -69,7 +69,7 @@ describe('mobile-sections', function() {
     it('Titles with special characters should not error out when trying to parse pronunciation files', function() {
         return preq.get({ uri: server.config.uri + 'vi.wikipedia.org/v1/page/mobile-sections/Sunn_O)))' })
             .then(function(res) {
-                var lead = res.body.lead;
+                const lead = res.body.lead;
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Sunn O)))');

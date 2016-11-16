@@ -1,19 +1,19 @@
 'use strict';
 
-var preq   = require('preq');
-var assert = require('../../utils/assert');
-var server = require('../../utils/server');
-var headers = require('../../utils/headers');
-var testUtil = require('../../utils/testUtil');
+const preq   = require('preq');
+const assert = require('../../utils/assert');
+const server = require('../../utils/server');
+const headers = require('../../utils/headers');
+const testUtil = require('../../utils/testUtil');
 
 function nextYear() {
-    var result = new Date();
+    const result = new Date();
     result.setUTCFullYear(result.getUTCFullYear() + 1);
     return result;
 }
 
-var testDate = nextYear();
-var dateString = testUtil.constructTestDate(testDate);
+const testDate = nextYear();
+const dateString = testUtil.constructTestDate(testDate);
 
 describe('featured', function() {
     this.timeout(20000);

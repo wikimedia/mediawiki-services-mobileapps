@@ -1,19 +1,19 @@
 'use strict';
 
 
-var sUtil = require('../lib/util');
-var mUtil = require('../lib/mobile-util');
+const sUtil = require('../lib/util');
+const mUtil = require('../lib/mobile-util');
 
 
 /**
  * The main router object
  */
-var router = sUtil.router();
+const router = sUtil.router();
 
 /**
  * The main application object reported when this module is require()d
  */
-var app;
+let app;
 
 /**
  * GET /announcements
@@ -21,7 +21,7 @@ var app;
  */
 router.get('/announcements', function(req, res) {
     if (req.params.domain === 'en.wikipedia.org') {
-        var json = {
+        const json = {
             announce: [
               {
                 id: "EN1116SURVEYIOS",
@@ -66,7 +66,7 @@ router.get('/announcements', function(req, res) {
             ]
         };
 
-        var hash = mUtil.hashCode(JSON.stringify(json));
+        const hash = mUtil.hashCode(JSON.stringify(json));
 
         res.status(200);
         mUtil.setETag(req, res, hash);

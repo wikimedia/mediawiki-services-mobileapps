@@ -11,36 +11,36 @@
 
 'use strict';
 
-var BBPromise = require('bluebird');
-var preq = require('preq');
-var domino = require('domino');
-var mwapi = require('../lib/mwapi');
-var mUtil = require('../lib/mobile-util');
-var parse = require('../lib/parseProperty');
-var parsoid = require('../lib/parsoid-access');
-var sUtil = require('../lib/util');
-var transforms = require('../lib/transforms');
+const BBPromise = require('bluebird');
+const preq = require('preq');
+const domino = require('domino');
+const mwapi = require('../lib/mwapi');
+const mUtil = require('../lib/mobile-util');
+const parse = require('../lib/parseProperty');
+const parsoid = require('../lib/parsoid-access');
+const sUtil = require('../lib/util');
+const transforms = require('../lib/transforms');
 
 /**
  * The main router object
  */
-var router = sUtil.router();
+const router = sUtil.router();
 
 /**
  * The main application object reported when this module is require()d
  */
-var app;
+let app;
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
 function pageContentForMainPagePromise(req) {
     return mwapi.getAllSections(app, req)
     .then(function (response) {
-        var page = response.body.mobileview;
-        var sections = page.sections;
-        var section;
+        const page = response.body.mobileview;
+        const sections = page.sections;
+        let section;
 
         // transform all sections
-        for (var idx = 0; idx < sections.length; idx++) {
+        for (let idx = 0; idx < sections.length; idx++) {
             section = sections[idx];
             section.text = transforms.runMainPageDomTransforms(section.text);
         }
@@ -59,14 +59,14 @@ function pageMetadataPromise(req) {
 }
 
 function buildLeadSections(sections) {
-    var out = [],
+    let out = [],
         section,
         len = sections.length;
 
     out.push(sections[0]);
-    for (var i = 1; i < len; i++) {
+    for (let i = 1; i < len; i++) {
         section = sections[i];
-        var item = {
+        const item = {
             id: section.id,
             toclevel: section.toclevel,
             anchor: section.anchor,
@@ -83,7 +83,7 @@ function buildLeadSections(sections) {
  * @return {Object} lead json
  */
 function buildLead(input, removeNodes) {
-    var lead = domino.createDocument(input.page.sections[0].text);
+    const lead = domino.createDocument(input.page.sections[0].text);
     if ( !removeNodes ) {
         // Move the first good paragraph up for any page except main pages.
         // It's ok to do unconditionally since we throw away the page
@@ -92,11 +92,11 @@ function buildLead(input, removeNodes) {
         // TODO: should we also exclude file and other special pages?
         transforms.relocateFirstParagraph(lead);
     }
-    var hatnotes = transforms.extractHatnotes(lead, removeNodes);
-    var pronunciation = parse.parsePronunciation(lead, input.meta.displaytitle);
-    var issues = transforms.extractPageIssues(lead, removeNodes);
+    const hatnotes = transforms.extractHatnotes(lead, removeNodes);
+    const pronunciation = parse.parsePronunciation(lead, input.meta.displaytitle);
+    const issues = transforms.extractPageIssues(lead, removeNodes);
 
-    var infobox, text, intro, sections;
+    let infobox, text, intro, sections;
 
     if ( removeNodes ) {
         infobox = transforms.extractInfobox(lead);
@@ -140,7 +140,7 @@ function buildLead(input, removeNodes) {
 
 function buildRemaining(input) {
     // don't repeat the first section in remaining
-    var sections = input.page.sections.slice(1);
+    const sections = input.page.sections.slice(1);
     // mark references sections with a flag (if no sections its a stub or main page)
     if ( sections.length ) {
         transforms.markReferenceSections( sections, false );
@@ -156,8 +156,8 @@ function buildRemaining(input) {
  * @return {Object}
  */
 function buildReferences(input) {
-    var remaining = buildRemaining(input);
-    var sections = [];
+    const remaining = buildRemaining(input);
+    const sections = [];
     remaining.sections.forEach(function (section) {
         if (section.isReferenceSection) {
             sections.push(section);

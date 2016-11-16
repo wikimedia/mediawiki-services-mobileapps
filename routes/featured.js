@@ -4,19 +4,19 @@
 
 'use strict';
 
-var mUtil = require('../lib/mobile-util');
-var sUtil = require('../lib/util');
-var featured = require('../lib/feed/featured');
+const mUtil = require('../lib/mobile-util');
+const sUtil = require('../lib/util');
+const featured = require('../lib/feed/featured');
 
 /**
  * The main router object
  */
-var router = sUtil.router();
+const router = sUtil.router();
 
 /**
  * The main application object reported when this module is require()d
  */
-var app;
+let app;
 
 /**
  * GET {domain}/v1/page/featured/{year}/{month}/{day}

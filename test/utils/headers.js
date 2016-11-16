@@ -1,8 +1,8 @@
 'use strict';
 
 
-var assert = require('./assert.js');
-var preq   = require('preq');
+const assert = require('./assert.js');
+const preq   = require('preq');
 
 
 function checkHeaders(uri, expContentType) {

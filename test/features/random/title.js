@@ -1,11 +1,11 @@
 'use strict';
 
-var preq   = require('preq');
-var assert = require('../../utils/assert');
-var server = require('../../utils/server');
-var headers = require('../../utils/headers');
-var random = require('../../../lib/feed/random');
-var sample =  require('./sample-results');
+const preq   = require('preq');
+const assert = require('../../utils/assert');
+const server = require('../../utils/server');
+const headers = require('../../utils/headers');
+const random = require('../../../lib/feed/random');
+const sample =  require('./sample-results');
 
 describe('random/title', function() {
     this.timeout(20000);
@@ -26,7 +26,7 @@ describe('random/title', function() {
     });
 
     it('pickBestResult should select best-scored title from sample', function() {
-        var best = random.pickBestResult(sample);
+        const best = random.pickBestResult(sample);
         assert.ok(best.title === 'William Ellis (Medal of Honor)');
     })
 });

@@ -1,9 +1,9 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
-var preq   = require('preq');
-var server = require('../../utils/server.js');
-var headers = require('../../utils/headers.js');
+const assert = require('../../utils/assert.js');
+const preq   = require('preq');
+const server = require('../../utils/server.js');
+const headers = require('../../utils/headers.js');
 
 describe('mobile-sections-lead', function() {
     this.timeout(20000);
@@ -16,7 +16,7 @@ describe('mobile-sections-lead', function() {
     it('Sections/deep page should have a lead object with expected properties', function() {
         return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-sections-lead/Sections%2Fdeep' })
             .then(function(res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Sections/deep');
@@ -31,7 +31,7 @@ describe('mobile-sections-lead', function() {
     it('en Cat page should have a lead object with expected properties', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Cat' })
             .then(function(res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.deepEqual(res.status, 200);
                 assert.ok(lead.lastmodified.startsWith('201'), lead.lastmodified + ' should start with 201'); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Cat');
@@ -65,14 +65,14 @@ describe('mobile-sections-lead', function() {
     it('en San Francisco should have a last modifier', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/San_Francisco' })
             .then(function(res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.ok(lead.lastmodifier !== undefined );
             });
     });
     it('en San Francisco should have a lead object with a geo property', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/San_Francisco' })
             .then(function(res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.deepEqual(lead.geo.latitude, 37.783);
                 assert.deepEqual(lead.geo.longitude, -122.417);
             });
@@ -80,21 +80,21 @@ describe('mobile-sections-lead', function() {
     it('en Talk:San Francisco should have a lead object with correct namespace property', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Talk:San_Francisco' })
             .then(function(res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.ok(lead.ns === 1);
             });
     });
     it('en San Francisco should have a lead object with correct namespace property', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/San_Francisco' })
             .then(function(res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.ok(lead.ns === 0);
             });
     });
     it('es Savonlinna should have a lead object with a geo property', function() {
         return preq.get({ uri: server.config.uri + 'es.wikipedia.org/v1/page/mobile-sections-lead/Savonlinna' })
             .then(function(res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.deepEqual(lead.geo.latitude, 61.866666666667);
                 assert.deepEqual(lead.geo.longitude, 28.883055555556);
             });
@@ -102,7 +102,7 @@ describe('mobile-sections-lead', function() {
     it('Wikivoyage en Paris should have a lead object with a geo property', function() {
         return preq.get({ uri: server.config.uri + 'en.wikivoyage.org/v1/page/mobile-sections-lead/Paris' })
             .then(function(res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.deepEqual(lead.geo.latitude, 48.856);
                 assert.deepEqual(lead.geo.longitude, 2.351);
             });
@@ -110,14 +110,14 @@ describe('mobile-sections-lead', function() {
     it('es Gogland should not have a lead object with a geo property', function() {
         return preq.get({ uri: server.config.uri + 'es.wikipedia.org/v1/page/mobile-sections-lead/Gogland' })
             .then(function(res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.ok(!lead.hasOwnProperty('geo'));
             });
     });
     it('Barack Obama should have a pronunciation', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Barack_Obama' })
             .then(function(res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.deepEqual(res.status, 200);
                 assert.deepEqual(lead.pronunciation.url, '//upload.wikimedia.org/wikipedia/commons/8/82/En-us-Barack-Hussein-Obama.ogg');
             });
@@ -132,7 +132,7 @@ describe('mobile-sections-lead', function() {
     it('Enwiki Uranus loads successfully (no pronunciation parsing TypeErrors)', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Uranus' })
             .then(function (res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.deepEqual(res.status, 200);
                 assert.deepEqual(lead.pronunciation.url, '//upload.wikimedia.org/wikipedia/commons/1/1c/En-us-Uranus.ogg');
             });
@@ -140,7 +140,7 @@ describe('mobile-sections-lead', function() {
     it('Enwiki Odisha loads successfully (no pronunciation parsing TypeErrors)', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Odisha' })
             .then(function (res) {
-                var lead = res.body;
+                const lead = res.body;
                 assert.deepEqual(res.status, 200);
                 assert.deepEqual(lead.pronunciation.url, '//upload.wikimedia.org/wikipedia/commons/c/c2/Pronunciation_of_the_Odia_language_word_%22Odisha%22.ogg');
             });

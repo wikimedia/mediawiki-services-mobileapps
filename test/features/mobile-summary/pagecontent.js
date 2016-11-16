@@ -1,9 +1,9 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
-var preq   = require('preq');
-var server = require('../../utils/server.js');
-var headers = require('../../utils/headers.js');
+const assert = require('../../utils/assert.js');
+const preq   = require('preq');
+const server = require('../../utils/server.js');
+const headers = require('../../utils/headers.js');
 
 describe('mobile-summary', function() {
     this.timeout(20000);
@@ -16,7 +16,7 @@ describe('mobile-summary', function() {
     it('Page should have expected properties', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-summary/Ann_Arbor_Charter_Township,_Michigan' })
             .then(function(res) {
-                var body = res.body;
+                const body = res.body;
                 assert.deepEqual(res.status, 200);
                 assert.deepEqual(body.title, 'Ann Arbor Charter Township, Michigan');
                 assert.ok(body.extract.indexOf('Ann Arbor Charter Township is a charter township') === 0, 'Expected different start of extract');

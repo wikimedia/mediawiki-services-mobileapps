@@ -1,8 +1,8 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
-var domino = require('domino');
-var parsoid = require('../../../lib/parsoid-access');
+const assert = require('../../utils/assert.js');
+const domino = require('domino');
+const parsoid = require('../../../lib/parsoid-access');
 
 describe('lib:parsoid', function() {
     this.timeout(20000);
@@ -30,35 +30,35 @@ describe('lib:parsoid', function() {
 
 
     it('getSectionsText(empty) should produce an empty lead section', function() {
-        var doc = domino.createDocument('<body></body>');
+        const doc = domino.createDocument('<body></body>');
         parsoid._addSectionDivs(doc);
-        var sections = parsoid._getSectionsText(doc);
+        const sections = parsoid._getSectionsText(doc);
         assert.deepEqual(sections.length, 1);
         assert.deepEqual(sections[0].id, 0);
         assert.deepEqual(sections[0].text, '');
     });
 
     it('getSectionsText() with just text should produce a lead section', function() {
-        var doc = domino.createDocument('<body>text0</body>');
+        const doc = domino.createDocument('<body>text0</body>');
         parsoid._addSectionDivs(doc);
-        var sections = parsoid._getSectionsText(doc);
+        const sections = parsoid._getSectionsText(doc);
         assert.deepEqual(sections.length, 1);
         assertSection0(sections);
     });
 
     it('getSectionsText() with one h2 should produce two sections', function() {
-        var doc = domino.createDocument('<body>text0<h2>foo</h2>text1</body>');
+        const doc = domino.createDocument('<body>text0<h2>foo</h2>text1</body>');
         parsoid._addSectionDivs(doc);
-        var sections = parsoid._getSectionsText(doc);
+        const sections = parsoid._getSectionsText(doc);
         assert.deepEqual(sections.length, 2);
         assertSection0(sections);
         assertSection1(sections);
     });
 
     it('getSectionsText() with one h2 and h3 should produce three sections', function() {
-        var doc = domino.createDocument('<body>text0<h2>foo</h2>text1<h3 id="mwBa">Funny section !@#$%^&*()</h3>text2</body>');
+        const doc = domino.createDocument('<body>text0<h2>foo</h2>text1<h3 id="mwBa">Funny section !@#$%^&*()</h3>text2</body>');
         parsoid._addSectionDivs(doc);
-        var sections = parsoid._getSectionsText(doc);
+        const sections = parsoid._getSectionsText(doc);
         assert.deepEqual(sections.length, 3);
         assertSection0(sections);
         assertSection1(sections);

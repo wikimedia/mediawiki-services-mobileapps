@@ -1,14 +1,14 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
-var dateUtil = require('../../../lib/dateUtil');
-var HTTPError = require('../../../lib/util').HTTPError;
+const assert = require('../../utils/assert.js');
+const dateUtil = require('../../../lib/dateUtil');
+const HTTPError = require('../../../lib/util').HTTPError;
 
 describe('lib:dateUtil', function() {
     this.timeout(20000);
 
     it('getRequestedDate(2016-04-15) should return a valid Date object', function() {
-        var actual = dateUtil.getRequestedDate({
+        const actual = dateUtil.getRequestedDate({
             params: {
                 yyyy: 2016,
                 mm: 4,

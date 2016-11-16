@@ -1,17 +1,17 @@
 'use strict';
 
-var preq = require('preq');
-var domino = require('domino');
-var Template = require('swagger-router').Template;
-var news = require('../../../lib/feed/news');
-var mUtil = require('../../../lib/mobile-util');
-var assert = require('../../utils/assert');
-var server = require('../../utils/server');
-var headers = require('../../utils/headers');
-var constants = require('./constants');
-var NEWS_TEMPLATES = require('../../../etc/feed/news-sites');
+const preq = require('preq');
+const domino = require('domino');
+const Template = require('swagger-router').Template;
+const news = require('../../../lib/feed/news');
+const mUtil = require('../../../lib/mobile-util');
+const assert = require('../../utils/assert');
+const server = require('../../utils/server');
+const headers = require('../../utils/headers');
+const constants = require('./constants');
+const NEWS_TEMPLATES = require('../../../etc/feed/news-sites');
 
-var mock_restbase_tpl = new Template({
+const mock_restbase_tpl = new Template({
     method: '{{request.method}}',
     uri: 'https://{{domain}}/api/rest_v1/{+path}',
     query: '{{ default(request.query, {}) }}',
@@ -19,9 +19,9 @@ var mock_restbase_tpl = new Template({
     body: '{{request.body}}'
 });
 
-var testStoryHtml = '<li id="mwCA"><!--July 22--> In <a rel="mw:WikiLink" href="./Sport_of_athletics" title="Sport of athletics" id="mwCQ">athletics</a>, American sprinter <a rel="mw:WikiLink" href="./Kendra_Harrison" title="Kendra Harrison" id="mwCg">Kendra Harrison</a> breaks the <a rel="mw:WikiLink" href="./Women\'s_100_metres_hurdles_world_record_progression" title="Women\'s 100 metres hurdles world record progression" id="mwCw">28-year-old</a> <a rel="mw:WikiLink" href="./100_metres_hurdles" title="100 metres hurdles" id="mwDA">100 metres hurdles</a> <b id="mwDQ"><a rel="mw:WikiLink" href="./100_metres_hurdles#Top_25_fastest_athletes" title="100 metres hurdles" id="mwDg">world record</a></b> at the <a rel="mw:WikiLink" href="./London_Grand_Prix" title="London Grand Prix" id="mwDw">London Grand Prix</a>.</li>';
+const testStoryHtml = '<li id="mwCA"><!--July 22--> In <a rel="mw:WikiLink" href="./Sport_of_athletics" title="Sport of athletics" id="mwCQ">athletics</a>, American sprinter <a rel="mw:WikiLink" href="./Kendra_Harrison" title="Kendra Harrison" id="mwCg">Kendra Harrison</a> breaks the <a rel="mw:WikiLink" href="./Women\'s_100_metres_hurdles_world_record_progression" title="Women\'s 100 metres hurdles world record progression" id="mwCw">28-year-old</a> <a rel="mw:WikiLink" href="./100_metres_hurdles" title="100 metres hurdles" id="mwDA">100 metres hurdles</a> <b id="mwDQ"><a rel="mw:WikiLink" href="./100_metres_hurdles#Top_25_fastest_athletes" title="100 metres hurdles" id="mwDg">world record</a></b> at the <a rel="mw:WikiLink" href="./London_Grand_Prix" title="London Grand Prix" id="mwDw">London Grand Prix</a>.</li>';
 
-var testStoryObj = {
+const testStoryObj = {
     story: '<!--July 22--> In <a rel="mw:WikiLink" href="./Sport_of_athletics" title="Sport of athletics" id="mwCQ">athletics</a>, American sprinter <a rel="mw:WikiLink" href="./Kendra_Harrison" title="Kendra Harrison" id="mwCg">Kendra Harrison</a> breaks the <a rel="mw:WikiLink" href="./Women\'s_100_metres_hurdles_world_record_progression" title="Women\'s 100 metres hurdles world record progression" id="mwCw">28-year-old</a> <a rel="mw:WikiLink" href="./100_metres_hurdles" title="100 metres hurdles" id="mwDA">100 metres hurdles</a> <b id="mwDQ"><a rel="mw:WikiLink" href="./100_metres_hurdles#Top_25_fastest_athletes" title="100 metres hurdles" id="mwDg">world record</a></b> at the <a rel="mw:WikiLink" href="./London_Grand_Prix" title="London Grand Prix" id="mwDw">London Grand Prix</a>.',
     links: [
         { $merge: [ mUtil.getRbPageSummaryUrl(mock_restbase_tpl, 'en.wikipedia.org', 'Sport_of_athletics') ] },
@@ -33,7 +33,7 @@ var testStoryObj = {
 };
 
 function toElement(str) {
-    var elem = domino.createDocument().createElement('li');
+    const elem = domino.createDocument().createElement('li');
     elem.innerHTML = str;
     return elem;
 }
@@ -42,7 +42,7 @@ describe('in the news', function() {
     this.timeout(20000);
 
     before(function () { return server.start(); });
-    for (let lang in NEWS_TEMPLATES) {
+    for (const lang in NEWS_TEMPLATES) {
         it(lang + ': should respond to GET request with expected headers, incl. CORS and CSP headers', function () {
             return headers.checkHeaders(server.config.uri + lang + '.wikipedia.org/v1/page/news',
                 'application/json');
@@ -81,8 +81,8 @@ describe('in the news', function() {
     });
 
     it('News story constructed correctly (duplicate titles handled correctly)', function() {
-        var html = domino.createDocument(testStoryHtml).getElementsByTagName('li')[0];
-        var story = news.constructStory(mock_restbase_tpl, 'en.wikipedia.org', html);
+        const html = domino.createDocument(testStoryHtml).getElementsByTagName('li')[0];
+        const story = news.constructStory(mock_restbase_tpl, 'en.wikipedia.org', html);
         assert.deepEqual(story, testStoryObj);
     });
 });

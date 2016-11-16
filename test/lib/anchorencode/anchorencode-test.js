@@ -1,7 +1,7 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
-var a = require('../../../lib/anchorencode');
+const assert = require('../../utils/assert.js');
+const a = require('../../../lib/anchorencode');
 
 describe('lib:anchorencode', function() {
     this.timeout(20000);
