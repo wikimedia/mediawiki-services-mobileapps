@@ -127,7 +127,7 @@ describe('mobile-sections', function() {
             });
     });
 
-    it('Page with % in redirected page title should load', function() {
+    it('Page with % in redirected page title should load [beta cluster]', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.beta.wmflabs.org/v1/page/mobile-sections/User:Pchelolo%2fRedirect_Test' })
             .then(function(res) {
                 assert.deepEqual(res.status, 200);
