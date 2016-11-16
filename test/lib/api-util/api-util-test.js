@@ -1,11 +1,11 @@
 'use strict';
 
-var preq   = require('preq');
-var assert = require('../../utils/assert');
-var mwapi = require('../../../lib/mwapi');
-var HTTPError = require('../../../lib/util').HTTPError;
+const preq   = require('preq');
+const assert = require('../../utils/assert');
+const mwapi = require('../../../lib/mwapi');
+const HTTPError = require('../../../lib/util').HTTPError;
 
-var logger = require('bunyan').createLogger({
+const logger = require('bunyan').createLogger({
     name: 'test-logger',
     level: 'warn'
 });

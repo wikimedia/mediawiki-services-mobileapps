@@ -1,22 +1,22 @@
 'use strict';
 
-var BBPromise = require('bluebird');
-var mUtil = require('../lib/mobile-util');
-var parsoid = require('../lib/parsoid-access');
-var preq = require('preq');
-var sUtil = require('../lib/util');
-var transforms = require('../lib/transforms');
-var gallery = require('../lib/gallery');
+const BBPromise = require('bluebird');
+const mUtil = require('../lib/mobile-util');
+const parsoid = require('../lib/parsoid-access');
+const preq = require('preq');
+const sUtil = require('../lib/util');
+const transforms = require('../lib/transforms');
+const gallery = require('../lib/gallery');
 
 /**
  * The main router object
  */
-var router = sUtil.router();
+const router = sUtil.router();
 
 /**
  * The main application object reported when this module is require()d
  */
-var app;
+let app;
 
 /**
  * GET {domain}/v1/page/media/{title}

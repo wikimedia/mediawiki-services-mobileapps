@@ -1,18 +1,18 @@
 'use strict';
 
 
-var sUtil = require('../lib/util');
+const sUtil = require('../lib/util');
 
 
 /**
  * The main router object
  */
-var router = sUtil.router();
+const router = sUtil.router();
 
 /**
  * The main application object reported when this module is require()d
  */
-var app;
+let app;
 
 
 /**

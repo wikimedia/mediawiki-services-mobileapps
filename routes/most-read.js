@@ -1,18 +1,18 @@
 'use strict';
 
-var sUtil = require('../lib/util');
-var mUtil = require('../lib/mobile-util');
-var mostRead = require('../lib/feed/most-read');
+const sUtil = require('../lib/util');
+const mUtil = require('../lib/mobile-util');
+const mostRead = require('../lib/feed/most-read');
 
 /**
  * The main router object
  */
-var router = sUtil.router();
+const router = sUtil.router();
 
 /**
  * The main application object reported when this module is require()d
  */
-var app;
+let app;
 
 /**
  * GET {domain}/api/rest_v1/page/most-read/{yyyy}/{mm}/{dd}

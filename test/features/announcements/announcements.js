@@ -1,10 +1,10 @@
 'use strict';
 
 
-var preq   = require('preq');
-var assert = require('../../utils/assert.js');
-var server = require('../../utils/server.js');
-var headers = require('../../utils/headers.js');
+const preq   = require('preq');
+const assert = require('../../utils/assert.js');
+const server = require('../../utils/server.js');
+const headers = require('../../utils/headers.js');
 
 
 describe('announcements', function() {

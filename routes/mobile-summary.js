@@ -1,35 +1,35 @@
 'use strict';
 
-var BBPromise = require('bluebird');
-var preq = require('preq');
-var domino = require('domino');
-var extractLib = require('../lib/extract');
-var mwapi = require('../lib/mwapi');
-var mUtil = require('../lib/mobile-util');
-var parse = require('../lib/parseProperty');
-var parsoid = require('../lib/parsoid-access');
-var sUtil = require('../lib/util');
-var transforms = require('../lib/transforms');
+const BBPromise = require('bluebird');
+const preq = require('preq');
+const domino = require('domino');
+const extractLib = require('../lib/extract');
+const mwapi = require('../lib/mwapi');
+const mUtil = require('../lib/mobile-util');
+const parse = require('../lib/parseProperty');
+const parsoid = require('../lib/parsoid-access');
+const sUtil = require('../lib/util');
+const transforms = require('../lib/transforms');
 
 /**
  * The main router object
  */
-var router = sUtil.router();
+const router = sUtil.router();
 
 /**
  * The main application object reported when this module is require()d
  */
-var app;
+let app;
 
 function drillDown(body) {
-    var id = Object.keys(body.query.pages)[0];
+    const id = Object.keys(body.query.pages)[0];
     return body.query.pages[id];
 }
 
 function buildPreview(input) {
-    var lead = domino.createDocument(input.page.sections[0].text);
+    const lead = domino.createDocument(input.page.sections[0].text);
     transforms.relocateFirstParagraph(lead);
-    var obj = drillDown(input.extract.body);
+    const obj = drillDown(input.extract.body);
     return {
         title: obj && obj.title,
         extract: obj && extractLib.format(obj.extract),
@@ -49,7 +49,7 @@ router.get('/mobile-summary/:title', function (req, res) {
         page: parsoid.pageContentPromise(app, req),
         extract: mwapi.requestExtract(app, req)
     }).then(function (response) {
-        let revision = response.page.revision;
+        const revision = response.page.revision;
         response = buildPreview(response);
         res.status(200);
         mUtil.setETag(req, res, revision);

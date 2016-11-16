@@ -1,26 +1,26 @@
 'use strict';
 
 
-var preq   = require('preq');
-var assert = require('../../utils/assert');
-var server = require('../../utils/server');
-var dateUtil = require('../../../lib/dateUtil');
-var URI    = require('swagger-router').URI;
-var yaml   = require('js-yaml');
-var fs     = require('fs');
-var Ajv    = require('ajv');
+const preq   = require('preq');
+const assert = require('../../utils/assert');
+const server = require('../../utils/server');
+const dateUtil = require('../../../lib/dateUtil');
+const URI    = require('swagger-router').URI;
+const yaml   = require('js-yaml');
+const fs     = require('fs');
+const Ajv    = require('ajv');
 
-var date = new Date();
-var yesterday = new Date(Date.now() - dateUtil.ONE_DAY);
-var dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth() + 1) + '/' + dateUtil.pad(date.getUTCDate());
-var yesterdayString = yesterday.getUTCFullYear() + '/' + dateUtil.pad(yesterday.getUTCMonth() + 1) + '/' + dateUtil.pad(yesterday.getUTCDate());
+const date = new Date();
+const yesterday = new Date(Date.now() - dateUtil.ONE_DAY);
+const dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth() + 1) + '/' + dateUtil.pad(date.getUTCDate());
+const yesterdayString = yesterday.getUTCFullYear() + '/' + dateUtil.pad(yesterday.getUTCMonth() + 1) + '/' + dateUtil.pad(yesterday.getUTCDate());
 
 
 function staticSpecLoad() {
 
-    var spec;
-    var myService = server.config.conf.services[server.config.conf.services.length - 1].conf;
-    var specPath = __dirname + '/../../../' + (myService.spec ? myService.spec : 'spec.yaml');
+    let spec;
+    const myService = server.config.conf.services[server.config.conf.services.length - 1].conf;
+    const specPath = __dirname + '/../../../' + (myService.spec ? myService.spec : 'spec.yaml');
 
     try {
         spec = yaml.safeLoad(fs.readFileSync(specPath));
@@ -36,7 +36,7 @@ function staticSpecLoad() {
 
 function validateExamples(pathStr, defParams, mSpec) {
 
-    var uri = new URI(pathStr, {}, true);
+    const uri = new URI(pathStr, {}, true);
 
     if(!mSpec) {
         try {
@@ -92,12 +92,12 @@ function constructTestCase(title, path, method, request, response) {
 
 function constructTests(paths, defParams) {
 
-    var ret = [];
+    const ret = [];
 
     Object.keys(paths).forEach(function(pathStr) {
         Object.keys(paths[pathStr]).forEach(function(method) {
-            var p = paths[pathStr][method];
-            var uri;
+            const p = paths[pathStr][method];
+            let uri;
             if(p.hasOwnProperty('x-monitor') && !p['x-monitor']) {
                 return;
             }
@@ -142,7 +142,7 @@ function cmp(result, expected, errMsg) {
 
     if(expected.constructor === Object) {
         Object.keys(expected).forEach(function(key) {
-            var val = expected[key];
+            const val = expected[key];
             assert.deepEqual(result.hasOwnProperty(key), true, 'Body field ' + key + ' not found in response!');
             cmp(result[key], val, key + ' body field mismatch!');
         });
@@ -188,13 +188,13 @@ function cmp(result, expected, errMsg) {
 
 function validateTestResponse(testCase, res) {
 
-    var expRes = testCase.response;
+    const expRes = testCase.response;
 
     // check the status
     assert.status(res, expRes.status);
     // check the headers
     Object.keys(expRes.headers).forEach(function(key) {
-        var val = expRes.headers[key];
+        const val = expRes.headers[key];
         assert.deepEqual(res.headers.hasOwnProperty(key), true, 'Header ' + key + ' not found in response!');
         cmp(res.headers[key], val, key + ' header mismatch!');
     });
@@ -227,9 +227,9 @@ function validateTestResponse(testCase, res) {
 describe('Swagger spec', function() {
 
     // the variable holding the spec
-    var spec = staticSpecLoad();
+    let spec = staticSpecLoad();
     // default params, if given
-    var defParams = spec['x-default-params'] || {};
+    let defParams = spec['x-default-params'] || {};
 
     this.timeout(20000);
 
@@ -259,12 +259,12 @@ describe('Swagger spec', function() {
         assert.deepEqual(!!Object.keys(spec.paths), true, 'No paths given in the spec!');
         // now check each path
         Object.keys(spec.paths).forEach(function(pathStr) {
-            var path;
+            let path;
             assert.deepEqual(!!pathStr, true, 'A path cannot have a length of zero!');
             path = spec.paths[pathStr];
             assert.deepEqual(!!Object.keys(path), true, 'No methods defined for path: ' + pathStr);
             Object.keys(path).forEach(function(method) {
-                var mSpec = path[method];
+                const mSpec = path[method];
                 if(mSpec.hasOwnProperty('x-monitor') && !mSpec['x-monitor']) {
                     return;
                 }
@@ -274,9 +274,9 @@ describe('Swagger spec', function() {
     });
 
     describe('validate responses against schema', function() {
-        var ajv = new Ajv({});
+        const ajv = new Ajv({});
 
-        var assertValidSchema = function(uri, schemaPath) {
+        const assertValidSchema = function(uri, schemaPath) {
             return preq.get({ uri: uri })
             .then(function(res) {
                 if (!ajv.validate(schemaPath, res.body)) {
@@ -285,7 +285,7 @@ describe('Swagger spec', function() {
             });
         };
 
-        var assertValidSchemaAggregated = function(uri) {
+        const assertValidSchemaAggregated = function(uri) {
             return preq.get({ uri: uri, query: { aggregated: true } })
             .then(function(res) {
                 if (!!res.body) {
@@ -294,7 +294,7 @@ describe('Swagger spec', function() {
             });
         };
 
-        var assertBadRequest = function(uri) {
+        const assertBadRequest = function(uri) {
             return preq.get({ uri: uri })
             .then(function(res) {
                 assert.fail("This request should fail!");
@@ -313,27 +313,27 @@ describe('Swagger spec', function() {
         //Valid non-aggregated requests
 
         it('featured article response should conform to schema', function() {
-            var uri = server.config.uri + 'en.wikipedia.org/v1/page/featured/' + dateString;
+            const uri = server.config.uri + 'en.wikipedia.org/v1/page/featured/' + dateString;
             return assertValidSchema(uri, '#/definitions/article_summary_merge_link');
         });
 
         it('featured image response should conform to schema', function() {
-            var uri = server.config.uri + 'en.wikipedia.org/v1/media/image/featured/' + dateString;
+            const uri = server.config.uri + 'en.wikipedia.org/v1/media/image/featured/' + dateString;
             return assertValidSchema(uri, '#/definitions/image');
         });
 
         it('most-read response should conform to schema', function() {
-            var uri = server.config.uri + 'en.wikipedia.org/v1/page/most-read/' + yesterdayString;
+            const uri = server.config.uri + 'en.wikipedia.org/v1/page/most-read/' + yesterdayString;
             return assertValidSchema(uri, '#/definitions/mostread');
         });
 
         it('news response should conform to schema', function() {
-            var uri = server.config.uri + 'en.wikipedia.org/v1/page/news';
+            const uri = server.config.uri + 'en.wikipedia.org/v1/page/news';
             return assertValidSchema(uri, '#/definitions/news');
         });
 
         it('random response should conform to schema', function() {
-            var uri = server.config.uri + 'en.wikipedia.org/v1/page/random/title';
+            const uri = server.config.uri + 'en.wikipedia.org/v1/page/random/title';
             return assertValidSchema(uri, '#/definitions/random');
         });
 

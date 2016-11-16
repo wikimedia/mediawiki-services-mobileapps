@@ -1,7 +1,7 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
-var mwapi = require('../../../lib/mwapi');
+const assert = require('../../utils/assert.js');
+const mwapi = require('../../../lib/mwapi');
 
 describe('lib:mwapi:image', function () {
     this.timeout(20000);

@@ -3,16 +3,16 @@
 
 require('core-js/shim');
 
-var http = require('http');
-var BBPromise = require('bluebird');
-var express = require('express');
-var compression = require('compression');
-var bodyParser = require('body-parser');
-var fs = BBPromise.promisifyAll(require('fs'));
-var sUtil = require('./lib/util');
-var apiUtil = require('./lib/api-util');
-var packageInfo = require('./package.json');
-var yaml = require('js-yaml');
+const http = require('http');
+const BBPromise = require('bluebird');
+const express = require('express');
+const compression = require('compression');
+const bodyParser = require('body-parser');
+const fs = BBPromise.promisifyAll(require('fs'));
+const sUtil = require('./lib/util');
+const apiUtil = require('./lib/api-util');
+const packageInfo = require('./package.json');
+const yaml = require('js-yaml');
 
 
 /**
@@ -23,7 +23,7 @@ var yaml = require('js-yaml');
 function initApp(options) {
 
     // the main application object
-    var app = express();
+    const app = express();
 
     // get the options and make them available in the app
     app.logger = options.logger;    // the logging device
@@ -150,7 +150,7 @@ function loadRoutes (app) {
                 return undefined;
             }
             // import the route file
-            var route = require(__dirname + '/routes/' + fname);
+            const route = require(__dirname + '/routes/' + fname);
             return route(app);
         }).then(function(route) {
             if(route === undefined) {
@@ -195,7 +195,7 @@ function createServer(app) {
     // return a promise which creates an HTTP server,
     // attaches the app to it, and starts accepting
     // incoming client requests
-    var server;
+    let server;
     return new BBPromise(function (resolve) {
         server = http.createServer(app).listen(
             app.conf.port,

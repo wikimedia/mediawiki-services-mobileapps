@@ -9,24 +9,24 @@ if (process.env.IN_DOCKER) {
     process.env.VCR_MODE = process.env.VCR_MODE || 'cache';
 }
 
-var sepia = require('sepia');
-var BBPromise = require('bluebird');
-var ServiceRunner = require('service-runner');
-var logStream = require('./logStream');
-var fs = require('fs');
-var assert = require('./assert');
-var yaml = require('js-yaml');
-var extend = require('extend');
+const sepia = require('sepia');
+const BBPromise = require('bluebird');
+const ServiceRunner = require('service-runner');
+const logStream = require('./logStream');
+const fs = require('fs');
+const assert = require('./assert');
+const yaml = require('js-yaml');
+const extend = require('extend');
 
 
 // set up the configuration
-var config = {
+let config = {
     conf: yaml.safeLoad(fs.readFileSync(__dirname + '/../../config.yaml'))
 };
 // build the API endpoint URI by supposing the actual service
 // is the last one in the 'services' list in the config file
-var myServiceIdx = config.conf.services.length - 1;
-var myService = config.conf.services[myServiceIdx];
+const myServiceIdx = config.conf.services.length - 1;
+const myService = config.conf.services[myServiceIdx];
 config.uri = 'http://localhost:' + myService.conf.port + '/';
 config.service = myService;
 // no forking, run just one process when testing
@@ -38,11 +38,11 @@ config.conf.logging = {
     stream: logStream()
 };
 // make a deep copy of it for later reference
-var origConfig = extend(true, {}, config);
+const origConfig = extend(true, {}, config);
 
-var stop = function() { return BBPromise.resolve(); };
-var options = null;
-var runner = new ServiceRunner();
+let stop = function() { return BBPromise.resolve(); };
+let options = null;
+const runner = new ServiceRunner();
 
 
 function start(_options) {

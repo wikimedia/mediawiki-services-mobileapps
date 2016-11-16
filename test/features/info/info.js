@@ -1,9 +1,9 @@
 'use strict';
 
 
-var preq   = require('preq');
-var assert = require('../../utils/assert.js');
-var server = require('../../utils/server.js');
+const preq   = require('preq');
+const assert = require('../../utils/assert.js');
+const server = require('../../utils/server.js');
 
 
 describe('service information', function() {
@@ -13,7 +13,7 @@ describe('service information', function() {
     before(function () { return server.start(); });
 
     // common URI prefix for info tests
-    var infoUri = server.config.uri + '_info/';
+    const infoUri = server.config.uri + '_info/';
 
     // common function used for generating requests
     // and checking their return values

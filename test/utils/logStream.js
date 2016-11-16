@@ -1,21 +1,21 @@
 'use strict';
 
-var bunyan = require('bunyan');
+const bunyan = require('bunyan');
 
 function logStream(logStdout) {
 
-    var log = [];
-    var parrot = bunyan.createLogger({
+    const log = [];
+    const parrot = bunyan.createLogger({
         name: 'test-logger',
         level: 'warn'
     });
 
     function write(chunk, encoding, callback) {
         try {
-            var entry = JSON.parse(chunk);
-            var levelMatch = /^(\w+)/.exec(entry.levelPath);
+            const entry = JSON.parse(chunk);
+            const levelMatch = /^(\w+)/.exec(entry.levelPath);
             if (logStdout && levelMatch) {
-                var level = levelMatch[1];
+                const level = levelMatch[1];
                 if (parrot[level]) {
                     parrot[level](entry);
                 }
@@ -37,8 +37,8 @@ function logStream(logStdout) {
 
     function slice() {
 
-        var begin = log.length;
-        var end   = null;
+        const begin = log.length;
+        let end   = null;
 
         function halt() {
             if (end === null) {

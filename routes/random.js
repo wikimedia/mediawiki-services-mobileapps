@@ -5,20 +5,20 @@
 
 'use strict';
 
-var mUtil = require('../lib/mobile-util');
-var mwapi = require('../lib/mwapi');
-var sUtil = require('../lib/util');
-var randomPage = require('../lib/feed/random');
+const mUtil = require('../lib/mobile-util');
+const mwapi = require('../lib/mwapi');
+const sUtil = require('../lib/util');
+const randomPage = require('../lib/feed/random');
 
 /**
  * The main router object
  */
-var router = sUtil.router();
+const router = sUtil.router();
 
 /**
  * The main application object reported when this module is require()d
  */
-var app;
+let app;
 
 /**
  * GET {domain}/v1/page/random/title

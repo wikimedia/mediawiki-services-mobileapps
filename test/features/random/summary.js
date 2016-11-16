@@ -1,9 +1,9 @@
 'use strict';
 
-var assert = require('../../utils/assert.js');
-var preq   = require('preq');
-var server = require('../../utils/server.js');
-var headers = require('../../utils/headers.js');
+const assert = require('../../utils/assert.js');
+const preq   = require('preq');
+const server = require('../../utils/server.js');
+const headers = require('../../utils/headers.js');
 
 describe('random/summary', function() {
     this.timeout(20000);
@@ -18,7 +18,7 @@ describe('random/summary', function() {
     it('Random page summary should have expected properties', function() {
         return preq.get({ uri: server.config.uri + 'de.wikipedia.org/v1/page/random/summary' })
             .then(function(res) {
-                var lead = res.body.lead;
+                const lead = res.body.lead;
                 assert.deepEqual(res.status, 200);
                 assert.ok(res.body.title.length > 0, 'title should not be empty');
                 // It most likely has also a description, extract, and thumbnail, just not guaranteed

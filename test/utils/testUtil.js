@@ -1,8 +1,8 @@
 'use strict';
 
-var dateUtil = require('../../lib/dateUtil');
+const dateUtil = require('../../lib/dateUtil');
 
-var testUtil = {};
+const testUtil = {};
 
 /**
  * Construct a date string from a Date object.  Used for testing.
