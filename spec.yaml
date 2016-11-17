@@ -239,7 +239,7 @@ paths:
               content-type: application/json
             body:
               title: /.+/
-              description:
+              description: # Description
                 text: /.+/
                 lang: /.+/
               image:
