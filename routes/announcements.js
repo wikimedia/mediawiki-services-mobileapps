@@ -1,9 +1,7 @@
 'use strict';
 
-
 const sUtil = require('../lib/util');
 const mUtil = require('../lib/mobile-util');
-
 
 /**
  * The main router object
@@ -15,21 +13,16 @@ const router = sUtil.router();
  */
 let app;
 
-/**
- * GET /announcements
- * Gets the announcements available for clients
- */
-router.get('/announcements', function(req, res) {
-    if (req.params.domain === 'en.wikipedia.org') {
-        const json = {
-            announce: [
-              {
+function getEnwikiAnnouncements() {
+    return {
+        announce: [
+            {
                 id: "EN1116SURVEYIOS",
                 type: "survey",
                 start_time: "2016-11-15T17:11:12Z",
                 end_time: "2016-11-30T17:11:12Z",
                 platforms: [
-                  "iOSApp",
+                    "iOSApp",
                 ],
                 text: "Answer three questions and help us improve Wikipedia.",
                 action: {
@@ -38,18 +31,18 @@ router.get('/announcements', function(req, res) {
                 },
                 caption_HTML: "<p>Survey data handled by a third party. <a href=\"https://wikimediafoundation.org/wiki/Survey_Privacy_Statement\">Privacy</a>.</p>",
                 countries: [
-                   "US",
-                   "CA",
-                   "GB"
+                    "US",
+                    "CA",
+                    "GB"
                 ]
             },
-              {
+            {
                 id: "EN11116SURVEYANDROID",
                 type: "survey",
                 start_time: "2016-11-15T17:11:12Z",
                 end_time: "2016-11-30T17:11:12Z",
                 platforms: [
-                  "AndroidApp"
+                    "AndroidApp"
                 ],
                 text: "Answer three questions and help us improve Wikipedia.",
                 action: {
@@ -58,26 +51,30 @@ router.get('/announcements', function(req, res) {
                 },
                 caption_HTML: "<p>Survey data handled by a third party. <a href=\"https://wikimediafoundation.org/wiki/Survey_Privacy_Statement\">Privacy</a>.</p>",
                 countries: [
-                   "US",
-                   "CA",
-                   "GB"
+                    "US",
+                    "CA",
+                    "GB"
                 ]
             }
-            ]
-        };
+        ]
+    };
+}
 
-        const hash = mUtil.hashCode(JSON.stringify(json));
+/**
+ * GET /announcements
+ * Gets the announcements available for clients
+ */
+router.get('/announcements', function (req, res) {
+    let json = (req.params.domain === 'en.wikipedia.org') ? getEnwikiAnnouncements() : {announce: []};
+    const hash = mUtil.hashCode(JSON.stringify(json));
 
-        res.status(200);
-        mUtil.setETag(req, res, hash);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.announcements);
-        res.json(json);
-    } else {
-        res.status(404).end('Announcements are only valid for en.wikipedia.org');
-    }
+    res.status(200);
+    mUtil.setETag(req, res, hash);
+    mUtil.setContentType(res, mUtil.CONTENT_TYPES.announcements);
+    res.json(json);
 });
 
-module.exports = function(appObj) {
+module.exports = function (appObj) {
 
     app = appObj;
 

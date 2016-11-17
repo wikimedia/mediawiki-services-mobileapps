@@ -72,12 +72,16 @@ paths:
       responses:
         '200':
           description: Announcements for the given Wiki
-          schema:
-            $ref: '#/definitions/announcement'
-        '404':
-          description: Unsupported Wiki
-          schema:
-            $ref: '#/definitions/problem'
+          type: object
+          properties:
+            announce:
+              type: array
+              items:
+                type: object
+                schema:
+                    $ref: '#/definitions/announcement'
+          required:
+           - announce
         default:
           description: Error
           schema:
