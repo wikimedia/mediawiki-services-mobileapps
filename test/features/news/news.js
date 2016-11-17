@@ -8,7 +8,6 @@ const mUtil = require('../../../lib/mobile-util');
 const assert = require('../../utils/assert');
 const server = require('../../utils/server');
 const headers = require('../../utils/headers');
-const constants = require('./constants');
 const NEWS_TEMPLATES = require('../../../etc/feed/news-sites');
 
 const mock_restbase_tpl = new Template({

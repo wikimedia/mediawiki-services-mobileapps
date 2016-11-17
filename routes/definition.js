@@ -4,8 +4,6 @@
 
 'use strict';
 
-const BBPromise = require('bluebird');
-const domino = require('domino');
 const mUtil = require('../lib/mobile-util');
 const sUtil = require('../lib/util');
 const parsoid = require('../lib/parsoid-access');

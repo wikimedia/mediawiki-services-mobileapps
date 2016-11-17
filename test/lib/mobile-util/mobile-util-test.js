@@ -2,7 +2,6 @@
 
 const assert = require('../../utils/assert');
 const mUtil = require('../../../lib/mobile-util');
-const preq  = require('preq');
 
 const obj1 = { hello: true, world: true };
 const obj2 = { goodbye: true, sea: true, again: false };

@@ -12,15 +12,11 @@
 
 'use strict';
 
-//var BBPromise = require('bluebird');
-const preq = require('preq');
 const domino = require('domino');
 const sUtil = require('../lib/util');
 const mUtil = require('../lib/mobile-util');
 const mwapi = require('../lib/mwapi');
 
-// shortcut
-const HTTPError = sUtil.HTTPError;
 
 
 /**

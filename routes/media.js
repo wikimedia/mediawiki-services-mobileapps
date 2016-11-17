@@ -3,9 +3,7 @@
 const BBPromise = require('bluebird');
 const mUtil = require('../lib/mobile-util');
 const parsoid = require('../lib/parsoid-access');
-const preq = require('preq');
 const sUtil = require('../lib/util');
-const transforms = require('../lib/transforms');
 const gallery = require('../lib/gallery');
 
 /**

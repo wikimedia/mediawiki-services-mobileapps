@@ -3,7 +3,6 @@
 const preq   = require('preq');
 const assert = require('../../utils/assert');
 const mwapi = require('../../../lib/mwapi');
-const HTTPError = require('../../../lib/util').HTTPError;
 
 const logger = require('bunyan').createLogger({
     name: 'test-logger',

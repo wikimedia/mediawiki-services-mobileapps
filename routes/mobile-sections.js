@@ -12,7 +12,6 @@
 'use strict';
 
 const BBPromise = require('bluebird');
-const preq = require('preq');
 const domino = require('domino');
 const mwapi = require('../lib/mwapi');
 const mUtil = require('../lib/mobile-util');

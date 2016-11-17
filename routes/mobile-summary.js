@@ -1,7 +1,6 @@
 'use strict';
 
 const BBPromise = require('bluebird');
-const preq = require('preq');
 const domino = require('domino');
 const extractLib = require('../lib/extract');
 const mwapi = require('../lib/mwapi');

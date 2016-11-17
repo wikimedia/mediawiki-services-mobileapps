@@ -2,7 +2,6 @@
 
 const assert = require('../../utils/assert.js');
 const dateUtil = require('../../../lib/dateUtil');
-const HTTPError = require('../../../lib/util').HTTPError;
 
 describe('lib:dateUtil', function() {
     this.timeout(20000);

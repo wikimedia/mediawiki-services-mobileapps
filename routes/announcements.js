@@ -11,7 +11,7 @@ const router = sUtil.router();
 /**
  * The main application object reported when this module is require()d
  */
-let app;
+let app; // jscs:ignore disallowUnusedVariables
 
 function getEnwikiAnnouncements() {
     return {

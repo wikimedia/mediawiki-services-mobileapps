@@ -2,7 +2,6 @@
 
 const preq = require('preq');
 const assert = require('../../utils/assert');
-const mUtil = require('../../../lib/mobile-util');
 const server = require('../../utils/server');
 const headers = require('../../utils/headers');
 const testUtil = require('../../utils/testUtil');
