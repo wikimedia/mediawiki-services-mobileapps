@@ -97,11 +97,10 @@ function constructTests(paths, defParams) {
     Object.keys(paths).forEach(function(pathStr) {
         Object.keys(paths[pathStr]).forEach(function(method) {
             const p = paths[pathStr][method];
-            let uri;
             if(p.hasOwnProperty('x-monitor') && !p['x-monitor']) {
                 return;
             }
-            uri = new URI(pathStr, {}, true);
+            const uri = new URI(pathStr, {}, true);
             if(!p['x-amples']) {
                 ret.push(constructTestCase(
                     pathStr,
@@ -259,9 +258,8 @@ describe('Swagger spec', function() {
         assert.deepEqual(!!Object.keys(spec.paths), true, 'No paths given in the spec!');
         // now check each path
         Object.keys(spec.paths).forEach(function(pathStr) {
-            let path;
             assert.deepEqual(!!pathStr, true, 'A path cannot have a length of zero!');
-            path = spec.paths[pathStr];
+            const path = spec.paths[pathStr];
             assert.deepEqual(!!Object.keys(path), true, 'No methods defined for path: ' + pathStr);
             Object.keys(path).forEach(function(method) {
                 const mSpec = path[method];

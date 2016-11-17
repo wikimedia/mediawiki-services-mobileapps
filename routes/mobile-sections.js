@@ -59,13 +59,12 @@ function pageMetadataPromise(req) {
 }
 
 function buildLeadSections(sections) {
-    let out = [],
-        section,
+    const out = [],
         len = sections.length;
 
     out.push(sections[0]);
     for (let i = 1; i < len; i++) {
-        section = sections[i];
+        const section = sections[i];
         const item = {
             id: section.id,
             toclevel: section.toclevel,
