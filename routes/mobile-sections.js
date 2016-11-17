@@ -276,22 +276,21 @@ router.get('/mobile-sections-references/:title/:revision?', function (req, res) 
     });
 });
 
-if ( process.env.MOBILE_CONTENT_SERVICE_EDGE_VERSION ) {
-    /**
-    * GET {domain}/v1/page/formatted/{title}/{revision?}
-    * Gets a formatted version of a given wiki page rather than a blob of wikitext.
-    */
-    router.get('/formatted/:title/:revision?', function (req, res) {
-        return buildAllResponse( req, res, true );
-    });
-    /**
-    * GET {domain}/v1/page/formatted-lead/{title}/{revision?}
-    * Gets a formatted version of a given wiki page rather than a blob of wikitext.
-    */
-    router.get('/formatted-lead/:title/:revision?', function (req, res) {
-        return buildLeadResponse( req, res, true );
-    });
-}
+/**
+* GET {domain}/v1/page/formatted/{title}/{revision?}
+* Gets a formatted version of a given wiki page rather than a blob of wikitext.
+*/
+router.get('/formatted/:title/:revision?', function (req, res) {
+    return buildAllResponse( req, res, true );
+});
+
+/**
+* GET {domain}/v1/page/formatted-lead/{title}/{revision?}
+* Gets a formatted version of a given wiki page rather than a blob of wikitext.
+*/
+router.get('/formatted-lead/:title/:revision?', function (req, res) {
+    return buildLeadResponse( req, res, true );
+});
 
 module.exports = function (appObj) {
     app = appObj;
