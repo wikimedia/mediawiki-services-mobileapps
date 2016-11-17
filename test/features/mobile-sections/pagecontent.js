@@ -16,16 +16,6 @@ describe('mobile-sections', function() {
         return headers.checkHeaders(uri);
     });
 
-    it('return the sent ETag', () => {
-        return preq.get({
-            uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections/Foobar`,
-            headers: { 'x-restbase-etag': '123456/c3421381-7109-11e5-ac43-8c7f067c3520' }
-        }).then((res) => {
-            assert.status(res, 200);
-            assert.deepEqual(res.headers.etag, '123456/c3421381-7109-11e5-ac43-8c7f067c3520');
-        });
-    });
-
     it('Sections/deep page should have a lead object with expected properties', () => {
         const title = 'Sections%2Fdeep';
         const uri = `${server.config.uri}test.wikipedia.org/v1/page/mobile-sections/${title}`;

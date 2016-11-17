@@ -24,7 +24,7 @@ router.get('/news', (req, res) => {
     return news.promise(app, req)
     .then((response) => {
         res.status(!response.payload ? 204 : 200);
-        mUtil.setETagToValue(res, response.meta && response.meta.etag);
+        mUtil.setETag(res, response.meta && response.meta.etag);
         res.json(response.payload || null).end();
     });
 });

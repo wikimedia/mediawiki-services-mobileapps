@@ -143,7 +143,7 @@ router.get('/mobile-text/:title', (req, res) => {
         }
 
         res.status(200);
-        mUtil.setETag(req, res, apiRes.body.mobileview.revision);
+        mUtil.setETag(res, apiRes.body.mobileview.revision);
         res.json(apiRes.body.mobileview).end();
     });
 });

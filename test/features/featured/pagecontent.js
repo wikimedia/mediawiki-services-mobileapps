@@ -30,7 +30,7 @@ describe('featured', function() {
         return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/featured/2016/04/15` })
             .then((res) => {
                 assert.status(res, 200);
-                assert.ok(res.headers.etag.indexOf('50089449') === 0);
+                assert.ok(res.headers.etag.startsWith('"50089449/'));
                 assert.equal(res.body.$merge, 'https://en.wikipedia.org/api/rest_v1/page/summary/Cosmic_Stories_and_Stirring_Science_Stories');
             });
     });
@@ -39,7 +39,7 @@ describe('featured', function() {
         return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/featured/2016/04/29` })
             .then((res) => {
                 assert.status(res, 200);
-                assert.ok(res.headers.etag.indexOf('50282338') === 0);
+                assert.ok(res.headers.etag.startsWith('"50282338/'));
                 assert.equal(res.body.$merge, 'https://en.wikipedia.org/api/rest_v1/page/summary/Lightning_(Final_Fantasy)');
             });
     });

@@ -27,7 +27,7 @@ router.get('/image/featured/:yyyy/:mm/:dd', (req, res) => {
     return featured.promise(app, req)
         .then((response) => {
             res.status(!response.payload ? 204 : 200);
-            mUtil.setETagToValue(res, response.meta && response.meta.etag);
+            mUtil.setETag(res, response.meta.revision, response.meta.tid);
             res.json(response.payload || null).end();
         });
 });

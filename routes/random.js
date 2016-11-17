@@ -33,7 +33,7 @@ router.get('/random/title', (req, res) => {
     return randomPage.promise(app, req)
     .then((result) => {
         res.status(200);
-        mUtil.setETag(req, res, result.meta.etag);
+        mUtil.setETag(res, result.meta.etag);
         res.json(mwapi.buildTitleResponse(result.payload)).end();
     });
 });
@@ -52,7 +52,7 @@ router.get('/random/summary', (req, res) => {
     return randomPage.promise(app, req)
     .then((result) => {
         res.status(200);
-        mUtil.setETag(req, res, result.meta.etag);
+        mUtil.setETag(res, result.meta.etag);
         res.json(result.payload).end();
     });
 });

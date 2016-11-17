@@ -212,7 +212,7 @@ function buildAllResponse(req, res, removeNodes) {
     }).then((response) => {
         response = buildAll(response, removeNodes);
         res.status(200);
-        mUtil.setETag(req, res, response.lead.revision);
+        mUtil.setETag(res, response.lead.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(response).end();
     });
@@ -231,7 +231,7 @@ function buildLeadResponse(req, res, removeNodes) {
     }).then((response) => {
         response = buildLead(response, removeNodes);
         res.status(200);
-        mUtil.setETag(req, res, response.revision);
+        mUtil.setETag(res, response.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(response).end();
     });
@@ -261,7 +261,7 @@ router.get('/mobile-sections-remaining/:title/:revision?', (req, res) => {
         page: parsoid.pageContentPromise(app, req)
     }).then((response) => {
         res.status(200);
-        mUtil.setETag(req, res, response.page.revision);
+        mUtil.setETag(res, response.page.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(buildRemaining(response)).end();
     });
@@ -276,7 +276,7 @@ router.get('/references/:title/:revision?', (req, res) => {
         page: parsoid.pageContentPromise(app, req)
     }).then((response) => {
         res.status(200);
-        mUtil.setETag(req, res, response.page.revision);
+        mUtil.setETag(res, response.page.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(buildReferences(response)).end();
     });

@@ -23,7 +23,7 @@ describe('featured-image', function() {
             .then((res) => {
                 assert.status(res, 200);
                 // the page id should be stable but not the revision:
-                assert.ok(res.headers.etag.indexOf('42184395/') === 0);
+                assert.ok(res.headers.etag.startsWith('"42184395/'));
                 assert.equal(res.body.title, title);
                 assert.equal(res.body.thumbnail.source, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Iglesia_de_La_Compa%C3%B1%C3%ADa%2C_Quito%2C_Ecuador%2C_2015-07-22%2C_DD_116-118_HDR.JPG/640px-Iglesia_de_La_Compa%C3%B1%C3%ADa%2C_Quito%2C_Ecuador%2C_2015-07-22%2C_DD_116-118_HDR.JPG');
                 assert.equal(res.body.image.source, 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Iglesia_de_La_Compa%C3%B1%C3%ADa%2C_Quito%2C_Ecuador%2C_2015-07-22%2C_DD_116-118_HDR.JPG');

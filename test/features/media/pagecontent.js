@@ -21,16 +21,6 @@ describe('media', function() {
         return headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/page/media/Foobar`);
     });
 
-    it('return the sent ETag', () => {
-        return preq.get({
-            uri: `${server.config.uri}en.wikipedia.org/v1/page/media/Foobar`,
-            headers: { 'x-restbase-etag': '123456/c3421381-7109-11e5-ac43-8c7f067c3520' }
-        }).then((res) => {
-            assert.status(res, 200);
-            assert.deepEqual(res.headers.etag, '123456/c3421381-7109-11e5-ac43-8c7f067c3520');
-        });
-    });
-
     it('Sections/deep page should have no media items', () => {
         const uri = `${server.config.uri}test.wikipedia.org/v1/page/media/Sections%2Fdeep`;
         return preq.get({ uri })

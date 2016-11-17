@@ -26,7 +26,7 @@ router.get('/media/:title', (req, res) => {
         media: gallery.collectionPromise(app, req)
     }).then((response) => {
         res.status(200);
-        mUtil.setETag(req, res, response.page.revision);
+        mUtil.setETag(res, response.page.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
         res.json(response.media).end();
     });

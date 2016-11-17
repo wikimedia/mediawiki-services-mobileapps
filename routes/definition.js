@@ -26,7 +26,7 @@ router.get('/definition/:title/:revision?', (req, res) => {
     return parsoid.definitionPromise(app, req)
     .then((response) => {
         res.status(200);
-        mUtil.setETag(req, res, response.meta.revision);
+        mUtil.setETag(res, response.meta.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.definition);
         res.json(response.payload).end();
     });
