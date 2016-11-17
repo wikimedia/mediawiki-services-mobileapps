@@ -26,6 +26,7 @@
   "requireLineFeedAtFileEnd": null,
   "requireSpacesInsideObjectBrackets": null,
   "requireSpaceBetweenArguments": null,
+  "disallowVar": true,
   "requireVarDeclFirst": null,
   "jsDoc": null,
   "excludeFiles": [
