@@ -8,7 +8,6 @@ module.exports = function ( grunt ) {
         src: ['lib/**/*.js', 'routes/*.js', 'test/**/*.js' ],
         options: {
             config: ".jscsrc",
-            fix: true, // Autofix code style violations when possible.
             requireCurlyBraces: [ "if" ]
         }
     }
