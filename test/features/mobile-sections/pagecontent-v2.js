@@ -21,6 +21,24 @@ describe('mobile-sections-v2', function() {
             });
     });
 
+    it('Pages with only one section do not have an infobox or intro', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/formatted-lead/Wikipedia:Today\'s%20featured%20article%2FNovember%207,%202016' })
+            .then(function (res) {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.infobox === undefined);
+                assert.ok(res.body.intro === undefined);
+            });
+    });
+
+    it('Main pages do not have an infobox or intro', function() {
+        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/formatted-lead/Main_Page' })
+            .then(function (res) {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.infobox === undefined);
+                assert.ok(res.body.intro === undefined);
+            });
+    });
+
     it('Enwiki Barack Obama page has an infobox', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/formatted-lead/Barack_Obama' })
             .then(function (res) {

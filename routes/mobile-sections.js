@@ -82,6 +82,7 @@ function buildLeadSections(sections) {
  */
 function buildLead(input, removeNodes) {
     const lead = domino.createDocument(input.page.sections[0].text);
+
     if ( !removeNodes ) {
         // Move the first good paragraph up for any page except main pages.
         // It's ok to do unconditionally since we throw away the page
@@ -97,8 +98,10 @@ function buildLead(input, removeNodes) {
     let infobox, text, intro, sections;
 
     if ( removeNodes ) {
-        infobox = transforms.extractInfobox(lead);
-        intro = transforms.extractLeadIntroduction(lead);
+        if ( input.page.sections.length > 1 ) {
+            infobox = transforms.extractInfobox(lead);
+            intro = transforms.extractLeadIntroduction(lead);
+        }
         text = lead.body.innerHTML;
     } else {
         // update text after extractions have taken place
