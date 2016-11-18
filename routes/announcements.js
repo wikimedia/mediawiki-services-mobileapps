@@ -27,7 +27,7 @@ function getEnwikiAnnouncements() {
                 text: "Answer three questions and help us improve Wikipedia.",
                 action: {
                     title: "Take the survey",
-                    url: "https://survey.url?survey_id=12345&source=iOS"
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSdaqvKojvyXGSewEZ395RPOQ6AcD3e87MZnh5pvO7phqqKwVg/viewform"
                 },
                 caption_HTML: "<p>Survey data handled by a third party. <a href=\"https://wikimediafoundation.org/wiki/Survey_Privacy_Statement\">Privacy</a>.</p>",
                 countries: [
@@ -47,7 +47,7 @@ function getEnwikiAnnouncements() {
                 text: "Answer three questions and help us improve Wikipedia.",
                 action: {
                     title: "Take the survey",
-                    url: "https://survey.url?survey_id=12345&source=android"
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSdaqvKojvyXGSewEZ395RPOQ6AcD3e87MZnh5pvO7phqqKwVg/viewform"
                 },
                 caption_HTML: "<p>Survey data handled by a third party. <a href=\"https://wikimediafoundation.org/wiki/Survey_Privacy_Statement\">Privacy</a>.</p>",
                 countries: [
