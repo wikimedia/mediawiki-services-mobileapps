@@ -1,6 +1,6 @@
 'use strict';
 
-
+const _ = require('underscore');
 const assert = require('assert');
 
 
@@ -106,9 +106,14 @@ function fails(promise, onRejected) {
 }
 
 
+/**
+ * @param {?number} result
+ * @param {!number} expected
+ * @param {?string} message
+*/
 function closeTo(result, expected, delta, message) {
     try {
-        assert.ok(Math.abs(result - expected) <= delta, message);
+        assert.ok(_.isNumber(result) && Math.abs(result - expected) <= delta, message);
     } catch (e) {
         console.log(`Result is ${result}; expected ${expected} ± ${delta}`);
         throw e;
@@ -126,6 +131,7 @@ function contains(result, sub, message) {
     }
 
 }
+
 
 function selectorExistsNTimes(doc, selector, n, message) {
 
@@ -183,4 +189,3 @@ module.exports.selectorExistsOnce = selectorExistsOnce;
 module.exports.selectorHasValue = selectorHasValue;
 module.exports.selectorContainsValue = selectorContainsValue;
 module.exports.AssertionError = assert.AssertionError;
-

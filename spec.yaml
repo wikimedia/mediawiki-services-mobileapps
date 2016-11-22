@@ -654,7 +654,7 @@ definitions:
         description: A cover story for the news item
       links:
         type: array
-        description: A collection of articles related to the news item
+        description: A collection of pages mentioned in the headline. The first page is the headline topic
         items:
           $ref: '#/definitions/article_summary_merge_link'
     required:

@@ -25,6 +25,9 @@ const testStoryObj = {
     story: constants.newsHtml4,
     links: [
         { $merge: [
+            summUrl(rbTemplate, enwiki, '100_metres_hurdles')
+        ] },
+        { $merge: [
             summUrl(rbTemplate, enwiki, 'Sport_of_athletics')
         ] },
         { $merge: [
@@ -32,9 +35,6 @@ const testStoryObj = {
         ] },
         { $merge: [
             summUrl(rbTemplate, enwiki, `Women's_100_metres_hurdles_world_record_progression`)
-        ] },
-        { $merge: [
-            summUrl(rbTemplate, enwiki, '100_metres_hurdles')
         ] },
         { $merge: [
             summUrl(rbTemplate, enwiki, 'London_Grand_Prix')
@@ -96,7 +96,7 @@ describe('in the news', function() {
 
     it('News story constructed correctly (duplicate titles handled correctly)', () => {
         const html = domino.createDocument(constants.newsHtml3).getElementsByTagName('li')[0];
-        const story = news.constructStory(rbTemplate, 'en.wikipedia.org', html);
+        const story = news.constructStory(rbTemplate, 'en.wikipedia.org', 'en', html);
         assert.deepEqual(story, testStoryObj);
     });
 });
