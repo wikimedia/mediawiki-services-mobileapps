@@ -265,10 +265,10 @@ router.get('/mobile-sections-remaining/:title/:revision?', function (req, res) {
 });
 
 /**
- * GET {domain}/v1/page/mobile-sections-references/{title}/{revision:?}
+ * GET {domain}/v1/page/references/{title}/{revision:?}
  * Gets any sections which are part of a reference sections for a given wiki page.
  */
-router.get('/mobile-sections-references/:title/:revision?', function (req, res) {
+router.get('/references/:title/:revision?', function (req, res) {
     return BBPromise.props({
         page: parsoid.pageContentPromise(app, req)
     }).then(function (response) {

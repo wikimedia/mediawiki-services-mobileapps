@@ -182,7 +182,7 @@ describe('mobile-sections', function() {
     });
 
     it('Requesting just references returns only sections with references', function() {
-        return preq.get({uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-references/Barack_Obama'})
+        return preq.get({uri: server.config.uri + 'en.wikipedia.org/v1/page/references/Barack_Obama'})
             .then(function (res) {
                 assert.equal(res.status, 200);
                 assert.equal(res.body.sections.length, 4, 'Barack Obama has 4 reference sections');
