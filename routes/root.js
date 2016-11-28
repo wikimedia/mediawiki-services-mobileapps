@@ -19,7 +19,7 @@ let app;
  * GET /robots.txt
  * Instructs robots no indexing should occur on this domain.
  */
-router.get('/robots.txt', function(req, res) {
+router.get('/robots.txt', (req, res) => {
 
     res.set({
         'User-agent': '*',
@@ -34,9 +34,9 @@ router.get('/robots.txt', function(req, res) {
  * Main entry point. Currently it only responds if the spec query
  * parameter is given, otherwise lets the next middleware handle it
  */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
 
-    if(!(req.query || {}).hasOwnProperty('spec')) {
+    if (!{}.hasOwnProperty.call(req.query || {}, 'spec')) {
         next();
     } else {
         res.json(app.conf.spec);
@@ -52,7 +52,7 @@ module.exports = function(appObj) {
     return {
         path: '/',
         skip_domain: true,
-        router: router
+        router
     };
 
 };
