@@ -7,7 +7,7 @@
  * Status: Prototype -- not ready for production
  * Currently using the mobileview action MW API, and removing some data we don't display.
  * TODO: Split the "text" objects of each section into paragraph and table objects
- * TODO: add some transformations that currently are being done by the apps and remove some more unneeded data
+ * TODO: add more transformations that currently are being done by the apps
  */
 
 'use strict';
@@ -16,7 +16,6 @@ const domino = require('domino');
 const sUtil = require('../lib/util');
 const mUtil = require('../lib/mobile-util');
 const mwapi = require('../lib/mwapi');
-
 
 
 /**
@@ -70,13 +69,15 @@ function runDomTransforms(section) {
     rmSelectorAll(doc, 'div.noprint');
     rmSelectorAll(doc, 'div.infobox');
     rmSelectorAll(doc, 'div.metadata');
-    rmSelectorAll(doc, 'table'); // TODO: later we may want to transform some of the tables into a JSON structure
+    rmSelectorAll(doc, 'table');
 
 
     // and break it down into items...
     section.items = [];
     let itemIndex = 0;
-    let thumbnails, tid, thumb;
+    let thumb;
+    let thumbnails;
+    let tid;
 
     const hatnotes = doc.querySelectorAll("div.hatnote") || [];
     for (let hid = 0; hid < hatnotes.length; hid++) {
@@ -129,10 +130,10 @@ function runDomTransforms(section) {
  * GET {domain}/v1/page/mobile-text/{title}
  * Gets the lite mobile app version of a given wiki page.
  */
-router.get('/mobile-text/:title', function (req, res) {
+router.get('/mobile-text/:title', (req, res) => {
     return mwapi.getAllSections(app, req)
     // and then return it
-    .then(function (apiRes) {
+    .then((apiRes) => {
         // transform all sections
         const sections = apiRes.body.mobileview.sections;
         for (let idx = 0; idx < sections.length; idx++) {
@@ -147,11 +148,11 @@ router.get('/mobile-text/:title', function (req, res) {
     });
 });
 
-module.exports = function (appObj) {
+module.exports = function(appObj) {
     app = appObj;
     return {
         path: '/page',
         api_version: 1,
-        router: router
+        router
     };
 };

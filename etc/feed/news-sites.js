@@ -10,22 +10,22 @@
  *    of the actual news items, or instead of a <ul> Parsoid uses a <div>.
  */
 const NEWS_TEMPLATES = {
-    en: {title: 'Template:In_the_news', selector: 'ul[id^=mw]'},
+    en: { title: 'Template:In_the_news', selector: 'ul[id^=mw]' },
 
-    da: {title: 'Skabelon:Forside_aktuelle_begivenheder', selector: 'div'},
-    de: {title: 'Wikipedia:Hauptseite/Aktuelles', selector: 'ul'},
-    el: {title: 'Πύλη:Τρέχοντα_γεγονότα/Επικεφαλίδες', selector: 'ul'},
-    es: {title: 'Portal:Actualidad', selector: 'ul'},
-    fi: {title: 'Malline:Uutisissa', selector: 'ul'},
-    fr: {title: 'Modèle:Accueil_actualité', selector: 'ul[id^=mw]'},
-    he: {title: 'תבנית:חדשות_ואקטואליה', selector: 'ul'},
-    ko: {title: '틀:새로_들어온_소식', selector: 'ul'},
-    no: {title: 'Mal:Aktuelt', selector: 'ul'},
-    pl: {title: 'Szablon:Aktualności', selector: 'ul:last-of-type'},
-    pt: {title: 'Portal:Eventos_atuais', selector: 'ul'},
-    ru: {title: 'Шаблон:Актуальные_события', selector: 'ul'},
-    sv: {title: 'Portal:Huvudsida/Aktuella händelser', selector: 'ul'},
-    vi: {title: 'Bản_mẫu:Tin_tức', selector: 'ul'}
+    da: { title: 'Skabelon:Forside_aktuelle_begivenheder', selector: 'div' },
+    de: { title: 'Wikipedia:Hauptseite/Aktuelles', selector: 'ul' },
+    el: { title: 'Πύλη:Τρέχοντα_γεγονότα/Επικεφαλίδες', selector: 'ul' },
+    es: { title: 'Portal:Actualidad', selector: 'ul' },
+    fi: { title: 'Malline:Uutisissa', selector: 'ul' },
+    fr: { title: 'Modèle:Accueil_actualité', selector: 'ul[id^=mw]' },
+    he: { title: 'תבנית:חדשות_ואקטואליה', selector: 'ul' },
+    ko: { title: '틀:새로_들어온_소식', selector: 'ul' },
+    no: { title: 'Mal:Aktuelt', selector: 'ul' },
+    pl: { title: 'Szablon:Aktualności', selector: 'ul:last-of-type' },
+    pt: { title: 'Portal:Eventos_atuais', selector: 'ul' },
+    ru: { title: 'Шаблон:Актуальные_события', selector: 'ul' },
+    sv: { title: 'Portal:Huvudsida/Aktuella händelser', selector: 'ul' },
+    vi: { title: 'Bản_mẫu:Tin_tức', selector: 'ul' }
 };
 
 module.exports = NEWS_TEMPLATES;

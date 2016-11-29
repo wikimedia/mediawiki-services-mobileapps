@@ -22,9 +22,9 @@ let app;
  * GET {domain}/v1/definition/{title}/{revision?}
  * Gets the Wiktionary definition for a given term (and optional revision ID).
  */
-router.get('/definition/:title/:revision?', function (req, res) {
+router.get('/definition/:title/:revision?', (req, res) => {
     return parsoid.definitionPromise(app, req)
-    .then(function (response) {
+    .then((response) => {
         res.status(200);
         mUtil.setETag(req, res, response.meta.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.definition);
@@ -32,11 +32,11 @@ router.get('/definition/:title/:revision?', function (req, res) {
     });
 });
 
-module.exports = function (appObj) {
+module.exports = function(appObj) {
     app = appObj;
     return {
         path: '/page',
         api_version: 1,
-        router: router
+        router
     };
 };

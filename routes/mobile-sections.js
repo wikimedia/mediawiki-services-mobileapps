@@ -4,9 +4,9 @@
  * using plain TextViews.
  * The payload should not have any extra data, and should be easy to consume by the apps.
  *
- * Status: Prototype -- not ready for production
+ * Status: Experimental
  * Currently using the mobileview action MW API, and removing some data we don't display.
- * TODO: add some transformations that currently are being done by the apps and remove some more unneeded data
+ * TODO: add more transformations that currently are being done by the apps
  */
 
 'use strict';
@@ -33,7 +33,7 @@ let app;
 /** Returns a promise to retrieve the page content from MW API mobileview */
 function pageContentForMainPagePromise(req) {
     return mwapi.getAllSections(app, req)
-    .then(function (response) {
+    .then((response) => {
         const page = response.body.mobileview;
         const sections = page.sections;
         let section;
@@ -52,14 +52,14 @@ function pageContentForMainPagePromise(req) {
 /** Returns a promise to retrieve the page content from MW API mobileview */
 function pageMetadataPromise(req) {
     return mwapi.getMetadata(app, req)
-    .then(function (response) {
+    .then((response) => {
         return response.body.mobileview;
     });
 }
 
 function buildLeadSections(sections) {
-    const out = [],
-        len = sections.length;
+    const len = sections.length;
+    const out = [];
 
     out.push(sections[0]);
     for (let i = 1; i < len; i++) {
@@ -83,7 +83,7 @@ function buildLeadSections(sections) {
 function buildLead(input, removeNodes) {
     const lead = domino.createDocument(input.page.sections[0].text);
 
-    if ( !removeNodes ) {
+    if (!removeNodes) {
         // Move the first good paragraph up for any page except main pages.
         // It's ok to do unconditionally since we throw away the page
         // content if this turns out to be a main page.
@@ -95,10 +95,13 @@ function buildLead(input, removeNodes) {
     const pronunciation = parse.parsePronunciation(lead, input.meta.displaytitle);
     const issues = transforms.extractPageIssues(lead, removeNodes);
 
-    let infobox, text, intro, sections;
+    let infobox;
+    let intro;
+    let sections;
+    let text;
 
-    if ( removeNodes ) {
-        if ( input.page.sections.length > 1 ) {
+    if (removeNodes) {
+        if (input.page.sections.length > 1) {
             infobox = transforms.extractInfobox(lead);
             intro = transforms.extractLeadIntroduction(lead);
         }
@@ -112,7 +115,7 @@ function buildLead(input, removeNodes) {
     return {
         ns: input.meta.ns,
         id: input.meta.id,
-        issues: issues,
+        issues,
         revision: input.page.revision,
         lastmodified: input.page.lastmodified,
         lastmodifier: input.meta.lastmodifiedby || { anon: true },
@@ -129,14 +132,14 @@ function buildLead(input, removeNodes) {
             file: input.meta.image && input.meta.image.file,
             urls: input.meta.thumb && mwapi.buildLeadImageUrls(input.meta.thumb.url)
         })),
-        pronunciation: pronunciation,
+        pronunciation,
         spoken: input.page.spoken,
-        hatnotes: hatnotes,
-        infobox: infobox,
-        intro: intro,
+        hatnotes,
+        infobox,
+        intro,
         geo: input.page.geo,
-        sections: sections,
-        text: text
+        sections,
+        text
     };
 }
 
@@ -144,11 +147,11 @@ function buildRemaining(input) {
     // don't repeat the first section in remaining
     const sections = input.page.sections.slice(1);
     // mark references sections with a flag (if no sections its a stub or main page)
-    if ( sections.length ) {
-        transforms.markReferenceSections( sections, false );
+    if (sections.length) {
+        transforms.markReferenceSections(sections, false);
     }
     return {
-        sections: sections
+        sections
     };
 }
 
@@ -160,13 +163,13 @@ function buildRemaining(input) {
 function buildReferences(input) {
     const remaining = buildRemaining(input);
     const sections = [];
-    remaining.sections.forEach(function (section) {
+    remaining.sections.forEach((section) => {
         if (section.isReferenceSection) {
             sections.push(section);
         }
     });
     return {
-        sections: sections
+        sections
     };
 }
 
@@ -188,7 +191,7 @@ function buildAll(input, removeNodes) {
  */
 function mainPageFixPromise(req, response) {
     return pageContentForMainPagePromise(req)
-    .then(function (mainPageContent) {
+    .then((mainPageContent) => {
         return {
             page: mainPageContent,
             meta: response.meta,
@@ -201,12 +204,12 @@ function buildAllResponse(req, res, removeNodes) {
     return BBPromise.props({
         page: parsoid.pageContentPromise(app, req),
         meta: pageMetadataPromise(req)
-    }).then(function (response) {
+    }).then((response) => {
         if (response.meta.mainpage) {
             return mainPageFixPromise(req, response);
         }
         return response;
-    }).then(function (response) {
+    }).then((response) => {
         response = buildAll(response, removeNodes);
         res.status(200);
         mUtil.setETag(req, res, response.lead.revision);
@@ -217,46 +220,46 @@ function buildAllResponse(req, res, removeNodes) {
 
 function buildLeadResponse(req, res, removeNodes) {
     return BBPromise.props({
-            page: parsoid.pageContentPromise(app, req),
-            meta: pageMetadataPromise(req),
-            extract: mwapi.requestExtract(app, req)
-        }).then(function (response) {
-            if (response.meta.mainpage) {
-                return mainPageFixPromise(req, response);
-            }
-            return response;
-        }).then(function (response) {
-            response = buildLead(response, removeNodes);
-            res.status(200);
-            mUtil.setETag(req, res, response.revision);
-            mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
-            res.json(response).end();
-        });
+        page: parsoid.pageContentPromise(app, req),
+        meta: pageMetadataPromise(req),
+        extract: mwapi.requestExtract(app, req)
+    }).then((response) => {
+        if (response.meta.mainpage) {
+            return mainPageFixPromise(req, response);
+        }
+        return response;
+    }).then((response) => {
+        response = buildLead(response, removeNodes);
+        res.status(200);
+        mUtil.setETag(req, res, response.revision);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
+        res.json(response).end();
+    });
 }
 /**
  * GET {domain}/v1/page/mobile-sections/{title}
  * Gets the mobile app version of a given wiki page.
  */
-router.get('/mobile-sections/:title/:revision?', function (req, res) {
-    return buildAllResponse( req, res, false );
+router.get('/mobile-sections/:title/:revision?', (req, res) => {
+    return buildAllResponse(req, res, false);
 });
 
 /**
  * GET {domain}/v1/page/mobile-sections-lead/{title}
  * Gets the lead section for the mobile app version of a given wiki page.
  */
-router.get('/mobile-sections-lead/:title/:revision?', function (req, res) {
-    return buildLeadResponse( req, res, false );
+router.get('/mobile-sections-lead/:title/:revision?', (req, res) => {
+    return buildLeadResponse(req, res, false);
 });
 
 /**
  * GET {domain}/v1/page/mobile-sections-remaining/{title}
  * Gets the remaining sections for the mobile app version of a given wiki page.
  */
-router.get('/mobile-sections-remaining/:title/:revision?', function (req, res) {
+router.get('/mobile-sections-remaining/:title/:revision?', (req, res) => {
     return BBPromise.props({
         page: parsoid.pageContentPromise(app, req)
-    }).then(function (response) {
+    }).then((response) => {
         res.status(200);
         mUtil.setETag(req, res, response.page.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
@@ -268,10 +271,10 @@ router.get('/mobile-sections-remaining/:title/:revision?', function (req, res) {
  * GET {domain}/v1/page/references/{title}/{revision:?}
  * Gets any sections which are part of a reference sections for a given wiki page.
  */
-router.get('/references/:title/:revision?', function (req, res) {
+router.get('/references/:title/:revision?', (req, res) => {
     return BBPromise.props({
         page: parsoid.pageContentPromise(app, req)
-    }).then(function (response) {
+    }).then((response) => {
         res.status(200);
         mUtil.setETag(req, res, response.page.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
@@ -283,23 +286,23 @@ router.get('/references/:title/:revision?', function (req, res) {
 * GET {domain}/v1/page/formatted/{title}/{revision?}
 * Gets a formatted version of a given wiki page rather than a blob of wikitext.
 */
-router.get('/formatted/:title/:revision?', function (req, res) {
-    return buildAllResponse( req, res, true );
+router.get('/formatted/:title/:revision?', (req, res) => {
+    return buildAllResponse(req, res, true);
 });
 
 /**
 * GET {domain}/v1/page/formatted-lead/{title}/{revision?}
 * Gets a formatted version of a given wiki page rather than a blob of wikitext.
 */
-router.get('/formatted-lead/:title/:revision?', function (req, res) {
-    return buildLeadResponse( req, res, true );
+router.get('/formatted-lead/:title/:revision?', (req, res) => {
+    return buildLeadResponse(req, res, true);
 });
 
-module.exports = function (appObj) {
+module.exports = function(appObj) {
     app = appObj;
     return {
         path: '/page',
         api_version: 1,
-        router: router
+        router
     };
 };

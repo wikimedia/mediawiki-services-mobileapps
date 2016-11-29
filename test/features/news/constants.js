@@ -5,8 +5,8 @@ const cleanNewsHtml1 = '<!--June 20 --> In <a rel="mw:WikiLink" href="./Basketba
 const cleanNewsHtml2 = '<!--June 24 --> After the United Kingdom <b id=\"mwCA\"><a rel=\"mw:WikiLink\" href=\"./United_Kingdom_European_Union_membership_referendum,_2016\" title=\"United Kingdom European Union membership referendum, 2016\" id=\"mwCQ\" class=\"feednewslink\">votes to leave</a></b> the <a rel=\"mw:WikiLink\" href=\"./European_Union\" title=\"European Union\" id=\"mwCg\" class=\"feednewslink\">European Union</a>, <a rel=\"mw:WikiLink\" href=\"./British_Prime_Minister\" title=\"British Prime Minister\" id=\"mwCw\" class=\"feednewslink\">British Prime Minister</a> <b id=\"mwDA\"><a rel=\"mw:WikiLink\" href=\"./David_Cameron\" title=\"David Cameron\" id=\"mwDQ\" class=\"feednewslink\">David Cameron</a></b> announces he will resign by October.';
 
 module.exports = {
-    newsHtml1: newsHtml1,
-    newsHtml2: newsHtml2,
-    cleanNewsHtml1: cleanNewsHtml1,
-    cleanNewsHtml2: cleanNewsHtml2
-}
+    newsHtml1,
+    newsHtml2,
+    cleanNewsHtml1,
+    cleanNewsHtml2
+};

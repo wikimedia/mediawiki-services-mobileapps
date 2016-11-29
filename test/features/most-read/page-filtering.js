@@ -14,15 +14,15 @@ const file = fs.readFileSync(path.resolve(__dirname, '../../../static/mainpages.
 const mainPageTitles = parse(file, 'utf8')[0];
 const articles = [ { pageid: 0, ns: 0, title: 'Hello world' } ];
 
-describe('page filtering', function() {
-    it('main page filtering RegExp should handle all main page title chars', function() {
-        mainPageTitles.forEach(function(title) {
+describe('page filtering', () => {
+    it('main page filtering RegExp should handle all main page title chars', () => {
+        mainPageTitles.forEach((title) => {
             assert.ok(filterSpecialPages(articles, title));
         });
     });
 
-    it('Page with pageviews below threshold on either desktop or mobile should be omitted from results', function() {
-        mostRead.filterBotTraffic(combinedMostRead, desktopMostRead).forEach(function (entry) {
+    it('Page with pageviews below threshold on either desktop or mobile should be omitted from results', () => {
+        mostRead.filterBotTraffic(combinedMostRead, desktopMostRead).forEach((entry) => {
             assert.ok(entry.article !== "AMGTV");
         });
     });

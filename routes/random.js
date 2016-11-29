@@ -29,9 +29,9 @@ let app;
  * the highest relative score is returned. Requesting about 12 items
  * seems to consistently produce a really "good" result.
  */
-router.get('/random/title', function (req, res) {
+router.get('/random/title', (req, res) => {
     return randomPage.promise(app, req)
-    .then(function (result) {
+    .then((result) => {
         res.status(200);
         mUtil.setETag(req, res, result.meta.etag);
         res.json(mwapi.buildTitleResponse(result.payload)).end();
@@ -48,20 +48,20 @@ router.get('/random/title', function (req, res) {
  * the highest relative score is returned. Requesting about 12 items
  * seems to consistently produce a really "good" result.
  */
-router.get('/random/summary', function (req, res) {
+router.get('/random/summary', (req, res) => {
     return randomPage.promise(app, req)
-    .then(function (result) {
+    .then((result) => {
         res.status(200);
         mUtil.setETag(req, res, result.meta.etag);
         res.json(result.payload).end();
     });
 });
 
-module.exports = function (appObj) {
+module.exports = function(appObj) {
     app = appObj;
     return {
         path: '/page',
         api_version: 1,
-        router: router
+        router
     };
 };

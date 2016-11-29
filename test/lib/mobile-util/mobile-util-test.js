@@ -21,16 +21,16 @@ const arr7 = [ obj4, obj2 ];
 describe('lib:mobile-util', function() {
     this.timeout(20000);
 
-    it('removeTLD should remove TLD', function() {
+    it('removeTLD should remove TLD', () => {
         assert.deepEqual(mUtil.removeTLD('ru.wikipedia.org'), 'ru.wikipedia');
     });
 
-    it('mergeByProp should merge two objects by shared property', function() {
-        mUtil.mergeByProp(arr1, arr2, 'again', true)
+    it('mergeByProp should merge two objects by shared property', () => {
+        mUtil.mergeByProp(arr1, arr2, 'again', true);
         assert.deepEqual(arr1, arr5);
     });
 
-    it('adjustMemberKeys should make the specified adjustments', function() {
+    it('adjustMemberKeys should make the specified adjustments', () => {
         mUtil.adjustMemberKeys(arr6, ['goodbye', 'hello'], ['sea', 'world']);
         assert.deepEqual(arr6, arr7);
 
@@ -38,7 +38,7 @@ describe('lib:mobile-util', function() {
         assert.deepEqual(arr3, arr2);
     });
 
-    it('fillInMemberKeys should make the specified adjustments', function() {
+    it('fillInMemberKeys should make the specified adjustments', () => {
         mUtil.fillInMemberKeys(arr3, ['world', 'goodbye'], ['again', 'sea']);
         assert.deepEqual(arr3, arr4);
     });

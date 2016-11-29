@@ -40,21 +40,21 @@ function toElement(str) {
 describe('in the news', function() {
     this.timeout(20000);
 
-    before(function () { return server.start(); });
+    before(() => { return server.start(); });
     for (const lang in NEWS_TEMPLATES) {
-        it(lang + ': should respond to GET request with expected headers, incl. CORS and CSP headers', function () {
-            return headers.checkHeaders(server.config.uri + lang + '.wikipedia.org/v1/page/news',
+        it(`${lang}: should respond to GET request with expected headers, incl. CORS and CSP headers`, () => {
+            return headers.checkHeaders(`${server.config.uri + lang}.wikipedia.org/v1/page/news`,
                 'application/json');
         });
-        it(lang + ': results list should have expected properties', function () {
-            return preq.get({uri: server.config.uri + lang + '.wikipedia.org/v1/page/news'})
-                .then(function (res) {
+        it(`${lang}: results list should have expected properties`, () => {
+            return preq.get({ uri: `${server.config.uri + lang}.wikipedia.org/v1/page/news` })
+                .then((res) => {
                     assert.deepEqual(res.status, 200);
                     assert.ok(res.body.length);
-                    res.body.forEach(function (elem) {
+                    res.body.forEach((elem) => {
                         assert.ok(elem.story, 'story should be present');
                         assert.ok(elem.links, 'links should be present');
-                        elem.links.forEach(function (link) {
+                        elem.links.forEach((link) => {
                             assert.ok(link.$merge, '$merge should be present');
                             assert.ok(link.missing === undefined, 'no missing links should be present');
                         });
@@ -63,23 +63,23 @@ describe('in the news', function() {
         });
     }
 
-    it('unsupported language with aggregated=true should return 204', function() {
+    it('unsupported language with aggregated=true should return 204', () => {
         return preq.get({
-            uri: server.config.uri + 'is.wikipedia.org/v1/page/news',
+            uri: `${server.config.uri}is.wikipedia.org/v1/page/news`,
             query: { aggregated: true }
         })
-        .then(function(res) {
+        .then((res) => {
             assert.status(res, 204);
             assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
         });
     });
 
-    it('URL fragments should be stripped correctly', function() {
+    it('URL fragments should be stripped correctly', () => {
         assert.deepEqual(news.removeFragment('100_metres_hurdles#Top_25_fastest_athletes'), '100_metres_hurdles');
         assert.deepEqual(news.removeFragment('Kendra_Harrison'), 'Kendra_Harrison');
     });
 
-    it('News story constructed correctly (duplicate titles handled correctly)', function() {
+    it('News story constructed correctly (duplicate titles handled correctly)', () => {
         const html = domino.createDocument(testStoryHtml).getElementsByTagName('li')[0];
         const story = news.constructStory(mock_restbase_tpl, 'en.wikipedia.org', html);
         assert.deepEqual(story, testStoryObj);

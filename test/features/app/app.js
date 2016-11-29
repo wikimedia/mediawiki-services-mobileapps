@@ -10,24 +10,24 @@ describe('express app', function() {
 
     this.timeout(20000);
 
-    before(function () { return server.start(); });
+    before(() => { return server.start(); });
 
-    it('should get robots.txt', function() {
+    it('should get robots.txt', () => {
         return preq.get({
-            uri: server.config.uri + 'robots.txt'
-        }).then(function(res) {
+            uri: `${server.config.uri}robots.txt`
+        }).then((res) => {
             assert.deepEqual(res.status, 200);
-            assert.deepEqual(res.headers['disallow'], '/');
+            assert.deepEqual(res.headers.disallow, '/');
         });
     });
 
-    it('should set CORS headers', function() {
-        if(server.config.service.conf.cors === false) {
+    it('should set CORS headers', () => {
+        if (server.config.service.conf.cors === false) {
             return true;
         }
         return preq.get({
-            uri: server.config.uri + 'robots.txt'
-        }).then(function(res) {
+            uri: `${server.config.uri}robots.txt`
+        }).then((res) => {
             assert.deepEqual(res.status, 200);
             assert.deepEqual(res.headers['access-control-allow-origin'], '*');
             assert.deepEqual(!!res.headers['access-control-allow-headers'], true);
@@ -35,13 +35,13 @@ describe('express app', function() {
         });
     });
 
-    it('should set CSP headers', function() {
-        if(server.config.service.conf.csp === false) {
+    it('should set CSP headers', () => {
+        if (server.config.service.conf.csp === false) {
             return true;
         }
         return preq.get({
-            uri: server.config.uri + 'robots.txt'
-        }).then(function(res) {
+            uri: `${server.config.uri}robots.txt`
+        }).then((res) => {
             assert.deepEqual(res.status, 200);
             assert.deepEqual(res.headers['x-xss-protection'], '1; mode=block');
             assert.deepEqual(res.headers['x-content-type-options'], 'nosniff');
@@ -52,25 +52,25 @@ describe('express app', function() {
         });
     });
 
-    it.skip('should get static content gzipped', function() {
+    it.skip('should get static content gzipped', () => {
         return preq.get({
-            uri: server.config.uri + 'static/index.html',
+            uri: `${server.config.uri}static/index.html`,
             headers: {
                 'accept-encoding': 'gzip, deflate'
             }
-        }).then(function(res) {
+        }).then((res) => {
             // check that the response is gzip-ed
             assert.deepEqual(res.headers['content-encoding'], 'gzip', 'Expected gzipped contents!');
         });
     });
 
-    it('should get static content uncompressed', function() {
+    it('should get static content uncompressed', () => {
         return preq.get({
-            uri: server.config.uri + 'static/index.html',
+            uri: `${server.config.uri}static/index.html`,
             headers: {
                 'accept-encoding': ''
             }
-        }).then(function(res) {
+        }).then((res) => {
             // check that the response is gzip-ed
             assert.deepEqual(res.headers['content-encoding'], undefined, 'Did not expect gzipped contents!');
         });

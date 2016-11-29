@@ -23,13 +23,13 @@ describe('lib:parsoid', function() {
     function assertSection2(sections) {
         assert.deepEqual(sections[2].id, 2);
         assert.deepEqual(sections[2].toclevel, 2);
-        //assert.deepEqual(sections[2].line, 'Funny section !@#$');
+        // assert.deepEqual(sections[2].line, 'Funny section !@#$');
         assert.deepEqual(sections[2].anchor, 'Funny_section_.21.40.23.24');
         assert.deepEqual(sections[2].text, 'text2');
     }
 
 
-    it('getSectionsText(empty) should produce an empty lead section', function() {
+    it('getSectionsText(empty) should produce an empty lead section', () => {
         const doc = domino.createDocument('<body></body>');
         parsoid._addSectionDivs(doc);
         const sections = parsoid._getSectionsText(doc);
@@ -38,7 +38,7 @@ describe('lib:parsoid', function() {
         assert.deepEqual(sections[0].text, '');
     });
 
-    it('getSectionsText() with just text should produce a lead section', function() {
+    it('getSectionsText() with just text should produce a lead section', () => {
         const doc = domino.createDocument('<body>text0</body>');
         parsoid._addSectionDivs(doc);
         const sections = parsoid._getSectionsText(doc);
@@ -46,7 +46,7 @@ describe('lib:parsoid', function() {
         assertSection0(sections);
     });
 
-    it('getSectionsText() with one h2 should produce two sections', function() {
+    it('getSectionsText() with one h2 should produce two sections', () => {
         const doc = domino.createDocument('<body>text0<h2>foo</h2>text1</body>');
         parsoid._addSectionDivs(doc);
         const sections = parsoid._getSectionsText(doc);
@@ -55,7 +55,7 @@ describe('lib:parsoid', function() {
         assertSection1(sections);
     });
 
-    it('getSectionsText() with one h2 and h3 should produce three sections', function() {
+    it('getSectionsText() with one h2 and h3 should produce three sections', () => {
         const doc = domino.createDocument('<body>text0<h2>foo</h2>text1<h3 id="mwBa">Funny section !@#$%^&*()</h3>text2</body>');
         parsoid._addSectionDivs(doc);
         const sections = parsoid._getSectionsText(doc);

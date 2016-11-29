@@ -14,7 +14,7 @@ logger.log = function(a, b) {};
 describe('lib:apiUtil', function() {
     this.timeout(20000);
 
-    it('checkForQueryPagesInResponse should return 504 when expected query.pages are absent', function() {
+    it('checkForQueryPagesInResponse should return 504 when expected query.pages are absent', () => {
         return preq.post({
             uri: 'https://commons.wikimedia.org/w/api.php',
             body: {
@@ -30,8 +30,8 @@ describe('lib:apiUtil', function() {
                 rawcontinue: '',
                 titles: `Template:Potd/1980-07-06`
             }
-        }).then(function (response) {
-            assert.throws(function() { mwapi.checkForQueryPagesInResponse({ logger: logger }, response); }, /api_error/);
+        }).then((response) => {
+            assert.throws(() => { mwapi.checkForQueryPagesInResponse({ logger }, response); }, /api_error/);
         });
     });
 });

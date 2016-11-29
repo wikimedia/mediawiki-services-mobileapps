@@ -6,7 +6,7 @@ const dateUtil = require('../../../lib/dateUtil');
 describe('lib:dateUtil', function() {
     this.timeout(20000);
 
-    it('getRequestedDate(2016-04-15) should return a valid Date object', function() {
+    it('getRequestedDate(2016-04-15) should return a valid Date object', () => {
         const actual = dateUtil.getRequestedDate({
             params: {
                 yyyy: 2016,
@@ -19,7 +19,7 @@ describe('lib:dateUtil', function() {
         assert.equal(actual.getUTCDate(), 15);
     });
 
-    it('date format validation should reject invalid formats', function() {
+    it('date format validation should reject invalid formats', () => {
         assert.ok(!dateUtil.validate('2016-7-4'));
         assert.ok(!dateUtil.validate('2016-07-4'));
         assert.ok(!dateUtil.validate('2016-7-04'));
@@ -42,5 +42,5 @@ describe('lib:dateUtil', function() {
         assert.ok(!dateUtil.validate('2016-\u000007-04'));
         assert.ok(!dateUtil.validate('2016-07-\u000004'));
         assert.ok(dateUtil.validate('2016-07-04'));
-    })
+    });
 });

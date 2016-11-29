@@ -21,9 +21,9 @@ let app;
  * available) a thumbnail and/or description for the top 40-50 most read
  * articles for the date requested.
  */
-router.get('/most-read/:yyyy/:mm/:dd', function (req, res) {
+router.get('/most-read/:yyyy/:mm/:dd', (req, res) => {
     return mostRead.promise(app, req)
-    .then(function (response) {
+    .then((response) => {
         res.status(!response.payload ? 204 : 200);
         mUtil.setETagToValue(res, response.meta && response.meta.etag);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
@@ -31,11 +31,11 @@ router.get('/most-read/:yyyy/:mm/:dd', function (req, res) {
     });
 });
 
-module.exports = function (appObj) {
+module.exports = function(appObj) {
     app = appObj;
     return {
         path: '/page',
         api_version: 1,
-        router: router
+        router
     };
 };

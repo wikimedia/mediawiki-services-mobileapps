@@ -20,11 +20,11 @@ let app;
  * GET {domain}/v1/page/media/{title}
  * Gets the media items associated with the given page.
  */
-router.get('/media/:title', function (req, res) {
+router.get('/media/:title', (req, res) => {
     return BBPromise.props({
         page: parsoid.pageContentPromise(app, req),
         media: gallery.collectionPromise(app, req)
-    }).then(function (response) {
+    }).then((response) => {
         res.status(200);
         mUtil.setETag(req, res, response.page.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
@@ -32,11 +32,11 @@ router.get('/media/:title', function (req, res) {
     });
 });
 
-module.exports = function (appObj) {
+module.exports = function(appObj) {
     app = appObj;
     return {
         path: '/page',
         api_version: 1,
-        router: router
+        router
     };
 };

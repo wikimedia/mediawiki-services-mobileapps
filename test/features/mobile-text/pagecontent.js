@@ -8,15 +8,15 @@ const headers = require('../../utils/headers.js');
 describe('mobile-text', function() {
     this.timeout(20000);
 
-    before(function () { return server.start(); });
+    before(() => { return server.start(); });
 
-    it('should respond to GET request with expected headers, incl. CORS and CSP headers', function() {
-        return headers.checkHeaders(server.config.uri + 'en.wikipedia.org/v1/page/mobile-text/Foobar',
+    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
+        return headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/page/mobile-text/Foobar`,
             'application/json');
     });
-    it('should have the right meta fields in the JSON response', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-text/Foobar' })
-            .then(function(res) {
+    it('should have the right meta fields in the JSON response', () => {
+        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-text/Foobar` })
+            .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.notDeepEqual(res.body.lastmodified, undefined);
                 assert.notDeepEqual(res.body.revision, undefined);
@@ -27,9 +27,9 @@ describe('mobile-text', function() {
                 assert.deepEqual(res.body.displaytitle, 'Foobar');
             });
     });
-    it('should have the right structure of section objects', function() {
-        return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-text/Foobar' })
-            .then(function(res) {
+    it('should have the right structure of section objects', () => {
+        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-text/Foobar` })
+            .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.notDeepEqual(res.body.sections, undefined);
                 for (let i = 0; i < res.body.sections.length; i++) {
@@ -38,9 +38,9 @@ describe('mobile-text', function() {
                 }
             });
     });
-    it('should have the right structure of paragraph, image, and video objects', function() {
-        return preq.get({ uri: server.config.uri + 'test.wikipedia.org/v1/page/mobile-text/LiteTest' })
-            .then(function(res) {
+    it('should have the right structure of paragraph, image, and video objects', () => {
+        return preq.get({ uri: `${server.config.uri}test.wikipedia.org/v1/page/mobile-text/LiteTest` })
+            .then((res) => {
                 assert.deepEqual(res.status, 200);
                 let numParagraphs = 0;
                 let numImages = 0;

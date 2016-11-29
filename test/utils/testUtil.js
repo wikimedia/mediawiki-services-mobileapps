@@ -13,9 +13,9 @@ const testUtil = {};
  * @return {String} formatted date string
  */
 testUtil.constructTestDate = function(dateObj) {
-    return dateObj.getUTCFullYear() + '/'
-        + dateUtil.pad(dateObj.getUTCMonth() + 1) + '/'
-        + dateUtil.pad(dateObj.getUTCDate());
+    return `${dateObj.getUTCFullYear()}/${
+         dateUtil.pad(dateObj.getUTCMonth() + 1)}/${
+         dateUtil.pad(dateObj.getUTCDate())}`;
 };
 
 module.exports = testUtil;

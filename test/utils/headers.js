@@ -6,8 +6,8 @@ const preq   = require('preq');
 
 
 function checkHeaders(uri, expContentType) {
-    return preq.get({ uri: uri })
-        .then(function(res) {
+    return preq.get({ uri })
+        .then((res) => {
             assert.deepEqual(res.status, 200);
             expContentType = expContentType || '^application/json; charset=utf-8; '
                 + 'profile="https://www.mediawiki.org/wiki/Specs/[a-z-]+/\\d+\\.\\d+\\.\\d+"$';
@@ -26,5 +26,5 @@ function checkHeaders(uri, expContentType) {
 
 
 module.exports = {
-    checkHeaders: checkHeaders
+    checkHeaders
 };

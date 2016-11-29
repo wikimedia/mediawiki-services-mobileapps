@@ -10,7 +10,7 @@ const assert = require('assert');
 function status(res, expected) {
 
     deepEqual(res.status, expected,
-        'Expected status to be ' + expected + ', but was ' + res.status);
+        `Expected status to be ${expected}, but was ${res.status}`);
 
 }
 
@@ -22,7 +22,7 @@ function contentType(res, expected) {
 
     const actual = res.headers['content-type'];
     deepEqual(actual, expected,
-        'Expected content-type to be ' + expected + ', but was ' + actual);
+        `Expected content-type to be ${expected}, but was ${actual}`);
 
 }
 
@@ -52,8 +52,8 @@ function deepEqual(result, expected, message) {
             assert.deepEqual(result, expected, message);
         }
     } catch (e) {
-        console.log('Expected:\n' + JSON.stringify(expected, null, 2));
-        console.log('Result:\n' + JSON.stringify(result, null, 2));
+        console.log(`Expected:\n${JSON.stringify(expected, null, 2)}`);
+        console.log(`Result:\n${JSON.stringify(result, null, 2)}`);
         throw e;
     }
 
@@ -65,8 +65,8 @@ function notDeepEqual(result, expected, message) {
     try {
         assert.notDeepEqual(result, expected, message);
     } catch (e) {
-        console.log('Not expected:\n' + JSON.stringify(expected, null, 2));
-        console.log('Result:\n' + JSON.stringify(result, null, 2));
+        console.log(`Not expected:\n${JSON.stringify(expected, null, 2)}`);
+        console.log(`Result:\n${JSON.stringify(result, null, 2)}`);
         throw e;
     }
 
@@ -110,8 +110,8 @@ function contains(result, sub, message) {
     try {
         assert.ok(result.indexOf(sub) > -1, message);
     } catch (e) {
-        console.log('Substring:\n' + sub);
-        console.log('Not in result:\n' + result);
+        console.log(`Substring:\n${sub}`);
+        console.log(`Not in result:\n${result}`);
         throw e;
     }
 
@@ -121,7 +121,7 @@ function contains(result, sub, message) {
 function selectorExistsNTimes(doc, selector, n, message) {
 
     if (!message) {
-        message = "querySelectorAll('" + selector + "')";
+        message = `querySelectorAll('${selector}')`;
     }
     deepEqual(doc.querySelectorAll(selector).length, n, message);
 
@@ -138,7 +138,7 @@ function selectorExistsOnce(doc, selector, message) {
 function selectorHasValue(doc, selector, expected, message) {
 
     if (!message) {
-        message = "querySelector('" + selector + "').innerHTML value is not " + expected;
+        message = `querySelector('${selector}').innerHTML value is not ${expected}`;
     }
     deepEqual(doc.querySelector(selector).innerHTML, expected, message);
 
@@ -148,7 +148,7 @@ function selectorHasValue(doc, selector, expected, message) {
 function selectorContainsValue(doc, selector, expected, message) {
 
     if (!message) {
-        message = "querySelector('" + selector + "').innerHTML value does not contain " + expected;
+        message = `querySelector('${selector}').innerHTML value does not contain ${expected}`;
     }
     assert.ok(doc.querySelector(selector).innerHTML.includes(expected), message);
 
