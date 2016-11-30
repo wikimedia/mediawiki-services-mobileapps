@@ -11,9 +11,9 @@ const fs     = require('fs');
 const Ajv    = require('ajv');
 
 const date = new Date();
-const yesterday = new Date(Date.now() - dateUtil.ONE_DAY);
-const dateString = date.getUTCFullYear() + '/' + dateUtil.pad(date.getUTCMonth() + 1) + '/' + dateUtil.pad(date.getUTCDate());
-const yesterdayString = yesterday.getUTCFullYear() + '/' + dateUtil.pad(yesterday.getUTCMonth() + 1) + '/' + dateUtil.pad(yesterday.getUTCDate());
+const ereyesterday = new Date(Date.now() - 2 * dateUtil.ONE_DAY);
+const dateString = `${date.getUTCFullYear()}/${dateUtil.pad(date.getUTCMonth() + 1)}/${dateUtil.pad(date.getUTCDate())}`;
+const ereyesterdayString = `${ereyesterday.getUTCFullYear()}/${dateUtil.pad(ereyesterday.getUTCMonth() + 1)}/${dateUtil.pad(ereyesterday.getUTCDate())}`;
 
 
 function staticSpecLoad() {
@@ -320,8 +320,8 @@ describe('Swagger spec', function() {
             return assertValidSchema(uri, '#/definitions/image');
         });
 
-        it('most-read response should conform to schema', function() {
-            const uri = server.config.uri + 'en.wikipedia.org/v1/page/most-read/' + yesterdayString;
+        it('most-read response should conform to schema', () => {
+            const uri = `${server.config.uri}en.wikipedia.org/v1/page/most-read/${ereyesterdayString}`;
             return assertValidSchema(uri, '#/definitions/mostread');
         });
 
