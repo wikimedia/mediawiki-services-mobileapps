@@ -68,4 +68,3 @@ end
 data = ScriptData.new indir
 data.set_info rootdir
 data.generate outdir
-
