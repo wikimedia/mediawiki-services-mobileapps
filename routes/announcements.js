@@ -20,7 +20,7 @@ function getEnwikiAnnouncements() {
                 id: "EN1116SURVEYIOS",
                 type: "survey",
                 start_time: "2016-11-15T17:11:12Z",
-                end_time: "2016-11-30T17:11:12Z",
+                end_time: "2016-12-10T00:00:00Z",
                 platforms: [
                     "iOSApp",
                 ],
@@ -29,7 +29,7 @@ function getEnwikiAnnouncements() {
                     title: "Take the survey",
                     url: "https://docs.google.com/forms/d/e/1FAIpQLSdaqvKojvyXGSewEZ395RPOQ6AcD3e87MZnh5pvO7phqqKwVg/viewform"
                 },
-                caption_HTML: "<p>Survey data handled by a third party. <a href=\"https://wikimediafoundation.org/wiki/Survey_Privacy_Statement\">Privacy</a>.</p>",
+                caption_HTML: "<p>Survey powered by 3rd-party service; see privacy statement. <a href=\"https://wikimediafoundation.org/wiki/Apps_Reader_Motivation_Survey_Privacy_Statement\">Privacy</a>.</p>",
                 countries: [
                     "US",
                     "CA",
@@ -40,7 +40,7 @@ function getEnwikiAnnouncements() {
                 id: "EN11116SURVEYANDROID",
                 type: "survey",
                 start_time: "2016-11-15T17:11:12Z",
-                end_time: "2016-11-30T17:11:12Z",
+                end_time: "2016-12-10T00:00:00Z",
                 platforms: [
                     "AndroidApp"
                 ],
@@ -49,7 +49,7 @@ function getEnwikiAnnouncements() {
                     title: "Take the survey",
                     url: "https://docs.google.com/forms/d/e/1FAIpQLSdaqvKojvyXGSewEZ395RPOQ6AcD3e87MZnh5pvO7phqqKwVg/viewform"
                 },
-                caption_HTML: "<p>Survey data handled by a third party. <a href=\"https://wikimediafoundation.org/wiki/Survey_Privacy_Statement\">Privacy</a>.</p>",
+                caption_HTML: "<p>Survey powered by 3rd-party service; see privacy statement. <a href=\"https://wikimediafoundation.org/wiki/Apps_Reader_Motivation_Survey_Privacy_Statement\">Privacy</a>.</p>",
                 countries: [
                     "US",
                     "CA",
