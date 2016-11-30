@@ -1,9 +1,10 @@
+/* eslint-env mocha */
+
 'use strict';
 
-/* global describe, it */
-
 const assert = require('../../utils/assert.js');
-const pickPronunciatonFilePageUrl = require('../../../lib/parseProperty.js')._pickPronunciationFilePageUrl;
+const parseProp = require('../../../lib/parseProperty.js');
+const pickPronunciatonFilePageUrl = parseProp._pickPronunciationFilePageUrl;
 
 describe('pickPronunciationFilePageUrl', () => {
     function padExpectedUrl(expected) {

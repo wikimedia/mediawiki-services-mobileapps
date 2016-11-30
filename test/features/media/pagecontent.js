@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const assert = require('../../utils/assert.js');
@@ -6,13 +8,16 @@ const server = require('../../utils/server.js');
 const headers = require('../../utils/headers.js');
 
 describe('media', function() {
+
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => { return server.start(); });
 
     function checkItemHasExpectedProperties(item) {
+        const urlStart = 'https://upload.wikimedia.org/';
         assert.ok(item.title.indexOf('File:') === 0, 'Expected title to start with "File:"');
-        assert.ok(item.url.indexOf('https://upload.wikimedia.org/') === 0, 'Expected url to start with certain text');
+        assert.ok(item.url.indexOf(urlStart) === 0, 'Expected url to start with certain text');
     }
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
@@ -30,7 +35,8 @@ describe('media', function() {
     });
 
     it('Sections/deep page should have no media items', () => {
-        return preq.get({ uri: `${server.config.uri}test.wikipedia.org/v1/page/media/Sections%2Fdeep` })
+        const uri = `${server.config.uri}test.wikipedia.org/v1/page/media/Sections%2Fdeep`;
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.deepEqual(!!res.body.items, false, 'Expected no media items');
@@ -42,7 +48,7 @@ describe('media', function() {
                 assert.ok(res.body.items.length > 0, 'Expected at least one media item');
             });
     });
-    it('Obama (redirect) should have a lead image, expected properties, and many media items', () => {
+    it('Obama (redirect) should have lead image, expected properties, and many media items', () => {
         return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/media/Obama` })
             .then((res) => {
                 const items = res.body.items;
@@ -52,7 +58,7 @@ describe('media', function() {
             });
     });
     it('Missing title should respond with 404', () => {
-        return preq.get({ uri: `${server.config.uri}test.wikipedia.org/v1/page/media/weoiuyrxcmxn` })
+        return preq.get({ uri: `${server.config.uri}test.wikipedia.org/v1/page/media/weoiuyrxxn` })
             .then(() => {
                 assert.fail("expected an exception to be thrown");
             }).catch((res) => {

@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const preq   = require('preq');
@@ -8,6 +10,8 @@ const random = require('../../../lib/feed/random');
 const sample =  require('./sample-results');
 
 describe('random/title', function() {
+
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => { return server.start(); });

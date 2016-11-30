@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const preq   = require('preq');
@@ -12,9 +14,11 @@ const logger = require('bunyan').createLogger({
 logger.log = function(a, b) {};
 
 describe('lib:apiUtil', function() {
+
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
-    it('checkForQueryPagesInResponse should return 504 when expected query.pages are absent', () => {
+    it('checkForQueryPagesInResponse should return 504 when query.pages are absent', () => {
         return preq.post({
             uri: 'https://commons.wikimedia.org/w/api.php',
             body: {
@@ -31,7 +35,9 @@ describe('lib:apiUtil', function() {
                 titles: `Template:Potd/1980-07-06`
             }
         }).then((response) => {
-            assert.throws(() => { mwapi.checkForQueryPagesInResponse({ logger }, response); }, /api_error/);
+            assert.throws(() => {
+                mwapi.checkForQueryPagesInResponse({ logger }, response);
+            }, /api_error/);
         });
     });
 });

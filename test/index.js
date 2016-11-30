@@ -4,8 +4,11 @@
 // Run jshint as part of normal testing
 require('mocha-jshint')();
 require('mocha-eslint')([
+    'etc',
     'lib',
-    'routes'
+    'routes',
+    'test/features',
+    'test/lib'
 ], {
     timeout: 10000
 });

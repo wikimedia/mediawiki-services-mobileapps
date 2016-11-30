@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * A hash map of (Wikipedia site) languages codes to objects with
  * information to control how to get news items for this particular

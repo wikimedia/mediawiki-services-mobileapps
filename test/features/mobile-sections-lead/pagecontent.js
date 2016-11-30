@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const assert = require('../../utils/assert.js');
@@ -6,21 +8,28 @@ const server = require('../../utils/server.js');
 const headers = require('../../utils/headers.js');
 
 describe('mobile-sections-lead', function() {
+
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        return headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Foobar`);
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Foobar`;
+        return headers.checkHeaders(uri);
     });
     it('Sections/deep page should have a lead object with expected properties', () => {
-        return preq.get({ uri: `${server.config.uri}test.wikipedia.org/v1/page/mobile-sections-lead/Sections%2Fdeep` })
+        const title = `Sections%2Fdeep`;
+        const uri = `${server.config.uri}test.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
+                const lastMod = lead.lastmodified;
+                const prot = lead.protection;
                 assert.deepEqual(res.status, 200);
-                assert.ok(lead.lastmodified.startsWith('201'), `${lead.lastmodified} should start with 201`); // 2015-
+                assert.ok(lastMod.startsWith('201'), `${lastMod} should start with 201`); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Sections/deep');
-                assert.ok(lead.protection.constructor === Object, 'lead.protection should be an Object');
+                assert.ok(prot.constructor === Object, 'lead.protection should be an Object');
                 assert.ok(!Object.keys(lead.protection).length, 'Page should not be protected');
                 assert.deepEqual(lead.editable, true);
                 assert.ok(lead.sections.length >= 6, 'Expected at least six section elements');
@@ -29,11 +38,15 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('en Cat page should have a lead object with expected properties', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Cat` })
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Cat`;
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
+                const lastMod = lead.lastmodified;
+                const files = lead.spoken.files;
+                const path = "//upload.wikimedia.org/wikipedia/commons/thumb/0/0b";
                 assert.deepEqual(res.status, 200);
-                assert.ok(lead.lastmodified.startsWith('201'), `${lead.lastmodified} should start with 201`); // 2015-
+                assert.ok(lastMod.startsWith('201'), `${lastMod} should start with 201`); // 2015-
                 assert.deepEqual(lead.displaytitle, 'Cat');
                 assert.deepEqual(lead.description, 'species');
                 assert.deepEqual(lead.protection, {
@@ -48,29 +61,33 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.image, {
                     "file": "Cat poster 1.jpg",
                     "urls": {
-                        "320": "//upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/320px-Cat_poster_1.jpg",
-                        "640": "//upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/640px-Cat_poster_1.jpg",
-                        "800": "//upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/800px-Cat_poster_1.jpg",
-                        "1024": "//upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/1024px-Cat_poster_1.jpg"
+                        "320": `${path}/Cat_poster_1.jpg/320px-Cat_poster_1.jpg`,
+                        "640": `${path}/Cat_poster_1.jpg/640px-Cat_poster_1.jpg`,
+                        "800": `${path}/Cat_poster_1.jpg/800px-Cat_poster_1.jpg`,
+                        "1024": `${path}/Cat_poster_1.jpg/1024px-Cat_poster_1.jpg`
                     }
                 });
-                assert.ok(lead.spoken.files.length > 0, 'Expected at least one Spoken Wikipedia audio file');
-                assert.ok(lead.spoken.files[0].indexOf('.') > -1, 'Expected file extension in spoken filename');
-                assert.ok(lead.spoken.files[0].indexOf('File:') === 0, 'Expected File namespace in filename');
+                assert.ok(files.length > 0, 'Expected at least one Spoken Wikipedia audio file');
+                assert.ok(files[0].indexOf('.') > -1, 'Expected file extension in spoken filename');
+                assert.ok(files[0].indexOf('File:') === 0, 'Expected File namespace in filename');
                 assert.ok(lead.sections.length > 0, 'Expected at least one section element');
                 assert.deepEqual(lead.sections[0].id, 0);
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
     it('en San Francisco should have a last modifier', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/San_Francisco` })
+        const title = 'San_Francisco';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
                 assert.ok(lead.lastmodifier !== undefined);
             });
     });
     it('en San Francisco should have a lead object with a geo property', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/San_Francisco` })
+        const title = 'San_Francisco';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
                 assert.deepEqual(lead.geo.latitude, 37.783);
@@ -78,21 +95,26 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('en Talk:San Francisco should have a lead object with correct namespace property', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Talk:San_Francisco` })
+        const title = 'Talk:San_Francisco';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
                 assert.ok(lead.ns === 1);
             });
     });
     it('en San Francisco should have a lead object with correct namespace property', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/San_Francisco` })
+        const title = 'San_Francisco';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
                 assert.ok(lead.ns === 0);
             });
     });
     it('es Savonlinna should have a lead object with a geo property', () => {
-        return preq.get({ uri: `${server.config.uri}es.wikipedia.org/v1/page/mobile-sections-lead/Savonlinna` })
+        const uri = `${server.config.uri}es.wikipedia.org/v1/page/mobile-sections-lead/Savonlinna`;
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
                 assert.deepEqual(lead.geo.latitude, 61.866666666667);
@@ -100,7 +122,8 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('Wikivoyage en Paris should have a lead object with a geo property', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikivoyage.org/v1/page/mobile-sections-lead/Paris` })
+        const uri = `${server.config.uri}en.wikivoyage.org/v1/page/mobile-sections-lead/Paris`;
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
                 assert.deepEqual(lead.geo.latitude, 48.856);
@@ -108,64 +131,83 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('es Gogland should not have a lead object with a geo property', () => {
-        return preq.get({ uri: `${server.config.uri}es.wikipedia.org/v1/page/mobile-sections-lead/Gogland` })
+        const uri = `${server.config.uri}es.wikipedia.org/v1/page/mobile-sections-lead/Gogland`;
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
-                assert.ok(!lead.hasOwnProperty('geo'));
+                assert.ok(!{}.hasOwnProperty.call(lead, 'geo'));
             });
     });
     it('Barack Obama should have a pronunciation', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Barack_Obama` })
+        const title = 'Barack_Obama';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        const exp = '//upload.wikimedia.org/wikipedia/commons/8/82/En-us-Barack-Hussein-Obama.ogg';
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
                 assert.deepEqual(res.status, 200);
-                assert.deepEqual(lead.pronunciation.url, '//upload.wikimedia.org/wikipedia/commons/8/82/En-us-Barack-Hussein-Obama.ogg');
+                assert.deepEqual(lead.pronunciation.url, exp);
             });
     });
     it('Barack Obama infobox is part of the html', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Barack_Obama` })
+        const title = 'Barack_Obama';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        return preq.get({ uri })
             .then((res) => {
                 assert.ok(res.body.sections[0].text.indexOf('"infobox') > -1,
                   'The infobox has not been removed for backwards compatibility.');
             });
     });
     it('Enwiki Uranus loads successfully (no pronunciation parsing TypeErrors)', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Uranus` })
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Uranus`;
+        const exp = '//upload.wikimedia.org/wikipedia/commons/1/1c/En-us-Uranus.ogg';
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
                 assert.deepEqual(res.status, 200);
-                assert.deepEqual(lead.pronunciation.url, '//upload.wikimedia.org/wikipedia/commons/1/1c/En-us-Uranus.ogg');
+                assert.deepEqual(lead.pronunciation.url, exp);
             });
     });
     it('Enwiki Odisha loads successfully (no pronunciation parsing TypeErrors)', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Odisha` })
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Odisha`;
+        const path = `//upload.wikimedia.org/wikipedia/commons/c/c2`;
+        const exp = `${path}/Pronunciation_of_the_Odia_language_word_%22Odisha%22.ogg`;
+        return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
                 assert.deepEqual(res.status, 200);
-                assert.deepEqual(lead.pronunciation.url, '//upload.wikimedia.org/wikipedia/commons/c/c2/Pronunciation_of_the_Odia_language_word_%22Odisha%22.ogg');
+                assert.deepEqual(lead.pronunciation.url, exp);
             });
     });
     it('Enwiki Lead_paragraph_move has the infobox moved after the lead paragraph', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FLead_paragraph_move` })
+        const title = `User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FLead_paragraph_move`;
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        const exp = '<span><p>Lead paragraph should appear first';
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
-                assert.ok(res.body.sections[0].text.startsWith('<span><p>Lead paragraph should appear first'),
-                    `Expected section text to start with lead paragraph. Actual text ${res.body.sections[0].text}`);
+                assert.ok(res.body.sections[0].text.startsWith(exp),
+                    `Expected section text to start with lead paragraph.
+                    Actual text ${res.body.sections[0].text}`);
             });
     });
     it.skip('Enwiki hatnotes are promoted to the lead object', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Chivalric%20order` })
+        const title = `Chivalric%20order`;
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        const anchor = `<a href="/wiki/Military_order_(society)" title="Military order (society)">`;
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.ok(res.body.hatnotes[0],
-                    'See also: <a href="/wiki/Military_order_(society)" title=\"Military order (society)">Military order (society)</a>',
+                    `See also: ${anchor}Military order (society)</a>`,
                      'hatnote property present on lead.');
                 assert.ok(res.body.sections[0].text.indexOf('See also:') > -1,
                     'Hatnote is repeated in text for backwards compatibility.');
             });
     });
     it('Enwiki multiple hatnotes are separated by <br> tag', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/S` })
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/S`;
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.ok(res.body.hatnotes.length === 4,
@@ -173,7 +215,9 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('Enwiki Multiple page issues are promoted to lead', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/User:Jdlrobson%2Fmcs-tests%2Fissues_bug` })
+        const title = `User:Jdlrobson%2Fmcs-tests%2Fissues_bug`;
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.equal(res.body.issues.length, 2,
@@ -183,7 +227,9 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('Enwiki Pages with single issue have issue promoted to lead', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/User:Jdlrobson%2Fmcs-tests%2Fissues_bug_3` })
+        const title = `User:Jdlrobson%2Fmcs-tests%2Fissues_bug_3`;
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.ok(res.body.issues.length === 1,
@@ -193,10 +239,12 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('Enwiki Main page has no issues.', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Main_Page` })
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Main_Page`;
+        return preq.get({ uri })
             .then((res) => {
+                const err = 'No page issues should be recorded on the main page.';
                 assert.deepEqual(res.status, 200);
-                assert.ok(res.body.issues === undefined, 'No page issues should be recorded on the main page.');
+                assert.ok(res.body.issues === undefined, err);
             });
     });
 });

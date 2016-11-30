@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const assert = require('../../utils/assert.js');
@@ -6,13 +8,15 @@ const server = require('../../utils/server.js');
 const headers = require('../../utils/headers.js');
 
 describe('mobile-text', function() {
+
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        return headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/page/mobile-text/Foobar`,
-            'application/json');
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-text/Foobar`;
+        return headers.checkHeaders(uri, 'application/json');
     });
     it('should have the right meta fields in the JSON response', () => {
         return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/mobile-text/Foobar` })
@@ -39,7 +43,8 @@ describe('mobile-text', function() {
             });
     });
     it('should have the right structure of paragraph, image, and video objects', () => {
-        return preq.get({ uri: `${server.config.uri}test.wikipedia.org/v1/page/mobile-text/LiteTest` })
+        const uri = `${server.config.uri}test.wikipedia.org/v1/page/mobile-text/LiteTest`;
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 let numParagraphs = 0;

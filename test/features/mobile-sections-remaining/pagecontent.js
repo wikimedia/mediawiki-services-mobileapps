@@ -1,14 +1,19 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const server = require('../../utils/server.js');
 const headers = require('../../utils/headers.js');
 
 describe('mobile-sections-remaining', function() {
+
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        return headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-remaining/Foobar`);
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-remaining/Foobar`;
+        return headers.checkHeaders(uri);
     });
 });

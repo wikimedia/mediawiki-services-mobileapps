@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const assert = require('../../utils/assert.js');
@@ -6,6 +8,8 @@ const server = require('../../utils/server.js');
 const headers = require('../../utils/headers.js');
 
 describe('random/summary', function() {
+
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => { return server.start(); });
@@ -20,11 +24,12 @@ describe('random/summary', function() {
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.ok(res.body.title.length > 0, 'title should not be empty');
-                // It most likely has also a description, extract, and thumbnail, just not guaranteed
+                // It likely has also a description, extract, and thumbnail, just not guaranteed
 
                 // We can check that there's a source element inside the thumbnail if we got one
-                if (res.body.thumbnail) {
-                    assert.ok(res.body.thumbnail.source.length > 0, 'thumbnail.source should not be empty');
+                const thumb = res.body.thumbnail;
+                if (thumb) {
+                    assert.ok(thumb.source.length > 0, 'thumbnail.source should not be empty');
                 }
             });
     });

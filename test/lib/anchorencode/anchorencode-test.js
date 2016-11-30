@@ -1,9 +1,13 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const assert = require('../../utils/assert.js');
 const a = require('../../../lib/anchorencode');
 
 describe('lib:anchorencode', function() {
+
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     it('anchorencode(empty) should return an empty string', () => {

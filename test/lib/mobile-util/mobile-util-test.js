@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const assert = require('../../utils/assert');
@@ -18,9 +20,7 @@ const arr5 = [ obj1, obj3, obj6 ];
 const arr6 = [ obj1, obj3 ];
 const arr7 = [ obj4, obj2 ];
 
-describe('lib:mobile-util', function() {
-    this.timeout(20000);
-
+describe('lib:mobile-util', () => {
     it('removeTLD should remove TLD', () => {
         assert.deepEqual(mUtil.removeTLD('ru.wikipedia.org'), 'ru.wikipedia');
     });

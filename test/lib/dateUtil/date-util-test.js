@@ -1,11 +1,11 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const assert = require('../../utils/assert.js');
 const dateUtil = require('../../../lib/dateUtil');
 
-describe('lib:dateUtil', function() {
-    this.timeout(20000);
-
+describe('lib:dateUtil', () => {
     it('getRequestedDate(2016-04-15) should return a valid Date object', () => {
         const actual = dateUtil.getRequestedDate({
             params: {

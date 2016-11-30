@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const preq   = require('preq');
@@ -7,6 +9,7 @@ const headers = require('../../utils/headers.js');
 
 describe('announcements', function() {
 
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => { return server.start(); });
@@ -36,7 +39,7 @@ describe('announcements', function() {
     it('should return two surveys', () => {
         return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/feed/announcements` })
             .then((res) => {
-                assert.ok(res.body.announce.length == 2);
+                assert.ok(res.body.announce.length === 2);
                 assert.equal(res.body.announce[0].id, 'EN1116SURVEYIOS');
                 assert.equal(res.body.announce[1].id, 'EN11116SURVEYANDROID');
             });
@@ -45,7 +48,7 @@ describe('announcements', function() {
     it('should return empty object for other wikis', () => {
         return preq.get({ uri: `${server.config.uri}de.wikipedia.org/v1/feed/announcements` })
             .then((res) => {
-                assert.ok(res.body.announce.length == 0);
+                assert.ok(res.body.announce.length === 0);
             });
     });
 });

@@ -1,10 +1,16 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const assert = require('../../utils/assert.js');
 const domino = require('domino');
 const parsoid = require('../../../lib/parsoid-access');
 
+const html = '<body>text0<h2>foo</h2>text1<h3 id="mwBa">Funny section !@#$%^&*()</h3>text2</body>';
+
 describe('lib:parsoid', function() {
+
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     function assertSection0(sections) {
@@ -56,7 +62,7 @@ describe('lib:parsoid', function() {
     });
 
     it('getSectionsText() with one h2 and h3 should produce three sections', () => {
-        const doc = domino.createDocument('<body>text0<h2>foo</h2>text1<h3 id="mwBa">Funny section !@#$%^&*()</h3>text2</body>');
+        const doc = domino.createDocument(html);
         parsoid._addSectionDivs(doc);
         const sections = parsoid._getSectionsText(doc);
         assert.deepEqual(sections.length, 3);

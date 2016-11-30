@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 
@@ -8,6 +10,7 @@ const server = require('../../utils/server.js');
 
 describe('express app', function() {
 
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => { return server.start(); });
@@ -72,7 +75,8 @@ describe('express app', function() {
             }
         }).then((res) => {
             // check that the response is gzip-ed
-            assert.deepEqual(res.headers['content-encoding'], undefined, 'Did not expect gzipped contents!');
+            const contentEncoding = res.headers['content-encoding'];
+            assert.deepEqual(contentEncoding, undefined, 'Did not expect gzipped contents!');
         });
     });
 

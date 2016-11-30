@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 
@@ -5,15 +7,16 @@ const preq   = require('preq');
 const assert = require('../../utils/assert');
 const server = require('../../utils/server');
 const dateUtil = require('../../../lib/dateUtil');
+const pad = dateUtil.pad;
 const URI    = require('swagger-router').URI;
 const yaml   = require('js-yaml');
 const fs     = require('fs');
 const Ajv    = require('ajv');
 
-const date = new Date();
-const ereyesterday = new Date(Date.now() - 2 * dateUtil.ONE_DAY);
-const dateString = `${date.getUTCFullYear()}/${dateUtil.pad(date.getUTCMonth() + 1)}/${dateUtil.pad(date.getUTCDate())}`;
-const ereyesterdayString = `${ereyesterday.getUTCFullYear()}/${dateUtil.pad(ereyesterday.getUTCMonth() + 1)}/${dateUtil.pad(ereyesterday.getUTCDate())}`;
+const d1 = new Date();
+const d2 = new Date(Date.now() - 2 * dateUtil.ONE_DAY);
+const dateStr1 = `${d1.getUTCFullYear()}/${pad(d1.getUTCMonth() + 1)}/${pad(d1.getUTCDate())}`;
+const dateStr2 = `${d2.getUTCFullYear()}/${pad(d2.getUTCMonth() + 1)}/${pad(d2.getUTCDate())}`;
 
 
 function staticSpecLoad() {
@@ -59,7 +62,8 @@ function validateExamples(pathStr, defParams, mSpec) {
         try {
             uri.expand(Object.assign({}, defParams, ex.request.params || {}));
         } catch (e) {
-            throw new Error(`Route ${pathStr}, example ${idx} (${ex.title}): missing parameter: ${e.message}`);
+            const msg = `Route ${pathStr}, example ${ex.title}: missing parameter: ${e.message}`;
+            throw new Error(msg);
         }
     });
 
@@ -97,7 +101,7 @@ function constructTests(paths, defParams) {
     Object.keys(paths).forEach((pathStr) => {
         Object.keys(paths[pathStr]).forEach((method) => {
             const p = paths[pathStr][method];
-            if (p.hasOwnProperty('x-monitor') && !p['x-monitor']) {
+            if ({}.hasOwnProperty.call(p, 'x-monitor') && !p['x-monitor']) {
                 return;
             }
             const uri = new URI(pathStr, {}, true);
@@ -115,7 +119,9 @@ function constructTests(paths, defParams) {
                 ex.request = ex.request || {};
                 ret.push(constructTestCase(
                     ex.title,
-                    uri.toString({ params: Object.assign({}, defParams, ex.request.params || {}) }),
+                    uri.toString({
+                        params: Object.assign({}, defParams, ex.request.params || {})
+                    }),
                     method,
                     ex.request,
                     ex.response || {}
@@ -142,7 +148,8 @@ function cmp(result, expected, errMsg) {
     if (expected.constructor === Object) {
         Object.keys(expected).forEach((key) => {
             const val = expected[key];
-            assert.deepEqual(result.hasOwnProperty(key), true, `Body field ${key} not found in response!`);
+            assert.deepEqual({}.hasOwnProperty.call(result, key), true,
+                `Body field ${key} not found in response!`);
             cmp(result[key], val, `${key} body field mismatch!`);
         });
         return true;
@@ -194,7 +201,8 @@ function validateTestResponse(testCase, res) {
     // check the headers
     Object.keys(expRes.headers).forEach((key) => {
         const val = expRes.headers[key];
-        assert.deepEqual(res.headers.hasOwnProperty(key), true, `Header ${key} not found in response!`);
+        assert.deepEqual({}.hasOwnProperty.call(res.headers, key), true,
+            `Header ${key} not found in response!`);
         cmp(res.headers[key], val, `${key} header mismatch!`);
     });
     // check the body
@@ -212,7 +220,8 @@ function validateTestResponse(testCase, res) {
     }
     // check that the body type is the same
     if (expRes.body.constructor !== res.body.constructor) {
-        throw new Error(`Expected a body of type ${expRes.body.constructor} but gotten ${res.body.constructor}`);
+        const msg = `Expected body type ${expRes.body.constructor} but got ${res.body.constructor}`;
+        throw new Error(msg);
     }
 
     // compare the bodies
@@ -230,6 +239,7 @@ describe('Swagger spec', function() {
     // default params, if given
     let defParams = spec['x-default-params'] || {};
 
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => {
@@ -263,7 +273,7 @@ describe('Swagger spec', function() {
             assert.deepEqual(!!Object.keys(path), true, `No methods defined for path: ${pathStr}`);
             Object.keys(path).forEach((method) => {
                 const mSpec = path[method];
-                if (mSpec.hasOwnProperty('x-monitor') && !mSpec['x-monitor']) {
+                if ({}.hasOwnProperty.call(mSpec, 'x-monitor') && !mSpec['x-monitor']) {
                     return;
                 }
                 validateExamples(pathStr, defParams, mSpec['x-amples']);
@@ -274,7 +284,7 @@ describe('Swagger spec', function() {
     describe('validate responses against schema', () => {
         const ajv = new Ajv({});
 
-        const assertValidSchema = function(uri, schemaPath) {
+        const assertValidSchema = (uri, schemaPath) => {
             return preq.get({ uri })
             .then((res) => {
                 if (!ajv.validate(schemaPath, res.body)) {
@@ -283,7 +293,7 @@ describe('Swagger spec', function() {
             });
         };
 
-        const assertValidSchemaAggregated = function(uri) {
+        const assertValidSchemaAggregated = (uri) => {
             return preq.get({ uri, query: { aggregated: true } })
             .then((res) => {
                 if (res.body) {
@@ -292,7 +302,7 @@ describe('Swagger spec', function() {
             });
         };
 
-        const assertBadRequest = function(uri) {
+        const assertBadRequest = (uri) => {
             return preq.get({ uri })
             .then((res) => {
                 assert.fail("This request should fail!");
@@ -311,17 +321,17 @@ describe('Swagger spec', function() {
         // Valid non-aggregated requests
 
         it('featured article response should conform to schema', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/page/featured/${dateString}`;
+            const uri = `${server.config.uri}en.wikipedia.org/v1/page/featured/${dateStr1}`;
             return assertValidSchema(uri, '#/definitions/article_summary_merge_link');
         });
 
         it('featured image response should conform to schema', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/media/image/featured/${dateString}`;
+            const uri = `${server.config.uri}en.wikipedia.org/v1/media/image/featured/${dateStr1}`;
             return assertValidSchema(uri, '#/definitions/image');
         });
 
         it('most-read response should conform to schema', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/page/most-read/${ereyesterdayString}`;
+            const uri = `${server.config.uri}en.wikipedia.org/v1/page/most-read/${dateStr2}`;
             return assertValidSchema(uri, '#/definitions/mostread');
         });
 
@@ -337,37 +347,43 @@ describe('Swagger spec', function() {
 
         // Bad requests return empty response for aggregated=true
 
-        it('featured article response should conform to schema (invalid language, aggregated=true)', () => {
-            return assertValidSchemaAggregated(`${server.config.uri}is.wikipedia.org/v1/page/featured/${dateString}`);
+        it('featured article response should conform to schema (invalid lang, agg=true)', () => {
+            const uri = `${server.config.uri}is.wikipedia.org/v1/page/featured/${dateStr1}`;
+            return assertValidSchemaAggregated(uri);
         });
 
-        it('featured image response should conform to schema (invalid date, aggregated=true)', () => {
-            return assertValidSchemaAggregated(`${server.config.uri}en.wikipedia.org/v1/media/image/featured/2004/01/01`);
+        it('featured image response should conform to schema (invalid date, agg=true)', () => {
+            const uri = `${server.config.uri}en.wikipedia.org/v1/media/image/featured/2004/01/01`;
+            return assertValidSchemaAggregated(uri);
         });
 
-        it('most-read response should conform to schema (invalid date, aggregated=true)', () => {
-            return assertValidSchemaAggregated(`${server.config.uri}en.wikipedia.org/v1/page/most-read/2004/01/01`);
+        it('most-read response should conform to schema (invalid date, agg=true)', () => {
+            const uri = `${server.config.uri}en.wikipedia.org/v1/page/most-read/2004/01/01`;
+            return assertValidSchemaAggregated(uri);
         });
 
-        it('news response (invalid language, aggregated=true) should be empty', () => {
+        it('news response (invalid language, agg=true) should be empty', () => {
             return assertValidSchemaAggregated(`${server.config.uri}is.wikipedia.org/v1/page/news`);
         });
 
         // Bad requests fail without aggregated=true
 
-        it('featured article request should fail for invalid language when not in aggregated request', () => {
-            return assertBadRequest(`${server.config.uri}is.wikipedia.org/v1/page/featured/${dateString}`);
+        it('featured article request should fail for invalid language when !agg=true', () => {
+            const uri = `${server.config.uri}is.wikipedia.org/v1/page/featured/${dateStr1}`;
+            return assertBadRequest(uri);
         });
 
-        it('featured image request should fail for invalid date when not in aggregated request', () => {
-            return assertBadRequest(`${server.config.uri}en.wikipedia.org/v1/media/image/featured/2004/01/01`);
+        it('featured image request should fail for invalid date when !agg=true', () => {
+            const uri = `${server.config.uri}en.wikipedia.org/v1/media/image/featured/2004/01/01`;
+            return assertBadRequest(uri);
         });
 
-        it('most-read request should fail for invalid date when not in aggregated request', () => {
-            return assertBadRequest(`${server.config.uri}en.wikipedia.org/v1/page/most-read/2004/01/01`);
+        it('most-read request should fail for invalid date when !agg=true', () => {
+            const uri = `${server.config.uri}en.wikipedia.org/v1/page/most-read/2004/01/01`;
+            return assertBadRequest(uri);
         });
 
-        it('news request should fail for invalid language when not in aggregated request', () => {
+        it('news request should fail for invalid language when !agg=true', () => {
             return assertBadRequest(`${server.config.uri}is.wikipedia.org/v1/page/news`);
         });
     });

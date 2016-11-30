@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 
@@ -8,6 +10,7 @@ const server = require('../../utils/server.js');
 
 describe('service information', function() {
 
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => { return server.start(); });

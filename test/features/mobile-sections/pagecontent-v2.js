@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const assert = require('../../utils/assert.js');
@@ -5,16 +7,20 @@ const preq   = require('preq');
 const server = require('../../utils/server.js');
 
 describe('mobile-sections-v2', function() {
+
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => { return server.start(); });
 
     it.skip('Hatnotes do not appear in the lead object', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Chivalric%20order` })
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Chivalric%20order`;
+        const anchor = '<a href="/wiki/Military_order_(society)" title="Military order (society)">';
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.ok(res.body.hatnotes[0],
-                    'See also: <a href="/wiki/Military_order_(society)" title=\"Military order (society)">Military order (society)</a>',
+                    `See also: ${anchor}Military order (society)</a>`,
                      'hatnote property should be present on lead.');
                 assert.ok(res.body.text.indexOf('<div class="hatnote">') === -1,
                      'Hatnote should not appear in lead section html.');
@@ -22,7 +28,9 @@ describe('mobile-sections-v2', function() {
     });
 
     it('Pages with only one section do not have an infobox or intro', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Wikipedia:Today's%20featured%20article%2FNovember%207,%202016` })
+        const title = `Wikipedia:Today's%20featured%20article%2FNovember%207,%202016`;
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/${title}`;
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.ok(res.body.infobox === undefined);
@@ -31,7 +39,8 @@ describe('mobile-sections-v2', function() {
     });
 
     it('Main pages do not have an infobox or intro', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Main_Page` })
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Main_Page`;
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.ok(res.body.infobox === undefined);
@@ -40,7 +49,8 @@ describe('mobile-sections-v2', function() {
     });
 
     it('Enwiki Barack Obama page has an infobox', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Barack_Obama` })
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Barack_Obama`;
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.ok(res.body.infobox !== undefined);
@@ -50,7 +60,9 @@ describe('mobile-sections-v2', function() {
     });
 
     it('Page issues do not appear in the lead', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/User:Jdlrobson%2Fmcs-tests%2Fissues_bug` })
+        const title = `User:Jdlrobson%2Fmcs-tests%2Fissues_bug`;
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/${title}`;
+        return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.ok(res.body.text.indexOf('ambox-multiple_issues') === -1,
@@ -59,7 +71,8 @@ describe('mobile-sections-v2', function() {
     });
 
     it('Barack Obama page lead paragraph', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Barack_Obama` })
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Barack_Obama`;
+        return preq.get({ uri })
             .then((res) => {
                 const intro = res.body.intro;
 
@@ -76,8 +89,10 @@ describe('mobile-sections-v2', function() {
                   'Description is a string and contains "44th"');
             });
     });
+
     it('Planet introduction contains nodes other than P (T111958)', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Planet` })
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Planet`;
+        return preq.get({ uri })
             .then((res) => {
                 const intro = res.body.intro;
 

@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const assert = require('../../utils/assert.js');
@@ -6,6 +8,8 @@ const server = require('../../utils/server.js');
 const headers = require('../../utils/headers.js');
 
 describe('definition', function() {
+
+    /* eslint no-invalid-this: "off" */
     this.timeout(20000);
 
     before(() => { return server.start(); });
@@ -24,28 +28,31 @@ describe('definition', function() {
                 assert.ok(bodytext.indexOf('defdate') === -1);
                 assert.deepEqual(res.status, 200);
                 assert.notDeepEqual(en, undefined);
-                assert.ok(en.length == 8);
+                assert.ok(en.length === 8);
                 for (let i = 0; i < en.length; i++) {
                     assert.notDeepEqual(en[i].partOfSpeech, undefined);
                     assert.notDeepEqual(en[i].definitions, undefined);
                     for (let j = 0; j < en[i].definitions.length; j++) {
                         assert.notDeepEqual(en[i].definitions[j].definition, undefined);
                         if (en[i].definitions[j].examples) {
-                            en[i].definitions[j].examples.length != 0;
+                            assert.ok(en[i].definitions[j].examples.length !== 0);
                         }
                     }
                 }
                 assert.deepEqual(en[0].partOfSpeech, 'Noun');
-                assert.ok(en[0].definitions[0].definition.indexOf('An animal of the family ') === 0,
+                const def0 = en[0].definitions[0].definition;
+                assert.ok(def0.indexOf('An animal of the family ') === 0,
                     'Expected different start of definition specifying family');
                 assert.deepEqual(en[1].partOfSpeech, 'Verb');
-                assert.ok(en[1].definitions[0].definition.indexOf('To <a href=\"/wiki/hoist\" title=\"hoist\">hoist</a>') === 0,
+                const def1 = en[1].definitions[0].definition;
+                assert.ok(def1.indexOf('To <a href="/wiki/hoist" title="hoist">hoist</a>') === 0,
                     'Expected different start of definition linking to hoist');
             });
     });
 
     it('missing definitions', () => {
-        return preq.get({ uri: `${server.config.uri}en.wiktionary.org/v1/page/definition/Dssjbkrt` })
+        const uri = `${server.config.uri}en.wiktionary.org/v1/page/definition/Dssjbkrt`;
+        return preq.get({ uri })
         .then((res) => {
             throw new Error(`Expected an error, but got status: ${res.status}`);
         }, (err) => {
@@ -54,7 +61,8 @@ describe('definition', function() {
     });
 
     it('non-term page', () => {
-        return preq.get({ uri: `${server.config.uri}en.wiktionary.org/v1/page/definition/Main_page` })
+        const uri = `${server.config.uri}en.wiktionary.org/v1/page/definition/Main_page`;
+        return preq.get({ uri })
         .then((res) => {
             throw new Error(`Expected an error, but got status: ${res.status}`);
         }, (err) => {
@@ -63,7 +71,8 @@ describe('definition', function() {
     });
 
     it('unsupported language', () => {
-        return preq.get({ uri: `${server.config.uri}ru.wiktionary.org/v1/page/definition/Baba` })
+        const uri = `${server.config.uri}ru.wiktionary.org/v1/page/definition/Baba`;
+        return preq.get({ uri })
         .then((res) => {
             throw new Error(`Expected an error, but got status: ${res.status}`);
         }, (err) => {
@@ -72,7 +81,8 @@ describe('definition', function() {
     });
 
     it('non-English term on English Wiktionary returns valid results', () => {
-        return preq.get({ uri: `${server.config.uri}en.wiktionary.org/v1/page/definition/%D0%B8%D0%B7%D0%B1%D0%B5%D1%80%D0%B0` })
+        const uri = `${server.config.uri}en.wiktionary.org/v1/page/definition/%E4%B8%AD%E5%9B%BD`;
+        return preq.get({ uri })
         .then((res) => {
             assert.status(res, 200);
             assert.ok(Object.keys(res).length !== 0);
@@ -80,7 +90,8 @@ describe('definition', function() {
     });
 
     it('translingual term', () => {
-        return preq.get({ uri: `${server.config.uri}en.wiktionary.org/v1/page/definition/Toxicodendron` })
+        const uri = `${server.config.uri}en.wiktionary.org/v1/page/definition/Toxicodendron`;
+        return preq.get({ uri })
         .then((res) => {
             assert.status(res, 200);
             assert.ok(Object.keys(res).length !== 0);

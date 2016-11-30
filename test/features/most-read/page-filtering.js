@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict';
 
 const fs = require('fs');
@@ -21,7 +23,7 @@ describe('page filtering', () => {
         });
     });
 
-    it('Page with pageviews below threshold on either desktop or mobile should be omitted from results', () => {
+    it('Page with skewed pageview distribution by platform should be omitted from results', () => {
         mostRead.filterBotTraffic(combinedMostRead, desktopMostRead).forEach((entry) => {
             assert.ok(entry.article !== "AMGTV");
         });
