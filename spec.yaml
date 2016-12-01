@@ -556,30 +556,6 @@ paths:
         - application/json
       x-monitor: false
 
-  # from routes/mobile-summary.js
-  /{domain}/v1/page/mobile-summary/{title}:
-    get:
-      tags:
-        - Link preview data of page
-      description: Gets a summary of the page so the user can evaluate if to open the page
-      produces:
-        - application/json
-      x-amples:
-        - title: retrieve page preview of Dog page
-          request:
-            params:
-              title: Dog
-          response:
-            status: 200
-            headers:
-              content-type: application/json
-            body:
-              title: Dog
-              extract: /.+/
-              thumbnail:
-                source: /.+/
-              infobox: [ /.+/ ]
-
   # from routes/mobile-text.js
   /{domain}/v1/page/mobile-text/{title}:
     get:
