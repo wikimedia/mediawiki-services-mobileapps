@@ -9,7 +9,7 @@ describe('mobile-sections-v2', function() {
 
     before(function () { return server.start(); });
 
-    it('Hatnotes do not appear in the lead object', function() {
+    it.skip('Hatnotes do not appear in the lead object', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/formatted-lead/Chivalric%20order' })
             .then(function (res) {
                 assert.deepEqual(res.status, 200);

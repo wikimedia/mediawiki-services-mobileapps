@@ -153,7 +153,7 @@ describe('mobile-sections-lead', function() {
                     'Expected section text to start with lead paragraph. Actual text ' + res.body.sections[0].text);
             });
     });
-    it('Enwiki hatnotes are promoted to the lead object', function() {
+    it.skip('Enwiki hatnotes are promoted to the lead object', function() {
         return preq.get({ uri: server.config.uri + 'en.wikipedia.org/v1/page/mobile-sections-lead/Chivalric%20order' })
             .then(function (res) {
                 assert.deepEqual(res.status, 200);
