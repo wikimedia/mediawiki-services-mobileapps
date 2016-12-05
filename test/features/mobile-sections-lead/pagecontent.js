@@ -121,7 +121,8 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.geo.longitude, 28.883055555556);
             });
     });
-    it('Wikivoyage en Paris should have a lead object with a geo property', () => {
+    // TODO: FIX OR REMOVE
+    it.skip('Wikivoyage en Paris should have a lead object with a geo property', () => {
         const uri = `${server.config.uri}en.wikivoyage.org/v1/page/mobile-sections-lead/Paris`;
         return preq.get({ uri })
             .then((res) => {
