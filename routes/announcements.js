@@ -23,7 +23,7 @@ function getEnwikiAnnouncements() {
                 title: "Take the survey",
                 url: "https://docs.google.com/forms/d/e/1FAIpQLSdaqvKojvyXGSewEZ395RPOQ6AcD3e87MZnh5pvO7phqqKwVg/viewform"
             },
-            caption_HTML: "<p>Survey data handled by a third party. <a href=\"https://wikimediafoundation.org/wiki/Survey_Privacy_Statement\">Privacy</a>.</p>",
+            caption_HTML: "<p>Survey powered by 3rd-party service; see <a href=\"https://wikimediafoundation.org/wiki/Apps_Reader_Motivation_Survey_Privacy_Statement\">privacy statement</a>.</p>",
             countries: [
                 "US",
                 "CA",
@@ -41,9 +41,9 @@ function getEnwikiAnnouncements() {
             text: "Answer three questions and help us improve Wikipedia.",
             action: {
                 title: "Take the survey",
-                url: "https://docs.google.com/forms/d/e/1FAIpQLSdaqvKojvyXGSewEZ395RPOQ6AcD3e87MZnh5pvO7phqqKwVg/viewform"
+                url: "https://docs.google.com/forms/d/e/1FAIpQLSfqzFyCmoQBs9z8i1PQSY-8hnBpCaRFS0gWGiAvTYFf6Y8WAQ/viewform"
             },
-            caption_HTML: "<p>Survey data handled by a third party. <a href=\"https://wikimediafoundation.org/wiki/Survey_Privacy_Statement\">Privacy</a>.</p>",
+            caption_HTML: "<p>Survey powered by 3rd-party service; see <a href=\"https://wikimediafoundation.org/wiki/Apps_Reader_Motivation_Survey_Privacy_Statement\">privacy statement</a>.</p>",
             countries: [
                 "US",
                 "CA",
