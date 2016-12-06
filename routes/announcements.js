@@ -18,7 +18,7 @@ function getEnwikiAnnouncements() {
             platforms: [
                 "iOSApp",
             ],
-            text: "Answer three questions and help us improve Wikipedia.",
+            text: "Answer one question and help us improve Wikipedia.",
             action: {
                 title: "Take the survey",
                 url: "https://docs.google.com/forms/d/e/1FAIpQLSdaqvKojvyXGSewEZ395RPOQ6AcD3e87MZnh5pvO7phqqKwVg/viewform"
@@ -38,12 +38,12 @@ function getEnwikiAnnouncements() {
             platforms: [
                 "AndroidApp"
             ],
-            text: "Answer three questions and help us improve Wikipedia.",
+            text: "Answer one question and help us improve Wikipedia.",
             action: {
                 title: "Take the survey",
                 url: "https://docs.google.com/forms/d/e/1FAIpQLSfqzFyCmoQBs9z8i1PQSY-8hnBpCaRFS0gWGiAvTYFf6Y8WAQ/viewform"
             },
-            caption_HTML: "<p>Survey powered by 3rd-party service; see <a href=\"https://wikimediafoundation.org/wiki/Apps_Reader_Motivation_Survey_Privacy_Statement\">privacy statement</a>.</p>",
+            caption_HTML: "Survey powered by 3rd-party service; see <a href=\"https://wikimediafoundation.org/wiki/Apps_Reader_Motivation_Survey_Privacy_Statement\">privacy statement</a>.",
             countries: [
                 "US",
                 "CA",
