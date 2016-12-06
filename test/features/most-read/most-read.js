@@ -22,8 +22,7 @@ const futureDateString = testUtil.constructTestDate(afterDate);
 
 describe('most-read articles', function() {
 
-    /* eslint no-invalid-this: "off" */
-    this.timeout(20000);
+    this.timeout(20000); // eslint-disable-line no-invalid-this
 
     before(() => { return server.start(); });
 

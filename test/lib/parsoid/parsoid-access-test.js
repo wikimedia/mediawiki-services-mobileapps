@@ -10,8 +10,7 @@ const html = '<body>text0<h2>foo</h2>text1<h3 id="mwBa">Funny section !@#$%^&*()
 
 describe('lib:parsoid', function() {
 
-    /* eslint no-invalid-this: "off" */
-    this.timeout(20000);
+    this.timeout(20000); // eslint-disable-line no-invalid-this
 
     function assertSection0(sections) {
         assert.deepEqual(sections[0].id, 0);

@@ -7,8 +7,7 @@ const a = require('../../../lib/anchorencode');
 
 describe('lib:anchorencode', function() {
 
-    /* eslint no-invalid-this: "off" */
-    this.timeout(20000);
+    this.timeout(20000); // eslint-disable-line no-invalid-this
 
     it('anchorencode(empty) should return an empty string', () => {
         assert.deepEqual(a.anchorencode(''), '');

@@ -15,8 +15,7 @@ logger.log = function(a, b) {};
 
 describe('lib:apiUtil', function() {
 
-    /* eslint no-invalid-this: "off" */
-    this.timeout(20000);
+    this.timeout(20000); // eslint-disable-line no-invalid-this
 
     it('checkForQueryPagesInResponse should return 504 when query.pages are absent', () => {
         return preq.post({
