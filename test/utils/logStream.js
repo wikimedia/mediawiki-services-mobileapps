@@ -21,6 +21,7 @@ function logStream(logStdout) {
                 }
             }
         } catch (e) {
+            // eslint-disable-next-line no-console
             console.error('something went wrong trying to parrot a log entry', e, chunk);
         }
 
@@ -51,17 +52,17 @@ function logStream(logStdout) {
         }
 
         return {
-            halt: halt,
-            get: get
+            halt: halt, // eslint-disable-line object-shorthand
+            get: get // eslint-disable-line object-shorthand
         };
 
     }
 
     return {
-        write: write,
-        end: end,
-        slice: slice,
-        get: get
+        write: write, // eslint-disable-line object-shorthand
+        end: end, // eslint-disable-line object-shorthand
+        slice: slice, // eslint-disable-line object-shorthand
+        get: get // eslint-disable-line object-shorthand
     };
 }
 

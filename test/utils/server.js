@@ -39,7 +39,7 @@ config.conf.logging = {
 // make a deep copy of it for later reference
 const origConfig = extend(true, {}, config);
 
-let stop = function() { return BBPromise.resolve(); };
+let stop = () => { return BBPromise.resolve(); };
 let options = null;
 const runner = new ServiceRunner();
 
@@ -49,7 +49,7 @@ function start(_options) {
     _options = _options || {};
 
     if (!assert.isDeepEqual(options, _options)) {
-        console.log('server options changed; restarting');
+        console.log('server options changed; restarting'); // eslint-disable-line no-console
         return stop().then(() => {
             options = _options;
             // set up the config
@@ -58,7 +58,7 @@ function start(_options) {
             return runner.start(config.conf)
             .then(() => {
                 stop = function() {
-                    console.log('stopping test server');
+                    console.log('stopping test server'); // eslint-disable-line no-console
                     return runner.stop().then(() => {
                         stop = function() { return BBPromise.resolve(); };
                     });

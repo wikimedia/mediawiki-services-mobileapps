@@ -1,7 +1,26 @@
+/* eslint-disable no-console */
+
 'use strict';
 
 const _ = require('underscore');
 const assert = require('assert');
+
+
+function deepEqual(result, expected, message) {
+
+    try {
+        if (typeof expected === 'string') {
+            assert.ok(result === expected || (new RegExp(expected).test(result)));
+        } else {
+            assert.deepEqual(result, expected, message);
+        }
+    } catch (e) {
+        console.log(`Expected:\n${JSON.stringify(expected, null, 2)}`);
+        console.log(`Result:\n${JSON.stringify(result, null, 2)}`);
+        throw e;
+    }
+
+}
 
 
 /**
@@ -43,23 +62,6 @@ function isDeepEqual(result, expected, message) {
 }
 
 
-function deepEqual(result, expected, message) {
-
-    try {
-        if (typeof expected === 'string') {
-            assert.ok(result === expected || (new RegExp(expected).test(result)));
-        } else {
-            assert.deepEqual(result, expected, message);
-        }
-    } catch (e) {
-        console.log(`Expected:\n${JSON.stringify(expected, null, 2)}`);
-        console.log(`Result:\n${JSON.stringify(result, null, 2)}`);
-        throw e;
-    }
-
-}
-
-
 function notDeepEqual(result, expected, message) {
 
     try {
@@ -76,12 +78,12 @@ function notDeepEqual(result, expected, message) {
 function property(object, property) {
     const msg = `expected property="${property}"`;
     assert.ok(object, msg);
-    assert.ok(object.hasOwnProperty(property), msg);
+    assert.ok({}.hasOwnProperty.call(object, property), msg);
 }
 
 
 function notProperty(object, property) {
-    assert.ok(!object || !object.hasOwnProperty(property),
+    assert.ok(!object || !{}.hasOwnProperty.call(object, property),
         `unexpected property="${property}"`);
 }
 

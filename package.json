@@ -5,7 +5,8 @@
   "main": "./app.js",
   "scripts": {
     "start": "service-runner",
-    "test": "PREQ_CONNECT_TIMEOUT=15 mocha && nsp check",
+    "test": "npm run -s lint && PREQ_CONNECT_TIMEOUT=15 mocha && nsp check",
+    "lint": "eslint --cache --max-warnings 0 --ext .js --ext .json .",
     "docker-start": "service-runner docker-start",
     "docker-test": "service-runner docker-test",
     "coverage": "istanbul cover _mocha -- -R spec"
@@ -58,15 +59,16 @@
   "devDependencies": {
     "ajv": "^4.7.7",
     "csv-parse": "^1.1.7",
+    "eslint": "^3.11.0",
+    "eslint-config-node-services": "^1.0.6",
+    "eslint-plugin-json": "^1.2.0",
     "extend": "^3.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
     "mocha-jshint": "^2.3.1",
     "mocha-lcov-reporter": "^1.2.0",
     "nsp": "^2.6.2",
-    "sepia": "^2.0.1",
-    "mocha-eslint": "^3.0.1",
-    "eslint-config-node-services": "^1.0.6"
+    "sepia": "^2.0.1"
   },
   "deploy": {
     "target": "debian",

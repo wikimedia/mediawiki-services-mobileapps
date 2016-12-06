@@ -37,8 +37,8 @@ function initApp(options) {
     if (app.conf.compression_level === undefined) { app.conf.compression_level = 3; }
     if (app.conf.cors === undefined) { app.conf.cors = '*'; }
     if (app.conf.csp === undefined) {
-        app.conf.csp =
-            "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'";
+        // eslint-disable-next-line max-len
+        app.conf.csp = "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'";
     }
 
     // set outgoing proxy
@@ -157,7 +157,8 @@ function loadRoutes(app) {
                 return undefined;
             }
             // check that the route exports the object we need
-            if (route.constructor !== Object || !route.path || !route.router || !(route.api_version || route.skip_domain)) {
+            if (route.constructor !== Object || !route.path || !route.router
+            || !(route.api_version || route.skip_domain)) {
                 throw new TypeError(`routes/${fname} does not export the correct object!`);
             }
             // normalise the path to be used as the mount point
