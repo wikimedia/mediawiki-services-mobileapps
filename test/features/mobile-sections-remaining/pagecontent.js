@@ -1,5 +1,3 @@
-/* eslint-env mocha */
-
 'use strict';
 
 const server = require('../../utils/server.js');
