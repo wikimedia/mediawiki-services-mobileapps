@@ -106,6 +106,16 @@ function fails(promise, onRejected) {
 }
 
 
+function closeTo(result, expected, delta, message) {
+    try {
+        assert.ok(Math.abs(result - expected) <= delta, message);
+    } catch (e) {
+        console.log(`Result is ${result}; expected ${expected} ± ${delta}`);
+        throw e;
+    }
+}
+
+
 function contains(result, sub, message) {
     try {
         assert.ok(result.indexOf(sub) > -1, message);
@@ -116,7 +126,6 @@ function contains(result, sub, message) {
     }
 
 }
-
 
 function selectorExistsNTimes(doc, selector, n, message) {
 
@@ -167,6 +176,7 @@ module.exports.property       = property;
 module.exports.notProperty    = notProperty;
 module.exports.contentType    = contentType;
 module.exports.status         = status;
+module.exports.closeTo        = closeTo;
 module.exports.contains       = contains;
 module.exports.selectorExistsNTimes = selectorExistsNTimes;
 module.exports.selectorExistsOnce = selectorExistsOnce;
