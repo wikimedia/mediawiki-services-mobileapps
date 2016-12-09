@@ -14,6 +14,7 @@
 const BBPromise = require('bluebird');
 const domino = require('domino');
 const mwapi = require('../lib/mwapi');
+const apiUtil = require('../lib/api-util');
 const mUtil = require('../lib/mobile-util');
 const parse = require('../lib/parseProperty');
 const parsoid = require('../lib/parsoid-access');
@@ -114,6 +115,8 @@ function buildLead(input, legacy) {
 
     return {
         ns: input.meta.ns,
+        userinfo: input.meta.userinfo,
+        imageinfo: input.meta.imageinfo,
         id: input.meta.id,
         issues,
         revision: input.page.revision,
@@ -200,6 +203,89 @@ function mainPageFixPromise(req, response) {
 }
 
 /**
+ * Given a partial response for a user page, it will be hydrated
+ * to contain information about the owner of the user page.
+ * @param {Request} req
+ * @param {Response} res
+ * @return {Promise}
+ */
+function handleUserPagePromise(req, res) {
+    return apiUtil.mwApiGet(app, req.params.domain, {
+        action: 'query',
+        format: 'json',
+        formatversion: '2',
+        meta: 'globaluserinfo',
+        guiuser: req.params.title.split(':')[1]
+    })
+    .then((resp) => {
+        const body = resp.body;
+        const meta = res.meta;
+        if (body.query && body.query.globaluserinfo) {
+            meta.userinfo = body.query.globaluserinfo;
+        }
+        return {
+            page: res.page,
+            meta,
+            extract: res.extract
+        };
+    });
+}
+
+/**
+ * Given a partial response for a file page, it will be hydrated
+ * to contain information about the image on the page.
+ * @param {Request} req
+ * @param {Response} res
+ * @return {Promise}
+ */
+function handleFilePagePromise(req, res) {
+    return apiUtil.mwApiGet(app, req.params.domain, {
+        action: 'query',
+        format: 'json',
+        formatversion: '2',
+        titles: req.params.title,
+        prop: 'imageinfo',
+        iiprop: 'url',
+        iiurlwidth: mwapi.LEAD_IMAGE_L,
+        iirurlheight: mwapi.LEAD_IMAGE_L * 0.75
+    })
+    .then((resp) => {
+        const body = resp.body;
+        const meta = res.meta;
+        let ii;
+
+        if (body.query && body.query.pages && body.query.pages.length) {
+            ii = body.query.pages[0].imageinfo;
+            meta.imageinfo = ii ? ii[0] : ii;
+        }
+        return {
+            page: res.page,
+            meta,
+            extract: res.extract
+        };
+    });
+}
+
+/**
+ * Handles special cases such as main page and different
+ * namespaces, preparing for output.
+ * @param {Request} req
+ * @param {Response} res
+ * @return {Promise}
+ */
+function handleNamespaceAndSpecialCases(req, res) {
+    const ns = res.meta.ns;
+    if (res.meta.mainpage) {
+        return mainPageFixPromise(req, res);
+    } else if (ns === 2) {
+        return handleUserPagePromise(req, res);
+    } else if (ns === 6) {
+        return handleFilePagePromise(req, res);
+    }
+    return res;
+}
+
+/*
  * @param {Request} req
  * @param {Response} res
  * @param {Boolean} [legacy] when true MCS will
@@ -212,10 +298,7 @@ function buildAllResponse(req, res, legacy) {
         page: parsoid.pageContentPromise(app, req, legacy),
         meta: pageMetadataPromise(req)
     }).then((response) => {
-        if (response.meta.mainpage) {
-            return mainPageFixPromise(req, response);
-        }
-        return response;
+        return handleNamespaceAndSpecialCases(req, response);
     }).then((response) => {
         response = buildAll(response, legacy);
         res.status(200);
@@ -230,10 +313,7 @@ function buildLeadResponse(req, res, legacy) {
         page: parsoid.pageContentPromise(app, req, legacy),
         meta: pageMetadataPromise(req)
     }).then((response) => {
-        if (response.meta.mainpage) {
-            return mainPageFixPromise(req, response);
-        }
-        return response;
+        return handleNamespaceAndSpecialCases(req, response);
     }).then((response) => {
         response = buildLead(response, legacy);
         res.status(200);

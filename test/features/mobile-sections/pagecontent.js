@@ -259,4 +259,30 @@ describe('mobile-sections', function() {
                   'IPA information is wrapped in hidden container');
             });
     });
+
+    it('File pages have a file property', () => {
+        const title = 'File:Charlie_and_the_Chocolate_Factory_original_cover.jpg';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/${title}`;
+        return preq.get({ uri })
+            .then((res) => {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.userinfo === undefined, 'userinfo property is undefined');
+                assert.ok(res.body.imageinfo !== undefined, 'imageinfo property is defined');
+                assert.ok(res.body.imageinfo.thumburl !== undefined,
+                  'thumbnail url property is defined');
+            });
+    });
+
+    it('User pages have a userinfo property', () => {
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/User:Jdlrobson`;
+        return preq.get({ uri })
+            .then((res) => {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.imageinfo === undefined, 'imageinfo property is undefined');
+                assert.ok(res.body.userinfo !== undefined, 'userinfo property is defined');
+                assert.ok(res.body.userinfo.registration !== undefined,
+                    'userinfo property has date of registration');
+                assert.ok(res.body.userinfo.name === 'Jdlrobson', 'userinfo property has name');
+            });
+    });
 });
