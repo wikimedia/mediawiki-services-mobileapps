@@ -15,10 +15,11 @@ describe('announcements', function() {
         return headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/feed/announcements`);
     });
 
-    it('should return a valid response ', () => {
+    it('should return a valid response', () => {
         return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/feed/announcements` })
             .then((res) => {
                 assert.status(res, 200);
+                assert.equal(res.headers['cache-control'], 'public, max-age=7200, s-maxage=14400');
                 res.body.announce.forEach((elem) => {
                     assert.ok(elem.id, 'id should be present');
                     assert.ok(elem.type, 'type should be present');

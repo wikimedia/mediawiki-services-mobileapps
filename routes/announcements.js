@@ -64,8 +64,9 @@ router.get('/announcements', (req, res) => {
     const hash = mUtil.hashCode(JSON.stringify(json));
 
     res.status(200);
-    mUtil.setETag(req, res, hash);
     mUtil.setContentType(res, mUtil.CONTENT_TYPES.announcements);
+    mUtil.setETag(req, res, hash);
+    res.set('cache-control', 'public, max-age=7200, s-maxage=14400');
     res.json(json);
 });
 
