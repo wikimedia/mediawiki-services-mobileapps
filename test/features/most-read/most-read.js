@@ -5,6 +5,7 @@ const assert = require('../../utils/assert');
 const server = require('../../utils/server');
 const headers = require('../../utils/headers');
 const testUtil = require('../../utils/testUtil');
+const BLACKLIST = require('../../../etc/feed/blacklist');
 
 function addDays(date, days) {
     const result = new Date(date);
@@ -30,6 +31,7 @@ describe('most-read articles', function() {
     });
 
     it('results list should have expected properties', () => {
+        const mergeUriPrefix = "https://en.wikipedia.org/api/rest_v1/page/summary/";
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/most-read/${dateString}`;
         return preq.get({ uri })
             .then((res) => {
@@ -37,12 +39,15 @@ describe('most-read articles', function() {
                 assert.ok(res.body.date);
                 assert.ok(res.body.articles.length);
                 res.body.articles.forEach((elem) => {
-                    assert.ok(elem.$merge, '$merge should be present');
+                    assert.ok(elem.$merge && elem.$merge[0], '$merge uri should be present');
+                    const title = elem.$merge[0].substring(mergeUriPrefix.length);
+                    assert.ok(BLACKLIST.indexOf(title) === -1, 'blacklisted title');
                 });
             });
     });
 
     it('should load successfully even with no normalizations from the MW API', () => {
+        const mergeUriPrefix = "https://ja.wikipedia.org/api/rest_v1/page/summary/";
         const uri = `${server.config.uri}ja.wikipedia.org/v1/page/most-read/2016/06/15`;
         return preq.get({ uri })
             .then((res) => {
@@ -50,7 +55,9 @@ describe('most-read articles', function() {
                 assert.ok(res.body.date);
                 assert.ok(res.body.articles.length);
                 res.body.articles.forEach((elem) => {
-                    assert.ok(elem.$merge, '$merge should be present');
+                    assert.ok(elem.$merge && elem.$merge[0], '$merge uri should be present');
+                    const title = elem.$merge[0].substring(mergeUriPrefix.length);
+                    assert.ok(BLACKLIST.indexOf(title) === -1, 'blacklisted title');
                 });
             });
     });
