@@ -34,7 +34,7 @@ function getEnwikiAnnouncements() {
             id: "EN11116SURVEYANDROID",
             type: "survey",
             start_time: "2016-12-11T00:00:00Z",
-            end_time: "2016-12-15T00:00:00Z",
+            end_time: "2016-12-13T00:00:00Z",
             platforms: [
                 "AndroidApp"
             ],
