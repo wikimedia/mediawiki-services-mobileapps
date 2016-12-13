@@ -4,12 +4,80 @@ const preq   = require('preq');
 const assert = require('../../utils/assert.js');
 const server = require('../../utils/server.js');
 const headers = require('../../utils/headers.js');
+const enWikiHost = 'en.wikipedia.org/v1';
 
 describe('mobile-sections', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
     before(() => { return server.start(); });
+
+    it('Supports revision number request in URL', () => {
+        const title = '%2Fr%2FThe_Donald';
+        const rev = 754364361;
+        const uri = `${server.config.uri}${enWikiHost}/page/mobile-sections/${title}/${rev}`;
+        return preq.get({ uri })
+            .then((res) => {
+                assert.equal(res.body.lead.revision, rev,
+                    'We return the page with requested revision');
+            });
+    });
+
+    it('Mixmatch valid title and valid revision id gives 404', () => {
+        const title = '%2Fr%2FThe_Donald';
+        // belongs to Roald Dahl
+        const rev = 752758357;
+        const uri = `${server.config.uri}${enWikiHost}/page/mobile-sections/${title}/${rev}`;
+        return preq.get({ uri })
+            .catch((res) => {
+                assert.equal(res.status, 404);
+            });
+    });
+
+    it('Bad revision id gives bad request', () => {
+        const title = '%2Fr%2FThe_Donald';
+        // belongs to Roald Dahl
+        const rev = 'Reddit';
+        const uri = `${server.config.uri}${enWikiHost}/page/mobile-sections/${title}/${rev}`;
+        return preq.get({ uri })
+            .catch((res) => {
+                assert.equal(res.status, 400, 'Should be integer');
+            });
+    });
+
+    it('Check content of revision', () => {
+        const title = 'Leonard_Cohen';
+        // revision before his death.
+        const rev = 747517267;
+        const uri = `${server.config.uri}${enWikiHost}/page/mobile-sections/${title}/${rev}`;
+        return preq.get({ uri })
+            .then((res) => {
+                let hasDeathSection = false;
+                res.body.remaining.sections.forEach((section) => {
+                    if (section.line === 'Death') {
+                        hasDeathSection = true;
+                    }
+                });
+                assert.ok(!hasDeathSection,
+                    'Leonard Cohen did not use to be dead. RIP dear man...');
+            });
+    });
+
+    it('Check content of fresh revision', () => {
+        const title = 'Leonard_Cohen';
+        const uri = `${server.config.uri}${enWikiHost}/page/mobile-sections/${title}`;
+        return preq.get({ uri })
+            .then((res) => {
+                let hasDeathSection = false;
+                res.body.remaining.sections.forEach((section) => {
+                    if (section.line === 'Death') {
+                        hasDeathSection = true;
+                    }
+                });
+                assert.ok(hasDeathSection,
+                    '... but he is now which makes me sad.');
+            });
+    });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections/Foobar`;
