@@ -111,7 +111,7 @@ function getEnwikiAnnouncements() {
  */
 router.get('/announcements', (req, res) => {
     const json = {
-        announce: req.params.domain === 'en.wikipedia.org' ? getEnwikiAnnouncements() : []
+        announce: mUtil.isEnglishWikipedia(req.params.domain) ? getEnwikiAnnouncements() : []
     };
     const hash = mUtil.hashCode(JSON.stringify(json));
 
