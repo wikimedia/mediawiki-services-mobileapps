@@ -741,6 +741,9 @@ definitions:
       image:
         type: string
         description: The URL of the image for the announcement
+      image_url:
+        type: string
+        description: The URL of the image for the announcement (iOS App specific)
       action:
         type: object
         description: The action for the button of the announcement

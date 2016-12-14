@@ -49,6 +49,58 @@ function getEnwikiAnnouncements() {
                 "CA",
                 "GB"
             ]
+        },
+        {
+            id: "EN1216DONATIONIOS",
+            type: "fundraising",
+            start_time: "2016-12-15T00:00:00Z",
+            end_time: "2016-12-21T00:00:00Z",
+            platforms: [
+                "iOSApp",
+            ],
+            image_url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Puzzle_heart.png",
+            /*eslint-disable */
+            text: "We'll get right to it: Today we ask you to help Wikipedia. We're sustained by donations averaging about $15. If we all gave $3, the fundraiser would be over in an hour.",
+            /*eslint-enable */
+            action: {
+                title: "Donate today",
+                url: "https://donate.wikimedia.org/?utm_medium=WikipediaAppFeed&utm_campaign=iOS&utm_source=app_201612_heartPuzzle"
+            },
+            caption_HTML: "By submitting, you are agreeing to our <a href=\"https://wikimediafoundation.org/wiki/Donor_policy/en\">donor privacy policy</a>.",
+            countries: [
+                "US",
+                "CA",
+                "GB",
+                "IE",
+                "AU",
+                "NZ"
+            ]
+        },
+        {
+            id: "EN1216DONATIONIANDROID",
+            type: "fundraising",
+            start_time: "2016-12-15T00:00:00Z",
+            end_time: "2016-12-21T00:00:00Z",
+            platforms: [
+                "AndroidApp",
+            ],
+            image: "https://upload.wikimedia.org/wikipedia/commons/9/96/Puzzle_heart_with_Glyph.png",
+            /*eslint-disable */
+            text: "We'll get right to it: Today we ask you to help Wikipedia. We're sustained by donations averaging about $15. If we all gave $3, the fundraiser would be over in an hour.",
+            /*eslint-enable */
+            action: {
+                title: "Donate today",
+                url: "https://donate.wikimedia.org/?utm_medium=WikipediaAppFeed&utm_campaign=Android&utm_source=app_201612_heartPuzzle"
+            },
+            caption_HTML: "By submitting, you are agreeing to our <a href=\"https://wikimediafoundation.org/wiki/Donor_policy/en\">donor privacy policy</a>.",
+            countries: [
+                "US",
+                "CA",
+                "GB",
+                "IE",
+                "AU",
+                "NZ"
+            ]
         }
     ];
 }
