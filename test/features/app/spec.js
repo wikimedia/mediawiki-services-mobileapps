@@ -342,6 +342,11 @@ describe('Swagger spec', function() {
             return assertValidSchema(uri, '#/definitions/random');
         });
 
+        it('announcements should conform to schema', () => {
+            const uri = `${server.config.uri}en.wikipedia.org/v1/feed/announcements`;
+            return assertValidSchema(uri, '#/definitions/announcements');
+        });
+
         // Bad requests return empty response for aggregated=true
 
         it('featured article response should conform to schema (invalid lang, agg=true)', () => {
