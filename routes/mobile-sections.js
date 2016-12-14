@@ -194,8 +194,7 @@ function mainPageFixPromise(req, response) {
     .then((mainPageContent) => {
         return {
             page: mainPageContent,
-            meta: response.meta,
-            extract: response.extract
+            meta: response.meta
         };
     });
 }
@@ -221,8 +220,7 @@ function buildAllResponse(req, res, removeNodes) {
 function buildLeadResponse(req, res, removeNodes) {
     return BBPromise.props({
         page: parsoid.pageContentPromise(app, req),
-        meta: pageMetadataPromise(req),
-        extract: mwapi.requestExtract(app, req)
+        meta: pageMetadataPromise(req)
     }).then((response) => {
         if (response.meta.mainpage) {
             return mainPageFixPromise(req, response);
