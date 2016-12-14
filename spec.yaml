@@ -72,16 +72,8 @@ paths:
       responses:
         '200':
           description: Announcements for the given Wiki
-          type: object
-          properties:
-            announce:
-              type: array
-              items:
-                type: object
-                schema:
-                    $ref: '#/definitions/announcement'
-          required:
-           - announce
+          schema:
+            $ref: '$/definitions/announcements'
         default:
           description: Error
           schema:
@@ -715,6 +707,17 @@ definitions:
       - title
       - thumbnail
       - image
+
+  announcements:
+    type: object
+    properties:
+      announce:
+        type: array
+        description: list of active announcements for this wiki
+        items:
+          $ref: '#/definitions/announcement'
+    required:
+      - announce
 
   announcement:
     type: object
