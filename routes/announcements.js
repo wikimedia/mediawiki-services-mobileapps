@@ -66,7 +66,7 @@ function getEnwikiAnnouncements() {
                 title: "Donate today",
                 url: "https://donate.wikimedia.org/?utm_medium=WikipediaAppFeed&utm_campaign=iOS&utm_source=app_201612_heartPuzzle"
             },
-            caption_HTML: "By submitting, you are agreeing to our <a href=\"https://wikimediafoundation.org/wiki/Donor_policy/en\">donor privacy policy</a>.",
+            caption_HTML: "<p>By submitting, you are agreeing to our <a href=\"https://wikimediafoundation.org/wiki/Donor_policy/en\">donor privacy policy</a>.</p>",
             countries: [
                 "US",
                 "CA",
