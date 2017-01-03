@@ -31,19 +31,6 @@ describe('announcements', function() {
                     assert.ok(elem.caption_HTML, 'caption_HTML should be present');
                     assert.ok(elem.countries, 'countries should be present');
                 });
-                assert.ok(res.body.announce[2].image_url, 'image present');
-                assert.ok(res.body.announce[3].image, 'image present');
-            });
-    });
-
-    it('should return two surveys', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/feed/announcements` })
-            .then((res) => {
-                assert.ok(res.body.announce.length === 4);
-                assert.equal(res.body.announce[0].id, 'EN1116SURVEYIOS');
-                assert.equal(res.body.announce[1].id, 'EN11116SURVEYANDROID');
-                assert.equal(res.body.announce[2].id, 'EN1216DONATIONIOS');
-                assert.equal(res.body.announce[3].id, 'EN1216DONATIONIANDROID');
             });
     });
 

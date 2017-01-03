@@ -85,18 +85,7 @@ paths:
             headers:
               content-type: application/json
             body:
-              announce:
-                - id: /.+/
-                  type: /.+/
-                  start_time: /.+/
-                  end_time: /.+/
-                  platforms: [ /.+/ ]
-                  text: /.+/
-                  action:
-                    title: /.+/
-                    url: /.+/
-                  caption_HTML: /.+/
-                  countries: [ /.+/ ]
+              announce: []
 
   # from routes/featured.js
   /{domain}/v1/page/featured/{yyyy}/{mm}/{dd}:
