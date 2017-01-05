@@ -77,9 +77,9 @@ function buildLeadSections(sections) {
 }
 
 /*
- * @param {Object} input
- * @param {Boolean} [legacy] whether to perform legacy transformations
- * @return {Object} lead json
+ * @param {!Object} input
+ * @param {?Boolean} [legacy] whether to perform legacy transformations
+ * @return {!Object} lead json
  */
 function buildLead(input, legacy) {
     const lead = domino.createDocument(input.page.sections[0].text);
@@ -160,8 +160,8 @@ function buildRemaining(input) {
 
 /*
  * Build a response which contains only reference sections
- * @param {Object} input
- * @return {Object}
+ * @param {!Object} input
+ * @return {!Object}
  */
 function buildReferences(input) {
     const remaining = buildRemaining(input);
@@ -177,9 +177,9 @@ function buildReferences(input) {
 }
 
 /*
- * @param {Object} input
- * @param {Boolean} [legacy] whether to perform legacy transformations
- * @return {Object}
+ * @param {!Object} input
+ * @param {?Boolean} [legacy] whether to perform legacy transformations
+ * @return {!Object}
  */
 function buildAll(input, legacy) {
     return {
@@ -205,9 +205,9 @@ function mainPageFixPromise(req, response) {
 /**
  * Given a partial response for a user page, it will be hydrated
  * to contain information about the owner of the user page.
- * @param {Request} req
- * @param {Response} res
- * @return {Promise}
+ * @param {!Request} req
+ * @param {!Response} res
+ * @return {!Promise}
  */
 function handleUserPagePromise(req, res) {
     return apiUtil.mwApiGet(app, req.params.domain, {
@@ -234,9 +234,9 @@ function handleUserPagePromise(req, res) {
 /**
  * Given a partial response for a file page, it will be hydrated
  * to contain information about the image on the page.
- * @param {Request} req
- * @param {Response} res
- * @return {Promise}
+ * @param {!Request} req
+ * @param {!Response} res
+ * @return {!Promise}
  */
 function handleFilePagePromise(req, res) {
     return apiUtil.mwApiGet(app, req.params.domain, {
@@ -269,9 +269,9 @@ function handleFilePagePromise(req, res) {
 /**
  * Handles special cases such as main page and different
  * namespaces, preparing for output.
- * @param {Request} req
- * @param {Response} res
- * @return {Promise}
+ * @param {!Request} req
+ * @param {!Response} res
+ * @return {!Promise}
  */
 function handleNamespaceAndSpecialCases(req, res) {
     const ns = res.meta.ns;
@@ -286,12 +286,12 @@ function handleNamespaceAndSpecialCases(req, res) {
 }
 
 /*
- * @param {Request} req
- * @param {Response} res
- * @param {Boolean} [legacy] when true MCS will
+ * @param {!Request} req
+ * @param {!Response} res
+ * @param {?Boolean} [legacy] when true MCS will
  *  not apply legacy transformations that we are in the process
  *  of deprecating.
- * @return {BBPromise}
+ * @return {!BBPromise}
  */
 function buildAllResponse(req, res, legacy) {
     return BBPromise.props({

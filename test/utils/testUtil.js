@@ -9,8 +9,8 @@ const testUtil = {};
  *
  * Example: "2016/05/16"
  *
- * @param {Date} dateObj date to be used
- * @return {String} formatted date string
+ * @param {!Date} dateObj date to be used
+ * @return {!String} formatted date string
  */
 testUtil.constructTestDate = function(dateObj) {
     return `${dateObj.getUTCFullYear()}/${

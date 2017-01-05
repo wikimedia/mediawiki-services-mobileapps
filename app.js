@@ -17,8 +17,8 @@ const yaml = require('js-yaml');
 
 /**
  * Creates an express app and initialises it
- * @param {Object} options the options to initialise the app with
- * @return {bluebird} the promise resolving to the app object
+ * @param {!Object} options the options to initialise the app with
+ * @return {!bluebird} the promise resolving to the app object
  */
 function initApp(options) {
 
@@ -136,8 +136,8 @@ function initApp(options) {
 
 /**
  * Loads all routes declared in routes/ into the app
- * @param {Application} app the application object to load routes into
- * @returns {bluebird} a promise resolving to the app object
+ * @param {!Application} app the application object to load routes into
+ * @returns {!bluebird} a promise resolving to the app object
  */
 function loadRoutes(app) {
 
@@ -188,8 +188,8 @@ function loadRoutes(app) {
 
 /**
  * Creates and start the service's web server
- * @param {Application} app the app object to use in the service
- * @returns {bluebird} a promise creating the web server
+ * @param {!Application} app the app object to use in the service
+ * @returns {!bluebird} a promise creating the web server
  */
 function createServer(app) {
 
