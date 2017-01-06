@@ -17,6 +17,43 @@ describe('lib:dateUtil', () => {
         assert.equal(actual.getUTCDate(), 15);
     });
 
+    it('iso8601DateFromYYYYMMDD', () => {
+        const date = '1999123112';
+        const expected = '1999-12-31Z';
+        assert.deepEqual(dateUtil.iso8601DateFromYYYYMMDD(date), expected);
+    });
+
+    it('addDays positive', () => {
+        const date = new Date('1999-12-31');
+        const expected = new Date('2000-01-01');
+        assert.deepEqual(dateUtil.addDays(date, 1), expected);
+    });
+
+    it('addDays zero', () => {
+        const date = new Date('2000-01-01');
+        const expected = new Date(date);
+        assert.deepEqual(dateUtil.addDays(date, 0), expected);
+    });
+
+    it('addDays negative', () => {
+        const date = new Date('2000-01-01');
+        const expected = new Date('1999-12-31');
+        assert.deepEqual(dateUtil.addDays(date, -1), expected);
+    });
+
+    it('addDays immutable', () => {
+        const date = new Date('2000-01-01');
+        const expected = new Date(date);
+        dateUtil.addDays(date, 1);
+        assert.deepEqual(date, expected);
+    });
+
+    it('formatYYYYMMDD', () => {
+        const date = new Date('2000-01-01');
+        const expected = '20000101';
+        assert.deepEqual(dateUtil.formatYYYYMMDD(date), expected);
+    });
+
     it('date format validation should reject invalid formats', () => {
         assert.ok(!dateUtil.validate('2016-7-4'));
         assert.ok(!dateUtil.validate('2016-07-4'));
