@@ -5,6 +5,11 @@ const domino = require('domino');
 const parsoid = require('../../../lib/parsoid-access');
 
 const html = '<body>text0<h2>foo</h2>text1<h3 id="mwBa">Funny section !@#$%^&*()</h3>text2</body>';
+const headHtml
+    = `<html><head>
+        <base href="//en.wikipedia.org/wiki/"/>
+        <link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/Hope_(painting)"/>
+    </head></html>`;
 
 describe('lib:parsoid', function() {
 
@@ -66,5 +71,15 @@ describe('lib:parsoid', function() {
         assertSection0(sections);
         assertSection1(sections);
         assertSection2(sections);
+    });
+
+    it('getBaseUri()', () => {
+        const doc = domino.createDocument(headHtml);
+        assert.equal(parsoid._getBaseUri(doc), '//en.wikipedia.org/wiki/');
+    });
+
+    it('getParsoidLinkTitle()', () => {
+        const doc = domino.createDocument(headHtml);
+        assert.equal(parsoid._getParsoidLinkTitle(doc), 'Hope_(painting)');
     });
 });

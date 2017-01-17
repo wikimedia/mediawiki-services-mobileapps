@@ -4,7 +4,7 @@ const assert = require('../../utils/assert.js');
 const domino = require('domino');
 const transforms = require('../../../lib/transforms');
 
-describe('lib:size-transforms', () => {
+describe('lib:transforms', () => {
     it('rmBracketSpans should remove the spans around brackets', () => {
         const doc = domino.createDocument('<body><a><span>[</span>1<span>]</span></a></body>');
         assert.selectorExistsNTimes(doc, 'body span', 2);
