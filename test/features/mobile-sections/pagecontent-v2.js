@@ -68,14 +68,15 @@ describe('mobile-sections-v2', function() {
     });
 
     it('Barack Obama page lead paragraph', () => {
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/Barack_Obama`;
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/`
+            + 'Barack_Obama/760534941';
         return preq.get({ uri })
             .then((res) => {
                 const intro = res.body.intro;
 
                 assert.deepEqual(res.status, 200);
                 assert.ok(intro !== undefined, 'Intro property present.');
-                assert.ok(intro.indexOf('the first president born outside') > -1,
+                assert.ok(intro.indexOf('President of the United States') > -1,
                   'Intro does not come from infobox.');
                 assert.ok(intro.indexOf('undefined') === -1,
                   'No undefined concatenations');
