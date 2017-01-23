@@ -25,7 +25,7 @@ describe('mobile-sections-v2', function() {
     });
 
     it('Pages with only one section do not have an infobox or intro', () => {
-        const title = `Wikipedia:Today's%20featured%20article%2FNovember%207,%202016`;
+        const title = 'Wikipedia:Today\'s%20featured%20article%2FNovember%207,%202016';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted-lead/${title}`;
         return preq.get({ uri })
             .then((res) => {
