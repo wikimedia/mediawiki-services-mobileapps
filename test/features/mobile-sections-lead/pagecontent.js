@@ -177,6 +177,17 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.pronunciation.url, exp);
             });
     });
+    it('Enwiki Yazidis loads successfully (no pronunciation parsing TypeErrors)', () => {
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Yazidis`;
+        const path = `//upload.wikimedia.org/wikipedia/commons/8/8d`;
+        const exp = `${path}/En-us-Yazidis_from_Iraq_pronunciation_%28Voice_of_America%29.ogg`;
+        return preq.get({ uri })
+                   .then((res) => {
+                       const lead = res.body;
+                       assert.deepEqual(res.status, 200);
+                       assert.deepEqual(lead.pronunciation.url, exp);
+                   });
+    });
     it('Enwiki Lead_paragraph_move has the infobox moved after the lead paragraph', () => {
         const title = `User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FLead_paragraph_move`;
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
