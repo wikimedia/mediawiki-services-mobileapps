@@ -62,15 +62,15 @@ describe('in the news', function() {
                         assert.deepEqual(res.status, 200);
                         assert.ok(res.body.length);
                         res.body.forEach((elem) => {
-                            if ({}.hasOwnProperty.call(res.body, elem)) {
-                                assert.ok(elem.story, 'story should be present');
-                                assert.ok(elem.links, 'links should be present');
-                                elem.links.forEach((link) => {
-                                    assert.ok(link.$merge, '$merge should be present');
-                                    assert.ok(link.missing === undefined,
-                                        'no missing links should be present');
-                                });
-                            }
+                            assert.ok(elem.story, 'story should be present');
+                            assert.ok(elem.links, 'links should be present');
+                            elem.links.forEach((link) => {
+                                assert.ok(link.$merge[0], '$merge should be present');
+                                assert.ok(link.$merge[0].indexOf('summary/wiki') === -1,
+                                    '$merge[0] link should not have the title start with wiki');
+                                assert.ok(link.missing === undefined,
+                                    'no missing links should be present');
+                            });
                         });
                     });
             });
@@ -86,12 +86,6 @@ describe('in the news', function() {
             assert.status(res, 204);
             assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
         });
-    });
-
-    it('URL fragments should be stripped correctly', () => {
-        assert.deepEqual(news.removeFragment('100_metres_hurdles#Top_25_fastest_athletes'),
-            '100_metres_hurdles');
-        assert.deepEqual(news.removeFragment('Kendra_Harrison'), 'Kendra_Harrison');
     });
 
     it('News story constructed correctly (duplicate titles handled correctly)', () => {
