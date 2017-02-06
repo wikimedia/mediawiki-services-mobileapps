@@ -2,8 +2,9 @@
 
 const preq   = require('preq');
 const assert = require('../../utils/assert.js');
-const server = require('../../utils/server.js');
 const headers = require('../../utils/headers.js');
+const server = require('../../utils/server.js');
+
 const enWikiHost = 'en.wikipedia.org/v1';
 
 describe('mobile-sections', function() {
@@ -12,10 +13,27 @@ describe('mobile-sections', function() {
 
     before(() => { return server.start(); });
 
-    it('Supports revision number request in URL', () => {
+    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
+        const uri = `${server.config.uri}${enWikiHost}/page/mobile-sections/Foobar`;
+        return headers.checkHeaders(uri);
+    });
+
+    it('Supports revision number in request URL', () => {
         const title = '%2Fr%2FThe_Donald';
-        const rev = 754364361;
+        const rev = 764101607;
         const uri = `${server.config.uri}${enWikiHost}/page/mobile-sections/${title}/${rev}`;
+        return preq.get({ uri })
+            .then((res) => {
+                assert.equal(res.body.lead.revision, rev,
+                    'We return the page with requested revision');
+            });
+    });
+
+    it('Supports revision number and tid string in request URL', () => {
+        const title = '%2Fr%2FThe_Donald';
+        const rev = 764101607;
+        const tid = 'b24de3d0-ecde-11e6-a863-ed5fc1010eed';
+        const uri = `${server.config.uri}${enWikiHost}/page/mobile-sections/${title}/${rev}/${tid}`;
         return preq.get({ uri })
             .then((res) => {
                 assert.equal(res.body.lead.revision, rev,

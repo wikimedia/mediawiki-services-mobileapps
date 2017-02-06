@@ -326,7 +326,7 @@ function buildLeadResponse(req, res, legacy) {
  * GET {domain}/v1/page/mobile-sections/{title}
  * Gets the mobile app version of a given wiki page.
  */
-router.get('/mobile-sections/:title/:revision?', (req, res) => {
+router.get('/mobile-sections/:title/:revision?/:tid?', (req, res) => {
     return buildAllResponse(req, res, true);
 });
 
@@ -334,7 +334,7 @@ router.get('/mobile-sections/:title/:revision?', (req, res) => {
  * GET {domain}/v1/page/mobile-sections-lead/{title}
  * Gets the lead section for the mobile app version of a given wiki page.
  */
-router.get('/mobile-sections-lead/:title/:revision?', (req, res) => {
+router.get('/mobile-sections-lead/:title/:revision?/:tid?', (req, res) => {
     return buildLeadResponse(req, res, true);
 });
 
@@ -342,7 +342,7 @@ router.get('/mobile-sections-lead/:title/:revision?', (req, res) => {
  * GET {domain}/v1/page/mobile-sections-remaining/{title}
  * Gets the remaining sections for the mobile app version of a given wiki page.
  */
-router.get('/mobile-sections-remaining/:title/:revision?', (req, res) => {
+router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
         page: parsoid.pageContentPromise(app, req, true)
     }).then((response) => {
@@ -357,7 +357,7 @@ router.get('/mobile-sections-remaining/:title/:revision?', (req, res) => {
  * GET {domain}/v1/page/references/{title}/{revision:?}
  * Gets any sections which are part of a reference sections for a given wiki page.
  */
-router.get('/references/:title/:revision?', (req, res) => {
+router.get('/references/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
         page: parsoid.pageContentPromise(app, req, false)
     }).then((response) => {
@@ -372,7 +372,7 @@ router.get('/references/:title/:revision?', (req, res) => {
 * GET {domain}/v1/page/formatted/{title}/{revision?}
 * Gets a formatted version of a given wiki page rather than a blob of wikitext.
 */
-router.get('/formatted/:title/:revision?', (req, res) => {
+router.get('/formatted/:title/:revision?/:tid?', (req, res) => {
     return buildAllResponse(req, res, false);
 });
 
@@ -380,7 +380,7 @@ router.get('/formatted/:title/:revision?', (req, res) => {
 * GET {domain}/v1/page/formatted-lead/{title}/{revision?}
 * Gets a formatted version of a given wiki page rather than a blob of wikitext.
 */
-router.get('/formatted-lead/:title/:revision?', (req, res) => {
+router.get('/formatted-lead/:title/:revision?/:tid?', (req, res) => {
     return buildLeadResponse(req, res, false);
 });
 
