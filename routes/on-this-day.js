@@ -6,6 +6,7 @@ const sUtil = require('../lib/util');
 const router = sUtil.router();
 const mUtil = require('../lib/mobile-util');
 const parsoid = require('../lib/parsoid-access');
+const BBPromise = require('bluebird');
 const languages = require('../lib/on-this-day.languages').languages;
 
 let app;
@@ -440,7 +441,9 @@ function fetchDocAndRevision(req, titleFunction) {
 function fetchAndRespond(req, res, titleFunction, extractionFunction) {
     const lang = req.params.domain.split('.')[0];
     return fetchDocAndRevision(req, titleFunction)
-    .then(([doc, revision]) => {
+    .then((docAndRevision) => {
+        const doc = docAndRevision[0];
+        const revision = docAndRevision[1];
         const output = extractionFunction(doc, lang);
         endResponseWithOutput(res, output, req.params.domain, revision);
     });
@@ -497,11 +500,19 @@ router.get('/selected/:mm/:dd', (req, res) => {
  */
 router.get('/all/:mm/:dd', (req, res) => {
     const lang = req.params.domain.split('.')[0];
-    return Promise.all([
+    return BBPromise.all([
         fetchDocAndRevision(req, dayTitleForRequest),
         fetchDocAndRevision(req, selectedTitleForRequest)
     ])
-    .then(([[dayDoc, dayRevision], [selectionsDoc, selectionsRevision]]) => {
+    .then((docsAndRevisions) => {
+        const dayDocAndRevision = docsAndRevisions[0];
+        const dayDoc = dayDocAndRevision[0];
+        const dayRevision = dayDocAndRevision[1];
+
+        const selectionsDocAndRevision = docsAndRevisions[1];
+        const selectionsDoc = selectionsDocAndRevision[0];
+        const selectionsRevision = selectionsDocAndRevision[1];
+
         const revision = Math.max(dayRevision, selectionsRevision);
         const output = everythingInDayAndSelectionsDocs(dayDoc, selectionsDoc, lang);
         endResponseWithOutput(res, output, req.params.domain, revision);
