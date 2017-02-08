@@ -84,6 +84,12 @@ Feed endpoints:
 * http://localhost:6927/en.wikipedia.org/v1/page/news
 * http://localhost:6927/en.wikipedia.org/v1/page/most-read/2016/05/30
 * http://localhost:6927/en.wikipedia.org/v1/page/random/title
+* http://localhost:6927/en.wikipedia.org/v1/onthisday/births/05/30
+* http://localhost:6927/en.wikipedia.org/v1/onthisday/deaths/05/30
+* http://localhost:6927/en.wikipedia.org/v1/onthisday/events/05/30
+* http://localhost:6927/en.wikipedia.org/v1/onthisday/selected/05/30
+* http://localhost:6927/en.wikipedia.org/v1/onthisday/holidays/05/30
+* http://localhost:6927/en.wikipedia.org/v1/onthisday/all/05/30
 
 Note that day and month need to be 2 digits to be accepted. 0-pad them if necessary.
 
