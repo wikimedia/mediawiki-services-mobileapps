@@ -25,7 +25,12 @@ function getEnwikiAnnouncements() {
             },
             caption_HTML: "<p>Hosted by a third-party service. See the <a href=\"https://m.wikimediafoundation.org/wiki/Mobile_User_Testing_Recruitment_Survey_Privacy_Statement\">privacy statement</a> for information on data handling.</p>",
             countries: [
-                "US"
+                "US",
+                "CA",
+                "GB",
+                "IE",
+                "AU",
+                "NZ"
             ]
         },
         {
@@ -43,7 +48,12 @@ function getEnwikiAnnouncements() {
             },
             caption_HTML: "Hosted by a third-party service. See the <a href=\"https://m.wikimediafoundation.org/wiki/Mobile_User_Testing_Recruitment_Survey_Privacy_Statement\">privacy statement</a> for information on data handling.",
             countries: [
-                "US"
+                "US",
+                "CA",
+                "GB",
+                "IE",
+                "AU",
+                "NZ"
             ]
         }
     ];
