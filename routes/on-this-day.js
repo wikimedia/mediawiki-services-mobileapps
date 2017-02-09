@@ -7,6 +7,7 @@ const router = sUtil.router();
 const mUtil = require('../lib/mobile-util');
 const parsoid = require('../lib/parsoid-access');
 const BBPromise = require('bluebird');
+const HTTPError = require('../lib/util').HTTPError;
 const languages = require('../lib/on-this-day.languages').languages;
 
 let app;
@@ -428,6 +429,16 @@ function fetchDocAndRevision(req, titleFunction) {
     .then((doc) => [doc, revision]);
 }
 
+const assertLanguage = (lang) => {
+    if (!languages[lang]) {
+        throw new HTTPError({
+            status: 501,
+            type: 'unsupported_language',
+            title: 'Language not supported',
+            detail: 'The language you have requested is not yet supported.'
+        });
+    }
+};
 /**
  * Fetches document for URI, extracts sought elements, responds
  * @param  {!Object} req                     Request
@@ -440,6 +451,8 @@ function fetchDocAndRevision(req, titleFunction) {
  */
 function fetchAndRespond(req, res, titleFunction, extractionFunction) {
     const lang = req.params.domain.split('.')[0];
+    assertLanguage(lang);
+
     return fetchDocAndRevision(req, titleFunction)
     .then((docAndRevision) => {
         const doc = docAndRevision[0];
@@ -500,6 +513,8 @@ router.get('/selected/:mm/:dd', (req, res) => {
  */
 router.get('/all/:mm/:dd', (req, res) => {
     const lang = req.params.domain.split('.')[0];
+    assertLanguage(lang);
+
     return BBPromise.all([
         fetchDocAndRevision(req, dayTitleForRequest),
         fetchDocAndRevision(req, selectedTitleForRequest)

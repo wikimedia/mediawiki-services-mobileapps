@@ -11,6 +11,14 @@ const path = require('path');
 
 const onThisDayLangs = require('../../../lib/on-this-day.languages');
 const languages = onThisDayLangs.languages;
+const eventTypes = [
+    'all',
+    'selected',
+    'births',
+    'deaths',
+    'events',
+    'holidays'
+];
 
 // UTILITY
 
@@ -82,25 +90,6 @@ describe('onthisday', function() {
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
     before(() => { return server.start(); });
-
-    it('"births" should respond to GET req w/expected headers, incl CORS and CSP headers', () => {
-        headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/onthisday/births/01/01`);
-    });
-    it('"deaths" should respond to GET req w/expected headers, incl CORS and CSP headers', () => {
-        headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/onthisday/deaths/01/01`);
-    });
-    it('"events" should respond to GET req w/expected headers, incl CORS and CSP headers', () => {
-        headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/onthisday/events/01/01`);
-    });
-    it('"holidays" should respond to GET req w/expected headers, incl CORS and CSP headers', () => {
-        headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/onthisday/holidays/01/01`);
-    });
-    it('"selected" should respond to GET req w/expected headers, incl CORS and CSP headers', () => {
-        headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/onthisday/selected/01/01`);
-    });
-    it('"all" should respond to GET req w/expected headers, incl CORS and CSP headers', () => {
-        headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/onthisday/all/01/01`);
-    });
 
     // TEST PAGE TITLE GENERATION
 
@@ -293,50 +282,51 @@ describe('onthisday', function() {
     // DO NOT TEST FOR EXACT RESULT COUNT - THESE CHANGE AS PAGES ARE EDITED.
     // INSTEAD TEST THAT AT LEAST SOME RESULTS ARE RETURNED.
 
-    function january30uriForEndpointName(endpointName) {
-        return `${server.config.uri}en.wikipedia.org/v1/onthisday/${endpointName}/01/30/`;
+    function january30uriForEndpointName(endpointName, lang = 'en') {
+        return `${server.config.uri}${lang}.wikipedia.org/v1/onthisday/${endpointName}/01/30/`;
     }
-    function getJanuary30ResponseForEndpointName(endpointName) {
-        return preq.get(january30uriForEndpointName(endpointName));
+    function getJanuary30ResponseForEndpointName(endpointName, lang) {
+        return preq.get(january30uriForEndpointName(endpointName, lang));
     }
     function verifyNonZeroEndpointResults(response, endpointName) {
+        assert.equal(response.status, 200);
         assert.ok(response.body.length > 0, `${endpointName} should have fetched some results`);
     }
-    function fetchAndVerifyNonZeroResultsForEndpointName(endpointName) {
-        return getJanuary30ResponseForEndpointName(endpointName)
+    function fetchAndVerifyNonZeroResultsForEndpointName(endpointName, lang) {
+        return getJanuary30ResponseForEndpointName(endpointName, lang)
          .then((response) => {
              verifyNonZeroEndpointResults(response, endpointName);
          });
     }
-    it('BIRTHS fetches some results', () => {
-        return fetchAndVerifyNonZeroResultsForEndpointName('births');
-    });
 
-    it('DEATHS fetches some results', () => {
-        return fetchAndVerifyNonZeroResultsForEndpointName('deaths');
-    });
+    for (const type of eventTypes) {
+        it(`${type}: should respond to GET req w/expected headers`, () => {
+            headers.checkHeaders(january30uriForEndpointName(type));
+        });
 
-    it('EVENTS fetches some results', () => {
-        return fetchAndVerifyNonZeroResultsForEndpointName('events');
-    });
+        it(`${type}: unsupported language throws 501`, () => {
+            return getJanuary30ResponseForEndpointName(type, 'nl')
+            .catch((error) => {
+                assert.equal(error.status, 501);
+            });
+        });
 
-    it('HOLIDAYS fetches some results', () => {
-        return fetchAndVerifyNonZeroResultsForEndpointName('holidays');
-    });
+        if (type !== 'all') {
+            it(`${type}: fetches some results`, () => {
+                return fetchAndVerifyNonZeroResultsForEndpointName(type);
+            });
+        }
+    }
 
-    it('SELECTED fetches some results', () => {
-        return fetchAndVerifyNonZeroResultsForEndpointName('selected');
-    });
-
-    it('ALL fetches some results for births, deaths, events, holidays and selected', () => {
+    it('"all" fetches some results for births, deaths, events, holidays and selected', () => {
         return getJanuary30ResponseForEndpointName('all')
-         .then((response) => {
-             assert.ok(response.body.births.length > 0, 'ALL should return some births');
-             assert.ok(response.body.deaths.length > 0, 'ALL should return some deaths');
-             assert.ok(response.body.events.length > 0, 'ALL should return some events');
-             assert.ok(response.body.holidays.length > 0, 'ALL should return some holidays');
-             assert.ok(response.body.selected.length > 0, 'ALL should return some selected');
-         });
+        .then((response) => {
+            assert.ok(response.body.births.length > 0, 'ALL should return some births');
+            assert.ok(response.body.deaths.length > 0, 'ALL should return some deaths');
+            assert.ok(response.body.events.length > 0, 'ALL should return some events');
+            assert.ok(response.body.holidays.length > 0, 'ALL should return some holidays');
+            assert.ok(response.body.selected.length > 0, 'ALL should return some selected');
+        });
     });
 
     it('eventsForYearListElements returns a WMFEvent for only year list elements', () => {
@@ -441,5 +431,4 @@ describe('onthisday', function() {
         const listElements = onThisDay.testing.listElementsByHeadingID(document, 'Births');
         assert.ok(listElements.length === 208);
     });
-
 });
