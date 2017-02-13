@@ -465,7 +465,7 @@ function fetchAndRespond(req, res, titleFunction, extractionFunction) {
 /**
  * ENDPOINT for 'births' from 'Births' section of 'day' pages like:
  * https://en.m.wikipedia.org/wiki/May_20 Example:
- * http://localhost:6927/en.wikipedia.org/v1/onthisday/births/01/30
+ * http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/births/01/30
  */
 router.get('/births/:mm/:dd', (req, res) => {
     return fetchAndRespond(req, res, dayTitleForRequest, birthsInDoc);
@@ -474,7 +474,7 @@ router.get('/births/:mm/:dd', (req, res) => {
 /**
  * ENDPOINT for 'deaths' from 'Deaths' section of 'day' pages like:
  * https://en.m.wikipedia.org/wiki/May_20 Example:
- * http://localhost:6927/en.wikipedia.org/v1/onthisday/deaths/01/30
+ * http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/deaths/01/30
  */
 router.get('/deaths/:mm/:dd', (req, res) => {
     return fetchAndRespond(req, res, dayTitleForRequest, deathsInDoc);
@@ -483,7 +483,7 @@ router.get('/deaths/:mm/:dd', (req, res) => {
 /**
  * ENDPOINT for 'events' from 'Events' section of 'day' pages like:
  * https://en.m.wikipedia.org/wiki/May_20 Example:
- * http://localhost:6927/en.wikipedia.org/v1/onthisday/events/01/30
+ * http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/events/01/30
  */
 router.get('/events/:mm/:dd', (req, res) => {
     return fetchAndRespond(req, res, dayTitleForRequest, eventsInDoc);
@@ -492,7 +492,7 @@ router.get('/events/:mm/:dd', (req, res) => {
 /**
  * ENDPOINT for 'holidays' from 'Holiday and observances' section of 'day' pages like:
  * https://en.m.wikipedia.org/wiki/May_20 Example:
- * http://localhost:6927/en.wikipedia.org/v1/onthisday/holidays/01/30
+ * http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/holidays/01/30
  */
 router.get('/holidays/:mm/:dd', (req, res) => {
     return fetchAndRespond(req, res, dayTitleForRequest, holidaysInDoc);
@@ -501,7 +501,7 @@ router.get('/holidays/:mm/:dd', (req, res) => {
 /**
  * ENDPOINT for 'selected' editor curated events from pages like:
  * https://en.m.wikipedia.org/wiki/Wikipedia:On_this_day/Today Example:
- * http://localhost:6927/en.wikipedia.org/v1/onthisday/selected/01/30
+ * http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/selected/01/30
  */
 router.get('/selected/:mm/:dd', (req, res) => {
     return fetchAndRespond(req, res, selectedTitleForRequest, selectionsInDoc);
@@ -509,7 +509,7 @@ router.get('/selected/:mm/:dd', (req, res) => {
 
 /**
  * ENDPOINT for 'all' - everything ('births', 'deaths', 'events', 'holidays' and 'selected') all in
- * one go Example: http://localhost:6927/en.wikipedia.org/v1/onthisday/all/01/30
+ * one go Example: http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/all/01/30
  */
 router.get('/all/:mm/:dd', (req, res) => {
     const lang = req.params.domain.split('.')[0];
@@ -537,7 +537,7 @@ router.get('/all/:mm/:dd', (req, res) => {
 module.exports = function(appObj) {
     app = appObj;
     return {
-        path: '/onthisday',
+        path: '/feed/onthisday',
         api_version: 1,
         router,
         testing: { // Testing namespace

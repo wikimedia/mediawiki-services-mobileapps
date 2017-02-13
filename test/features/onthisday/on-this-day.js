@@ -283,7 +283,7 @@ describe('onthisday', function() {
     // INSTEAD TEST THAT AT LEAST SOME RESULTS ARE RETURNED.
 
     function january30uriForEndpointName(endpointName, lang = 'en') {
-        return `${server.config.uri}${lang}.wikipedia.org/v1/onthisday/${endpointName}/01/30/`;
+        return `${server.config.uri}${lang}.wikipedia.org/v1/feed/onthisday/${endpointName}/01/30/`;
     }
     function getJanuary30ResponseForEndpointName(endpointName, lang) {
         return preq.get(january30uriForEndpointName(endpointName, lang));
