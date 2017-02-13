@@ -8,7 +8,7 @@ const mUtil = require('../lib/mobile-util');
 const parsoid = require('../lib/parsoid-access');
 const BBPromise = require('bluebird');
 const HTTPError = require('../lib/util').HTTPError;
-const languages = require('../lib/on-this-day.languages').languages;
+const languages = require('../lib/feed/on-this-day.languages.js').languages;
 
 let app;
 

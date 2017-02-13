@@ -9,7 +9,7 @@ const headers = require('../../utils/headers');
 const fs = require('fs');
 const path = require('path');
 
-const onThisDayLangs = require('../../../lib/on-this-day.languages');
+const onThisDayLangs = require('../../../lib/feed/on-this-day.languages.js');
 const languages = onThisDayLangs.languages;
 const eventTypes = [
     'all',
