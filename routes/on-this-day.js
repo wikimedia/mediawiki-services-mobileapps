@@ -111,24 +111,12 @@ class WMFHoliday {
 }
 
 /**
- * Get a valid 'dbTitle' from a Parsoid anchor element ( No need to use 'getDbTitle' promise since
- * we already have the 'dbTitle' in Parsoid anchor 'href' )
- * @param  {!AnchorElement} anchorElement    Anchor to examine
- * @return {!String}                         A valid 'dbTitle' - i.e. title with underscores instead
- * of spaces (and other changes)
- */
-function dbTitleFromParsoidAnchorElement(anchorElement) {
-    const hrefStartsWithSlash = anchorElement.href.startsWith('/');
-    return hrefStartsWithSlash ? anchorElement.href.substring(1) : anchorElement.href;
-}
-
-/**
  * Converts document anchor element to WMFPage model
  * @param   {!AnchorElement} anchorElement Anchor to convert
  * @return  {!WMFPage}                     A WMFPage
 */
 function wmfPageFromAnchorElement(anchorElement) {
-    const title = dbTitleFromParsoidAnchorElement(anchorElement);
+    const title = mUtil.extractDbTitleFromAnchor(anchorElement);
     const isTopic = anchorElement.parentElement.tagName === 'B';
     return new WMFPage(title, isTopic);
 }
