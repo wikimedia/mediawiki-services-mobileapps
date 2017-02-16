@@ -11,9 +11,11 @@ const yaml   = require('js-yaml');
 const fs     = require('fs');
 const Ajv    = require('ajv');
 
+const baseUri = `${server.config.uri}en.wikipedia.org/v1/`;
 const d1 = new Date();
 const d2 = new Date(Date.now() - 2 * dateUtil.ONE_DAY);
 const dateStr1 = `${d1.getUTCFullYear()}/${pad(d1.getUTCMonth() + 1)}/${pad(d1.getUTCDate())}`;
+const monthDayStr1 = `${pad(d1.getUTCMonth() + 1)}/${pad(d1.getUTCDate())}`;
 const dateStr2 = `${d2.getUTCFullYear()}/${pad(d2.getUTCMonth() + 1)}/${pad(d2.getUTCDate())}`;
 
 
@@ -318,33 +320,38 @@ describe('Swagger spec', function() {
         // Valid non-aggregated requests
 
         it('featured article response should conform to schema', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/page/featured/${dateStr1}`;
+            const uri = `${baseUri}page/featured/${dateStr1}`;
             return assertValidSchema(uri, '#/definitions/article_summary_merge_link');
         });
 
         it('featured image response should conform to schema', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/media/image/featured/${dateStr1}`;
+            const uri = `${baseUri}media/image/featured/${dateStr1}`;
             return assertValidSchema(uri, '#/definitions/image');
         });
 
         it('most-read response should conform to schema', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/page/most-read/${dateStr2}`;
+            const uri = `${baseUri}page/most-read/${dateStr2}`;
             return assertValidSchema(uri, '#/definitions/mostread');
         });
 
         it('news response should conform to schema', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/page/news`;
+            const uri = `${baseUri}page/news`;
             return assertValidSchema(uri, '#/definitions/news');
         });
 
         it('random response should conform to schema', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/page/random/title`;
+            const uri = `${baseUri}page/random/title`;
             return assertValidSchema(uri, '#/definitions/random');
         });
 
         it('announcements should conform to schema', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/feed/announcements`;
+            const uri = `${baseUri}feed/announcements`;
             return assertValidSchema(uri, '#/definitions/announcements');
+        });
+
+        it('onthisday response should conform to schema', () => {
+            const uri = `${baseUri}feed/onthisday/all/${monthDayStr1}`;
+            return assertValidSchema(uri, '#/definitions/onthisdayResponse');
         });
 
         // Bad requests return empty response for aggregated=true
@@ -355,12 +362,12 @@ describe('Swagger spec', function() {
         });
 
         it('featured image response should conform to schema (invalid date, agg=true)', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/media/image/featured/2004/01/01`;
+            const uri = `${baseUri}media/image/featured/2004/01/01`;
             return assertValidSchemaAggregated(uri);
         });
 
         it('most-read response should conform to schema (invalid date, agg=true)', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/page/most-read/2004/01/01`;
+            const uri = `${baseUri}page/most-read/2004/01/01`;
             return assertValidSchemaAggregated(uri);
         });
 
@@ -376,12 +383,12 @@ describe('Swagger spec', function() {
         });
 
         it('featured image request should fail for invalid date when !agg=true', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/media/image/featured/2004/01/01`;
+            const uri = `${baseUri}media/image/featured/2004/01/01`;
             return assertBadRequest(uri);
         });
 
         it('most-read request should fail for invalid date when !agg=true', () => {
-            const uri = `${server.config.uri}en.wikipedia.org/v1/page/most-read/2004/01/01`;
+            const uri = `${baseUri}page/most-read/2004/01/01`;
             return assertBadRequest(uri);
         });
 

@@ -98,6 +98,119 @@ paths:
                   caption_HTML: /.+/
                   countries: [ /.+/ ]
 
+  # from routes/on-this-day.js
+  /{domain}/v1/feed/onthisday/{type}/{mm}/{dd}:
+    get:
+      tags:
+        - Feed
+      description: |
+        Provides events that historically happened on the provided day and month.
+        Supported types of events are:
+         - All: all of the following
+         - Selected: a list of a few selected anniversaries which happen on the provided day and month; often the entries are curated for the current year
+         - Births: a list of birthdays which happened on the provided day and month
+         - Deaths: a list of deaths which happened on the provided day and month
+         - Holidays: a list of fixed holidays celebrated on the provided day and month
+         - Events: a list of significant events which happened on the provided day and month and which are not covered by the other types yet
+      produces:
+        - application/json
+      parameters:
+        - name: type
+          in: path
+          description: "type of events"
+          type: string
+          required: true
+          enum:
+            - all
+            - selected
+            - births
+            - deaths
+            - holidays
+            - events
+        - name: mm
+          in: path
+          description: "Month events are requested for, 0-padded"
+          type: string
+          required: true
+          minimum: "01"
+          maximum: "12"
+        - name: dd
+          in: path
+          description: "Day of the month the most-read articles are requested for"
+          type: string
+          required: true
+          minimum: "01"
+          maximum: "31"
+      responses:
+        '200':
+          description: Annual events listed on this wiki for the requested month and day
+          schema:
+            $ref: '#/definitions/onthisdayResponse'
+        '404':
+          description: No data found for the requested date
+          schema:
+            $ref: '#/definitions/problem'
+        '501':
+          description: Unsupported language
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve all events on January 15
+          request:
+            params:
+              type: "all"
+              mm: "01"
+              dd: "15"
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              selected:
+                - text: /.+/
+                  year: /.+/
+                  pages:
+                    - $merge: [ /.+/ ]
+              events:
+                - text: /.+/
+                  year: /.+/
+                  pages:
+                    - $merge: [ /.+/ ]
+              births:
+                - text: /.+/
+                  year: /.+/
+                  pages:
+                    - $merge: [ /.+/ ]
+              deaths:
+                - text: /.+/
+                  year: /.+/
+                  pages:
+                    - $merge: [ /.+/ ]
+              holidays:
+                - text: /.+/
+                  pages:
+                    - $merge: [ /.+/ ]
+        - title: retrieve the selected anniversaries for January 15
+          request:
+            params:
+              type: "selected"
+              mm: "01"
+              dd: "15"
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              selected:
+                - text: /.+/
+                  year: /.+/
+                  pages:
+                    - $merge: [ /.+/ ]
+
   # from routes/featured.js
   /{domain}/v1/page/featured/{yyyy}/{mm}/{dd}:
     get:
@@ -659,6 +772,47 @@ definitions:
       - date
       - articles
 
+  onthisdayList:
+    type: array
+    items:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Short description of the event
+        year:
+          type: integer
+          description: The year this event occurred
+        pages:
+          type: array
+          description: List of pages related to the event
+          items:
+            $ref: '#/definitions/article_summary_merge_link'
+    required:
+      - text
+      - pages
+
+  onthisdayResponse:
+    type: object
+    description: Lists of events which happened on the provided day and month
+    properties:
+      births:
+        description: A list of birthdays which happened on the provided day and month
+        $ref: '#/definitions/onthisdayList'
+      deaths:
+        description: A list of deaths which happened on the provided day and month
+        $ref: '#/definitions/onthisdayList'
+      events:
+        description: A list of significant events which happened on the provided day and month and which are not covered by the other types yet
+        $ref: '#/definitions/onthisdayList'
+      holidays:
+        description: A list of fixed holidays celebrated on the provided day and month
+        $ref: '#/definitions/onthisdayList'
+      selected:
+        description: A list of a few selected anniversaries which occur on the provided day and month; often the entries are curated for the current year
+        $ref: '#/definitions/onthisdayList'
+    additionalProperties: false
+
   news_item:
     type: object
     properties:
@@ -786,7 +940,7 @@ definitions:
     properties:
       title:
         type: string
-        description: The title to deisplay on the button that performs the action
+        description: The title to display on the button that performs the action
       url:
         type: string
         description: The URL to navigate to when the button is pressed
