@@ -242,69 +242,63 @@ function listElementsByHeadingID(document, headingId) {
  * Gets array of WMFEvent models of births found in a document
  * @param  {!Document} document  Document to examine
  * @param  {!String}   lang      String for project language code
- * @return {!Array}              Array of WMFEvent models of births
+ * @return {!Object}             Object containing list of births
  */
 const birthsInDoc = (document, lang) => {
     const selector = languages[lang].dayPage.headingIds.births;
-    return eventsForYearListElements(
-        listElementsByHeadingID(document, selector),
-        lang
-    );
+    return { births: eventsForYearListElements(listElementsByHeadingID(document, selector), lang) };
 };
 
 /**
  * Gets array of WMFEvent models of deaths found in a document
  * @param  {!Document} document  Document to examine
  * @param  {!String}   lang      String for project language code
- * @return {!Array}              Array of WMFEvent models of deaths
+ * @return {!Object}             Object containing list of deaths
  */
 const deathsInDoc = (document, lang) => {
     const selector = languages[lang].dayPage.headingIds.deaths;
-    return eventsForYearListElements(
-        listElementsByHeadingID(document, selector),
-        lang
-    );
+    return { deaths:
+        eventsForYearListElements(listElementsByHeadingID(document, selector), lang)
+    };
 };
 
 /**
  * Gets array of WMFEvent models of events found in a document
  * @param  {!Document} document  Document to examine
  * @param  {!String}   lang      String for project language code
- * @return {!Array}              Array of WMFEvent models of events
+ * @return {!Object}             Object containing list of events
  */
 const eventsInDoc = (document, lang) => {
     const selector = languages[lang].dayPage.headingIds.events;
-    return eventsForYearListElements(
-        listElementsByHeadingID(document, selector),
-        lang
-    );
+    return { events:
+        eventsForYearListElements(listElementsByHeadingID(document, selector), lang)
+    };
 };
 
 /**
  * Gets array of WMFEvent models of holidays and observances found in a document
  * @param  {!Document} document  Document to examine
  * @param  {!String}   lang      String for project language code
- * @return {!Array}              Array of WMFEvent models of holidays and observances
+ * @return {!Object}             Object containing list of holidays and observances
  */
 const holidaysInDoc = (document, lang) => {
     const selector = languages[lang].dayPage.headingIds.holidays;
-    return holidaysForHolidayListElements(
-        listElementsByHeadingID(document, selector)
-    );
+    return { holidays:
+        holidaysForHolidayListElements(listElementsByHeadingID(document, selector))
+    };
 };
 
 /**
- * Gets array of WMFEvent models of editor curated selected events found in a document
+ * Gets array of WMFEvent models of editor curated selected anniversaries found in a document
  * @param  {!Document} document  Document to examine
  * @param  {!String}   lang      String for project language code
- * @return {!Array}              Array of WMFEvent models of selections
+ * @return {!Object}             Object containing list of selected anniversaries
  */
 const selectionsInDoc = (document, lang) => {
     const selector = languages[lang].selectedPage.listElementSelector;
-    return eventsForYearListElements(
-        document.querySelectorAll(selector),
-        lang
-    );
+    return { selected:
+        eventsForYearListElements(document.querySelectorAll(selector), lang)
+    };
 };
 
 /**
@@ -313,17 +307,19 @@ const selectionsInDoc = (document, lang) => {
  * @param  {!Document} dayDoc        Document of events on a given day
  * @param  {!Document} selectionsDoc Document of editor curated events for a given day
  * @param  {!String}   lang          String for project language code
- * @return {!Dictionary}             Dictionary with keys for arrays of 'births', 'deaths',
- * 'events', 'holidays' and 'selected'
+ * @return {!Dictionary}             Dictionary with keys for arrays of 'selected', 'events',
+ * 'births', 'deaths', and 'holidays'
  */
 const everythingInDayAndSelectionsDocs = (dayDoc, selectionsDoc, lang) => {
-    return {
-        selected: selectionsInDoc(selectionsDoc, lang),
-        births: birthsInDoc(dayDoc, lang),
-        deaths: deathsInDoc(dayDoc, lang),
-        events: eventsInDoc(dayDoc, lang),
-        holidays: holidaysInDoc(dayDoc, lang)
-    };
+    const result = {};
+    Object.assign(result,
+        selectionsInDoc(selectionsDoc, lang),
+        eventsInDoc(dayDoc, lang),
+        birthsInDoc(dayDoc, lang),
+        deathsInDoc(dayDoc, lang),
+        holidaysInDoc(dayDoc, lang)
+    );
+    return result;
 };
 
 /**

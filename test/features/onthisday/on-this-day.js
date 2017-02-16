@@ -290,7 +290,8 @@ describe('onthisday', function() {
     }
     function verifyNonZeroEndpointResults(response, endpointName) {
         assert.equal(response.status, 200);
-        assert.ok(response.body.length > 0, `${endpointName} should have fetched some results`);
+        assert.ok(response.body[endpointName].length > 0,
+            `${endpointName} should have fetched some results`);
     }
     function fetchAndVerifyNonZeroResultsForEndpointName(endpointName, lang) {
         return getJanuary30ResponseForEndpointName(endpointName, lang)
