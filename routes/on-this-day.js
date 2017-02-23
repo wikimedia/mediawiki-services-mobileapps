@@ -221,16 +221,21 @@ function holidaysForHolidayListElements(listElements) {
  * for things like 'Births before 1900' and so forth. We want *all* births, in this case - that is,
  * we want all list elements after the h2 'births' heading up until the next h2 heading.
  * @param  {!Document}  document    Document to examine
- * @param  {!String}    headingId   String for heading id
+ * @param  {!String}    headingIds   Array of heading id strings
  * @return {!Array}                 Array of list elements
  */
-function listElementsByHeadingID(document, headingId) {
+function listElementsByHeadingID(document, headingIds) {
     const elements = Array.from(document.querySelectorAll('h2,ul li'));
     const listElements = [];
     let grab = false;
     for (const element of elements) {
         if (element.tagName === 'H2') {
-            grab = (element.id === headingId);
+            grab = false;
+            for (const headingId of headingIds) {
+                if (element.id === headingId) {
+                    grab = true;
+                }
+            }
         } else if (element.tagName === 'LI' && grab) {
             listElements.push(element);
         }
@@ -245,8 +250,10 @@ function listElementsByHeadingID(document, headingId) {
  * @return {!Object}             Object containing list of births
  */
 const birthsInDoc = (document, lang) => {
-    const selector = languages[lang].dayPage.headingIds.births;
-    return { births: eventsForYearListElements(listElementsByHeadingID(document, selector), lang) };
+    const headingIds = languages[lang].dayPage.headingIds.births;
+    return { births:
+        eventsForYearListElements(listElementsByHeadingID(document, headingIds), lang)
+    };
 };
 
 /**
@@ -256,9 +263,9 @@ const birthsInDoc = (document, lang) => {
  * @return {!Object}             Object containing list of deaths
  */
 const deathsInDoc = (document, lang) => {
-    const selector = languages[lang].dayPage.headingIds.deaths;
+    const headingIds = languages[lang].dayPage.headingIds.deaths;
     return { deaths:
-        eventsForYearListElements(listElementsByHeadingID(document, selector), lang)
+        eventsForYearListElements(listElementsByHeadingID(document, headingIds), lang)
     };
 };
 
@@ -269,9 +276,9 @@ const deathsInDoc = (document, lang) => {
  * @return {!Object}             Object containing list of events
  */
 const eventsInDoc = (document, lang) => {
-    const selector = languages[lang].dayPage.headingIds.events;
+    const headingIds = languages[lang].dayPage.headingIds.events;
     return { events:
-        eventsForYearListElements(listElementsByHeadingID(document, selector), lang)
+        eventsForYearListElements(listElementsByHeadingID(document, headingIds), lang)
     };
 };
 
@@ -282,9 +289,9 @@ const eventsInDoc = (document, lang) => {
  * @return {!Object}             Object containing list of holidays and observances
  */
 const holidaysInDoc = (document, lang) => {
-    const selector = languages[lang].dayPage.headingIds.holidays;
+    const headingIds = languages[lang].dayPage.headingIds.holidays;
     return { holidays:
-        holidaysForHolidayListElements(listElementsByHeadingID(document, selector))
+        holidaysForHolidayListElements(listElementsByHeadingID(document, headingIds))
     };
 };
 

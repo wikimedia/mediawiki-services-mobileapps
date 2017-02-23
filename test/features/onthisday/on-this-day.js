@@ -422,14 +422,14 @@ describe('onthisday', function() {
     it('listElementsByHeadingID extracts expected number of births from DE fixture', () => {
         // https://de.wikipedia.org/api/rest_v1/page/html/1._Dezember
         const document = documentFromFixtureFile('de.1._Dezember.html');
-        const listElements = onThisDay.testing.listElementsByHeadingID(document, 'Geboren');
+        const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Geboren']);
         assert.ok(listElements.length === 180);
     });
 
     it('listElementsByHeadingID extracts expected number of births from EN fixture', () => {
         // https://en.wikipedia.org/api/rest_v1/page/html/December_1
         const document = documentFromFixtureFile('en.December_1.html');
-        const listElements = onThisDay.testing.listElementsByHeadingID(document, 'Births');
+        const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Births']);
         assert.ok(listElements.length === 208);
     });
 });
