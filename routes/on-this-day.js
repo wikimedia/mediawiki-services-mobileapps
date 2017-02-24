@@ -20,8 +20,8 @@ let app;
  * @return {!String}                   Day page title. Example, inputs ('5', '20') returns 'May_20'
  */
 function titleForDayPageFromMonthDayNumberStrings(monthNumberString, dayNumberString, lang) {
-    const monthName = languages[lang].monthNames[parseInt(monthNumberString) - 1];
-    const dayNumber = parseInt(dayNumberString);
+    const monthName = languages[lang].monthNames[parseInt(monthNumberString, 10) - 1];
+    const dayNumber = parseInt(dayNumberString, 10);
     return languages[lang].dayPage.nameFormatter(monthName, dayNumber);
 }
 
@@ -47,8 +47,8 @@ function dayTitleForRequest(req) {
  * 'Wikipedia:Selected_anniversaries/May_20'
  */
 function titleForSelectedPageFromMonthDayNumberStrings(monthNumberString, dayNumberString, lang) {
-    const monthName = languages[lang].monthNames[parseInt(monthNumberString) - 1];
-    const dayNumber = parseInt(dayNumberString);
+    const monthName = languages[lang].monthNames[parseInt(monthNumberString, 10) - 1];
+    const dayNumber = parseInt(dayNumberString, 10);
     return languages[lang].selectedPage.nameFormatter(monthName, dayNumber);
 }
 
@@ -148,7 +148,7 @@ function wmfEventFromListElement(listElement, lang) {
         return null;
     }
 
-    let year = parseInt(match[1]);
+    let year = parseInt(match[1], 10);
 
     // Negate BC years so they sort correctly
     const isBC = (match[2] !== undefined);
@@ -159,7 +159,7 @@ function wmfEventFromListElement(listElement, lang) {
     const textAfterYear = match[3].trim();
 
     function isAnchorNotForYear(anchor) {
-        return Math.abs(parseInt(anchor.title)) !== Math.abs(year);
+        return Math.abs(parseInt(anchor.title, 10)) !== Math.abs(year);
     }
 
     const pages = Array.from(listElement.querySelectorAll('a'))

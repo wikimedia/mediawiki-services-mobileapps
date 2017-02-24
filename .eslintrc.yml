@@ -1,2 +1,1 @@
-extends: 'eslint-config-node-services'
-plugins: ['json']
+extends: node-services

@@ -59,8 +59,8 @@
   "devDependencies": {
     "ajv": "^4.7.7",
     "csv-parse": "^1.1.7",
-    "eslint": "^3.11.0",
-    "eslint-config-node-services": "^1.0.6",
+    "eslint": "^3.11.1",
+    "eslint-config-node-services": "^2.0.1",
     "eslint-plugin-json": "^1.2.0",
     "extend": "^3.0.0",
     "istanbul": "^0.4.5",
