@@ -200,8 +200,8 @@ function reverseChronologicalWMFEventComparator(eventA, eventB) {
  */
 function eventsForYearListElements(listElements, lang) {
     return listElements
-        .map((element) => wmfEventFromListElement(element, lang))
-        .filter((possibleEvent) => possibleEvent instanceof WMFEvent)
+        .map(element => wmfEventFromListElement(element, lang))
+        .filter(possibleEvent => possibleEvent instanceof WMFEvent)
         .sort(reverseChronologicalWMFEventComparator);
 }
 
@@ -417,7 +417,7 @@ function fetchDocAndRevision(req, titleFunction) {
         return response.body;
     })
     .then(domino.createDocument)
-    .then((doc) => [doc, revision]);
+    .then(doc => [doc, revision]);
 }
 
 const assertLanguage = (lang) => {
