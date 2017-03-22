@@ -54,6 +54,25 @@ describe('lib:dateUtil', () => {
         assert.deepEqual(dateUtil.formatYYYYMMDD(date), expected);
     });
 
+    it('isWithinLast3Days', () => {
+        const now = new Date();
+        const year = now.getUTCFullYear();
+        const month = now.getUTCMonth();
+        const day = now.getUTCDate();
+        assert.deepEqual(
+            dateUtil.isWithinLast3Days(new Date(Date.UTC(year, month, day - 4))), false);
+        assert.deepEqual(
+            dateUtil.isWithinLast3Days(new Date(Date.UTC(year, month, day - 3))), true);
+        assert.deepEqual(
+            dateUtil.isWithinLast3Days(new Date(Date.UTC(year, month, day - 2))), true);
+        assert.deepEqual(
+            dateUtil.isWithinLast3Days(new Date(Date.UTC(year, month, day - 1))), true);
+        assert.deepEqual(
+            dateUtil.isWithinLast3Days(new Date(Date.UTC(year, month, day))), true);
+        assert.deepEqual(
+            dateUtil.isWithinLast3Days(new Date(Date.UTC(year, month, day + 1))), false);
+    });
+
     it('date format validation should reject invalid formats', () => {
         assert.ok(!dateUtil.validate('2016-7-4'));
         assert.ok(!dateUtil.validate('2016-07-4'));

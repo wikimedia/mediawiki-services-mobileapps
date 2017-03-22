@@ -16,8 +16,7 @@ const eventTypes = [
     'holidays'
 ];
 
-// TESTS
-
+// Note: to run large tests set the env variable LARGE_TESTS to any string
 describe('onthisday-large', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
@@ -44,8 +43,6 @@ describe('onthisday-large', function() {
                        verifyNonEmptyResults(response, endpointName, uri);
                    });
     }
-
-    // Enable tests by setting an env variable LARGE_TESTS to any non-empty string
 
     if (process.env.LARGE_TESTS) {
         for (const lang in languages) {

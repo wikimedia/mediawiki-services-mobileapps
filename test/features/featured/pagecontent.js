@@ -30,7 +30,6 @@ describe('featured', function() {
         return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/featured/2016/04/15` })
             .then((res) => {
                 assert.status(res, 200);
-                assert.ok(res.headers.etag.startsWith('"50089449/'));
                 assert.equal(res.body.$merge, 'https://en.wikipedia.org/api/rest_v1/page/summary/Cosmic_Stories_and_Stirring_Science_Stories');
             });
     });
@@ -39,7 +38,6 @@ describe('featured', function() {
         return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/featured/2016/04/29` })
             .then((res) => {
                 assert.status(res, 200);
-                assert.ok(res.headers.etag.startsWith('"50282338/'));
                 assert.equal(res.body.$merge, 'https://en.wikipedia.org/api/rest_v1/page/summary/Lightning_(Final_Fantasy)');
             });
     });
@@ -64,7 +62,7 @@ describe('featured', function() {
     });
 
     it('unsupported language', () => {
-        return preq.get({ uri: `${server.config.uri}fr.wikipedia.org/v1/page/featured/2016/04/15` })
+        return preq.get({ uri: `${server.config.uri}aa.wikipedia.org/v1/page/featured/2016/04/15` })
             .then((res) => {
                 throw new Error(`Expected an error, but got status: ${res.status}`);
             }, (err) => {
@@ -84,14 +82,13 @@ describe('featured', function() {
         });
     });
 
-    it('Missing TFA should return 404', () => {
+    it('Missing TFA should return 204', () => {
         return preq.get({
             uri: `${server.config.uri}en.wikipedia.org/v1/page/featured/${dateString}`
         })
         .then((res) => {
-            assert.fails('This should fail!');
-        }, (err) => {
-            assert.status(err, 404);
+            assert.status(res, 204);
+            assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
         });
     });
 

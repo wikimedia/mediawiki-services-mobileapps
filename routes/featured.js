@@ -20,8 +20,7 @@ let app;
 
 /**
  * GET {domain}/v1/page/featured/{year}/{month}/{day}
- * Gets the title and other metadata for a featured article of a given date.
- * ETag is set to the pageid. This should be specific enough.
+ * Gets the title for a featured article of a given date.
  */
 router.get('/featured/:yyyy/:mm/:dd', (req, res) => {
     return featured.promise(app, req)
