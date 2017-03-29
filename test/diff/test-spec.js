@@ -220,17 +220,13 @@ const TEST_SPECS = [
     new TestSpec('en.wikipedia.org', 'media/image/featured', ['2016', '04', '29']),
     new TestSpec('en.wikipedia.org', 'page/most-read', ['2016', '01', '01']),
 
-    // new TestPageSpec('de.wikipedia.org', 'page/mobile-sections', 'Helium', '160743404', '43eb3486-ec99-11e6-be50-eb4125588e02'),
-    // new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', '8_mm', '738632985', '44b4e600-ec99-11e6-a3fc-0aa0b426f7c1'),
-    new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682', '45076ace-ec99-11e6-8bd2-d4f45196333f'),
-    // new TestPageSpec('he.wikipedia.org', 'page/mobile-sections', 'אביר', '20029585', '45e12a93-ec99-11e6-9b66-c2ab001ba890'),
-    // new TestPageSpec('it.wikipedia.org', 'page/mobile-sections', 'Pittore', '85146886', '46971767-ec99-11e6-bea7-dd7e5bd83af6'),
+    /* Note: to add a time uuid uncomment a line in parsoid-access.js getRevisionFromEtag() */
 
-    // new TestPageSpec('de.wikipedia.org', 'page/formatted', 'Helium', '160743404', '43eb3486-ec99-11e6-be50-eb4125588e02'),
-    // new TestPageSpec('en.wikipedia.org', 'page/formatted', '8_mm', '738632985', '44b4e600-ec99-11e6-a3fc-0aa0b426f7c1'),
+    new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682', '45076ace-ec99-11e6-8bd2-d4f45196333f'),
+    new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '772834600', '6c096d0e-14a1-11e7-9ce6-a0b4f58354d9'),
+
     new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682', '45076ace-ec99-11e6-8bd2-d4f45196333f'),
-    // new TestPageSpec('he.wikipedia.org', 'page/formatted', 'אביר', '20029585', '45e12a93-ec99-11e6-9b66-c2ab001ba890'),
-    // new TestPageSpec('it.wikipedia.org', 'page/formatted', 'Pittore', '85146886', '46971767-ec99-11e6-bea7-dd7e5bd83af6'),
+    new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '772834600', '6c096d0e-14a1-11e7-9ce6-a0b4f58354d9'),
 
     // new TestSpec('en.wiktionary.org', 'page/definition', ['cat']),
 ];

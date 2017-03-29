@@ -29,7 +29,7 @@ function titleForDayPageFromMonthDayNumberStrings(monthNumberString, dayNumberSt
  * Gets day page Parsoid title for day pages such as https://en.m.wikipedia.org/wiki/May_20
  * @param {!Request} req Request containing month (req.params.mm) and day (req.params.dd) number
  * string params
- * @return {!String} say page title for month and day number. Example, input mm '5' dd '20'
+ * @return {!String} day page title for month and day number. Example, input mm '5' dd '20'
  * returns 'May_20'
  */
 function dayTitleForRequest(req) {
