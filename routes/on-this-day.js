@@ -14,10 +14,10 @@ let app;
 
 /**
  * Gets day page titles, which are formatted as follows: 'May_20'
- * @param  {!String} monthNumberString String for month number ranging from '1' to '12'
- * @param  {!String} dayNumberString   String number for day of month
- * @param  {!String} lang              String for project language code
- * @return {!String}                   Day page title. Example, inputs ('5', '20') returns 'May_20'
+ * @param {!String} monthNumberString string for month number ranging from '1' to '12'
+ * @param {!String} dayNumberString string number for day of month
+ * @param {!String} lang String for project language code
+ * @return {!String} day page title. Example, inputs ('5', '20') returns 'May_20'
  */
 function titleForDayPageFromMonthDayNumberStrings(monthNumberString, dayNumberString, lang) {
     const monthName = languages[lang].monthNames[parseInt(monthNumberString, 10) - 1];
@@ -27,9 +27,9 @@ function titleForDayPageFromMonthDayNumberStrings(monthNumberString, dayNumberSt
 
 /**
  * Gets day page Parsoid title for day pages such as https://en.m.wikipedia.org/wiki/May_20
- * @param  {!Request} req Request containing month (req.params.mm) and day (req.params.dd) number
+ * @param {!Request} req Request containing month (req.params.mm) and day (req.params.dd) number
  * string params
- * @return {!String}      Day page title for month and day number. Example, input mm '5' dd '20
+ * @return {!String} say page title for month and day number. Example, input mm '5' dd '20'
  * returns 'May_20'
  */
 function dayTitleForRequest(req) {
@@ -39,11 +39,11 @@ function dayTitleForRequest(req) {
 
 /**
  * Gets selected page titles, which are formatted as follows:
- *  'Wikipedia:Selected_anniversaries/May_20'
- * @param  {!String} monthNumberString String for month number ranging from '1' to '12'
- * @param  {!String} dayNumberString   String number for day of month
- * @param  {!String} lang              String for project language code
- * @return {!String}                   Selected page title. Example, inputs ('5', '20') returns
+ * 'Wikipedia:Selected_anniversaries/May_20'
+ * @param {!String} monthNumberString a string for month number ranging from '1' to '12'
+ * @param {!String} dayNumberString a string number for day of month
+ * @param {!String} lang a string for project language code
+ * @return {!String} selected page title. Example, inputs ('5', '20') returns
  * 'Wikipedia:Selected_anniversaries/May_20'
  */
 function titleForSelectedPageFromMonthDayNumberStrings(monthNumberString, dayNumberString, lang) {
@@ -54,12 +54,12 @@ function titleForSelectedPageFromMonthDayNumberStrings(monthNumberString, dayNum
 
 /**
  * Gets selected page Parsoid title for selected pages such as
- * https://en.m.wikipedia.org/wiki/Wikipedia:Selected_anniversaries/May_20 ( These pages are
+ * https://en.m.wikipedia.org/wiki/Wikipedia:Selected_anniversaries/May_20. These pages are
  * also where 'Today' page https://en.m.wikipedia.org/wiki/Wikipedia:On_this_day/Today content comes
- * from )
- * @param  {!Request} req Request containing month (req.params.mm) and day (req.params.dd) number
+ * from.
+ * @param {!Request} req Request containing month (req.params.mm) and day (req.params.dd) number
  * string params
- * @return {!String}      Selected page title for month and day number. Example, input mm '5' dd '20
+ * @return {!String} elected page title for month and day number. Example, input mm '5' dd '20
  * returns 'Wikipedia:Selected_anniversaries/May_20'
  */
 function selectedTitleForRequest(req) {
@@ -69,8 +69,8 @@ function selectedTitleForRequest(req) {
 
 /**
  * WMFPage models a link to a page
- * @param  {!String}     title   Page title, i.e. 'Goat'
- * @param  {!Boolean}    isTopic Events can have multiple links to pages, if this particular link is
+ * @param {!String} title a page title, i.e. 'Goat'
+ * @param {!Boolean} isTopic events can have multiple links to pages, if this particular link is
  * bolded, such as those seen on https://en.m.wikipedia.org/wiki/Wikipedia:On_this_day/Today,
  * isTopic will be true.
  */
@@ -85,10 +85,10 @@ class WMFPage {
 
 /**
  * WMFEvent models an historical event
- * @param  {!String}     text    Event description
- * @param  {!Array}      pages   Array of WMFPage's for the event
- * @param  {!Integer}    year    Year. A negative number indicates the event occured 'BC' (sometimes
- * also denoted 'BCE' - i.e. '32 BC' or '200 BCE)'
+ * @param {!String} text event description
+ * @param {!Array} pages array of WMFPage's for the event
+ * @param {!Integer} year the year the event first happened. A negative number indicates the event
+ * occured 'BC' (sometimes also denoted 'BCE' - i.e. '32 BC' or '200 BCE)'.
  */
 class WMFEvent {
     constructor(text, pages, year) {
@@ -99,9 +99,9 @@ class WMFEvent {
 }
 
 /**
- * WMFHoliday models an annually occuring holiday
- * @param  {!String} text    Event description
- * @param  {!Array}  pages   Array of WMFPage's for the event
+ * WMFHoliday models an annually occuring holiday.
+ * @param {!String} text event description
+ * @param {!Array} pages array of WMFPage's for the event
  */
 class WMFHoliday {
     constructor(text, pages) {
@@ -111,9 +111,9 @@ class WMFHoliday {
 }
 
 /**
- * Converts document anchor element to WMFPage model
- * @param   {!AnchorElement} anchorElement Anchor to convert
- * @return  {!WMFPage}                     A WMFPage
+ * Converts document anchor element to WMFPage model.
+ * @param {!AnchorElement} anchorElement Anchor to convert
+ * @return {!WMFPage} a WMFPage
 */
 function wmfPageFromAnchorElement(anchorElement) {
     const title = mUtil.extractDbTitleFromAnchor(anchorElement);
@@ -122,8 +122,7 @@ function wmfPageFromAnchorElement(anchorElement) {
 }
 
 /**
- * Converts document list element to WMFEvent model
- *
+ * Converts document list element to WMFEvent model.
  * A regular expression determines valid "year list elements" and separating their components.
  *  For example:    '399 BC - Death of Socrates'
  *    RegEx Capture groups:
@@ -135,11 +134,9 @@ function wmfPageFromAnchorElement(anchorElement) {
  *                  'BC'
  *    4th - event description string, required
  *                  'Death of Socrates'
- *
- * @param   {!ListElement} listElement List element to convert
- * @param   {!String} lang             String for project language code
- * @return  {?WMFEvent}                A WMFEvent or null if the list element isn't formatted as an
- * event
+ * @param {!ListElement} listElement List element to convert
+ * @param {!String} lang String for project language code
+ * @return {?WMFEvent} a WMFEvent or null if the list element isn't formatted as an event
 */
 function wmfEventFromListElement(listElement, lang) {
     const regEx = languages[lang].yearListElementRegEx;
@@ -171,8 +168,8 @@ function wmfEventFromListElement(listElement, lang) {
 
 /**
  * Converts document list element to WMFHoliday model
- * @param   {!ListElement} listElement List element to convert
- * @return  {!WMFHoliday}              A WMFHoliday
+ * @param {!ListElement} listElement List element to convert
+ * @return {!WMFHoliday} a WMFHoliday
  */
 function wmfHolidayFromListElement(listElement) {
     const text = listElement.textContent.trim();
@@ -182,9 +179,9 @@ function wmfHolidayFromListElement(listElement) {
 
 /**
  * WMFEvent comparator which properly handles negative 'BC'/'BCE' years
- * @param  {!WMFEvent} eventA First event
- * @param  {!WMFEvent} eventB Second event
- * @return {!Integer}         Number of years between eventB and eventA ( yearB - yearA ).
+ * @param {!WMFEvent} eventA First event
+ * @param {!WMFEvent} eventB Second event
+ * @return {!Integer} number of years between eventB and eventA ( yearB - yearA ).
  */
 function reverseChronologicalWMFEventComparator(eventA, eventB) {
     // Reminder: BC years are negative numbers.
@@ -193,10 +190,10 @@ function reverseChronologicalWMFEventComparator(eventA, eventB) {
 
 /**
  * Gets chronologically sorted array of WMFEvent models from an array of list elements.
- * @param  {!Array}     listElements    Array of document list elements
- * @param  {!String}    lang            String for project language code
- * @return {!Array}                     Sorted array of WMFEvent models, one for each year list
- * element found in 'listElements' argument
+ * @param {!Array} listElements an array of document list elements
+ * @param {!String} lang a string for project language code
+ * @return {!Array} sorted array of WMFEvent models, one for each year list element found
+ * in 'listElements' argument
  */
 function eventsForYearListElements(listElements, lang) {
     return listElements
@@ -207,8 +204,8 @@ function eventsForYearListElements(listElements, lang) {
 
 /**
  * Gets array of WMFHoliday models from an array of list elements.
- * @param  {!Array} listElements Array of document list elements
- * @return {!Array}              Array of WMFHoliday models, one for each list element in
+ * @param {!Array} listElements an array of document list elements
+ * @return {!Array} an array of WMFHoliday models, one for each list element in
  * 'listElements' argument
  */
 function holidaysForHolidayListElements(listElements) {
@@ -220,9 +217,9 @@ function holidaysForHolidayListElements(listElements) {
  * extracting these - this is because some languages use further sub-headings under, say, 'births',
  * for things like 'Births before 1900' and so forth. We want *all* births, in this case - that is,
  * we want all list elements after the h2 'births' heading up until the next h2 heading.
- * @param  {!Document}  document    Document to examine
- * @param  {!String}    headingIds   Array of heading id strings
- * @return {!Array}                 Array of list elements
+ * @param {!Document} document a DOM document to examine
+ * @param {!String} headingIds an array of heading id strings
+ * @return {!Array} an array of list elements
  */
 function listElementsByHeadingID(document, headingIds) {
     const elements = Array.from(document.querySelectorAll('h2,ul li'));
@@ -245,9 +242,9 @@ function listElementsByHeadingID(document, headingIds) {
 
 /**
  * Gets array of WMFEvent models of births found in a document
- * @param  {!Document} document  Document to examine
- * @param  {!String}   lang      String for project language code
- * @return {!Object}             Object containing list of births
+ * @param {!Document} document a DOM document to examine
+ * @param {!String} lang a string for project language code
+ * @return {!Object} an object containing list of births
  */
 const birthsInDoc = (document, lang) => {
     const headingIds = languages[lang].dayPage.headingIds.births;
@@ -258,9 +255,9 @@ const birthsInDoc = (document, lang) => {
 
 /**
  * Gets array of WMFEvent models of deaths found in a document
- * @param  {!Document} document  Document to examine
- * @param  {!String}   lang      String for project language code
- * @return {!Object}             Object containing list of deaths
+ * @param {!Document} document a DOM document to examine
+ * @param {!String} lang a string for project language code
+ * @return {!Object} an object containing list of deaths
  */
 const deathsInDoc = (document, lang) => {
     const headingIds = languages[lang].dayPage.headingIds.deaths;
@@ -271,9 +268,9 @@ const deathsInDoc = (document, lang) => {
 
 /**
  * Gets array of WMFEvent models of events found in a document
- * @param  {!Document} document  Document to examine
- * @param  {!String}   lang      String for project language code
- * @return {!Object}             Object containing list of events
+ * @param {!Document} document a DOM document to examine
+ * @param {!String} lang a string for project language code
+ * @return {!Object} an object containing list of events
  */
 const eventsInDoc = (document, lang) => {
     const headingIds = languages[lang].dayPage.headingIds.events;
@@ -284,9 +281,9 @@ const eventsInDoc = (document, lang) => {
 
 /**
  * Gets array of WMFEvent models of holidays and observances found in a document
- * @param  {!Document} document  Document to examine
- * @param  {!String}   lang      String for project language code
- * @return {!Object}             Object containing list of holidays and observances
+ * @param {!Document} document a DOM document to examine
+ * @param {!String} lang a string for project language code
+ * @return {!Object} an object containing list of holidays and observances
  */
 const holidaysInDoc = (document, lang) => {
     const headingIds = languages[lang].dayPage.headingIds.holidays;
@@ -297,9 +294,9 @@ const holidaysInDoc = (document, lang) => {
 
 /**
  * Gets array of WMFEvent models of editor curated selected anniversaries found in a document
- * @param  {!Document} document  Document to examine
- * @param  {!String}   lang      String for project language code
- * @return {!Object}             Object containing list of selected anniversaries
+ * @param {!Document} document a DOM document to examine
+ * @param {!String} lang a string for project language code
+ * @return {!Object} an object containing list of selected anniversaries
  */
 const selectionsInDoc = (document, lang) => {
     const selector = languages[lang].selectedPage.listElementSelector;
@@ -311,10 +308,10 @@ const selectionsInDoc = (document, lang) => {
 /**
  * Gets dictionary of arrays of WMFEvent models of all types: 'births', 'deaths', 'events',
  * 'holidays' and 'selected'
- * @param  {!Document} dayDoc        Document of events on a given day
- * @param  {!Document} selectionsDoc Document of editor curated events for a given day
- * @param  {!String}   lang          String for project language code
- * @return {!Dictionary}             Dictionary with keys for arrays of 'selected', 'events',
+ * @param {!Document} dayDoc a DOM document of events on a given day
+ * @param {!Document} selectionsDoc a DOM document of editor curated events for a given day
+ * @param {!string} lang a string for project language code
+ * @return {!object} an object with keys for arrays of 'selected', 'events',
  * 'births', 'deaths', and 'holidays'
  */
 const everythingInDayAndSelectionsDocs = (dayDoc, selectionsDoc, lang) => {
@@ -330,9 +327,9 @@ const everythingInDayAndSelectionsDocs = (dayDoc, selectionsDoc, lang) => {
 };
 
 /**
- * Determines whether a dom object has a 'title' propery
- * @param  {!Object}  object Dom object to examine
- * @return {!Boolean}        True if the object has a 'title' property
+ * Determines whether a DOM element has a 'title' property
+ * @param {!object} object DOM element to examine
+ * @return {!boolean} true if the object has a 'title' property
  */
 function hasTitle(object) {
     return (
@@ -344,8 +341,8 @@ function hasTitle(object) {
 /**
  * Replaces 'title' property of a dom object with a '$merge' property set to the restbase url for
  * that title
- * @param  {!Object} object Dom object to examine
- * @param  {!String} domain Domain
+ * @param {!Object} object DOM element to examine
+ * @param {!String} domain Domain
  */
 function hydrateTitle(object, domain) {
     const title = object.title;
@@ -355,8 +352,8 @@ function hydrateTitle(object, domain) {
 
 /**
  * Recursively hydrates all 'title' properties found in a dom object hierarchy
- * @param  {!Object} object Dom object to examine
- * @param  {!String} domain Domain
+ * @param {!Object} object Dom object to examine
+ * @param {!String} domain Domain
  */
 function hydrateAllTitles(object, domain) {
     for (const property in object) {
@@ -372,10 +369,10 @@ function hydrateAllTitles(object, domain) {
 
 /**
  * Ends a response. Hydrates titles and sets eTags, status etc.
- * @param  {!Object} res         Response to end
- * @param  {!Object} output      Payload to JSONify and deliver
- * @param  {!String} domain      Domain
- * @param  {!String} revision    Revision
+ * @param {!Object} res a response to end
+ * @param {!Object} output a payload to JSONify and deliver
+ * @param {!String} domain a domain
+ * @param {?String} revision a revision
  */
 const endResponseWithOutput = (res, output, domain, revision) => {
     // Hydrate titles just before responding. Otherwise you'd have to leak
@@ -391,9 +388,9 @@ const endResponseWithOutput = (res, output, domain, revision) => {
 
 /**
  * Promises to get Parsoid html for a title
- * @param  {!Object}     req     Request
- * @param  {!String}     title   Title to fetch
- * @return {!Promise}            Promise resolving to a response
+ * @param {!Request} req a request
+ * @param {!String} title a page title to fetch
+ * @return {!Promise} a Promise resolving to a response
  */
 function fetchParsoidHtmlForTitle(req, title) {
     const parsoidReq = Object.create(req);
@@ -403,11 +400,9 @@ function fetchParsoidHtmlForTitle(req, title) {
 
 /**
  * Fetches document and revision for URI
- * @param  {!Object}     req             Request
- * @param  {!Function}   titleFunction   Function reference for getting source page title from
- * request
- * @return {!Promise}                    Promise resolving to array containing [document, revision]
- * for URI
+ * @param {!Object} req a request
+ * @param {!Function} titleFunction a function for getting source page title from request
+ * @return {!Promise} a Promise resolving to array containing [document, revision] for URI
  */
 function fetchDocAndRevision(req, titleFunction) {
     let revision;
@@ -430,15 +425,15 @@ const assertLanguage = (lang) => {
         });
     }
 };
+
 /**
  * Fetches document for URI, extracts sought elements, responds
- * @param  {!Object} req                     Request
- * @param  {!Object} res                     Response
- * @param  {!Function} titleFunction         Function reference for getting source page title from
- * request
- * @param  {!Function} extractionFunction    Function reference for extracting sought elements
+ * @param {!Request} req a request
+ * @param {!Response} res a response
+ * @param {!Function} titleFunction a function for getting source page title from request
+ * @param  {!Function} extractionFunction a function for extracting sought elements
  * (births, deaths, holidays, etc)
- * @return {!Promise}                        Promise resolving when response has completed
+ * @return {!Promise} a Promise resolving when response has completed
  */
 function fetchAndRespond(req, res, titleFunction, extractionFunction) {
     const lang = req.params.domain.split('.')[0];

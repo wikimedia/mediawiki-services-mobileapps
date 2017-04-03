@@ -111,6 +111,7 @@ function fails(promise, onRejected) {
 /**
  * @param {?number} result
  * @param {!number} expected
+ * @param {!number} delta
  * @param {?string} message
 */
 function closeTo(result, expected, delta, message) {

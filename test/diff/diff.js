@@ -17,7 +17,7 @@ describe('diff', function() {
     };
 
     /**
-     * @param rsp {!Object} response object
+     * @param {!Object} rsp response object
      * @return {!string} pretty-printed JSON with some properties removed
      */
     const formatOutput = (rsp) => {
