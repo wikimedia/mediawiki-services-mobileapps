@@ -116,4 +116,13 @@ describe('most-read articles', function() {
                 assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
             });
     });
+
+    it('Should return 204 for fywiki requests', () => {
+        const uri = `${server.config.uri}fy.wikipedia.org/v1/page/most-read/2016/11/12`;
+        return preq.get({ uri })
+            .then((res) => {
+                assert.status(res, 204);
+                assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
+            });
+    });
 });

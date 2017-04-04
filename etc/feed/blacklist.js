@@ -18,7 +18,10 @@ const BLACKLIST = [
     'Proyecto_40',
     'AMGTV',
     'Lali_Espósito',
-    'La7'
+    'La7',
+    'Vagina',
+    "کس", // mznwiki
+    "مقعد", // mznwiki
 ];
 
 module.exports = BLACKLIST;
