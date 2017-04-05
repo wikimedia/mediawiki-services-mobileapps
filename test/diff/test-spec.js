@@ -91,6 +91,7 @@ class TestSpec {
     }
 
     postProcessing(rsp) {
+        return rsp;
     }
 
     /**
@@ -188,10 +189,23 @@ class TestPageSpec extends TestSpec {
             // const etag = rsp.headers.etag;
             // const match = etag && etag.match(/\/(\S+)"$/, '');
             // this._tid = match && match[1];
+
+            if (input.remaining) {
+                input.remaining.sections.forEach((section) => {
+                    // Simplify the numbers in:
+                    // usemap=\"#ImageMap_1_922168371\"></a>
+                    // <map name=\"ImageMap_1_922168371\" id=\"ImageMap_1_922168371\">
+                    section.text = section.text.replace(/ImageMap_\d+_\d+/g, 'ImageMap_');
+                });
+            }
+
             if (ENABLE_HTML_DEBUG) {
                 htmlDebug.htmlPostProcessing(input, `${this.dir()}/${this.fileName()}/`);
             }
         }
+
+        rsp.body = input;
+        return rsp;
     }
 
     /**

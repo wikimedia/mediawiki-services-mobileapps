@@ -30,8 +30,8 @@ describe('diff', function() {
                 return preq.get({ uri: buildUri(spec.uriPath()) })
                 .then((rsp) => {
                     // console.log(`mcs headers.etag: ${rsp.headers.etag}`);
-                    spec.postProcessing(rsp);
-                    fs.writeFileSync(spec.filePath(), formatOutput(rsp), 'utf8');
+                    const processedResponse = spec.postProcessing(rsp);
+                    fs.writeFileSync(spec.filePath(), formatOutput(processedResponse), 'utf8');
                 });
             });
         }
