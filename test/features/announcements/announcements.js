@@ -34,12 +34,10 @@ describe('announcements', function() {
             });
     });
 
-    it('should return two surveys', () => {
+    it('should return 0 surveys', () => {
         return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/feed/announcements` })
             .then((res) => {
-                assert.ok(res.body.announce.length === 2);
-                assert.equal(res.body.announce[0].id, 'EN0217SURVEYIOS');
-                assert.equal(res.body.announce[1].id, 'EN0217SURVEYANDROID');
+                assert.ok(res.body.announce.length === 0);
             });
     });
 
