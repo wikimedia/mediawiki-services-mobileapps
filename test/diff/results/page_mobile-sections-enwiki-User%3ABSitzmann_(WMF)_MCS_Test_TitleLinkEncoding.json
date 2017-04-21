@@ -19,7 +19,7 @@
       {
         "id": 1,
         "toclevel": 1,
-        "anchor": "Special_chars_.24.25.26amp.3B",
+        "anchor": "Special_chars_.24.25.26",
         "line": "Special chars $%&amp;"
       },
       {
@@ -43,7 +43,7 @@
         "text": "\n<p>Special chars in section heading.</p>\n\n",
         "toclevel": 1,
         "line": "Special chars $%&amp;",
-        "anchor": "Special_chars_.24.25.26amp.3B"
+        "anchor": "Special_chars_.24.25.26"
       },
       {
         "id": 2,

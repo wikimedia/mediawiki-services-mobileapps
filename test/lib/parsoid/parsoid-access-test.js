@@ -4,7 +4,10 @@ const assert = require('../../utils/assert.js');
 const domino = require('domino');
 const parsoid = require('../../../lib/parsoid-access');
 
-const html = '<body>text0<h2>foo</h2>text1<h3 id="mwBa">Funny section !@#$%^&*()</h3>text2</body>';
+const html = '<body>text0' +
+    '<h2 id="foo">foo</h2>text1' +
+    '<h3 id="Funny_section_.21.40.23.24">Funny section !@#$%^&*()</h3>text2' +
+    '</body>';
 const headHtml1
     = `<html><head>
         <base href="//en.wikipedia.org/wiki/"/>
@@ -67,7 +70,7 @@ describe('lib:parsoid', function() {
     });
 
     it('getSectionsText() with one h2 should produce two sections', () => {
-        const doc = domino.createDocument('<body>text0<h2>foo</h2>text1</body>');
+        const doc = domino.createDocument('<body>text0<h2 id="foo">foo</h2>text1</body>');
         parsoid._addSectionDivs(doc);
         const sections = parsoid._getSectionsText(doc);
         assert.deepEqual(sections.length, 2);
