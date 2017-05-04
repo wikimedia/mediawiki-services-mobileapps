@@ -273,7 +273,7 @@ describe('mobile-sections', function() {
     it('Internal links should have title attribute', () => {
         const title = `User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FTitleLinkEncoding`;
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections/${title}`;
-        const expectedText = '<a href="/wiki/Sort_(C++)" title="Sort (C++)">';
+        const expectedText = '<a href="/wiki/Sort_(C++)" title="Sort (C++)"';
         return preq.get({ uri })
             .then((res) => {
                 assert.equal(res.status, 200);

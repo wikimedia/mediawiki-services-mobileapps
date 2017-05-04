@@ -126,7 +126,7 @@ describe('mobile-sections-v2', function() {
                 const intro = res.body.lead.intro;
 
                 assert.deepEqual(res.status, 200);
-                assert.ok(intro.indexOf('<p>') > -1, 'intro is html');
+                assert.ok(intro.indexOf('<p id=') > -1, 'intro is html');
                 assert.ok(intro.indexOf('stellar remnant') > -1);
                 assert.ok(intro.indexOf('</ul>') > -1,
                   'List element is bundled into paragraph');
@@ -138,8 +138,8 @@ describe('mobile-sections-v2', function() {
         return preq.get({ uri })
             .then((res) => {
                 const text = res.body.lead.intro;
-                const expected = '<span class="nowrap mcs-ipa"><span class="noexcerpt">';
-                assert.ok(text.indexOf(expected) > -1, 'mcs-ipa class is found');
+                const regex = /<span class="nowrap mcs-ipa" id="\w+"><span class="noexcerpt">/;
+                assert.ok(regex.test(text), 'mcs-ipa class is found');
             });
     });
 });

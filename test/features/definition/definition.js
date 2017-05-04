@@ -42,7 +42,7 @@ describe('definition', function() {
                     'Expected different start of definition specifying family');
                 assert.deepEqual(en[1].partOfSpeech, 'Verb');
                 const def1 = en[1].definitions[0].definition;
-                assert.ok(def1.indexOf('To <a href="/wiki/hoist" title="hoist">hoist</a>') === 0,
+                assert.ok(def1.indexOf('To <a href="/wiki/hoist" title="hoist"') === 0,
                     'Expected different start of definition linking to hoist');
             });
     });
