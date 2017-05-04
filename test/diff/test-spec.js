@@ -237,10 +237,10 @@ const TEST_SPECS = [
     /* Note: to add a time uuid uncomment a line in parsoid-access.js getRevisionFromEtag() */
 
     new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682', '45076ace-ec99-11e6-8bd2-d4f45196333f'),
-    new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '772834600', '7a853a72-2abc-11e7-ac3a-0e79a34b2d67'),
+    new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613', 'cb218d7e-30dc-11e7-8133-b946c9a92329'),
 
     new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682', '45076ace-ec99-11e6-8bd2-d4f45196333f'),
-    new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '772834600', '7a853a72-2abc-11e7-ac3a-0e79a34b2d67'),
+    new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613', 'cb218d7e-30dc-11e7-8133-b946c9a92329'),
 
     // new TestSpec('en.wiktionary.org', 'page/definition', ['cat']),
 ];
