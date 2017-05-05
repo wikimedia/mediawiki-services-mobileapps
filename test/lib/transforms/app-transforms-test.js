@@ -10,17 +10,7 @@ describe('lib:app-transforms', () => {
     it('fixVideoAnchor should apply app_media class to all video anchors', () => {
         const doc = domino.createDocument(html);
         a.fixVideoAnchor(doc);
-        const videoThumbImgElements = doc.querySelectorAll('a[href] > img[data-file-type="video"]');
-        let haveAppMedia = 0;
-        for (let i = 0, n = videoThumbImgElements.length; i < n; i++) {
-            const elem = videoThumbImgElements[i];
-            for (let j = 0, m = elem.parentNode.classList.length; j < m; j++) {
-                if (elem.parentNode.classList[j] === 'app_media') {
-                    haveAppMedia++;
-                }
-            }
-        }
-        assert.ok(videoThumbImgElements.length === 3, 'Failed to find video thumb img elements');
-        assert.deepEqual(haveAppMedia, videoThumbImgElements.length);
+        const videoThumbImgElements = doc.querySelectorAll('a.app_media');
+        assert.equal(videoThumbImgElements.length, 6, 'Failed to find app_media classes');
     });
 });

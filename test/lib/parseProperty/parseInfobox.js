@@ -10,6 +10,6 @@ describe('lib:parseInfobox', () => {
     it('Parsed infobox should have correct number of rows', () => {
         const doc = domino.createDocument(html);
         const infobox = parseProp.parseInfobox(doc);
-        assert.deepEqual(infobox.length, 31);
+        assert.deepEqual(infobox.length, 29);
     });
 });
