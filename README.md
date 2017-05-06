@@ -67,10 +67,7 @@ The main route you may query (with a browser, or `curl` and friends):
 Example:
 * `http://localhost:6927/en.wikipedia.org/v1/page/mobile-sections/Cat`
 
-There is also a route for the mobile lite app:
-* `http://localhost:6927/{domain}/v1/page/mobile-text/{title}`
-
-And a route for definitions from Wiktionary:
+There is also a route for definitions from Wiktionary:
 * `http://localhost:6927/{language code}.wiktionary.org/v1/page/definition/{title}`
 
 Example:

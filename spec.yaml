@@ -650,16 +650,6 @@ paths:
         - application/json
       x-monitor: false
 
-  # from routes/mobile-text.js
-  /{domain}/v1/page/mobile-text/{title}:
-    get:
-      tags:
-        - Page content
-      description: Gets the lite mobile app version of a given wiki page
-      produces:
-        - application/json
-      x-monitor: false
-
 definitions:
   # A https://tools.ietf.org/html/draft-nottingham-http-problem
   problem:
