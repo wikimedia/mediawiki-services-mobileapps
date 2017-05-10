@@ -16,7 +16,8 @@ describe('definition', function() {
     });
 
     it('en \'cat\' request should have expected structure and content', () => {
-        return preq.get({ uri: `${server.config.uri}en.wiktionary.org/v1/page/definition/cat` })
+        return preq.get(
+            { uri: `${server.config.uri}en.wiktionary.org/v1/page/definition/cat/42803194` })
             .then((res) => {
                 const en = res.body.en;
                 const bodytext = JSON.stringify(res.body);
@@ -25,7 +26,7 @@ describe('definition', function() {
                 assert.ok(bodytext.indexOf('defdate') === -1);
                 assert.deepEqual(res.status, 200);
                 assert.notDeepEqual(en, undefined);
-                assert.ok(en.length === 8);
+                assert.equal(en.length, 8, JSON.stringify(en, null, 2));
                 for (let i = 0; i < en.length; i++) {
                     assert.notDeepEqual(en[i].partOfSpeech, undefined);
                     assert.notDeepEqual(en[i].definitions, undefined);
