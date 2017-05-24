@@ -85,7 +85,18 @@ paths:
             headers:
               content-type: application/json
             body:
-              announce: []
+              announce:
+                - id: /.+/
+                  type: /.+/
+                  start_time: /.+/
+                  end_time: /.+/
+                  platforms: [ /.+/ ]
+                  text: /.+/
+                  action:
+                    title: /.+/
+                    url: /.+/
+                  caption_HTML: /.+/
+                  countries: [ /.+/ ]
 
   # from routes/on-this-day.js
   /{domain}/v1/feed/onthisday/{type}/{mm}/{dd}:
