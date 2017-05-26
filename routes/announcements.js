@@ -9,7 +9,7 @@ const mUtil = require('../lib/mobile-util');
 const router = sUtil.router();
 
 function getEnwikiAnnouncements() {
-    // Notes: for iOS text: HTML is not supported.
+    // Notes: for iOS 'text' and 'action.title': HTML is not supported.
     // iOS uses image_url instead of the image Android uses.
     return [
         {

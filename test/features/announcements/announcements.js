@@ -1,5 +1,6 @@
 'use strict';
 
+const domino = require('domino');
 const preq   = require('preq');
 const assert = require('../../utils/assert.js');
 const server = require('../../utils/server.js');
@@ -49,6 +50,34 @@ describe('announcements', function() {
         return preq.get({ uri: `${server.config.uri}de.wikipedia.org/v1/feed/announcements` })
             .then((res) => {
                 assert.ok(res.body.announce.length === 0);
+            });
+    });
+
+    it('should not deliver HTML in certain iOS announcements fields', () => {
+        const doc = domino.createDocument();
+        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/feed/announcements` })
+            .then((res) => {
+                assert.status(res, 200);
+                res.body.announce
+                  .filter(announcement => announcement.platforms.includes('iOSApp'))
+                  .map((iOSAnnouncement) => {
+                      // destructure 'id', 'text' and 'action.title' from the iOS announcement
+                      const { id, text, action:{ title } } = iOSAnnouncement;
+                      return { id, fieldsToCheck: { text, title } };
+                  }).forEach((item) => {
+                      for (const textOnlyFieldName of Object.keys(item.fieldsToCheck)) {
+                          const textToCheck = item.fieldsToCheck[textOnlyFieldName];
+                          const element = doc.createElement('div');
+                          element.innerHTML = textToCheck;
+                          // Comparing innerHTML and textContent lengths catches even non-tag html,
+                          // such as '&nbsp;';
+                          assert.equal(
+                            element.innerHTML.length, element.textContent.length,
+                              `iOS does not support HTML in the "${textOnlyFieldName}" field` +
+                              ` - this was encountered in the "${item.id}" announcement`
+                          );
+                      }
+                  });
             });
     });
 });
