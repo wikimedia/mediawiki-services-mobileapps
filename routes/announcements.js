@@ -9,6 +9,8 @@ const mUtil = require('../lib/mobile-util');
 const router = sUtil.router();
 
 function getEnwikiAnnouncements() {
+    // Notes: for iOS text: HTML is not supported.
+    // iOS uses image_url instead of the image Android uses.
     return [
         {
             id: "EN0517SURVEYIOS",
@@ -18,7 +20,7 @@ function getEnwikiAnnouncements() {
             platforms: [
                 "iOSApp",
             ],
-            text: "Hi iOS readers,<br><br>Have you been using save for later? Help us learn more about how you are using this saved articles feature by taking a short survey, so that we can continue making reading lists even better.", // eslint-disable-line max-len
+            text: "Hi iOS readers,\n\nHave you been using save for later? Help us learn more about how you are using this saved articles feature by taking a short survey, so that we can continue making reading lists even better.", // eslint-disable-line max-len
             image_url: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Reading_list_survey_-_iOS.png",
             action: {
                 title: "Take survey",
