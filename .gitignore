@@ -1,8 +1,8 @@
-Dockerfile
+/Dockerfile
 /.eslintcache
 .idea/
 coverage
-config.yaml
+/config.yaml
 node_modules
 npm-debug.log
 .DS_Store
