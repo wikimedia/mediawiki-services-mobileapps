@@ -65,6 +65,7 @@ class TestSpec {
         return `${__dirname}/results/`;
     }
 
+
     /**
      * @return {!string} file name to store expected result in (without file extension)
      */
