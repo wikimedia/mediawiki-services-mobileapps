@@ -32,19 +32,26 @@ describe('announcements', function() {
                     assert.ok(elem.caption_HTML, 'caption_HTML should be present');
                     assert.ok(elem.countries, 'countries should be present');
                 });
-                assert.ok(res.body.announce[0].image_url, 'image present');
-                assert.ok(res.body.announce[1].image, 'image present');
+                // assert.ok(res.body.announce[0].image_url, 'image present');
+                // assert.ok(res.body.announce[1].image, 'image present');
             });
     });
 
-    it('should return 2 surveys', () => {
+    it('should return 0 surveys', () => {
         return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/feed/announcements` })
             .then((res) => {
-                assert.ok(res.body.announce.length === 2);
-                assert.equal(res.body.announce[0].id, 'EN0517SURVEYIOS');
-                assert.equal(res.body.announce[1].id, 'EN0517SURVEYANDROID');
+                assert.ok(res.body.announce.length === 0);
             });
     });
+
+    // it('should return 2 surveys', () => {
+    //     return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/feed/announcements` })
+    //         .then((res) => {
+    //             assert.ok(res.body.announce.length === 2);
+    //             assert.equal(res.body.announce[0].id, 'EN0517SURVEYIOS');
+    //             assert.equal(res.body.announce[1].id, 'EN0517SURVEYANDROID');
+    //         });
+    // });
 
     it('should return empty object for other wikis', () => {
         return preq.get({ uri: `${server.config.uri}de.wikipedia.org/v1/feed/announcements` })
