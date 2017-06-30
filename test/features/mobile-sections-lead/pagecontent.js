@@ -136,7 +136,7 @@ describe('mobile-sections-lead', function() {
                 assert.ok(!{}.hasOwnProperty.call(lead, 'geo'));
             });
     });
-    it('Barack Obama should have a pronunciation', () => {
+    it.skip('Barack Obama should have a pronunciation', () => {
         const title = 'Barack_Obama';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
         const exp = '//upload.wikimedia.org/wikipedia/commons/8/82/En-us-Barack-Hussein-Obama.ogg';
@@ -156,7 +156,7 @@ describe('mobile-sections-lead', function() {
                   'The infobox has not been removed for backwards compatibility.');
             });
     });
-    it('Enwiki Uranus loads successfully (no pronunciation parsing TypeErrors)', () => {
+    it.skip('Enwiki Uranus loads successfully (no pronunciation parsing TypeErrors)', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Uranus`;
         const exp = '//upload.wikimedia.org/wikipedia/commons/1/1c/En-us-Uranus.ogg';
         return preq.get({ uri })
@@ -166,7 +166,7 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.pronunciation.url, exp);
             });
     });
-    it('Enwiki Odisha loads successfully (no pronunciation parsing TypeErrors)', () => {
+    it.skip('Enwiki Odisha loads successfully (no pronunciation parsing TypeErrors)', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Odisha`;
         const path = `//upload.wikimedia.org/wikipedia/commons/c/c2`;
         const exp = `${path}/Pronunciation_of_the_Odia_language_word_%22Odisha%22.ogg`;
@@ -177,7 +177,7 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.pronunciation.url, exp);
             });
     });
-    it('Enwiki Yazidis loads successfully (no pronunciation parsing TypeErrors)', () => {
+    it.skip('Enwiki Yazidis loads successfully (no pronunciation parsing TypeErrors)', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Yazidis`;
         const path = `//upload.wikimedia.org/wikipedia/commons/8/8d`;
         const exp = `${path}/En-us-Yazidis_from_Iraq_pronunciation_%28Voice_of_America%29.ogg`;

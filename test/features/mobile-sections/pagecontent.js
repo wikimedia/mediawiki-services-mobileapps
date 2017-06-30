@@ -333,7 +333,7 @@ describe('mobile-sections', function() {
             });
     });
 
-    it('Page with IPA content', () => {
+    it.skip('Page with IPA content', () => {
         const title = 'Sunderland_A.F.C.';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections/${title}`;
         return preq.get({ uri })

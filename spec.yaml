@@ -643,8 +643,6 @@ paths:
               editable: /.+/
               languagecount: /.+/
               ns: /.+/
-              pronunciation:
-                url: /.+/
               spoken:
                 files: [ /.+/ ]
               geo:
