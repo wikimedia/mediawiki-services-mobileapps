@@ -364,6 +364,17 @@ describe('onthisday', function() {
         assert.ok('23 – Bla bla'.match(regex) !== null);
     });
 
+    it('Year list element regex accepts well formed AD strings', () => {
+        const regex = languages.en.yearListElementRegEx;
+        assert.ok('4 AD – Bla bla'.match(regex) !== null);
+        assert.ok('1 AD – Bla bla'.match(regex) !== null);
+    });
+
+    it('AD strings should not be negated', () => {
+        const regex = languages.en.yearListElementRegEx;
+        assert.ok('4 AD – Bla bla'.match(regex)[2] === undefined, 'should not capture 2nd group');
+    });
+
     it('Year list element regex rejects non year list strings', () => {
         const regex = languages.en.yearListElementRegEx;
         assert.ok('Bla bla'.match(regex) === null);
