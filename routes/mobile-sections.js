@@ -359,6 +359,29 @@ function buildLeadResponse(req, res, legacy) {
         res.json(response).end();
     });
 }
+
+
+/*
+ * Build a summary for the page given in req
+ * @param {!Request} req
+ *  not apply legacy transformations that we are in the process
+ *  of deprecating.
+ * @return {!BBPromise}
+ */
+function buildSummary(req) {
+    return buildLeadObject(req, false).then((lead) => {
+        const intro = lead && lead.intro;
+        if (intro) {
+            return {
+                html: transforms.summarize(intro),
+                revision: lead.revision
+            };
+        } else {
+            return false;
+        }
+    });
+}
+
 /**
  * GET {domain}/v1/page/mobile-sections/{title}
  * Gets the mobile app version of a given wiki page.
@@ -402,6 +425,22 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
         mUtil.setETag(res, response.page.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(buildReferences(response)).end();
+    });
+});
+
+/**
+* GET {domain}/v1/page/preview-html/{title}
+* Gets a formatted version of a given wiki page rather than a blob of wikitext.
+*/
+router.get('/preview-html/:title', (req, res) => {
+    return buildSummary(req).then((summary) => {
+        if (summary) {
+            res.status(200);
+            mUtil.setETag(res, summary.revision);
+            res.send(summary.html).end();
+        } else {
+            res.status(404);
+        }
     });
 });
 
