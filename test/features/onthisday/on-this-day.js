@@ -360,6 +360,13 @@ describe('onthisday', function() {
 
     it('Year list element regex accepts well formed CE strings', () => {
         const regex = languages.en.yearListElementRegEx;
+        assert.ok('23 CE – Bla bla'.match(regex) !== null);
+        assert.ok('23 ce – Bla bla'.match(regex) !== null);
+        assert.ok('23CE – Bla bla'.match(regex) !== null);
+    });
+
+    it('Year list element regex accepts well formed year strings (no BCE/AD/CE)', () => {
+        const regex = languages.en.yearListElementRegEx;
         assert.ok('1969 – Bla bla'.match(regex) !== null);
         assert.ok('23 – Bla bla'.match(regex) !== null);
     });
