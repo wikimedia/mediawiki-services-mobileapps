@@ -279,7 +279,7 @@ function handleFilePagePromise(req, res) {
  * @param {!Response} res
  * @return {!Promise}
  */
-function handleNamespaceAndSpecialCases(req, res) {
+function _handleNamespaceAndSpecialCases(req, res) {
     const ns = res.meta.ns;
     if (res.meta.mainpage) {
         return mainPageFixPromise(req, res);
@@ -291,21 +291,34 @@ function handleNamespaceAndSpecialCases(req, res) {
     return res;
 }
 
+/**
+ * Creates a raw object representing a page in preparation
+ * for further massaging
+ * @param {!Request} req
+ * @param {?Boolean} [legacy] when true MCS will
+ *  apply legacy transformations that we are in the process
+ *  of deprecating.
+ * @return {!BBPromise}
+ */
+function _collectRawPageData(req, legacy) {
+    return BBPromise.props({
+        page: parsoid.pageContentPromise(app, req, legacy),
+        meta: pageMetadataPromise(req)
+    }).then((interimState) => {
+        return _handleNamespaceAndSpecialCases(req, interimState);
+    });
+}
+
 /*
  * @param {!Request} req
  * @param {!Response} res
  * @param {?Boolean} [legacy] when true MCS will
- *  not apply legacy transformations that we are in the process
+ *  apply legacy transformations that we are in the process
  *  of deprecating.
  * @return {!BBPromise}
  */
 function buildAllResponse(req, res, legacy) {
-    return BBPromise.props({
-        page: parsoid.pageContentPromise(app, req, legacy),
-        meta: pageMetadataPromise(req)
-    }).then((response) => {
-        return handleNamespaceAndSpecialCases(req, response);
-    }).then((response) => {
+    return _collectRawPageData(req, legacy).then((response) => {
         response = buildAll(response, legacy);
         res.status(200);
         mUtil.setETag(res, response.lead.revision);
@@ -314,14 +327,32 @@ function buildAllResponse(req, res, legacy) {
     });
 }
 
+/*
+ * Builds an object which gives structure to the lead of an article
+ * providing access to metadata.
+ * @param {!Request} req
+ * @param {?Boolean} [legacy] when true MCS will
+ *  apply legacy transformations that we are in the process
+ *  of deprecating.
+ * @return {!BBPromise}
+ */
+function buildLeadObject(req, legacy) {
+    return _collectRawPageData(req, legacy).then((lead) => {
+        return buildLead(lead, legacy);
+    });
+}
+
+/*
+ * Responds with the lead content of a page in structured form.
+ * @param {!Request} req
+ * @param {!Response} res
+ * @param {?Boolean} [legacy] when true MCS will
+ *  apply legacy transformations that we are in the process
+ *  of deprecating.
+ * @return {!BBPromise}
+ */
 function buildLeadResponse(req, res, legacy) {
-    return BBPromise.props({
-        page: parsoid.pageContentPromise(app, req, legacy),
-        meta: pageMetadataPromise(req)
-    }).then((response) => {
-        return handleNamespaceAndSpecialCases(req, response);
-    }).then((response) => {
-        response = buildLead(response, legacy);
+    return buildLeadObject(req, legacy).then((response) => {
         res.status(200);
         mUtil.setETag(res, response.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
