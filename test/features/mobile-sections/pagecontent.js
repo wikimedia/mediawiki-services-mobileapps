@@ -333,16 +333,16 @@ describe('mobile-sections', function() {
             });
     });
 
-    it.skip('Page with IPA content', () => {
+    it('Page with IPA content', () => {
         const title = 'Sunderland_A.F.C./738562635';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections/${title}`;
         return preq.get({ uri })
             .then((res) => {
                 const text = res.body.lead.sections[0].text;
-                const expected = 'style="display: none;"><span class="noexcerpt">';
+                const expected = 'style="display: none;"><span class="IPA';
                 assert.equal(res.status, 200);
                 assert.ok(text.indexOf(expected) > -1,
-                  'IPA information is wrapped in hidden container');
+                  'IPA information should be wrapped in hidden container');
             });
     });
 
@@ -355,7 +355,7 @@ describe('mobile-sections', function() {
                 assert.ok(res.body.userinfo === undefined, 'userinfo property is undefined');
                 assert.ok(res.body.imageinfo !== undefined, 'imageinfo property is defined');
                 assert.ok(res.body.imageinfo.thumburl !== undefined,
-                  'thumbnail url property is defined');
+                    'thumbnail url property is defined');
             });
     });
 

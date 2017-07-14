@@ -140,9 +140,8 @@ describe('mobile-sections-v2', function() {
         return preq.get({ uri })
             .then((res) => {
                 const text = res.body.lead.intro;
-                const regex = /<span class="nowrap mcs-ipa"><span class="IPA nopopups noexcerpt">/; // eslint-disable-line max-len
-
-                assert.ok(regex.test(text), res.body.lead.intro);
+                const regex = /<span class="nowrap mcs-ipa">/;
+                assert.ok(regex.test(text), `mcs-ipa class should be in ${text}`);
             });
     });
 });

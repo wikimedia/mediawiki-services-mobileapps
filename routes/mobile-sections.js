@@ -16,7 +16,6 @@ const domino = require('domino');
 const mwapi = require('../lib/mwapi');
 const apiUtil = require('../lib/api-util');
 const mUtil = require('../lib/mobile-util');
-const parse = require('../lib/parseProperty');
 const parsoid = require('../lib/parsoid-access');
 const sUtil = require('../lib/util');
 const transforms = require('../lib/transforms');
@@ -93,7 +92,6 @@ function buildLead(input, legacy) {
         transforms.relocateFirstParagraph(lead);
     }
     const hatnotes = transforms.extractHatnotes(lead, !legacy);
-    const pronunciation = parse.parsePronunciation(lead, input.meta.displaytitle);
     const issues = transforms.extractPageIssues(lead, !legacy);
 
     let infobox;
@@ -146,7 +144,7 @@ function buildLead(input, legacy) {
             file: input.meta.image && input.meta.image.file,
             urls: input.meta.thumb && mwapi.buildLeadImageUrls(input.meta.thumb.url)
         })),
-        pronunciation,
+        pronunciation: input.page.pronunciation,
         spoken: input.page.spoken,
         hatnotes,
         infobox,
