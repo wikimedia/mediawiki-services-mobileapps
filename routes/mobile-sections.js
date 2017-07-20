@@ -100,6 +100,10 @@ function buildLead(input, legacy) {
     let intro;
     let sections;
     let text;
+    let disambiguation;
+    if (input.meta.pageprops && input.meta.pageprops.disambiguation !== undefined) {
+        disambiguation = true;
+    }
 
     if (!legacy) {
         if (input.page.sections.length > 1) {
@@ -112,6 +116,7 @@ function buildLead(input, legacy) {
         sections = buildLeadSections(input.page.sections);
         input.page.sections[0].text = lead.body.innerHTML;
     }
+
 
     return {
         ns: input.meta.ns,
@@ -126,6 +131,7 @@ function buildLead(input, legacy) {
         normalizedtitle: input.meta.normalizedtitle,
         redirected: input.meta.redirected,
         wikibase_item: input.meta.pageprops && input.meta.pageprops.wikibase_item,
+        disambiguation,
         description: input.meta.description,
         protection: input.meta.protection,
         editable: input.meta.editable,

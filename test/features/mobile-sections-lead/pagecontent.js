@@ -264,4 +264,24 @@ describe('mobile-sections-lead', function() {
                 assert.ok(res.body.issues === undefined, err);
             });
     });
+    it('Disambiguation pages are flagged.', () => {
+        const title = 'Barack_(disambiguation)';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        return preq.get({ uri })
+            .then((res) => {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.disambiguation,
+                    'Disambiguation flag is present in meta data.');
+            });
+    });
+    it('Most pages are not flagged as disambiguation.', () => {
+        const title = 'Barack Obama';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        return preq.get({ uri })
+            .then((res) => {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.disambiguation === undefined,
+                    'Disambiguation flag is missing in meta data.');
+            });
+    });
 });
