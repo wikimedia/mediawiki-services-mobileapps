@@ -373,15 +373,21 @@ function buildLeadResponse(req, res, legacy) {
  */
 function buildSummary(req) {
     return buildLeadObject(req, false).then((lead) => {
-        const intro = lead && lead.intro;
-        if (intro) {
-            return {
-                html: transforms.summarize(intro),
-                revision: lead.revision
-            };
-        } else {
+        let summary = '';
+        let code = 200;
+
+        if (!lead) {
             return false;
+        } else if (lead.contentmodel || lead.ns !== 0) {
+            code = 204;
+        } else if (lead.intro) {
+            summary = transforms.summarize(lead.intro);
         }
+        return {
+            code,
+            html: summary,
+            revision: lead.revision
+        };
     });
 }
 
@@ -438,9 +444,12 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
 router.get('/preview-html/:title', (req, res) => {
     return buildSummary(req).then((summary) => {
         if (summary) {
-            res.status(200);
-            mUtil.setETag(res, summary.revision);
-            res.send(summary.html).end();
+            res.status(summary.code);
+            if (summary.code === 200) {
+                mUtil.setETag(res, summary.revision);
+                res.send(summary.html);
+            }
+            res.end();
         } else {
             res.status(404);
         }
