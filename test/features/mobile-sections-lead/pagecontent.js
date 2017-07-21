@@ -284,4 +284,14 @@ describe('mobile-sections-lead', function() {
                     'Disambiguation flag is missing in meta data.');
             });
     });
+    it('Content model present in response', () => {
+        const title = 'Schema:RelatedArticles';
+        const uri = `${server.config.uri}meta.wikimedia.org/v1/page/mobile-sections-lead/${title}`;
+        return preq.get({ uri })
+            .then((res) => {
+                assert.deepEqual(res.status, 200);
+                assert.ok(res.body.contentmodel === 'JsonSchema',
+                    'Article flagged as a JsonSchema.');
+            });
+    });
 });

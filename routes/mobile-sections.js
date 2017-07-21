@@ -101,6 +101,10 @@ function buildLead(input, legacy) {
     let sections;
     let text;
     let disambiguation;
+    let contentmodel;
+    if (input.meta.contentmodel !== 'wikitext') {
+        contentmodel = input.meta.contentmodel;
+    }
     if (input.meta.pageprops && input.meta.pageprops.disambiguation !== undefined) {
         disambiguation = true;
     }
@@ -120,6 +124,7 @@ function buildLead(input, legacy) {
 
     return {
         ns: input.meta.ns,
+        contentmodel,
         userinfo: input.meta.userinfo,
         imageinfo: input.meta.imageinfo,
         id: input.meta.id,
