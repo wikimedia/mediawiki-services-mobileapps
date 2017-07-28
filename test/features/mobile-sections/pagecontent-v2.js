@@ -41,8 +41,9 @@ describe('mobile-sections-v2', function() {
                    });
     });
 
-    it.skip('Hatnotes do not appear in the lead object', () => {
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted/Chivalric%20order`;
+    it('Hatnotes do not appear in the lead object', () => {
+        const title = 'Chivalric%20order/699553745';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted/${title}`;
         const anchor = '<a href="/wiki/Military_order_(society)" title="Military order (society)">';
         return preq.get({ uri })
             .then((res) => {
@@ -133,12 +134,14 @@ describe('mobile-sections-v2', function() {
             });
     });
 
-    it.skip('Page with IPA content', () => {
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted/Sunderland_A.F.C.`;
+    it('Page with IPA content', () => {
+        const title = 'Sunderland_A.F.C.';
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted/${title}`;
         return preq.get({ uri })
             .then((res) => {
                 const text = res.body.lead.intro;
-                const regex = /<span class="nowrap mcs-ipa"><span class="noexcerpt">/;
+                const regex = /<span class="nowrap mcs-ipa"><span class="IPA nopopups noexcerpt">/; // eslint-disable-line max-len
+
                 assert.ok(regex.test(text), res.body.lead.intro);
             });
     });

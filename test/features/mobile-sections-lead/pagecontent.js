@@ -5,6 +5,8 @@ const preq   = require('preq');
 const server = require('../../utils/server.js');
 const headers = require('../../utils/headers.js');
 
+const wikiSectionsLead = 'en.wikipedia.org/v1/page/mobile-sections-lead/';
+
 describe('mobile-sections-lead', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
@@ -118,7 +120,7 @@ describe('mobile-sections-lead', function() {
                 assert.deepEqual(lead.geo.longitude, 28.883055555556);
             });
     });
-    // TODO: FIX OR REMOVE
+    // T152441
     it.skip('Wikivoyage en Paris should have a lead object with a geo property', () => {
         const uri = `${server.config.uri}en.wikivoyage.org/v1/page/mobile-sections-lead/Paris`;
         return preq.get({ uri })
@@ -208,9 +210,9 @@ describe('mobile-sections-lead', function() {
                     Actual text ${res.body.sections[0].text}`);
             });
     });
-    it.skip('Enwiki hatnotes are promoted to the lead object', () => {
+    it('Enwiki hatnotes are promoted to the lead object', () => {
         const title = `Chivalric%20order`;
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
+        const uri = `${server.config.uri}${wikiSectionsLead}${title}/699553745`;
         const anchor = `<a href="/wiki/Military_order_(society)" title="Military order (society)">`;
         return preq.get({ uri })
             .then((res) => {
