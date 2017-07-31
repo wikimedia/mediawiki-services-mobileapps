@@ -89,8 +89,8 @@ describe('mobile-sections-lead', function() {
         return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
-                assert.equal(lead.geo.latitude, 37.783);
-                assert.equal(lead.geo.longitude, -122.417);
+                assert.equal(lead.geo.latitude, 37.78333333);
+                assert.equal(lead.geo.longitude, -122.41666667);
             });
     });
     it('en Talk:San Francisco should have a lead object with correct namespace property', () => {
@@ -116,12 +116,11 @@ describe('mobile-sections-lead', function() {
         return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
-                assert.equal(lead.geo.latitude, 61.866666666667);
-                assert.equal(lead.geo.longitude, 28.883055555556);
+                assert.equal(lead.geo.latitude, 61.86666667);
+                assert.equal(lead.geo.longitude, 28.88305556);
             });
     });
-    // T152441
-    it.skip('Wikivoyage en Paris should have a lead object with a geo property', () => {
+    it('Wikivoyage en Paris should have a lead object with a geo property', () => {
         const uri = `${server.config.uri}en.wikivoyage.org/v1/page/mobile-sections-lead/Paris`;
         return preq.get({ uri })
             .then((res) => {

@@ -149,7 +149,7 @@ function buildLead(input, legacy) {
         hatnotes,
         infobox,
         intro,
-        geo: input.page.geo,
+        geo: input.meta.geo,
         sections,
         text
     };
