@@ -15,12 +15,27 @@ const router = sUtil.router();
 let app;
 
 /**
- * GET {domain}/v1/page/read-html/{title}/{revision?}/{tid?}
+ * GET {domain}/v1/page/read-base-html/{title}/{revision?}/{tid?}
  * Gets page content in HTML. This is based on Parsoid with some minor modifications more
  * suitable for the reading use cases.
  */
-router.get('/read-html/:title/:revision?/:tid?', (req, res) => {
+router.get('/read-base-html/:title/:revision?/:tid?', (req, res) => {
     return parsoid.pageHtmlPromise(app, req, false)
+    .then((response) => {
+        res.status(200);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.readHtml, 'text/html');
+        mUtil.setETag(res, response.meta.revision);
+        res.send(response.html).end();
+    });
+});
+
+/**
+ * GET {domain}/v1/page/read-html/{title}/{revision?}/{tid?}
+ * Gets page content in HTML. This is a more optimized for direct consumption by reading
+ * clients.
+ */
+router.get('/read-html/:title/:revision?/:tid?', (req, res) => {
+    return parsoid.pageHtmlPromise(app, req, true)
     .then((response) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.readHtml, 'text/html');
