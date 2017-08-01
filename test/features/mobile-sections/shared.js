@@ -90,13 +90,8 @@ exports.shouldBehaveLikeMobileSections = function(localUri) {
         .then(() => {
             assert.fail("expected an exception to be thrown");
         }).catch((res) => {
-            // Most checks are commented out here because the error messages are inconsistent.
-
-            // const body = res.body;
-            assert.deepEqual(res.status, 404);
-            // assert.deepEqual(body.type, 'missingtitle');
-            // assert.deepEqual(body.title, 'Not found.');
-            // assert.deepEqual(body.detail, 'Page or revision not found.');
+            assert.equal(res.status, 404);
+            assert.equal(res.body.type, 'missingtitle');
         });
     });
 };

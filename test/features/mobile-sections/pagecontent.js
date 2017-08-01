@@ -42,16 +42,16 @@ describe('mobile-sections', function() {
             const lead = res.body.lead;
             const lastMod = lead.lastmodified;
             const prot = lead.protection;
-            assert.deepEqual(res.status, 200);
+            assert.equal(res.status, 200);
             assert.ok(lastMod.startsWith('201'), `${lastMod} should start with 201`); // 2015-
-            assert.deepEqual(lead.displaytitle, 'Sections/deep');
+            assert.equal(lead.displaytitle, 'Sections/deep');
             assert.equal(lead.wikibase_item, undefined);
             assert.equal(lead.description, undefined);
             assert.ok(prot.constructor === Object, 'lead.protection should be an Object');
             assert.ok(!Object.keys(lead.protection).length, 'Page should not be protected');
-            assert.deepEqual(lead.editable, true);
+            assert.equal(lead.editable, true);
             assert.ok(lead.sections.length >= 6, 'Expected at least six section elements');
-            assert.deepEqual(lead.sections[0].id, 0);
+            assert.equal(lead.sections[0].id, 0);
             assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
         });
     });
@@ -62,10 +62,10 @@ describe('mobile-sections', function() {
             .then((res) => {
                 const lead = res.body.lead;
                 const lastMod = lead.lastmodified;
-                assert.deepEqual(res.status, 200);
+                assert.equal(res.status, 200);
                 assert.ok(lastMod.startsWith('201'), `${lastMod} should start with 201`); // 2015-
-                assert.deepEqual(lead.displaytitle, 'Main Page');
-                assert.deepEqual(lead.normalizedtitle, 'Main Page');
+                assert.equal(lead.displaytitle, 'Main Page');
+                assert.equal(lead.normalizedtitle, 'Main Page');
                 assert.equal(lead.wikibase_item, 'Q5296');
                 assert.ok(/main page/i.test(lead.description));
                 assert.deepEqual(lead.protection, {
@@ -76,11 +76,11 @@ describe('mobile-sections', function() {
                         "sysop"
                     ]
                 });
-                assert.deepEqual(lead.editable, false);
-                assert.deepEqual(lead.mainpage, true);
+                assert.equal(lead.editable, false);
+                assert.equal(lead.mainpage, true);
                 assert.ok(lead.languagecount > 10);
                 assert.ok(lead.sections.length > 0, 'Expected at least one section element');
-                assert.deepEqual(lead.sections[0].id, 0);
+                assert.equal(lead.sections[0].id, 0);
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
@@ -91,12 +91,12 @@ describe('mobile-sections', function() {
             .then((res) => {
                 const lead = res.body.lead;
                 const lastMod = lead.lastmodified;
-                assert.deepEqual(res.status, 200);
+                assert.equal(res.status, 200);
                 assert.ok(lastMod.startsWith('201'), `${lastMod} should start with 201`); // 2015-
-                assert.deepEqual(lead.displaytitle, 'Sunn O)))');
-                assert.deepEqual(lead.normalizedtitle, 'Sunn O)))');
+                assert.equal(lead.displaytitle, 'Sunn O)))');
+                assert.equal(lead.normalizedtitle, 'Sunn O)))');
                 assert.ok(lead.sections.length > 0, 'Expected at least one section element');
-                assert.deepEqual(lead.sections[0].id, 0);
+                assert.equal(lead.sections[0].id, 0);
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
@@ -106,7 +106,7 @@ describe('mobile-sections', function() {
         const uri = localUri(title, 'zh.wikipedia.org');
         return preq.get({ uri })
             .then((res) => {
-                assert.deepEqual(res.status, 200);
+                assert.equal(res.status, 200);
             });
     });
 
@@ -114,7 +114,7 @@ describe('mobile-sections', function() {
         const uri = localUri('Foobar', 'en.wikipedia.beta.wmflabs.org');
         return preq.get({ uri })
             .then((res) => {
-                assert.deepEqual(res.status, 200);
+                assert.equal(res.status, 200);
             });
     });
 
@@ -124,8 +124,8 @@ describe('mobile-sections', function() {
         const uri = localUri(title);
         return preq.get({ uri })
             .then((res) => {
-                assert.deepEqual(res.status, 200);
-                assert.deepEqual(res.body.lead.spoken.files[0], filename);
+                assert.equal(res.status, 200);
+                assert.equal(res.body.lead.spoken.files[0], filename);
             });
     });
 
@@ -136,10 +136,10 @@ describe('mobile-sections', function() {
             .then((res) => {
                 const lead = res.body.lead;
                 const redirectTitle = 'User:BSitzmann (WMF)/MCS/Test/A&B redirect';
-                assert.deepEqual(res.status, 200);
-                assert.deepEqual(lead.normalizedtitle, redirectTitle);
-                assert.deepEqual(lead.displaytitle, 'User:BSitzmann (WMF)/MCS/Test/A&B');
-                assert.deepEqual(lead.redirected, 'User:BSitzmann (WMF)/MCS/Test/A&B');
+                assert.equal(res.status, 200);
+                assert.equal(lead.normalizedtitle, redirectTitle);
+                assert.equal(lead.displaytitle, 'User:BSitzmann (WMF)/MCS/Test/A&B');
+                assert.equal(lead.redirected, 'User:BSitzmann (WMF)/MCS/Test/A&B');
             });
     });
 
@@ -148,10 +148,10 @@ describe('mobile-sections', function() {
         const uri = localUri(title, 'en.wikipedia.beta.wmflabs.org');
         return preq.get({ uri })
             .then((res) => {
-                assert.deepEqual(res.status, 200);
-                assert.deepEqual(res.body.lead.normalizedtitle, 'User:Pchelolo/Redirect Test');
-                assert.deepEqual(res.body.lead.displaytitle, 'User:Pchelolo/Redirect Target %');
-                assert.deepEqual(res.body.lead.redirected, 'User:Pchelolo/Redirect Target %');
+                assert.equal(res.status, 200);
+                assert.equal(res.body.lead.normalizedtitle, 'User:Pchelolo/Redirect Test');
+                assert.equal(res.body.lead.displaytitle, 'User:Pchelolo/Redirect Target %');
+                assert.equal(res.body.lead.redirected, 'User:Pchelolo/Redirect Target %');
             });
     });
 
@@ -162,10 +162,10 @@ describe('mobile-sections', function() {
         const uri = localUri(title, 'test.wikipedia.org');
         return preq.get({ uri })
             .then((res) => {
-                assert.deepEqual(res.status, 200);
-                assert.deepEqual(res.body.lead.normalizedtitle, normalizedTitle);
-                assert.deepEqual(res.body.lead.displaytitle, displayTitle);
-                assert.deepEqual(res.body.lead.redirected, displayTitle);
+                assert.equal(res.status, 200);
+                assert.equal(res.body.lead.normalizedtitle, normalizedTitle);
+                assert.equal(res.body.lead.displaytitle, displayTitle);
+                assert.equal(res.body.lead.redirected, displayTitle);
             });
     });
 
@@ -177,10 +177,10 @@ describe('mobile-sections', function() {
         const uri = localUri(title, 'test.wikipedia.org');
         return preq.get({ uri })
             .then((res) => {
-                assert.deepEqual(res.status, 200);
-                assert.deepEqual(res.body.lead.normalizedtitle, normalizedTitle);
-                assert.deepEqual(res.body.lead.displaytitle, displayTitle);
-                assert.deepEqual(res.body.lead.redirected, titleWithFragment);
+                assert.equal(res.status, 200);
+                assert.equal(res.body.lead.normalizedtitle, normalizedTitle);
+                assert.equal(res.body.lead.displaytitle, displayTitle);
+                assert.equal(res.body.lead.redirected, titleWithFragment);
             });
     });
 

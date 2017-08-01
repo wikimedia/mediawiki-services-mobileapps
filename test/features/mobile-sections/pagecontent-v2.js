@@ -38,7 +38,7 @@ describe('mobile-sections-v2', function() {
         const anchor = '<a href="/wiki/Military_order_(society)" title="Military order (society)">';
         return preq.get({ uri })
             .then((res) => {
-                assert.deepEqual(res.status, 200);
+                assert.equal(res.status, 200);
                 assert.ok(res.body.lead.hatnotes[0],
                     `See also: ${anchor}Military order (society)</a>`,
                      'hatnote property should be present on lead.');
@@ -52,7 +52,7 @@ describe('mobile-sections-v2', function() {
         const uri = localUri(title);
         return preq.get({ uri })
         .then((res) => {
-            assert.deepEqual(res.status, 200);
+            assert.equal(res.status, 200);
             assert.ok(res.body.lead.text.indexOf('ambox-multiple_issues') === -1,
                 'No ambox multiple issues class in response.');
         });
@@ -63,7 +63,7 @@ describe('mobile-sections-v2', function() {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted/${title}`;
         return preq.get({ uri })
             .then((res) => {
-                assert.deepEqual(res.status, 200);
+                assert.equal(res.status, 200);
                 assert.ok(res.body.lead.infobox === undefined);
                 assert.ok(res.body.lead.intro === undefined);
             });
@@ -73,7 +73,7 @@ describe('mobile-sections-v2', function() {
         const uri = localUri('Main_Page');
         return preq.get({ uri })
             .then((res) => {
-                assert.deepEqual(res.status, 200);
+                assert.equal(res.status, 200);
                 assert.ok(res.body.lead.infobox === undefined);
                 assert.ok(res.body.lead.intro === undefined);
             });
@@ -83,7 +83,7 @@ describe('mobile-sections-v2', function() {
         const uri = localUri('Barack_Obama');
         return preq.get({ uri })
             .then((res) => {
-                assert.deepEqual(res.status, 200);
+                assert.equal(res.status, 200);
                 assert.ok(res.body.lead.infobox !== undefined);
                 assert.ok(res.body.lead.text.indexOf('"infobox') === -1,
                   'The infobox is removed in version 2 of the api.');
@@ -96,7 +96,7 @@ describe('mobile-sections-v2', function() {
             .then((res) => {
                 const intro = res.body.lead.intro;
 
-                assert.deepEqual(res.status, 200);
+                assert.equal(res.status, 200);
                 assert.ok(intro !== undefined, 'Intro property present.');
                 assert.ok(intro.indexOf('President of the United States') > -1,
                   'Intro does not come from infobox.');
@@ -116,7 +116,7 @@ describe('mobile-sections-v2', function() {
             .then((res) => {
                 const intro = res.body.lead.intro;
 
-                assert.deepEqual(res.status, 200);
+                assert.equal(res.status, 200);
                 assert.ok(intro.indexOf('<p>') > -1, 'intro is html');
                 assert.ok(intro.indexOf('stellar remnant') > -1);
                 assert.ok(intro.indexOf('</ul>') > -1,
