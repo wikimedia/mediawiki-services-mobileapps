@@ -58,7 +58,7 @@ describe('mobile-sections-lead', function() {
                 });
                 assert.equal(lead.editable, false);
                 assert.deepEqual(lead.image, {
-                    "file": "Cat poster 1.jpg",
+                    "file": "Cat_poster_1.jpg",
                     "urls": {
                         "320": `${path}/Cat_poster_1.jpg/320px-Cat_poster_1.jpg`,
                         "640": `${path}/Cat_poster_1.jpg/640px-Cat_poster_1.jpg`,

@@ -32,7 +32,7 @@ let app;
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
 function pageContentForMainPagePromise(req) {
-    return mwapi.getAllSections(app, req)
+    return mwapi.getMainPageData(app, req)
     .then((response) => {
         const page = response.body.mobileview;
         const sections = page.sections;
