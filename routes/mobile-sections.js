@@ -156,21 +156,13 @@ function buildRemaining(input) {
 }
 
 /*
- * Build a response which contains only reference sections
+ * Build a response which contains a structure of reference sections
  * @param {!Object} input
+ * @param {!Logger} logger
  * @return {!Object}
  */
-function buildReferences(input) {
-    const remaining = buildRemaining(input);
-    const sections = [];
-    remaining.sections.forEach((section) => {
-        if (section.isReferenceSection) {
-            sections.push(section);
-        }
-    });
-    return {
-        sections
-    };
+function buildReferences(html, logger) {
+    return transforms.extractReferenceLists(html, logger);
 }
 
 /*
@@ -378,13 +370,12 @@ router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
  * Gets any sections which are part of a reference sections for a given wiki page.
  */
 router.get('/references/:title/:revision?/:tid?', (req, res) => {
-    return BBPromise.props({
-        page: parsoid.pageJsonPromise(app, req, false)
-    }).then((response) => {
+    return parsoid.pageHtmlPromiseForReferences(app, req)
+    .then((response) => {
         res.status(200);
-        mUtil.setETag(res, response.page.revision);
+        mUtil.setETag(res, response.meta.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
-        res.json(buildReferences(response)).end();
+        res.json(buildReferences(response.doc, req.logger)).end();
     });
 });
 
