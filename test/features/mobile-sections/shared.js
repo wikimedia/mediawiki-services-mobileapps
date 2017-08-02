@@ -91,7 +91,6 @@ exports.shouldBehaveLikeMobileSections = function(localUri) {
             assert.fail("expected an exception to be thrown");
         }).catch((res) => {
             assert.equal(res.status, 404);
-            assert.equal(res.body.type, 'missingtitle');
         });
     });
 };
