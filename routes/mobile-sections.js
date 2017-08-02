@@ -49,14 +49,6 @@ function pageContentForMainPagePromise(req) {
     });
 }
 
-/** Returns a promise to retrieve the page content from MW API mobileview */
-function pageMetadataPromise(req) {
-    return mwapi.getMetadata(app, req)
-    .then((response) => {
-        return response.body.mobileview;
-    });
-}
-
 function buildLeadSections(sections) {
     const len = sections.length;
     const out = [];
@@ -128,8 +120,8 @@ function buildLead(input, legacy) {
         id: input.meta.id,
         issues,
         revision: input.page.revision,
-        lastmodified: input.page.lastmodified,
-        lastmodifier: input.meta.lastmodifiedby || { anon: true },
+        lastmodified: input.meta.lastmodified,
+        lastmodifier: input.meta.lastmodifier,
         displaytitle: input.meta.displaytitle,
         normalizedtitle: input.meta.normalizedtitle,
         redirected: input.meta.redirected,
@@ -306,7 +298,7 @@ function _handleNamespaceAndSpecialCases(req, res) {
 function _collectRawPageData(req, legacy) {
     return BBPromise.props({
         page: parsoid.pageContentPromise(app, req, legacy),
-        meta: pageMetadataPromise(req)
+        meta: mwapi.getMetadata(app, req)
     }).then((interimState) => {
         return _handleNamespaceAndSpecialCases(req, interimState);
     });
