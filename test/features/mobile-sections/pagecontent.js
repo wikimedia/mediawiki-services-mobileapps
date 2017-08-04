@@ -129,61 +129,6 @@ describe('mobile-sections', function() {
             });
     });
 
-    it('Page with HTML entity in redirected page title should load', () => {
-        const title = `User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FA%26B_redirect`;
-        const uri = localUri(title, 'test.wikipedia.org');
-        return preq.get({ uri })
-            .then((res) => {
-                const lead = res.body.lead;
-                const redirectTitle = 'User:BSitzmann (WMF)/MCS/Test/A&B redirect';
-                assert.equal(res.status, 200);
-                assert.equal(lead.normalizedtitle, redirectTitle);
-                assert.equal(lead.displaytitle, 'User:BSitzmann (WMF)/MCS/Test/A&B');
-                assert.equal(lead.redirected, 'User:BSitzmann (WMF)/MCS/Test/A&B');
-            });
-    });
-
-    it('Page with % in redirected page title should load [beta cluster]', () => {
-        const title = `User:Pchelolo%2fRedirect_Test`;
-        const uri = localUri(title, 'en.wikipedia.beta.wmflabs.org');
-        return preq.get({ uri })
-            .then((res) => {
-                assert.equal(res.status, 200);
-                assert.equal(res.body.lead.normalizedtitle, 'User:Pchelolo/Redirect Test');
-                assert.equal(res.body.lead.displaytitle, 'User:Pchelolo/Redirect Target %');
-                assert.equal(res.body.lead.redirected, 'User:Pchelolo/Redirect Target %');
-            });
-    });
-
-    it('Page with % in redirected page title should load 2', () => {
-        const title = `User:BSitzmann_%28WMF%29%2FMCS%2FTest%2Fredirect_test2`;
-        const normalizedTitle = 'User:BSitzmann (WMF)/MCS/Test/redirect test2';
-        const displayTitle = 'User:BSitzmann (WMF)/MCS/Test/redirect test2 target %';
-        const uri = localUri(title, 'test.wikipedia.org');
-        return preq.get({ uri })
-            .then((res) => {
-                assert.equal(res.status, 200);
-                assert.equal(res.body.lead.normalizedtitle, normalizedTitle);
-                assert.equal(res.body.lead.displaytitle, displayTitle);
-                assert.equal(res.body.lead.redirected, displayTitle);
-            });
-    });
-
-    it('Page with % in section header of redirected page title should load', () => {
-        const title = `User:BSitzmann_%28WMF%29%2FMCS%2FTest%2Fredirect_test3`;
-        const normalizedTitle = 'User:BSitzmann (WMF)/MCS/Test/redirect test3';
-        const displayTitle = 'User:BSitzmann (WMF)/MCS/Test/redirect test3 target';
-        const titleWithFragment = 'User:BSitzmann (WMF)/MCS/Test/redirect test3 target#Section_.25';
-        const uri = localUri(title, 'test.wikipedia.org');
-        return preq.get({ uri })
-            .then((res) => {
-                assert.equal(res.status, 200);
-                assert.equal(res.body.lead.normalizedtitle, normalizedTitle);
-                assert.equal(res.body.lead.displaytitle, displayTitle);
-                assert.equal(res.body.lead.redirected, titleWithFragment);
-            });
-    });
-
     it('Internal links should have title attribute', () => {
         const title = `User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FTitleLinkEncoding`;
         const uri = localUri(title);

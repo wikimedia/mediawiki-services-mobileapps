@@ -124,7 +124,6 @@ function buildLead(input, legacy) {
         lastmodifier: input.meta.lastmodifier,
         displaytitle: input.meta.displaytitle,
         normalizedtitle: input.meta.normalizedtitle,
-        redirected: input.meta.redirected,
         wikibase_item: input.meta.pageprops && input.meta.pageprops.wikibase_item,
         disambiguation,
         description: input.meta.description,
