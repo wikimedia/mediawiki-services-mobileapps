@@ -630,7 +630,6 @@ paths:
                 displaytitle: /.+/
                 normalizedtitle: /.+/
                 wikibase_item: Q5296
-                description: /[Mm]ain [Pp]age/
                 protection: /.+/
                 editable: /.+/
                 mainpage: true

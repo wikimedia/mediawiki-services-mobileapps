@@ -67,7 +67,6 @@ describe('mobile-sections', function() {
                 assert.equal(lead.displaytitle, 'Main Page');
                 assert.equal(lead.normalizedtitle, 'Main Page');
                 assert.equal(lead.wikibase_item, 'Q5296');
-                assert.ok(/main page/i.test(lead.description));
                 assert.deepEqual(lead.protection, {
                     "edit": [
                         "sysop"
