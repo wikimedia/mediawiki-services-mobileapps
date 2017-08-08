@@ -371,7 +371,8 @@ function buildLeadResponse(req, res, legacy) {
  */
 function buildSummary(req) {
     return buildLeadObject(req, false).then((lead) => {
-        let summary = '';
+        let summary = {};
+        const type = 'standard';
         let code = 200;
 
         if (!lead) {
@@ -381,11 +382,11 @@ function buildSummary(req) {
         } else if (lead.intro) {
             summary = transforms.summarize(lead.intro);
         }
-        return {
+        return Object.assign({
             code,
-            html: summary,
+            type,
             revision: lead.revision
-        };
+        }, summary);
     });
 }
 
@@ -437,15 +438,16 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
 
 /**
 * GET {domain}/v1/page/preview-html/{title}
-* Gets a formatted version of a given wiki page rather than a blob of wikitext.
+* Extracts a summary of a given wiki page limited to one paragraph of text
 */
 router.get('/preview-html/:title', (req, res) => {
     return buildSummary(req).then((summary) => {
         if (summary) {
             res.status(summary.code);
             if (summary.code === 200) {
+                delete summary.code;
                 mUtil.setETag(res, summary.revision);
-                res.send(summary.html);
+                res.send(JSON.stringify(summary));
             }
             res.end();
         } else {

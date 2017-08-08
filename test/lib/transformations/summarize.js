@@ -100,7 +100,7 @@ describe('summarize', () => {
             ]
         ];
         testCases.forEach((test) => {
-            assert.equal(summarize(test[0]), test[1], test[2]);
+            assert.equal(summarize(test[0]).extract_html, test[1], test[2]);
         });
     });
 });
