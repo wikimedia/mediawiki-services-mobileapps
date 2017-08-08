@@ -68,6 +68,7 @@ function buildLeadSections(sections) {
 }
 
 /*
+ * Build the lead for the requested page.
  * @param {!Object} input
  * @param {?Boolean} [legacy] whether to perform legacy transformations
  * @return {!Object} lead json
@@ -99,11 +100,17 @@ function buildLead(input, legacy) {
         disambiguation = true;
     }
 
-    if (!legacy) {
-        if (input.page.sections.length > 1) {
+    if (!legacy && !input.meta.mainpage) {
+        const stubArticle = input.page.sections.length <= 1;
+        if (!stubArticle) {
             infobox = transforms.extractInfobox(lead);
-            intro = transforms.extractLeadIntroduction(lead);
         }
+        // We should always extract the introduction as it's useful for
+        // things like the summary endpoint
+        // however on pages where there is only
+        // one section we shouldn't remove it from initial HTML as it may
+        // have an undesirable result.
+        intro = transforms.extractLeadIntroduction(lead, !stubArticle);
         text = lead.body.innerHTML;
     } else {
         // update text after extractions have taken place

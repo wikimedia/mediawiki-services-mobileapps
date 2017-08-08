@@ -58,14 +58,16 @@ describe('mobile-sections-v2', function() {
         });
     });
 
-    it('Pages with only one section do not have an infobox or intro', () => {
+    it('Pages with only one section do not have an infobox', () => {
         const title = 'Wikipedia:Today\'s%20featured%20article%2FNovember%207,%202016';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted/${title}`;
         return preq.get({ uri })
             .then((res) => {
                 assert.equal(res.status, 200);
                 assert.ok(res.body.lead.infobox === undefined);
-                assert.ok(res.body.lead.intro === undefined);
+                assert.ok(res.body.lead.intro !== undefined, 'Provided for summary purposes');
+                assert.ok(res.body.lead.text.indexOf(res.body.lead.intro),
+                  'Intro should not be removed from body');
             });
     });
 
