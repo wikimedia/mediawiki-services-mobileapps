@@ -6,6 +6,7 @@
   "scripts": {
     "start": "service-runner",
     "test": "npm run -s lint && PREQ_CONNECT_TIMEOUT=15 mocha && nsp check",
+    "test:unit": "PREQ_CONNECT_TIMEOUT=15 mocha test/lib",
     "lint": "eslint --cache --max-warnings 0 --ext .js --ext .json .",
     "docker-start": "service-runner docker-start",
     "docker-test": "service-runner docker-test",
