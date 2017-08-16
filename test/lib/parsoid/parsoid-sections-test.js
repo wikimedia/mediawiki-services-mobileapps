@@ -2,7 +2,7 @@
 
 const assert = require('../../utils/assert.js');
 const domino = require('domino');
-const parsoid = require('../../../lib/parsoid-access');
+const parsoid = require('../../../lib/parsoidSections');
 
 const html = '<body>text0' +
     '<h2 id="foo">foo</h2>text1' +
@@ -37,8 +37,8 @@ describe('lib:parsoid-sections', function() {
 
     it('getSectionsText(empty) should produce an empty lead section', () => {
         const doc = domino.createDocument('<body></body>');
-        parsoid._addSectionDivs(doc);
-        const sections = parsoid._getSectionsText(doc);
+        parsoid.addSectionDivs(doc);
+        const sections = parsoid.getSectionsText(doc);
         assert.deepEqual(sections.length, 1);
         assert.deepEqual(sections[0].id, 0);
         assert.deepEqual(sections[0].text, '');
@@ -46,16 +46,16 @@ describe('lib:parsoid-sections', function() {
 
     it('getSectionsText() with just text should produce a lead section', () => {
         const doc = domino.createDocument('<body>text0</body>');
-        parsoid._addSectionDivs(doc);
-        const sections = parsoid._getSectionsText(doc);
+        parsoid.addSectionDivs(doc);
+        const sections = parsoid.getSectionsText(doc);
         assert.deepEqual(sections.length, 1);
         assertSection0(sections);
     });
 
     it('getSectionsText() with one h2 should produce two sections', () => {
         const doc = domino.createDocument('<body>text0<h2 id="foo">foo</h2>text1</body>');
-        parsoid._addSectionDivs(doc);
-        const sections = parsoid._getSectionsText(doc);
+        parsoid.addSectionDivs(doc);
+        const sections = parsoid.getSectionsText(doc);
         assert.deepEqual(sections.length, 2);
         assertSection0(sections);
         assertSection1(sections);
@@ -63,8 +63,8 @@ describe('lib:parsoid-sections', function() {
 
     it('getSectionsText() with one h2 and h3 should produce three sections', () => {
         const doc = domino.createDocument(html);
-        parsoid._addSectionDivs(doc);
-        const sections = parsoid._getSectionsText(doc);
+        parsoid.addSectionDivs(doc);
+        const sections = parsoid.getSectionsText(doc);
         assert.deepEqual(sections.length, 3);
         assertSection0(sections);
         assertSection1(sections);
