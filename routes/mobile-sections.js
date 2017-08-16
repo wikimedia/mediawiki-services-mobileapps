@@ -296,7 +296,7 @@ function _handleNamespaceAndSpecialCases(req, res) {
  */
 function _collectRawPageData(req, legacy) {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(app, req, legacy),
+        page: parsoid.pageJsonPromise(app, req, legacy),
         meta: mwapi.getMetadata(app, req)
     }).then((interimState) => {
         return _handleNamespaceAndSpecialCases(req, interimState);
@@ -404,7 +404,7 @@ router.get('/mobile-sections-lead/:title/:revision?/:tid?', (req, res) => {
  */
 router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(app, req, true)
+        page: parsoid.pageJsonPromise(app, req, true)
     }).then((response) => {
         res.status(200);
         mUtil.setETag(res, response.page.revision);
@@ -419,7 +419,7 @@ router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
  */
 router.get('/references/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(app, req, false)
+        page: parsoid.pageJsonPromise(app, req, false)
     }).then((response) => {
         res.status(200);
         mUtil.setETag(res, response.page.revision);

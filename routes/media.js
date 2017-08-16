@@ -22,7 +22,7 @@ let app;
  */
 router.get('/media/:title', (req, res) => {
     return BBPromise.props({
-        page: parsoid.pageContentPromise(app, req),
+        page: parsoid.pageJsonPromise(app, req),
         media: gallery.collectionPromise(app, req)
     }).then((response) => {
         res.status(200);
