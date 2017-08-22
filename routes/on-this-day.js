@@ -122,6 +122,17 @@ function wmfPageFromAnchorElement(anchorElement) {
 }
 
 /**
+ * Determines whether anchor is for specific year page.
+ * @param  {!AnchorElement}  anchor
+ * @param  {!Integer}  year
+ * @param  {!String}  era
+ * @return {!boolean}
+ */
+function isAnchorForYear(anchor, year, era) {
+    return new RegExp(`^${Math.abs(year)}\\s*${era}$`, 'i').test(anchor.title);
+}
+
+/**
  * Converts document list element to WMFEvent model.
  * A regular expression determines valid "year list elements" and separating their components.
  *  For example:    '399 BC - Death of Socrates'
@@ -146,21 +157,20 @@ function wmfEventFromListElement(listElement, lang) {
     }
 
     let year = parseInt(match[1], 10);
-
-    // Negate BC years so they sort correctly
     const isBC = (match[2] !== undefined);
+    let era = '';
     if (isBC) {
+        // Negate BC years so they sort correctly
         year = -year;
+        era = match[2];
     }
 
     const textAfterYear = match[3].trim();
 
-    function isAnchorNotForYear(anchor) {
-        return Math.abs(parseInt(anchor.title, 10)) !== Math.abs(year);
-    }
-
     const pages = Array.from(listElement.querySelectorAll('a'))
-        .filter(isAnchorNotForYear)
+        .filter((anchor) => {
+            return !isAnchorForYear(anchor, year, era);
+        })
         .map(wmfPageFromAnchorElement);
 
     return new WMFEvent(textAfterYear, pages, year);
@@ -539,7 +549,8 @@ module.exports = function(appObj) {
             eventsForYearListElements,
             reverseChronologicalWMFEventComparator,
             hydrateAllTitles,
-            listElementsByHeadingID
+            listElementsByHeadingID,
+            isAnchorForYear
         }
     };
 };

@@ -450,4 +450,32 @@ describe('onthisday', function() {
         const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Births']);
         assert.ok(listElements.length === 208);
     });
+
+    describe('isAnchorForYear', () => {
+        const a = domino.createDocument().createElement('A');
+        it('correctly identifies anchor linking to year article', () => {
+            a.title = '2008';
+            assert.ok(onThisDay.testing.isAnchorForYear(a, 2008, ''));
+        });
+        it('correctly rejects anchor linking article starting with a year', () => {
+            a.title = '2008 Something something';
+            assert.ok(!onThisDay.testing.isAnchorForYear(a, 2008, ''));
+        });
+        it('correctly rejects anchor linking article starting with a number', () => {
+            a.title = '123456 Something something';
+            assert.ok(!onThisDay.testing.isAnchorForYear(a, 2008, ''));
+        });
+        it('correctly rejects anchor linking article not starting with a year', () => {
+            a.title = 'Something something';
+            assert.ok(!onThisDay.testing.isAnchorForYear(a, 2008, ''));
+        });
+        it('correctly identifies anchor linking to year article with an era string', () => {
+            a.title = '2008 BC';
+            assert.ok(onThisDay.testing.isAnchorForYear(a, 2008, 'BC'));
+        });
+        it('correctly identifies anchor linking to year article with era string w/o space', () => {
+            a.title = '55BC';
+            assert.ok(onThisDay.testing.isAnchorForYear(a, 55, 'BC'));
+        });
+    });
 });
