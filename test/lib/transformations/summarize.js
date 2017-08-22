@@ -18,7 +18,7 @@ describe('summarize', () => {
                 'This summary should be nice and clean<span class="noexcerpts"> (noexcerpts will be omitted)</span>.',
                 'This summary should be nice and clean.'
             ],
-            // sup elements are retained and links are flattened
+            // sup elements are retained
             [
                 '<p>A <b>googolplex</b> is the number 10<sup>googol</sup>, or equivalently, 10<sup>(10<sup>100</sup>)</sup>.</p>',
                 '<p>A <b>googolplex</b> is the number 10<sup>googol</sup>, or equivalently, 10<sup>(10<sup>100</sup>)</sup>.</p>'
