@@ -20,9 +20,10 @@ let app;
  * @return {!String} day page title. Example, inputs ('5', '20') returns 'May_20'
  */
 function titleForDayPageFromMonthDayNumberStrings(monthNumberString, dayNumberString, lang) {
-    const monthName = languages[lang].monthNames[parseInt(monthNumberString, 10) - 1];
+    const monthNumber = parseInt(monthNumberString, 10);
+    const monthName = languages[lang].monthNames[monthNumber - 1];
     const dayNumber = parseInt(dayNumberString, 10);
-    return languages[lang].dayPage.nameFormatter(monthName, dayNumber);
+    return languages[lang].dayPage.nameFormatter(monthName, monthNumber, dayNumber);
 }
 
 /**
@@ -47,9 +48,10 @@ function dayTitleForRequest(req) {
  * 'Wikipedia:Selected_anniversaries/May_20'
  */
 function titleForSelectedPageFromMonthDayNumberStrings(monthNumberString, dayNumberString, lang) {
-    const monthName = languages[lang].monthNames[parseInt(monthNumberString, 10) - 1];
+    const monthNumber = parseInt(monthNumberString, 10);
+    const monthName = languages[lang].monthNames[monthNumber - 1];
     const dayNumber = parseInt(dayNumberString, 10);
-    return languages[lang].selectedPage.nameFormatter(monthName, dayNumber);
+    return languages[lang].selectedPage.nameFormatter(monthName, monthNumber, dayNumber);
 }
 
 /**
@@ -129,7 +131,31 @@ function wmfPageFromAnchorElement(anchorElement) {
  * @return {!boolean}
  */
 function isAnchorForYear(anchor, year, era) {
-    return new RegExp(`^${Math.abs(year)}\\s*${era}$`, 'i').test(anchor.title);
+    return new RegExp(String.raw`^${Math.abs(year)}\s*${era}$`, 'i').test(anchor.title);
+}
+
+/**
+ * Regex for determining whether anchor is not relative.
+ * @type {RegExp}
+ */
+const nonRelativeAnchorRegex = new RegExp(String.raw`^http[s]?.*`, 'i');
+
+/**
+ * Determines whether anchor is relative.
+ * @param  {!AnchorElement}  anchor
+ * @return {!boolean}
+ */
+function isAnchorRelative(anchor) {
+    return !nonRelativeAnchorRegex.test(anchor.href);
+}
+
+/**
+ * Trims and also removes bracketed numbers.
+ * @param  {!String} string
+ * @return {!String}
+ */
+function cleanString(string) {
+    return string.replace(/\[\d+\]/g, '').trim();
 }
 
 /**
@@ -165,12 +191,13 @@ function wmfEventFromListElement(listElement, lang) {
         era = match[2];
     }
 
-    const textAfterYear = match[3].trim();
+    const textAfterYear = cleanString(match[3]);
 
     const pages = Array.from(listElement.querySelectorAll('a'))
         .filter((anchor) => {
             return !isAnchorForYear(anchor, year, era);
         })
+        .filter(isAnchorRelative)
         .map(wmfPageFromAnchorElement);
 
     return new WMFEvent(textAfterYear, pages, year);
@@ -182,8 +209,10 @@ function wmfEventFromListElement(listElement, lang) {
  * @return {!WMFHoliday} a WMFHoliday
  */
 function wmfHolidayFromListElement(listElement) {
-    const text = listElement.textContent.trim();
-    const pages = Array.from(listElement.querySelectorAll('a')).map(wmfPageFromAnchorElement);
+    const text = cleanString(listElement.textContent);
+    const pages = Array.from(listElement.querySelectorAll('a'))
+      .filter(isAnchorRelative)
+      .map(wmfPageFromAnchorElement);
     return new WMFHoliday(text, pages);
 }
 
@@ -219,7 +248,72 @@ function eventsForYearListElements(listElements, lang) {
  * 'listElements' argument
  */
 function holidaysForHolidayListElements(listElements) {
-    return listElements.map(wmfHolidayFromListElement);
+    return listElements
+      .map(wmfHolidayFromListElement)
+      .filter(possibleHoliday => possibleHoliday instanceof WMFHoliday);
+}
+
+/**
+ * Determine if listElement has nested list elements.
+ * @param  {!ListElement} listElement
+ * @return {!boolean}
+ */
+function listElementHasDescendentListElements(listElement) {
+    return listElement.querySelector('UL > LI') !== undefined;
+}
+
+/**
+ * Return ancestor list element of listElement, if any.
+ * Returns undefined unless listElement is nested inside another listElement.
+ * @param  {!ListElement} listElement
+ * @return {?ListElement}
+ */
+function ancestorListElementOfListElement(listElement) {
+    const parent = listElement.parentElement;
+    if (!parent) {
+        return undefined;
+    }
+    const grandparent = parent.parentElement;
+    if (!grandparent) {
+        return undefined;
+    }
+    if (parent.tagName === 'UL' && grandparent.tagName === 'LI') {
+        return grandparent;
+    }
+    return undefined;
+}
+
+/**
+ * Gets prefix from a list element suitable to pre-pend to one of its decendent list element's
+ * innerHTML.
+ * @param  {!ListElement} ancestorListElement
+ * @param  {!String} lang a string for project language code
+ * @return {!String}
+ */
+function prefixFromAncestorListElement(ancestorListElement, lang) {
+    const firstLine = ancestorListElement.textContent.split('\n')[0];
+    const yearPrefixRegEx = languages[lang].yearPrefixRegEx;
+    const result = firstLine.match(yearPrefixRegEx);
+    const isFirstLineAYear = (result !== null);
+    const firstLineStringToUse = isFirstLineAYear ? result[1] : firstLine;
+    const separator = isFirstLineAYear ? ' - ' : '\n';
+    const prefix = `${firstLineStringToUse.trim()}${separator}`;
+    return prefix;
+}
+
+/**
+ * Adds prefix from ancestor list elements to listElement.
+ * @param {!ListElement} listElement
+ * @param {!String} lang a string for project language code
+ */
+function addPrefixFromAncestorListElementsToListElement(listElement, lang) {
+    const prefixes = [];
+    let el = listElement;
+    while ((el = ancestorListElementOfListElement(el))) {
+        prefixes.push(prefixFromAncestorListElement(el, lang));
+    }
+    const prefixString = (prefixes.length ===  0) ? '' : `${prefixes.reverse().join('')}`;
+    listElement.innerHTML = `${prefixString}${listElement.innerHTML.trim()}`;
 }
 
 /**
@@ -229,9 +323,10 @@ function holidaysForHolidayListElements(listElements) {
  * we want all list elements after the h2 'births' heading up until the next h2 heading.
  * @param {!Document} document a DOM document to examine
  * @param {!String} headingIds an array of heading id strings
+ * @param {!String} lang a string for project language code
  * @return {!Array} an array of list elements
  */
-function listElementsByHeadingID(document, headingIds) {
+function listElementsByHeadingID(document, headingIds, lang) {
     const elements = Array.from(document.querySelectorAll('h2,ul li'));
     const listElements = [];
     let grab = false;
@@ -244,6 +339,11 @@ function listElementsByHeadingID(document, headingIds) {
                 }
             }
         } else if (element.tagName === 'LI' && grab) {
+
+            if (listElementHasDescendentListElements(element)) {
+                continue;
+            }
+            addPrefixFromAncestorListElementsToListElement(element, lang);
             listElements.push(element);
         }
     }
@@ -259,7 +359,7 @@ function listElementsByHeadingID(document, headingIds) {
 const birthsInDoc = (document, lang) => {
     const headingIds = languages[lang].dayPage.headingIds.births;
     return { births:
-        eventsForYearListElements(listElementsByHeadingID(document, headingIds), lang)
+        eventsForYearListElements(listElementsByHeadingID(document, headingIds, lang), lang)
     };
 };
 
@@ -272,7 +372,7 @@ const birthsInDoc = (document, lang) => {
 const deathsInDoc = (document, lang) => {
     const headingIds = languages[lang].dayPage.headingIds.deaths;
     return { deaths:
-        eventsForYearListElements(listElementsByHeadingID(document, headingIds), lang)
+        eventsForYearListElements(listElementsByHeadingID(document, headingIds, lang), lang)
     };
 };
 
@@ -285,7 +385,7 @@ const deathsInDoc = (document, lang) => {
 const eventsInDoc = (document, lang) => {
     const headingIds = languages[lang].dayPage.headingIds.events;
     return { events:
-        eventsForYearListElements(listElementsByHeadingID(document, headingIds), lang)
+        eventsForYearListElements(listElementsByHeadingID(document, headingIds, lang), lang)
     };
 };
 
@@ -298,7 +398,7 @@ const eventsInDoc = (document, lang) => {
 const holidaysInDoc = (document, lang) => {
     const headingIds = languages[lang].dayPage.headingIds.holidays;
     return { holidays:
-        holidaysForHolidayListElements(listElementsByHeadingID(document, headingIds))
+        holidaysForHolidayListElements(listElementsByHeadingID(document, headingIds, lang))
     };
 };
 
@@ -550,7 +650,8 @@ module.exports = function(appObj) {
             reverseChronologicalWMFEventComparator,
             hydrateAllTitles,
             listElementsByHeadingID,
-            isAnchorForYear
+            isAnchorForYear,
+            addPrefixFromAncestorListElementsToListElement
         }
     };
 };

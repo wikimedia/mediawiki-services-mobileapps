@@ -375,6 +375,19 @@ describe('onthisday', function() {
         const regex = languages.en.yearListElementRegEx;
         assert.ok('4 AD – Bla bla'.match(regex) !== null);
         assert.ok('1 AD – Bla bla'.match(regex) !== null);
+        assert.ok('AD 1 – Bla bla'.match(regex) !== null);
+    });
+
+    it('Year list element regex extracts expected BC/BCE strings', () => {
+        const regex = languages.en.yearListElementRegEx;
+        assert.ok('4 CE – Bla bla'.match(regex)[2] === undefined);
+        assert.ok('4CE – Bla bla'.match(regex)[2] === undefined);
+        assert.ok('4 AD – Bla bla'.match(regex)[2] === undefined);
+        assert.ok('1 BC – Bla bla'.match(regex)[2] === 'BC');
+        assert.ok('1BC – Bla bla'.match(regex)[2] === 'BC');
+        assert.ok('1bce – Bla bla'.match(regex)[2] === 'bce');
+        assert.ok('1 bce – Bla bla'.match(regex)[2] === 'bce');
+        assert.ok('AD 1 – Bla bla'.match(regex)[2] === undefined);
     });
 
     it('AD strings should not be negated', () => {
@@ -440,15 +453,189 @@ describe('onthisday', function() {
     it('listElementsByHeadingID extracts expected number of births from DE fixture', () => {
         // https://de.wikipedia.org/api/rest_v1/page/html/1._Dezember
         const document = documentFromFixtureFile('de.1._Dezember.html');
-        const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Geboren']);
+        const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Geboren'], 'de');
         assert.ok(listElements.length === 180);
     });
 
     it('listElementsByHeadingID extracts expected number of births from EN fixture', () => {
         // https://en.wikipedia.org/api/rest_v1/page/html/December_1
         const document = documentFromFixtureFile('en.December_1.html');
-        const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Births']);
+        const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Births'], 'en');
         assert.ok(listElements.length === 208);
+    });
+
+    it('listElementsByHeadingID extracts expected number of births from AR fixture', () => {
+        // https://ar.wikipedia.org/api/rest_v1/page/html/1_يناير
+        const document = documentFromFixtureFile('ar.January_1.html');
+        const listElements = onThisDay.testing
+          .listElementsByHeadingID(document, ['.D9.85.D9.88.D8.A7.D9.84.D9.8A.D8.AF'], 'ar');
+        assert.ok(listElements.length === 69);
+    });
+
+    describe('nested list element handling', () => {
+        // https://en.wikipedia.org/api/rest_v1/page/html/December_1
+        const enDocument = documentFromFixtureFile('en.December_1.html');
+        const enListElements =
+            onThisDay.testing.listElementsByHeadingID(
+                enDocument, ['Holidays_and_observances'], 'en'
+            );
+        it('listElementsByHeadingID extracts expected number of holidays from EN fixture', () => {
+            assert.ok(enListElements.length === 23);
+        });
+        it('expected textContent for a list item NOT nested within another list item', () => {
+            assert.ok(enListElements[0].textContent === 'Battle of the Sinop Day (Russia)');
+        });
+        it('expected textContent for a list item nested within another list item', () => {
+            assert.ok(
+                enListElements[1].textContent === 'Christian feast day:\nBlessed Bruna Pellesi'
+            );
+        });
+
+        // https://ar.wikipedia.org/api/rest_v1/page/html/1_يناير
+        const arDocument = documentFromFixtureFile('ar.January_1.html');
+        const arListElements = onThisDay.testing.listElementsByHeadingID(
+          arDocument, ['.D9.85.D9.88.D8.A7.D9.84.D9.8A.D8.AF'], 'ar'
+        );
+        it('expected textContent for list items nested within a year-dash list item', () => {
+            assert.ok(arListElements[18].textContent === '1919 - إحسان عبد القدوس، روائي مصري.');
+            assert.ok(
+                arListElements[19].textContent === '1919 - جيروم ديفيد سالينغر، روائي أمريكي.'
+            );
+        });
+
+        // https://sv.wikipedia.org/api/rest_v1/page/html/25_augusti
+        const svDocument = documentFromFixtureFile('sv.Augusti_25.html');
+        const svListElements = onThisDay.testing.listElementsByHeadingID(
+            svDocument, ['Avlidna'], 'sv'
+        );
+        it('expected textContent for list items nested within a year list item (no dash)', () => {
+            assert.ok(
+                svListElements[22].textContent === '1984 - Truman Capote, amerikansk författare.'
+            );
+            assert.ok(svListElements[21].textContent === '1984 - Anders Uddberg, svensk musiker.');
+        });
+
+        describe('addPrefixFromAncestorListElementsToListElement', () => {
+            it('expected extraction from ancestor year element', () => {
+                const LI = domino.createDocument(`
+                    <ul>
+                      <li>1992
+                      <ul>
+                        <li id='nestedLI'>This happened.
+                      </ul>
+                    </ul>`).querySelector('#nestedLI');
+                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                assert.equal(LI.textContent, '1992 - This happened.');
+            });
+            it('expected extraction from multiline ancestor year element', () => {
+                const LI = domino.createDocument(`
+                    <ul>
+                      <li>1992
+                          Other text
+                      <ul>
+                        <li id='nestedLI'>This happened.
+                      </ul>
+                    </ul>`).querySelector('#nestedLI');
+                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                assert.equal(LI.textContent, '1992 - This happened.');
+            });
+            it('expected extraction from ancestor year element with dash', () => {
+                const LI = domino.createDocument(`
+                    <ul>
+                      <li>1992-
+                      <ul>
+                        <li id='nestedLI'>This happened.
+                      </ul>
+                    </ul>`).querySelector('#nestedLI');
+                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                assert.equal(LI.textContent, '1992 - This happened.');
+            });
+            it('expected extraction from ancestor year element with dash space', () => {
+                const LI = domino.createDocument(`
+                    <ul>
+                      <li>1992 -
+                      <ul>
+                        <li id='nestedLI'>This happened.
+                      </ul>
+                    </ul>`).querySelector('#nestedLI');
+                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                assert.equal(LI.textContent, '1992 - This happened.');
+            });
+            it('expected extraction from multiline ancestor year element with dash', () => {
+                const LI = domino.createDocument(`
+                    <ul>
+                      <li>1992 -
+                          Other text
+                      <ul>
+                        <li id='nestedLI'>This happened.
+                      </ul>
+                    </ul>`).querySelector('#nestedLI');
+                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                assert.equal(LI.textContent, '1992 - This happened.');
+            });
+            it('expected extraction from multiline non-year ancestor', () => {
+                const LI = domino.createDocument(`
+                    <ul>
+                      <li>Christian feast day:
+                          Other text
+                      <ul>
+                        <li id='nestedLI'>Blessed Bruna Pellesi
+                      </ul>
+                    </ul>`).querySelector('#nestedLI');
+                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                assert.equal(
+                    LI.textContent, 'Christian feast day:\nBlessed Bruna Pellesi'
+                );
+            });
+            it('expected extraction from double-nested list element', () => {
+                const LI = domino.createDocument(`
+                    <ul>
+                      <li>Animal
+                      <ul>
+                        <li>Bird
+                        <ul>
+                          <li id='nestedLI'>Chicken
+                        </ul>
+                      </ul>
+                    </ul>`).querySelector('#nestedLI');
+                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                assert.equal(
+                    LI.textContent, 'Animal\nBird\nChicken'
+                );
+            });
+            it('expected extraction from triple-nested list element', () => {
+                const LI = domino.createDocument(`
+                  <ul>
+                    <li>Animal
+                    <ul>
+                      <li>Bird
+                      <ul>
+                        <li>Chicken
+                        <ul>
+                          <li id='nestedLI'>Dinner
+                        </ul>
+                      </ul>
+                    </ul>
+                  </ul>`).querySelector('#nestedLI');
+                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                assert.equal(
+                    LI.textContent, 'Animal\nBird\nChicken\nDinner'
+                );
+            });
+            it('expected extraction from nested Russian list element with "год"', () => {
+                const LI = domino.createDocument(`
+                    <ul>
+                      <li>2002 год
+                      <ul>
+                        <li id='nestedLI'>Посредством хакерской атаки была взломана компьютерная.
+                      </ul>
+                    </ul>`).querySelector('#nestedLI');
+                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'ru');
+                assert.equal(
+                    LI.textContent, '2002 - Посредством хакерской атаки была взломана компьютерная.'
+                );
+            });
+        });
     });
 
     describe('isAnchorForYear', () => {
@@ -476,6 +663,44 @@ describe('onthisday', function() {
         it('correctly identifies anchor linking to year article with era string w/o space', () => {
             a.title = '55BC';
             assert.ok(onThisDay.testing.isAnchorForYear(a, 55, 'BC'));
+        });
+    });
+
+    describe('exclude urls which cannot be "hydrated" from hydration pages lists', () => {
+        it('exclude external url from WMFHoliday pages', () => {
+            const LI = domino.createDocument(`
+                <ul>
+                  <li id='thisLI'>
+                    <a href="https://someexternallink" title="Some external link">
+                      some external link
+                    </a>
+                    <a href="./Cat" title="Cat">
+                      Cat
+                    </a>
+                  </li>
+                </ul>
+              `).querySelector('#thisLI');
+            const event = onThisDay.testing.wmfHolidayFromListElement(LI, 'en');
+            assert.equal(event.pages.length, 1);
+            assert.equal(event.pages[0].title, 'Cat');
+        });
+        it('exclude external url from WMFEvent pages', () => {
+            const LI = domino.createDocument(`
+                <ul>
+                  <li id='thisLI'>
+                    1999 - 
+                    <a href="http://someexternallink" title="Some external link">
+                      some external link
+                    </a>
+                    <a href="./Dog" title="Dog">
+                      Dog
+                    </a>
+                  </li>
+                </ul>
+              `).querySelector('#thisLI');
+            const event = onThisDay.testing.wmfEventFromListElement(LI, 'en');
+            assert.equal(event.pages.length, 1);
+            assert.equal(event.pages[0].title, 'Dog');
         });
     });
 });
