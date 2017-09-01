@@ -437,10 +437,10 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
 });
 
 /**
-* GET {domain}/v1/page/preview-html/{title}
+* GET {domain}/v1/page/summary/{title}
 * Extracts a summary of a given wiki page limited to one paragraph of text
 */
-router.get('/preview-html/:title', (req, res) => {
+router.get('/summary/:title', (req, res) => {
     return buildSummary(req).then((summary) => {
         if (summary) {
             res.status(summary.code);
