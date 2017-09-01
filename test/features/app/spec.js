@@ -354,6 +354,11 @@ describe('Swagger spec', function() {
             return assertValidSchema(uri, '#/definitions/onthisdayResponse');
         });
 
+        it('summary response should conform to schema', () => {
+            const uri = `${baseUri}page/summary/Dubai/808803658`;
+            return assertValidSchema(uri, '#/definitions/summary');
+        });
+
         // Bad requests return empty response for aggregated=true
 
         it('featured article response should conform to schema (invalid lang, agg=true)', () => {

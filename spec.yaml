@@ -605,6 +605,85 @@ paths:
             body: /.+/
 
   # from routes/mobile-sections.js
+  /{domain}/v1/page/summary/{title}{/revision}{/tid}:
+    get:
+      tags:
+        - Page content
+      summary: Get a text extract of a page.
+      description: |
+        The summary response includes an extract of the first paragraph of the page in plain text
+        and HTML as well as the type of page. This is useful for page previews.
+
+        Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.2.0"
+      parameters:
+        - name: title
+          in: path
+          description: "Page title. Use underscores instead of spaces. Example: `Main_Page`."
+          type: string
+          required: true
+        - name: revision
+          in: path
+          description: "Revision of page content"
+          type: integer
+          required: false
+        - name: tid
+          in: path
+          description: "Time UUID of requested summary render"
+          type: string
+          required: false
+      responses:
+        '200':
+          description: The summary for the given page
+          schema:
+            $ref: '#/definitions/summary'
+          headers:
+            ETag:
+              description: >
+                Syntax: "{revision}/{tid}".
+                Example: "701384379/154d7bca-c264-11e5-8c2f-1b51b33b59fc"
+        '404':
+          description: Unknown page title or revision
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get summary for Barack Obama
+          request:
+            params:
+              domain: en.wikipedia.org
+              title: Barack_Obama
+          response:
+            status: 200
+            headers:
+              etag: /.+/
+              content-type: /^application\/json/
+            body:
+              type: standard
+              title: /.+/
+              displaytitle: /.+/
+              pageid: /.+/
+              thumbnail:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              originalimage:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              lang: /.+/
+              dir: /.+/
+              revision: /.+/
+              timestamp: /.+/
+              description: /.+/
+              extract: /.+/
+              extract_html: /.+/
+
+  # from routes/mobile-sections.js
   /{domain}/v1/page/mobile-sections/{title}:
     get:
       tags:
@@ -741,6 +820,69 @@ definitions:
       - source
       - width
       - height
+
+  # see also RB v1/common_schemas.yaml
+  summary:
+    type: object
+    properties:
+      type:
+        type: string
+        description: Type of page summary
+        enum:
+          - standard
+      title:
+        type: string
+        description: The page title
+      displaytitle:
+        type: string
+        description: The page title how it should be shown to the user
+      pageid:
+        type: integer
+        description: The page ID
+      revision:
+        type: string
+        description: The revision of the page when the summary was produced
+      extract:
+        type: string
+        description: First several sentences of an article in plain text
+      extract_html:
+        type: string
+        description: First several sentences of an article in simple HTML format
+      thumbnail:
+        $ref: '#/definitions/image_props'
+      originalimage:
+        $ref: '#/definitions/image_props'
+      lang:
+        type: string
+        description: The page language code
+        example: en
+      dir:
+        type: string
+        description: The page language direction code
+        enum:
+          - ltr
+          - rtl
+      timestamp:
+        type: string
+        format: date-time
+        description: The time when the page was last editted in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
+        example: '1970-01-01T00:00:00.000Z'
+      description:
+        type: string
+        description: Wikidata description for the page
+        example: American poet
+#      coordinates:
+#        type: object
+#        description: The coordinates of the item
+#        properties:
+#          lat:
+#            type: number
+#            description: The latitude
+#          lon:
+#            type: number
+#            description: The longitude
+#        requiredProperties: [ 'lat', 'lon' ]
+    required: ['type', 'title', 'displaytitle', 'pageid', 'lang', 'dir', 'revision', 'timestamp', 'extract', 'extract_html']
 
   dated_pageview:
     type: object
