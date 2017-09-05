@@ -437,16 +437,17 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
 });
 
 /**
-* GET {domain}/v1/page/summary/{title}
+* GET {domain}/v1/page/summary/{title}/{revision?}/{tid?}
 * Extracts a summary of a given wiki page limited to one paragraph of text
 */
-router.get('/summary/:title', (req, res) => {
+router.get('/summary/:title/:revision?/:tid?', (req, res) => {
     return buildSummary(req).then((summary) => {
         if (summary) {
             res.status(summary.code);
             if (summary.code === 200) {
                 delete summary.code;
                 mUtil.setETag(res, summary.revision);
+                mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
                 res.send(JSON.stringify(summary));
             }
             res.end();
