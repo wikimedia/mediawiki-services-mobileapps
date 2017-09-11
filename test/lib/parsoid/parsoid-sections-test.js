@@ -4,11 +4,6 @@ const assert = require('../../utils/assert.js');
 const domino = require('domino');
 const parsoid = require('../../../lib/parsoidSections');
 
-const html = '<body>text0' +
-    '<h2 id="foo">foo</h2>text1' +
-    '<h3 id="Funny_section_.21.40.23.24">Funny section !@#$%^&*()</h3>text2' +
-    '</body>';
-
 describe('lib:parsoid-sections', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
@@ -18,12 +13,12 @@ describe('lib:parsoid-sections', function() {
         assert.deepEqual(sections[0].text, 'text0', JSON.stringify(sections[0], null, 2));
     }
 
-    function assertSection1(sections) {
+    function assertSection1(sections, extraText = '') {
         assert.deepEqual(sections[1].id, 1);
         assert.deepEqual(sections[1].toclevel, 1);
         assert.deepEqual(sections[1].line, 'foo');
         assert.deepEqual(sections[1].anchor, 'foo');
-        assert.deepEqual(sections[1].text, 'text1');
+        assert.deepEqual(sections[1].text, `text1${extraText}`);
     }
 
     function assertSection2(sections) {
@@ -62,7 +57,10 @@ describe('lib:parsoid-sections', function() {
     });
 
     it('getSectionsText() with one h2 and h3 should produce three sections', () => {
-        const doc = domino.createDocument(html);
+        const doc = domino.createDocument('<body>text0' +
+            '<h2 id="foo">foo</h2>text1' +
+            '<h3 id="Funny_section_.21.40.23.24">Funny section !@#$%^&*()</h3>text2' +
+            '</body>');
         parsoid.addSectionDivs(doc);
         const sections = parsoid.getSectionsText(doc);
         assert.deepEqual(sections.length, 3);
