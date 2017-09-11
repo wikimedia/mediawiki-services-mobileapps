@@ -26,7 +26,7 @@ describe('read-html', function() {
         return preq.get({ uri })
         .then((res) => {
             const document = domino.createDocument(res.body);
-            assert.selectorExistsNTimes(document, 'section', 7, 'should have 7 sections');
+            assert.selectorExistsNTimes(document, 'div.toclevel_1', 7, 'should have 7 sections');
         });
     });
 });

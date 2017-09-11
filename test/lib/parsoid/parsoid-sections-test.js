@@ -68,4 +68,28 @@ describe('lib:parsoid-sections', function() {
         assertSection1(sections);
         assertSection2(sections);
     });
+
+    // From T175305 http://localhost:6927/fy.wikipedia.org/v1/page/mobile-sections/De_Kanto%27s
+    it('getSectionsText() with one h2 inside div should not produce another section', () => {
+        const extraText = '<div><h2 id="bar">bar</h2></div><p>text 2</p>';
+        const doc = domino.createDocument(
+            `<body>text0<h2 id="foo">foo</h2>text1${extraText}</body>`);
+        parsoid.addSectionDivs(doc);
+        const sections = parsoid.getSectionsText(doc);
+        assert.deepEqual(sections.length, 2);
+        assertSection0(sections);
+        assertSection1(sections, extraText);
+    });
+
+    // same as above but using h3 instead of h2 in extra <div>
+    it('getSectionsText() with one h3 inside div should not produce another section', () => {
+        const extraText = '<div><h3 id="bar">bar</h3></div><p>text 2</p>';
+        const doc = domino.createDocument(
+            `<body>text0<h2 id="foo">foo</h2>text1${extraText}</body>`);
+        parsoid.addSectionDivs(doc);
+        const sections = parsoid.getSectionsText(doc);
+        assert.deepEqual(sections.length, 2);
+        assertSection0(sections);
+        assertSection1(sections, extraText);
+    });
 });

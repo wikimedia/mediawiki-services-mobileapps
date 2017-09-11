@@ -6,7 +6,7 @@ const assert = require('../../utils/assert.js');
 const headers = require('../../utils/headers.js');
 const server = require('../../utils/server.js');
 
-describe('read-html', function() {
+describe('read-base-html', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
@@ -26,7 +26,7 @@ describe('read-html', function() {
         return preq.get({ uri })
         .then((res) => {
             const document = domino.createDocument(res.body);
-            assert.selectorExistsNTimes(document, 'section', 7, 'should have 7 sections');
+            assert.selectorExistsNTimes(document, 'div.toclevel_1', 7, 'should have 7 sections');
         });
     });
 });
