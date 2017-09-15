@@ -7,26 +7,22 @@ const exec = BBPromise.promisify(require('child_process').exec);
 const fs = require("fs");
 const preq = require('preq');
 
-const lang = 'en'; // prepped for 'en' and 'zh'
-const topMonthlyPageViews = `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/${lang}.wikipedia/all-access/2017/06/all-days`; // eslint-disable-line max-len
-const blacklist = [
-    'Main_Page', // en: main page
-    'Special%3ASearch', // already encoded
-    'xHamster',
-    'Wikipedia:首页', // zh: main page
-    '台灣Youtuber訂閱人數排行榜' // zh: deleted page
-];
-const TOP_PAGES_FILE = `../private/top-pages/top-pages.${lang}.json`;
+const BLACKLIST = require('../etc/feed/blacklist');
 const SPECIAL = 'Special:';
 const SPECIAL2 = 'special:';
-const PARSOID_BASE_URI = `https://${lang}.wikipedia.org/api/rest_v1/page/html`;
+
+// Will be set later
+let lang;
+let topMonthlyPageViews;
+let topPagesFile;
+let parsoidBaseUri;
 
 const fixTitleForRequest = (pageTitle) => {
     return encodeURIComponent(pageTitle);
 };
 
 const writePages = (myPages) => {
-    const logger = fs.createWriteStream(TOP_PAGES_FILE, { flags: 'w' });
+    const logger = fs.createWriteStream(topPagesFile, { flags: 'w' });
     logger.write(`{ "items": [\n`);
     myPages.forEach((page, index, array) => {
         if (page) {
@@ -41,7 +37,7 @@ const writePages = (myPages) => {
 
 const getETags = (myPages) => {
     return BBPromise.map(myPages, (page) => {
-        const cmd = `curl --head "${PARSOID_BASE_URI}/${fixTitleForRequest(page.title)}"`;
+        const cmd = `curl --head "${parsoidBaseUri}/${fixTitleForRequest(page.title)}"`;
         return exec(cmd)
         .then((rsp) => {
             if (!/^HTTP\/1.1 200 OK$/m.test(rsp)) {
@@ -68,7 +64,7 @@ const getTopPageViews = () => {
         return rsp.body.items[0].articles.filter((article) => {
             const title = article.article;
             return (title.indexOf(SPECIAL) !== 0 && title.indexOf(SPECIAL2) !== 0
-                && !blacklist.includes(title));
+                && !BLACKLIST.includes(title));
         }).map((article) => {
             return { "title": article.article };
         });
@@ -79,4 +75,13 @@ const getTopPageViews = () => {
     });
 };
 
-getTopPageViews();
+// MAIN
+const arg = process.argv[2];
+if (arg) {
+    lang = arg;
+    topMonthlyPageViews = `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/${lang}.wikipedia/all-access/2017/06/all-days`; // eslint-disable-line max-len
+    topPagesFile = `../private/top-pages/top-pages.${lang}.json`;
+    parsoidBaseUri = `https://${lang}.wikipedia.org/api/rest_v1/page/html`;
+
+    getTopPageViews();
+}
