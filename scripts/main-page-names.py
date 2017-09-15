@@ -127,7 +127,7 @@ def render_list(key, filename):
     def _actual_render(wikis):
         mainpages = list(wiki.props[key] for wiki in wikis.wikis)
         writer = csv.writer(open(filename, 'wb'))
-        writer.writerow(set(mainpages));
+        writer.writerow(set(mainpages))
         return wikis
     return _actual_render
 
@@ -146,5 +146,5 @@ chain(
     WikiList,
     populate_main_pages,
     postprocess_wikis,
-    render_list(u"main_page_name", u"static/mainpages.csv")
+    render_list(u"main_page_name", u"private/mainpages.csv")
 )

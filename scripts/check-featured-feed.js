@@ -11,9 +11,9 @@ const underscore = require('underscore');
 //
 // LANGUAGES SECTION start
 //
-const wikiquoteLanguages = require('../static/wikiquotes.json');
-const wiktionaryLanguages = require('../static/wiktionaries.json');
-const wikipediaLanguagesRawList = require('../static/languages_list.json');
+const wikiquoteLanguages = require('../private/wikiquotes.json');
+const wiktionaryLanguages = require('../private/wiktionaries.json');
+const wikipediaLanguagesRawList = require('../private/languages_list.json');
 
 const prepareWikipediaLanguageCodes = () => {
     delete wikipediaLanguagesRawList['Simplified Chinese']; // skip lang variants

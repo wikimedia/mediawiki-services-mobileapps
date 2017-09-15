@@ -15,7 +15,7 @@ const blacklist = [
     'Wikipedia:首页', // zh: main page
     '台灣Youtuber訂閱人數排行榜' // zh: deleted page
 ];
-const PAGE_FILE = `../static/top-pages.${lang}.json`;
+const PAGE_FILE = `../private/top-pages/top-pages.${lang}.json`;
 const GZIP = 'gzip -6';
 const SPECIAL = 'Special:';
 const SPECIAL2 = 'special:';
