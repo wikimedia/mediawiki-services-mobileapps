@@ -89,9 +89,11 @@ const writePages = (myPages) => {
     const logger = fs.createWriteStream(PAGE_FILE, { flags: 'w' });
     logger.write(`{ "items": [\n`);
     myPages.forEach((page, index, array) => {
-        const comma = (index < array.length - 1) ? ',' : '';
-        const title = page.title && page.title.replace(/"/g, '\\"');
-        logger.write(`  { "title": "${title}", "rev": "${page.rev}" }${comma}\n`);
+        if (page) {
+            const comma = (index < array.length - 1) ? ',' : '';
+            const title = page.title && page.title.replace(/"/g, '\\"');
+            logger.write(`  { "title": "${title}", "rev": "${page.rev}" }${comma}\n`);
+        }
     });
     logger.write(`]}\n`);
     logger.end();
@@ -102,6 +104,10 @@ const getETags = (myPages) => {
         const cmd = `curl --head "${PARSOID_BASE_URI}/${fixTitleForRequest(page.title)}"`;
         return exec(cmd)
         .then((rsp) => {
+            if (!/^HTTP\/1.1 200 OK$/m.test(rsp)) {
+                process.stderr.write(`WARNING: skipping parsoid for ${page.title}`);
+                return BBPromise.resolve();
+            }
             const etagMatch = /^ETag:\s+W\/"(\S+?)"$/m.exec(rsp);
             process.stdout.write('.');
             page.rev = etagMatch[1];
