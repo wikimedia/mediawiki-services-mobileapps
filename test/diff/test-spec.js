@@ -9,9 +9,8 @@ const htmlDebug = require('./html-debug');
 // tid values from Parsoid.
 const UPDATE_EXPECTED_RESULTS = false;
 
-// For convenience of debugging diffs in the HTML portions you can set this to true and use git diff
-// to find out what went wrong.
-const ENABLE_HTML_DEBUG = false || UPDATE_EXPECTED_RESULTS;
+// If enabled creates HTML files, one for each section covered by the diff tests.
+const ENABLE_HTML_DEBUG = false;
 
 
 /**
