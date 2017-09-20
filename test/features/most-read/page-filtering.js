@@ -9,7 +9,7 @@ const filter = require('../../../lib/feed/most-read-filter');
 const combinedMostRead = require('./all-access-top-50').items[0].articles;
 const desktopMostRead = require('./desktop-top-100').items[0].articles;
 
-const file = fs.readFileSync(path.resolve(__dirname, '../../../static/mainpages.csv'), 'utf8');
+const file = fs.readFileSync(path.resolve(__dirname, '../../../private/mainpages.csv'), 'utf8');
 const mainPageTitles = parse(file, 'utf8')[0];
 const articles = [ { pageid: 0, ns: 0, title: 'Hello world' } ];
 
