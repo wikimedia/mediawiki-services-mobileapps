@@ -43,6 +43,30 @@ describe('summarize', () => {
                 '<p>The Planck–Einstein relation connects the particulate photon energy <span class=\"texhtml \"><i>E</i></span> with its associated wave frequency <span class=\"texhtml \"><i>f</i></span>:</p>\n\n<dl id=\"mwmQ\"><dd id=\"mwmg\"><span class=\"mwe-math-element\"><span class=\"mwe-math-mathml-inline mwe-math-mathml-a11y\" style=\"display: none;\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\">\n  <semantics>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mstyle displaystyle=\"true\" scriptlevel=\"0\">\n        <mi>E</mi>\n        <mo>=</mo>\n        <mi>h</mi>\n        <mi>f</mi>\n      </mstyle>\n    </mrow>\n    <annotation encoding=\"application/x-tex\">{\\displaystyle E=hf}</annotation>\n  </semantics>\n</math></span><img src=\"https://wikimedia.org/api/rest_v1/media/math/render/svg/f39fac3593bb1e2dec0282c112c4dff7a99007f6\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -0.671ex; width:7.533ex; height:2.509ex;\"></span></dd></dl>',
                 '<p>The Planck–Einstein relation connects the particulate photon energy <span class=\"texhtml \"><i>E</i></span> with its associated wave frequency <span class=\"texhtml \"><i>f</i></span>:</p>\n\n<dl id=\"mwmQ\"><dd id=\"mwmg\"><span class=\"mwe-math-element\"><img src=\"https://wikimedia.org/api/rest_v1/media/math/render/svg/f39fac3593bb1e2dec0282c112c4dff7a99007f6\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -0.671ex; width:7.533ex; height:2.509ex;\"></span></dd></dl>'
             ],
+            // Parentheticals will be stripped
+            [
+                'Hello world (this is in brackets and will be stripped) and goodnight.',
+                'Hello world and goodnight.',
+            ],
+            // Multiple parentheticals will be stripped
+            [
+                'Hello world (this is in brackets and will be stripped) and (I will also be stripped) goodnight.',
+                'Hello world and goodnight.',
+            ],
+            // Parentheticals without spaces will not be stripped....
+            [
+                'Hello world (HW) and goodnight.',
+                'Hello world (HW) and goodnight.',
+            ],
+            // ... but Nested parentheticals without spaces will be stripped.
+            [
+                'Hello world (this is in brackets and will be stripped (HW) it will all go (trust me)) and goodnight.',
+                'Hello world and goodnight.',
+            ],
+            [
+                '<p><b>Azerbaijan</b> (<small>æ(listen)</small> <i>AZ</i>; <span>Azerbaijani:</span><span>  Azərbaycan</span>, officially the <b>Republic of Azerbaijan</b> (Azerbaijani: Azərbaycan Respublikası)), is a country.</p>',
+                '<p><b>Azerbaijan</b>, is a country.</p>'
+            ],
             // Any parentheticals inside a data-mw attribute are ignored.
             [
                 '<p><b>Shakira Isabel Mebarak Ripoll</b> (<small data-mw="(t) <!--Arabic (Spanish pronunciation)">pronounced<span>&nbsp;</span></small><span class="IPA"><span>[(t)ʃaˈkiɾa isaˈβel meβaˈɾak riˈpol]</span></span>; <span><span class="ipa_button"></span><span class="nowrap mcs-ipa"><small>English: </small><span class="IPA nopopups noexcerpt"><span>/<span style="border-bottom:1px dotted"><span>ʃ</span><span>ə</span><span>ˈ</span><span>k</span><span>iː</span><span>r</span><span>ə</span></span>/</span></span></span></span>; born 2 February 1977) is a Colombian singer, songwriter, dancer.</p>',
