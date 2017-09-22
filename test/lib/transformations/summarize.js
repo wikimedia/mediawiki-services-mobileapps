@@ -33,6 +33,11 @@ describe('summarize', () => {
                 '<p><b>France</b> is a country with territory status in western Europe and several overseas regions and territories.<span class=\"mw-ref\" id=\"cite_ref-twelve_21-0\"><a href=\"#cite_note-twelve-21\" <span class=\"mw-reflink-text\">[upper-roman 13]</span></a></p>',
                 '<p><b>France</b> is a country with territory status in western Europe and several overseas regions and territories.</p>'
             ],
+            // Any element with .reference class is stripped (T176519)
+            [
+                '<p><b>Charles Milles Manson</b> <sup class=\"reference nowrap\" about=\"#mwt6\" id=\"mwDQ\">:136–7</sup> is an American convicted mass murderer</p>',
+                '<p><b>Charles Milles Manson</b> is an American convicted mass murderer</p>'
+            ],
             // math tags are stripped but any math images are shown
             [
                 '<p>The Planck–Einstein relation connects the particulate photon energy <span class=\"texhtml \"><i>E</i></span> with its associated wave frequency <span class=\"texhtml \"><i>f</i></span>:</p>\n\n<dl id=\"mwmQ\"><dd id=\"mwmg\"><span class=\"mwe-math-element\"><span class=\"mwe-math-mathml-inline mwe-math-mathml-a11y\" style=\"display: none;\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\">\n  <semantics>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mstyle displaystyle=\"true\" scriptlevel=\"0\">\n        <mi>E</mi>\n        <mo>=</mo>\n        <mi>h</mi>\n        <mi>f</mi>\n      </mstyle>\n    </mrow>\n    <annotation encoding=\"application/x-tex\">{\\displaystyle E=hf}</annotation>\n  </semantics>\n</math></span><img src=\"https://wikimedia.org/api/rest_v1/media/math/render/svg/f39fac3593bb1e2dec0282c112c4dff7a99007f6\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -0.671ex; width:7.533ex; height:2.509ex;\"></span></dd></dl>',
