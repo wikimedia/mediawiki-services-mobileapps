@@ -273,6 +273,10 @@ function handleFilePagePromise(req, res) {
     });
 }
 
+function isSubpage(title) {
+    return title.indexOf('/') > -1;
+}
+
 /**
  * Handles special cases such as main page and different
  * namespaces, preparing for output.
@@ -284,7 +288,7 @@ function _handleNamespaceAndSpecialCases(req, res) {
     const ns = res.meta.ns;
     if (res.meta.mainpage) {
         return mainPageFixPromise(req, res);
-    } else if (ns === 2) {
+    } else if (ns === 2 && !isSubpage(req.params.title)) {
         return handleUserPagePromise(req, res);
     } else if (ns === 6) {
         return handleFilePagePromise(req, res);
