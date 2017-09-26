@@ -44,11 +44,11 @@ describe('summary', function() {
             });
     });
 
-    it('200/302 for pages that are redirects', () => {
+    it('204 for pages that are redirects', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/summary/Barack`;
         return preq.get({ uri })
             .then((res) => {
-                assert.ok(res.status === 200, 'Redirect pages are resolved to 200 via a 302');
+                assert.ok(res.status === 204, 'Redirect pages are resolved to 204');
             });
     });
 });

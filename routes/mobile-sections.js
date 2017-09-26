@@ -385,6 +385,11 @@ function buildSummary(req) {
             code = 204;
         } else if (lead.intro) {
             summary = transforms.summarize(lead.intro);
+        } else {
+            // If the lead introduction is empty we should consider it
+            // a placeholder e.g. redirect page. To avoid sending an empty
+            // summary 204. (T176517)
+            code = 204;
         }
         return Object.assign({
             code,
