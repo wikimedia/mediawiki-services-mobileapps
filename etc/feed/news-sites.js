@@ -64,6 +64,7 @@ module.exports = {
     pl: new NewsSite('Szablon:Aktualności', 'ul:last-of-type > li', TOPIC_SELECTOR_BOLD_LINK),
     pt: new NewsSite('Portal:Eventos_atuais', 'div > ul > li', TOPIC_SELECTOR_BOLD_LINK),
     ru: new NewsSite('Шаблон:Актуальные_события', 'body > ul > li', TOPIC_SELECTOR_BOLD_LINK),
+    sco: new NewsSite('Template:In_the_news', 'ul[id^=mw] li', TOPIC_SELECTOR_BOLD_LINK), // see en
     sv: new NewsSite('Portal:Huvudsida/Aktuella händelser', 'body > ul > li',
         TOPIC_SELECTOR_BOLD_LINK),
     vi: new NewsSite('Bản_mẫu:Tin_tức', 'ul > li', TOPIC_SELECTOR_BOLD_LINK)
