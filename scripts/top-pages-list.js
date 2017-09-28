@@ -3,7 +3,6 @@
 'use strict';
 
 const BBPromise = require('bluebird');
-const exec = BBPromise.promisify(require('child_process').exec);
 const fs = require("fs");
 const preq = require('preq');
 
@@ -21,6 +20,10 @@ const fixTitleForRequest = (pageTitle) => {
     return encodeURIComponent(pageTitle);
 };
 
+const uriForParsoid = (pageTitle) => {
+    return `${parsoidBaseUri}/${fixTitleForRequest(pageTitle)}`;
+};
+
 const writePages = (myPages) => {
     const logger = fs.createWriteStream(topPagesFile, { flags: 'w' });
     logger.write(`{ "items": [\n`);
@@ -35,23 +38,38 @@ const writePages = (myPages) => {
     logger.end();
 };
 
+const processOnePage = (page) => {
+    process.stdout.write('.');
+    return preq.get({ uri: uriForParsoid(page.title) })
+    .then((rsp) => {
+        return BBPromise.delay(300, rsp); // avoid timeouts
+    }).then((rsp) => {
+        if (rsp.status !== 200) {
+            if (rsp.status === 302) {
+                page.title = rsp.headers.location;
+                return processOnePage(page);
+            }
+            process.stderr.write(` WARNING: skipping parsoid for ${page.title}!`);
+            return BBPromise.resolve();
+        }
+        const etag = rsp.headers.etag;
+        const revMatch = /"(\S+?)"/m.exec(etag);
+        page.rev = revMatch[1];
+        return page;
+    }).catch((err) => {
+        if (err.status === 504) {
+            process.stderr.write(` Timeout for ${page.title}: ${uriForParsoid(page.title)}! `);
+            // time out encountered: wait a few seconds and try again
+            return BBPromise.delay(2000).then(() => processOnePage(page));
+        } else {
+            process.stderr.write(` ERROR getting metadata ${page.title}: ${err.status}! `);
+        }
+    });
+};
+
 const getETags = (myPages) => {
     return BBPromise.map(myPages, (page) => {
-        const cmd = `curl --head "${parsoidBaseUri}/${fixTitleForRequest(page.title)}"`;
-        return exec(cmd)
-        .then((rsp) => {
-            if (!/^HTTP\/1.1 200 OK$/m.test(rsp)) {
-                process.stderr.write(`WARNING: skipping parsoid for ${page.title}`);
-                return BBPromise.resolve();
-            }
-            const etagMatch = /^ETag:\s+W\/"(\S+?)"$/m.exec(rsp);
-            process.stdout.write('.');
-            page.rev = etagMatch[1];
-            return page;
-        })
-        .catch((err) => {
-            process.stderr.write(`ERROR getting parsoid ${page.title}: ${err}`);
-        });
+        return processOnePage(page);
     }, { concurrency: 1 })
     .then((myPages) => {
         writePages(myPages);
