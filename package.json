@@ -48,7 +48,7 @@
     "core-js": "^2.4.1",
     "domino": "^1.0.27",
     "escape-string-regexp": "^1.0.5",
-    "express": "^4.14.0",
+    "express": "^4.16.0",
     "js-yaml": "^3.7.0",
     "mediawiki-title": "^0.6.3",
     "parsoid-dom-utils": "^0.1.3",
