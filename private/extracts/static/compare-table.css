@@ -1,0 +1,47 @@
+body {
+    background-color: #CCC;
+}
+
+tr:nth-child(even) {
+    background: #FFF
+}
+tr:nth-child(odd) {
+    background: #EEE
+}
+
+th {
+    padding: 1rem;
+}
+
+th.titleColumn {
+    width: 10%;
+}
+
+th.valueColumn {
+    width: 45%;
+}
+
+td {
+    padding: .5rem;
+    vertical-align: baseline;
+}
+
+.same-old,.same-new {
+    color: white;
+    background: -webkit-repeating-linear-gradient(-45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
+    background: repeating-linear-gradient(-45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
+}
+
+a[id][href]::before {
+    content: "(";
+}
+
+a[id][href]::after {
+    content: ")";
+}
+
+/*
+figure, img, blockquote, dl, td table {
+    display: none;
+}
+*/
