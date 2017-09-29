@@ -8,16 +8,19 @@ const headers = require('../../utils/headers.js');
 
 describe('announcements', function() {
 
+    const activeAnnouncementUri = `${server.config.uri}fr.wikipedia.org/v1/feed/announcements`;
+    const inactiveAnnouncementUri = `${server.config.uri}de.wikipedia.org/v1/feed/announcements`;
+
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
     before(() => { return server.start(); });
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        return headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/feed/announcements`);
+        return headers.checkHeaders(activeAnnouncementUri);
     });
 
     it('should return a valid response', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/feed/announcements` })
+        return preq.get({ uri: activeAnnouncementUri })
             .then((res) => {
                 assert.status(res, 200);
                 assert.equal(res.headers['cache-control'], 'public, max-age=7200, s-maxage=14400');
@@ -32,29 +35,22 @@ describe('announcements', function() {
                     assert.ok(elem.caption_HTML, 'caption_HTML should be present');
                     assert.ok(elem.countries, 'countries should be present');
                 });
-                // assert.ok(res.body.announce[0].image_url, 'image present');
-                // assert.ok(res.body.announce[1].image, 'image present');
+                assert.ok(res.body.announce[0].image_url === undefined, 'iOS image disabled');
+                assert.ok(res.body.announce[1].image === undefined, 'Android image disabled');
             });
     });
 
-    it('should return 0 surveys', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/feed/announcements` })
+    it('should return 2 announcements', () => {
+        return preq.get({ uri: activeAnnouncementUri })
             .then((res) => {
-                assert.ok(res.body.announce.length === 0);
+                assert.ok(res.body.announce.length === 2);
+                assert.equal(res.body.announce[0].id, 'FR1017FRIOS');
+                assert.equal(res.body.announce[1].id, 'FR1017FRANDROID');
             });
     });
-
-    // it('should return 2 surveys', () => {
-    //     return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/feed/announcements` })
-    //         .then((res) => {
-    //             assert.ok(res.body.announce.length === 2);
-    //             assert.equal(res.body.announce[0].id, 'EN0517SURVEYIOS');
-    //             assert.equal(res.body.announce[1].id, 'EN0517SURVEYANDROID');
-    //         });
-    // });
 
     it('should return empty object for other wikis', () => {
-        return preq.get({ uri: `${server.config.uri}de.wikipedia.org/v1/feed/announcements` })
+        return preq.get({ uri: inactiveAnnouncementUri })
             .then((res) => {
                 assert.ok(res.body.announce.length === 0);
             });
@@ -62,7 +58,7 @@ describe('announcements', function() {
 
     it('should not deliver HTML in certain iOS announcements fields', () => {
         const doc = domino.createDocument();
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/feed/announcements` })
+        return preq.get({ uri: activeAnnouncementUri })
             .then((res) => {
                 assert.status(res, 200);
                 res.body.announce
