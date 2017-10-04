@@ -454,14 +454,14 @@ describe('onthisday', function() {
         // https://de.wikipedia.org/api/rest_v1/page/html/1._Dezember
         const document = documentFromFixtureFile('de.1._Dezember.html');
         const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Geboren'], 'de');
-        assert.deepEqual(listElements.length, 180);
+        assert.deepEqual(listElements.length, 188);
     });
 
     it('listElementsByHeadingID extracts expected number of births from EN fixture', () => {
         // https://en.wikipedia.org/api/rest_v1/page/html/December_1
         const document = documentFromFixtureFile('en.December_1.html');
         const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Births'], 'en');
-        assert.deepEqual(listElements.length, 208);
+        assert.deepEqual(listElements.length, 203);
     });
 
     it('listElementsByHeadingID extracts expected number of births from AR fixture', () => {

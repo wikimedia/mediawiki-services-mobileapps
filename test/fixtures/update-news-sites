@@ -10,7 +10,8 @@ const NEWS_SITES = require('../../etc/feed/news-sites');
 const timestamp = dateUtil.formatISODate(new Date());
 
 for (const lang of Object.keys(NEWS_SITES)) {
-    const uri = `https://${lang}.wikipedia.org/api/rest_v1/page/html/${encodeURIComponent(NEWS_SITES[lang].title)}`;
+    // const uri = `https://${lang}.wikipedia.org/api/rest_v1/page/html/${encodeURIComponent(NEWS_SITES[lang].title)}`;
+    const uri = `http://localhost:8000/${lang}.wikipedia.org/v3/page/html/${encodeURIComponent(NEWS_SITES[lang].title)}`;
     const filename = `news-site-${lang}-${timestamp}.htm`;
     preq
       .get({ uri })
