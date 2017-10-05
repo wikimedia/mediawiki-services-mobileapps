@@ -115,24 +115,14 @@ function fails(promise, onRejected) {
  * @param {?string} message
 */
 function closeTo(result, expected, delta, message) {
-    try {
-        assert.ok(_.isNumber(result) && Math.abs(result - expected) <= delta, message);
-    } catch (e) {
-        console.log(`Result is ${result}; expected ${expected} ± ${delta}`);
-        throw e;
-    }
+    assert.ok(_.isNumber(result) && Math.abs(result - expected) <= delta,
+        message || `Result is ${result}; expected ${expected} ± ${delta}`);
 }
 
 
 function contains(result, sub, message) {
-    try {
-        assert.ok(result.indexOf(sub) > -1, message);
-    } catch (e) {
-        console.log(`Substring:\n${sub}`);
-        console.log(`Not in result:\n${result}`);
-        throw e;
-    }
-
+    assert.ok(result.indexOf(sub) > -1,
+        message || `'${sub}' not in:\n${result}`);
 }
 
 
