@@ -289,7 +289,7 @@ describe('onthisday', function() {
         return preq.get(january30uriForEndpointName(endpointName, lang));
     }
     function verifyNonZeroEndpointResults(response, endpointName) {
-        assert.equal(response.status, 200);
+        assert.deepEqual(response.status, 200);
         assert.ok(response.body[endpointName].length > 0,
             `${endpointName} should have fetched some results`);
     }
@@ -331,8 +331,8 @@ describe('onthisday', function() {
     });
 
     it('eventsForYearListElements returns a WMFEvent for only year list elements', () => {
-        assert.ok(
-           onThisDay.testing.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en').length === 4,
+        assert.deepEqual(
+           onThisDay.testing.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en').length, 4,
            'Should return WMFEvent for each of 4 year list elements'
         );
     });
@@ -383,10 +383,10 @@ describe('onthisday', function() {
         assert.ok('4 CE – Bla bla'.match(regex)[2] === undefined);
         assert.ok('4CE – Bla bla'.match(regex)[2] === undefined);
         assert.ok('4 AD – Bla bla'.match(regex)[2] === undefined);
-        assert.ok('1 BC – Bla bla'.match(regex)[2] === 'BC');
-        assert.ok('1BC – Bla bla'.match(regex)[2] === 'BC');
-        assert.ok('1bce – Bla bla'.match(regex)[2] === 'bce');
-        assert.ok('1 bce – Bla bla'.match(regex)[2] === 'bce');
+        assert.deepEqual('1 BC – Bla bla'.match(regex)[2], 'BC');
+        assert.deepEqual('1BC – Bla bla'.match(regex)[2], 'BC');
+        assert.deepEqual('1bce – Bla bla'.match(regex)[2], 'bce');
+        assert.deepEqual('1 bce – Bla bla'.match(regex)[2], 'bce');
         assert.ok('AD 1 – Bla bla'.match(regex)[2] === undefined);
     });
 
@@ -411,10 +411,10 @@ describe('onthisday', function() {
         const sortedEvents =
             onThisDay.testing.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en')
         .sort(onThisDay.testing.reverseChronologicalWMFEventComparator);
-        assert.ok(sortedEvents[0].year === 1948);
-        assert.ok(sortedEvents[1].year === 1946);
-        assert.ok(sortedEvents[2].year === -58);
-        assert.ok(sortedEvents[3].year === -516);
+        assert.deepEqual(sortedEvents[0].year, 1948);
+        assert.deepEqual(sortedEvents[1].year, 1946);
+        assert.deepEqual(sortedEvents[2].year, -58);
+        assert.deepEqual(sortedEvents[3].year, -516);
     });
 
     it('Hydration should replace each \'title\' key with \'$merge\' key', () => {
@@ -443,25 +443,25 @@ describe('onthisday', function() {
         }
 
         // Confirm expected number of pages exist post-hydration
-        assert.ok(events[0].pages.length === 1);
-        assert.ok(events[1].pages.length === 4);
-        assert.ok(events[2].pages.length === 2);
-        assert.ok(events[3].pages.length === 1);
-        assert.ok(events[4].pages.length === 5);
+        assert.deepEqual(events[0].pages.length, 1);
+        assert.deepEqual(events[1].pages.length, 4);
+        assert.deepEqual(events[2].pages.length, 2);
+        assert.deepEqual(events[3].pages.length, 1);
+        assert.deepEqual(events[4].pages.length, 5);
     });
 
     it('listElementsByHeadingID extracts expected number of births from DE fixture', () => {
         // https://de.wikipedia.org/api/rest_v1/page/html/1._Dezember
         const document = documentFromFixtureFile('de.1._Dezember.html');
         const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Geboren'], 'de');
-        assert.ok(listElements.length === 180);
+        assert.deepEqual(listElements.length, 180);
     });
 
     it('listElementsByHeadingID extracts expected number of births from EN fixture', () => {
         // https://en.wikipedia.org/api/rest_v1/page/html/December_1
         const document = documentFromFixtureFile('en.December_1.html');
         const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Births'], 'en');
-        assert.ok(listElements.length === 208);
+        assert.deepEqual(listElements.length, 208);
     });
 
     it('listElementsByHeadingID extracts expected number of births from AR fixture', () => {
@@ -469,7 +469,7 @@ describe('onthisday', function() {
         const document = documentFromFixtureFile('ar.January_1.html');
         const listElements = onThisDay.testing
           .listElementsByHeadingID(document, ['.D9.85.D9.88.D8.A7.D9.84.D9.8A.D8.AF'], 'ar');
-        assert.ok(listElements.length === 69);
+        assert.deepEqual(listElements.length, 69);
     });
 
     describe('nested list element handling', () => {
@@ -480,14 +480,14 @@ describe('onthisday', function() {
                 enDocument, ['Holidays_and_observances'], 'en'
             );
         it('listElementsByHeadingID extracts expected number of holidays from EN fixture', () => {
-            assert.ok(enListElements.length === 23);
+            assert.deepEqual(enListElements.length, 23);
         });
         it('expected textContent for a list item NOT nested within another list item', () => {
-            assert.ok(enListElements[0].textContent === 'Battle of the Sinop Day (Russia)');
+            assert.deepEqual(enListElements[0].textContent, 'Battle of the Sinop Day (Russia)');
         });
         it('expected textContent for a list item nested within another list item', () => {
-            assert.ok(
-                enListElements[1].textContent === 'Christian feast day:\nBlessed Bruna Pellesi'
+            assert.deepEqual(
+                enListElements[1].textContent, 'Christian feast day:\nBlessed Bruna Pellesi'
             );
         });
 
@@ -497,10 +497,10 @@ describe('onthisday', function() {
           arDocument, ['.D9.85.D9.88.D8.A7.D9.84.D9.8A.D8.AF'], 'ar'
         );
         it('expected textContent for list items nested within a year-dash list item', () => {
-            assert.ok(arListElements[18].textContent === '1919 - إحسان عبد القدوس، روائي مصري.');
-            assert.ok(
-                arListElements[19].textContent === '1919 - جيروم ديفيد سالينغر، روائي أمريكي.'
-            );
+            assert.deepEqual(arListElements[18].textContent,
+                '1919 - إحسان عبد القدوس، روائي مصري.');
+            assert.deepEqual(arListElements[19].textContent,
+                '1919 - جيروم ديفيد سالينغر، روائي أمريكي.');
         });
 
         // https://sv.wikipedia.org/api/rest_v1/page/html/25_augusti
@@ -509,10 +509,10 @@ describe('onthisday', function() {
             svDocument, ['Avlidna'], 'sv'
         );
         it('expected textContent for list items nested within a year list item (no dash)', () => {
-            assert.ok(
-                svListElements[22].textContent === '1984 - Truman Capote, amerikansk författare.'
-            );
-            assert.ok(svListElements[21].textContent === '1984 - Anders Uddberg, svensk musiker.');
+            assert.deepEqual(svListElements[22].textContent,
+                '1984 - Truman Capote, amerikansk författare.');
+            assert.deepEqual(svListElements[21].textContent,
+                '1984 - Anders Uddberg, svensk musiker.');
         });
 
         describe('addPrefixFromAncestorListElementsToListElement', () => {
