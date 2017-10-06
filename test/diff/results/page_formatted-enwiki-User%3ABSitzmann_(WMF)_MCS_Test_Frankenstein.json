@@ -5,8 +5,15 @@
     "revision": "778666613",
     "displaytitle": "User:BSitzmann (WMF)/MCS/Test/Frankenstein",
     "normalizedtitle": "User:BSitzmann (WMF)/MCS/Test/Frankenstein",
-    "protection": {},
-    "editable": true,
+    "protection": {
+      "edit": [
+        "sysop"
+      ],
+      "move": [
+        "sysop"
+      ]
+    },
+    "editable": false,
     "hatnotes": [],
     "intro": "<p><b>Frankenstein Castle</b> is a medieval fortification on a <a href=\"./Spur_castle\" title=\"Spur castle\">spur</a> above the village of <a href=\"./Frankenstein,_Rhineland-Palatinate\" title=\"Frankenstein, Rhineland-Palatinate\">Frankenstein, Rhineland-Palatinate</a> in the <a href=\"./Palatinate_Forest\" title=\"Palatinate Forest\">Palatinate Forest</a> in <a href=\"./Germany\" title=\"Germany\">Germany</a>. Its name derives from the local House of Frankenstein.</p>",
     "geo": {
@@ -180,7 +187,7 @@
       },
       {
         "id": 24,
-        "text": "\n<div style=\"position:relative;top:-3em\"></div><span>\n</span><div class=\"shortcutbox plainlist noprint\" role=\"note\" style=\"float:right;border:1px solid #aaa;background:#fff;margin:.3em .3em .3em 1em;padding:.4em .6em;text-align:center;font-size:smaller;line-height:2em;font-weight:bold\"><a href=\"./Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcuts</a>:\n<ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Wikipedia:LAYOUTNAV&amp;redirect=no\">WP:LAYOUTNAV</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Wikipedia:NAVLAYOUT&amp;redirect=no\">WP:NAVLAYOUT</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\">Main page: <a href=\"./Wikipedia:Categories,_lists,_and_navigation_templates#Navigation_templates\" title=\"Wikipedia:Categories, lists, and navigation templates\">Wikipedia:Categories, lists, and navigation templates §<span>&nbsp;</span>Navigation templates</a></div>\n\n<p><b>Contents:</b> <a href=\"./Wikipedia:Navigation_templates\" title=\"Wikipedia:Navigation templates\" class=\"mw-redirect\">Navigation templates</a> and footer navboxes, such as  <a href=\"./Wikipedia:WikiProject_Succession_Box_Standardization#Overview\" title=\"Wikipedia:WikiProject Succession Box Standardization\">succession boxes</a> and geography boxes (for example, <code>{{<a href=\"./Template:Geographic_location\" title=\"Template:Geographic location\">Geographic location</a>}}</code>). Most navboxes do not appear in printed versions of Wikipedia articles.<span class=\"mw-ref\" id=\"cite_ref-5\"><a href=\"./User:BSitzmann_(WMF)/MCS/Test/Frankenstein#cite_note-5\" style=\"counter-reset: mw-Ref 5;\"><span class=\"mw-reflink-text\">[5]</span></a></span></p>\n\n",
+        "text": "\n<div style=\"position:relative;top:-3em\"></div><span>\n</span><div class=\"shortcutbox plainlist noprint\" role=\"note\" style=\"float:right;border:1px solid #aaa;background:#fff;margin:.3em .3em .3em 1em;padding:.4em .6em;text-align:center;font-size:smaller;line-height:2em;font-weight:bold\"><a href=\"./Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcuts</a>:\n<ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Wikipedia:LAYOUTNAV&amp;redirect=no\">WP:LAYOUTNAV</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Wikipedia:NAVLAYOUT&amp;redirect=no\">WP:NAVLAYOUT</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\">Main page: <a href=\"./Wikipedia:Categories,_lists,_and_navigation_templates#Navigation_templates\" title=\"Wikipedia:Categories, lists, and navigation templates\">Wikipedia:Categories, lists, and navigation templates §<span>&nbsp;</span>Navigation templates</a></div>\n\n<p><b>Contents:</b> <a href=\"./Wikipedia:Navigation_templates\" title=\"Wikipedia:Navigation templates\" class=\"mw-redirect\">Navigation templates</a> and footer navboxes, such as  <a href=\"./Wikipedia:WikiProject_Succession_Box_Standardization#Overview\" title=\"Wikipedia:WikiProject Succession Box Standardization\">succession boxes</a> and geography boxes (for example, <code>{{<a href=\"./Template:Geographic_location\" title=\"Template:Geographic location\" class=\"mw-redirect\">Geographic location</a>}}</code>). Most navboxes do not appear in printed versions of Wikipedia articles.<span class=\"mw-ref\" id=\"cite_ref-5\"><a href=\"./User:BSitzmann_(WMF)/MCS/Test/Frankenstein#cite_note-5\" style=\"counter-reset: mw-Ref 5;\"><span class=\"mw-reflink-text\">[5]</span></a></span></p>\n\n",
         "toclevel": 2,
         "line": "Navigation templates",
         "anchor": "Navigation_templates"
