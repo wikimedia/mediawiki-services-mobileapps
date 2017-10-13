@@ -94,5 +94,14 @@ describe('lib:parsoid-sections (section elements)', function() {
         assertSection1(sections, sectionInDiv);
     });
 
+    it('non-lead section without heading tag should throw error', () => {
+        const doc = domino.createDocument(
+            '<section data-section-number="0">text0</section>' +
+            '<section data-section-number="1">text1</section>');
+        assert.throws(() => {
+            parsoidSectionsUsingSectionTags.getSectionsText(doc);
+        }, /unsupported_section/);
+    });
+
     /* eslint-enable prefer-template */
 });
