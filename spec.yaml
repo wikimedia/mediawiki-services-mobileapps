@@ -686,6 +686,21 @@ paths:
               revision: /.+/
               timestamp: /.+/
               description: /.+/
+              content_urls:
+                page: /.+/
+                revisions: /.+/
+                edit: /.+/
+                talk: /.+/
+              api_urls:
+                summary: /.+/
+                mobile_sections: /.+/
+                read_html: /.+/
+                content_html: /.+/
+                metadata: /.+/
+                references: /.+/
+                media: /.+/
+                edit_html: /.+/
+                talk_page_html: /.+/
               extract: /.+/
               extract_html: /.+/
 
@@ -879,6 +894,10 @@ definitions:
         type: string
         description: Wikidata description for the page
         example: American poet
+      content_urls:
+        $ref: '#/definitions/content_urls'
+      api_urls:
+        $ref: '#/definitions/api_urls'
 #      coordinates:
 #        type: object
 #        description: The coordinates of the item
@@ -890,7 +909,19 @@ definitions:
 #            type: number
 #            description: The longitude
 #        requiredProperties: [ 'lat', 'lon' ]
-    required: ['type', 'title', 'displaytitle', 'pageid', 'lang', 'dir', 'revision', 'timestamp', 'extract', 'extract_html']
+    required:
+      - type
+      - title
+      - displaytitle
+      - pageid
+      - lang
+      - dir
+      - revision
+      - timestamp
+      - content_urls
+      - api_urls
+      - extract
+      - extract_html
 
   dated_pageview:
     type: object
@@ -1206,4 +1237,65 @@ definitions:
       - display_title
       - namespace_id
       - namespace_name
+    additionalProperties: false
+
+  content_urls:
+    type: object
+    properties:
+      page:
+        type: string
+        description: the canonical page URL
+      revisions:
+        type: string
+        description: the revision history page URL
+      edit:
+        type: string
+        description: the (desktop) URL for editing the page
+      talk:
+        type: string
+        description: the talk page URL, if applicable
+    required:
+      - page
+      - revisions
+      - edit
+    additionalProperites: false
+
+  api_urls:
+    type: object
+    properties:
+      summary:
+        type: string
+        description: the REST API summary URL for the page
+      mobile_sections:
+        type: string
+        description: the REST API URL for the sectionized mobile HTML for the page
+      read_html:
+        type: string
+        description: the REST API URL for the PCS read HTML for the page (not yet active)
+      content_html:
+        type: string
+        description: the REST API URL for the PCS content HTML for the page (not yet active)
+      metadata:
+        type: string
+        description: the REST API URL for the page metadata (not yet active)
+      references:
+        type: string
+        description: the REST API URL for the references on the page (not yet active)
+      media:
+        type: string
+        description: the REST API URL for the media included in the page (not yet active)
+      edit_html:
+        type: string
+        description: the REST API URL for the raw Parsoid HTML for the page
+      talk_page_html:
+        type: string
+        description: the REST API URL for the raw Parsoid HTML for the talk page for this page (if applicable)
+    required:
+      - summary
+      - mobile_sections
+      - read_html
+      - content_html
+      - metadata
+      - media
+      - edit_html
     additionalProperties: false

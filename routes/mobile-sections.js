@@ -128,6 +128,8 @@ function buildLead(input, legacy) {
     return {
         ns: input.meta.ns,
         ns_text: input.meta.ns_text,
+        talk_ns: input.meta.talk_ns,
+        talk_ns_text: input.meta.talk_ns_text,
         contentmodel,
         userinfo: input.meta.userinfo,
         imageinfo: input.meta.imageinfo,
@@ -376,54 +378,6 @@ function buildLeadResponse(req, res, legacy) {
     });
 }
 
-/*
- * Build a summary for the page given in req
- * @param {!Request} req
- *  not apply legacy transformations that we are in the process
- *  of deprecating.
- * @return {!BBPromise}
- */
-function buildSummary(req) {
-    return BBPromise.props({
-        title: mwapi.getTitleObj(app, req),
-        lead: buildLeadObject(req, false)
-    }).then((response) => {
-        let summary = {};
-        const title = response.title;
-        const lead = response.lead;
-        const type = 'standard';
-        let code = 200;
-
-        if (!lead) {
-            return false;
-        } else if (lead.contentmodel || !mUtil.SUMMARY_NS_WHITELIST.includes(lead.ns)) {
-            code = 204;
-        } else if (lead.intro) {
-            summary = transforms.summarize(lead.intro);
-        } else {
-            // If the lead introduction is empty we should consider it
-            // a placeholder e.g. redirect page. To avoid sending an empty
-            // summary 204. (T176517)
-            code = 204;
-        }
-        return Object.assign({
-            code,
-            type,
-            title: lead.normalizedtitle,
-            displaytitle: lead.displaytitle,
-            titles: mUtil.buildTitleDictionary(title, lead),
-            pageid: lead.id,
-            thumbnail: lead.thumbnail,
-            originalimage: lead.originalimage,
-            lang: lead.lang,
-            dir: lead.dir,
-            revision: lead.revision,
-            timestamp: lead.lastmodified,
-            description: lead.description
-        }, summary);
-    });
-}
-
 /**
  * GET {domain}/v1/page/mobile-sections/{title}
  * Gets the mobile app version of a given wiki page.
@@ -475,7 +429,11 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
 * Extracts a summary of a given wiki page limited to one paragraph of text
 */
 router.get('/summary/:title/:revision?/:tid?', (req, res) => {
-    return buildSummary(req).then((summary) => {
+    return BBPromise.props({
+        title: mwapi.getTitleObj(app, req),
+        lead: buildLeadObject(req, false)
+    }).then((response) => {
+        const summary = mUtil.buildSummary(req.params.domain, response.title, response.lead);
         if (summary) {
             res.status(summary.code);
             if (summary.code === 200) {
