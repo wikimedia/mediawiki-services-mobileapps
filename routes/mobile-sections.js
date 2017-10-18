@@ -381,7 +381,7 @@ function buildSummary(req) {
 
         if (!lead) {
             return false;
-        } else if (lead.contentmodel || lead.ns !== 0) {
+        } else if (lead.contentmodel || !mUtil.SUMMARY_NS_WHITELIST.includes(lead.ns)) {
             code = 204;
         } else if (lead.intro) {
             summary = transforms.summarize(lead.intro);
