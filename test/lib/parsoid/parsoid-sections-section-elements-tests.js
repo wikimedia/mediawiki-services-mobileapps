@@ -9,9 +9,9 @@ describe('lib:parsoid-sections (section elements)', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
-    function assertSection0(sections) {
+    function assertSection0(sections, extraText = '') {
         assert.deepEqual(sections[0].id, 0);
-        assert.deepEqual(sections[0].text, 'text0', JSON.stringify(sections[0], null, 2));
+        assert.equal(sections[0].text, `text0${extraText}`, JSON.stringify(sections[0], null, 2));
     }
 
     function assertSection1(sections, extraText = '') {
@@ -92,6 +92,31 @@ describe('lib:parsoid-sections (section elements)', function() {
         assert.deepEqual(sections.length, 2);
         assertSection0(sections);
         assertSection1(sections, sectionInDiv);
+    });
+
+    it('section inside lead section should not be part of lead section', () => {
+        const sectionNotInDiv = '<section data-section-number="1"><h2>Foo</h2>text1</section>';
+        const doc = domino.createDocument(
+            '<section data-section-number="0">text0' +
+            sectionNotInDiv +
+            '</section>'
+        );
+        const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
+        assert.deepEqual(sections.length, 2);
+        assertSection0(sections);
+    });
+
+    it('div/section inside lead section should be part of lead section', () => {
+        const sectionInDiv = '<div>' +
+            '<section data-section-number="1"><h2>Foo</h2>text1</section></div>';
+        const doc = domino.createDocument(
+            '<section data-section-number="0">text0' +
+            sectionInDiv +
+            '</section>'
+        );
+        const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
+        assert.deepEqual(sections.length, 1);
+        assertSection0(sections, sectionInDiv);
     });
 
     it('non-lead section without heading tag should throw error', () => {
