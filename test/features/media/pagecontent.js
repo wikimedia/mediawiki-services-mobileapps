@@ -1,9 +1,9 @@
 'use strict';
 
-const assert = require('../../utils/assert.js');
 const preq   = require('preq');
-const server = require('../../utils/server.js');
-const headers = require('../../utils/headers.js');
+const assert = require('../../utils/assert');
+const server = require('../../utils/server');
+const headers = require('../../utils/headers');
 
 describe('media', function() {
 

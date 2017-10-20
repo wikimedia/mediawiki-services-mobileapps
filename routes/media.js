@@ -4,16 +4,10 @@ const BBPromise = require('bluebird');
 const mUtil = require('../lib/mobile-util');
 const parsoid = require('../lib/parsoid-access');
 const sUtil = require('../lib/util');
+const mwapi = require('../lib/mwapi');
 const gallery = require('../lib/gallery');
 
-/**
- * The main router object
- */
 const router = sUtil.router();
-
-/**
- * The main application object reported when this module is require()d
- */
 let app;
 
 /**
@@ -22,11 +16,15 @@ let app;
  */
 router.get('/media/:title', (req, res) => {
     return BBPromise.props({
-        page: parsoid.pageJsonPromise(app, req),
-        media: gallery.collectionPromise(app, req)
+        page: parsoid.pageHtmlPromise(app, req),
+        media: gallery.collectionPromise(app, req),
+        siteinfo: mwapi.getSiteInfo(app, req)
     }).then((response) => {
+        if (response.media.items && response.media.items.length > 1) {
+            gallery.sort(response.page.html, response.media, response.siteinfo);
+        }
         res.status(200);
-        mUtil.setETag(res, response.page.revision);
+        mUtil.setETag(res, response.page.meta.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
         res.json(response.media).end();
     });
