@@ -26,7 +26,7 @@ describe('media', function() {
         return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
-                assert.deepEqual(!!res.body.items, false, 'Expected no media items');
+                assert.deepEqual(res.body.items.length, 0, 'Expected no media items');
             });
     });
     it('en Main page should have at least one image', () => {
