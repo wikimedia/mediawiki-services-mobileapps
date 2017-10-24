@@ -93,11 +93,17 @@ function buildLead(input, legacy) {
     let text;
     let disambiguation;
     let contentmodel;
+    let thumbnail;
     if (input.meta.contentmodel !== 'wikitext') {
         contentmodel = input.meta.contentmodel;
     }
     if (input.meta.pageprops && input.meta.pageprops.disambiguation !== undefined) {
         disambiguation = true;
+    }
+    if (input.meta.thumbnail) {
+        const scaledThumb = mwapi.scaledThumbObj(input.meta.thumbnail,
+            input.meta.originalimage.width, mwapi.LEAD_IMAGE_S);
+        thumbnail = Object.assign(input.meta.thumbnail, scaledThumb);
     }
 
     if (!legacy && !input.meta.mainpage) {
@@ -137,11 +143,15 @@ function buildLead(input, legacy) {
         protection: input.meta.protection,
         editable: input.meta.editable,
         mainpage: input.meta.mainpage,
+        dir: input.meta.dir,
+        lang: input.meta.lang,
         languagecount: input.meta.languagecount,
         image: mUtil.defaultVal(mUtil.filterEmpty({
             file: input.meta.image && input.meta.image.file,
             urls: input.meta.thumb && mwapi.buildLeadImageUrls(input.meta.thumb.url)
         })),
+        thumbnail,
+        originalimage: input.meta.originalimage,
         pronunciation: input.page.pronunciation,
         spoken: input.page.spoken,
         hatnotes,
@@ -394,7 +404,16 @@ function buildSummary(req) {
         return Object.assign({
             code,
             type,
-            revision: lead.revision
+            title: lead.normalizedtitle,
+            displaytitle: lead.displaytitle,
+            pageid: lead.id,
+            thumbnail: lead.thumbnail,
+            originalimage: lead.originalimage,
+            lang: lead.lang,
+            dir: lead.dir,
+            revision: lead.revision,
+            timestamp: lead.lastmodified,
+            description: lead.description
         }, summary);
     });
 }
