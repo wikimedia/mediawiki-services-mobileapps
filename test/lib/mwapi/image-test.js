@@ -2,12 +2,23 @@
 
 const assert = require('../../utils/assert.js');
 const buildUrls = require('../../../lib/mwapi').buildLeadImageUrls;
+const scale = require('../../../lib/mwapi').scaledImageUrl;
 
 const path = '//upload.wikimedia.org/wikipedia/commons/thumb/a/a0';
 const httpPath = 'http://upload.wikimedia.org/wikipedia/commons/thumb/a/a0';
 const httpsPath = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0';
 
 describe('lib:mwapi:image', () => {
+    it('image URLs are rewritten if URL contains a size and the desired width is smaller', () => {
+        const prefix = 'https://upload.wikimedia.org/wikipedia/commons';
+        assert.deepEqual(scale(`${prefix}/thumb/0/0b/Cat_poster_1.jpg/720px-Cat_poster_1.jpg`, 320),
+            `${prefix}/thumb/0/0b/Cat_poster_1.jpg/320px-Cat_poster_1.jpg`);
+        assert.deepEqual(scale(`${prefix}/thumb/0/0b/Cat_poster_1.jpg/120px-Cat_poster_1.jpg`, 320),
+            `${prefix}/thumb/0/0b/Cat_poster_1.jpg/120px-Cat_poster_1.jpg`);
+        assert.deepEqual(scale(`${prefix}/9/96/Vasskertentrance.jpg`, 320),
+            `${prefix}/9/96/Vasskertentrance.jpg`);
+    });
+
     it('buildLeadImageUrls("a") should return all "a"s', () => {
         assert.deepEqual(buildUrls('a'), {
             320: 'a',
