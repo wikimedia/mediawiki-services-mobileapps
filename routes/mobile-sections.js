@@ -127,6 +127,7 @@ function buildLead(input, legacy) {
 
     return {
         ns: input.meta.ns,
+        ns_text: input.meta.ns_text,
         contentmodel,
         userinfo: input.meta.userinfo,
         imageinfo: input.meta.imageinfo,
@@ -375,7 +376,6 @@ function buildLeadResponse(req, res, legacy) {
     });
 }
 
-
 /*
  * Build a summary for the page given in req
  * @param {!Request} req
@@ -384,8 +384,13 @@ function buildLeadResponse(req, res, legacy) {
  * @return {!BBPromise}
  */
 function buildSummary(req) {
-    return buildLeadObject(req, false).then((lead) => {
+    return BBPromise.props({
+        title: mwapi.getTitleObj(app, req),
+        lead: buildLeadObject(req, false)
+    }).then((response) => {
         let summary = {};
+        const title = response.title;
+        const lead = response.lead;
         const type = 'standard';
         let code = 200;
 
@@ -406,6 +411,7 @@ function buildSummary(req) {
             type,
             title: lead.normalizedtitle,
             displaytitle: lead.displaytitle,
+            titles: mUtil.buildTitleDictionary(title, lead),
             pageid: lead.id,
             thumbnail: lead.thumbnail,
             originalimage: lead.originalimage,
