@@ -40,15 +40,15 @@ describe('lib:parsoid-sections (section elements)', function() {
     });
 
     it('getSectionsText() with just text should produce a lead section', () => {
-        const doc = domino.createDocument('<section data-section-number="0">text0</section>');
+        const doc = domino.createDocument('<section data-mw-section-id="0">text0</section>');
         const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
         assert.deepEqual(sections.length, 1);
         assertSection0(sections);
     });
 
     it('getSectionsText() with one h2 should produce two sections', () => {
-        const doc = domino.createDocument('<section data-section-number="0">text0</section>' +
-            '<section data-section-number="1"><h2 id="foo">foo</h2>text1</section>');
+        const doc = domino.createDocument('<section data-mw-section-id="0">text0</section>' +
+            '<section data-mw-section-id="1"><h2 id="foo">foo</h2>text1</section>');
         const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
         assert.deepEqual(sections.length, 2);
         assertSection0(sections);
@@ -56,9 +56,9 @@ describe('lib:parsoid-sections (section elements)', function() {
     });
 
     it('getSectionsText() with one h2 and h3 should produce three sections', () => {
-        const doc = domino.createDocument('<section data-section-number="0">text0</section>' +
-            '<section data-section-number="1"><h2 id="foo">foo</h2>text1' +
-            '<section data-section-number="2">' +
+        const doc = domino.createDocument('<section data-mw-section-id="0">text0</section>' +
+            '<section data-mw-section-id="1"><h2 id="foo">foo</h2>text1' +
+            '<section data-mw-section-id="2">' +
             '<h3 id="Funny_section_.21.40.23.24">Funny section !@#$%^&*()</h3>text2' +
             '</section></section>');
         const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
@@ -71,9 +71,9 @@ describe('lib:parsoid-sections (section elements)', function() {
     // From T175305 http://localhost:8000/fy.wikipedia.org/v3/page/html/De_Kanto%27s
     it('getSectionsText() with one h2 inside div should not produce another section', () => {
         const sectionInDiv = '<div style="position:absolute;visibility:hidden;height:0;">' +
-            '<section data-section-number="-1"><h2 id="bar">bar</h2></section></div>';
-        const doc = domino.createDocument('<section data-section-number="0">text0</section>' +
-            '<section data-section-number="1"><h2 id="foo">foo</h2>text1' + sectionInDiv +
+            '<section data-mw-section-id="-1"><h2 id="bar">bar</h2></section></div>';
+        const doc = domino.createDocument('<section data-mw-section-id="0">text0</section>' +
+            '<section data-mw-section-id="1"><h2 id="foo">foo</h2>text1' + sectionInDiv +
             '</section>');
         const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
         assert.deepEqual(sections.length, 2);
@@ -84,9 +84,9 @@ describe('lib:parsoid-sections (section elements)', function() {
     // same as above but using h3 instead of h2 in extra <div>
     it('getSectionsText() with one h3 inside div should not produce another section', () => {
         const sectionInDiv = '<div style="position:absolute;visibility:hidden;height:0;">' +
-            '<section data-section-number="-1"><h3 id="bar">bar</h3></section></div>';
-        const doc = domino.createDocument('<section data-section-number="0">text0</section>' +
-            '<section data-section-number="1"><h2 id="foo">foo</h2>text1' + sectionInDiv +
+            '<section data-mw-section-id="-1"><h3 id="bar">bar</h3></section></div>';
+        const doc = domino.createDocument('<section data-mw-section-id="0">text0</section>' +
+            '<section data-mw-section-id="1"><h2 id="foo">foo</h2>text1' + sectionInDiv +
             '</section>');
         const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
         assert.deepEqual(sections.length, 2);
@@ -95,9 +95,9 @@ describe('lib:parsoid-sections (section elements)', function() {
     });
 
     it('section inside lead section should not be part of lead section', () => {
-        const sectionNotInDiv = '<section data-section-number="1"><h2>Foo</h2>text1</section>';
+        const sectionNotInDiv = '<section data-mw-section-id="1"><h2>Foo</h2>text1</section>';
         const doc = domino.createDocument(
-            '<section data-section-number="0">text0' +
+            '<section data-mw-section-id="0">text0' +
             sectionNotInDiv +
             '</section>'
         );
@@ -108,9 +108,9 @@ describe('lib:parsoid-sections (section elements)', function() {
 
     it('div/section inside lead section should be part of lead section', () => {
         const sectionInDiv = '<div>' +
-            '<section data-section-number="1"><h2>Foo</h2>text1</section></div>';
+            '<section data-mw-section-id="1"><h2>Foo</h2>text1</section></div>';
         const doc = domino.createDocument(
-            '<section data-section-number="0">text0' +
+            '<section data-mw-section-id="0">text0' +
             sectionInDiv +
             '</section>'
         );
@@ -121,8 +121,8 @@ describe('lib:parsoid-sections (section elements)', function() {
 
     it('non-lead section without heading tag should throw error', () => {
         const doc = domino.createDocument(
-            '<section data-section-number="0">text0</section>' +
-            '<section data-section-number="1">text1</section>');
+            '<section data-mw-section-id="0">text0</section>' +
+            '<section data-mw-section-id="1">text1</section>');
         assert.throws(() => {
             parsoidSectionsUsingSectionTags.getSectionsText(doc);
         }, /unsupported_section/);
