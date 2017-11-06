@@ -69,7 +69,7 @@ function buildLeadSections(sections) {
 
 /*
  * Build the lead for the requested page.
- * @param {!Object} input
+ * @param {!Object} input (needs to have a meta, page, and title property)
  * @param {?Boolean} [legacy] whether to perform legacy transformations
  * @return {!Object} lead json
  */
@@ -215,10 +215,8 @@ function buildAll(input, legacy) {
 function mainPageFixPromise(req, response) {
     return pageContentForMainPagePromise(req)
     .then((mainPageContent) => {
-        return {
-            page: mainPageContent,
-            meta: response.meta
-        };
+        response.page = mainPageContent;
+        return response;
     });
 }
 
@@ -239,15 +237,10 @@ function handleUserPagePromise(req, res) {
     })
     .then((resp) => {
         const body = resp.body;
-        const meta = res.meta;
         if (body.query && body.query.globaluserinfo) {
-            meta.userinfo = body.query.globaluserinfo;
+            res.meta.userinfo = body.query.globaluserinfo;
         }
-        return {
-            page: res.page,
-            meta,
-            extract: res.extract
-        };
+        return res;
     });
 }
 
@@ -271,18 +264,11 @@ function handleFilePagePromise(req, res) {
     })
     .then((resp) => {
         const body = resp.body;
-        const meta = res.meta;
-        let ii;
-
         if (body.query && body.query.pages && body.query.pages.length) {
-            ii = body.query.pages[0].imageinfo;
-            meta.imageinfo = ii ? ii[0] : ii;
+            const ii = body.query.pages[0].imageinfo;
+            res.meta.imageinfo = ii ? ii[0] : ii;
         }
-        return {
-            page: res.page,
-            meta,
-            extract: res.extract
-        };
+        return res;
     });
 }
 
@@ -321,7 +307,8 @@ function _handleNamespaceAndSpecialCases(req, res) {
 function _collectRawPageData(req, legacy) {
     return BBPromise.props({
         page: parsoid.pageJsonPromise(app, req, legacy),
-        meta: mwapi.getMetadata(app, req)
+        meta: mwapi.getMetadata(app, req),
+        title: mwapi.getTitleObj(app, req)
     }).then((interimState) => {
         return _handleNamespaceAndSpecialCases(req, interimState);
     });
