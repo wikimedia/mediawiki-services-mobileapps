@@ -138,6 +138,7 @@ function buildLead(input, legacy) {
         revision: input.page.revision,
         lastmodified: input.meta.lastmodified,
         lastmodifier: input.meta.lastmodifier,
+        title: input.title.getPrefixedDBKey(),
         displaytitle: input.meta.displaytitle,
         normalizedtitle: input.meta.normalizedtitle,
         wikibase_item: input.meta.pageprops && input.meta.pageprops.wikibase_item,
