@@ -666,6 +666,12 @@ paths:
               type: standard
               title: /.+/
               displaytitle: /.+/
+              titles:
+                title: /.+/
+                normalized_title: /.+/
+                display_title: /.+/
+                namespace_id: /.+/
+                namespace_name: /.*/
               pageid: /.+/
               thumbnail:
                 source: /.+/
@@ -836,6 +842,8 @@ definitions:
       displaytitle:
         type: string
         description: The page title how it should be shown to the user
+      titles:
+        $ref: '#/definitions/titles_set'
       pageid:
         type: integer
         description: The page ID
@@ -1172,4 +1180,30 @@ definitions:
       data:
         type: array
         description: Buffer contents
+    additionalProperties: false
+
+  titles_set:
+    type: object
+    properties:
+      title:
+        type: string
+        description: the DB key (non-prefixed)
+      normalized_title:
+        type: string
+        description: the normalized title (https://www.mediawiki.org/wiki/API:Query#Title_normalization)
+      display_title:
+        type: string
+        description: the title as it should be displayed to the user
+      namespace_id:
+        type: integer
+        description: the numeric ID for the page's namespace (https://www.mediawiki.org/wiki/Manual:Namespace)
+      namespace_name:
+        type: string
+        description: text name for the MediaWiki namespace
+    required:
+      - title
+      - normalized_title
+      - display_title
+      - namespace_id
+      - namespace_name
     additionalProperties: false
