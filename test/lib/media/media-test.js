@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('../../utils/assert');
-const sort = require('../../../lib/gallery').sort;
+const sort = require('../../../lib/media').sort;
 
 const siteInfo = require('../../fixtures/siteinfo_enwiki.json');
 const page = '<html><img resource="./File:Foo.jpg"/><video resource="./File:Bar.ogv"/></html>';
