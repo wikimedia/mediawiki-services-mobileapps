@@ -898,17 +898,17 @@ definitions:
         $ref: '#/definitions/content_urls'
       api_urls:
         $ref: '#/definitions/api_urls'
-#      coordinates:
-#        type: object
-#        description: The coordinates of the item
-#        properties:
-#          lat:
-#            type: number
-#            description: The latitude
-#          lon:
-#            type: number
-#            description: The longitude
-#        requiredProperties: [ 'lat', 'lon' ]
+      coordinates:
+        type: object
+        description: The coordinates of the item
+        properties:
+          lat:
+            type: number
+            description: The latitude
+          lon:
+            type: number
+            description: The longitude
+        requiredProperties: [ 'lat', 'lon' ]
     required:
       - type
       - title
