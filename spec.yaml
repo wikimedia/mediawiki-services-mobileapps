@@ -568,6 +568,15 @@ paths:
       description: Gets the images and videos which appear on a given wiki page
       produces:
         - application/json
+      responses:
+        '200':
+          description: Gets media items from a wiki page
+          schema:
+            $ref: '#/definitions/media_list'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
         - title: retrieve images and videos of en.wp Cat page via media route
           request:
@@ -581,8 +590,12 @@ paths:
               items:
                 - title: /.+/
                   url: /.+/
+                  thumbUrl: /.+/
+                  mime: /.+/
                   width: /.+/
                   height: /.+/
+                  size: /.+/
+                  ext: /.+/
 
   # from routes/definition.js
   /{domain}/v1/page/definition/{title}:
@@ -1188,6 +1201,58 @@ definitions:
       - count
       - size
       - timestamp
+
+  media_list:
+    type: object
+    properties:
+      items:
+        type: array
+        description: a list of media items
+        items:
+          $ref: '#/definitions/media_item'
+    required:
+      - items
+
+  media_item:
+    type: object
+    properties:
+      title:
+        type: string
+        description: the prefixed DB title for the item
+      url:
+        type: string
+        description: the content URL for the original item
+      thumbUrl:
+        type: string
+        description: the URL for a thumbnail of the original item
+      mime:
+        type: string
+        description: the MIME type
+      width:
+        type: integer
+        description: the original width
+      height:
+        type: integer
+        description: the original height
+      size:
+        type: integer
+        description: the original file size (sizes are not provided for video derivatives)
+      derivatives:
+        type: array
+        description: a list of derivatives of the original file (applies only to videos)
+      ext:
+        type: object
+        description: extended metadata about the object (provided by the CommonsMetadata extension)
+    required:
+      - title
+      - url
+      - thumbUrl
+      - mime
+      - width
+      - height
+      - size
+      - derivatives
+      - ext
 
   action:
     type: object

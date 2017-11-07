@@ -359,6 +359,11 @@ describe('Swagger spec', function() {
             return assertValidSchema(uri, '#/definitions/summary');
         });
 
+        it('media response should conform to schema', () => {
+            const uri = `${baseUri}page/media/Hummingbird`;
+            return assertValidSchema(uri, '#/definitions/media_list');
+        });
+
         // Bad requests return empty response for aggregated=true
 
         it('featured article response should conform to schema (invalid lang, agg=true)', () => {
