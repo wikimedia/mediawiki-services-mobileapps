@@ -314,6 +314,14 @@ function _collectRawPageData(req, legacy) {
     });
 }
 
+// XXX: Remove lead properties used only for constructing summaries. Sometime soon, let's
+// disentangle the underlying logic.
+function _stripUnwantedLeadProps(lead) {
+    delete lead.ns_text;
+    delete lead.talk_ns;
+    delete lead.talk_ns_text;
+}
+
 /*
  * @param {!Request} req
  * @param {!Response} res
@@ -325,6 +333,7 @@ function _collectRawPageData(req, legacy) {
 function buildAllResponse(req, res, legacy) {
     return _collectRawPageData(req, legacy).then((response) => {
         response = buildAll(response, legacy);
+        _stripUnwantedLeadProps(response.lead);
         res.status(200);
         mUtil.setETag(res, response.lead.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
@@ -358,6 +367,7 @@ function buildLeadObject(req, legacy) {
  */
 function buildLeadResponse(req, res, legacy) {
     return buildLeadObject(req, legacy).then((response) => {
+        _stripUnwantedLeadProps(response);
         res.status(200);
         mUtil.setETag(res, response.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
