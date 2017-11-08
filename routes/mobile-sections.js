@@ -321,6 +321,10 @@ function _stripUnwantedLeadProps(lead) {
     delete lead.ns_text;
     delete lead.talk_ns;
     delete lead.talk_ns_text;
+    delete lead.dir;
+    delete lead.lang;
+    delete lead.thumbnail;
+    delete lead.originalimage;
 }
 
 /*
