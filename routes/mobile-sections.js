@@ -93,19 +93,12 @@ function buildLead(input, legacy) {
     let text;
     let disambiguation;
     let contentmodel;
-    let thumbnail;
     if (input.meta.contentmodel !== 'wikitext') {
         contentmodel = input.meta.contentmodel;
     }
     if (input.meta.pageprops && input.meta.pageprops.disambiguation !== undefined) {
         disambiguation = true;
     }
-    if (input.meta.thumbnail) {
-        const scaledThumb = mwapi.scaledThumbObj(input.meta.thumbnail,
-            input.meta.originalimage.width, mwapi.LEAD_IMAGE_S);
-        thumbnail = Object.assign(input.meta.thumbnail, scaledThumb);
-    }
-
     if (!legacy && !input.meta.mainpage) {
         const stubArticle = input.page.sections.length <= 1;
         if (!stubArticle) {
@@ -127,16 +120,12 @@ function buildLead(input, legacy) {
 
     return {
         ns: input.meta.ns,
-        ns_text: input.meta.ns_text,
-        talk_ns: input.meta.talk_ns,
-        talk_ns_text: input.meta.talk_ns_text,
         contentmodel,
         userinfo: input.meta.userinfo,
         imageinfo: input.meta.imageinfo,
         id: input.meta.id,
         issues,
         revision: input.page.revision,
-        tid: input.page.tid,
         lastmodified: input.meta.lastmodified,
         lastmodifier: input.meta.lastmodifier,
         displaytitle: input.meta.displaytitle,
@@ -147,15 +136,11 @@ function buildLead(input, legacy) {
         protection: input.meta.protection,
         editable: input.meta.editable,
         mainpage: input.meta.mainpage,
-        dir: input.meta.dir,
-        lang: input.meta.lang,
         languagecount: input.meta.languagecount,
         image: mUtil.defaultVal(mUtil.filterEmpty({
             file: input.meta.image && input.meta.image.file,
             urls: input.meta.thumb && mwapi.buildLeadImageUrls(input.meta.thumb.url)
         })),
-        thumbnail,
-        originalimage: input.meta.originalimage,
         pronunciation: input.page.pronunciation,
         spoken: input.page.spoken,
         hatnotes,
@@ -315,19 +300,6 @@ function _collectRawPageData(req, legacy) {
     });
 }
 
-// XXX: Remove lead properties used only for constructing summaries. Sometime soon, let's
-// disentangle the underlying logic.
-function _stripUnwantedLeadProps(lead) {
-    delete lead.ns_text;
-    delete lead.talk_ns;
-    delete lead.talk_ns_text;
-    delete lead.dir;
-    delete lead.lang;
-    delete lead.thumbnail;
-    delete lead.originalimage;
-    delete lead.tid;
-}
-
 /*
  * @param {!Request} req
  * @param {!Response} res
@@ -342,7 +314,6 @@ function buildAllResponse(req, res, legacy) {
         res.status(200);
         mUtil.setETag(res, response.lead.revision, response.lead.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
-        _stripUnwantedLeadProps(response.lead);
         res.json(response).end();
     });
 }
@@ -376,7 +347,6 @@ function buildLeadResponse(req, res, legacy) {
         res.status(200);
         mUtil.setETag(res, response.revision, response.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
-        _stripUnwantedLeadProps(response);
         res.json(response).end();
     });
 }
@@ -434,9 +404,9 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
 router.get('/summary/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
         title: mwapi.getTitleObj(app, req),
-        lead: buildLeadObject(req, false)
+        pageData: _collectRawPageData(req, false)
     }).then((response) => {
-        const summary = mUtil.buildSummary(req.params.domain, response.title, response.lead);
+        const summary = mUtil.buildSummary(req.params.domain, response.title, response.pageData);
         if (summary) {
             res.status(summary.code);
             if (summary.code === 200) {
