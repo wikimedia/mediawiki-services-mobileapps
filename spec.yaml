@@ -682,9 +682,9 @@ paths:
               namespace_id: /.+/
               namespace_text: /.*/
               titles:
-                title: /.+/
-                normalized_title: /.+/
-                display_title: /.+/
+                canonical: /.+/
+                normalized: /.+/
+                display: /.+/
               pageid: /.+/
               thumbnail:
                 source: /.+/
@@ -1287,19 +1287,19 @@ definitions:
   titles_set:
     type: object
     properties:
-      title:
+      canonical:
         type: string
         description: the DB key (non-prefixed)
-      normalized_title:
+      normalized:
         type: string
         description: the normalized title (https://www.mediawiki.org/wiki/API:Query#Title_normalization)
-      display_title:
+      display:
         type: string
         description: the title as it should be displayed to the user
     required:
-      - title
-      - normalized_title
-      - display_title
+      - canonical
+      - normalized
+      - display
     additionalProperties: false
 
   content_urls:
