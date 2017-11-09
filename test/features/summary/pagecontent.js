@@ -27,9 +27,9 @@ describe('summary', function() {
                 assert.deepEqual(res.status, 200);
                 assert.deepEqual(res.body.type, 'standard');
                 assert.deepEqual(res.body.revision, 798652007);
-                assert.deepEqual(res.body.titles.title, "Foobar");
-                assert.deepEqual(res.body.titles.normalized_title, "Foobar");
-                assert.deepEqual(res.body.titles.display_title, "Foobar");
+                assert.deepEqual(res.body.titles.canonical, "Foobar");
+                assert.deepEqual(res.body.titles.normalized, "Foobar");
+                assert.deepEqual(res.body.titles.display, "Foobar");
                 assert.ok(res.body.extract.indexOf('foobar') > -1);
                 assert.ok(res.body.extract_html.indexOf('<b>foobar</b>') > -1);
             });
