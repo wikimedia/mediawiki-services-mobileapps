@@ -707,7 +707,6 @@ paths:
                 talk: /.+/
               api_urls:
                 summary: /.+/
-                mobile_sections: /.+/
 #                read_html: /.+/
 #                content_html: /.+/
 #                metadata: /.+/
@@ -1333,9 +1332,6 @@ definitions:
       summary:
         type: string
         description: the REST API summary URL for the page
-      mobile_sections:
-        type: string
-        description: the REST API URL for the sectionized mobile HTML for the page
 #      read_html:
 #        type: string
 #        description: the REST API URL for the PCS read HTML for the page (not yet active)
@@ -1359,10 +1355,10 @@ definitions:
         description: the REST API URL for the raw Parsoid HTML for the talk page for this page (if applicable)
     required:
       - summary
-      - mobile_sections
 #      - read_html
 #      - content_html
 #      - metadata
+#      - references
 #      - media
       - edit_html
     additionalProperties: false
