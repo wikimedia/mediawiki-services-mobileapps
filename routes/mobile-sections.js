@@ -136,6 +136,7 @@ function buildLead(input, legacy) {
         id: input.meta.id,
         issues,
         revision: input.page.revision,
+        tid: input.page.tid,
         lastmodified: input.meta.lastmodified,
         lastmodifier: input.meta.lastmodifier,
         displaytitle: input.meta.displaytitle,
@@ -324,6 +325,7 @@ function _stripUnwantedLeadProps(lead) {
     delete lead.lang;
     delete lead.thumbnail;
     delete lead.originalimage;
+    delete lead.tid;
 }
 
 /*
@@ -337,10 +339,10 @@ function _stripUnwantedLeadProps(lead) {
 function buildAllResponse(req, res, legacy) {
     return _collectRawPageData(req, legacy).then((response) => {
         response = buildAll(response, legacy);
-        _stripUnwantedLeadProps(response.lead);
         res.status(200);
-        mUtil.setETag(res, response.lead.revision);
+        mUtil.setETag(res, response.lead.revision, response.lead.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
+        _stripUnwantedLeadProps(response.lead);
         res.json(response).end();
     });
 }
@@ -371,10 +373,10 @@ function buildLeadObject(req, legacy) {
  */
 function buildLeadResponse(req, res, legacy) {
     return buildLeadObject(req, legacy).then((response) => {
-        _stripUnwantedLeadProps(response);
         res.status(200);
-        mUtil.setETag(res, response.revision);
+        mUtil.setETag(res, response.revision, response.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
+        _stripUnwantedLeadProps(response);
         res.json(response).end();
     });
 }
@@ -404,7 +406,7 @@ router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
         page: parsoid.pageJsonPromise(app, req, true)
     }).then((response) => {
         res.status(200);
-        mUtil.setETag(res, response.page.revision);
+        mUtil.setETag(res, response.page.revision, response.page.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(buildRemaining(response)).end();
     });
