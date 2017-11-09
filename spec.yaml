@@ -697,6 +697,7 @@ paths:
               lang: /.+/
               dir: /.+/
               revision: /.+/
+              tid: /.+/
               timestamp: /.+/
               description: /.+/
               content_urls:
@@ -878,6 +879,9 @@ definitions:
       revision:
         type: string
         description: The revision of the page when the summary was produced
+      tid:
+        type: string
+        description: The timeuuid associated with the underlying HTML content
       extract:
         type: string
         description: First several sentences of an article in plain text
