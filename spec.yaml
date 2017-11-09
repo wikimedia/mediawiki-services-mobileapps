@@ -707,11 +707,11 @@ paths:
               api_urls:
                 summary: /.+/
                 mobile_sections: /.+/
-                read_html: /.+/
-                content_html: /.+/
-                metadata: /.+/
-                references: /.+/
-                media: /.+/
+#                read_html: /.+/
+#                content_html: /.+/
+#                metadata: /.+/
+#                references: /.+/
+#                media: /.+/
                 edit_html: /.+/
                 talk_page_html: /.+/
               extract: /.+/
@@ -1334,21 +1334,21 @@ definitions:
       mobile_sections:
         type: string
         description: the REST API URL for the sectionized mobile HTML for the page
-      read_html:
-        type: string
-        description: the REST API URL for the PCS read HTML for the page (not yet active)
-      content_html:
-        type: string
-        description: the REST API URL for the PCS content HTML for the page (not yet active)
-      metadata:
-        type: string
-        description: the REST API URL for the page metadata (not yet active)
-      references:
-        type: string
-        description: the REST API URL for the references on the page (not yet active)
-      media:
-        type: string
-        description: the REST API URL for the media included in the page (not yet active)
+#      read_html:
+#        type: string
+#        description: the REST API URL for the PCS read HTML for the page (not yet active)
+#      content_html:
+#        type: string
+#        description: the REST API URL for the PCS content HTML for the page (not yet active)
+#      metadata:
+#        type: string
+#        description: the REST API URL for the page metadata (not yet active)
+#      references:
+#        type: string
+#        description: the REST API URL for the references on the page (not yet active)
+#      media:
+#        type: string
+#        description: the REST API URL for the media included in the page (not yet active)
       edit_html:
         type: string
         description: the REST API URL for the raw Parsoid HTML for the page
@@ -1358,9 +1358,9 @@ definitions:
     required:
       - summary
       - mobile_sections
-      - read_html
-      - content_html
-      - metadata
-      - media
+#      - read_html
+#      - content_html
+#      - metadata
+#      - media
       - edit_html
     additionalProperties: false
