@@ -2,13 +2,14 @@
 
 
 const preq   = require('preq');
-const assert = require('../../utils/assert');
-const server = require('../../utils/server');
-const dateUtil = require('../../../lib/dateUtil');
-const pad = dateUtil.pad;
+const assert = require('../../utils/assert.js');
+const server = require('../../utils/server.js');
 const URI    = require('swagger-router').URI;
 const yaml   = require('js-yaml');
 const fs     = require('fs');
+
+const dateUtil = require('../../../lib/dateUtil');
+const pad = dateUtil.pad;
 const Ajv    = require('ajv');
 
 const baseUri = `${server.config.uri}en.wikipedia.org/v1/`;
@@ -18,6 +19,10 @@ const dateStr1 = `${d1.getUTCFullYear()}/${pad(d1.getUTCMonth() + 1)}/${pad(d1.g
 const monthDayStr1 = `${pad(d1.getUTCMonth() + 1)}/${pad(d1.getUTCDate())}`;
 const dateStr2 = `${d2.getUTCFullYear()}/${pad(d2.getUTCMonth() + 1)}/${pad(d2.getUTCDate())}`;
 
+if (!server.stopHookAdded) {
+    server.stopHookAdded = true;
+    after(() => server.stop());
+}
 
 function staticSpecLoad() {
 
@@ -62,8 +67,9 @@ function validateExamples(pathStr, defParams, mSpec) {
         try {
             uri.expand(Object.assign({}, defParams, ex.request.params || {}));
         } catch (e) {
-            const msg = `Route ${pathStr}, example ${ex.title}: missing parameter: ${e.message}`;
-            throw new Error(msg);
+            throw new Error(
+                `Route ${pathStr}, example ${idx} (${ex.title}): missing parameter: ${e.message}`
+            );
         }
     });
 
@@ -119,9 +125,7 @@ function constructTests(paths, defParams) {
                 ex.request = ex.request || {};
                 ret.push(constructTestCase(
                     ex.title,
-                    uri.toString({
-                        params: Object.assign({}, defParams, ex.request.params || {})
-                    }),
+                    uri.toString({ params: Object.assign({}, defParams, ex.request.params || {}) }),
                     method,
                     ex.request,
                     ex.response || {}
@@ -220,8 +224,9 @@ function validateTestResponse(testCase, res) {
     }
     // check that the body type is the same
     if (expRes.body.constructor !== res.body.constructor) {
-        const msg = `Expected body type ${expRes.body.constructor} but got ${res.body.constructor}`;
-        throw new Error(msg);
+        throw new Error(
+            `Expected body type ${expRes.body.constructor} but got ${res.body.constructor}`
+        );
     }
 
     // compare the bodies

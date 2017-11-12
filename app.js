@@ -13,6 +13,7 @@ const sUtil = require('./lib/util');
 const apiUtil = require('./lib/api-util');
 const packageInfo = require('./package.json');
 const yaml = require('js-yaml');
+const addShutdown = require('http-shutdown');
 
 
 /**
@@ -158,7 +159,7 @@ function loadRoutes(app) {
             }
             // check that the route exports the object we need
             if (route.constructor !== Object || !route.path || !route.router
-            || !(route.api_version || route.skip_domain)) {
+                || !(route.api_version || route.skip_domain)) {
                 throw new TypeError(`routes/${fname} does not export the correct object!`);
             }
             // normalise the path to be used as the mount point
@@ -203,6 +204,7 @@ function createServer(app) {
             app.conf.interface,
             resolve
         );
+        server = addShutdown(server);
     }).then(() => {
         app.logger.log('info',
             `Worker ${process.pid} listening on ${app.conf.interface || '*'}:${app.conf.port}`);

@@ -1,6 +1,10 @@
 'use strict';
 
 
+// mocha defines to avoid JSHint breakage
+/* global describe, it, before, beforeEach, after, afterEach */
+
+
 // Default to recording+replaying http fixtures,
 // only if we are not running in Docker
 if (process.env.IN_DOCKER) {
@@ -39,7 +43,7 @@ config.conf.logging = {
 // make a deep copy of it for later reference
 const origConfig = extend(true, {}, config);
 
-let stop = () => { return BBPromise.resolve(); };
+module.exports.stop = () => { return BBPromise.resolve(); };
 let options = null;
 const runner = new ServiceRunner();
 
@@ -49,18 +53,23 @@ function start(_options) {
     _options = _options || {};
 
     if (!assert.isDeepEqual(options, _options)) {
-        console.log('server options changed; restarting'); // eslint-disable-line no-console
-        return stop().then(() => {
+        console.log('starting test server'); // eslint-disable-line no-console
+        return module.exports.stop().then(() => {
             options = _options;
             // set up the config
             config = extend(true, {}, origConfig);
             extend(true, config.conf.services[myServiceIdx].conf, options);
             return runner.start(config.conf)
-            .then(() => {
-                stop = function() {
+            .then((serviceReturns) => {
+                module.exports.stop = () => {
                     console.log('stopping test server'); // eslint-disable-line no-console
+                    serviceReturns.forEach(servers =>
+                        servers.forEach(server =>
+                            server.shutdown()));
                     return runner.stop().then(() => {
-                        stop = function() { return BBPromise.resolve(); };
+                        module.exports.stop = function() {
+                            return BBPromise.resolve();
+                        };
                     });
                 };
                 return true;
@@ -69,7 +78,6 @@ function start(_options) {
     } else {
         return BBPromise.resolve();
     }
-
 }
 
 module.exports.config = config;

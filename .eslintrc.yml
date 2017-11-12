@@ -1,1 +1,1 @@
-extends: node-services
+extends: 'eslint-config-node-services'
