@@ -679,8 +679,9 @@ paths:
               type: standard
               title: /.+/
               displaytitle: /.+/
-              namespace_id: /.+/
-              namespace_text: /.*/
+              namespace:
+                id: /.+/
+                text: /.*/
               titles:
                 canonical: /.+/
                 normalized: /.+/
@@ -876,12 +877,17 @@ definitions:
       displaytitle:
         type: string
         description: The page title how it should be shown to the user
-      namespace_id:
-        type: integer
-        description: the numeric ID for the page's namespace (https://www.mediawiki.org/wiki/Manual:Namespace)
-      namespace_text:
-        type: string
-        description: text name for the MediaWiki namespace
+      namespace:_id:
+        type: object
+        properties:
+          id:
+            type: integer
+            description: the numeric ID for the page's namespace (https://www.mediawiki.org/wiki/Manual:Namespace)
+          text:
+            type: string
+            description: text name for the MediaWiki namespace
+        required: [ id, text ]
+        additionalProperties: false
       titles:
         $ref: '#/definitions/titles_set'
       pageid:
