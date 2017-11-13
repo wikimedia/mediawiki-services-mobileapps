@@ -701,10 +701,16 @@ paths:
               timestamp: /.+/
               description: /.+/
               content_urls:
-                page: /.+/
-                revisions: /.+/
-                edit: /.+/
-                talk: /.+/
+                desktop:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
+#                mobile:
+#                  page: /.+/
+#                  revisions: /.+/
+#                  edit: /.+/
+#                  talk: /.+/
               api_urls:
                 summary: /.+/
 #                read_html: /.+/
@@ -917,7 +923,10 @@ definitions:
         description: Wikidata description for the page
         example: American poet
       content_urls:
-        $ref: '#/definitions/content_urls'
+        desktop:
+          $ref: '#/definitions/content_urls'
+#        mobile:
+#          $ref: '#/definitions/content_urls'
       api_urls:
         $ref: '#/definitions/api_urls'
       coordinates:
