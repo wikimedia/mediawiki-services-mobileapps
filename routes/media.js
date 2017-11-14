@@ -15,18 +15,30 @@ let app;
  * Gets the media items associated with the given page.
  */
 router.get('/media/:title', (req, res) => {
-    return BBPromise.props({
-        page: parsoid.pageHtmlPromise(app, req),
-        media: media.collectionPromise(app, req),
-        siteinfo: mwapi.getSiteInfo(app, req)
-    }).then((response) => {
-        if (response.media.items && response.media.items.length > 1) {
-            media.sort(response.page.html, response.media, response.siteinfo);
+    return parsoid.getParsoidHtml(app, req).then((response) => {
+        const titles = media.getTitles(response.body);
+        if (!titles) {
+            res.send({ items: [] });
+            return;
         }
-        res.status(200);
-        mUtil.setETag(res, response.page.meta.revision);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
-        res.json(response.media).end();
+        return BBPromise.props({
+            titles,
+            metadata: media.getMetadata(app, req, titles),
+            headers: response.headers,
+            siteinfo: mwapi.getSiteInfo(app, req)
+        }).then((response) => {
+            const revTid = parsoid.getRevAndTidFromEtag(response.headers);
+            const metadataList = response.metadata.items;
+            const result = metadataList.filter((item) => {
+                return media.filterResult(item);
+            });
+            if (result) {
+                media.sort(response.titles, result, response.siteinfo);
+            }
+            mUtil.setETag(res, revTid.revision, revTid.tid);
+            mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
+            res.send({ items: result });
+        });
     });
 });
 

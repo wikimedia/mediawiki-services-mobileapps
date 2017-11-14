@@ -35,8 +35,8 @@ describe('media', function() {
                 assert.ok(res.body.items.length > 0, 'Expected at least one media item');
             });
     });
-    it('Obama (redirect) should have lead image, expected properties, and many media items', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/media/Obama` })
+    it('en Barack Obama should have many media items', () => {
+        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/media/Barack_Obama` })
             .then((res) => {
                 const items = res.body.items;
                 assert.deepEqual(res.status, 200);

@@ -1,10 +1,14 @@
 'use strict';
 
 const assert = require('../../utils/assert');
-const sort = require('../../../lib/media').sort;
+const media = require('../../../lib/media');
 
 const siteInfo = require('../../fixtures/siteinfo_enwiki.json');
-const page = '<html><img resource="./File:Foo.jpg"/><video resource="./File:Bar.ogv"/></html>';
+const html =
+    '<html>' +
+    '<span typeof="mw:Image"><img resource="./File:Foo.jpg"/></span>' +
+    '<figure typeof="mw:Video"><video resource="./File:Bar.ogv"/></figure>' +
+    '</html>';
 const unsorted = {
     items: [
         { title: "File:Bar.ogv" },
@@ -22,7 +26,8 @@ describe('lib:media', () => {
 
     it('Results should be sorted in order of appearance on the page', () => {
         const result = unsorted;
-        sort(page, result, siteInfo);
+        const titles = media.getTitles(html);
+        media.sort(titles, result.items, siteInfo);
         assert.deepEqual(result, sorted);
     });
 
