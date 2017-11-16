@@ -725,6 +725,56 @@ paths:
                 talk_page_html: /.+/
               extract: /.+/
               extract_html: /.+/
+        - title: Get summary for 2nd Earl of Derby
+          request:
+            params:
+              domain: en.wikipedia.org
+              title: 2nd_Earl_of_Derby
+          response:
+            status: 200
+            headers:
+              etag: /.+/
+              content-type: /^application\/json/
+            body:
+              type: disambiguation
+              title: /.+/
+              displaytitle: /.+/
+              namespace:
+                id: /.+/
+                text: /.*/
+              titles:
+                canonical: /.+/
+                normalized: /.+/
+                display: /.+/
+              pageid: /.+/
+              lang: /.+/
+              dir: /.+/
+              revision: /.+/
+              tid: /.+/
+              timestamp: /.+/
+              description: /.+/
+              content_urls:
+                desktop:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
+                mobile:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
+              api_urls:
+                summary: /.+/
+#                read_html: /.+/
+#                content_html: /.+/
+#                metadata: /.+/
+#                references: /.+/
+#                media: /.+/
+                edit_html: /.+/
+                talk_page_html: /.+/
+              extract: /.+/
+              extract_html: /.+/
 
   # from routes/mobile-sections.js
   /{domain}/v1/page/mobile-sections/{title}:
@@ -879,6 +929,7 @@ definitions:
         description: Type of page summary
         enum:
           - standard
+          - disambiguation
       title:
         type: string
         description: The page title

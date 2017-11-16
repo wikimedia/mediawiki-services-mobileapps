@@ -8,6 +8,7 @@ const mUtil = require('../lib/mobile-util');
 const parsoid = require('../lib/parsoid-access');
 const sUtil = require('../lib/util');
 const transforms = require('../lib/transforms');
+const Title = require('mediawiki-title').Title;
 
 /**
  * The main router object
@@ -392,22 +393,21 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
 */
 router.get('/summary/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
-        title: mwapi.getTitleObj(app, req),
-        pageData: _collectRawPageData(req, false)
+        pageData: _collectRawPageData(req, false),
+        siteinfo: mwapi.getSiteInfo(app, req)
     }).then((response) => {
-        const summary = mUtil.buildSummary(req.params.domain, response.title, response.pageData);
-        if (summary) {
-            res.status(summary.code);
-            if (summary.code === 200) {
-                delete summary.code;
-                mUtil.setETag(res, summary.revision, summary.tid);
-                mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
-                res.send(JSON.stringify(summary));
-            }
-            res.end();
-        } else {
-            res.status(404);
+        const title = Title.newFromText(req.params.title, response.siteinfo);
+        const pageProps = response.pageData.meta && response.pageData.meta.pageprops;
+        const disambig = pageProps && {}.hasOwnProperty.call(pageProps, 'disambiguation');
+        const summary = mUtil.buildSummary(req.params.domain, title, response.pageData, disambig);
+        res.status(summary.code);
+        if (summary.code === 200) {
+            delete summary.code;
+            mUtil.setETag(res, summary.revision, summary.tid);
+            mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
+            res.send(summary);
         }
+        res.end();
     });
 });
 
