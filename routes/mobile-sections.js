@@ -400,7 +400,7 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
             res.status(summary.code);
             if (summary.code === 200) {
                 delete summary.code;
-                mUtil.setETag(res, summary.revision);
+                mUtil.setETag(res, summary.revision, summary.tid);
                 mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
                 res.send(JSON.stringify(summary));
             }
