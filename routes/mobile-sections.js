@@ -1,14 +1,3 @@
-/**
- * mobileapp provides page content for the Mobile Apps.
- * The goal is to avoid having to use a web view and style the content natively inside the app
- * using plain TextViews.
- * The payload should not have any extra data, and should be easy to consume by the apps.
- *
- * Status: Experimental
- * Currently using the mobileview action MW API, and removing some data we don't display.
- * TODO: add more transformations that currently are being done by the apps
- */
-
 'use strict';
 
 const BBPromise = require('bluebird');
