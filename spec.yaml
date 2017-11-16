@@ -887,7 +887,7 @@ definitions:
             description: the numeric ID for the page's namespace (https://www.mediawiki.org/wiki/Manual:Namespace)
           text:
             type: string
-            description: text name for the MediaWiki namespace
+            description: localized text name for the MediaWiki namespace
         required: [ id, text ]
         additionalProperties: false
       titles:
