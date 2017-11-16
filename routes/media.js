@@ -13,10 +13,10 @@ const router = sUtil.router();
 let app;
 
 /**
- * GET {domain}/v1/page/media/{title}
+ * GET {domain}/v1/page/media/{title}/{revision?}/{tid?}
  * Gets the media items associated with the given page.
  */
-router.get('/media/:title', (req, res) => {
+router.get('/media/:title/:revision?/:tid?', (req, res) => {
     return parsoid.getParsoidHtml(app, req).then((response) => {
         const headers = response.headers;
         const doc = domino.createDocument(response.body);
