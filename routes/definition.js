@@ -19,7 +19,7 @@ const router = sUtil.router();
 let app;
 
 /**
- * GET {domain}/v1/definition/{title}/{revision?}
+ * GET {domain}/v1/definition/{title}{/revision}
  * Gets the Wiktionary definition for a given term (and optional revision ID).
  */
 router.get('/definition/:title/:revision?', (req, res) => {

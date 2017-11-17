@@ -15,7 +15,7 @@ const router = sUtil.router();
 let app;
 
 /**
- * GET {domain}/v1/page/read-base-html/{title}/{revision?}/{tid?}
+ * GET {domain}/v1/page/read-base-html/{title}{/revision}{/tid}
  * Gets page content in HTML. This is based on Parsoid with some minor modifications more
  * suitable for the reading use cases.
  */
@@ -30,7 +30,7 @@ router.get('/read-base-html/:title/:revision?/:tid?', (req, res) => {
 });
 
 /**
- * GET {domain}/v1/page/read-html/{title}/{revision?}/{tid?}
+ * GET {domain}/v1/page/read-html/{title}{/revision}{/tid}
  * Gets page content in HTML. This is a more optimized for direct consumption by reading
  * clients.
  */

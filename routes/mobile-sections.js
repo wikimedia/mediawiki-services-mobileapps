@@ -341,7 +341,7 @@ function buildLeadResponse(req, res, legacy) {
 }
 
 /**
- * GET {domain}/v1/page/mobile-sections/{title}
+ * GET {domain}/v1/page/mobile-sections/{title}{/revision}{/tid}
  * Gets the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections/:title/:revision?/:tid?', (req, res) => {
@@ -349,7 +349,7 @@ router.get('/mobile-sections/:title/:revision?/:tid?', (req, res) => {
 });
 
 /**
- * GET {domain}/v1/page/mobile-sections-lead/{title}
+ * GET {domain}/v1/page/mobile-sections-lead/{title}{/revision}{/tid}
  * Gets the lead section for the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections-lead/:title/:revision?/:tid?', (req, res) => {
@@ -357,7 +357,7 @@ router.get('/mobile-sections-lead/:title/:revision?/:tid?', (req, res) => {
 });
 
 /**
- * GET {domain}/v1/page/mobile-sections-remaining/{title}
+ * GET {domain}/v1/page/mobile-sections-remaining/{title}{/revision}{/tid}
  * Gets the remaining sections for the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
@@ -372,7 +372,7 @@ router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
 });
 
 /**
- * GET {domain}/v1/page/references/{title}/{revision:?}
+ * GET {domain}/v1/page/references/{title}{/revision}{/tid}
  * Gets any sections which are part of a reference sections for a given wiki page.
  */
 router.get('/references/:title/:revision?/:tid?', (req, res) => {
@@ -412,7 +412,7 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
 });
 
 /**
-* GET {domain}/v1/page/formatted/{title}/{revision?}
+* GET {domain}/v1/page/formatted/{title}{/revision}{/tid}
 * Gets a formatted version of a given wiki page rather than a blob of wikitext.
 */
 router.get('/formatted/:title/:revision?/:tid?', (req, res) => {
@@ -420,7 +420,7 @@ router.get('/formatted/:title/:revision?/:tid?', (req, res) => {
 });
 
 /**
-* GET {domain}/v1/page/formatted-lead/{title}/{revision?}
+* GET {domain}/v1/page/formatted-lead/{title}{/revision}{/tid}
 * Gets a formatted version of a given wiki page rather than a blob of wikitext.
 */
 router.get('/formatted-lead/:title/:revision?/:tid?', (req, res) => {

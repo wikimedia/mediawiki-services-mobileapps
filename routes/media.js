@@ -13,7 +13,7 @@ const router = sUtil.router();
 let app;
 
 /**
- * GET {domain}/v1/page/media/{title}/{revision?}/{tid?}
+ * GET {domain}/v1/page/media/{title}{/revision}{/tid}
  * Gets the media items associated with the given page.
  */
 router.get('/media/:title/:revision?/:tid?', (req, res) => {
