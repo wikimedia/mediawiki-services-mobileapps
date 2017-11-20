@@ -708,11 +708,11 @@ paths:
                   revisions: /.+/
                   edit: /.+/
                   talk: /.+/
-#                mobile:
-#                  page: /.+/
-#                  revisions: /.+/
-#                  edit: /.+/
-#                  talk: /.+/
+                mobile:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
               api_urls:
                 summary: /.+/
 #                read_html: /.+/
@@ -934,8 +934,8 @@ definitions:
       content_urls:
         desktop:
           $ref: '#/definitions/content_urls'
-#        mobile:
-#          $ref: '#/definitions/content_urls'
+        mobile:
+          $ref: '#/definitions/content_urls'
       api_urls:
         $ref: '#/definitions/api_urls'
       coordinates:
