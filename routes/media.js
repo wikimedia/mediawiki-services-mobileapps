@@ -21,7 +21,7 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
         const headers = response.headers;
         const doc = domino.createDocument(response.body);
         // todo: handle Mathoid-rendered math images
-        const selection = doc.querySelectorAll('*[typeof^=mw:Image] img,*[typeof^=mw:Video] video');
+        const selection = doc.querySelectorAll(media.SELECTORS.join(','));
         if (!selection) {
             res.send({ items: [] });
             return;
