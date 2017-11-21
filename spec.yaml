@@ -565,7 +565,7 @@ paths:
     get:
       tags:
         - Media items on a given page
-      description: Gets the images and videos which appear on a given wiki page
+      description: Gets the media items (images, audio, and video) which appear on a given wiki page
       produces:
         - application/json
       responses:
@@ -578,7 +578,7 @@ paths:
           schema:
             $ref: '#/definitions/problem'
       x-amples:
-        - title: retrieve images and videos of en.wp Cat page via media route
+        - title: retrieve media items of en.wp Cat page via media route
           request:
             params:
               title: Cat
@@ -1257,12 +1257,13 @@ definitions:
         enum:
           - image
           - video
+          - audio
       start_time:
         type: number
-        desription: start time (if any) for a video's usage on the page
+        desription: start time (if any) for the media item
       end_time:
         type: number
-        desription: end time (if any) for a video's usage on the page
+        desription: end time (if any) for the media item
       url:
         type: string
         description: the content URL for the original item
