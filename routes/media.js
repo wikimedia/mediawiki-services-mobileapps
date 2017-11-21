@@ -27,7 +27,7 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
             return;
         }
         const mediaList = media.getMediaItemInfoFromPage(selection);
-        const titles = mediaList.map(item => item.title);
+        const titles = mUtil.deduplicate(mediaList.map(item => item.title));
         return BBPromise.props({
             metadata: media.getMetadataFromApi(app, req, titles),
             siteinfo: mwapi.getSiteInfo(app, req)

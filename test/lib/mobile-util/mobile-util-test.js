@@ -19,6 +19,24 @@ const arr5 = [ obj1, obj3, obj6 ];
 const arr6 = [ obj1, obj3 ];
 const arr7 = [ obj4, obj2 ];
 
+const ordered = [
+    { order: 1, join: 'foo' },
+    { order: 2, join: 'bar' },
+    { order: 3, join: 'baz' }
+];
+
+const unordered = [
+    { join: 'bar', extra: 'doc' },
+    { join: 'baz', extra: 'dickory' },
+    { join: 'foo', extra: 'hickory' },
+];
+
+const combined = [
+    { order: 1, join: 'foo', extra: 'hickory' },
+    { order: 2, join: 'bar', extra: 'doc' },
+    { order: 3, join: 'baz', extra: 'dickory' }
+];
+
 describe('lib:mobile-util', () => {
     it('removeTLD should remove TLD', () => {
         assert.deepEqual(mUtil.removeTLD('ru.wikipedia.org'), 'ru.wikipedia');
@@ -44,7 +62,17 @@ describe('lib:mobile-util', () => {
         assert.deepEqual(mUtil.extractDbTitleFromAnchor(link), 'My_db_title');
     });
 
-    it('mergeByProp should merge two objects by shared property', () => {
+    it('mergeByProp should preserve order of arr1', () => {
+        mUtil.mergeByProp(ordered, unordered, 'join', false);
+        assert.deepEqual(ordered, combined);
+    });
+
+    it('mergeByProp should not add obj if no obj in arr1 exists w/ prop=value & push=false', () => {
+        mUtil.mergeByProp(arr1, arr2, 'again', false);
+        assert.deepEqual(arr1, arr6);
+    });
+
+    it('mergeByProp should add obj if no obj in arr1 exists w/ prop=value & push=true', () => {
         mUtil.mergeByProp(arr1, arr2, 'again', true);
         assert.deepEqual(arr1, arr5);
     });
