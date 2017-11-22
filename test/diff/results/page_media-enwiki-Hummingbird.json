@@ -31,6 +31,8 @@
     {
       "title": "File:Purple-throated_carib_hummingbird_feeding.jpg",
       "type": "image",
+      "caption_html": "<a rel=\"mw:WikiLink\" href=\"./Purple-throated_carib\" title=\"Purple-throated carib\" id=\"mwSA\">Purple-throated carib</a> feeding at a flower",
+      "caption_text": "Purple-throated carib feeding at a flower",
       "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Purple-throated_carib_hummingbird_feeding.jpg",
       "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Purple-throated_carib_hummingbird_feeding.jpg/1280px-Purple-throated_carib_hummingbird_feeding.jpg",
       "mime": "image/jpeg",
@@ -62,6 +64,8 @@
     {
       "title": "File:Haeckel_Trochilidae.jpg",
       "type": "image",
+      "caption_html": "A color plate illustration from <a rel=\"mw:WikiLink\" href=\"./Ernst_Haeckel\" title=\"Ernst Haeckel\" id=\"mwaQ\">Ernst Haeckel</a>'s <i id=\"mwag\"><a rel=\"mw:WikiLink\" href=\"./Kunstformen_der_Natur\" title=\"Kunstformen der Natur\" id=\"mwaw\">Kunstformen der Natur</a></i> (1899), showing a variety of hummingbirds",
+      "caption_text": "A color plate illustration from Ernst Haeckel's Kunstformen der Natur (1899), showing a variety of hummingbirds",
       "url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Haeckel_Trochilidae.jpg",
       "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Haeckel_Trochilidae.jpg/1280px-Haeckel_Trochilidae.jpg",
       "mime": "image/jpeg",
@@ -176,6 +180,8 @@
     {
       "title": "File:AnnasHummingbirdPaloAltoNorvig.jpg",
       "type": "image",
+      "caption_html": "Male Anna's hummingbird showing iridescent crown and gorget feathers",
+      "caption_text": "Male Anna's hummingbird showing iridescent crown and gorget feathers",
       "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/AnnasHummingbirdPaloAltoNorvig.jpg",
       "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/AnnasHummingbirdPaloAltoNorvig.jpg",
       "mime": "image/jpeg",
@@ -204,6 +210,8 @@
     {
       "title": "File:Hummingbird_Aerodynamics_of_flight.jpg",
       "type": "image",
+      "caption_html": "A female <a rel=\"mw:WikiLink\" href=\"./Ruby-throated_hummingbird\" title=\"Ruby-throated hummingbird\" id=\"mwASQ\">ruby-throated hummingbird</a> hovering in mid-air",
+      "caption_text": "A female ruby-throated hummingbird hovering in mid-air",
       "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Hummingbird_Aerodynamics_of_flight.jpg",
       "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hummingbird_Aerodynamics_of_flight.jpg/1280px-Hummingbird_Aerodynamics_of_flight.jpg",
       "mime": "image/jpeg",
@@ -233,6 +241,8 @@
     {
       "title": "File:Hummingbird_feeding_closeup_2000fps.webm",
       "type": "video",
+      "caption_html": "Slow motion video of hummingbirds feeding",
+      "caption_text": "Slow motion video of hummingbirds feeding",
       "derivatives": [
         {
           "src": "https://upload.wikimedia.org/wikipedia/commons/2/21/Hummingbird_feeding_closeup_2000fps.webm",
@@ -298,6 +308,8 @@
     {
       "title": "File:Velvet-purple_coronets_sequence.tif",
       "type": "image",
+      "caption_html": "High speed capture sequence of two <a rel=\"mw:WikiLink\" href=\"./Velvet-purple_coronet\" title=\"Velvet-purple coronet\" id=\"mwAU4\">velvet-purple coronets</a> sparring near a hummingbird feeder in Ecuador",
+      "caption_text": "High speed capture sequence of two velvet-purple coronets sparring near a hummingbird feeder in Ecuador",
       "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Velvet-purple_coronets_sequence.tif",
       "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Velvet-purple_coronets_sequence.tif/lossy-page1-1280px-Velvet-purple_coronets_sequence.tif.jpg",
       "mime": "image/tiff",
@@ -326,6 +338,8 @@
     {
       "title": "File:Colibri-thalassinus-001-edit.jpg",
       "type": "image",
+      "caption_html": "<a rel=\"mw:WikiLink\" href=\"./Lesser_violetear\" title=\"Lesser violetear\" id=\"mwAZg\">Lesser violetear</a> at a flower",
+      "caption_text": "Lesser violetear at a flower",
       "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Colibri-thalassinus-001-edit.jpg",
       "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Colibri-thalassinus-001-edit.jpg/1280px-Colibri-thalassinus-001-edit.jpg",
       "mime": "image/jpeg",
@@ -356,6 +370,8 @@
     {
       "title": "File:Hummingbird.ogg",
       "type": "video",
+      "caption_html": "Hummingbird in <a rel=\"mw:WikiLink\" href=\"./Copiapó,_Chile\" title=\"Copiapó, Chile\" id=\"mwAaI\" class=\"mw-redirect\">Copiapó, Chile</a>: The apparent slow movement of its wings is a result of the <a rel=\"mw:WikiLink\" href=\"./Stroboscopic_effect\" title=\"Stroboscopic effect\" id=\"mwAaM\">stroboscopic effect</a>.",
+      "caption_text": "Hummingbird in Copiapó, Chile: The apparent slow movement of its wings is a result of the stroboscopic effect.",
       "derivatives": [
         {
           "src": "https://upload.wikimedia.org/wikipedia/commons/d/db/Hummingbird.ogv",
@@ -426,6 +442,8 @@
     {
       "title": "File:Hummingbirds_at_feeder.jpg",
       "type": "image",
+      "caption_html": "Hummingbirds hovering at an artificial nectar feeder",
+      "caption_text": "Hummingbirds hovering at an artificial nectar feeder",
       "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Hummingbirds_at_feeder.jpg",
       "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Hummingbirds_at_feeder.jpg",
       "mime": "image/jpeg",
@@ -455,6 +473,8 @@
     {
       "title": "File:Nazca_colibri.jpg",
       "type": "image",
+      "caption_html": "Aerial photograph of hummingbird image as part of <a rel=\"mw:WikiLink\" href=\"./Nazca_Lines\" title=\"Nazca Lines\" id=\"mwAhU\">Nazca Lines</a> in <a rel=\"mw:WikiLink\" href=\"./Peru\" title=\"Peru\" id=\"mwAhY\">Peru</a>",
+      "caption_text": "Aerial photograph of hummingbird image as part of Nazca Lines in Peru",
       "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Nazca_colibri.jpg",
       "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Nazca_colibri.jpg/1280px-Nazca_colibri.jpg",
       "mime": "image/jpeg",
