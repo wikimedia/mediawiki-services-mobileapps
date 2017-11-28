@@ -82,7 +82,7 @@ describe('announcements', function() {
                           // Comparing innerHTML and textContent lengths catches even non-tag html,
                           // such as '&nbsp;';
                           assert.equal(
-                            element.innerHTML.length, element.textContent.length,
+                              element.innerHTML.length, element.textContent.length,
                               `iOS does not support HTML in the "${textOnlyFieldName}" field` +
                               ` - this was encountered in the "${item.id}" announcement`
                           );

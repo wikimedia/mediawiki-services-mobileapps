@@ -41,9 +41,9 @@ describe('mobile-sections-v2', function() {
                 assert.equal(res.status, 200);
                 assert.ok(res.body.lead.hatnotes[0],
                     `See also: ${anchor}Military order (society)</a>`,
-                     'hatnote property should be present on lead.');
+                    'hatnote property should be present on lead.');
                 assert.ok(res.body.lead.text.indexOf('<div class="hatnote">') === -1,
-                     'Hatnote should not appear in lead section html.');
+                    'Hatnote should not appear in lead section html.');
             });
     });
 
@@ -67,7 +67,7 @@ describe('mobile-sections-v2', function() {
                 assert.ok(res.body.lead.infobox === undefined);
                 assert.ok(res.body.lead.intro !== undefined, 'Provided for summary purposes');
                 assert.ok(res.body.lead.text.indexOf(res.body.lead.intro),
-                  'Intro should not be removed from body');
+                    'Intro should not be removed from body');
             });
     });
 
@@ -88,7 +88,7 @@ describe('mobile-sections-v2', function() {
                 assert.equal(res.status, 200);
                 assert.ok(res.body.lead.infobox !== undefined);
                 assert.ok(res.body.lead.text.indexOf('"infobox') === -1,
-                  'The infobox is removed in version 2 of the api.');
+                    'The infobox is removed in version 2 of the api.');
             });
     });
 
@@ -101,14 +101,14 @@ describe('mobile-sections-v2', function() {
                 assert.equal(res.status, 200);
                 assert.ok(intro !== undefined, 'Intro property present.');
                 assert.ok(intro.indexOf('President of the United States') > -1,
-                  'Intro does not come from infobox.');
+                    'Intro does not come from infobox.');
                 assert.ok(intro.indexOf('undefined') === -1,
-                  'No undefined concatenations');
+                    'No undefined concatenations');
                 assert.ok(res.body.lead.text.indexOf(intro) === -1,
-                  'Intro is not present in section text.');
+                    'Intro is not present in section text.');
                 assert.equal(res.body.lead.wikibase_item, 'Q76');
                 assert.ok(res.body.lead.description.indexOf('44th') > -1,
-                  'Description is a string and contains "44th"');
+                    'Description is a string and contains "44th"');
             });
     });
 
@@ -122,7 +122,7 @@ describe('mobile-sections-v2', function() {
                 assert.ok(intro.indexOf('<p>') > -1, 'intro is html');
                 assert.ok(intro.indexOf('stellar remnant') > -1);
                 assert.ok(intro.indexOf('</ul>') > -1,
-                  'List element is bundled into paragraph');
+                    'List element is bundled into paragraph');
             });
     });
 });

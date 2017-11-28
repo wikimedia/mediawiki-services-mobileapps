@@ -49,8 +49,8 @@ describe('onthisday-large', function() {
             if (Object.prototype.hasOwnProperty.call(languages, lang)) {
                 for (const type of eventTypes) {
                     for (const date = new Date(Date.UTC(2016, 0, 1)); // use a leap year
-                         date < new Date(Date.UTC(2017, 0, 1));
-                         date.setUTCDate(date.getUTCDate() + 1)) {
+                        date < new Date(Date.UTC(2017, 0, 1));
+                        date.setUTCDate(date.getUTCDate() + 1)) {
 
                         const month = dateUtil.pad(date.getUTCMonth() + 1);
                         const day = dateUtil.pad(date.getUTCDate());

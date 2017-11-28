@@ -332,8 +332,8 @@ describe('onthisday', function() {
 
     it('eventsForYearListElements returns a WMFEvent for only year list elements', () => {
         assert.deepEqual(
-           onThisDay.testing.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en').length, 4,
-           'Should return WMFEvent for each of 4 year list elements'
+            onThisDay.testing.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en').length, 4,
+            'Should return WMFEvent for each of 4 year list elements'
         );
     });
 
@@ -494,7 +494,7 @@ describe('onthisday', function() {
         // https://ar.wikipedia.org/api/rest_v1/page/html/1_يناير
         const arDocument = documentFromFixtureFile('ar.January_1.html');
         const arListElements = onThisDay.testing.listElementsByHeadingID(
-          arDocument, ['.D9.85.D9.88.D8.A7.D9.84.D9.8A.D8.AF'], 'ar'
+            arDocument, ['.D9.85.D9.88.D8.A7.D9.84.D9.8A.D8.AF'], 'ar'
         );
         it('expected textContent for list items nested within a year-dash list item', () => {
             assert.deepEqual(arListElements[18].textContent,

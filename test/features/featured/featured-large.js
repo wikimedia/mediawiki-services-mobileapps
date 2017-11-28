@@ -40,8 +40,8 @@ describe('featured-large', function() {
     if (process.env.LARGE_TESTS) {
         for (const lang of languages) {
             for (const date = new Date(Date.UTC(2016, 0, 1));
-                 date < new Date();
-                 date.setUTCDate(date.getUTCDate() + 1)) {
+                date < new Date();
+                date.setUTCDate(date.getUTCDate() + 1)) {
 
                 const dateString = testUtil.constructTestDate(date);
                 it(`${lang}: ${dateString}`, () => {

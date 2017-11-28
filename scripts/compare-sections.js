@@ -65,15 +65,14 @@ const simplifyExtractValue = (value) => {
         .replace(/ class=\\"mw-redirect\\"/g, '')
         .replace(/ id=\\"mw[-\w]+\\"/g, '')
         .replace(/#mwt\d{1,4}/g, '#mwt000')
-        .replace(/ data-mw=\\"\\.+?\\}\\"/g, ' data-mw=\"{}\"')
+        .replace(/ data-mw=\\"\\.+?\\}\\"/g, ' data-mw="{}"')
         // break lines for easier diffing:
         .replace(/(<h\d)/g, "\n$1")
         .replace(/(<\/h\d>)/g, "$1\n")
         .replace(/(<section)/g, "\n$1")
         .replace(/(<\/section>)/g, "$1\n")
-        .replace(/(.{50}[^<>]{0,50}>?)/g, "$1\n")
-        // ^ keep lines to a reasonable width (try to break near HTML tags)
-        ;
+        .replace(/(.{50}[^<>]{0,50}>?)/g, "$1\n");
+    // ^ keep lines to a reasonable width (try to break near HTML tags)
 };
 
 const getExtractHtml = (response) => {

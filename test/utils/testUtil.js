@@ -12,8 +12,8 @@ const testUtil = {};
  */
 testUtil.constructTestDate = function(dateObj) {
     return `${dateObj.getUTCFullYear()}/${
-         dateUtil.pad(dateObj.getUTCMonth() + 1)}/${
-         dateUtil.pad(dateObj.getUTCDate())}`;
+        dateUtil.pad(dateObj.getUTCMonth() + 1)}/${
+        dateUtil.pad(dateObj.getUTCDate())}`;
 };
 
 module.exports = testUtil;
