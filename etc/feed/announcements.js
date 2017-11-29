@@ -7,7 +7,7 @@ const AnnouncementType = {
 
 const type = AnnouncementType.FUNDRAISING;
 const activeWiki = 'en.wikipedia.org';
-const startTime = '2017-12-06T16:00:00Z';
+const startTime = '2017-11-30T16:00:00Z';
 const endTime = '2017-12-31T00:00:00Z';
 const idPrefix = 'EN1217';
 const androidDestinationUrl
@@ -18,7 +18,7 @@ const iosDestinationUrl
 // const imageUrl = undefined; // no image this time
 const buttonLabel = 'Donate now';
 const disclaimerHtml
-    = 'By submitting, you are agreeing to our <a href="https://wikimediafoundation.org/wiki/Donor_policy/en">donor privacy policy</a>';
+    = 'By submitting, you are agreeing to our <a href="https://wikimediafoundation.org/wiki/Donor_policy/en">donor privacy policy</a>.';
 
 const countryVariants = [ {
     countryCode: 'US',
