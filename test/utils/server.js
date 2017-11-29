@@ -1,10 +1,6 @@
 'use strict';
 
 
-// mocha defines to avoid JSHint breakage
-/* global describe, it, before, beforeEach, after, afterEach */
-
-
 // Default to recording+replaying http fixtures,
 // only if we are not running in Docker
 if (process.env.IN_DOCKER) {
@@ -67,7 +63,7 @@ function start(_options) {
                         servers.forEach(server =>
                             server.shutdown()));
                     return runner.stop().then(() => {
-                        module.exports.stop = function() {
+                        module.exports.stop = () => {
                             return BBPromise.resolve();
                         };
                     });
