@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 'use strict';
 
 const bunyan = require('bunyan');
@@ -21,7 +23,6 @@ function logStream(logStdout) {
                 }
             }
         } catch (e) {
-            // eslint-disable-next-line no-console
             console.error('something went wrong trying to parrot a log entry', e, chunk);
         }
 
@@ -51,18 +52,20 @@ function logStream(logStdout) {
             return log.slice(begin, end);
         }
 
+        /* Disable eslint object-shorthand until Node 4 support is dropped */
+        /* eslint-disable object-shorthand */
         return {
-            halt: halt, // eslint-disable-line object-shorthand
-            get: get // eslint-disable-line object-shorthand
+            halt: halt,
+            get: get
         };
 
     }
 
     return {
-        write: write, // eslint-disable-line object-shorthand
-        end: end, // eslint-disable-line object-shorthand
-        slice: slice, // eslint-disable-line object-shorthand
-        get: get // eslint-disable-line object-shorthand
+        write: write,
+        end: end,
+        slice: slice,
+        get: get
     };
 }
 
