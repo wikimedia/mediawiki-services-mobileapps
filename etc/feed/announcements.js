@@ -18,7 +18,7 @@ const iosDestinationUrl
 // const imageUrl = undefined; // no image this time
 const buttonLabel = 'Donate now';
 const disclaimerHtml
-    = 'Privacy disclaimer text: By submitting, you are agreeing to our <a href="https://wikimediafoundation.org/wiki/Donor_policy/en">donor privacy policy</a>';
+    = 'By submitting, you are agreeing to our <a href="https://wikimediafoundation.org/wiki/Donor_policy/en">donor privacy policy</a>';
 
 const countryVariants = [ {
     countryCode: 'US',
