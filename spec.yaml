@@ -1298,7 +1298,6 @@ definitions:
       - width
       - height
       - size
-      - derivatives
       - ext
 
   action:
