@@ -20,7 +20,7 @@ const buttonLabel = 'Donate now';
 const disclaimerHtml
     = 'By submitting, you are agreeing to our <a href="https://wikimediafoundation.org/wiki/Donor_policy/en">donor privacy policy</a>.';
 
-const countryVariants = [ {
+const androidCountryVariants = [ {
     countryCode: 'US',
     country: 'the U.S.',
     currency: '$',
@@ -41,6 +41,38 @@ const countryVariants = [ {
 }, {
     countryCode: 'CA',
     country: 'Canada',
+    currency: '$',
+    average: 15,
+    coffee: 3
+}, {
+    countryCode: 'NZ',
+    country: 'New Zealand',
+    currency: '$',
+    average: 15,
+    coffee: 3
+}, {
+    countryCode: 'IE',
+    country: 'Ireland',
+    currency: '€',
+    average: 10,
+    coffee: 2
+}];
+
+const iOSCountryVariants = [ {
+    countryCode: 'US',
+    country: 'the U.S.',
+    currency: '$',
+    average: 15,
+    coffee: 3
+}, {
+    countryCode: 'GB',
+    country: 'the UK',
+    currency: '£',
+    average: 10,
+    coffee: 2
+}, {
+    countryCode: 'AU',
+    country: 'Australia',
     currency: '$',
     average: 15,
     coffee: 3
@@ -84,6 +116,7 @@ module.exports = {
     // imageUrl,
     buttonLabel,
     disclaimerHtml,
-    countryVariants,
+    androidCountryVariants,
+    iOSCountryVariants,
     buildBaseBodyText
 };
