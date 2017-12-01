@@ -591,8 +591,9 @@ paths:
                 - title: /.+/
                   type: /.+/
                   url: /.+/
-                  thumbUrl: /.+/
                   mime: /.+/
+                  thumb_url: /.+/
+                  thumb_mime: /.+/
                   width: /.+/
                   height: /.+/
                   size: /.+/
@@ -1273,12 +1274,15 @@ definitions:
       url:
         type: string
         description: the content URL for the original item
-      thumbUrl:
+      thumb_url:
         type: string
         description: the URL for a thumbnail of the original item
       mime:
         type: string
-        description: the MIME type
+        description: the MIME type for the original item
+      thumb_mime:
+        type: string
+        description: the MIME type for the thumbnail
       width:
         type: integer
         description: the original width
@@ -1287,7 +1291,10 @@ definitions:
         description: the original height
       size:
         type: integer
-        description: the original file size (sizes are not provided for video derivatives)
+        description: the original file size in bytes (sizes are not provided for video derivatives)
+      duration:
+        type: number
+        description: the playback duration in seconds (for audio and video items)
       derivatives:
         type: array
         description: a list of derivatives of the original file (applies only to videos)
@@ -1300,12 +1307,14 @@ definitions:
       - title
       - type
       - url
-      - thumbUrl
+      - thumb_url
       - mime
+      - thumb_mime
       - width
       - height
       - size
       - ext
+    additionalProperties: false
 
   action:
     type: object
