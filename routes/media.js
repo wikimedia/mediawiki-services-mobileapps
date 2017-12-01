@@ -1,7 +1,6 @@
 'use strict';
 
 const BBPromise = require('bluebird');
-const domino = require('domino');
 const mUtil = require('../lib/mobile-util');
 const parsoid = require('../lib/parsoid-access');
 const sUtil = require('../lib/util');
@@ -21,14 +20,11 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
         siteinfo: mwapi.getSiteInfo(app, req)
     }).then((response) => {
         const revTid = parsoid.getRevAndTidFromEtag(response.html.headers);
-        const doc = domino.createDocument(response.html.body);
-        // todo: handle Mathoid-rendered math images
-        const selection = doc.querySelectorAll(media.SELECTORS.join(','));
-        if (!selection) {
+        const mediaList = media.getMediaItemInfoFromPage(response.html.body);
+        if (!mediaList.length) {
             res.send({ items: [] });
             return;
         }
-        const mediaList = media.getMediaItemInfoFromPage(selection);
         const titles = mUtil.deduplicate(mediaList.map(item => item.title));
         return media.getMetadataFromApi(app, req, titles, response.siteinfo).then((response) => {
             mUtil.mergeByProp(mediaList, response.items, 'title', false);
