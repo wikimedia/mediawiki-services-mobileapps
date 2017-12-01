@@ -35,4 +35,4 @@ tag="deploy/$deploy_commit_date/$deploy_commit_id"
 
 # Tag the latest code repo commit with it & push tags
 cd "$repo_dir"
-git tag -s "$tag" -m "deployed" && git push --tags && printf "Applied new tag: $tag\n"
+git tag -s "$tag" -m "deployed" && git push origin "$tag" && printf "Applied new tag: $tag\n"
