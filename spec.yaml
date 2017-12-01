@@ -589,14 +589,17 @@ paths:
             body:
               items:
                 - title: /.+/
-                  type: /.+/
-                  url: /.+/
-                  mime: /.+/
-                  thumb_url: /.+/
-                  thumb_mime: /.+/
-                  width: /.+/
-                  height: /.+/
-                  size: /.+/
+                  thumb:
+                    source: /.+/
+                    width: /.+/
+                    height: /.+/
+                    mime: /.+/
+                  original:
+                    source: /.+/
+                    width: /.+/
+                    height: /.+/
+                    mime: /.+/
+                    size: /.+/
                   license: /.+/
 
   # from routes/definition.js
@@ -861,10 +864,17 @@ definitions:
         type: integer
         minimum: 0
         description: height (px)
+      mime:
+        type: string
+        description: MIME type
+      size:
+        type: number
+        description: file size, in bytes
     required:
       - source
       - width
       - height
+    additionalProperties: false
 
   # see also RB v1/common_schemas.yaml
   summary:
@@ -1253,6 +1263,35 @@ definitions:
       title:
         type: string
         description: the prefixed DB title for the item
+      thumb:
+        source:
+          type: string
+          description: thumb URL
+        width:
+          type: integer
+          description: thumb width
+        height:
+          type: integer
+          description: thumb height
+        mime:
+          type: string
+          description: thumb MIME type
+      original:
+        source:
+          type: string
+          description: original URL
+        width:
+          type: integer
+          description: original width
+        height:
+          type: integer
+          description: original height
+        mime:
+          type: string
+          description: original MIME type
+        size:
+          type: integer
+          description: the original file size in bytes (sizes are not provided for video derivatives)
       type:
         type: string
         enum:
@@ -1271,27 +1310,6 @@ definitions:
       end_time:
         type: number
         desription: end time (if any) for the media item
-      url:
-        type: string
-        description: the content URL for the original item
-      thumb_url:
-        type: string
-        description: the URL for a thumbnail of the original item
-      mime:
-        type: string
-        description: the MIME type for the original item
-      thumb_mime:
-        type: string
-        description: the MIME type for the thumbnail
-      width:
-        type: integer
-        description: the original width
-      height:
-        type: integer
-        description: the original height
-      size:
-        type: integer
-        description: the original file size in bytes (sizes are not provided for video derivatives)
       duration:
         type: number
         description: the playback duration in seconds (for audio and video items)
@@ -1318,13 +1336,8 @@ definitions:
     required:
       - title
       - type
-      - url
-      - thumb_url
-      - mime
-      - thumb_mime
-      - width
-      - height
-      - size
+      - thumb
+      - original
       - license
     additionalProperties: false
 

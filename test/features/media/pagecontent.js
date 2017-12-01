@@ -12,9 +12,9 @@ describe('media', function() {
     before(() => { return server.start(); });
 
     function checkItemHasExpectedProperties(item) {
-        const urlStart = 'https://upload.wikimedia.org/';
+        const host = 'https://upload.wikimedia.org/';
         assert.ok(item.title.indexOf('File:') === 0, 'Expected title to start with "File:"');
-        assert.ok(item.url.indexOf(urlStart) === 0, 'Expected url to start with certain text');
+        assert.ok(item.original.source.indexOf(host) === 0, `Expected url to begin with ${host}`);
     }
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
