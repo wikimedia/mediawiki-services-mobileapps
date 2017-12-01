@@ -7,7 +7,6 @@ const parsoid = require('../lib/parsoid-access');
 const sUtil = require('../lib/util');
 const mwapi = require('../lib/mwapi');
 const media = require('../lib/media');
-const Title = require('mediawiki-title').Title;
 
 const router = sUtil.router();
 let app;
@@ -17,9 +16,12 @@ let app;
  * Gets the media items associated with the given page.
  */
 router.get('/media/:title/:revision?/:tid?', (req, res) => {
-    return parsoid.getParsoidHtml(app, req).then((response) => {
-        const headers = response.headers;
-        const doc = domino.createDocument(response.body);
+    return BBPromise.props({
+        html: parsoid.getParsoidHtml(app, req),
+        siteinfo: mwapi.getSiteInfo(app, req)
+    }).then((response) => {
+        const revTid = parsoid.getRevAndTidFromEtag(response.html.headers);
+        const doc = domino.createDocument(response.html.body);
         // todo: handle Mathoid-rendered math images
         const selection = doc.querySelectorAll(media.SELECTORS.join(','));
         if (!selection) {
@@ -28,22 +30,11 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
         }
         const mediaList = media.getMediaItemInfoFromPage(selection);
         const titles = mUtil.deduplicate(mediaList.map(item => item.title));
-        return BBPromise.props({
-            metadata: media.getMetadataFromApi(app, req, titles),
-            siteinfo: mwapi.getSiteInfo(app, req)
-        }).then((response) => {
-            const revTid = parsoid.getRevAndTidFromEtag(headers);
-            const metadataList = response.metadata.items;
-            metadataList.forEach((item) => {
-                item.title = Title.newFromText(item.title, response.siteinfo).getPrefixedDBKey();
-            });
-            mUtil.mergeByProp(mediaList, metadataList, 'title', false);
-            const result = mediaList.filter((item) => {
-                return media.filterResult(item);
-            });
+        return media.getMetadataFromApi(app, req, titles, response.siteinfo).then((response) => {
+            mUtil.mergeByProp(mediaList, response.items, 'title', false);
             mUtil.setETag(res, revTid.revision, revTid.tid);
             mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
-            res.send({ items: result });
+            res.send({ items: mediaList.filter(item => media.filterResult(item)) });
         });
     });
 });
