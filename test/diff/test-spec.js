@@ -243,6 +243,7 @@ const TEST_SPECS = [
     new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613', 'cb218d7e-30dc-11e7-8133-b946c9a92329'),
 
     new TestPageSpec('en.wikipedia.org', 'page/media', 'Hummingbird', '810247947', '63e03102-d5e8-11e7-b8d6-89c3c376722f'),
+    new TestPageSpec('en.wikipedia.org', 'page/media', 'Košice', '809487065', '60462cc6-c6d0-11e7-b18a-320d7376a8ae'),
 
     // new TestSpec('en.wiktionary.org', 'page/definition', ['cat']),
 ];
