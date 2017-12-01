@@ -65,6 +65,12 @@ const spokenWikipedia =
         '<figure typeof="mw:Audio"><video resource="./File:Foo"/></figure>' +
     '</div>';
 
+const pronunciationAudio =
+    '<span class="IPA"></span>' +
+    '<small>' +
+        '<a rel="mw:MediaLink" title="Foo">Pronunciation</a>' +
+    '</small>';
+
 describe('lib:media', () => {
 
     it('items should be found for expected selectors', () => {
@@ -110,6 +116,13 @@ describe('lib:media', () => {
     it('spoken Wikipedia file is correctly identified', () => {
         const result = media.getMediaItemInfoFromPage(spokenWikipedia)[0];
         assert.deepEqual(result.audio_type, 'spoken');
+    });
+
+    it('pronunciation audio file is correctly identified', () => {
+        const result = media.getMediaItemInfoFromPage(pronunciationAudio)[0];
+        assert.deepEqual(result.title, 'File:Foo');
+        assert.deepEqual(result.type, 'audio');
+        assert.deepEqual(result.audio_type, 'pronunciation');
     });
 
 });

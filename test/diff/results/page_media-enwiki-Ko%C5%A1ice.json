@@ -25,6 +25,28 @@
       "description": "Kassán, 1902. május 31-én keltezett képeslap. Egy és kétkoronás áruház. Kassa, Fő utcza. Courtesy, scanned by Derzsi Elekes Andor. ©© Derzsi Elekes Andor, Budapest, 2014, A kép másolását, bármilyen úton történő sokszorosítását és felhasználását a szerző ellenérték nélkül, jogutódjaira is kihatóan megengedi. Az engedély kiterjed a kereskedelmi célú hasznosításra is. Kéri azonban nevének feltüntetését a felhasználás során. A Metapolisz sorozat valamennyi képe és filmje Creative Commons alatti valamint kereskedelmi - for profit - célra is felhasználható. Ajánlott hivatkozás: Derzsi Elekes Andor: Metapolisz DVD line <a rel=\"nofollow\" class=\"external free\" href=\"http://nektar.oszk.hu/en/manifestation/2623913\">http://nektar.oszk.hu/en/manifestation/2623913</a>"
     },
     {
+      "title": "File:Kassa.ogg",
+      "type": "audio",
+      "audio_type": "pronunciation",
+      "thumb": {
+        "source": "https://en.wikipedia.org/w/resources/assets/file-type-icons/fileicon-ogg.png",
+        "width": 1280,
+        "height": 1280,
+        "mime": "image/jpeg"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Kassa.ogg",
+        "mime": "application/ogg",
+        "size": 25150
+      },
+      "duration": 4.2144217687075,
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rokarudi\" title=\"User:Rokarudi\">Rokarudi</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "The Hungarian name of Kassa pronunced ny a native speaker. (in Slovakian: Kosice)"
+    },
+    {
       "title": "File:Slovakia_Kosice_21.jpg",
       "type": "image",
       "caption_html": "Main Street",
