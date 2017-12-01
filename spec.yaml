@@ -597,7 +597,7 @@ paths:
                   width: /.+/
                   height: /.+/
                   size: /.+/
-                  ext: /.+/
+                  license: /.+/
 
   # from routes/definition.js
   /{domain}/v1/page/definition/{title}:
@@ -1300,9 +1300,21 @@ definitions:
         description: a list of derivatives of the original file (applies only to videos)
         items:
           type: object
-      ext:
-        type: object
-        description: extended metadata about the object (provided by the CommonsMetadata extension)
+      artist:
+        type: string
+        description: author of the media item
+      credit:
+        type: string
+        description: source of the media item
+      license:
+        type: string
+        description: license under which the media item is available on Wikimedia Commons
+      license_url:
+        type: string
+        description: URL for the pertinent license
+      description:
+        type: string
+        description: description of the image from Wikimedia Commons
     required:
       - title
       - type
@@ -1313,7 +1325,7 @@ definitions:
       - width
       - height
       - size
-      - ext
+      - license
     additionalProperties: false
 
   action:

@@ -10,24 +10,11 @@
       "width": 4010,
       "height": 4010,
       "size": 7949516,
-      "ext": {
-        "DateTime": "2017-03-12 18:15:38",
-        "ObjectName": "Trinidad and Tobago hummingbirds composite",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Amazilia brevirostris|Birds of Trinidad and Tobago|Chlorestes notata|Chrysolampis mosquitus|Florisuga mellivora|Self-published work|Trochilidae",
-        "Assessments": "quality",
-        "ImageDescription": "Trinidad and Tobago hummingbirds. Composite of birds from Trinidad and Tobago<br><p><a href=\"//commons.wikimedia.org/wiki/File:Blue-chinned_sapphire_(Chlorestes_notata_notata)_male.jpg\" title=\"File:Blue-chinned sapphire (Chlorestes notata notata) male.jpg\">Blue-chinned sapphire</a> (<i>Chlorestes notata notata</i>) male, Trindad<br><a href=\"//commons.wikimedia.org/wiki/File:Ruby-topaz_hummingbird_(Chrysolampis_mosquitus)_male.jpg\" title=\"File:Ruby-topaz hummingbird (Chrysolampis mosquitus) male.jpg\">Ruby-topaz hummingbird</a> (<i>Chrysolampis mosquitus</i>) male, Tobago<br>\nWhite-chested emerald (<i>Amazilia brevirostris</i>), Trinidad<br></p>\n<a href=\"//commons.wikimedia.org/wiki/File:White-necked_jacobin_(Florisuga_mellivora_mellivora)_male_Tr.jpg\" title=\"File:White-necked jacobin (Florisuga mellivora mellivora) male Tr.jpg\">White-necked jacobin</a> (<i>Florisuga mellivora mellivora</i>) male Trinidad",
-        "DateTimeOriginal": "2014-12-11",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Charlesjsharp\" title=\"User:Charlesjsharp\">Charlesjsharp</a>",
-        "LicenseShortName": "CC BY-SA 4.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 4.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-4.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Charlesjsharp\" title=\"User:Charlesjsharp\">Charlesjsharp</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "description": "Trinidad and Tobago hummingbirds. Composite of birds from Trinidad and Tobago<br><p><a href=\"//commons.wikimedia.org/wiki/File:Blue-chinned_sapphire_(Chlorestes_notata_notata)_male.jpg\" title=\"File:Blue-chinned sapphire (Chlorestes notata notata) male.jpg\">Blue-chinned sapphire</a> (<i>Chlorestes notata notata</i>) male, Trindad<br><a href=\"//commons.wikimedia.org/wiki/File:Ruby-topaz_hummingbird_(Chrysolampis_mosquitus)_male.jpg\" title=\"File:Ruby-topaz hummingbird (Chrysolampis mosquitus) male.jpg\">Ruby-topaz hummingbird</a> (<i>Chrysolampis mosquitus</i>) male, Tobago<br>\nWhite-chested emerald (<i>Amazilia brevirostris</i>), Trinidad<br></p>\n<a href=\"//commons.wikimedia.org/wiki/File:White-necked_jacobin_(Florisuga_mellivora_mellivora)_male_Tr.jpg\" title=\"File:White-necked jacobin (Florisuga mellivora mellivora) male Tr.jpg\">White-necked jacobin</a> (<i>Florisuga mellivora mellivora</i>) male Trinidad"
     },
     {
       "title": "File:Purple-throated_carib_hummingbird_feeding.jpg",
@@ -41,27 +28,11 @@
       "width": 1956,
       "height": 1304,
       "size": 595712,
-      "ext": {
-        "DateTime": "2015-04-29 09:49:25",
-        "ObjectName": "Purple-throated carib hummingbird feeding",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Birds of Dominica|Eulampis jugularis in flight|Media with locations|Pages with maps|Self-published work|Trochilinae feeding on flowers",
-        "Assessments": "valued",
-        "GPSLatitude": "15.489155",
-        "GPSLongitude": "-61.431501",
-        "GPSMapDatum": "WGS-84",
-        "ImageDescription": "Purple-throated Carib hummingbird (<i>Eulampis jugularis</i>) feeding photographed in its natural habitat in the Morne Diablotins National Park in Dominica. Guide was local expert 'Dr Birdy' Bertrand Baptiste.",
-        "DateTimeOriginal": "2010-12-01",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"http://www.sharpphotography.co.uk/\">Sharp Photography, sharpphotography</a>",
-        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Charlesjsharp\" title=\"User:Charlesjsharp\">Charlesjsharp</a>",
-        "LicenseShortName": "CC BY 3.0",
-        "UsageTerms": "Creative Commons Attribution 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "http://creativecommons.org/licenses/by/3.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-3.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Charlesjsharp\" title=\"User:Charlesjsharp\">Charlesjsharp</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"http://www.sharpphotography.co.uk/\">Sharp Photography, sharpphotography</a>",
+      "license": "CC BY 3.0",
+      "license_url": "http://creativecommons.org/licenses/by/3.0",
+      "description": "Purple-throated Carib hummingbird (<i>Eulampis jugularis</i>) feeding photographed in its natural habitat in the Morne Diablotins National Park in Dominica. Guide was local expert 'Dr Birdy' Bertrand Baptiste."
     },
     {
       "title": "File:Haeckel_Trochilidae.jpg",
@@ -75,24 +46,10 @@
       "width": 2359,
       "height": 3308,
       "size": 2029889,
-      "ext": {
-        "DateTime": "2006-01-28 17:42:44",
-        "ObjectName": "Haeckel Trochilidae",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Archilochus colubris (illustrations)|Augastes lumachella|CC-PD-Mark|Colibri serrirostris|Ensifera ensifera|Eutoxeres condamini|Featured pictures on Wikipedia, English|Heliactin bilophus|Hummingbirds in art|Images requiring extraction|Images with extracted images|Kunstformen der Natur (1904)|Lophornis gouldii|Lophornis ornatus|Ocreatus underwoodii|PD Old|Posted to Wikimedia Foundation Pinterest|Sappho sparganura|Sephanoides fernandensis|Topaza pella",
-        "Assessments": "",
-        "ImageDescription": "<span class=\"langlabel-en\" lang=\"en\" style=\"font-weight:bold;\">English:</span> Hummingbirds (drawn from millinery specimens, body positions are not natural)<br><ul>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Ruby-throated_Hummingbird\" class=\"extiw\" title=\"en:Ruby-throated Hummingbird\">Ruby-throated Hummingbird</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Horned_Sungem\" class=\"extiw\" title=\"en:Horned Sungem\">Horned Sungem</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Crimson_Topaz\" class=\"extiw\" title=\"en:Crimson Topaz\">Crimson Topaz</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Red-tailed_Comet\" class=\"extiw\" title=\"en:Red-tailed Comet\">Red-tailed Comet</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Tufted_Coquette\" class=\"extiw\" title=\"en:Tufted Coquette\">Tufted Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Sword-billed_Hummingbird\" class=\"extiw\" title=\"en:Sword-billed Hummingbird\">Sword-billed Hummingbird</a>\n</li>\n<li><a href=\"https://en.wikipedia.org/wiki/Buff-tailed_Sicklebill\" class=\"extiw\" title=\"en:Buff-tailed Sicklebill\">Buff-tailed Sicklebill</a></li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Dot-eared_Coquette\" class=\"extiw\" title=\"en:Dot-eared Coquette\">Dot-eared Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/White-vented_Violetear\" class=\"extiw\" title=\"en:White-vented Violetear\">White-vented Violetear</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Hooded_Visorbearer\" class=\"extiw\" title=\"en:Hooded Visorbearer\">Hooded Visorbearer</a>\n</li>\n<li>Female <a href=\"https://en.wikipedia.org/wiki/Juan_Fern%C3%A1ndez_Firecrown\" class=\"extiw\" title=\"en:Juan Fernández Firecrown\">Juan Fernández Firecrown</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Booted_Racket-tail\" class=\"extiw\" title=\"en:Booted Racket-tail\">Booted Racket-tail</a>\n</li>\n</ul>",
-        "DateTimeOriginal": "1904",
-        "Credit": "<i><a href=\"//commons.wikimedia.org/wiki/Kunstformen_der_Natur\" title=\"Kunstformen der Natur\">Kunstformen der Natur</a></i> (1904), plate 99: Trochilidae (see <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_300.html\">here</a>, <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_text_1_200.html\">here</a> and <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_text_2_200.html\">here</a>)",
-        "Artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Ernst_Haeckel\" class=\"extiw\" title=\"w:en:Ernst Haeckel\">Ernst Haeckel</a></bdi>",
-        "Permission": "<table class=\"licensetpl\" style=\"display:none\"><tr>\n<td>\n<span class=\"licensetpl_short\">Public domain</span><span class=\"licensetpl_long\">Public domain</span><span class=\"licensetpl_link_req\">false</span><span class=\"licensetpl_attr_req\">false</span>\n</td>\n</tr></table>\n<table style=\"width:100%; clear:both; margin:0.5em auto; background-color:#f7f8ff; border:2px solid #8888aa; direction: ltr; border-spacing: 8px; padding: 0px;\" class=\"layouttemplate mw-content-ltr\" lang=\"en\">\n<tr>\n<td rowspan=\"2\"><img alt=\"Public domain\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/PD-icon.svg/64px-PD-icon.svg.png\" title=\"Public domain\" width=\"64\" height=\"64\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/PD-icon.svg/96px-PD-icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/PD-icon.svg/128px-PD-icon.svg.png 2x\" data-file-width=\"196\" data-file-height=\"196\"></td>\n<td>\n<p>This work is in the <b><a href=\"https://en.wikipedia.org/wiki/public_domain\" class=\"extiw\" title=\"en:public domain\">public domain</a></b> in its country of origin and other countries and areas where the <a href=\"https://en.wikipedia.org/wiki/List_of_countries%27_copyright_length\" class=\"extiw\" title=\"w:List of countries' copyright length\">copyright term</a> is the author's <b>life plus 70 years or less</b>.</p>\n<hr>\n<p><img alt=\"Dialog-warning.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Dialog-warning.svg/25px-Dialog-warning.svg.png\" width=\"25\" height=\"25\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Dialog-warning.svg/38px-Dialog-warning.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Dialog-warning.svg/50px-Dialog-warning.svg.png 2x\" data-file-width=\"48\" data-file-height=\"48\"><small>You must also include a <a href=\"//commons.wikimedia.org/wiki/Commons:Copyright_tags#United_States\" title=\"Commons:Copyright tags\">United States public domain tag</a> to indicate why this work is in the public domain in the United States. Note that a few countries have copyright terms longer than 70 years: Mexico has 100 years, Jamaica has 95 years, Colombia has 80 years, and Guatemala and Samoa have 75 years. This image may <i>not</i> be in the public domain in these countries, which moreover do <i>not</i> implement the <a href=\"https://en.wikipedia.org/wiki/rule_of_the_shorter_term\" class=\"extiw\" title=\"w:rule of the shorter term\">rule of the shorter term</a>. Côte d'Ivoire has a general copyright term of 99 years and Honduras has 75 years, but they <i>do</i> implement the rule of the shorter term. Copyright may extend on works created by French who died for France in <a href=\"https://en.wikipedia.org/wiki/World_War_II\" class=\"extiw\" title=\"w:World War II\">World War II</a> (<a href=\"//commons.wikimedia.org/wiki/Commons:Copyright_rules_by_territory/France\" title=\"Commons:Copyright rules by territory/France\">more information</a>), Russians who served in <a href=\"https://en.wikipedia.org/wiki/Eastern_Front_(World_War_II)\" class=\"extiw\" title=\"w:Eastern Front (World War II)\">the Eastern Front of World War II</a> (known as the Great Patriotic War in Russia) and posthumously <a href=\"https://en.wikipedia.org/wiki/Rehabilitation_(Soviet)\" class=\"extiw\" title=\"w:Rehabilitation (Soviet)\">rehabilitated</a> victims of Soviet repressions (<a href=\"//commons.wikimedia.org/wiki/Template:PD-Russia-2008\" class=\"mw-redirect\" title=\"Template:PD-Russia-2008\">more information</a>).</small></p>\n</td>\n</tr>\n<tr>\n<td colspan=\"2\">\n<center><span style=\"font-size:x-small;line-height:140%\" class=\"plainlinks\"><a rel=\"nofollow\" class=\"external text\" href=\"https://creativecommons.org/publicdomain/mark/1.0/deed.en\">This file has been identified as being free of known restrictions under copyright law, including all related and neighboring rights.</a></span></center>\n</td>\n</tr>\n</table>",
-        "LicenseShortName": "Public domain",
-        "UsageTerms": "Public domain",
-        "AttributionRequired": "false",
-        "Copyrighted": "False",
-        "Restrictions": "",
-        "License": "pd"
-      }
+      "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Ernst_Haeckel\" class=\"extiw\" title=\"w:en:Ernst Haeckel\">Ernst Haeckel</a></bdi>",
+      "credit": "<i><a href=\"//commons.wikimedia.org/wiki/Kunstformen_der_Natur\" title=\"Kunstformen der Natur\">Kunstformen der Natur</a></i> (1904), plate 99: Trochilidae (see <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_300.html\">here</a>, <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_text_1_200.html\">here</a> and <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_text_2_200.html\">here</a>)",
+      "license": "Public domain",
+      "description": "<span class=\"langlabel-en\" lang=\"en\" style=\"font-weight:bold;\">English:</span> Hummingbirds (drawn from millinery specimens, body positions are not natural)<br><ul>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Ruby-throated_Hummingbird\" class=\"extiw\" title=\"en:Ruby-throated Hummingbird\">Ruby-throated Hummingbird</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Horned_Sungem\" class=\"extiw\" title=\"en:Horned Sungem\">Horned Sungem</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Crimson_Topaz\" class=\"extiw\" title=\"en:Crimson Topaz\">Crimson Topaz</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Red-tailed_Comet\" class=\"extiw\" title=\"en:Red-tailed Comet\">Red-tailed Comet</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Tufted_Coquette\" class=\"extiw\" title=\"en:Tufted Coquette\">Tufted Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Sword-billed_Hummingbird\" class=\"extiw\" title=\"en:Sword-billed Hummingbird\">Sword-billed Hummingbird</a>\n</li>\n<li><a href=\"https://en.wikipedia.org/wiki/Buff-tailed_Sicklebill\" class=\"extiw\" title=\"en:Buff-tailed Sicklebill\">Buff-tailed Sicklebill</a></li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Dot-eared_Coquette\" class=\"extiw\" title=\"en:Dot-eared Coquette\">Dot-eared Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/White-vented_Violetear\" class=\"extiw\" title=\"en:White-vented Violetear\">White-vented Violetear</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Hooded_Visorbearer\" class=\"extiw\" title=\"en:Hooded Visorbearer\">Hooded Visorbearer</a>\n</li>\n<li>Female <a href=\"https://en.wikipedia.org/wiki/Juan_Fern%C3%A1ndez_Firecrown\" class=\"extiw\" title=\"en:Juan Fernández Firecrown\">Juan Fernández Firecrown</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Booted_Racket-tail\" class=\"extiw\" title=\"en:Booted Racket-tail\">Booted Racket-tail</a>\n</li>\n</ul>"
     },
     {
       "title": "File:Hummingbird_Incubating3.jpg",
@@ -104,24 +61,11 @@
       "width": 2304,
       "height": 1296,
       "size": 1519239,
-      "ext": {
-        "DateTime": "2011-09-13 17:30:00",
-        "ObjectName": "Hummingbird Incubating3",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Rhodopis vesper|Self-published work|Trochilidae nests",
-        "Assessments": "",
-        "ImageDescription": "Hummingbird in Copiapo, Chile",
-        "DateTimeOriginal": "2011-09-11",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rishiraj&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rishiraj (page does not exist)\">Rishiraj</a>",
-        "LicenseShortName": "CC BY-SA 3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rishiraj&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rishiraj (page does not exist)\">Rishiraj</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "Hummingbird in Copiapo, Chile"
     },
     {
       "title": "File:Hummingbird_nest_with_two_chicks_in_Santa_Monica,_CA._Photo_taken_June_26,_2006.jpg",
@@ -133,23 +77,10 @@
       "width": 2272,
       "height": 1704,
       "size": 1811564,
-      "ext": {
-        "DateTime": "2007-09-02 15:58:43",
-        "ObjectName": "Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Birds of Los Angeles County, California|PD-user|Trochilidae (juvenile)|Trochilidae nests|Unidentified Trochilidae",
-        "Assessments": "",
-        "ImageDescription": "Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006.",
-        "DateTimeOriginal": "2006-06-26",
-        "Credit": "<a class=\"external free\" href=\"http://en.wikipedia.org/wiki/Image:IMG_2377.JPG\">http://en.wikipedia.org/wiki/Image:IMG_2377.JPG</a>",
-        "Artist": "Miksmith",
-        "LicenseShortName": "Public domain",
-        "UsageTerms": "Public domain",
-        "AttributionRequired": "false",
-        "Copyrighted": "False",
-        "Restrictions": "",
-        "License": "pd"
-      }
+      "artist": "Miksmith",
+      "credit": "<a class=\"external free\" href=\"http://en.wikipedia.org/wiki/Image:IMG_2377.JPG\">http://en.wikipedia.org/wiki/Image:IMG_2377.JPG</a>",
+      "license": "Public domain",
+      "description": "Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006."
     },
     {
       "title": "File:Calliope-nest_edit.jpg",
@@ -161,27 +92,11 @@
       "width": 2048,
       "height": 1365,
       "size": 1373116,
-      "ext": {
-        "DateTime": "2010-05-03 16:31:46",
-        "ObjectName": "Calliope-nest edit",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Birds feeding young|Featured pictures on Wikipedia, English|GFDL|Hummingbirds feeding|License migration redundant|Media with locations|Pages with maps|Perched hummingbirds|Retouched pictures|Selasphorus calliope|Self-published work|Trochilinae (juvenile)|Trochilinae nests",
-        "Assessments": "",
-        "GPSLatitude": "43.880306",
-        "GPSLongitude": "-110.575906",
-        "GPSMapDatum": "WGS-84",
-        "ImageDescription": "Calliope Hummingbird / Stellula calliope - female feeding two chicks",
-        "DateTimeOriginal": "2007-07-22",
-        "Credit": "self-made / <a rel=\"nofollow\" class=\"external free\" href=\"http://www.pbase.com/wwcsig/image/86468128\">http://www.pbase.com/wwcsig/image/86468128</a>",
-        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Wwcsig\" title=\"User:Wwcsig\">Wolfgang Wander</a>, <a href=\"//commons.wikimedia.org/w/index.php?title=User:Papa_Lima_Whiskey&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Papa Lima Whiskey (page does not exist)\">Papa Lima Whiskey</a> (edit)",
-        "LicenseShortName": "CC-BY-SA-3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Wwcsig\" title=\"User:Wwcsig\">Wolfgang Wander</a>, <a href=\"//commons.wikimedia.org/w/index.php?title=User:Papa_Lima_Whiskey&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Papa Lima Whiskey (page does not exist)\">Papa Lima Whiskey</a> (edit)",
+      "credit": "self-made / <a rel=\"nofollow\" class=\"external free\" href=\"http://www.pbase.com/wwcsig/image/86468128\">http://www.pbase.com/wwcsig/image/86468128</a>",
+      "license": "CC-BY-SA-3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "description": "Calliope Hummingbird / Stellula calliope - female feeding two chicks"
     },
     {
       "title": "File:AnnasHummingbirdPaloAltoNorvig.jpg",
@@ -195,24 +110,11 @@
       "width": 818,
       "height": 1024,
       "size": 246624,
-      "ext": {
-        "DateTime": "2009-03-27 02:49:19",
-        "ObjectName": "AnnasHummingbirdPaloAltoNorvig",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Calypte anna (male)|Perched hummingbirds|Self-published work",
-        "Assessments": "",
-        "ImageDescription": "Male Anna's Hummingbird",
-        "DateTimeOriginal": "2009-03-09",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Norvig&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Norvig (page does not exist)\">Norvig</a>",
-        "LicenseShortName": "CC BY-SA 3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Norvig&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Norvig (page does not exist)\">Norvig</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "Male Anna's Hummingbird"
     },
     {
       "title": "File:Hummingbird_Aerodynamics_of_flight.jpg",
@@ -226,73 +128,17 @@
       "width": 4001,
       "height": 3031,
       "size": 8059505,
-      "ext": {
-        "DateTime": "2011-12-19 23:13:33",
-        "ObjectName": "Hummingbird Aerodynamics of flight",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Archilochus colubris in flight|Exposure time 1/640 sec|F-number f/4|Flickr images uploaded by Flickr upload bot|ISO speed rating 3200|Lens focal length 420 mm|Taken with Canon EOS 7D",
-        "Assessments": "",
-        "ImageDescription": "Hummingbird aerodynamics of flight",
-        "DateTimeOriginal": "2010-09-21 18:39",
-        "Credit": "originally posted to <b><a href=\"//commons.wikimedia.org/wiki/Flickr\" class=\"mw-redirect\" title=\"Flickr\">Flickr</a></b> as <a rel=\"nofollow\" class=\"external text\" href=\"https://flickr.com/photos/10017367@N03/5015889795\">Hummingbird aerodynamics</a>",
-        "Artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://flickr.com/people/10017367@N03\">Dan Pancamo</a>",
-        "Permission": "<table id=\"FlickrReview\" style=\"width:100%; margin:0.3em auto; text-align: start; background: #eeffee; padding: 3px; border: 1px solid #aaaa88;\" class=\"mw-content-ltr\" dir=\"ltr\" lang=\"en\"><tr>\n<td><img alt=\"Checked copyright icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Checked_copyright_icon.svg/50px-Checked_copyright_icon.svg.png\" width=\"50\" height=\"48\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Checked_copyright_icon.svg/75px-Checked_copyright_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Checked_copyright_icon.svg/100px-Checked_copyright_icon.svg.png 2x\" data-file-width=\"160\" data-file-height=\"153\"></td>\n<td>This image, which was originally posted to <b><a href=\"https://en.wikipedia.org/wiki/Flickr\" class=\"extiw\" title=\"en:Flickr\">Flickr</a></b>, was uploaded to Commons using <b><a href=\"//commons.wikimedia.org/wiki/User:Flickr_upload_bot\" title=\"User:Flickr upload bot\">Flickr upload bot</a></b> on <span style=\"white-space:nowrap\"><time class=\"dtstart\" datetime=\"2010-11-30 20:29\">30 November 2010, 20:29</time></span> by <span id=\"flickr_upload_bot_reviewer\"><b><a href=\"//commons.wikimedia.org/w/index.php?title=User:Dalepa&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Dalepa (page does not exist)\">Dalepa</a></b></span>. On that date, it was confirmed to be licensed under the terms of the license indicated.</td>\n</tr></table>\n<table style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; background-color:#f9f9f9; border:2px solid #e0e0e0; padding: 0; border-spacing: 8px;\" class=\"layouttemplate licensetpl mw-content-ltr\" lang=\"en\">\n<tr>\n<td style=\"width:90px;\" rowspan=\"3\">\n<img alt=\"w:en:Creative Commons\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/90px-CC_some_rights_reserved.svg.png\" title=\"w:en:Creative Commons\" width=\"90\" height=\"36\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/135px-CC_some_rights_reserved.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/180px-CC_some_rights_reserved.svg.png 2x\" data-file-width=\"744\" data-file-height=\"300\"><br><img alt=\"attribution\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/24px-Cc-by_new_white.svg.png\" title=\"attribution\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/36px-Cc-by_new_white.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/48px-Cc-by_new_white.svg.png 2x\" data-file-width=\"64\" data-file-height=\"64\"><img alt=\"share alike\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/24px-Cc-sa_white.svg.png\" title=\"share alike\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/36px-Cc-sa_white.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/48px-Cc-sa_white.svg.png 2x\" data-file-width=\"64\" data-file-height=\"64\">\n</td>\n<td lang=\"en\">This file is licensed under the <a href=\"https://en.wikipedia.org/wiki/en:Creative_Commons\" class=\"extiw\" title=\"w:en:Creative Commons\">Creative Commons</a> <a rel=\"nofollow\" class=\"external text\" href=\"//creativecommons.org/licenses/by-sa/2.0/deed.en\">Attribution-Share Alike 2.0 Generic</a> license.</td>\n<td style=\"width:90px;\" rowspan=\"3\"></td>\n</tr>\n<tr style=\"text-align:center;\">\n<td></td>\n</tr>\n<tr style=\"text-align:left;\" lang=\"en\">\n<td>\n<dl>\n<dd>You are free:\n<ul>\n<li>\n<b>to share</b> – to copy, distribute and transmit the work</li>\n<li>\n<b>to remix</b> – to adapt the work</li>\n</ul>\n</dd>\n<dd>Under the following conditions:\n<ul>\n<li>\n<b>attribution</b> – You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).</li>\n<li>\n<b>share alike</b> – If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one.</li>\n</ul>\n</dd>\n</dl>\n<p><span class=\"licensetpl_link\" style=\"display:none;\">https://creativecommons.org/licenses/by-sa/2.0</span> <span class=\"licensetpl_short\" style=\"display:none;\">CC BY-SA 2.0</span> <span class=\"licensetpl_long\" style=\"display:none;\">Creative Commons Attribution-Share Alike 2.0</span> <span class=\"licensetpl_link_req\" style=\"display:none;\">true</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">true</span></p>\n</td>\n</tr>\n</table>",
-        "LicenseShortName": "CC BY-SA 2.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 2.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-2.0"
-      }
+      "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://flickr.com/people/10017367@N03\">Dan Pancamo</a>",
+      "credit": "originally posted to <b><a href=\"//commons.wikimedia.org/wiki/Flickr\" class=\"mw-redirect\" title=\"Flickr\">Flickr</a></b> as <a rel=\"nofollow\" class=\"external text\" href=\"https://flickr.com/photos/10017367@N03/5015889795\">Hummingbird aerodynamics</a>",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "description": "Hummingbird aerodynamics of flight"
     },
     {
       "title": "File:Hummingbird_feeding_closeup_2000fps.webm",
       "type": "video",
       "caption_html": "Slow motion video of hummingbirds feeding",
       "caption_text": "Slow motion video of hummingbirds feeding",
-      "derivatives": [
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/2/21/Hummingbird_feeding_closeup_2000fps.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "Original WebM file, 864 × 480 (955 kbps)",
-          "short_title": "WebM source",
-          "width": "864",
-          "height": "480"
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.160p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "Low bandwidth WebM (160P)",
-          "short_title": "WebM 160P",
-          "width": null,
-          "height": null
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "Small WebM (240P)",
-          "short_title": "WebM 240P",
-          "width": null,
-          "height": null
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "WebM (360P)",
-          "short_title": "WebM 360P",
-          "width": null,
-          "height": null
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "SD WebM (480P)",
-          "short_title": "WebM 480P",
-          "width": null,
-          "height": null
-        }
-      ],
       "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Hummingbird_feeding_closeup_2000fps.webm",
       "mime": "video/webm",
       "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Hummingbird_feeding_closeup_2000fps.webm/864px--Hummingbird_feeding_closeup_2000fps.webm.jpg",
@@ -301,19 +147,7 @@
       "height": 480,
       "size": 20131049,
       "duration": 168.669,
-      "ext": {
-        "DateTime": "2016-07-24 16:46:56",
-        "ObjectName": "Hummingbird feeding closeup 2000fps",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Files with no machine-readable author|Files with no machine-readable source|Media missing infobox template|PD-self|Self-published work|Unidentified Trochilidae",
-        "Assessments": "",
-        "LicenseShortName": "Public domain",
-        "UsageTerms": "Public domain",
-        "AttributionRequired": "false",
-        "Copyrighted": "False",
-        "Restrictions": "",
-        "License": "pd"
-      }
+      "license": "Public domain"
     },
     {
       "title": "File:Velvet-purple_coronets_sequence.tif",
@@ -327,24 +161,11 @@
       "width": 7727,
       "height": 2083,
       "size": 93330752,
-      "ext": {
-        "DateTime": "2016-11-23 15:20:31",
-        "ObjectName": "Velvet-purple coronets sequence",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Self-published work|Trochilidae|Trochilidae in flight",
-        "Assessments": "",
-        "ImageDescription": "Two velvet-purple coronets fighting near a hummingbird feeder in the Ecuadorian Cloud Forest near Mashpi Lodge.",
-        "DateTimeOriginal": "2016-11-23",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Unherdable&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Unherdable (page does not exist)\">Unherdable</a>",
-        "LicenseShortName": "CC BY-SA 4.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 4.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-4.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Unherdable&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Unherdable (page does not exist)\">Unherdable</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "description": "Two velvet-purple coronets fighting near a hummingbird feeder in the Ecuadorian Cloud Forest near Mashpi Lodge."
     },
     {
       "title": "File:Colibri-thalassinus-001-edit.jpg",
@@ -358,74 +179,17 @@
       "width": 2112,
       "height": 1320,
       "size": 1554105,
-      "ext": {
-        "DateTime": "2008-04-14 15:16:17",
-        "ObjectName": "Colibri-thalassinus-001-edit",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Birds of Panama|Birds on unidentified plants|Colibri thalassinus in flight|Commons featured widescreen desktop backgrounds|Featured pictures of Apodiformes|Featured pictures of Panama|Featured pictures on Wikipedia, English|Featured pictures on Wikipedia, Spanish|Featured pictures on Wikipedia, Turkish|Featured pictures on Wikipedia, Vietnamese|GFDL|License migration completed|Pictures of the Year/2008 (finalist)|Retouched pictures|Self-published work|Taken with Canon EOS-1D Mark III|Trochilidae feeding on flowers|User-created GFDL images",
-        "Assessments": "featured|poty|potd|quality",
-        "ImageDescription": "<a href=\"https://en.wikipedia.org/wiki/Green_Violet-ear\" class=\"extiw\" title=\"w:Green Violet-ear\">Green Violet-ear</a> -- Finca Lerida, Boquete, Panama.",
-        "DateTimeOriginal": "2008-01-30",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Mdf\" title=\"User:Mdf\">Mdf</a>, Edited by <a href=\"//commons.wikimedia.org/wiki/User:Laitche\" title=\"User:Laitche\">Laitche</a>",
-        "Permission": "<table cellspacing=\"8\" cellpadding=\"0\" style=\"clear:both; margin:0.5em auto; background-color:#f0f0f0; border:2px solid #e0e0e0; direction: ltr;\" class=\"licensetpl_wrapper\"><tr>\n<td>\n<div class=\"center\"><b><span lang=\"en\" class=\"description en\"><span class=\"licensetpl_aut\"><a href=\"//commons.wikimedia.org/wiki/User:Mdf\" title=\"User:Mdf\">Mdf</a></span>, the copyright holder of this work, hereby publishes it under the following license:</span></b></div>\n<table cellspacing=\"8\" cellpadding=\"0\" style=\"width:100%; clear:both; margin:0.5em auto; background-color:#f9f9f9; border:2px solid #e0e0e0; direction: ltr;\" lang=\"en\" class=\"layouttemplate licensetpl\"><tr>\n<td><img alt=\"GNU head\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Heckert_GNU_white.svg/64px-Heckert_GNU_white.svg.png\" title=\"GNU head\" width=\"64\" height=\"63\" class=\"noviewer\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Heckert_GNU_white.svg/96px-Heckert_GNU_white.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Heckert_GNU_white.svg/128px-Heckert_GNU_white.svg.png 2x\" data-file-width=\"535\" data-file-height=\"523\"></td>\n<td>Permission is granted to copy, distribute and/or modify this document under the terms of the <b><a href=\"https://en.wikipedia.org/wiki/en:GNU_Free_Documentation_License\" class=\"extiw\" title=\"w:en:GNU Free Documentation License\">GNU Free Documentation License</a></b>, Version 1.2 or any later version published by the <a href=\"https://en.wikipedia.org/wiki/en:Free_Software_Foundation\" class=\"extiw\" title=\"w:en:Free Software Foundation\">Free Software Foundation</a>; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled <i><a href=\"//commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2\" title=\"Commons:GNU Free Documentation License, version 1.2\">GNU Free Documentation License</a></i>.<span class=\"licensetpl_link\" style=\"display:none;\">http://www.gnu.org/copyleft/fdl.html</span><span class=\"licensetpl_short\" style=\"display:none;\">GFDL</span><span class=\"licensetpl_long\" style=\"display:none;\">GNU Free Documentation License</span><span class=\"licensetpl_link_req\" style=\"display:none;\">true</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">true</span>\n</td>\n</tr></table>\n<table style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; background-color:#f9f9f9; border:2px solid #e0e0e0; padding: 0; border-spacing: 8px;\" class=\"layouttemplate licensetpl mw-content-ltr\" lang=\"en\">\n<tr>\n<td style=\"width:90px;\" rowspan=\"4\">\n<img alt=\"w:en:Creative Commons\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/90px-CC_some_rights_reserved.svg.png\" title=\"w:en:Creative Commons\" width=\"90\" height=\"36\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/135px-CC_some_rights_reserved.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/180px-CC_some_rights_reserved.svg.png 2x\" data-file-width=\"744\" data-file-height=\"300\"><br><img alt=\"attribution\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/24px-Cc-by_new_white.svg.png\" title=\"attribution\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/36px-Cc-by_new_white.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/48px-Cc-by_new_white.svg.png 2x\" data-file-width=\"64\" data-file-height=\"64\"><img alt=\"share alike\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Cc-sa.svg/24px-Cc-sa.svg.png\" title=\"share alike\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Cc-sa.svg/36px-Cc-sa.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Cc-sa.svg/48px-Cc-sa.svg.png 2x\" data-file-width=\"64\" data-file-height=\"64\">\n</td>\n<td>This file is licensed under the <a href=\"https://en.wikipedia.org/wiki/en:Creative_Commons\" class=\"extiw\" title=\"w:en:Creative Commons\">Creative Commons</a> <a rel=\"nofollow\" class=\"external text\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.en\">Attribution-Share Alike 3.0 Unported</a> license.</td>\n<td style=\"width:90px;\" rowspan=\"4\"></td>\n</tr>\n<tr style=\"text-align:center;\">\n<td><b>Attribution: <span style=\"font-size: larger;\" class=\"licensetpl_attr\"><a href=\"//commons.wikimedia.org/wiki/User:Mdf\" title=\"User:Mdf\">Mdf</a></span></b></td>\n</tr>\n<tr style=\"text-align:left;\">\n<td>\n<dl>\n<dd>You are free:\n<ul>\n<li>\n<b>to share</b> – to copy, distribute and transmit the work</li>\n<li>\n<b>to remix</b> – to adapt the work</li>\n</ul>\n</dd>\n<dd>Under the following conditions:\n<ul>\n<li>\n<b>attribution</b> – You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).</li>\n<li>\n<b>share alike</b> – If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one.</li>\n</ul>\n</dd>\n</dl>\n</td>\n</tr>\n<tr style=\"text-align:center;\">\n<td>\n<span style=\"font-size:90%;\">This licensing tag was added to this file as part of the GFDL <a href=\"https://meta.wikimedia.org/wiki/Licensing_update\" class=\"extiw\" title=\"meta:Licensing update\">licensing update</a>.</span><span class=\"licensetpl_link\" style=\"display:none;\">http://creativecommons.org/licenses/by-sa/3.0/</span><span class=\"licensetpl_short\" style=\"display:none;\">CC-BY-SA-3.0</span><span class=\"licensetpl_long\" style=\"display:none;\">Creative Commons Attribution-Share Alike 3.0</span><span class=\"licensetpl_link_req\" style=\"display:none;\">true</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">true</span>\n</td>\n</tr>\n</table>\n</td>\n</tr></table>",
-        "LicenseShortName": "CC-BY-SA-3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "Attribution": "<a href=\"//commons.wikimedia.org/wiki/User:Mdf\" title=\"User:Mdf\">Mdf</a>",
-        "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Mdf\" title=\"User:Mdf\">Mdf</a>, Edited by <a href=\"//commons.wikimedia.org/wiki/User:Laitche\" title=\"User:Laitche\">Laitche</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC-BY-SA-3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/Green_Violet-ear\" class=\"extiw\" title=\"w:Green Violet-ear\">Green Violet-ear</a> -- Finca Lerida, Boquete, Panama."
     },
     {
       "title": "File:Hummingbird.ogg",
       "type": "video",
       "caption_html": "Hummingbird in <a rel=\"mw:WikiLink\" href=\"./Copiapó,_Chile\" title=\"Copiapó, Chile\" id=\"mwAaI\" class=\"mw-redirect\">Copiapó, Chile</a>: The apparent slow movement of its wings is a result of the <a rel=\"mw:WikiLink\" href=\"./Stroboscopic_effect\" title=\"Stroboscopic effect\" id=\"mwAaM\">stroboscopic effect</a>.",
       "caption_text": "Hummingbird in Copiapó, Chile: The apparent slow movement of its wings is a result of the stroboscopic effect.",
-      "derivatives": [
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/d/db/Hummingbird.ogv",
-          "type": "video/ogg; codecs=\"theora, vorbis\"",
-          "title": "Original Ogg file, 854 × 480 (2.55 Mbps)",
-          "short_title": "Ogg source",
-          "width": "854",
-          "height": "480"
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.160p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "Low bandwidth WebM (160P)",
-          "short_title": "WebM 160P",
-          "width": null,
-          "height": null
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "Small WebM (240P)",
-          "short_title": "WebM 240P",
-          "width": null,
-          "height": null
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "WebM (360P)",
-          "short_title": "WebM 360P",
-          "width": null,
-          "height": null
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "SD WebM (480P)",
-          "short_title": "WebM 480P",
-          "width": null,
-          "height": null
-        }
-      ],
       "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Hummingbird.ogv",
       "mime": "application/ogg",
       "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hummingbird.ogv/854px--Hummingbird.ogv.jpg",
@@ -434,24 +198,11 @@
       "height": 480,
       "size": 6627803,
       "duration": 20.754066666667,
-      "ext": {
-        "DateTime": "2011-09-11 02:45:03",
-        "ObjectName": "Hummingbird",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "",
-        "Assessments": "",
-        "ImageDescription": "Juvenile Anna's hummingbird (Calypte anna)",
-        "DateTimeOriginal": "2011-08-05",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "Rishiraj Sahoo",
-        "LicenseShortName": "CC BY-SA 3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "Rishiraj Sahoo",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "Juvenile Anna's hummingbird (Calypte anna)"
     },
     {
       "title": "File:Hummingbirds_at_feeder.jpg",
@@ -465,25 +216,11 @@
       "width": 1198,
       "height": 724,
       "size": 874606,
-      "ext": {
-        "DateTime": "2012-06-29 15:50:28",
-        "ObjectName": "Hummingbirds at feeder",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Bird feeders|GFDL|License migration redundant|Self-published work|Unidentified Trochilidae",
-        "Assessments": "",
-        "ImageDescription": "Hummingbirds hovering to feed at an artificial nectar feeder.",
-        "DateTimeOriginal": "",
-        "Credit": "Transferred from <span class=\"plainlinks\"><a class=\"external text\" href=\"//en.wikipedia.org\">en.wikipedia</a></span> to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Innotata\" title=\"User:Innotata\">Innotata</a> using <a rel=\"nofollow\" class=\"external text\" href=\"//tools.wikimedia.de/~magnus/commonshelper.php\">CommonsHelper</a>.",
-        "Artist": "<a href=\"https://en.wikipedia.org/wiki/User:Centpacrr\" class=\"extiw\" title=\"wikipedia:User:Centpacrr\">Centpacrr</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
-        "LicenseShortName": "CC BY-SA 3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "Attribution": "<a href=\"https://en.wikipedia.org/wiki/User:Centpacrr\" class=\"extiw\" title=\"wikipedia:User:Centpacrr\">Centpacrr</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Centpacrr\" class=\"extiw\" title=\"wikipedia:User:Centpacrr\">Centpacrr</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+      "credit": "Transferred from <span class=\"plainlinks\"><a class=\"external text\" href=\"//en.wikipedia.org\">en.wikipedia</a></span> to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Innotata\" title=\"User:Innotata\">Innotata</a> using <a rel=\"nofollow\" class=\"external text\" href=\"//tools.wikimedia.de/~magnus/commonshelper.php\">CommonsHelper</a>.",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "Hummingbirds hovering to feed at an artificial nectar feeder."
     },
     {
       "title": "File:Nazca_colibri.jpg",
@@ -497,69 +234,12 @@
       "width": 1736,
       "height": 753,
       "size": 395814,
-      "ext": {
-        "DateTime": "2005-09-14 06:08:36",
-        "ObjectName": "Nazca colibri",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Featured pictures on Wikipedia, Hebrew|Files with no machine-readable author|Files with no machine-readable source|GFDL|License migration completed|License migration redundant|Media missing infobox template|Media with locations|Nazca lines|Pages with maps|Self-published work",
-        "Assessments": "",
-        "GPSLatitude": "-14.692137",
-        "GPSLongitude": "-75.148892",
-        "GPSMapDatum": "WGS-84",
-        "LicenseShortName": "CC-BY-SA-3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "license": "CC-BY-SA-3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
     },
     {
       "title": "File:Humming_birds_feeding_at_1500fps.webm",
       "type": "video",
-      "derivatives": [
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Humming_birds_feeding_at_1500fps.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "Original WebM file, 864 × 480 (1.03 Mbps)",
-          "short_title": "WebM source",
-          "width": "864",
-          "height": "480"
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.160p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "Low bandwidth WebM (160P)",
-          "short_title": "WebM 160P",
-          "width": null,
-          "height": null
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "Small WebM (240P)",
-          "short_title": "WebM 240P",
-          "width": null,
-          "height": null
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "WebM (360P)",
-          "short_title": "WebM 360P",
-          "width": null,
-          "height": null
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.webm",
-          "type": "video/webm; codecs=\"vp8, vorbis\"",
-          "title": "SD WebM (480P)",
-          "short_title": "WebM 480P",
-          "width": null,
-          "height": null
-        }
-      ],
       "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Humming_birds_feeding_at_1500fps.webm",
       "mime": "video/webm",
       "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Humming_birds_feeding_at_1500fps.webm/864px--Humming_birds_feeding_at_1500fps.webm.jpg",
@@ -568,24 +248,11 @@
       "height": 480,
       "size": 13552511,
       "duration": 105.569,
-      "ext": {
-        "DateTime": "2016-07-11 01:09:53",
-        "ObjectName": "Humming birds feeding at 1500fps",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Archilochus alexandri|Eugenes fulgens|Selasphorus platycercus|Self-published work",
-        "Assessments": "",
-        "ImageDescription": "1500fps slow-motion video of hummingbirds feeding in western Colorado, USA. This video shows black-chinned hummingbirds (<i>Archilochus alexandri</i>), and magnificent or refulgent hummingbirds (<i>Eugenes fulgens</i>), and broad-tailed hummingbirds (<i>Selasphorus platycercus</i>).",
-        "DateTimeOriginal": "2016-07-07",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:HopefullyUsefulContribution&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:HopefullyUsefulContribution (page does not exist)\">HopefullyUsefulContribution</a>",
-        "LicenseShortName": "CC BY-SA 4.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 4.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-4.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:HopefullyUsefulContribution&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:HopefullyUsefulContribution (page does not exist)\">HopefullyUsefulContribution</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "description": "1500fps slow-motion video of hummingbirds feeding in western Colorado, USA. This video shows black-chinned hummingbirds (<i>Archilochus alexandri</i>), and magnificent or refulgent hummingbirds (<i>Eugenes fulgens</i>), and broad-tailed hummingbirds (<i>Selasphorus platycercus</i>)."
     },
     {
       "title": "File:Hummingbird_feeding.jpg",
@@ -597,24 +264,11 @@
       "width": 1600,
       "height": 1068,
       "size": 180040,
-      "ext": {
-        "DateTime": "2012-08-13 23:14:11",
-        "ObjectName": "Hummingbird feeding",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Self-published work|Trochilidae feeding on flowers|Unidentified Trochilidae",
-        "Assessments": "",
-        "ImageDescription": "A hummingbird feeding from a flower.",
-        "DateTimeOriginal": "2012-08-12",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Kpts44&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Kpts44 (page does not exist)\">Kpts44</a>",
-        "LicenseShortName": "CC BY-SA 3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Kpts44&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Kpts44 (page does not exist)\">Kpts44</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "A hummingbird feeding from a flower."
     },
     {
       "title": "File:Hummingbird_headshot.jpg",
@@ -626,24 +280,11 @@
       "width": 1600,
       "height": 1068,
       "size": 193907,
-      "ext": {
-        "DateTime": "2012-08-13 23:14:11",
-        "ObjectName": "Hummingbird headshot",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Self-published work|Unidentified Trochilidae",
-        "Assessments": "",
-        "ImageDescription": "A hummingbird with yellow pollen on its beak.",
-        "DateTimeOriginal": "2012-08-12",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Kpts44&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Kpts44 (page does not exist)\">Kpts44</a>",
-        "LicenseShortName": "CC BY-SA 3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Kpts44&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Kpts44 (page does not exist)\">Kpts44</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "A hummingbird with yellow pollen on its beak."
     },
     {
       "title": "File:Eugenes-fulgens-001.jpg",
@@ -655,25 +296,11 @@
       "width": 1536,
       "height": 1536,
       "size": 488509,
-      "ext": {
-        "DateTime": "2007-01-11 16:22:12",
-        "ObjectName": "Eugenes-fulgens-001",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Birds of Panama|Eugenes fulgens|Featured pictures on Wikipedia, English|GFDL|La Chorrera|License migration redundant|Perched hummingbirds|Self-published work",
-        "Assessments": "quality",
-        "ImageDescription": "Magnificent Hummingbird () -- Guadalupe, Panama.",
-        "DateTimeOriginal": "2006-12-16",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Mdf\" title=\"User:Mdf\">Mdf</a>",
-        "Permission": "<table cellspacing=\"8\" cellpadding=\"0\" style=\"clear:both; margin:0.5em auto; background-color:#f0f0f0; border:2px solid #e0e0e0; direction: ltr;\" class=\"licensetpl_wrapper\"><tr>\n<td>\n<div class=\"center\"><b><span lang=\"en\" class=\"description en\">I, the copyright holder of this work, hereby publish it under the following licenses:</span></b></div>\n<table cellspacing=\"8\" cellpadding=\"0\" style=\"width:100%; clear:both; margin:0.5em auto; background-color:#f9f9f9; border:2px solid #e0e0e0; direction: ltr;\" lang=\"en\" class=\"layouttemplate licensetpl\"><tr>\n<td><img alt=\"GNU head\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Heckert_GNU_white.svg/64px-Heckert_GNU_white.svg.png\" title=\"GNU head\" width=\"64\" height=\"63\" class=\"noviewer\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Heckert_GNU_white.svg/96px-Heckert_GNU_white.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Heckert_GNU_white.svg/128px-Heckert_GNU_white.svg.png 2x\" data-file-width=\"535\" data-file-height=\"523\"></td>\n<td>Permission is granted to copy, distribute and/or modify this document under the terms of the <b><a href=\"https://en.wikipedia.org/wiki/en:GNU_Free_Documentation_License\" class=\"extiw\" title=\"w:en:GNU Free Documentation License\">GNU Free Documentation License</a></b>, Version 1.2 or any later version published by the <a href=\"https://en.wikipedia.org/wiki/en:Free_Software_Foundation\" class=\"extiw\" title=\"w:en:Free Software Foundation\">Free Software Foundation</a>; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled <i><a href=\"//commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2\" title=\"Commons:GNU Free Documentation License, version 1.2\">GNU Free Documentation License</a></i>.<span class=\"licensetpl_link\" style=\"display:none;\">http://www.gnu.org/copyleft/fdl.html</span><span class=\"licensetpl_short\" style=\"display:none;\">GFDL</span><span class=\"licensetpl_long\" style=\"display:none;\">GNU Free Documentation License</span><span class=\"licensetpl_link_req\" style=\"display:none;\">true</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">true</span>\n</td>\n</tr></table>\n<table style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; background-color:#f9f9f9; border:2px solid #e0e0e0; padding: 0; border-spacing: 8px;\" class=\"layouttemplate licensetpl mw-content-ltr\" lang=\"en\">\n<tr>\n<td style=\"width:90px;\" rowspan=\"4\">\n<img alt=\"w:en:Creative Commons\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/90px-CC_some_rights_reserved.svg.png\" title=\"w:en:Creative Commons\" width=\"90\" height=\"36\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/135px-CC_some_rights_reserved.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/180px-CC_some_rights_reserved.svg.png 2x\" data-file-width=\"744\" data-file-height=\"300\"><br><img alt=\"attribution\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/24px-Cc-by_new_white.svg.png\" title=\"attribution\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/36px-Cc-by_new_white.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/48px-Cc-by_new_white.svg.png 2x\" data-file-width=\"64\" data-file-height=\"64\"><img alt=\"share alike\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Cc-sa.svg/24px-Cc-sa.svg.png\" title=\"share alike\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Cc-sa.svg/36px-Cc-sa.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Cc-sa.svg/48px-Cc-sa.svg.png 2x\" data-file-width=\"64\" data-file-height=\"64\">\n</td>\n<td>This file is licensed under the <a href=\"https://en.wikipedia.org/wiki/en:Creative_Commons\" class=\"extiw\" title=\"w:en:Creative Commons\">Creative Commons</a> <a rel=\"nofollow\" class=\"external text\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.en\">Attribution-Share Alike 3.0 Unported</a> license.</td>\n<td style=\"width:90px;\" rowspan=\"4\"></td>\n</tr>\n<tr style=\"text-align:center;\">\n<td></td>\n</tr>\n<tr style=\"text-align:left;\">\n<td>\n<dl>\n<dd>You are free:\n<ul>\n<li>\n<b>to share</b> – to copy, distribute and transmit the work</li>\n<li>\n<b>to remix</b> – to adapt the work</li>\n</ul>\n</dd>\n<dd>Under the following conditions:\n<ul>\n<li>\n<b>attribution</b> – You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).</li>\n<li>\n<b>share alike</b> – If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one.</li>\n</ul>\n</dd>\n</dl>\n</td>\n</tr>\n<tr style=\"text-align:center;\">\n<td>\n<span style=\"font-size:90%;\">This licensing tag was added to this file as part of the GFDL <a href=\"https://meta.wikimedia.org/wiki/Licensing_update\" class=\"extiw\" title=\"meta:Licensing update\">licensing update</a>.</span><span class=\"licensetpl_link\" style=\"display:none;\">http://creativecommons.org/licenses/by-sa/3.0/</span><span class=\"licensetpl_short\" style=\"display:none;\">CC-BY-SA-3.0</span><span class=\"licensetpl_long\" style=\"display:none;\">Creative Commons Attribution-Share Alike 3.0</span><span class=\"licensetpl_link_req\" style=\"display:none;\">true</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">true</span>\n</td>\n</tr>\n</table>\n<div class=\"center\"><span lang=\"en\" class=\"description en\"><i>You may select the license of your choice.</i></span></div>\n</td>\n</tr></table>",
-        "LicenseShortName": "CC-BY-SA-3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Mdf\" title=\"User:Mdf\">Mdf</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC-BY-SA-3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "description": "Magnificent Hummingbird () -- Guadalupe, Panama."
     },
     {
       "title": "File:Hummingbird.jpg",
@@ -685,23 +312,10 @@
       "width": 1024,
       "height": 768,
       "size": 133700,
-      "ext": {
-        "DateTime": "2005-10-04 19:02:52",
-        "ObjectName": "Hummingbird",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Calypte costae|PD-author|PDphotos.org|Perched hummingbirds",
-        "Assessments": "",
-        "ImageDescription": "<a href=\"https://en.wikipedia.org/wiki/Costa%27s_hummingbird\" class=\"extiw\" title=\"w:Costa's hummingbird\">Costa's hummingbird</a> (<i>Calypte costae</i>); a type of <a href=\"https://en.wikipedia.org/wiki/Hummingbird\" class=\"extiw\" title=\"en:Hummingbird\">Hummingbird</a> i.e., a member of <a href=\"https://en.wikipedia.org/wiki/family_(biology)\" class=\"extiw\" title=\"w:family (biology)\">family</a> <b>Trochilidae</b>.",
-        "DateTimeOriginal": "2004-01-26",
-        "Credit": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.pdphoto.org/PictureDetail.php?mat=pdef&amp;pg=7917\">PD Photo.org</a>",
-        "Artist": "<a href=\"https://en.wikipedia.org/wiki/San_Diego_Zoo\" class=\"extiw\" title=\"en:San Diego Zoo\">San Diego Zoo</a>",
-        "LicenseShortName": "Public domain",
-        "UsageTerms": "Public domain",
-        "AttributionRequired": "false",
-        "Copyrighted": "False",
-        "Restrictions": "",
-        "License": "pd"
-      }
+      "artist": "<a href=\"https://en.wikipedia.org/wiki/San_Diego_Zoo\" class=\"extiw\" title=\"en:San Diego Zoo\">San Diego Zoo</a>",
+      "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.pdphoto.org/PictureDetail.php?mat=pdef&amp;pg=7917\">PD Photo.org</a>",
+      "license": "Public domain",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/Costa%27s_hummingbird\" class=\"extiw\" title=\"w:Costa's hummingbird\">Costa's hummingbird</a> (<i>Calypte costae</i>); a type of <a href=\"https://en.wikipedia.org/wiki/Hummingbird\" class=\"extiw\" title=\"en:Hummingbird\">Hummingbird</a> i.e., a member of <a href=\"https://en.wikipedia.org/wiki/family_(biology)\" class=\"extiw\" title=\"w:family (biology)\">family</a> <b>Trochilidae</b>."
     },
     {
       "title": "File:Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
@@ -713,24 +327,11 @@
       "width": 1537,
       "height": 1448,
       "size": 1148918,
-      "ext": {
-        "DateTime": "2012-08-12 22:44:28",
-        "ObjectName": "Juvenile Annas Hummingbird at San Francisco Botanical Garden - Stierch - E",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Bird photos by Sarah Stierch|Calypte anna (juvenile)|Self-published work",
-        "Assessments": "",
-        "ImageDescription": "<i><a href=\"//commons.wikimedia.org/wiki/Calypte_anna\" title=\"Calypte anna\">Calypte anna</a></i> (Anna's Hummingbird) at San Francisco Botanical Garden. It's extending it's tongue.",
-        "DateTimeOriginal": "2012-08-10",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:SarahStierch\" title=\"User:SarahStierch\">Sarah Stierch</a>",
-        "LicenseShortName": "CC BY 4.0",
-        "UsageTerms": "Creative Commons Attribution 4.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "http://creativecommons.org/licenses/by/4.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-4.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:SarahStierch\" title=\"User:SarahStierch\">Sarah Stierch</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY 4.0",
+      "license_url": "http://creativecommons.org/licenses/by/4.0",
+      "description": "<i><a href=\"//commons.wikimedia.org/wiki/Calypte_anna\" title=\"Calypte anna\">Calypte anna</a></i> (Anna's Hummingbird) at San Francisco Botanical Garden. It's extending it's tongue."
     },
     {
       "title": "File:Hummingbird_Calypte_anna_in_ggp_15n.jpg",
@@ -742,24 +343,11 @@
       "width": 3888,
       "height": 2592,
       "size": 1542642,
-      "ext": {
-        "DateTime": "2009-02-17 06:05:34",
-        "ObjectName": "Hummingbird Calypte anna in ggp 15n",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Calypte anna (male)|GFDL|License migration redundant|Perched hummingbirds|Self-published work",
-        "Assessments": "",
-        "ImageDescription": "The colors of <a href=\"https://en.wikipedia.org/wiki/en:Hummingbird\" class=\"extiw\" title=\"w:en:Hummingbird\">hummingbird</a>. Species: <i><a href=\"https://en.wikipedia.org/wiki/Calypte_anna\" class=\"extiw\" title=\"en:Calypte anna\">Calypte anna</a></i>.",
-        "DateTimeOriginal": "2006",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://sites.google.com/site/thebrockeninglory/\">Brocken Inaglory</a>",
-        "LicenseShortName": "CC BY-SA 3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://sites.google.com/site/thebrockeninglory/\">Brocken Inaglory</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "The colors of <a href=\"https://en.wikipedia.org/wiki/en:Hummingbird\" class=\"extiw\" title=\"w:en:Hummingbird\">hummingbird</a>. Species: <i><a href=\"https://en.wikipedia.org/wiki/Calypte_anna\" class=\"extiw\" title=\"en:Calypte anna\">Calypte anna</a></i>."
     },
     {
       "title": "File:Nano_Hummingbird.jpg",
@@ -771,23 +359,10 @@
       "width": 600,
       "height": 539,
       "size": 80851,
-      "ext": {
-        "DateTime": "2011-02-20 15:01:02",
-        "ObjectName": "Nano Hummingbird",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "AeroVironment Nano Hummingbird|CC-PD-Mark|Ornithopters|PD US Government|Radio-controlled aircraft|Surveillance|Unmanned aerial vehicles|Unmanned reconnaissance aircraft|Uploaded by O'Dea",
-        "Assessments": "",
-        "ImageDescription": "The <a href=\"https://en.wikipedia.org/wiki/Nano_Hummingbird\" class=\"extiw\" title=\"en:Nano Hummingbird\">Nano Hummingbird</a> surveillance and reconnaissance aircraft developed by AeroVironment, Inc. under contract to the United States Government's <a href=\"https://en.wikipedia.org/wiki/DARPA\" class=\"extiw\" title=\"en:DARPA\">Defense Advanced Research Projects Agency</a>.",
-        "DateTimeOriginal": "2011-02-17",
-        "Credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://lh4.googleusercontent.com/_kIWY2DV0KnE/TV3-KlLEsOI/AAAAAAAAIro/osutcDWDqJ4/Nano%20Hummingbird.jpg\">https://lh4.googleusercontent.com/_kIWY2DV0KnE/TV3-KlLEsOI/AAAAAAAAIro/osutcDWDqJ4/Nano%20Hummingbird.jpg</a>",
-        "Artist": "<a href=\"https://en.wikipedia.org/wiki/DARPA\" class=\"extiw\" title=\"en:DARPA\">DARPA</a>",
-        "LicenseShortName": "Public domain",
-        "UsageTerms": "Public domain",
-        "AttributionRequired": "false",
-        "Copyrighted": "False",
-        "Restrictions": "",
-        "License": "pd"
-      }
+      "artist": "<a href=\"https://en.wikipedia.org/wiki/DARPA\" class=\"extiw\" title=\"en:DARPA\">DARPA</a>",
+      "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://lh4.googleusercontent.com/_kIWY2DV0KnE/TV3-KlLEsOI/AAAAAAAAIro/osutcDWDqJ4/Nano%20Hummingbird.jpg\">https://lh4.googleusercontent.com/_kIWY2DV0KnE/TV3-KlLEsOI/AAAAAAAAIro/osutcDWDqJ4/Nano%20Hummingbird.jpg</a>",
+      "license": "Public domain",
+      "description": "The <a href=\"https://en.wikipedia.org/wiki/Nano_Hummingbird\" class=\"extiw\" title=\"en:Nano Hummingbird\">Nano Hummingbird</a> surveillance and reconnaissance aircraft developed by AeroVironment, Inc. under contract to the United States Government's <a href=\"https://en.wikipedia.org/wiki/DARPA\" class=\"extiw\" title=\"en:DARPA\">Defense Advanced Research Projects Agency</a>."
     },
     {
       "title": "File:Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
@@ -799,27 +374,11 @@
       "width": 1920,
       "height": 1640,
       "size": 2528344,
-      "ext": {
-        "DateTime": "2013-05-26 02:12:31",
-        "ObjectName": "Hummingbird Chicks in Nest in Cactus in Mesa, Arizona",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Media with locations|Mesa, Arizona|Pages with maps|Self-published work|Trochilidae (juvenile)|Trochilidae nests|Unidentified Trochilidae",
-        "Assessments": "",
-        "GPSLatitude": "33.449968",
-        "GPSLongitude": "-111.673666",
-        "GPSMapDatum": "WGS-84",
-        "ImageDescription": "Hummingbird Chicks in Nest in Cactus in Mesa, Arizona",
-        "DateTimeOriginal": "2009-04-07 07:26:56",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Polisciasu\" title=\"User:Polisciasu\">Kevin Bondelli</a>",
-        "LicenseShortName": "CC BY-SA 3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Polisciasu\" title=\"User:Polisciasu\">Kevin Bondelli</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "Hummingbird Chicks in Nest in Cactus in Mesa, Arizona"
     },
     {
       "title": "File:Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
@@ -831,27 +390,11 @@
       "width": 3642,
       "height": 2346,
       "size": 7134092,
-      "ext": {
-        "DateTime": "2013-05-26 02:12:32",
-        "ObjectName": "Hummingbird Adult in Nest in Cactus in Mesa, Arizona",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Media with locations|Mesa, Arizona|Pages with maps|Self-published work|Trochilidae nests|Unidentified Trochilidae",
-        "Assessments": "",
-        "GPSLatitude": "33.449968",
-        "GPSLongitude": "-111.673666",
-        "GPSMapDatum": "WGS-84",
-        "ImageDescription": "Hummingbird Adult in Nest in Cactus in Mesa, Arizona",
-        "DateTimeOriginal": "2009-03-07 10:06:04",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Polisciasu\" title=\"User:Polisciasu\">Kevin Bondelli</a>",
-        "LicenseShortName": "CC BY-SA 3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Polisciasu\" title=\"User:Polisciasu\">Kevin Bondelli</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "Hummingbird Adult in Nest in Cactus in Mesa, Arizona"
     },
     {
       "title": "File:Female_Anna's_Hummingbird.JPG",
@@ -863,24 +406,11 @@
       "width": 4000,
       "height": 3000,
       "size": 3354721,
-      "ext": {
-        "DateTime": "2016-02-07 16:47:49",
-        "ObjectName": "Female Anna's Hummingbird",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Birds of British Columbia|Calypte anna|Self-published work",
-        "Assessments": "",
-        "ImageDescription": "A female Anna's Hummingbird <i><a href=\"//commons.wikimedia.org/wiki/Calypte_anna\" title=\"Calypte anna\">Calypte anna</a></i> perched on a small branch.",
-        "DateTimeOriginal": "2014-09-12 21:06:57",
-        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Victoras101\" title=\"User:Victoras101\">Victoras101</a>",
-        "LicenseShortName": "CC BY-SA 4.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 4.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-4.0"
-      }
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Victoras101\" title=\"User:Victoras101\">Victoras101</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "description": "A female Anna's Hummingbird <i><a href=\"//commons.wikimedia.org/wiki/Calypte_anna\" title=\"Calypte anna\">Calypte anna</a></i> perched on a small branch."
     },
     {
       "title": "File:Caribou_from_Wagon_Trails.jpg",
@@ -892,20 +422,8 @@
       "width": 2064,
       "height": 1413,
       "size": 777599,
-      "ext": {
-        "DateTime": "2016-06-02 10:08:02",
-        "ObjectName": "Caribou from Wagon Trails",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Derivative versions|Featured pictures on Wikipedia, Azeri|Featured pictures on Wikipedia, English|Featured pictures on Wikipedia, Hebrew|Files with no machine-readable author|Files with no machine-readable source|Leucism in mammals|Media missing infobox template|Wagon Trails Animal Park|Walking animals",
-        "Assessments": "",
-        "LicenseShortName": "CC BY-SA 2.5",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 2.5",
-        "AttributionRequired": "true",
-        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-2.5"
-      }
+      "license": "CC BY-SA 2.5",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.5"
     },
     {
       "title": "File:Issoria_lathonia.jpg",
@@ -917,20 +435,8 @@
       "width": 629,
       "height": 445,
       "size": 91195,
-      "ext": {
-        "DateTime": "2005-01-26 20:59:11",
-        "ObjectName": "Issoria lathonia",
-        "CommonsMetadataExtension": 1.2,
-        "Categories": "Files with no machine-readable author|Files with no machine-readable source|GFDL|Issoria lathonia|License migration completed|Media missing infobox template",
-        "Assessments": "",
-        "LicenseShortName": "CC-BY-SA-3.0",
-        "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
-        "AttributionRequired": "true",
-        "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "Copyrighted": "True",
-        "Restrictions": "",
-        "License": "cc-by-sa-3.0"
-      }
+      "license": "CC-BY-SA-3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
     }
   ]
 }
