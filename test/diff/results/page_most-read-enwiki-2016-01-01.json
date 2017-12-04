@@ -4,7 +4,6 @@
     {
       "views": 609871,
       "rank": 4,
-      "pageid": 423882,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Natalie_Cole"
       ],
@@ -34,7 +33,6 @@
     {
       "views": 353499,
       "rank": 6,
-      "pageid": 14723194,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Star_Wars%3A_The_Force_Awakens"
       ],
@@ -64,7 +62,6 @@
     {
       "views": 301290,
       "rank": 7,
-      "pageid": 4319540,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Bobby_Leach"
       ],
@@ -94,7 +91,6 @@
     {
       "views": 231465,
       "rank": 8,
-      "pageid": 89697,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Wayne_Rogers"
       ],
@@ -124,7 +120,6 @@
     {
       "views": 211832,
       "rank": 9,
-      "pageid": 26678,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Star_Wars"
       ],
@@ -154,7 +149,6 @@
     {
       "views": 199732,
       "rank": 10,
-      "pageid": 166538,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Nat_King_Cole"
       ],
@@ -184,7 +178,6 @@
     {
       "views": 177494,
       "rank": 11,
-      "pageid": 406800,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Auld_Lang_Syne"
       ],
@@ -214,7 +207,6 @@
     {
       "views": 159010,
       "rank": 13,
-      "pageid": 8169073,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Antarctic_Snow_Cruiser"
       ],
@@ -244,7 +236,6 @@
     {
       "views": 150121,
       "rank": 14,
-      "pageid": 3133353,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Steven_Avery"
       ],
@@ -274,7 +265,6 @@
     {
       "views": 135978,
       "rank": 15,
-      "pageid": 48233019,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Christian_McCaffrey"
       ],
@@ -304,7 +294,6 @@
     {
       "views": 126263,
       "rank": 17,
-      "pageid": 43159611,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/The_Revenant_(2015_film)"
       ],
@@ -334,7 +323,6 @@
     {
       "views": 118283,
       "rank": 18,
-      "pageid": 5002871,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/One_World_Trade_Center"
       ],
@@ -364,7 +352,6 @@
     {
       "views": 114709,
       "rank": 20,
-      "pageid": 48863911,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Making_a_Murderer"
       ],
@@ -394,7 +381,6 @@
     {
       "views": 112527,
       "rank": 22,
-      "pageid": 4763194,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Guide_horse"
       ],
@@ -424,7 +410,6 @@
     {
       "views": 100066,
       "rank": 24,
-      "pageid": 20816992,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Sherlock_(TV_series)"
       ],
@@ -454,7 +439,6 @@
     {
       "views": 98587,
       "rank": 25,
-      "pageid": 1808479,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/William_Phelps_Eno"
       ],
@@ -484,7 +468,6 @@
     {
       "views": 98467,
       "rank": 26,
-      "pageid": 43308964,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/The_Hateful_Eight"
       ],
@@ -514,7 +497,6 @@
     {
       "views": 97137,
       "rank": 27,
-      "pageid": 44789934,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Deaths_in_2015"
       ],
@@ -544,7 +526,6 @@
     {
       "views": 93848,
       "rank": 28,
-      "pageid": 45360934,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Dilwale_(2015_film)"
       ],
@@ -574,7 +555,6 @@
     {
       "views": 93087,
       "rank": 29,
-      "pageid": 42618962,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Daisy_Ridley"
       ],
@@ -604,7 +584,6 @@
     {
       "views": 91340,
       "rank": 30,
-      "pageid": 44135542,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Joy_(film)"
       ],
@@ -634,7 +613,6 @@
     {
       "views": 89733,
       "rank": 31,
-      "pageid": 18642,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Lemmy"
       ],
@@ -664,7 +642,6 @@
     {
       "views": 89212,
       "rank": 32,
-      "pageid": 59892,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/List_of_highest-grossing_films"
       ],
@@ -694,7 +671,6 @@
     {
       "views": 88362,
       "rank": 33,
-      "pageid": 314475,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Carrie_Fisher"
       ],
@@ -724,7 +700,6 @@
     {
       "views": 81104,
       "rank": 34,
-      "pageid": 52742228,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Deaths_in_2016"
       ],
@@ -754,7 +729,6 @@
     {
       "views": 74736,
       "rank": 38,
-      "pageid": 41373899,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Ethan_Couch"
       ],
@@ -784,7 +758,6 @@
     {
       "views": 74297,
       "rank": 39,
-      "pageid": 13979626,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Joy_Mangano"
       ],
@@ -814,7 +787,6 @@
     {
       "views": 74022,
       "rank": 40,
-      "pageid": 51387,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/2016"
       ],
@@ -844,7 +816,6 @@
     {
       "views": 71623,
       "rank": 42,
-      "pageid": 16746099,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Jeddah_Tower"
       ],
@@ -874,7 +845,6 @@
     {
       "views": 71379,
       "rank": 43,
-      "pageid": 54011865,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Bajirao_I"
       ],
@@ -904,7 +874,6 @@
     {
       "views": 70520,
       "rank": 45,
-      "pageid": 4836239,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/The_Sound_of_Music_(film)"
       ],
@@ -934,7 +903,6 @@
     {
       "views": 68904,
       "rank": 47,
-      "pageid": 36044408,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/Adam_Driver"
       ],
@@ -964,7 +932,6 @@
     {
       "views": 66125,
       "rank": 49,
-      "pageid": 156045,
       "$merge": [
         "https://en.wikipedia.org/api/rest_v1/page/summary/M*A*S*H_(TV_series)"
       ],

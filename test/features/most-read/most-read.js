@@ -72,14 +72,6 @@ describe('most-read articles', function() {
             });
     });
 
-    it('Request to mobile domain should complete successfully', () => {
-        const uri = `${server.config.uri}en.m.wikipedia.org/v1/page/most-read/${dateString}`;
-        return preq.get({ uri })
-            .then((res) => {
-                assert.deepEqual(res.status, 200);
-            });
-    });
-
     it('Request for future date should return 204 when aggregated flag is set', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/most-read/${futureDateString}`;
         return preq.get({ uri, query: { aggregated: true } })

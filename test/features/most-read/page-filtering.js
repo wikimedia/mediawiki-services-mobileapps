@@ -16,12 +16,12 @@ const articles = [ { pageid: 0, ns: 0, title: 'Hello world' } ];
 describe('page filtering', () => {
     it('main page filtering RegExp should handle all main page title chars', () => {
         mainPageTitles.forEach((title) => {
-            assert.ok(filter.filterSpecialPages(articles, title));
+            assert.ok(filter.filterSpecial(articles, title));
         });
     });
 
     it('Page with skewed pageview distribution by platform should be omitted from results', () => {
-        filter.filterBotTraffic(combinedMostRead, desktopMostRead).forEach((entry) => {
+        filter.filterBots(combinedMostRead, desktopMostRead).forEach((entry) => {
             assert.ok(entry.article !== "AMGTV");
         });
     });

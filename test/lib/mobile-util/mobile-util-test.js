@@ -4,35 +4,8 @@ const assert = require('../../utils/assert');
 const mUtil = require('../../../lib/mobile-util');
 const domino = require('domino');
 
-const obj1 = { hello: true, world: true };
-const obj3 = { hello: true, world: true, again: false };
-const obj4 = { goodbye: true, sea: true };
-const obj6 = { goodbye: true, sea: true, again: true };
-
-const arr1 = [ obj1, obj3 ];
-const arr2 = [ obj4, obj6 ];
-const arr5 = [ obj1, obj3, obj6 ];
-const arr6 = [ obj1, obj3 ];
-
-const ordered = [
-    { order: 1, join: 'foo' },
-    { order: 2, join: 'bar' },
-    { order: 3, join: 'baz' }
-];
-
-const unordered = [
-    { join: 'bar', extra: 'doc' },
-    { join: 'baz', extra: 'dickory' },
-    { join: 'foo', extra: 'hickory' },
-];
-
-const combined = [
-    { order: 1, join: 'foo', extra: 'hickory' },
-    { order: 2, join: 'bar', extra: 'doc' },
-    { order: 3, join: 'baz', extra: 'dickory' }
-];
-
 describe('lib:mobile-util', () => {
+
     it('removeTLD should remove TLD', () => {
         assert.deepEqual(mUtil.removeTLD('ru.wikipedia.org'), 'ru.wikipedia');
     });
@@ -55,21 +28,6 @@ describe('lib:mobile-util', () => {
         const document = domino.createDocument(linkHtml);
         const link = document.querySelector('a');
         assert.deepEqual(mUtil.extractDbTitleFromAnchor(link), 'My_db_title');
-    });
-
-    it('mergeByProp should preserve order of arr1', () => {
-        mUtil.mergeByProp(ordered, unordered, 'join', false);
-        assert.deepEqual(ordered, combined);
-    });
-
-    it('mergeByProp should not add obj if no obj in arr1 exists w/ prop=value & push=false', () => {
-        mUtil.mergeByProp(arr1, arr2, 'again', false);
-        assert.deepEqual(arr1, arr6);
-    });
-
-    it('mergeByProp should add obj if no obj in arr1 exists w/ prop=value & push=true', () => {
-        mUtil.mergeByProp(arr1, arr2, 'again', true);
-        assert.deepEqual(arr1, arr5);
     });
 
 });
