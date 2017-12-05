@@ -826,52 +826,6 @@
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
       "description": "A female Anna's Hummingbird <i><a href=\"//commons.wikimedia.org/wiki/Calypte_anna\" title=\"Calypte anna\">Calypte anna</a></i> perched on a small branch."
-    },
-    {
-      "type": "image",
-      "titles": {
-        "canonical": "File:Caribou_from_Wagon_Trails.jpg",
-        "normalized": "File:Caribou from Wagon Trails.jpg",
-        "display": "File:Caribou from Wagon Trails.jpg"
-      },
-      "thumbnail": {
-        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Caribou_from_Wagon_Trails.jpg/320px-Caribou_from_Wagon_Trails.jpg",
-        "width": 320,
-        "height": 219,
-        "mime": "image/jpeg"
-      },
-      "original": {
-        "source": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Caribou_from_Wagon_Trails.jpg",
-        "width": 2064,
-        "height": 1413,
-        "mime": "image/jpeg"
-      },
-      "file_page": "https://commons.wikimedia.org/wiki/File:Caribou_from_Wagon_Trails.jpg",
-      "license": "CC BY-SA 2.5",
-      "license_url": "https://creativecommons.org/licenses/by-sa/2.5"
-    },
-    {
-      "type": "image",
-      "titles": {
-        "canonical": "File:Issoria_lathonia.jpg",
-        "normalized": "File:Issoria lathonia.jpg",
-        "display": "File:Issoria lathonia.jpg"
-      },
-      "thumbnail": {
-        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Issoria_lathonia.jpg/320px-Issoria_lathonia.jpg",
-        "width": 320,
-        "height": 226,
-        "mime": "image/jpeg"
-      },
-      "original": {
-        "source": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Issoria_lathonia.jpg",
-        "width": 629,
-        "height": 445,
-        "mime": "image/jpeg"
-      },
-      "file_page": "https://commons.wikimedia.org/wiki/File:Issoria_lathonia.jpg",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
     }
   ]
 }

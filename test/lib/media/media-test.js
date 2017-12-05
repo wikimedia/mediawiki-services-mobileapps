@@ -29,12 +29,15 @@ const noTypeFigure = '<figure><video resource="./File:Foo"/></figure>';
 const noTypeSpan = '<span><video resource="./File:Foo"/></span>';
 const noTypeFigureInline = '<figure-inline><video resource="./File:Foo"/></figure-inline>';
 
+const imageNoViewer = '<figure typeof="mw:Image" class="noviewer"><img resource="./File:Foo"/></figure>';
+const imageMetadata = '<span class="metadata"><figure typeof="mw:Image"><img resource="./File:Foo"/></figure></span>';
+
 const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline];
 const videos = [videoFigure, videoSpan, videoFigureInline, videoThumbFigure, videoThumbSpan, videoThumbFigureInline];
 const audio = [audioFigure, audioSpan, audioFigureInline];
 
 const validItems = images.concat(videos).concat(audio);
-const invalidItems = [noTypeFigure, noTypeSpan, noTypeFigureInline];
+const invalidItems = [noTypeFigure, noTypeSpan, noTypeFigureInline, imageNoViewer, imageMetadata];
 
 const imageWithCaption =
     '<figure typeof="mw:Image">' +
