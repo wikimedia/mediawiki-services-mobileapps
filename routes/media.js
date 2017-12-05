@@ -32,6 +32,11 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
                     if (mediaItem.title === metadataItem.titles.canonical) {
                         Object.assign(mediaItem, metadataItem);
                         delete mediaItem.title;
+
+                        // delete 'original' property for videos
+                        if (mediaItem.sources) {
+                            delete mediaItem.original;
+                        }
                     }
                 });
             });

@@ -597,11 +597,6 @@ paths:
                     width: /.+/
                     height: /.+/
                     mime: /.+/
-                  original:
-                    source: /.+/
-                    width: /.+/
-                    height: /.+/
-                    mime: /.+/
                   license: /.+/
 
   # from routes/definition.js
@@ -1315,7 +1310,7 @@ definitions:
       duration:
         type: number
         description: the playback duration in seconds (for audio and video items)
-      derivatives:
+      sources:
         type: array
         description: a list of derivatives of the original file (applies only to videos)
         items:
@@ -1340,7 +1335,6 @@ definitions:
       - file_page
       - type
       - thumbnail
-      - original
       - license
     additionalProperties: false
 

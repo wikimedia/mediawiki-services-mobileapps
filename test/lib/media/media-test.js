@@ -104,11 +104,12 @@ describe('lib:media', () => {
 
     it('all expected derivative properties are present', () => {
         const result = media.getMediaItemInfoFromPage(videoWithDerivative)[0];
-        const derivative = result.derivatives[0];
+        const derivative = result.sources[0];
         assert.deepEqual(derivative.source, 'https://example.com/Foo.ogv');
-        assert.deepEqual(derivative.type, 'video/ogg; codecs="theora, vorbis"');
-        assert.deepEqual(derivative.title, 'Foo');
-        assert.deepEqual(derivative.short_title, 'Foo');
+        assert.deepEqual(derivative.mime, 'video/ogg');
+        assert.deepEqual(derivative.codecs, [ "theora", "vorbis" ]);
+        assert.deepEqual(derivative.name, 'Foo');
+        assert.deepEqual(derivative.short_name, 'Foo');
         assert.deepEqual(derivative.width, 120);
         assert.deepEqual(derivative.height, 120);
     });
