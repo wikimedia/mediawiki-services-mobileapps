@@ -1285,6 +1285,9 @@ definitions:
         size:
           type: integer
           description: the original file size in bytes (sizes are not provided for video derivatives)
+      page_count:
+        type: integer
+        description: page count, if the item is a paged item (PDF, TIFF, DjVu, etc.)
       file_page:
         type: string
         description: Full URL to the file page for the item on Wikimedia Commons
