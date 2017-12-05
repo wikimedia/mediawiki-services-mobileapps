@@ -27,7 +27,14 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
         }
         const titles = mUtil.deduplicate(mediaList.map(item => item.title));
         return media.getMetadataFromApi(app, req, titles, response.siteinfo).then((response) => {
-            mUtil.mergeByProp(mediaList, response.items, 'title', false);
+            response.items.forEach((metadataItem) => {
+                mediaList.forEach((mediaItem) => {
+                    if (mediaItem.title === metadataItem.titles.canonical) {
+                        Object.assign(mediaItem, metadataItem);
+                        delete mediaItem.title;
+                    }
+                });
+            });
             mUtil.setETag(res, revTid.revision, revTid.tid);
             mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
             res.send({ items: mediaList.filter(item => media.filterResult(item)) });

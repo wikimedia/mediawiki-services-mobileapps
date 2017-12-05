@@ -91,8 +91,8 @@ describe('lib:media', () => {
 
     it('all expected captions are present', () => {
         const result = media.getMediaItemInfoFromPage(imageWithCaption)[0];
-        assert.deepEqual(result.caption_html, 'An <i>example</i> image');
-        assert.deepEqual(result.caption_text, 'An example image');
+        assert.deepEqual(result.caption.html, 'An <i>example</i> image');
+        assert.deepEqual(result.caption.text, 'An example image');
     });
 
     it('all expected data-mw properties are present', () => {
@@ -105,7 +105,7 @@ describe('lib:media', () => {
     it('all expected derivative properties are present', () => {
         const result = media.getMediaItemInfoFromPage(videoWithDerivative)[0];
         const derivative = result.derivatives[0];
-        assert.deepEqual(derivative.src, 'https://example.com/Foo.ogv');
+        assert.deepEqual(derivative.source, 'https://example.com/Foo.ogv');
         assert.deepEqual(derivative.type, 'video/ogg; codecs="theora, vorbis"');
         assert.deepEqual(derivative.title, 'Foo');
         assert.deepEqual(derivative.short_title, 'Foo');

@@ -11,12 +11,6 @@ describe('media', function() {
 
     before(() => { return server.start(); });
 
-    function checkItemHasExpectedProperties(item) {
-        const host = 'https://upload.wikimedia.org/';
-        assert.ok(item.title.indexOf('File:') === 0, 'Expected title to start with "File:"');
-        assert.ok(item.original.source.indexOf(host) === 0, `Expected url to begin with ${host}`);
-    }
-
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
         return headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/page/media/Foobar`);
     });
@@ -41,7 +35,6 @@ describe('media', function() {
                 const items = res.body.items;
                 assert.deepEqual(res.status, 200);
                 assert.ok(items.length > 3, 'Expected many media items');
-                checkItemHasExpectedProperties(items[0]);
             });
     });
     it('Missing title should respond with 404', () => {
