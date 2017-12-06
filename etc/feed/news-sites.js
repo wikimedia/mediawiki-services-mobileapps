@@ -64,7 +64,8 @@ module.exports = {
     pl: new NewsSite('Szablon:Aktualności', 'ul:last-of-type > li', TOPIC_SELECTOR_BOLD_LINK),
     pt: new NewsSite('Portal:Eventos_atuais', 'table:nth-child(3) ul > li',
         TOPIC_SELECTOR_BOLD_LINK),
-    ru: new NewsSite('Шаблон:Актуальные_события', 'body > ul > li', TOPIC_SELECTOR_BOLD_LINK),
+    // eslint-disable-next-line max-len
+    ru: new NewsSite('Шаблон:Текущие_события_на_заглавной_странице', 'body > ul > li', TOPIC_SELECTOR_BOLD_LINK),
     sco: new NewsSite('Template:In_the_news', 'ul[id^=mw] li', TOPIC_SELECTOR_BOLD_LINK), // see en
     sv: new NewsSite('Portal:Huvudsida/Aktuella händelser', 'body > ul > li',
         TOPIC_SELECTOR_BOLD_LINK),
