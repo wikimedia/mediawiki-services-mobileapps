@@ -212,7 +212,7 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('Enwiki hatnotes are promoted to the lead object', () => {
-        const title = `Chivalric%20order`;
+        const title = `Order_of_chivalry`;
         const uri = `${server.config.uri}${wikiSectionsLead}${title}/699553745`;
         const anchor = `<a href="/wiki/Military_order_(society)" title="Military order (society)">`;
         return preq.get({ uri })

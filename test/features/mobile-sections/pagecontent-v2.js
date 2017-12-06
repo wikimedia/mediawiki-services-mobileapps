@@ -33,7 +33,7 @@ describe('mobile-sections-v2', function() {
     // special
 
     it('Hatnotes do not appear in the lead object', () => {
-        const title = 'Chivalric%20order/699553745';
+        const title = 'Order_of_chivalry/699553745';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted/${title}`;
         const anchor = '<a href="/wiki/Military_order_(society)" title="Military order (society)">';
         return preq.get({ uri })
