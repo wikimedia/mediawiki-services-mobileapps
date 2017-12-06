@@ -5,7 +5,7 @@
   "main": "./app.js",
   "scripts": {
     "start": "service-runner",
-    "test": "npm run -s lint && PREQ_CONNECT_TIMEOUT=15 mocha && nsp check",
+    "test": "PREQ_CONNECT_TIMEOUT=15 mocha && nsp check",
     "test:unit": "PREQ_CONNECT_TIMEOUT=15 mocha test/lib",
     "lint": "eslint --cache --max-warnings 0 --ext .js --ext .json .",
     "docker-start": "service-runner docker-start",
@@ -13,6 +13,9 @@
     "test-build": "service-runner docker-test && service-runner build --deploy-repo --force",
     "coverage": "istanbul cover _mocha -- -R spec"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "https://gerrit.wikimedia.org/r/mediawiki/services/mobileapps"
