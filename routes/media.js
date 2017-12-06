@@ -41,7 +41,7 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
                 });
             });
             mUtil.setETag(res, revTid.revision, revTid.tid);
-            mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
+            mUtil.setContentType(res, mUtil.CONTENT_TYPES.media);
             res.send({ items: mediaList.filter(item => media.filterResult(item)) });
         });
     });
