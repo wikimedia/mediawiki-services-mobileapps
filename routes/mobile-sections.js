@@ -138,7 +138,8 @@ function buildLead(input, legacy) {
         intro,
         geo: input.meta.geo,
         sections,
-        text
+        text,
+        redirect: input.meta.redirect // needed to test that MCS isn't handling redirects internally
     };
 }
 
