@@ -87,6 +87,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAQU",
       "titles": {
         "canonical": "File:Hummingbird_Incubating3.jpg",
         "normalized": "File:Hummingbird Incubating3.jpg",
@@ -113,6 +114,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAQU",
       "titles": {
         "canonical": "File:Hummingbird_nest_with_two_chicks_in_Santa_Monica,_CA._Photo_taken_June_26,_2006.jpg",
         "normalized": "File:Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006.jpg",
@@ -138,6 +140,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAQU",
       "titles": {
         "canonical": "File:Calliope-nest_edit.jpg",
         "normalized": "File:Calliope-nest edit.jpg",
@@ -496,6 +499,7 @@
     },
     {
       "type": "video",
+      "gallery_id": "mwAi0",
       "sources": [
         {
           "source": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Humming_birds_feeding_at_1500fps.webm",
@@ -571,6 +575,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAi0",
       "titles": {
         "canonical": "File:Hummingbird_feeding.jpg",
         "normalized": "File:Hummingbird feeding.jpg",
@@ -597,6 +602,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAi0",
       "titles": {
         "canonical": "File:Hummingbird_headshot.jpg",
         "normalized": "File:Hummingbird headshot.jpg",
@@ -623,6 +629,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAi0",
       "titles": {
         "canonical": "File:Eugenes-fulgens-001.jpg",
         "normalized": "File:Eugenes-fulgens-001.jpg",
@@ -649,6 +656,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAi0",
       "titles": {
         "canonical": "File:Hummingbird.jpg",
         "normalized": "File:Hummingbird.jpg",
@@ -674,6 +682,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAi0",
       "titles": {
         "canonical": "File:Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
         "normalized": "File:Juvenile Annas Hummingbird at San Francisco Botanical Garden - Stierch - E.jpg",
@@ -700,6 +709,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAi0",
       "titles": {
         "canonical": "File:Hummingbird_Calypte_anna_in_ggp_15n.jpg",
         "normalized": "File:Hummingbird Calypte anna in ggp 15n.jpg",
@@ -726,6 +736,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAi0",
       "titles": {
         "canonical": "File:Nano_Hummingbird.jpg",
         "normalized": "File:Nano Hummingbird.jpg",
@@ -751,6 +762,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAi0",
       "titles": {
         "canonical": "File:Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
         "normalized": "File:Hummingbird Chicks in Nest in Cactus in Mesa, Arizona.jpg",
@@ -777,6 +789,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAi0",
       "titles": {
         "canonical": "File:Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
         "normalized": "File:Hummingbird Adult in Nest in Cactus in Mesa, Arizona.jpg",
@@ -803,6 +816,7 @@
     },
     {
       "type": "image",
+      "gallery_id": "mwAi0",
       "titles": {
         "canonical": "File:Female_Anna's_Hummingbird.JPG",
         "normalized": "File:Female Anna's Hummingbird.JPG",
