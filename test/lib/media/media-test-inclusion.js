@@ -31,50 +31,25 @@ const noTypeFigureInline = '<figure-inline><video resource="./File:Foo"/></figur
 
 const imageNoViewer = '<figure typeof="mw:Image" class="noviewer"><img resource="./File:Foo"/></figure>';
 const imageMetadata = '<span class="metadata"><figure typeof="mw:Image"><img resource="./File:Foo"/></figure></span>';
+const imageNoArticleText = '<span class="noarticletext"><figure typeof="mw:Image"><img resource="./File:Foo"/></figure></span>';
+const imageSiteNotice = '<span id="siteNotice"><figure typeof="mw:Image"><img resource="./File:Foo"/></figure></span>';
+const imageSlideshowGallery =
+    '<ul class="mw-gallery-slideshow">' +
+        '<li class="gallerybox">' +
+            '<figure typeof="mw:Image"><img resource="./File:Foo"/></figure>' +
+        '</li>' +
+    '</ul>';
 
 const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline];
 const videos = [videoFigure, videoSpan, videoFigureInline, videoThumbFigure, videoThumbSpan, videoThumbFigureInline];
 const audio = [audioFigure, audioSpan, audioFigureInline];
-
 const validItems = images.concat(videos).concat(audio);
-const invalidItems = [noTypeFigure, noTypeSpan, noTypeFigureInline, imageNoViewer, imageMetadata];
 
-const imageWithCaption =
-    '<figure typeof="mw:Image">' +
-        '<img resource="./File:Foo"/>' +
-        '<figcaption>An <i>example</i> image</figcaption>' +
-    '</figure>';
+const noType = [noTypeFigure, noTypeSpan, noTypeFigureInline];
+const blacklisted = [imageNoViewer, imageMetadata, imageNoArticleText, imageSiteNotice, imageSlideshowGallery];
+const invalidItems = noType.concat(blacklisted);
 
-const videoWithMetadata =
-    '<figure typeof="mw:Video" data-mw=\'{"starttime": "1", "thumbtime": "2", "endtime": "3"}\'>' +
-        '<video resource="./File:Foo"/>' +
-    '</figure>';
-
-const videoWithDerivative =
-    '<figure typeof="mw:Video">' +
-        '<video resource="./File:Foo">' +
-            '<source src="https://example.com/Foo.ogv"' +
-                   ' type=\'video/ogg; codecs="theora, vorbis"\'' +
-                   ' data-title="Foo"' +
-                   ' data-shorttitle="Foo"' +
-                   ' data-file-width="120"' +
-                   ' data-file-height="120"' +
-            '/>' +
-        '</video>' +
-    '</figure>';
-
-const spokenWikipedia =
-    '<div id="section_SpokenWikipedia">' +
-        '<figure typeof="mw:Audio"><video resource="./File:Foo"/></figure>' +
-    '</div>';
-
-const pronunciationAudio =
-    '<span class="IPA"></span>' +
-    '<small>' +
-        '<a rel="mw:MediaLink" title="Foo">Pronunciation</a>' +
-    '</small>';
-
-describe('lib:media', () => {
+describe('lib:media expected items are included or excluded', () => {
 
     it('items should be found for expected selectors', () => {
         const page = validItems.join('');
@@ -90,43 +65,6 @@ describe('lib:media', () => {
         const page = invalidItems.join('');
         const result = media.getMediaItemInfoFromPage(page);
         assert.deepEqual(result.length, 0);
-    });
-
-    it('all expected captions are present', () => {
-        const result = media.getMediaItemInfoFromPage(imageWithCaption)[0];
-        assert.deepEqual(result.caption.html, 'An <i>example</i> image');
-        assert.deepEqual(result.caption.text, 'An example image');
-    });
-
-    it('all expected data-mw properties are present', () => {
-        const result = media.getMediaItemInfoFromPage(videoWithMetadata)[0];
-        assert.deepEqual(result.start_time, 1);
-        assert.deepEqual(result.thumb_time, 2);
-        assert.deepEqual(result.end_time, 3);
-    });
-
-    it('all expected derivative properties are present', () => {
-        const result = media.getMediaItemInfoFromPage(videoWithDerivative)[0];
-        const derivative = result.sources[0];
-        assert.deepEqual(derivative.source, 'https://example.com/Foo.ogv');
-        assert.deepEqual(derivative.mime, 'video/ogg');
-        assert.deepEqual(derivative.codecs, [ "theora", "vorbis" ]);
-        assert.deepEqual(derivative.name, 'Foo');
-        assert.deepEqual(derivative.short_name, 'Foo');
-        assert.deepEqual(derivative.width, 120);
-        assert.deepEqual(derivative.height, 120);
-    });
-
-    it('spoken Wikipedia file is correctly identified', () => {
-        const result = media.getMediaItemInfoFromPage(spokenWikipedia)[0];
-        assert.deepEqual(result.audio_type, 'spoken');
-    });
-
-    it('pronunciation audio file is correctly identified', () => {
-        const result = media.getMediaItemInfoFromPage(pronunciationAudio)[0];
-        assert.deepEqual(result.title, 'File:Foo');
-        assert.deepEqual(result.type, 'audio');
-        assert.deepEqual(result.audio_type, 'pronunciation');
     });
 
 });
