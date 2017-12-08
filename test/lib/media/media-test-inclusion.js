@@ -31,14 +31,6 @@ const noTypeFigureInline = '<figure-inline><video resource="./File:Foo"/></figur
 
 const imageNoViewer = '<figure typeof="mw:Image" class="noviewer"><img resource="./File:Foo"/></figure>';
 const imageMetadata = '<span class="metadata"><figure typeof="mw:Image"><img resource="./File:Foo"/></figure></span>';
-const imageNoArticleText = '<span class="noarticletext"><figure typeof="mw:Image"><img resource="./File:Foo"/></figure></span>';
-const imageSiteNotice = '<span id="siteNotice"><figure typeof="mw:Image"><img resource="./File:Foo"/></figure></span>';
-const imageSlideshowGallery =
-    '<ul class="mw-gallery-slideshow">' +
-        '<li class="gallerybox">' +
-            '<figure typeof="mw:Image"><img resource="./File:Foo"/></figure>' +
-        '</li>' +
-    '</ul>';
 
 const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline];
 const videos = [videoFigure, videoSpan, videoFigureInline, videoThumbFigure, videoThumbSpan, videoThumbFigureInline];
@@ -46,7 +38,7 @@ const audio = [audioFigure, audioSpan, audioFigureInline];
 const validItems = images.concat(videos).concat(audio);
 
 const noType = [noTypeFigure, noTypeSpan, noTypeFigureInline];
-const blacklisted = [imageNoViewer, imageMetadata, imageNoArticleText, imageSiteNotice, imageSlideshowGallery];
+const blacklisted = [imageNoViewer, imageMetadata];
 const invalidItems = noType.concat(blacklisted);
 
 describe('lib:media expected items are included or excluded', () => {
