@@ -109,32 +109,29 @@ connection), you should see all the tests passing. As testing most of the code
 is an important aspect of service development, there is also a bundled tool
 reporting the percentage of code covered. Start it with:
 
-After the first run http interactions should be cached in the `fixtures/`
-folder. If you re-run the tests, they should use the cached fixtures and run
-faster (and offline).
-
-For getting fresh fixtures just remove the `fixtures` folder and re-run the
-tests.
-
-Here are some other options regarding http caching:
-
-```
-npm test # Run tests with cached http interactions (same as VCR_MODE=cache),
-caches new requests. Should be a lot faster, also VCR_MODE=playback plays using
-cached http interactions but goes to network for uncached ones (without caching
-them).
-VCR_MODE=record npm test # Run tests recording http interactions
-```
-
-See [sepia](https://www.npmjs.com/package/sepia) for more documentation about
-the http recording.
-
 ```
 npm run-script coverage
 ```
 
-If you're going to run the tests many times, you can record the external HTTP
-interactions for running the tests faster:
+#### HTTP Recording
+
+This project takes advantage of HTTP request recording provided by the
+[sepia](https://www.npmjs.com/package/sepia) library to make running the tests much faster.
+
+If no `VCR_MODE` variable is found in the environment or provided at the command line,
+the tests will run with `VCR_MODE=cache`. After running for the first time, HTTP interactions
+should be cached in the `fixtures/` folder. The next time you run the tests, they should use
+the cached fixtures and run faster.
+
+To skip the cached fixtures, provide an unexpected VCR_MODE value from the command line, e.g.:
+
+```
+VCR_MODE=off npm test
+```
+
+To get fresh fixtures just remove the `fixtures` folder and re-run the tests.
+
+See [sepia](https://www.npmjs.com/package/sepia) for more documentation.
 
 ### Troubleshooting
 
