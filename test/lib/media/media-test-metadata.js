@@ -38,6 +38,11 @@ const pronunciationAudio =
         '<a rel="mw:MediaLink" title="Foo">Pronunciation</a>' +
     '</small>';
 
+const imageWithSection =
+    '<section data-mw-section-id="0">' +
+        '<figure typeof="mw:Image"><img resource="./File:Foo"/></figure>' +
+    '</section>';
+
 describe('lib:media metadata is correctly parsed from HTML', () => {
 
     it('all expected captions are present', () => {
@@ -75,6 +80,11 @@ describe('lib:media metadata is correctly parsed from HTML', () => {
         assert.deepEqual(result.title, 'File:Foo');
         assert.deepEqual(result.type, 'audio');
         assert.deepEqual(result.audio_type, 'pronunciation');
+    });
+
+    it('section is correctly identified', () => {
+        const result = media.getMediaItemInfoFromPage(imageWithSection)[0];
+        assert.deepEqual(result.section_id, 0);
     });
 
 });
