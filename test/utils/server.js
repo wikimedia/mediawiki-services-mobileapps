@@ -1,14 +1,6 @@
 'use strict';
 
 
-// Default to recording+replaying http fixtures,
-// only if we are not running in Docker
-if (process.env.IN_DOCKER) {
-    process.env.VCR_MODE = undefined;
-} else {
-    process.env.VCR_MODE = process.env.VCR_MODE || 'cache';
-}
-
 const BBPromise = require('bluebird');
 const ServiceRunner = require('service-runner');
 const logStream = require('./logStream');

@@ -118,18 +118,19 @@ npm run-script coverage
 This project takes advantage of HTTP request recording provided by the
 [sepia](https://www.npmjs.com/package/sepia) library to make running the tests much faster.
 
-If no `VCR_MODE` variable is found in the environment or provided at the command line,
-the tests will run with `VCR_MODE=cache`. After running for the first time, HTTP interactions
-should be cached in the `fixtures/` folder. The next time you run the tests, they should use
-the cached fixtures and run faster.
-
-To skip the cached fixtures, provide an unexpected VCR_MODE value from the command line, e.g.:
+To take advantage of HTTP response caching, either set an environment variable
+`VCR_MODE=cache`, or specify at the command line when running the tests:
 
 ```
-VCR_MODE=off npm test
+VCR_MODE=cache npm test
 ```
 
-To get fresh fixtures just remove the `fixtures` folder and re-run the tests.
+After running for the first time with `VCR_MODE=cache`, HTTP interactions should be cached
+in the `fixtures/` folder. The next time you run the tests, they should use the cached
+fixtures and run faster.
+
+To skip the cached fixtures, run the tests with an unexpected VCR_MODE value (e.g.,
+`VCR_MODE=off`) or just remove the `fixtures` folder and re-run.
 
 See [sepia](https://www.npmjs.com/package/sepia) for more documentation.
 
