@@ -16,6 +16,7 @@ const fs = require('fs');
 const assert = require('./assert');
 const yaml = require('js-yaml');
 const extend = require('extend');
+const sepia = require('sepia');
 
 
 // set up the configuration
@@ -38,6 +39,12 @@ config.conf.logging = {
 };
 // make a deep copy of it for later reference
 const origConfig = extend(true, {}, config);
+
+// Requests to our own service should always be live and not use the VCR facility.
+sepia.filter({
+    url: new RegExp(config.uri),
+    forceLive: true
+});
 
 module.exports.stop = () => { return BBPromise.resolve(); };
 let options = null;
