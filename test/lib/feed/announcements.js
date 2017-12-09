@@ -74,13 +74,13 @@ describe('announcements-unit', () => {
     });
 
     it('caption_HTML on iOS should be inside a paragraph', () => {
-        const { caption_HTML } = mut.testing.buildIosAnnouncement(config.iOSCountryVariants[0]);
+        const { caption_HTML } = mut.testing.buildIosAnnouncement(config.iOSCountryVariants[0]); // eslint-disable-line max-len,camelcase
         const doc = domino.createDocument(caption_HTML);
         assert.deepEqual(doc.body.firstElementChild.tagName, 'P');
     });
 
     it('caption_HTML on Android should not be inside a paragraph', () => {
-        const { caption_HTML } = mut.testing.buildAndroidAnnouncement(config.androidCountryVariants[0]); // eslint-disable-line max-len
+        const { caption_HTML } = mut.testing.buildAndroidAnnouncement(config.androidCountryVariants[0]); // eslint-disable-line max-len,camelcase
         const doc = domino.createDocument(caption_HTML);
         assert.notDeepEqual(doc.body.firstElementChild.tagName, 'P');
     });
