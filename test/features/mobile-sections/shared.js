@@ -105,7 +105,7 @@ exports.shouldBehaveLikeMobileSections = function(localUri) {
             assert.equal(res.status, 200);
             assert.equal(res.body.lead.normalizedtitle, normalizedTitle);
             assert.equal(res.body.lead.displaytitle, normalizedTitle);
-            assert.ok(res.body.lead.redirected === undefined);
+            assert.ok(res.body.lead.redirect === true);
         });
     });
 };
