@@ -667,11 +667,11 @@ paths:
           schema:
             $ref: '#/definitions/problem'
       x-amples:
-        - title: Get summary for Barack Obama
+        - title: Get summary for Manitowoc, Wisconsin
           request:
             params:
               domain: en.wikipedia.org
-              title: Barack_Obama
+              title: Manitowoc,_Wisconsin
           response:
             status: 200
             headers:
@@ -702,6 +702,9 @@ paths:
               revision: /.+/
               tid: /.+/
               timestamp: /.+/
+              coordinates:
+                lat: /.+/
+                lon: /.+/
               description: /.+/
               content_urls:
                 desktop:
