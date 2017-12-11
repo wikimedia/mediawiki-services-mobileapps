@@ -16,7 +16,7 @@ describe('announcements-unit', () => {
 
     it('should return some announcements for active wiki', () => {
         const res = mut.getAnnouncements(activeAnnouncementDomain);
-        assert.ok(res.announce.length === 11);
+        assert.ok(res.announce.length === 12);
         assert.equal(res.announce[0].id, 'EN1217FUNDRAISINGANDROIDUS');
         assert.equal(res.announce[1].id, 'EN1217FUNDRAISINGANDROIDGB');
         assert.equal(res.announce[2].id, 'EN1217FUNDRAISINGANDROIDAU');
@@ -41,7 +41,7 @@ describe('announcements-unit', () => {
         const doc = domino.createDocument();
         // destructure 'id', 'text' and 'action.title' from the iOS announcement
         const { text, action: { title } }
-            = mut.testing.buildIosAnnouncement(config.iOSCountryVariants[0]);
+            = mut.testing.buildIosAnnouncement(config.countryVariants[0]);
         const fieldsToCheck = { text, title };
         for (const textOnlyFieldName of Object.keys(fieldsToCheck)) {
             const textToCheck = fieldsToCheck[textOnlyFieldName];
@@ -58,7 +58,7 @@ describe('announcements-unit', () => {
 
     it('should deliver HTML in certain Android announcements fields', () => {
         const doc = domino.createDocument();
-        const { text } = mut.testing.buildAndroidAnnouncement(config.androidCountryVariants[0]);
+        const { text } = mut.testing.buildAndroidAnnouncement(config.countryVariants[0]);
         const fieldsToCheck = { text };
         for (const textOnlyFieldName of Object.keys(fieldsToCheck)) {
             const textToCheck = fieldsToCheck[textOnlyFieldName];
@@ -74,13 +74,13 @@ describe('announcements-unit', () => {
     });
 
     it('caption_HTML on iOS should be inside a paragraph', () => {
-        const { caption_HTML } = mut.testing.buildIosAnnouncement(config.iOSCountryVariants[0]); // eslint-disable-line max-len,camelcase
+        const { caption_HTML } = mut.testing.buildIosAnnouncement(config.countryVariants[0]); // eslint-disable-line max-len,camelcase
         const doc = domino.createDocument(caption_HTML);
         assert.deepEqual(doc.body.firstElementChild.tagName, 'P');
     });
 
     it('caption_HTML on Android should not be inside a paragraph', () => {
-        const { caption_HTML } = mut.testing.buildAndroidAnnouncement(config.androidCountryVariants[0]); // eslint-disable-line max-len,camelcase
+        const { caption_HTML } = mut.testing.buildAndroidAnnouncement(config.countryVariants[0]); // eslint-disable-line max-len,camelcase
         const doc = domino.createDocument(caption_HTML);
         assert.notDeepEqual(doc.body.firstElementChild.tagName, 'P');
     });
