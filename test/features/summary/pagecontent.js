@@ -46,6 +46,17 @@ describe('summary', function() {
             });
     });
 
+    it('empty summary (not 204) should be sent for project main page', () => {
+        const uri = localUri('Main_Page');
+        return preq.get({ uri })
+            .then((res) => {
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.type, 'standard');
+                assert.deepEqual(res.body.extract, '', 'should send empty plaintext extract');
+                assert.deepEqual(res.body.extract_html, '', 'should send empty html extract');
+            });
+    });
+
     it('204 should be returned for redirect page', () => {
         const uri = localUri('Barack');
         return preq.get({ uri })
