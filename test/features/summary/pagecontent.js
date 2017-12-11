@@ -34,4 +34,24 @@ describe('summary', function() {
                 assert.ok(res.body.extract_html.indexOf('<b>foobar</b>') > -1);
             });
     });
+
+    it('empty summary (not 204) should be sent for empty page', () => {
+        const uri = localUri('PreviewsEmpty%2Fsandbox', 'en.wikipedia.beta.wmflabs.org');
+        return preq.get({ uri })
+            .then((res) => {
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.type, 'standard');
+                assert.deepEqual(res.body.extract, '', 'should send empty plaintext extract');
+                assert.deepEqual(res.body.extract_html, '', 'should send empty html extract');
+            });
+    });
+
+    it('204 should be returned for redirect page', () => {
+        const uri = localUri('Barack');
+        return preq.get({ uri })
+            .then((res) => {
+                assert.deepEqual(res.status, 204);
+                assert.ok(!res.body);
+            });
+    });
 });
