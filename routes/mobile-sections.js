@@ -374,7 +374,7 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
     .then((response) => {
         res.status(200);
         mUtil.setETag(res, response.meta.revision);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.references);
         res.json(buildReferences(response.doc, req.logger)).end();
     });
 });
