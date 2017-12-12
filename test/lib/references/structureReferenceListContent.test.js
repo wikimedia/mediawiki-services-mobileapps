@@ -74,19 +74,23 @@ describe('lib:structureReferenceListContent', () => {
         it('one back link', () => {
             const doc = createDocument(simpleDogRef);
             assert.deepEqual(
-                mut.unit.structureBackLinks(doc.querySelector('li'), logger), [
-                    './Dog#cite_ref-101'
-                ]);
+                mut.unit.structureBackLinks(doc.querySelector('li'), logger), [{
+                    href: './Dog#cite_ref-101',
+                    text: '↑'
+                }]);
             assert.ok(logger.log.notCalled);
         });
 
         it('two back links', () => {
             const doc = createDocument(twoBacklinksDogRef);
             assert.deepEqual(
-                mut.unit.structureBackLinks(doc.querySelector('li'), logger), [
-                    './Dog#cite_ref-perri2016_13-0',
-                    './Dog#cite_ref-perri2016_13-1'
-                ]
+                mut.unit.structureBackLinks(doc.querySelector('li'), logger), [ {
+                    href: './Dog#cite_ref-perri2016_13-0',
+                    text: '1'
+                }, {
+                    href: './Dog#cite_ref-perri2016_13-1',
+                    text: '2'
+                }]
             );
             assert.ok(logger.log.notCalled);
         });
@@ -150,9 +154,10 @@ describe('lib:structureReferenceListContent', () => {
             const doc = createDocument(simpleDogRef);
             const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
             assert.deepEqual(result, {
-                back_links: [
-                    './Dog#cite_ref-101'
-                ],
+                back_links: [ {
+                    "href": "./Dog#cite_ref-101",
+                    "text": "↑"
+                }],
                 content: 'some HTML',
                 id: '101'
             });
@@ -163,11 +168,13 @@ describe('lib:structureReferenceListContent', () => {
             const doc = createDocument(twoBacklinksDogRef);
             const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
             assert.deepEqual(result, {
-                back_links: [
-                    './Dog#cite_ref-perri2016_13-0',
-                    './Dog#cite_ref-perri2016_13-1'
-
-                ],
+                back_links: [{
+                    "href": "./Dog#cite_ref-perri2016_13-0",
+                    "text": "1"
+                }, {
+                    "href": "./Dog#cite_ref-perri2016_13-1",
+                    "text": "2"
+                }],
                 content: '<cite class="citation journal">cite 1</cite><span>more HTML</span>',
                 citations: [
                     'journal'
@@ -184,9 +191,10 @@ describe('lib:structureReferenceListContent', () => {
             const result = mut.buildReferenceList(doc.querySelector('ol'), logger);
             assert.deepEqual(result.references, {
                 '101': {
-                    back_links: [
-                        './Dog#cite_ref-101'
-                    ],
+                    back_links: [{
+                        "href": "./Dog#cite_ref-101",
+                        "text": "↑"
+                    }],
                     content: 'some HTML'
                 }
             });
@@ -199,9 +207,10 @@ describe('lib:structureReferenceListContent', () => {
             const result = mut.buildReferenceList(doc.querySelector('ol'), logger);
             assert.deepEqual(result.references, {
                 '4': {
-                    back_links: [
-                        './List_of_most_viewed_YouTube_videos#cite_ref-4'
-                    ],
+                    back_links: [{
+                        "href": "./List_of_most_viewed_YouTube_videos#cite_ref-4",
+                        "text": "↑"
+                    }],
                     content: mostViewedYoutubeVideosContent
                 }
             });
