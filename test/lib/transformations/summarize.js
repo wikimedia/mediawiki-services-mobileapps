@@ -23,6 +23,11 @@ describe('summarize', () => {
                 'This summary should be nice and clean<span class="noexcerpt"> (elements with class "noexcerpt" will be omitted)</span>.',
                 'This summary should be nice and clean.'
             ],
+            // Should strip .noprint
+            [
+                'This summary should be nice and clean<span class="noprint"> (elements with class "noprint" will be omitted)</span>.',
+                'This summary should be nice and clean.'
+            ],
             // sup elements are retained
             [
                 '<p>A <b>googolplex</b> is the number 10<sup>googol</sup>, or equivalently, 10<sup>(10<sup>100</sup>)</sup>.</p>',
