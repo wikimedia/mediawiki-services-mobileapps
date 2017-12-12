@@ -1393,7 +1393,6 @@ definitions:
       - type
       - thumbnail
       - license
-    additionalProperties: false
 
   action:
     type: object
