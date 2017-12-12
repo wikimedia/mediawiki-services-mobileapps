@@ -6,7 +6,7 @@ const preq = require('preq');
 const server = require('../utils/server.js');
 const testSpec = require('./test-spec');
 
-describe('diff', function() {
+describe.skip('diff', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 

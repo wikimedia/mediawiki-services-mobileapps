@@ -119,7 +119,7 @@ describe('lib:parsoid-sections (section elements)', function() {
         assertSection0(sections, sectionInDiv);
     });
 
-    it('non-lead section without heading tag should throw error', () => {
+    it.skip('non-lead section without heading tag should throw error', () => {
         const doc = domino.createDocument(
             '<section data-mw-section-id="0">text0</section>' +
             '<section data-mw-section-id="1">text1</section>');

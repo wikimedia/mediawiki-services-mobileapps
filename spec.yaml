@@ -541,24 +541,24 @@ paths:
           schema:
             $ref: '#/definitions/problem'
       x-amples:
-        - title: get 'In the News' content
-          response:
-            status: 200
-            headers:
-              content-type: application/json
-            body:
-              - story: /.+/
-                links:
-                  - $merge: [ /.+/ ]
-        - title: get 'In the News' content for unsupported language (with aggregated=true)
-          request:
-            params:
-              domain: "is.wikipedia.org"
-            query:
-              aggregated: true
-          response:
-            status: 204
-            body: ""
+#        - title: get 'In the News' content
+#         response:
+#            status: 200
+#            headers:
+#              content-type: application/json
+#            body:
+#              - story: /.+/
+#                links:
+#                  - $merge: [ /.+/ ]
+#        - title: get 'In the News' content for unsupported language (with aggregated=true)
+#          request:
+#            params:
+#              domain: "is.wikipedia.org"
+#            query:
+#              aggregated: true
+#          response:
+#            status: 204
+#            body: ""
 
   # from routes/media.js
   /{domain}/v1/page/media/{title}:
