@@ -43,7 +43,7 @@ const testStoryObj = {
 };
 
 
-describe.skip('in the news', function() {
+describe('in the news', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
