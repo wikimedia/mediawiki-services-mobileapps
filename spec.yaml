@@ -139,7 +139,7 @@ paths:
          - Holidays: a list of fixed holidays celebrated on the provided day and month
          - Events: a list of significant events which happened on the provided day and month and which are not covered by the other types yet
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/onthisday/0.3.1"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/onthisday/0.3.2"
       parameters:
         - name: type
           in: path
@@ -607,7 +607,7 @@ paths:
         - Wiktionary definition of {title}
       description: Gets definitions parsed from Wiktionary for {title}
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.7.3"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.7.4"
       x-amples:
         - title: retrieve en-wiktionary definitions for 'cat'
           request:
