@@ -18,9 +18,9 @@ describe('summarize', () => {
                 'This is some content with <a href="#"">a link</a>.',
                 'This is some content with <span>a link</span>.'
             ],
-            // Should strip .noexcerpts
+            // Should strip .noexcerpt
             [
-                'This summary should be nice and clean<span class="noexcerpts"> (noexcerpts will be omitted)</span>.',
+                'This summary should be nice and clean<span class="noexcerpt"> (elements with class "noexcerpt" will be omitted)</span>.',
                 'This summary should be nice and clean.'
             ],
             // sup elements are retained
