@@ -540,7 +540,8 @@ paths:
           description: Error
           schema:
             $ref: '#/definitions/problem'
-      x-amples:
+      x-monitor: false
+#      x-amples:
 #        - title: get 'In the News' content
 #         response:
 #            status: 200
