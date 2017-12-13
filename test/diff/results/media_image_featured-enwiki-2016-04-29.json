@@ -12,6 +12,6 @@
   },
   "description": {
     "lang": "en",
-    "text": "Head shaman of <a rel=\"mw:ExtLink\" href=\"https://en.wikipedia.org/wiki/Olkhon%20Island\" title=\"en:Olkhon Island\">Olkhon</a> at <a rel=\"mw:ExtLink\" href=\"https://en.wikipedia.org/wiki/Lake%20Baikal\" title=\"en:Lake Baikal\">Lake Baikal</a>. Buryatia, Russia."
+    "text": "Head shaman of <a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/Olkhon%20Island\" title=\"en:Olkhon Island\">Olkhon</a> at <a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/Lake%20Baikal\" title=\"en:Lake Baikal\">Lake Baikal</a>. Buryatia, Russia."
   }
 }
