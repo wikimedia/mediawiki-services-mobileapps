@@ -21,7 +21,7 @@ describe('read-html', function() {
         return headers.checkHeaders(uri, headers.HTML_CONTENT_TYPE_REGEX);
     });
 
-    it('HTML should be sectioned', () => {
+    it.skip('HTML should be sectioned', () => { // skipped because of issue T182770 (RB?)
         const uri = localUri('Foobar/788941783');
         return preq.get({ uri })
         .then((res) => {
