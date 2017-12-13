@@ -1,11 +1,13 @@
+/* eslint-disable prefer-template */
+
 'use strict';
 
 const assert = require('../../utils/assert.js');
 const domino = require('domino');
 const parsoidSectionsUsingSectionTags = require('../../../lib/parsoidSectionsUsingSectionTags');
+const shouldWarn = parsoidSectionsUsingSectionTags.testing.shouldLogInvalidSectionWarning;
 
 describe('lib:parsoid-sections (section elements)', function() {
-    /* eslint-disable prefer-template */
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
@@ -119,14 +121,32 @@ describe('lib:parsoid-sections (section elements)', function() {
         assertSection0(sections, sectionInDiv);
     });
 
-    it.skip('non-lead section without heading tag should throw error', () => {
-        const doc = domino.createDocument(
-            '<section data-mw-section-id="0">text0</section>' +
-            '<section data-mw-section-id="1">text1</section>');
-        assert.throws(() => {
-            parsoidSectionsUsingSectionTags.getSectionsText(doc);
-        }, /unsupported_section/);
+    it('should not warn for page containing only a lead section', () => {
+        const allSections = [ { id: 0 } ];
+        assert.ok(!shouldWarn(allSections[0]));
     });
 
-    /* eslint-enable prefer-template */
+    it('should warn for non-lead section without heading tag', () => {
+        const allSections = [ { id: 0 }, { id: 1 } ];
+        assert.ok(shouldWarn(allSections[1]));
+    });
+
+    it('should not warn if id & anchor are found for all sections after the lead section', () => {
+        const allSections = [ { id: 0 }, { id: 1, line: 'Foo', anchor: 'Foo' } ];
+        assert.ok(!shouldWarn(allSections[1]));
+    });
+
+    it('should not warn for non-lead non-editable section without heading tag', () => {
+        const allSections = [ { id: 0 }, { id: -1 } ];
+        assert.ok(!shouldWarn(allSections[1]));
+    });
+
+    it('should not warn if a non-editable section precedes the true lead section', () => {
+        const allSections = [ { id: -1 }, { id: 0 }, { id: 1, line: 'Foo', anchor: 'Foo' } ];
+        assert.ok(!shouldWarn(allSections[1]));
+    });
+
+    it('should throw if sectionObj is invalid', () => {
+        assert.throws(() => { shouldWarn(undefined); }, /TypeError/);
+    });
 });
