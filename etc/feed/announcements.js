@@ -8,7 +8,7 @@ const AnnouncementType = {
 const type = AnnouncementType.FUNDRAISING;
 const activeWiki = 'en.wikipedia.org';
 const startTime = '2017-11-30T16:00:00Z';
-const endTime = '2017-12-31T00:00:00Z';
+const endTime = '2017-12-20T23:59:00Z';
 const idPrefix = 'EN1217';
 const androidDestinationUrl
     = 'https://donate.wikimedia.org/?uselang=en&utm_medium=WikipediaAppFeed&utm_campaign=Android&utm_source=app_201712_6C_control';
