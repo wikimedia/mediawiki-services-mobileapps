@@ -16,10 +16,11 @@ describe('announcements-unit', () => {
 
     it('should return some announcements for active wiki', () => {
         const res = mut.getAnnouncements(activeAnnouncementDomain);
-        assert.ok(res.announce.length === 12);
-        assert.equal(res.announce[0].id, 'EN1217FUNDRAISINGANDROIDUS');
-        assert.equal(res.announce[1].id, 'EN1217FUNDRAISINGANDROIDGB');
-        assert.equal(res.announce[2].id, 'EN1217FUNDRAISINGANDROIDAU');
+        assert.ok(res.announce.length === 0);
+        // assert.ok(res.announce.length === 12);
+        // assert.equal(res.announce[0].id, 'EN1217FUNDRAISINGANDROIDUS');
+        // assert.equal(res.announce[1].id, 'EN1217FUNDRAISINGANDROIDGB');
+        // assert.equal(res.announce[2].id, 'EN1217FUNDRAISINGANDROIDAU');
     });
 
     it('should return no images', () => {
@@ -88,6 +89,23 @@ describe('announcements-unit', () => {
     it('buildId should not return lower case characters', () => {
         const id = mut.testing.buildId('IOS', 'US');
         assert.deepEqual(id, id.toUpperCase());
+    });
+
+    describe('.hasEnded', () => {
+        it('invalid endTime', () => {
+            config.endTime = 'DISABLED';
+            assert.ok(mut.testing.hasEnded());
+        });
+
+        it('endTime has passed', () => {
+            config.endTime = '2017-12-20T23:59:00Z';
+            assert.ok(mut.testing.hasEnded(new Date(Date.UTC(2017, 11, 21))));
+        });
+
+        it('endTime has not passed yet', () => {
+            config.endTime = '2017-12-20T23:59:00Z';
+            assert.ok(!mut.testing.hasEnded(new Date(Date.UTC(2017, 11, 20))));
+        });
     });
 
     describe('announcements-unit-config', () => {
