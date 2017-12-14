@@ -4,8 +4,10 @@
 
 const assert = require('../../utils/assert.js');
 const domino = require('domino');
+const sinon = require('sinon');
 const parsoidSectionsUsingSectionTags = require('../../../lib/parsoidSectionsUsingSectionTags');
 const shouldWarn = parsoidSectionsUsingSectionTags.testing.shouldLogInvalidSectionWarning;
+const validatePreviousSection = parsoidSectionsUsingSectionTags.testing.validatePreviousSection;
 
 describe('lib:parsoid-sections (section elements)', function() {
 
@@ -126,9 +128,9 @@ describe('lib:parsoid-sections (section elements)', function() {
         assert.ok(!shouldWarn(allSections[0]));
     });
 
-    it('should warn for non-lead section without heading tag', () => {
-        const allSections = [ { id: 0 }, { id: 1 } ];
-        assert.ok(shouldWarn(allSections[1]));
+    it('should warn for non-lead section without heading properties', () => {
+        const allSectionsWithoutHeadingProps = [ { id: 0 }, { id: 1 } ];
+        assert.ok(shouldWarn(allSectionsWithoutHeadingProps[1]));
     });
 
     it('should not warn if id & anchor are found for all sections after the lead section', () => {
@@ -136,7 +138,7 @@ describe('lib:parsoid-sections (section elements)', function() {
         assert.ok(!shouldWarn(allSections[1]));
     });
 
-    it('should not warn for non-lead non-editable section without heading tag', () => {
+    it('should not warn for non-lead non-editable section without heading properties', () => {
         const allSections = [ { id: 0 }, { id: -1 } ];
         assert.ok(!shouldWarn(allSections[1]));
     });
@@ -148,5 +150,21 @@ describe('lib:parsoid-sections (section elements)', function() {
 
     it('should throw if sectionObj is invalid', () => {
         assert.throws(() => { shouldWarn(undefined); }, /TypeError/);
+    });
+
+    it('validatePreviousSection should log a warning if appropriate', () => {
+        const logger = {
+            log: sinon.stub()
+        };
+        const allSectionsWarn = [ { id: 0 }, { id: 1 } ];
+
+        validatePreviousSection(logger, allSectionsWarn);
+        assert.ok(logger.log.calledOnce);
+        assert.deepEqual(logger.log.args,
+            [[ 'warn', {
+                warning: 'invalid_section',
+                title: 'Found section without expected heading',
+                detail: 'Cannot find heading for section number 1.'
+            }]]);
     });
 });
