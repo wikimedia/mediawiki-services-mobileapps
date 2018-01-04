@@ -50,10 +50,6 @@ describe('in the news', function() {
     before(() => { return server.start(); });
 
     for (const lang in NEWS_TEMPLATES) {
-        if (lang === 'fr') {
-            continue; // TODO: unskip testing french news today
-        }
-
         if ({}.hasOwnProperty.call(NEWS_TEMPLATES, lang)) {
             it(`${lang}: should respond with expected headers, incl. CORS and CSP headers`, () => {
                 return checkHeaders(`${server.config.uri}${lang}.wikipedia.org/v1/page/news`,
