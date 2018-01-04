@@ -111,7 +111,8 @@ describe('lib:structureReferenceListContent', () => {
             const doc = createDocument(simpleDogRef);
             assert.deepEqual(
                 mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
-                    html: 'some HTML'
+                    html: 'some HTML',
+                    type: 'generic'
                 });
             assert.ok(logger.log.notCalled);
         });
@@ -121,7 +122,7 @@ describe('lib:structureReferenceListContent', () => {
             assert.deepEqual(
                 mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
                     html: '<cite class="citation journal">cite 1</cite><span>more HTML</span>',
-                    citations: [ 'journal' ]
+                    type: 'journal'
                 });
             assert.ok(logger.log.notCalled);
         });
@@ -131,10 +132,7 @@ describe('lib:structureReferenceListContent', () => {
             assert.deepEqual(
                 mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
                     html: ulRefContent,
-                    citations: [
-                        'web',
-                        'book'
-                    ]
+                    type: 'generic'
                 });
             assert.ok(logger.log.notCalled);
         });
@@ -143,7 +141,8 @@ describe('lib:structureReferenceListContent', () => {
             const doc = createDocument(indianFilmsRef);
             assert.deepEqual(
                 mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
-                    html: indianFilmsRefContent
+                    html: indianFilmsRefContent,
+                    type: 'generic'
                 });
             assert.ok(logger.log.notCalled);
         });
@@ -154,11 +153,12 @@ describe('lib:structureReferenceListContent', () => {
             const doc = createDocument(simpleDogRef);
             const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
             assert.deepEqual(result, {
-                back_links: [ {
+                back_links: [{
                     "href": "./Dog#cite_ref-101",
                     "text": "↑"
                 }],
                 content: 'some HTML',
+                type: 'generic',
                 id: '101'
             });
             assert.ok(logger.log.notCalled);
@@ -176,9 +176,7 @@ describe('lib:structureReferenceListContent', () => {
                     "text": "2"
                 }],
                 content: '<cite class="citation journal">cite 1</cite><span>more HTML</span>',
-                citations: [
-                    'journal'
-                ],
+                type: 'journal',
                 id: 'perri2016-13'
             });
             assert.ok(logger.log.notCalled);
@@ -195,7 +193,8 @@ describe('lib:structureReferenceListContent', () => {
                         "href": "./Dog#cite_ref-101",
                         "text": "↑"
                     }],
-                    content: 'some HTML'
+                    content: 'some HTML',
+                    type: 'generic'
                 }
             });
             assert.deepEqual(result.order, [ '101' ]);
@@ -211,7 +210,8 @@ describe('lib:structureReferenceListContent', () => {
                         "href": "./List_of_most_viewed_YouTube_videos#cite_ref-4",
                         "text": "↑"
                     }],
-                    content: mostViewedYoutubeVideosContent
+                    content: mostViewedYoutubeVideosContent,
+                    type: 'generic'
                 }
             });
             assert.deepEqual(result.order, [ '4' ]);
