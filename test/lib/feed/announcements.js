@@ -104,7 +104,7 @@ describe('announcements-unit', () => {
 
         function checkYear(date, label) {
             const res = date.getUTCFullYear();
-            assert.ok(res === THIS_YEAR || res === THIS_YEAR + 1,
+            assert.ok(THIS_YEAR - 1 < res || res < THIS_YEAR + 1,
                 `invalid year ${res} in ${label}`);
         }
 
