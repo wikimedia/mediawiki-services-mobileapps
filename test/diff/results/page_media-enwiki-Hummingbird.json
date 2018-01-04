@@ -252,7 +252,9 @@
             "vorbis"
           ],
           "name": "Low bandwidth WebM (160P)",
-          "short_name": "WebM 160P"
+          "short_name": "WebM 160P",
+          "width": "288",
+          "height": "160"
         },
         {
           "source": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.webm",
@@ -262,7 +264,9 @@
             "vorbis"
           ],
           "name": "Small WebM (240P)",
-          "short_name": "WebM 240P"
+          "short_name": "WebM 240P",
+          "width": "426",
+          "height": "236"
         },
         {
           "source": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.webm",
@@ -272,7 +276,9 @@
             "vorbis"
           ],
           "name": "WebM (360P)",
-          "short_name": "WebM 360P"
+          "short_name": "WebM 360P",
+          "width": "640",
+          "height": "356"
         },
         {
           "source": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.webm",
@@ -282,7 +288,9 @@
             "vorbis"
           ],
           "name": "SD WebM (480P)",
-          "short_name": "WebM 480P"
+          "short_name": "WebM 480P",
+          "width": "854",
+          "height": "474"
         }
       ],
       "titles": {
@@ -388,7 +396,9 @@
             "vorbis"
           ],
           "name": "Low bandwidth WebM (160P)",
-          "short_name": "WebM 160P"
+          "short_name": "WebM 160P",
+          "width": "284",
+          "height": "160"
         },
         {
           "source": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.webm",
@@ -398,7 +408,9 @@
             "vorbis"
           ],
           "name": "Small WebM (240P)",
-          "short_name": "WebM 240P"
+          "short_name": "WebM 240P",
+          "width": "426",
+          "height": "240"
         },
         {
           "source": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.webm",
@@ -408,7 +420,9 @@
             "vorbis"
           ],
           "name": "WebM (360P)",
-          "short_name": "WebM 360P"
+          "short_name": "WebM 360P",
+          "width": "640",
+          "height": "360"
         },
         {
           "source": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.webm",
@@ -418,7 +432,9 @@
             "vorbis"
           ],
           "name": "SD WebM (480P)",
-          "short_name": "WebM 480P"
+          "short_name": "WebM 480P",
+          "width": "854",
+          "height": "480"
         }
       ],
       "titles": {
@@ -521,7 +537,9 @@
             "vorbis"
           ],
           "name": "Low bandwidth WebM (160P)",
-          "short_name": "WebM 160P"
+          "short_name": "WebM 160P",
+          "width": "288",
+          "height": "160"
         },
         {
           "source": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.webm",
@@ -531,7 +549,9 @@
             "vorbis"
           ],
           "name": "Small WebM (240P)",
-          "short_name": "WebM 240P"
+          "short_name": "WebM 240P",
+          "width": "426",
+          "height": "236"
         },
         {
           "source": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.webm",
@@ -541,7 +561,9 @@
             "vorbis"
           ],
           "name": "WebM (360P)",
-          "short_name": "WebM 360P"
+          "short_name": "WebM 360P",
+          "width": "640",
+          "height": "356"
         },
         {
           "source": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.webm",
@@ -551,7 +573,9 @@
             "vorbis"
           ],
           "name": "SD WebM (480P)",
-          "short_name": "WebM 480P"
+          "short_name": "WebM 480P",
+          "width": "854",
+          "height": "474"
         }
       ],
       "titles": {
