@@ -93,8 +93,10 @@ describe('announcements-unit', () => {
 
     describe('.hasEnded', () => {
         it('invalid endTime', () => {
-            config.endTime = 'DISABLED';
-            assert.ok(mut.testing.hasEnded());
+            config.endTime = 'INVALID';
+            assert.throws(() => {
+                mut.testing.hasEnded(Date(Date.UTC(2030, 5, 1)));
+            }, /config_error/);
         });
 
         it('endTime has passed', () => {
