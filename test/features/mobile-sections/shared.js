@@ -69,7 +69,7 @@ exports.shouldBehaveLikeMobileSections = function(localUri) {
         });
     });
 
-    it.skip('Check content of fresh revision', () => { // skipped because of issue T182770 (RB?)
+    it('Check content of fresh revision', () => {
         const title = 'Leonard_Cohen';
         const uri = localUri(title);
         return preq.get({ uri })
