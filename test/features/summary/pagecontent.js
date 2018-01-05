@@ -36,7 +36,7 @@ describe('summary', function() {
     });
 
     it('empty summary (not 204) should be sent for empty page', () => {
-        const uri = localUri('PreviewsEmpty%2Fsandbox', 'en.wikipedia.beta.wmflabs.org');
+        const uri = localUri('Empty', 'test.wikipedia.org');
         return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
