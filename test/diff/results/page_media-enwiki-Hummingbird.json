@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "section_id": 0,
       "type": "image",
       "titles": {
         "canonical": "File:Trinidad_and_Tobago_hummingbirds_composite.jpg",
@@ -27,9 +28,10 @@
       "description": "Trinidad and Tobago hummingbirds. Composite of birds from Trinidad and Tobago<br><p><a href=\"//commons.wikimedia.org/wiki/File:Blue-chinned_sapphire_(Chlorestes_notata_notata)_male.jpg\" title=\"File:Blue-chinned sapphire (Chlorestes notata notata) male.jpg\">Blue-chinned sapphire</a> (<i>Chlorestes notata notata</i>) male, Trindad<br><a href=\"//commons.wikimedia.org/wiki/File:Ruby-topaz_hummingbird_(Chrysolampis_mosquitus)_male.jpg\" title=\"File:Ruby-topaz hummingbird (Chrysolampis mosquitus) male.jpg\">Ruby-topaz hummingbird</a> (<i>Chrysolampis mosquitus</i>) male, Tobago<br>\nWhite-chested emerald (<i>Amazilia brevirostris</i>), Trinidad<br></p>\n<a href=\"//commons.wikimedia.org/wiki/File:White-necked_jacobin_(Florisuga_mellivora_mellivora)_male_Tr.jpg\" title=\"File:White-necked jacobin (Florisuga mellivora mellivora) male Tr.jpg\">White-necked jacobin</a> (<i>Florisuga mellivora mellivora</i>) male Trinidad"
     },
     {
+      "section_id": 3,
       "type": "image",
       "caption": {
-        "html": "<a rel=\"mw:WikiLink\" href=\"./Purple-throated_carib\" title=\"Purple-throated carib\" id=\"mwSA\">Purple-throated carib</a> feeding at a flower",
+        "html": "<a rel=\"mw:WikiLink\" href=\"./Purple-throated_carib\" title=\"Purple-throated carib\" id=\"mwTA\">Purple-throated carib</a> feeding at a flower",
         "text": "Purple-throated carib feeding at a flower"
       },
       "titles": {
@@ -57,9 +59,10 @@
       "description": "Purple-throated Carib hummingbird (<i>Eulampis jugularis</i>) feeding photographed in its natural habitat in the Morne Diablotins National Park in Dominica. Guide was local expert 'Dr Birdy' Bertrand Baptiste."
     },
     {
+      "section_id": 5,
       "type": "image",
       "caption": {
-        "html": "A color plate illustration from <a rel=\"mw:WikiLink\" href=\"./Ernst_Haeckel\" title=\"Ernst Haeckel\" id=\"mwaQ\">Ernst Haeckel</a>'s <i id=\"mwag\"><a rel=\"mw:WikiLink\" href=\"./Kunstformen_der_Natur\" title=\"Kunstformen der Natur\" id=\"mwaw\">Kunstformen der Natur</a></i> (1899), showing a variety of hummingbirds",
+        "html": "A color plate illustration from <a rel=\"mw:WikiLink\" href=\"./Ernst_Haeckel\" title=\"Ernst Haeckel\" id=\"mwbw\">Ernst Haeckel</a>'s <i id=\"mwcA\"><a rel=\"mw:WikiLink\" href=\"./Kunstformen_der_Natur\" title=\"Kunstformen der Natur\" id=\"mwcQ\">Kunstformen der Natur</a></i> (1899), showing a variety of hummingbirds",
         "text": "A color plate illustration from Ernst Haeckel's Kunstformen der Natur (1899), showing a variety of hummingbirds"
       },
       "titles": {
@@ -86,8 +89,9 @@
       "description": "<span class=\"langlabel-en\" lang=\"en\" style=\"font-weight:bold;\">English:</span> Hummingbirds (drawn from millinery specimens, body positions are not natural)<br><ul>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Ruby-throated_Hummingbird\" class=\"extiw\" title=\"en:Ruby-throated Hummingbird\">Ruby-throated Hummingbird</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Horned_Sungem\" class=\"extiw\" title=\"en:Horned Sungem\">Horned Sungem</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Crimson_Topaz\" class=\"extiw\" title=\"en:Crimson Topaz\">Crimson Topaz</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Red-tailed_Comet\" class=\"extiw\" title=\"en:Red-tailed Comet\">Red-tailed Comet</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Tufted_Coquette\" class=\"extiw\" title=\"en:Tufted Coquette\">Tufted Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Sword-billed_Hummingbird\" class=\"extiw\" title=\"en:Sword-billed Hummingbird\">Sword-billed Hummingbird</a>\n</li>\n<li><a href=\"https://en.wikipedia.org/wiki/Buff-tailed_Sicklebill\" class=\"extiw\" title=\"en:Buff-tailed Sicklebill\">Buff-tailed Sicklebill</a></li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Dot-eared_Coquette\" class=\"extiw\" title=\"en:Dot-eared Coquette\">Dot-eared Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/White-vented_Violetear\" class=\"extiw\" title=\"en:White-vented Violetear\">White-vented Violetear</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Hooded_Visorbearer\" class=\"extiw\" title=\"en:Hooded Visorbearer\">Hooded Visorbearer</a>\n</li>\n<li>Female <a href=\"https://en.wikipedia.org/wiki/Juan_Fern%C3%A1ndez_Firecrown\" class=\"extiw\" title=\"en:Juan Fernández Firecrown\">Juan Fernández Firecrown</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Booted_Racket-tail\" class=\"extiw\" title=\"en:Booted Racket-tail\">Booted Racket-tail</a>\n</li>\n</ul>"
     },
     {
+      "section_id": 15,
       "type": "image",
-      "gallery_id": "mwAQU",
+      "gallery_id": "mwARU",
       "titles": {
         "canonical": "File:Hummingbird_Incubating3.jpg",
         "normalized": "File:Hummingbird Incubating3.jpg",
@@ -113,8 +117,9 @@
       "description": "Hummingbird in Copiapo, Chile"
     },
     {
+      "section_id": 15,
       "type": "image",
-      "gallery_id": "mwAQU",
+      "gallery_id": "mwARU",
       "titles": {
         "canonical": "File:Hummingbird_nest_with_two_chicks_in_Santa_Monica,_CA._Photo_taken_June_26,_2006.jpg",
         "normalized": "File:Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006.jpg",
@@ -139,8 +144,9 @@
       "description": "Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006."
     },
     {
+      "section_id": 15,
       "type": "image",
-      "gallery_id": "mwAQU",
+      "gallery_id": "mwARU",
       "titles": {
         "canonical": "File:Calliope-nest_edit.jpg",
         "normalized": "File:Calliope-nest edit.jpg",
@@ -166,6 +172,7 @@
       "description": "Calliope Hummingbird / Stellula calliope - female feeding two chicks"
     },
     {
+      "section_id": 16,
       "type": "image",
       "caption": {
         "html": "Male Anna's hummingbird showing iridescent crown and gorget feathers",
@@ -196,9 +203,10 @@
       "description": "Male Anna's Hummingbird"
     },
     {
+      "section_id": 17,
       "type": "image",
       "caption": {
-        "html": "A female <a rel=\"mw:WikiLink\" href=\"./Ruby-throated_hummingbird\" title=\"Ruby-throated hummingbird\" id=\"mwASQ\">ruby-throated hummingbird</a> hovering in mid-air",
+        "html": "A female <a rel=\"mw:WikiLink\" href=\"./Ruby-throated_hummingbird\" title=\"Ruby-throated hummingbird\" id=\"mwATY\">ruby-throated hummingbird</a> hovering in mid-air",
         "text": "A female ruby-throated hummingbird hovering in mid-air"
       },
       "titles": {
@@ -226,6 +234,7 @@
       "description": "Hummingbird aerodynamics of flight"
     },
     {
+      "section_id": 17,
       "type": "video",
       "caption": {
         "html": "Slow motion video of hummingbirds feeding",
@@ -309,9 +318,10 @@
       "license": "Public domain"
     },
     {
+      "section_id": 17,
       "type": "image",
       "caption": {
-        "html": "High speed capture sequence of two <a rel=\"mw:WikiLink\" href=\"./Velvet-purple_coronet\" title=\"Velvet-purple coronet\" id=\"mwAU4\">velvet-purple coronets</a> sparring near a hummingbird feeder in Ecuador",
+        "html": "High speed capture sequence of two <a rel=\"mw:WikiLink\" href=\"./Velvet-purple_coronet\" title=\"Velvet-purple coronet\" id=\"mwAWA\">velvet-purple coronets</a> sparring near a hummingbird feeder in Ecuador",
         "text": "High speed capture sequence of two velvet-purple coronets sparring near a hummingbird feeder in Ecuador"
       },
       "titles": {
@@ -340,9 +350,10 @@
       "description": "Two velvet-purple coronets fighting near a hummingbird feeder in the Ecuadorian Cloud Forest near Mashpi Lodge."
     },
     {
+      "section_id": 23,
       "type": "image",
       "caption": {
-        "html": "<a rel=\"mw:WikiLink\" href=\"./Lesser_violetear\" title=\"Lesser violetear\" id=\"mwAZg\">Lesser violetear</a> at a flower",
+        "html": "<a rel=\"mw:WikiLink\" href=\"./Lesser_violetear\" title=\"Lesser violetear\" id=\"mwAbA\">Lesser violetear</a> at a flower",
         "text": "Lesser violetear at a flower"
       },
       "titles": {
@@ -370,9 +381,10 @@
       "description": "<a href=\"https://en.wikipedia.org/wiki/Green_Violet-ear\" class=\"extiw\" title=\"w:Green Violet-ear\">Green Violet-ear</a> -- Finca Lerida, Boquete, Panama."
     },
     {
+      "section_id": 23,
       "type": "video",
       "caption": {
-        "html": "Hummingbird in <a rel=\"mw:WikiLink\" href=\"./Copiapó,_Chile\" title=\"Copiapó, Chile\" id=\"mwAaI\" class=\"mw-redirect\">Copiapó, Chile</a>: The apparent slow movement of its wings is a result of the <a rel=\"mw:WikiLink\" href=\"./Stroboscopic_effect\" title=\"Stroboscopic effect\" id=\"mwAaM\">stroboscopic effect</a>.",
+        "html": "Hummingbird in <a rel=\"mw:WikiLink\" href=\"./Copiapó,_Chile\" title=\"Copiapó, Chile\" id=\"mwAbo\" class=\"mw-redirect\">Copiapó, Chile</a>: The apparent slow movement of its wings is a result of the <a rel=\"mw:WikiLink\" href=\"./Stroboscopic_effect\" title=\"Stroboscopic effect\" id=\"mwAbs\">stroboscopic effect</a>.",
         "text": "Hummingbird in Copiapó, Chile: The apparent slow movement of its wings is a result of the stroboscopic effect."
       },
       "sources": [
@@ -457,6 +469,7 @@
       "description": "Juvenile Anna's hummingbird (Calypte anna)"
     },
     {
+      "section_id": 26,
       "type": "image",
       "caption": {
         "html": "Hummingbirds hovering at an artificial nectar feeder",
@@ -487,9 +500,10 @@
       "description": "Hummingbirds hovering to feed at an artificial nectar feeder."
     },
     {
+      "section_id": 29,
       "type": "image",
       "caption": {
-        "html": "Aerial photograph of hummingbird image as part of <a rel=\"mw:WikiLink\" href=\"./Nazca_Lines\" title=\"Nazca Lines\" id=\"mwAhU\">Nazca Lines</a> in <a rel=\"mw:WikiLink\" href=\"./Peru\" title=\"Peru\" id=\"mwAhY\">Peru</a>",
+        "html": "Aerial photograph of hummingbird image as part of <a rel=\"mw:WikiLink\" href=\"./Nazca_Lines\" title=\"Nazca Lines\" id=\"mwAjM\">Nazca Lines</a> in <a rel=\"mw:WikiLink\" href=\"./Peru\" title=\"Peru\" id=\"mwAjQ\">Peru</a>",
         "text": "Aerial photograph of hummingbird image as part of Nazca Lines in Peru"
       },
       "titles": {
@@ -514,8 +528,9 @@
       "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
     },
     {
+      "section_id": 30,
       "type": "video",
-      "gallery_id": "mwAi0",
+      "gallery_id": "mwAkw",
       "sources": [
         {
           "source": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Humming_birds_feeding_at_1500fps.webm",
@@ -598,8 +613,9 @@
       "description": "1500fps slow-motion video of hummingbirds feeding in western Colorado, USA. This video shows black-chinned hummingbirds (<i>Archilochus alexandri</i>), and magnificent or refulgent hummingbirds (<i>Eugenes fulgens</i>), and broad-tailed hummingbirds (<i>Selasphorus platycercus</i>)."
     },
     {
+      "section_id": 30,
       "type": "image",
-      "gallery_id": "mwAi0",
+      "gallery_id": "mwAkw",
       "titles": {
         "canonical": "File:Hummingbird_feeding.jpg",
         "normalized": "File:Hummingbird feeding.jpg",
@@ -625,8 +641,9 @@
       "description": "A hummingbird feeding from a flower."
     },
     {
+      "section_id": 30,
       "type": "image",
-      "gallery_id": "mwAi0",
+      "gallery_id": "mwAkw",
       "titles": {
         "canonical": "File:Hummingbird_headshot.jpg",
         "normalized": "File:Hummingbird headshot.jpg",
@@ -652,8 +669,9 @@
       "description": "A hummingbird with yellow pollen on its beak."
     },
     {
+      "section_id": 30,
       "type": "image",
-      "gallery_id": "mwAi0",
+      "gallery_id": "mwAkw",
       "titles": {
         "canonical": "File:Eugenes-fulgens-001.jpg",
         "normalized": "File:Eugenes-fulgens-001.jpg",
@@ -679,8 +697,9 @@
       "description": "Magnificent Hummingbird () -- Guadalupe, Panama."
     },
     {
+      "section_id": 30,
       "type": "image",
-      "gallery_id": "mwAi0",
+      "gallery_id": "mwAkw",
       "titles": {
         "canonical": "File:Hummingbird.jpg",
         "normalized": "File:Hummingbird.jpg",
@@ -705,8 +724,9 @@
       "description": "<a href=\"https://en.wikipedia.org/wiki/Costa%27s_hummingbird\" class=\"extiw\" title=\"w:Costa's hummingbird\">Costa's hummingbird</a> (<i>Calypte costae</i>); a type of <a href=\"https://en.wikipedia.org/wiki/Hummingbird\" class=\"extiw\" title=\"en:Hummingbird\">Hummingbird</a> i.e., a member of <a href=\"https://en.wikipedia.org/wiki/family_(biology)\" class=\"extiw\" title=\"w:family (biology)\">family</a> <b>Trochilidae</b>."
     },
     {
+      "section_id": 30,
       "type": "image",
-      "gallery_id": "mwAi0",
+      "gallery_id": "mwAkw",
       "titles": {
         "canonical": "File:Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
         "normalized": "File:Juvenile Annas Hummingbird at San Francisco Botanical Garden - Stierch - E.jpg",
@@ -732,8 +752,9 @@
       "description": "<i><a href=\"//commons.wikimedia.org/wiki/Calypte_anna\" title=\"Calypte anna\">Calypte anna</a></i> (Anna's Hummingbird) at San Francisco Botanical Garden. It's extending it's tongue."
     },
     {
+      "section_id": 30,
       "type": "image",
-      "gallery_id": "mwAi0",
+      "gallery_id": "mwAkw",
       "titles": {
         "canonical": "File:Hummingbird_Calypte_anna_in_ggp_15n.jpg",
         "normalized": "File:Hummingbird Calypte anna in ggp 15n.jpg",
@@ -759,8 +780,9 @@
       "description": "The colors of <a href=\"https://en.wikipedia.org/wiki/en:Hummingbird\" class=\"extiw\" title=\"w:en:Hummingbird\">hummingbird</a>. Species: <i><a href=\"https://en.wikipedia.org/wiki/Calypte_anna\" class=\"extiw\" title=\"en:Calypte anna\">Calypte anna</a></i>."
     },
     {
+      "section_id": 30,
       "type": "image",
-      "gallery_id": "mwAi0",
+      "gallery_id": "mwAkw",
       "titles": {
         "canonical": "File:Nano_Hummingbird.jpg",
         "normalized": "File:Nano Hummingbird.jpg",
@@ -785,8 +807,9 @@
       "description": "The <a href=\"https://en.wikipedia.org/wiki/Nano_Hummingbird\" class=\"extiw\" title=\"en:Nano Hummingbird\">Nano Hummingbird</a> surveillance and reconnaissance aircraft developed by AeroVironment, Inc. under contract to the United States Government's <a href=\"https://en.wikipedia.org/wiki/DARPA\" class=\"extiw\" title=\"en:DARPA\">Defense Advanced Research Projects Agency</a>."
     },
     {
+      "section_id": 30,
       "type": "image",
-      "gallery_id": "mwAi0",
+      "gallery_id": "mwAkw",
       "titles": {
         "canonical": "File:Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
         "normalized": "File:Hummingbird Chicks in Nest in Cactus in Mesa, Arizona.jpg",
@@ -812,8 +835,9 @@
       "description": "Hummingbird Chicks in Nest in Cactus in Mesa, Arizona"
     },
     {
+      "section_id": 30,
       "type": "image",
-      "gallery_id": "mwAi0",
+      "gallery_id": "mwAkw",
       "titles": {
         "canonical": "File:Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
         "normalized": "File:Hummingbird Adult in Nest in Cactus in Mesa, Arizona.jpg",
@@ -839,8 +863,9 @@
       "description": "Hummingbird Adult in Nest in Cactus in Mesa, Arizona"
     },
     {
+      "section_id": 30,
       "type": "image",
-      "gallery_id": "mwAi0",
+      "gallery_id": "mwAkw",
       "titles": {
         "canonical": "File:Female_Anna's_Hummingbird.JPG",
         "normalized": "File:Female Anna's Hummingbird.JPG",

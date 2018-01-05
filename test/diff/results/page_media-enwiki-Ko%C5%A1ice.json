@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "section_id": 0,
       "type": "image",
       "caption": {
         "html": "Main Street – 1902",
@@ -32,6 +33,7 @@
       "description": "Kassán, 1902. május 31-én keltezett képeslap. Egy és kétkoronás áruház. Kassa, Fő utcza. Courtesy, scanned by Derzsi Elekes Andor. ©© Derzsi Elekes Andor, Budapest, 2014, A kép másolását, bármilyen úton történő sokszorosítását és felhasználását a szerző ellenérték nélkül, jogutódjaira is kihatóan megengedi. Az engedély kiterjed a kereskedelmi célú hasznosításra is. Kéri azonban nevének feltüntetését a felhasználás során. A Metapolisz sorozat valamennyi képe és filmje Creative Commons alatti valamint kereskedelmi - for profit - célra is felhasználható. Ajánlott hivatkozás: Derzsi Elekes Andor: Metapolisz DVD line <a rel=\"nofollow\" class=\"external free\" href=\"http://nektar.oszk.hu/en/manifestation/2623913\">http://nektar.oszk.hu/en/manifestation/2623913</a>"
     },
     {
+      "section_id": 1,
       "type": "audio",
       "audio_type": "pronunciation",
       "titles": {
@@ -58,6 +60,7 @@
       "description": "The Hungarian name of Kassa pronunced ny a native speaker. (in Slovakian: Kosice)"
     },
     {
+      "section_id": 2,
       "type": "image",
       "caption": {
         "html": "Main Street",
@@ -88,9 +91,10 @@
       "description": "Centrum mesta Košice"
     },
     {
+      "section_id": 2,
       "type": "image",
       "caption": {
-        "html": "\"Cassovia: Superioris Hungariae Civitas Primaria\",<span about=\"#mwt439\" class=\"mw-ref\" id=\"cite_ref-12\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-12&quot;},&quot;attrs&quot;:{}}\"><a href=\"./Košice#cite_note-12\" style=\"counter-reset: mw-Ref 12;\"><span class=\"mw-reflink-text\">[12]</span></a></span> the prospect from <a rel=\"mw:WikiLink\" href=\"./Civitates_orbis_terrarum\" title=\"Civitates orbis terrarum\" id=\"mwhw\" class=\"mw-redirect\">Civitates orbis terrarum</a>. Cassovia (<i id=\"mwiA\">Slovak: Košice, German: Kaschau, Hungarian: Kassa</i>), the \"capital\" of Upper Hungary in 1617.",
+        "html": "\"Cassovia: Superioris Hungariae Civitas Primaria\",<span about=\"#mwt439\" class=\"mw-ref\" id=\"cite_ref-12\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-12&quot;},&quot;attrs&quot;:{}}\"><a href=\"./Košice#cite_note-12\" style=\"counter-reset: mw-Ref 12;\"><span class=\"mw-reflink-text\">[12]</span></a></span> the prospect from <a rel=\"mw:WikiLink\" href=\"./Civitates_orbis_terrarum\" title=\"Civitates orbis terrarum\" id=\"mwig\" class=\"mw-redirect\">Civitates orbis terrarum</a>. Cassovia (<i id=\"mwiw\">Slovak: Košice, German: Kaschau, Hungarian: Kassa</i>), the \"capital\" of Upper Hungary in 1617.",
         "text": "\"Cassovia: Superioris Hungariae Civitas Primaria\",[12] the prospect from Civitates orbis terrarum. Cassovia (Slovak: Košice, German: Kaschau, Hungarian: Kassa), the \"capital\" of Upper Hungary in 1617."
       },
       "titles": {
@@ -117,6 +121,7 @@
       "description": "<a href=\"//commons.wikimedia.org/wiki/Ko%C5%A1ice\" title=\"Košice\">Košice</a> - Prvé mesto Horného Uhorska 1617."
     },
     {
+      "section_id": 2,
       "type": "image",
       "caption": {
         "html": "Eastern Hungarian Kingdom around 1550, including Košice shown as 'Kassa'",
@@ -146,6 +151,7 @@
       "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
     },
     {
+      "section_id": 2,
       "type": "image",
       "caption": {
         "html": "The military base in Košice at the end of the 18th century",
@@ -175,6 +181,7 @@
       "description": "veduta Košice"
     },
     {
+      "section_id": 2,
       "type": "image",
       "caption": {
         "html": "National Theater built in 1899",
@@ -204,6 +211,7 @@
       "description": "Divadlo Kosice 1900"
     },
     {
+      "section_id": 4,
       "type": "image",
       "caption": {
         "html": "The Jewish Synagogue",
@@ -230,6 +238,7 @@
       "license": "Public domain"
     },
     {
+      "section_id": 7,
       "type": "image",
       "caption": {
         "html": "Mlynská Street – pedestrian zone",
@@ -260,9 +269,10 @@
       "description": "Mlynská ulica"
     },
     {
+      "section_id": 9,
       "type": "image",
       "caption": {
-        "html": "Statue of <a rel=\"mw:WikiLink\" href=\"./Coat_of_arms_of_Košice\" title=\"Coat of arms of Košice\" id=\"mwAW8\">Košice's coat of arms</a>, the first municipal coat of arms in Europe",
+        "html": "Statue of <a rel=\"mw:WikiLink\" href=\"./Coat_of_arms_of_Košice\" title=\"Coat of arms of Košice\" id=\"mwAXk\">Košice's coat of arms</a>, the first municipal coat of arms in Europe",
         "text": "Statue of Košice's coat of arms, the first municipal coat of arms in Europe"
       },
       "titles": {
@@ -290,9 +300,10 @@
       "description": "Slovakia, Košice, Andrassy's Coat of Arms Statue on Main Street"
     },
     {
+      "section_id": 9,
       "type": "image",
       "caption": {
-        "html": "View of <i id=\"mwAXQ\">Hlavná ulica</i> (Main Street) from St. Elisabeth Cathedral, with the <a rel=\"mw:WikiLink\" href=\"./State_Theatre_Košice\" title=\"State Theatre Košice\" id=\"mwAXU\">State Theater Košice</a> building in the center",
+        "html": "View of <i id=\"mwAX4\">Hlavná ulica</i> (Main Street) from St. Elisabeth Cathedral, with the <a rel=\"mw:WikiLink\" href=\"./State_Theatre_Košice\" title=\"State Theatre Košice\" id=\"mwAX8\">State Theater Košice</a> building in the center",
         "text": "View of Hlavná ulica (Main Street) from St. Elisabeth Cathedral, with the State Theater Košice building in the center"
       },
       "titles": {
@@ -320,6 +331,7 @@
       "description": "Košice Hlavná from St. Elisabeth Cathedral"
     },
     {
+      "section_id": 11,
       "type": "image",
       "caption": {
         "html": "Cathedral's illumination during the opening ceremonial of the European Capital of Culture in January 2013",
@@ -350,6 +362,7 @@
       "description": "Nasvietenie Dómu počas otváracieho ceremoniálu EHMK 1/2013"
     },
     {
+      "section_id": 11,
       "type": "image",
       "caption": {
         "html": "Kulturpark – the new cultural space of Košice",
@@ -380,7 +393,9 @@
       "description": "Kulturpark in Košice, Slovakia"
     },
     {
+      "section_id": 14,
       "type": "image",
+      "gallery_id": "mwAdo",
       "titles": {
         "canonical": "File:Kulturpark_Kasárne_Košice_2013.JPG",
         "normalized": "File:Kulturpark Kasárne Košice 2013.JPG",
@@ -406,7 +421,9 @@
       "description": "Kasárne Kulturpark, ex-military barracks in European Capital of Culture Košice - Slovakia, 2013"
     },
     {
+      "section_id": 14,
       "type": "image",
+      "gallery_id": "mwAdo",
       "titles": {
         "canonical": "File:KunsthalleKošice.JPG",
         "normalized": "File:KunsthalleKošice.JPG",
@@ -432,7 +449,9 @@
       "description": "Kunsthalle, European Capital of Culture Košice - Slovakia, 2013"
     },
     {
+      "section_id": 14,
       "type": "image",
+      "gallery_id": "mwAdo",
       "titles": {
         "canonical": "File:SPOT_Važecká.jpg",
         "normalized": "File:SPOT Važecká.jpg",
@@ -458,7 +477,9 @@
       "description": "SPOT, a heat exchanger in a communist district in European Capital of Culture Košice - Slovakia 2013"
     },
     {
+      "section_id": 14,
       "type": "image",
+      "gallery_id": "mwAdo",
       "titles": {
         "canonical": "File:Kosice_State_Theatre_1.JPG",
         "normalized": "File:Kosice State Theatre 1.JPG",
@@ -484,6 +505,7 @@
       "description": "Slovakia, Košice, State Theater on Main Street"
     },
     {
+      "section_id": 17,
       "type": "image",
       "caption": {
         "html": "Mikluš's Prison",
@@ -514,7 +536,9 @@
       "description": "Slovakia, Košice, Mikluš's Prison"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:Kosice_-_St._Elisabeth_Cathedral_retouched.jpg",
         "normalized": "File:Kosice - St. Elisabeth Cathedral retouched.jpg",
@@ -540,7 +564,9 @@
       "description": "<p>Kosice - St. Elisabeth Cathedral</p>\n<table cellspacing=\"0\" style=\"width:550px; text-align:center; color:#000; background:#ddd; border:1px solid #bbb; margin:1px; direction:ltr;\" class=\"layouttemplate\"><tr>\n<td style=\"width:44px; height:22px;\"><a href=\"//commons.wikimedia.org/wiki/File:Coat_of_arms_of_Slovakia.svg\" class=\"image\"><img alt=\"Coat of arms of Slovakia.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/20px-Coat_of_arms_of_Slovakia.svg.png\" width=\"20\" height=\"25\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/30px-Coat_of_arms_of_Slovakia.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/40px-Coat_of_arms_of_Slovakia.svg.png 2x\" data-file-width=\"480\" data-file-height=\"600\"></a></td>\n<td style=\"font-size:8pt; padding:1pt; line-height:1.1em;\"><span lang=\"en\" class=\"description en\">This media shows the protected monument with the number <i>802-1117/1</i> <small><span style=\"display:none\"><a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1117/1&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1117/1 (page does not exist)\">CHMSK/802-1117/1</a>,<a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1117&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1117 (page does not exist)\">CHMSK/802-1117</a></span>(<a href=\"//commons.wikimedia.org/wiki/Special:WhatLinksHere/CHMSK/802-1117/1\" title=\"Special:WhatLinksHere/CHMSK/802-1117/1\">other</a>)</small> in the Slovak Republic.</span></td>\n</tr></table>"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:La_Tour_Urban.JPG",
         "normalized": "File:La Tour Urban.JPG",
@@ -566,7 +592,9 @@
       "description": "Urban Tower in Kosice"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:ZofiaBatoriKostol.jpg",
         "normalized": "File:ZofiaBatoriKostol.jpg",
@@ -591,7 +619,9 @@
       "description": "Kostol Zofie Batoriovej"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:BiskupskýPalácKošice.jpg",
         "normalized": "File:BiskupskýPalácKošice.jpg",
@@ -617,7 +647,9 @@
       "description": "<p>Biskupský palác na Hlavnej ulici</p>\n<table cellspacing=\"0\" style=\"width:550px; text-align:center; color:#000; background:#ddd; border:1px solid #bbb; margin:1px; direction:ltr;\" class=\"layouttemplate\"><tr>\n<td style=\"width:44px; height:22px;\"><a href=\"//commons.wikimedia.org/wiki/File:Coat_of_arms_of_Slovakia.svg\" class=\"image\"><img alt=\"Coat of arms of Slovakia.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/20px-Coat_of_arms_of_Slovakia.svg.png\" width=\"20\" height=\"25\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/30px-Coat_of_arms_of_Slovakia.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/40px-Coat_of_arms_of_Slovakia.svg.png 2x\" data-file-width=\"480\" data-file-height=\"600\"></a></td>\n<td style=\"font-size:8pt; padding:1pt; line-height:1.1em;\"><span lang=\"en\" class=\"description en\">This media shows the protected monument with the number <i>802-1066/1</i> <small><span style=\"display:none\"><a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1066/1&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1066/1 (page does not exist)\">CHMSK/802-1066/1</a>,<a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1066&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1066 (page does not exist)\">CHMSK/802-1066</a></span>(<a href=\"//commons.wikimedia.org/wiki/Special:WhatLinksHere/CHMSK/802-1066/1\" title=\"Special:WhatLinksHere/CHMSK/802-1066/1\">other</a>)</small> in the Slovak Republic.</span></td>\n</tr></table>"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:Čákiho-Dezőfiho_palác.jpg",
         "normalized": "File:Čákiho-Dezőfiho palác.jpg",
@@ -643,7 +675,9 @@
       "description": "Čáky-Dezőfi Palace, <a href=\"https://sk.wikipedia.org/wiki/Ko%C5%A1ice\" class=\"extiw\" title=\"sk:Košice\">Košice</a>"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:Vedecká_knižnica.jpg",
         "normalized": "File:Vedecká knižnica.jpg",
@@ -669,7 +703,9 @@
       "description": "<p>Pongrácovsko-forgáčovský palác, Košice</p>\n<table cellspacing=\"0\" style=\"width:550px; text-align:center; color:#000; background:#ddd; border:1px solid #bbb; margin:1px; direction:ltr;\" class=\"layouttemplate\"><tr>\n<td style=\"width:44px; height:22px;\"><a href=\"//commons.wikimedia.org/wiki/File:Coat_of_arms_of_Slovakia.svg\" class=\"image\"><img alt=\"Coat of arms of Slovakia.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/20px-Coat_of_arms_of_Slovakia.svg.png\" width=\"20\" height=\"25\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/30px-Coat_of_arms_of_Slovakia.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/40px-Coat_of_arms_of_Slovakia.svg.png 2x\" data-file-width=\"480\" data-file-height=\"600\"></a></td>\n<td style=\"font-size:8pt; padding:1pt; line-height:1.1em;\"><span lang=\"en\" class=\"description en\">This media shows the protected monument with the number <i>802-1055/0</i> <small><span style=\"display:none\"><a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1055/0&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1055/0 (page does not exist)\">CHMSK/802-1055/0</a>,<a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1055&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1055 (page does not exist)\">CHMSK/802-1055</a></span>(<a href=\"//commons.wikimedia.org/wiki/Special:WhatLinksHere/CHMSK/802-1055/0\" title=\"Special:WhatLinksHere/CHMSK/802-1055/0\">other</a>)</small> in the Slovak Republic.</span></td>\n</tr></table>"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:LevočskýDom.jpg",
         "normalized": "File:LevočskýDom.jpg",
@@ -694,7 +730,9 @@
       "description": "Levoča House in Košice"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:Jakabov_palác_2010.JPG",
         "normalized": "File:Jakabov palác 2010.JPG",
@@ -720,7 +758,9 @@
       "description": "Jakab's Palace, Košice, Slovakia"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:Andrášiho_palác,_Hlavná_81,_Košice.jpg",
         "normalized": "File:Andrášiho palác, Hlavná 81, Košice.jpg",
@@ -746,7 +786,9 @@
       "description": "Palace of Andrássy in Košice, Slovakia"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:SláviaKošice2.jpg",
         "normalized": "File:SláviaKošice2.jpg",
@@ -771,7 +813,9 @@
       "description": "Coffee House Slávia, Art Noveau in Kosice"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:Puškinova_-_Synagóga.jpg",
         "normalized": "File:Puškinova - Synagóga.jpg",
@@ -797,7 +841,9 @@
       "description": "Židovská synagóga škola, Košice"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:Hlavná_004_-_Assicurazioni_Generali.JPG",
         "normalized": "File:Hlavná 004 - Assicurazioni Generali.JPG",
@@ -823,7 +869,9 @@
       "description": "Assicurazioni Generali, Košice"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:Old_New_Košice.jpg",
         "normalized": "File:Old New Košice.jpg",
@@ -848,7 +896,9 @@
       "description": "The old and new architecture of Košice, Slovakia"
     },
     {
+      "section_id": 19,
       "type": "image",
+      "gallery_id": "mwAi8",
       "titles": {
         "canonical": "File:Cassovar.JPG",
         "normalized": "File:Cassovar.JPG",
@@ -874,6 +924,7 @@
       "description": "Polyfunctional object Cassovar in <a href=\"https://en.wikipedia.org/wiki/Ko%C5%A1ice\" class=\"extiw\" title=\"en:Košice\">Košice</a>, <a href=\"https://en.wikipedia.org/wiki/Slovakia\" class=\"extiw\" title=\"en:Slovakia\">Slovakia</a>"
     },
     {
+      "section_id": 20,
       "type": "image",
       "caption": {
         "html": "Divizia – seat of the Košice Self-Governing Region",
@@ -903,9 +954,10 @@
       "description": "divizia z hlavnej"
     },
     {
+      "section_id": 20,
       "type": "image",
       "caption": {
-        "html": "Replica of <a rel=\"mw:WikiLink\" href=\"./Francis_II_Rákóczi\" title=\"Francis II Rákóczi\" id=\"mwAiQ\">Rákóczi's</a> home in <a rel=\"mw:WikiLink\" href=\"./Tekirdağ\" title=\"Tekirdağ\" id=\"mwAiU\">Tekirdağ</a> (Rodosto) where he lived while in exile",
+        "html": "Replica of <a rel=\"mw:WikiLink\" href=\"./Francis_II_Rákóczi\" title=\"Francis II Rákóczi\" id=\"mwAjk\">Rákóczi's</a> home in <a rel=\"mw:WikiLink\" href=\"./Tekirdağ\" title=\"Tekirdağ\" id=\"mwAjo\">Tekirdağ</a> (Rodosto) where he lived while in exile",
         "text": "Replica of Rákóczi's home in Tekirdağ (Rodosto) where he lived while in exile"
       },
       "titles": {
@@ -933,6 +985,7 @@
       "description": "Memorial house of <a href=\"https://en.wikipedia.org/wiki/Francis_II_R%C3%A1k%C3%B3czi\" class=\"extiw\" title=\"en:Francis II Rákóczi\">Francis II Rákóczi</a> in <a href=\"https://en.wikipedia.org/wiki/Ko%C5%A1ice\" class=\"extiw\" title=\"en:Košice\">Košice</a> (the replica of his house in the Turkish exile in Rodosto) with Rákóczi‘s sculpture"
     },
     {
+      "section_id": 20,
       "type": "image",
       "caption": {
         "html": "Communist-era apartment blocks",
@@ -962,7 +1015,9 @@
       "description": "from Hradova"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:StElisabethKošiceAltar.JPG",
         "normalized": "File:StElisabethKošiceAltar.JPG",
@@ -988,7 +1043,9 @@
       "description": "St Elisabeht washing a beggar, a scene from the main altar of St Elisabeth Cathedral in Košice, Slovakia, 2nd half of the 15th century"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:Orlai_P_Nadasdy_es_Tinodi.jpg",
         "normalized": "File:Orlai P Nadasdy es Tinodi.jpg",
@@ -1012,7 +1069,9 @@
       "license": "Public domain"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:II._Rákóczi_Ferenc_Mányoki.jpg",
         "normalized": "File:II. Rákóczi Ferenc Mányoki.jpg",
@@ -1036,7 +1095,9 @@
       "license": "Public domain"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:Kazinczy.jpg",
         "normalized": "File:Kazinczy.jpg",
@@ -1060,7 +1121,9 @@
       "license": "Public domain"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:Jonáš_Záborský.jpg",
         "normalized": "File:Jonáš Záborský.jpg",
@@ -1085,7 +1148,9 @@
       "description": "Jonáš Záborský, Slovak national novelist"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:Henszlmann_Imre.jpg",
         "normalized": "File:Henszlmann Imre.jpg",
@@ -1110,7 +1175,9 @@
       "description": "Imrich Henszlmann"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:Kronenberg_Leopold.jpg",
         "normalized": "File:Kronenberg Leopold.jpg",
@@ -1135,7 +1202,9 @@
       "description": "<div class=\"description\">portrait</div>"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:Márai-socha2.jpg",
         "normalized": "File:Márai-socha2.jpg",
@@ -1160,7 +1229,9 @@
       "description": "Sándor Márai. Sándor Márai (detail of his statue in Košice, Slovakia)."
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:RadolaGajda.JPG",
         "normalized": "File:RadolaGajda.JPG",
@@ -1186,7 +1257,9 @@
       "description": "Portrait of general Radola Gajda, oil, canvas, 1924, Košice, Slovakia, Sándor Bortnyik"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:JosefPolák.JPG",
         "normalized": "File:JosefPolák.JPG",
@@ -1212,7 +1285,9 @@
       "description": "Portrait of Josef Polák, a director of East Slovak Museum in Košice, Slovakia, oil, canvas, 1924, Sándor Bortnyik"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:Portrait_pridavok-anton.jpg",
         "normalized": "File:Portrait pridavok-anton.jpg",
@@ -1237,7 +1312,9 @@
       "description": "Anton Prídavok (1904–1945)"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:Ladislav_Troják.jpg",
         "normalized": "File:Ladislav Troják.jpg",
@@ -1262,7 +1339,9 @@
       "description": "Hockey player Ladislav Troják, Košice, Slovakia"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:Pres._Rudolf_Schuster.jpg",
         "normalized": "File:Pres. Rudolf Schuster.jpg",
@@ -1288,7 +1367,9 @@
       "description": "Rudolf Schuster, a former president of Slovakia"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:Martina_Hingis_Indian_Wells_2006_1.jpg",
         "normalized": "File:Martina Hingis Indian Wells 2006 1.jpg",
@@ -1314,7 +1395,9 @@
       "description": "Martina Hingis practicing in Indian Wells, California, USA, on Sunday March 12, 2006, on a side court in 2006 comeback."
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:JosefPolák.JPG",
         "normalized": "File:JosefPolák.JPG",
@@ -1340,7 +1423,9 @@
       "description": "Portrait of Josef Polák, a director of East Slovak Museum in Košice, Slovakia, oil, canvas, 1924, Sándor Bortnyik"
     },
     {
+      "section_id": 22,
       "type": "image",
+      "gallery_id": "mwApk",
       "titles": {
         "canonical": "File:David_Dobrik_and_Friends.jpg",
         "normalized": "File:David Dobrik and Friends.jpg",
@@ -1366,9 +1451,10 @@
       "description": "David Dobrik with Friends all which are in his vlogs."
     },
     {
+      "section_id": 24,
       "type": "image",
       "caption": {
-        "html": "<a rel=\"mw:WikiLink\" href=\"./Košice_Peace_Marathon\" title=\"Košice Peace Marathon\" id=\"mwArU\">Košice Peace Marathon</a>",
+        "html": "<a rel=\"mw:WikiLink\" href=\"./Košice_Peace_Marathon\" title=\"Košice Peace Marathon\" id=\"mwAs4\">Košice Peace Marathon</a>",
         "text": "Košice Peace Marathon"
       },
       "titles": {
@@ -1396,6 +1482,7 @@
       "description": "Medzinárodný maratón mieru v Košiciach, 2006"
     },
     {
+      "section_id": 25,
       "type": "image",
       "caption": {
         "html": "The Tree of Partnership on Hlavná Street",
@@ -1426,6 +1513,7 @@
       "description": "Slovakia, Košice, Tree of Partnership on Main Street, design by Tomáš Grega"
     },
     {
+      "section_id": 27,
       "type": "image",
       "titles": {
         "canonical": "File:Sckeskova_panoráma_Košíc.jpg",
@@ -1451,6 +1539,7 @@
       "description": "Panorama of Košice"
     },
     {
+      "section_id": 33,
       "type": "audio",
       "caption": {
         "html": "noicon",
