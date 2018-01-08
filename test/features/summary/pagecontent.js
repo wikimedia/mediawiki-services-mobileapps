@@ -46,12 +46,12 @@ describe('summary', function() {
             });
     });
 
-    it('empty summary (not 204) should be sent for project main page', () => {
+    it('main page should return empty summary (not 204) and type should be \'mainpage\'', () => {
         const uri = localUri('Main_Page');
         return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
-                assert.deepEqual(res.body.type, 'standard');
+                assert.deepEqual(res.body.type, 'mainpage', 'type should be \'mainpage\'');
                 assert.deepEqual(res.body.extract, '', 'should send empty plaintext extract');
                 assert.deepEqual(res.body.extract_html, '', 'should send empty html extract');
             });
