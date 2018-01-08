@@ -156,16 +156,6 @@ function buildRemaining(input) {
 }
 
 /*
- * Build a response which contains a structure of reference sections
- * @param {!Object} input
- * @param {!Logger} logger
- * @return {!Object}
- */
-function buildReferences(html, logger) {
-    return transforms.extractReferenceLists(html, logger);
-}
-
-/*
  * @param {!Object} input
  * @param {?Boolean} [legacy] whether to perform legacy transformations
  * @return {!Object}
@@ -362,20 +352,6 @@ router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
         mUtil.setETag(res, response.page.revision, response.page.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(buildRemaining(response)).end();
-    });
-});
-
-/**
- * GET {domain}/v1/page/references/{title}{/revision}{/tid}
- * Gets any sections which are part of a reference sections for a given wiki page.
- */
-router.get('/references/:title/:revision?/:tid?', (req, res) => {
-    return parsoid.pageHtmlPromiseForReferences(app, req)
-    .then((response) => {
-        res.status(200);
-        mUtil.setETag(res, response.meta.revision);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.references);
-        res.json(buildReferences(response.doc, req.logger)).end();
     });
 });
 
