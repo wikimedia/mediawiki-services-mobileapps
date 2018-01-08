@@ -65,4 +65,14 @@ describe('summary', function() {
                 assert.ok(!res.body);
             });
     });
+
+    it('timestamp should refer to the requested revision, not the latest revision', () => {
+        const uri = localUri('John_Candy/813020982');
+        return preq.get({ uri })
+        .then((res) => {
+            assert.deepEqual(res.status, 200);
+            assert.deepEqual(res.body.type, 'standard');
+            assert.deepEqual(res.body.timestamp, '2017-12-01T07:29:24Z');
+        });
+    });
 });
