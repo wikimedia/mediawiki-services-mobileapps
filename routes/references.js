@@ -17,12 +17,13 @@ let app;
 
 /*
  * Build a response which contains a structure of reference sections
- * @param {!Document} document the page content DOM Document
+ * @param {!object} meta metadata from Parsoid ETag header with revision and tid
+ * @param {!Document} document the page content DOM Document (for the other properties)
  * @param {!Logger} logger a Bunyan logger
  * @return { structure, references } an Object containing structured data of references
  */
-function buildReferences(document, logger) {
-    return transforms.extractReferenceLists(document, logger);
+function buildReferences(meta, document, logger) {
+    return Object.assign(meta, transforms.extractReferenceLists(document, logger));
 }
 
 /**
@@ -35,7 +36,7 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
         res.status(200);
         mUtil.setETag(res, response.meta.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.references);
-        res.json(buildReferences(response.doc, req.logger)).end();
+        res.json(buildReferences(response.meta, response.doc, req.logger)).end();
     });
 });
 
