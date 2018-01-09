@@ -3,6 +3,211 @@
     {
       "section_id": 0,
       "type": "image",
+      "titles": {
+        "canonical": "File:BandeauKosice.png",
+        "normalized": "File:BandeauKosice.png",
+        "display": "File:BandeauKosice.png"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/a/ae/BandeauKosice.png",
+        "width": 299,
+        "height": 444,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/a/ae/BandeauKosice.png",
+        "width": 299,
+        "height": 444,
+        "mime": "image/png"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:BandeauKosice.png",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Adehertogh\" title=\"User:Adehertogh\">Adehertogh</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\" xml:lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "Montage of picture from Košice"
+    },
+    {
+      "section_id": 0,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Košice.png",
+        "normalized": "File:Flag of Košice.png",
+        "display": "File:Flag of Košice.png"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Flag_of_Ko%C5%A1ice.png/320px-Flag_of_Ko%C5%A1ice.png",
+        "width": 320,
+        "height": 213,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_Ko%C5%A1ice.png",
+        "width": 800,
+        "height": 533,
+        "mime": "image/png"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Košice.png",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Metronick\" title=\"User:Metronick\">Metronick</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "Flag of <a href=\"//commons.wikimedia.org/wiki/Ko%C5%A1ice\" title=\"Košice\">Košice</a> in <a href=\"//commons.wikimedia.org/wiki/Slovakia\" class=\"mw-redirect\" title=\"Slovakia\">Slovakia</a>."
+    },
+    {
+      "section_id": 0,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Coat_of_arms_of_Košice.png",
+        "normalized": "File:Coat of arms of Košice.png",
+        "display": "File:Coat of arms of Košice.png"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Coat_of_arms_of_Ko%C5%A1ice.png/320px-Coat_of_arms_of_Ko%C5%A1ice.png",
+        "width": 320,
+        "height": 318,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Coat_of_arms_of_Ko%C5%A1ice.png",
+        "width": 615,
+        "height": 612,
+        "mime": "image/png"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Košice.png",
+      "artist": "",
+      "license": "CC-BY-SA-3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+    },
+    {
+      "section_id": 0,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Slovakia_-_background_map.png",
+        "normalized": "File:Slovakia - background map.png",
+        "display": "File:Slovakia - background map.png"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Slovakia_-_background_map.png/320px-Slovakia_-_background_map.png",
+        "width": 320,
+        "height": 172,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/3/35/Slovakia_-_background_map.png",
+        "width": 1170,
+        "height": 630,
+        "mime": "image/png"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Slovakia_-_background_map.png",
+      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>",
+      "credit": "Made my myself from free maps available at www.demis.nl",
+      "license": "Public domain",
+      "description": "Background map of Slovakia, ready for the <a href=\"https://en.wikipedia.org/wiki/Template:Geobox\" class=\"extiw\" title=\"en:Template:Geobox\">Geobox</a> template, calibrated at <a href=\"https://en.wikipedia.org/wiki/Template:Geobox_locator_Slovakia\" class=\"extiw\" title=\"en:Template:Geobox locator Slovakia\">en:Template:Geobox locator Slovakia</a>"
+    },
+    {
+      "section_id": 0,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Slovakia_-_outline_map.svg",
+        "normalized": "File:Slovakia - outline map.svg",
+        "display": "File:Slovakia - outline map.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Slovakia_-_outline_map.svg/320px-Slovakia_-_outline_map.svg.png",
+        "width": 320,
+        "height": 173,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/4/46/Slovakia_-_outline_map.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Slovakia_-_outline_map.svg",
+      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "Outline map of Slovakia, ready for the <a href=\"https://en.wikipedia.org/wiki/Template:Geobox\" class=\"extiw\" title=\"en:Template:Geobox\">Geobox</a> template, calibrated at <a href=\"https://en.wikipedia.org/wiki/Template:Geobox_locator_Slovakia\" class=\"extiw\" title=\"en:Template:Geobox locator Slovakia\">en:Template:Geobox locator Slovakia</a>"
+    },
+    {
+      "section_id": 0,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Red_pog.svg",
+        "normalized": "File:Red pog.svg",
+        "display": "File:Red pog.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Red_pog.svg/320px-Red_pog.svg.png",
+        "width": 320,
+        "height": 320,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Red_pog.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Red_pog.svg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Andux\" title=\"User:Andux\">Andux</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "Public domain",
+      "description": "Shiny red button/marker widget. Used to mark the location of something such as a tourist attraction."
+    },
+    {
+      "section_id": 0,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Košice_Region_-_background_map.png",
+        "normalized": "File:Košice Region - background map.png",
+        "display": "File:Košice Region - background map.png"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Ko%C5%A1ice_Region_-_background_map.png/320px-Ko%C5%A1ice_Region_-_background_map.png",
+        "width": 320,
+        "height": 160,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Ko%C5%A1ice_Region_-_background_map.png",
+        "width": 1520,
+        "height": 760,
+        "mime": "image/png"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Košice_Region_-_background_map.png",
+      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>",
+      "credit": "Made my myself from free maps available at www.demis.nl",
+      "license": "Public domain",
+      "description": "Background map of the Košice Region, Slovakia, ready for the <a href=\"https://en.wikipedia.org/wiki/Template:Geobox\" class=\"extiw\" title=\"en:Template:Geobox\">Geobox</a> template, calibrated at <a href=\"https://en.wikipedia.org/wiki/Template:Geobox_locator_Ko%C5%A1ice_Region\" class=\"extiw\" title=\"en:Template:Geobox locator Košice Region\">en:Template:Geobox locator Košice Region</a>"
+    },
+    {
+      "section_id": 0,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Košice_Region_-_outline_map.svg",
+        "normalized": "File:Košice Region - outline map.svg",
+        "display": "File:Košice Region - outline map.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Ko%C5%A1ice_Region_-_outline_map.svg/320px-Ko%C5%A1ice_Region_-_outline_map.svg.png",
+        "width": 320,
+        "height": 160,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Ko%C5%A1ice_Region_-_outline_map.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Košice_Region_-_outline_map.svg",
+      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "Outline map of the Košice Region, Slovakia, ready for the <a href=\"https://en.wikipedia.org/wiki/Template:Geobox\" class=\"extiw\" title=\"en:Template:Geobox\">Geobox</a> template, calibrated at <a href=\"https://en.wikipedia.org/wiki/Template:Geobox_locator_Ko%C5%A1ice_Region\" class=\"extiw\" title=\"en:Template:Geobox locator Košice Region\">en:Template:Geobox locator Košice Region</a>"
+    },
+    {
+      "section_id": 0,
+      "type": "image",
       "caption": {
         "html": "Main Street – 1902",
         "text": "Main Street – 1902"
@@ -34,6 +239,30 @@
     },
     {
       "section_id": 1,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Loudspeaker.svg",
+        "normalized": "File:Loudspeaker.svg",
+        "display": "File:Loudspeaker.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Loudspeaker.svg/320px-Loudspeaker.svg.png",
+        "width": 320,
+        "height": 320,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Loudspeaker.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Loudspeaker.svg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nethac_DIU\" title=\"User:Nethac DIU\">Nethac DIU</a>, waves corrected by <a href=\"//commons.wikimedia.org/w/index.php?title=User:Zoid&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Zoid (page does not exist)\">Zoid</a>",
+      "credit": "New version of <a href=\"//commons.wikimedia.org/wiki/File:Loudspeaker.png\" title=\"File:Loudspeaker.png\">Image:Loudspeaker.png</a>, by <a href=\"//commons.wikimedia.org/wiki/User:AzaToth\" title=\"User:AzaToth\">AzaToth</a> and compressed by <a href=\"//commons.wikimedia.org/wiki/User:Hautala\" title=\"User:Hautala\">Hautala</a>",
+      "license": "Public domain",
+      "description": "Loudspeaker for audio samples"
+    },
+    {
+      "section_id": 1,
       "type": "audio",
       "audio_type": "pronunciation",
       "titles": {
@@ -58,6 +287,198 @@
       "license": "CC BY-SA 3.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
       "description": "The Hungarian name of Kassa pronunced ny a native speaker. (in Slovakian: Kosice)"
+    },
+    {
+      "section_id": 2,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Hungary_(15th_century,_rectangular).svg",
+        "normalized": "File:Flag of Hungary (15th century, rectangular).svg",
+        "display": "File:Flag of Hungary (15th century, rectangular).svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Flag_of_Hungary_%2815th_century%2C_rectangular%29.svg/320px-Flag_of_Hungary_%2815th_century%2C_rectangular%29.svg.png",
+        "width": 320,
+        "height": 320,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_Hungary_%2815th_century%2C_rectangular%29.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Hungary_(15th_century,_rectangular).svg",
+      "artist": "Sir Iain",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "Public domain",
+      "description": "\"15th century flag of Hungary. Rectangular version.\" unsubstantiated. The <a rel=\"nofollow\" class=\"external text\" href=\"http://www.crwflags.com/fotw/flags/hu_king.html\">relevant page at crwflags.com</a> is aware of no such flag."
+    },
+    {
+      "section_id": 2,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_the_Habsburg_Monarchy.svg",
+        "normalized": "File:Flag of the Habsburg Monarchy.svg",
+        "display": "File:Flag of the Habsburg Monarchy.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Flag_of_the_Habsburg_Monarchy.svg/320px-Flag_of_the_Habsburg_Monarchy.svg.png",
+        "width": 320,
+        "height": 213,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Flag_of_the_Habsburg_Monarchy.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Habsburg_Monarchy.svg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Sir_Iain\" title=\"User:Sir Iain\">Sir Iain</a>, earlier version by <a href=\"//commons.wikimedia.org/w/index.php?title=User:ThrashedParanoid&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:ThrashedParanoid (page does not exist)\">ThrashedParanoid</a> and <a href=\"//commons.wikimedia.org/wiki/User:Peregrine981\" title=\"User:Peregrine981\">Peregrine981</a>.<a href=\"//commons.wikimedia.org/w/index.php?title=User:ThrashedParanoid&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:ThrashedParanoid (page does not exist)\">ThrashedParanoid</a>",
+      "credit": "<div class=\"mw-content-ltr\">\n<table cellspacing=\"0\" style=\"color:#000;background:#DDD;border:1px solid #BBB;margin:.1em;width:;\" class=\"createdwithtemplate layouttemplate\"><tr>\n<td style=\"width:1.2em;height:1.2em;padding:.2em;\">\n<div class=\"center\">\n<div class=\"floatnone\"><a href=\"//commons.wikimedia.org/wiki/File:Inkscape_Logo.svg\" title=\"File:Inkscape Logo.svg\"><img alt=\"Inkscape Logo.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Inkscape_Logo.svg/20px-Inkscape_Logo.svg.png\" width=\"20\" height=\"20\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Inkscape_Logo.svg/30px-Inkscape_Logo.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Inkscape_Logo.svg/40px-Inkscape_Logo.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a></div>\n</div>\n</td>\n<td style=\"font-size:.85em;padding:.2em;vertical-align:middle;\">This <a href=\"https://en.wikipedia.org/wiki/Vector_images\" class=\"extiw\" title=\"w:Vector images\">vector image</a> was created with <a href=\"//commons.wikimedia.org/wiki/Help:Inkscape\" title=\"Help:Inkscape\">Inkscape</a>.</td>\n</tr></table>\n</div>\n<br>\nSelf-made",
+      "license": "Public domain",
+      "description": "<br><a href=\"//commons.wikimedia.org/wiki/Category:Vexillological_symbols\" title=\"↑\"><img alt=\"↑\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/FIAV_100000.svg/23px-FIAV_100000.svg.png\" width=\"23\" height=\"15\" class=\"thumbborder\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/FIAV_100000.svg/35px-FIAV_100000.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/FIAV_100000.svg/46px-FIAV_100000.svg.png 2x\" data-file-width=\"320\" data-file-height=\"210\"></a><a href=\"//commons.wikimedia.org/wiki/Category:Vexillological_symbols\" title=\"Category:Vexillological symbols\">↑</a> Civil flag or <i>Landesfarben</i> of the <a href=\"https://en.wikipedia.org/wiki/Habsburg_monarchy\" class=\"extiw\" title=\"en:Habsburg monarchy\">Habsburg monarchy</a> (1700-1806)<br><a href=\"//commons.wikimedia.org/wiki/Category:Vexillological_symbols\" title=\"↑\"><img alt=\"↑\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/FIAV_000100.svg/23px-FIAV_000100.svg.png\" width=\"23\" height=\"15\" class=\"thumbborder\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/FIAV_000100.svg/35px-FIAV_000100.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/FIAV_000100.svg/46px-FIAV_000100.svg.png 2x\" data-file-width=\"320\" data-file-height=\"210\"></a><a href=\"//commons.wikimedia.org/wiki/Category:Vexillological_symbols\" title=\"Category:Vexillological symbols\">↑</a> Merchant ensign of the <a href=\"https://en.wikipedia.org/wiki/Habsburg_monarchy\" class=\"extiw\" title=\"en:Habsburg monarchy\">Habsburg monarchy</a> (from 1730 to 1750)<br><a href=\"//commons.wikimedia.org/wiki/Category:Vexillological_symbols\" title=\"↑\"><img alt=\"↑\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/FIAV_110000.svg/23px-FIAV_110000.svg.png\" width=\"23\" height=\"15\" class=\"thumbborder\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/FIAV_110000.svg/35px-FIAV_110000.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/FIAV_110000.svg/46px-FIAV_110000.svg.png 2x\" data-file-width=\"320\" data-file-height=\"210\"></a><a href=\"//commons.wikimedia.org/wiki/Category:Vexillological_symbols\" title=\"Category:Vexillological symbols\">↑</a> Flag of the <a href=\"https://en.wikipedia.org/wiki/Austrian_Empire\" class=\"extiw\" title=\"en:Austrian Empire\">Austrian Empire</a> (1804-1867)<br><a href=\"//commons.wikimedia.org/wiki/Category:Vexillological_symbols\" title=\"↑\"><img alt=\"↑\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/FIAV_100000.svg/23px-FIAV_100000.svg.png\" width=\"23\" height=\"15\" class=\"thumbborder\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/FIAV_100000.svg/35px-FIAV_100000.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/FIAV_100000.svg/46px-FIAV_100000.svg.png 2x\" data-file-width=\"320\" data-file-height=\"210\"></a><a href=\"//commons.wikimedia.org/wiki/Category:Vexillological_symbols\" title=\"Category:Vexillological symbols\">↑</a> Civil flag used in <a href=\"https://en.wikipedia.org/wiki/Cisleithania\" class=\"extiw\" title=\"en:Cisleithania\">Cisleithania</a> part of <a href=\"https://en.wikipedia.org/wiki/Austria-Hungary\" class=\"extiw\" title=\"en:Austria-Hungary\">Austria-Hungary</a> (1867-1918)<br>\nHouse colours of the <a href=\"https://en.wikipedia.org/wiki/House_of_Habsburg\" class=\"extiw\" title=\"en:House of Habsburg\">House of Habsburg</a>"
+    },
+    {
+      "section_id": 2,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Civil_Ensign_of_Hungary.svg",
+        "normalized": "File:Civil Ensign of Hungary.svg",
+        "display": "File:Civil Ensign of Hungary.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Civil_Ensign_of_Hungary.svg/320px-Civil_Ensign_of_Hungary.svg.png",
+        "width": 320,
+        "height": 213,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Civil_Ensign_of_Hungary.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Civil_Ensign_of_Hungary.svg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Denelson83\" title=\"User:Denelson83\">Denelson83</a>",
+      "credit": "<ul>\n<li><a rel=\"nofollow\" class=\"external text\" href=\"http://flagspot.net/flags/hu.html\">Flags of the World – Hungary</a></li>\n<li>MSZ 1361:2009 – A nemzeti zászló és lobogó követelményei / Requirements for national flag and waving</li>\n<li><cite style=\"font-style:normal\">(2009). \"<a rel=\"nofollow\" class=\"external text\" href=\"http://www.tmte.hu/11kiadvanyok/111matete/111_2009_05_pdf/203_Zaszlo.pdf\">Megújult a zászló szabvány</a>\" (PDF). <i>Magyar Textiltechnika</i> <b>62</b> (5): 203–207. Budapest, Hungary: Textilipari Műszaki és Tudományos Egyesület. <a href=\"https://en.wikipedia.org/wiki/International_Standard_Serial_Number\" class=\"extiw\" title=\"en:International Standard Serial Number\">ISSN</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.worldcat.org/issn/2060-453X\">2060-453X</a>.</cite></li>\n</ul>",
+      "license": "Public domain",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/Civil_flag\" class=\"extiw\" title=\"en:Civil flag\">Civil flag</a> and <a href=\"https://en.wikipedia.org/wiki/Civil_ensign\" class=\"extiw\" title=\"en:Civil ensign\">civil</a> and <a href=\"https://en.wikipedia.org/wiki/State_ensign\" class=\"extiw\" title=\"en:State ensign\">state ensign</a> of <a href=\"https://en.wikipedia.org/wiki/Hungary\" class=\"extiw\" title=\"en:Hungary\">Hungary</a>, this flag is similar to the <a href=\"https://en.wikipedia.org/wiki/Flag_of_Iran\" class=\"extiw\" title=\"en:Flag of Iran\">flag of Iran</a> (1964-1980), but reverse the colors."
+    },
+    {
+      "section_id": 2,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Transsylvanian_Banner.svg",
+        "normalized": "File:Transsylvanian Banner.svg",
+        "display": "File:Transsylvanian Banner.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Transsylvanian_Banner.svg/320px-Transsylvanian_Banner.svg.png",
+        "width": 320,
+        "height": 213,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Transsylvanian_Banner.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Transsylvanian_Banner.svg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Sir_Iain\" title=\"User:Sir Iain\">Sir Iain</a>",
+      "credit": "Own work by uploader, used elements from <a href=\"//commons.wikimedia.org/wiki/File:Coat_of_arms_of_Transylvania.svg\" title=\"File:Coat of arms of Transylvania.svg\">File:Coat of arms of Transylvania.svg</a>",
+      "license": "Public domain",
+      "description": "Banner of the Arms of Transylvania, red stripe was added later."
+    },
+    {
+      "section_id": 2,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Austria-Hungary_(1869-1918).svg",
+        "normalized": "File:Flag of Austria-Hungary (1869-1918).svg",
+        "display": "File:Flag of Austria-Hungary (1869-1918).svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Austria-Hungary_%281869-1918%29.svg/320px-Flag_of_Austria-Hungary_%281869-1918%29.svg.png",
+        "width": 320,
+        "height": 213,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Austria-Hungary_%281869-1918%29.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Austria-Hungary_(1869-1918).svg",
+      "artist": "<b>Vectorization:</b> <a href=\"//commons.wikimedia.org/wiki/User:Sgt_bilko\" title=\"User:Sgt bilko\">Sgt_bilko</a>, change name by <a href=\"//commons.wikimedia.org/wiki/User:Actarux\" title=\"User:Actarux\">User:Actarux</a> for use in same templates",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "Public domain",
+      "description": "Civil Ensign of <a href=\"//commons.wikimedia.org/wiki/Austria-Hungary\" class=\"mw-redirect\" title=\"Austria-Hungary\">Austria-Hungary</a> 1869—1918"
+    },
+    {
+      "section_id": 2,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_the_Czech_Republic.svg",
+        "normalized": "File:Flag of the Czech Republic.svg",
+        "display": "File:Flag of the Czech Republic.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_Czech_Republic.svg/320px-Flag_of_the_Czech_Republic.svg.png",
+        "width": 320,
+        "height": 213,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Czech_Republic.svg",
+      "artist": "<ul>\n<li>special commission</li>\n</ul>\n<p>(of code): SVG version by <a href=\"https://cs.wikipedia.org/wiki/User:-xfi-\" class=\"extiw\" title=\"cs:User:-xfi-\">cs:-xfi-</a>.</p>\n<ul>\n<li>Colors according to Appendix No. 3 of czech legal Act 3/1993. <a href=\"https://cs.wikipedia.org/wiki/User:Zirland\" class=\"extiw\" title=\"cs:User:Zirland\">cs:Zirland</a>.</li>\n</ul>",
+      "credit": "<ul>\n<li>-xfi-'s file</li>\n<li>-xfi-'s code</li>\n<li>Zirland's codes of colors</li>\n</ul>",
+      "license": "Public domain",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/Flag_of_the_Czech_Republic\" class=\"extiw\" title=\"en:Flag of the Czech Republic\">Flag of the Czech Republic</a>"
+    },
+    {
+      "section_id": 2,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Hungary_(1920–1946).svg",
+        "normalized": "File:Flag of Hungary (1920–1946).svg",
+        "display": "File:Flag of Hungary (1920–1946).svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Flag_of_Hungary_%281915-1918%2C_1919-1946%29.svg/320px-Flag_of_Hungary_%281915-1918%2C_1919-1946%29.svg.png",
+        "width": 320,
+        "height": 160,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Flag_of_Hungary_%281915-1918%2C_1919-1946%29.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Hungary_(1920–1946).svg",
+      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Zscout370\" class=\"extiw\" title=\"w:User:Zscout370\">User:Zscout370</a>, colour correction: <a href=\"https://en.wikipedia.org/wiki/User:R-41\" class=\"extiw\" title=\"w:User:R-41\">User:R-41</a>, current version: <a href=\"//commons.wikimedia.org/wiki/User:Thommy9\" title=\"User:Thommy9\">Thommy</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>\n<ul>\n<li>\n<cite class=\"book\" style=\"font-style:normal\">\"1848. évi XXI. törvény-czikk. A nemzeti szinről és ország czimeréről.\" in Márkus, Dezső , ed. (<span style=\"white-space:nowrap\"><time class=\"dtstart\" datetime=\"1896\">1896</time></span>) <i>Magyar törvénytár (Corpus juris Hungarici): 1836–1868. évi törvényczikkek</i>, Budapest, Hungary:  Franklin-Társulat, p. 244</cite> (<a href=\"https://en.wikisource.org/wiki/hu:1848._%C3%A9vi_XXI._t%C3%B6rv%C3%A9nycikk\" class=\"extiw\" title=\"s:hu:1848. évi XXI. törvénycikk\">Wikisource</a>)</li>\n<li>\n<cite style=\"font-style:normal\">(1915). \"A m. kir. minisztériumnak 1915. évi 3970. M. E. számú rendelete az állami közép és kis címer, valamint az állampecsét új leirásáról és rajzairól.\". <i>Magyarországi Rendeletek Tára</i> <b>49</b>: 1719–1723. Budapest, Hungary: Magyar Királyi Belügyminisztérium.</cite> (<a href=\"https://en.wikisource.org/wiki/hu:3970/1915._M._E._sz%C3%A1m%C3%BA_rendelet\" class=\"extiw\" title=\"s:hu:3970/1915. M. E. számú rendelet\">Wikisource</a>)</li>\n</ul>\n<p>FOTO:Fortepan — ID 77966: <a href=\"http://www.fortepan.hu/\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.fortepan.hu/_photo/download/fortepan_77966.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.fortepan.hu/?lang=en&amp;img=77966\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a> • FOTO:Fortepan — ID 55749: <a href=\"http://www.fortepan.hu/\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.fortepan.hu/_photo/download/fortepan_55749.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.fortepan.hu/?lang=en&amp;img=55749\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a> • FOTO:Fortepan — ID 32173: <a href=\"http://www.fortepan.hu/\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.fortepan.hu/_photo/download/fortepan_32173.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.fortepan.hu/?lang=en&amp;img=23007\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a> • FOTO:Fortepan — ID 11306: <a href=\"http://www.fortepan.hu/\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.fortepan.hu/_photo/download/fortepan_11306.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.fortepan.hu/?lang=en&amp;img=5977\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a> • FOTO:Fortepan — ID 19946: <a href=\"http://www.fortepan.hu/\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.fortepan.hu/_photo/download/fortepan_19946.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.fortepan.hu/?lang=en&amp;img=11854\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a> • FOTO:Fortepan — ID 26796: <a href=\"http://www.fortepan.hu/\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.fortepan.hu/_photo/download/fortepan_39268.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.fortepan.hu/?lang=en&amp;img=26796\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a> • FOTO:Fortepan — ID 94052: <a href=\"http://www.fortepan.hu/\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.fortepan.hu/_photo/download/fortepan_94052.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.fortepan.hu/?lang=en&amp;img=94052\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a> • FOTO:Fortepan — ID 08540: <a href=\"http://www.fortepan.hu/\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.fortepan.hu/_photo/download/fortepan_8540.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.fortepan.hu/?lang=en&amp;img=3956\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a> • FOTO:Fortepan — ID 24134: <a href=\"http://www.fortepan.hu/\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.fortepan.hu/_photo/download/fortepan_24134.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.fortepan.hu/?lang=en&amp;img=15677\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a></p>\n<p><a href=\"//commons.wikimedia.org/wiki/File:%C5%90szir%C3%B3zs%C3%A1s_forradalom_1918.jpg\" title=\"File:Őszirózsás forradalom 1918.jpg\">File:Őszirózsás forradalom 1918.jpg</a> • <a rel=\"nofollow\" class=\"external autonumber\" href=\"http://www.e-kompetencia.si/egradiva/mad_zgo/22/c590535a4952c3935a53415f464f52524144414c4f4d.JPG\">[1]</a></p>\n<table cellspacing=\"0\" style=\"width:100%;color:#000;background:#eee;border:1px solid #425;margin:1px;direction:ltr\"><tr>\n<td style=\"width:22px;height:22px;text-align:center;background:#75507b\"><a href=\"//commons.wikimedia.org/wiki/File:SVG_in_SVG.svg\" class=\"image\"><img alt=\"SVG in SVG.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/SVG_in_SVG.svg/20px-SVG_in_SVG.svg.png\" width=\"20\" height=\"23\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/SVG_in_SVG.svg/30px-SVG_in_SVG.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/SVG_in_SVG.svg/40px-SVG_in_SVG.svg.png 2x\" data-file-width=\"502\" data-file-height=\"571\"></a></td>\n<td style=\"font-size:.9em;padding-left:.5em;padding-right:.5em;line-height:1.1\">This <a href=\"https://en.wikipedia.org/wiki/vector_image\" class=\"extiw\" title=\"w:vector image\">vector image</a> includes elements that have been taken or adapted from this: <a href=\"//commons.wikimedia.org/wiki/File:Flag_of_Hungary.svg\" class=\"image\"><img alt=\"Flag of Hungary.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/40px-Flag_of_Hungary.svg.png\" width=\"40\" height=\"20\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/60px-Flag_of_Hungary.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/80px-Flag_of_Hungary.svg.png 2x\" data-file-width=\"1200\" data-file-height=\"600\"></a> <a href=\"//commons.wikimedia.org/wiki/File:Flag_of_Hungary.svg\" title=\"File:Flag of Hungary.svg\">Flag of Hungary.svg</a>.</td>\n</tr></table>\n<table cellspacing=\"0\" style=\"width:100%;color:#000;background:#eee;border:1px solid #425;margin:1px;direction:ltr\"><tr>\n<td style=\"width:22px;height:22px;text-align:center;background:#75507b\"><a href=\"//commons.wikimedia.org/wiki/File:SVG_in_SVG.svg\" class=\"image\"><img alt=\"SVG in SVG.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/SVG_in_SVG.svg/20px-SVG_in_SVG.svg.png\" width=\"20\" height=\"23\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/SVG_in_SVG.svg/30px-SVG_in_SVG.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/SVG_in_SVG.svg/40px-SVG_in_SVG.svg.png 2x\" data-file-width=\"502\" data-file-height=\"571\"></a></td>\n<td style=\"font-size:.9em;padding-left:.5em;padding-right:.5em;line-height:1.1\">This <a href=\"https://en.wikipedia.org/wiki/vector_image\" class=\"extiw\" title=\"w:vector image\">vector image</a> includes elements that have been taken or adapted from this: <a href=\"//commons.wikimedia.org/wiki/File:Coat_of_arms_of_Hungary_(1915-1918,_1919-1946,_1990).svg\" class=\"image\"><img alt=\"Coat of arms of Hungary (1915-1918, 1919-1946, 1990).svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Coat_of_arms_of_Hungary_%281915-1918%2C_1919-1946%2C_1990%29.svg/9px-Coat_of_arms_of_Hungary_%281915-1918%2C_1919-1946%2C_1990%29.svg.png\" width=\"9\" height=\"20\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Coat_of_arms_of_Hungary_%281915-1918%2C_1919-1946%2C_1990%29.svg/14px-Coat_of_arms_of_Hungary_%281915-1918%2C_1919-1946%2C_1990%29.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Coat_of_arms_of_Hungary_%281915-1918%2C_1919-1946%2C_1990%29.svg/18px-Coat_of_arms_of_Hungary_%281915-1918%2C_1919-1946%2C_1990%29.svg.png 2x\" data-file-width=\"1000\" data-file-height=\"2135\"></a> <a href=\"//commons.wikimedia.org/wiki/File:Coat_of_arms_of_Hungary_(1915-1918,_1919-1946,_1990).svg\" title=\"File:Coat of arms of Hungary (1915-1918, 1919-1946, 1990).svg\">Coat of arms of Hungary (1915-1918, 1919-1946, 1990).svg</a>.</td>\n</tr></table>",
+      "license": "Public domain",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/Flag_of_Hungary\" class=\"extiw\" title=\"en:Flag of Hungary\">Flag</a> of <a href=\"https://en.wikipedia.org/wiki/Kingdom_of_Hungary\" class=\"extiw\" title=\"en:Kingdom of Hungary\">Hungary</a> from 6 November 1915 to 29 November 1918 and from August 1919 until mid/late 1946."
+    },
+    {
+      "section_id": 2,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Slovakia.svg",
+        "normalized": "File:Flag of Slovakia.svg",
+        "display": "File:Flag of Slovakia.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Slovakia.svg/320px-Flag_of_Slovakia.svg.png",
+        "width": 320,
+        "height": 213,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Slovakia.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Slovakia.svg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:SKopp\" title=\"User:SKopp\">SKopp</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>; <a rel=\"nofollow\" class=\"external text\" href=\"http://www.vlada.gov.sk/statna-vlajka/\">here</a>, <a rel=\"nofollow\" class=\"external text\" href=\"http://vlada.gov.sk/data/files/2264_1071.pdf\">colors</a>",
+      "license": "Public domain",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/Flag_of_Slovakia\" class=\"extiw\" title=\"w:Flag of Slovakia\">Flag of Slovakia</a>. Image from <a rel=\"nofollow\" class=\"external text\" href=\"http://www.vlada.gov.sk/statna-vlajka/\">here</a>, <a rel=\"nofollow\" class=\"external text\" href=\"http://vlada.gov.sk/data/files/2264_1071.pdf\">colors</a>"
     },
     {
       "section_id": 2,
@@ -149,6 +570,68 @@
       "credit": "Transferred from <span class=\"plainlinks\"><a class=\"external text\" href=\"//en.wikipedia.org\">en.wikipedia</a></span> to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Frokor\" title=\"User:Frokor\">Frokor</a> using <a href=\"https://tools.wmflabs.org/commonshelper/\" class=\"extiw\" title=\"toollabs:commonshelper/\">CommonsHelper</a>.",
       "license": "CC-BY-SA-3.0",
       "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+    },
+    {
+      "section_id": 2,
+      "type": "image",
+      "caption": {
+        "html": "Principality of Transylvania under Gabriel Bethlen, including Košice shown as 'Kassa'",
+        "text": "Principality of Transylvania under Gabriel Bethlen, including Košice shown as 'Kassa'"
+      },
+      "titles": {
+        "canonical": "File:Bethlen_Gábor_fejedelemsége.png",
+        "normalized": "File:Bethlen Gábor fejedelemsége.png",
+        "display": "File:Bethlen Gábor fejedelemsége.png"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Bethlen_G%C3%A1bor_fejedelems%C3%A9ge.png/320px-Bethlen_G%C3%A1bor_fejedelems%C3%A9ge.png",
+        "width": 320,
+        "height": 330,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/7/72/Bethlen_G%C3%A1bor_fejedelems%C3%A9ge.png",
+        "width": 1809,
+        "height": 1868,
+        "mime": "image/png"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Bethlen_Gábor_fejedelemsége.png",
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Petolaszlo&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Petolaszlo (page does not exist)\">Petolaszlo</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "description": "Bethlen Gábor fejedelemsége"
+    },
+    {
+      "section_id": 2,
+      "type": "image",
+      "caption": {
+        "html": "Part of the Ottoman Empire in 1683, including the Principality of Upper Hungary, based around Košice shown as 'Kassa'",
+        "text": "Part of the Ottoman Empire in 1683, including the Principality of Upper Hungary, based around Košice shown as 'Kassa'"
+      },
+      "titles": {
+        "canonical": "File:Central_europe_1683.png",
+        "normalized": "File:Central europe 1683.png",
+        "display": "File:Central europe 1683.png"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Central_europe_1683.png/320px-Central_europe_1683.png",
+        "width": 320,
+        "height": 243,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Central_europe_1683.png",
+        "width": 1543,
+        "height": 1170,
+        "mime": "image/png"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Central_europe_1683.png",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:PANONIAN\" title=\"User:PANONIAN\">PANONIAN</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "description": "Central Europe in 1683 - Habsburg and Ottoman territories, including Habsburg Kingdom of Hungary (Royal Hungary) and Habsburg Croatia, Ottoman vassal states (Wallachia, Moldavia, Transylvania, Upper Hungary, Montenegro, Ragusa) and Ottoman eyalets. The Ottoman expansion was asked by prince <a href=\"//commons.wikimedia.org/wiki/Category:Imre_Th%C3%B6k%C3%B6ly\" title=\"Category:Imre Thököly\">Imre Thököly</a> in Upper Hungary (centered in present-day Slovakia) against the Habsburgs. The Ottoman Rule in Upper Hungary lasted only for 3 months."
     },
     {
       "section_id": 2,
@@ -1073,6 +1556,30 @@
       "type": "image",
       "gallery_id": "mwApk",
       "titles": {
+        "canonical": "File:Stephan_Bocskay.png",
+        "normalized": "File:Stephan Bocskay.png",
+        "display": "File:Stephan Bocskay.png"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Stephan_Bocskay.png/320px-Stephan_Bocskay.png",
+        "width": 320,
+        "height": 437,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Stephan_Bocskay.png",
+        "width": 631,
+        "height": 862,
+        "mime": "image/png"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Stephan_Bocskay.png",
+      "license": "Public domain"
+    },
+    {
+      "section_id": 22,
+      "type": "image",
+      "gallery_id": "mwApk",
+      "titles": {
         "canonical": "File:II._Rákóczi_Ferenc_Mányoki.jpg",
         "normalized": "File:II. Rákóczi Ferenc Mányoki.jpg",
         "display": "File:II. Rákóczi Ferenc Mányoki.jpg"
@@ -1399,34 +1906,6 @@
       "type": "image",
       "gallery_id": "mwApk",
       "titles": {
-        "canonical": "File:JosefPolák.JPG",
-        "normalized": "File:JosefPolák.JPG",
-        "display": "File:JosefPolák.JPG"
-      },
-      "thumbnail": {
-        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/JosefPol%C3%A1k.JPG/320px-JosefPol%C3%A1k.JPG",
-        "width": 320,
-        "height": 428,
-        "mime": "image/jpeg"
-      },
-      "original": {
-        "source": "https://upload.wikimedia.org/wikipedia/commons/6/6b/JosefPol%C3%A1k.JPG",
-        "width": 1936,
-        "height": 2592,
-        "mime": "image/jpeg"
-      },
-      "file_page": "https://commons.wikimedia.org/wiki/File:JosefPolák.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-      "description": "Portrait of Josef Polák, a director of East Slovak Museum in Košice, Slovakia, oil, canvas, 1924, Sándor Bortnyik"
-    },
-    {
-      "section_id": 22,
-      "type": "image",
-      "gallery_id": "mwApk",
-      "titles": {
         "canonical": "File:David_Dobrik_and_Friends.jpg",
         "normalized": "File:David Dobrik and Friends.jpg",
         "display": "File:David Dobrik and Friends.jpg"
@@ -1513,6 +1992,235 @@
       "description": "Slovakia, Košice, Tree of Partnership on Main Street, design by Tomáš Grega"
     },
     {
+      "section_id": 26,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Hungary.svg",
+        "normalized": "File:Flag of Hungary.svg",
+        "display": "File:Flag of Hungary.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/320px-Flag_of_Hungary.svg.png",
+        "width": 320,
+        "height": 160,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Hungary.svg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:SKopp\" title=\"User:SKopp\">SKopp</a>",
+      "credit": "<ul>\n<li><a rel=\"nofollow\" class=\"external text\" href=\"http://flagspot.net/flags/hu.html\">Flags of the World – Hungary</a></li>\n<li>MSZ 1361:2009 – A nemzeti zászló és lobogó követelményei / Requirements for national flag and waving</li>\n<li><cite style=\"font-style:normal\">(2009). \"<a rel=\"nofollow\" class=\"external text\" href=\"http://www.tmte.hu/11kiadvanyok/111matete/111_2009_05_pdf/203_Zaszlo.pdf\">Megújult a zászló szabvány</a>\" (PDF). <i>Magyar Textiltechnika</i> <b>62</b> (5): 203–207. Budapest, Hungary: Textilipari Műszaki és Tudományos Egyesület. <a href=\"https://en.wikipedia.org/wiki/International_Standard_Serial_Number\" class=\"extiw\" title=\"en:International Standard Serial Number\">ISSN</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.worldcat.org/issn/2060-453X\">2060-453X</a>.</cite></li>\n</ul>",
+      "license": "Public domain",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/Flag_of_Hungary\" class=\"extiw\" title=\"en:Flag of Hungary\">Flag of Hungary</a>"
+    },
+    {
+      "section_id": 26,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Turkey.svg",
+        "normalized": "File:Flag of Turkey.svg",
+        "display": "File:Flag of Turkey.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/320px-Flag_of_Turkey.svg.png",
+        "width": 320,
+        "height": 213,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Turkey.svg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Dbenbenn\" title=\"User:Dbenbenn\">David Benbennick</a> (original author)",
+      "credit": "Turkish Flag Law (Türk Bayrağı Kanunu), Law nr. 2893 of 22 September 1983. <a rel=\"nofollow\" class=\"external text\" href=\"http://www.ttk.org.tr/index.php?Page=Sayfa&amp;No=81\">Text</a> (in Turkish) at the website of the Turkish Historical Society (Türk Tarih Kurumu)",
+      "license": "Public domain",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/Flag_of_Turkey\" class=\"extiw\" title=\"w:Flag of Turkey\">Flag of Turkey</a>"
+    },
+    {
+      "section_id": 26,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Germany.svg",
+        "normalized": "File:Flag of Germany.svg",
+        "display": "File:Flag of Germany.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/320px-Flag_of_Germany.svg.png",
+        "width": 320,
+        "height": 192,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Germany.svg",
+      "license": "PD"
+    },
+    {
+      "section_id": 26,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Poland.svg",
+        "normalized": "File:Flag of Poland.svg",
+        "display": "File:Flag of Poland.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/320px-Flag_of_Poland.svg.png",
+        "width": 320,
+        "height": 200,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Poland.svg",
+      "license": "Public domain",
+      "license_url": "//en.wikipedia.org/wiki/File:Flag_of_Poland.svg"
+    },
+    {
+      "section_id": 26,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Serbia.svg",
+        "normalized": "File:Flag of Serbia.svg",
+        "display": "File:Flag of Serbia.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/320px-Flag_of_Serbia.svg.png",
+        "width": 320,
+        "height": 213,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Serbia.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Serbia.svg",
+      "artist": "sodipodi.com",
+      "credit": "<ul>\n<li>From <a rel=\"nofollow\" class=\"external free\" href=\"http://www.parlament.gov.rs/content/cir/o_skupstini/simboli/simboli.asp\">http://www.parlament.gov.rs/content/cir/o_skupstini/simboli/simboli.asp</a>.</li>\n<li>Archive of source page at web.archive.org: <a rel=\"nofollow\" class=\"external autonumber\" href=\"https://web.archive.org/web/20090608184102/http://www.parlament.gov.rs/content/cir/o_skupstini/simboli/simboli.asp\">[1]</a>\n</li>\n</ul>",
+      "license": "Public domain",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/Flag_of_Serbia\" class=\"extiw\" title=\"w:Flag of Serbia\">Flag of Serbia</a>"
+    },
+    {
+      "section_id": 26,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Bulgaria.svg",
+        "normalized": "File:Flag of Bulgaria.svg",
+        "display": "File:Flag of Bulgaria.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/320px-Flag_of_Bulgaria.svg.png",
+        "width": 320,
+        "height": 192,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Bulgaria.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Bulgaria.svg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:SKopp\" title=\"User:SKopp\">SKopp</a>",
+      "credit": "The flag of Bulgaria. The colors are specified at <a rel=\"nofollow\" class=\"external free\" href=\"http://www.government.bg/cgi-bin/e-cms/vis/vis.pl?s=001&amp;p=0034&amp;n=000005&amp;g=\">http://www.government.bg/cgi-bin/e-cms/vis/vis.pl?s=001&amp;p=0034&amp;n=000005&amp;g=</a> as:\n<ul>\n<li>White: Pantone Safe</li>\n<li>Green: 17-5936 (Green TC) [textile color] <a rel=\"nofollow\" class=\"external autonumber\" href=\"http://www.avas.cz/nastroje/barvy/pantone-textile-cotton.php?pg=11\">[1]</a>\n</li>\n<li>Red: 18-1664 (Fiery Red TC) <a rel=\"nofollow\" class=\"external autonumber\" href=\"http://www.avas.cz/nastroje/barvy/pantone-textile-cotton.php?pg=3\">[2]</a>\n</li>\n</ul>",
+      "license": "Public domain",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/Flag_of_Bulgaria\" class=\"extiw\" title=\"en:Flag of Bulgaria\">Flag of Bulgaria</a>"
+    },
+    {
+      "section_id": 26,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Finland.svg",
+        "normalized": "File:Flag of Finland.svg",
+        "display": "File:Flag of Finland.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/320px-Flag_of_Finland.svg.png",
+        "width": 320,
+        "height": 196,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Finland.svg",
+      "artist": "SVG drawn by <a href=\"//commons.wikimedia.org/wiki/User:SKopp\" title=\"User:SKopp\">Sebastian Koppehel</a>",
+      "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.finlex.fi/fi/laki/ajantasa/1978/19780380\">http://www.finlex.fi/fi/laki/ajantasa/1978/19780380</a>",
+      "license": "Public domain",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/en:Flag_of_Finland\" class=\"extiw\" title=\"w:en:Flag of Finland\">Flag of Finland</a>"
+    },
+    {
+      "section_id": 26,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Russia.svg",
+        "normalized": "File:Flag of Russia.svg",
+        "display": "File:Flag of Russia.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/320px-Flag_of_Russia.svg.png",
+        "width": 320,
+        "height": 213,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Russia.svg",
+      "license": "PD"
+    },
+    {
+      "section_id": 26,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_Ukraine.svg",
+        "normalized": "File:Flag of Ukraine.svg",
+        "display": "File:Flag of Ukraine.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/320px-Flag_of_Ukraine.svg.png",
+        "width": 320,
+        "height": 213,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Ukraine.svg",
+      "artist": "Government of Ukraine",
+      "credit": "ДСТУ 4512:2006 — Державний прапор України. Загальні технічні умови",
+      "license": "Public domain",
+      "description": "<a href=\"https://en.wikipedia.org/wiki/Flag_of_Ukraine\" class=\"extiw\" title=\"en:Flag of Ukraine\">Flag of Ukraine</a>"
+    },
+    {
+      "section_id": 26,
+      "type": "image",
+      "titles": {
+        "canonical": "File:Flag_of_the_United_States.svg",
+        "normalized": "File:Flag of the United States.svg",
+        "display": "File:Flag of the United States.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/320px-Flag_of_the_United_States.svg.png",
+        "width": 320,
+        "height": 168,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_States.svg",
+      "license": "PD"
+    },
+    {
       "section_id": 27,
       "type": "image",
       "titles": {
@@ -1568,6 +2276,35 @@
       "license": "CC-BY-SA-3.0",
       "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
       "description": "<i>See Below</i>"
+    },
+    {
+      "section_id": 33,
+      "type": "image",
+      "caption": {
+        "html": "Spoken Wikipedia",
+        "text": "Spoken Wikipedia"
+      },
+      "titles": {
+        "canonical": "File:Sound-icon.svg",
+        "normalized": "File:Sound-icon.svg",
+        "display": "File:Sound-icon.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Sound-icon.svg/320px-Sound-icon.svg.png",
+        "width": 320,
+        "height": 240,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/4/47/Sound-icon.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Sound-icon.svg",
+      "artist": "Crystal SVG icon set",
+      "credit": "Derivative work from <a href=\"//commons.wikimedia.org/wiki/User:Silsor\" title=\"User:Silsor\">Silsor</a>'s versio",
+      "license": "LGPL",
+      "license_url": "http://www.gnu.org/licenses/lgpl.html",
+      "description": "Ícono simple, sin detalles de un parlante en formato SGV"
     }
   ]
 }
