@@ -9,11 +9,7 @@ const assert = require('assert');
 function deepEqual(result, expected, message) {
 
     try {
-        if (typeof expected === 'string') {
-            assert.ok(result === expected || (new RegExp(expected).test(result)));
-        } else {
-            assert.deepEqual(result, expected, message);
-        }
+        assert.deepEqual(result, expected, message);
     } catch (e) {
         console.log(`Expected:\n${JSON.stringify(expected, null, 2)}`);
         console.log(`Result:\n${JSON.stringify(result, null, 2)}`);
@@ -37,11 +33,11 @@ function status(res, expected) {
 /**
  * Asserts whether content type was as expected
  */
-function contentType(res, expected) {
+function contentType(res, expectedRegexString) {
 
     const actual = res.headers['content-type'];
-    deepEqual(actual, expected,
-        `Expected content-type to be ${expected}, but was ${actual}`);
+    assert.ok(RegExp(expectedRegexString).test(actual),
+        `Expected content-type to match ${expectedRegexString}, but was ${actual}`);
 
 }
 
@@ -49,11 +45,7 @@ function contentType(res, expected) {
 function isDeepEqual(result, expected, message) {
 
     try {
-        if (typeof expected === 'string') {
-            assert.ok(result === expected || (new RegExp(expected).test(result)), message);
-        } else {
-            assert.deepEqual(result, expected, message);
-        }
+        assert.deepEqual(result, expected, message);
         return true;
     } catch (e) {
         return false;
@@ -121,8 +113,13 @@ function closeTo(result, expected, delta, message) {
 
 
 function contains(result, sub, message) {
-    assert.ok(result.indexOf(sub) > -1,
+    assert.ok(result.includes(sub),
         message || `'${sub}' not in:\n${result}`);
+}
+
+function notContains(result, sub, message) {
+    assert.ok(!(result.includes(sub)),
+        message || `Unexpected substring '${sub}' found in:\n${result}`);
 }
 
 
@@ -177,6 +174,7 @@ module.exports.contentType    = contentType;
 module.exports.status         = status;
 module.exports.closeTo        = closeTo;
 module.exports.contains       = contains;
+module.exports.notContains    = notContains;
 module.exports.selectorExistsNTimes = selectorExistsNTimes;
 module.exports.selectorExistsOnce = selectorExistsOnce;
 module.exports.selectorHasValue = selectorHasValue;

@@ -52,9 +52,9 @@ describe('express app', function() {
             assert.deepEqual(res.headers['x-xss-protection'], '1; mode=block');
             assert.deepEqual(res.headers['x-content-type-options'], 'nosniff');
             assert.deepEqual(res.headers['x-frame-options'], 'SAMEORIGIN');
-            assert.deepEqual(res.headers['content-security-policy'], 'default-src');
-            assert.deepEqual(res.headers['x-content-security-policy'], 'default-src');
-            assert.deepEqual(res.headers['x-webkit-csp'], 'default-src');
+            assert.contains(res.headers['content-security-policy'], 'default-src');
+            assert.contains(res.headers['x-content-security-policy'], 'default-src');
+            assert.contains(res.headers['x-webkit-csp'], 'default-src');
         });
     });
 

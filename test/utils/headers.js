@@ -14,9 +14,9 @@ function checkHeaders(uri, expContentType) {
             assert.deepEqual(res.status, 200);
             expContentType = expContentType || JSON_CONTENT_TYPE_REGEX;
             assert.contentType(res, expContentType);
-            assert.deepEqual(res.headers.etag, '^"[^/"]+/[^/"]+"$',
+            assert.ok(RegExp('^"[^/"]+/[^/"]+"$').test(res.headers.etag),
                 'The ETag header is not present or invalid');
-            assert.deepEqual(res.headers.etag.indexOf('undefined'), -1,
+            assert.notContains(res.headers.etag, 'undefined',
                 'etag should not contain "undefined"');
             assert.deepEqual(res.headers['access-control-allow-origin'], '*');
             assert.deepEqual(res.headers['access-control-allow-headers'],
