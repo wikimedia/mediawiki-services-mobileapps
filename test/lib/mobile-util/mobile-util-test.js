@@ -30,4 +30,9 @@ describe('lib:mobile-util', () => {
         assert.deepEqual(mUtil.extractDbTitleFromAnchor(link), 'My_db_title');
     });
 
+    it('getSummaryType identifies main and disambig pages, defaults to \'standard\'', () => {
+        assert.deepEqual(mUtil.getSummaryType({"mainpage":true}), 'mainpage');
+        assert.deepEqual(mUtil.getSummaryType({"pageprops":{"disambiguation":""}}), 'disambiguation');
+        assert.deepEqual(mUtil.getSummaryType({}), 'standard');
+    });
 });
