@@ -46,4 +46,11 @@ describe('extractLeadIntroduction', () => {
             assert.equal(lead, test[1]);
         });
     });
+
+    it('Trailing text content is escaped', () => {
+        const html = '<p>foo</p>&lt;script&gt;alert(1);&lt;/script&gt;';
+        const doc = domino.createDocument(html);
+        const lead = extractLeadIntroduction(doc);
+        assert.deepEqual(lead, html);
+    });
 });
