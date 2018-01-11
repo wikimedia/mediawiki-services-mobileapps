@@ -32,19 +32,6 @@ describe('featured-image', function() {
             });
     });
 
-    it('featured image with no extmetadata should have expected properties', () => {
-        const uri = `${server.config.uri}en.wikipedia.org/v1/media/image/featured/2016/05/06`;
-        return preq.get({ uri })
-            .then((res) => {
-                assert.status(res, 200);
-                assert.equal(res.body.title, 'File:Kazakhstan Altay 3.jpg');
-                assert.equal(res.body.thumbnail.source, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Kazakhstan_Altay_3.jpg/640px-Kazakhstan_Altay_3.jpg');
-                assert.equal(res.body.image.source, 'https://upload.wikimedia.org/wikipedia/commons/9/99/Kazakhstan_Altay_3.jpg');
-                assert.contains(res.body.description.text, 'Altai Mountains');
-                assert.equal(res.body.description.lang, 'en');
-            });
-    });
-
     it('incomplete date should return 404', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/media/image/featured/2016/04`;
         return preq.get({ uri })
