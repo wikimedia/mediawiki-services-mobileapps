@@ -50,7 +50,7 @@ describe('diff', function() {
         for (const spec of testSpec.TEST_SPECS) {
             it(`${spec.testName()}`, () => {
                 return preq.get({ uri: buildUri(spec.uriPath()),
-                                  headers: 'cache-control: no-cache' })
+                    headers: 'cache-control: no-cache' })
                            .then((rsp) => {
                                const content = fs.readFileSync(spec.filePath(), 'utf8');
                                spec.postProcessing(rsp);
