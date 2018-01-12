@@ -8,6 +8,26 @@ const summarize = require('./../../../lib/transformations/summarize');
 describe('summarize', () => {
     it('matches the spec', () => {
         const testCases = [
+            // Should remove unwanted elements
+            [
+                '.<style>f</style><object>o</object><script>o</script>.',
+                '..'
+            ],
+            // Should remove unwanted attributes
+            [
+                '<span bogus="dummy">f</span><b invalid="whateva">o</b>o',
+                '<span>f</span><b>o</b>o'
+            ],
+            // Should keep white-listed attributes
+            [
+                '<span style="we-got-style">f</span><span class="we-got-class">o</span>o',
+                '<span style="we-got-style">f</span><span class="we-got-class">o</span>o'
+            ],
+            // Should remove comments
+            [
+                'foo<!-- a comment -->bar',
+                'foobar'
+            ],
             // Should flatten empty nodes
             [
                 '<span></span><b></b><i></i><p><span>f</span></p>',
@@ -46,7 +66,7 @@ describe('summarize', () => {
             // math tags are stripped but any math images are shown
             [
                 '<p>The Planck–Einstein relation connects the particulate photon energy <span class="texhtml "><i>E</i></span> with its associated wave frequency <span class="texhtml "><i>f</i></span>:</p>\n\n<dl id="mwmQ"><dd id="mwmg"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML">\n  <semantics>\n    <mrow class="MJX-TeXAtom-ORD">\n      <mstyle displaystyle="true" scriptlevel="0">\n        <mi>E</mi>\n        <mo>=</mo>\n        <mi>h</mi>\n        <mi>f</mi>\n      </mstyle>\n    </mrow>\n    <annotation encoding="application/x-tex">{\\displaystyle E=hf}</annotation>\n  </semantics>\n</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f39fac3593bb1e2dec0282c112c4dff7a99007f6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:7.533ex; height:2.509ex;"></span></dd></dl>',
-                '<p>The Planck–Einstein relation connects the particulate photon energy <span class="texhtml "><i>E</i></span> with its associated wave frequency <span class="texhtml "><i>f</i></span>:</p>\n\n<dl id="mwmQ"><dd id="mwmg"><span class="mwe-math-element"><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f39fac3593bb1e2dec0282c112c4dff7a99007f6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:7.533ex; height:2.509ex;"></span></dd></dl>'
+                '<p>The Planck–Einstein relation connects the particulate photon energy <span class="texhtml "><i>E</i></span> with its associated wave frequency <span class="texhtml "><i>f</i></span>:</p>\n\n<dl><dd><span class="mwe-math-element"><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f39fac3593bb1e2dec0282c112c4dff7a99007f6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:7.533ex; height:2.509ex;"></span></dd></dl>'
             ],
             // Parentheticals will be stripped
             [
