@@ -365,9 +365,7 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
         siteinfo: mwapi.getSiteInfo(app, req)
     }).then((response) => {
         const title = Title.newFromText(req.params.title, response.siteinfo);
-        const pageProps = response.pageData.meta && response.pageData.meta.pageprops;
-        const disambig = pageProps && {}.hasOwnProperty.call(pageProps, 'disambiguation');
-        const summary = mUtil.buildSummary(req.params.domain, title, response.pageData, disambig);
+        const summary = mUtil.buildSummary(req.params.domain, title, response.pageData);
         res.status(summary.code);
         if (summary.code === 200) {
             delete summary.code;
