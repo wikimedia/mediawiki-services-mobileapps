@@ -361,11 +361,13 @@ router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
 */
 router.get('/summary/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
-        pageData: _collectRawPageData(req, false),
+        page: parsoid.pageJsonPromise(app, req, false),
+        meta: mwapi.getMetadata(app, req),
+        title: mwapi.getTitleObj(app, req),
         siteinfo: mwapi.getSiteInfo(app, req)
     }).then((response) => {
         const title = Title.newFromText(req.params.title, response.siteinfo);
-        const summary = mUtil.buildSummary(req.params.domain, title, response.pageData);
+        const summary = mUtil.buildSummary(req.params.domain, title, response.page, response.meta);
         res.status(summary.code);
         if (summary.code === 200) {
             delete summary.code;
