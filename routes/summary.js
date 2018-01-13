@@ -1,5 +1,6 @@
 'use strict';
 
+const lib = require('../lib/summary');
 const BBPromise = require('bluebird');
 const mwapi = require('../lib/mwapi');
 const mUtil = require('../lib/mobile-util');
@@ -29,7 +30,7 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
         siteinfo: mwapi.getSiteInfo(app, req)
     }).then((response) => {
         const title = Title.newFromText(req.params.title, response.siteinfo);
-        const summary = mUtil.buildSummary(req.params.domain, title, response.page, response.meta);
+        const summary = lib.buildSummary(req.params.domain, title, response.page, response.meta);
         res.status(summary.code);
         if (summary.code === 200) {
             delete summary.code;
