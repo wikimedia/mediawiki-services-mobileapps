@@ -57,13 +57,24 @@ describe('summary', function() {
             });
     });
 
-    it('204 should be returned for redirect page', () => {
-        const uri = localUri('Barack');
+    function should204(uri) {
         return preq.get({ uri })
-            .then((res) => {
-                assert.deepEqual(res.status, 204);
-                assert.ok(!res.body);
-            });
+        .then((res) => {
+            assert.deepEqual(res.status, 204);
+            assert.deepEqual(res.body, undefined, 'no content');
+        });
+    }
+
+    it('204 should be returned for a file page', () => {
+        should204(localUri('File:En-Alliterative_verse-article.ogg', 'commons.wikimedia.org'));
+    });
+
+    it('204 should be returned for a talk page', () => {
+        should204(localUri('Talk:Foobar'));
+    });
+
+    it('204 should be returned for a redirected page', () => {
+        should204(localUri('Barack'));
     });
 
     it('timestamp should refer to the requested revision, not the latest revision', () => {
