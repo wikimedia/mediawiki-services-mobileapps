@@ -8,7 +8,6 @@ const mUtil = require('../lib/mobile-util');
 const parsoid = require('../lib/parsoid-access');
 const sUtil = require('../lib/util');
 const transforms = require('../lib/transforms');
-const Title = require('mediawiki-title').Title;
 
 /**
  * The main router object
@@ -352,30 +351,6 @@ router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
         mUtil.setETag(res, response.page.revision, response.page.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(buildRemaining(response)).end();
-    });
-});
-
-/**
-* GET {domain}/v1/page/summary/{title}/{revision?}/{tid?}
-* Extracts a summary of a given wiki page limited to one paragraph of text
-*/
-router.get('/summary/:title/:revision?/:tid?', (req, res) => {
-    return BBPromise.props({
-        page: parsoid.pageJsonPromise(app, req, false),
-        meta: mwapi.getMetadata(app, req),
-        title: mwapi.getTitleObj(app, req),
-        siteinfo: mwapi.getSiteInfo(app, req)
-    }).then((response) => {
-        const title = Title.newFromText(req.params.title, response.siteinfo);
-        const summary = mUtil.buildSummary(req.params.domain, title, response.page, response.meta);
-        res.status(summary.code);
-        if (summary.code === 200) {
-            delete summary.code;
-            mUtil.setETag(res, summary.revision, summary.tid);
-            mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
-            res.send(summary);
-        }
-        res.end();
     });
 });
 
