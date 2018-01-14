@@ -167,4 +167,14 @@ describe('lib:parsoid-sections (section elements)', function() {
                 detail: 'Cannot find heading for section number 1.'
             }]]);
     });
+
+    describe('justLeadSection', () => {
+        it('should just return the first section', () => {
+            const doc = domino.createDocument(
+                '<section data-mw-section-id="0"><p>text0</p></section>' +
+                '<section data-mw-section-id="1"><h2 id="foo">foo</h2>text1</section>');
+            const leadSectionDoc = parsoidSectionsUsingSectionTags.justLeadSection(doc);
+            assert.deepEqual(leadSectionDoc.body.innerHTML, '<p>text0</p>');
+        });
+    });
 });

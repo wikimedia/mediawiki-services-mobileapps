@@ -92,4 +92,14 @@ describe('lib:parsoid-sections (div elements)', function() {
         assertSection0(sections);
         assertSection1(sections, extraText);
     });
+
+    describe('justLeadSection', () => {
+        it('should just return the first section', () => {
+            const doc = domino.createDocument('<body><p>text0</p>' +
+                '<h2 id="foo">foo</h2>text1' +
+                '</body>');
+            const leadSectionDoc = parsoid.justLeadSection(doc);
+            assert.deepEqual(leadSectionDoc.body.innerHTML, '<p>text0</p>');
+        });
+    });
 });

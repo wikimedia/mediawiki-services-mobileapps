@@ -32,7 +32,7 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
         const revTid = parsoid.getRevAndTidFromEtag(response.html.headers);
         const title = Title.newFromText(req.params.title, response.siteinfo);
         const summary = lib.buildSummary(req.params.domain, title,
-            response.html.body, revTid, response.meta, req.logger);
+            response.html.body, revTid, response.meta);
         res.status(summary.code);
         if (summary.code === 200) {
             delete summary.code;
