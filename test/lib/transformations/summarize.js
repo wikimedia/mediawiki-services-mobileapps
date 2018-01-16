@@ -36,7 +36,7 @@ describe('summarize', () => {
             // Should flatten links
             [
                 'This is some content with <a href="#"">a link</a>.',
-                'This is some content with <span>a link</span>.'
+                'This is some content with a link.'
             ],
             // Should strip .noexcerpt
             [
@@ -125,22 +125,22 @@ describe('summarize', () => {
             // Content inside Cantonese parentheticals are also stripped
             [
                 '<p><b>蔡英文</b>（<b>Tsai Ing-wen</b>，<a>1956年</a><a>8月31號</a>—）係現任<a>中華民國總統</a>，<a>臺灣</a>學者同埋<a>政治</a>人，<a>民主進步黨</a><a>主席</a>。</p>',
-                '<p><b>蔡英文</b> 係現任<span>中華民國總統</span>，<span>臺灣</span>學者同埋<span>政治</span>人，<span>民主進步黨</span><span>主席</span>。</p>'
+                '<p><b>蔡英文</b> 係現任中華民國總統，臺灣學者同埋政治人，民主進步黨主席。</p>'
             ],
             // Content inside parentheticals written in `wuu` language variant are also stripped
             [
                 '<p><b>东亚</b>（日文：東アジア ‧ 東亜，韩文：東아시아，西文：Asia Oriental）是一个比较笼统个地理概念，立在弗同个语境当中有弗一样个含义。东亚个概念来自<a>欧洲</a>人对东方个定位，拿<a>博斯普鲁斯海峡</a>、<a class="new">乌拉尔山脉</a>东面个广大欧亚大陆地区侪通称亚洲，拿西太平洋沿岸、欧亚大陆东端个地区就叫做<a class="mw-selflink selflink">东亚</a>。</p>',
-                '<p><b>东亚</b> 是一个比较笼统个地理概念，立在弗同个语境当中有弗一样个含义。东亚个概念来自<span>欧洲</span>人对东方个定位，拿<span>博斯普鲁斯海峡</span>、<span class="new">乌拉尔山脉</span>东面个广大欧亚大陆地区侪通称亚洲，拿西太平洋沿岸、欧亚大陆东端个地区就叫做<span class="mw-selflink selflink">东亚</span>。</p>'
+                '<p><b>东亚</b> 是一个比较笼统个地理概念，立在弗同个语境当中有弗一样个含义。东亚个概念来自欧洲人对东方个定位，拿博斯普鲁斯海峡、<span class="new">乌拉尔山脉</span>东面个广大欧亚大陆地区侪通称亚洲，拿西太平洋沿岸、欧亚大陆东端个地区就叫做<span class="mw-selflink selflink">东亚</span>。</p>'
             ],
             // Content inside parentheticals written in `gan` language variant are also stripped
             [
                 '<p><b>亞細亞洲</b>（古希臘文：Ασία），又簡稱<b>亞洲</b>，絕大部分都位到北半球，係全世界上最大，最多人嗰一隻<a class="mw-redirect">洲</a>。佢東頭一徑到白令海峽嗰傑日尼奧夫角（西經169度40分，北緯60度5分），南頭一徑到努沙登加拉群島（東經103度30分，南緯11度7分），西頭一徑到巴巴角（東經26度3分，北緯39度27分），北頭一徑到切柳斯金角（東經104度18分，北緯77度43分），最高嗰山係<a>珠穆朗瑪峰</a>。亞洲東西嗰時差係11小時。佢西首連到<a>歐洲</a>，箇就係世界上最大嗰大陸-<a class="new">歐亞大陸</a>。</p>',
-                '<p><b>亞細亞洲</b>，又簡稱<b>亞洲</b>，絕大部分都位到北半球，係全世界上最大，最多人嗰一隻<span class="mw-redirect">洲</span>。佢東頭一徑到白令海峽嗰傑日尼奧夫角，南頭一徑到努沙登加拉群島，西頭一徑到巴巴角，北頭一徑到切柳斯金角，最高嗰山係<span>珠穆朗瑪峰</span>。亞洲東西嗰時差係11小時。佢西首連到<span>歐洲</span>，箇就係世界上最大嗰大陸-<span class="new">歐亞大陸</span>。</p>'
+                '<p><b>亞細亞洲</b>，又簡稱<b>亞洲</b>，絕大部分都位到北半球，係全世界上最大，最多人嗰一隻<span class="mw-redirect">洲</span>。佢東頭一徑到白令海峽嗰傑日尼奧夫角，南頭一徑到努沙登加拉群島，西頭一徑到巴巴角，北頭一徑到切柳斯金角，最高嗰山係珠穆朗瑪峰。亞洲東西嗰時差係11小時。佢西首連到歐洲，箇就係世界上最大嗰大陸-<span class="new">歐亞大陸</span>。</p>'
             ],
             // Content inside parentheticals is not stripped if it doesn't include any spaces
             [
                 '<p>Der <b>Deutsche Orden</b>, auch <b>Deutschherrenorden</b> oder <b>Deutschritterorden</b> genannt, ist eine römisch-katholische <a>Ordensgemeinschaft</a>. Mit dem <a>Johanniter-</a> und dem <a>Malteserorden</a> steht er in der (Rechts-)Nachfolge der <a>Ritterorden</a> aus der Zeit der <a>Kreuzzüge</a>. Die Mitglieder des Ordens sind seit der Reform der Ordensregel 1929 <a>regulierte Chorherren</a>. Der Orden hat gegenwärtig 1100 Mitglieder, darunter 100 <a>Priester</a> und 200 Ordensschwestern, die sich vorwiegend karitativen Aufgaben widmen. Der Hauptsitz befindet sich heute in <a>Wien</a>.</p>',
-                '<p>Der <b>Deutsche Orden</b>, auch <b>Deutschherrenorden</b> oder <b>Deutschritterorden</b> genannt, ist eine römisch-katholische <span>Ordensgemeinschaft</span>. Mit dem <span>Johanniter-</span> und dem <span>Malteserorden</span> steht er in der (Rechts-)Nachfolge der <span>Ritterorden</span> aus der Zeit der <span>Kreuzzüge</span>. Die Mitglieder des Ordens sind seit der Reform der Ordensregel 1929 <span>regulierte Chorherren</span>. Der Orden hat gegenwärtig 1100 Mitglieder, darunter 100 <span>Priester</span> und 200 Ordensschwestern, die sich vorwiegend karitativen Aufgaben widmen. Der Hauptsitz befindet sich heute in <span>Wien</span>.</p>'
+                '<p>Der <b>Deutsche Orden</b>, auch <b>Deutschherrenorden</b> oder <b>Deutschritterorden</b> genannt, ist eine römisch-katholische Ordensgemeinschaft. Mit dem Johanniter- und dem Malteserorden steht er in der (Rechts-)Nachfolge der Ritterorden aus der Zeit der Kreuzzüge. Die Mitglieder des Ordens sind seit der Reform der Ordensregel 1929 regulierte Chorherren. Der Orden hat gegenwärtig 1100 Mitglieder, darunter 100 Priester und 200 Ordensschwestern, die sich vorwiegend karitativen Aufgaben widmen. Der Hauptsitz befindet sich heute in Wien.</p>'
             ],
             // Content inside parentheticals with single word and leading space is not stripped
             [
@@ -160,12 +160,12 @@ describe('summarize', () => {
             // Full stops do not impact the summary length (T173640)
             [
                 '<p><a href="./Armádní_generál" title="Armádní generál">Arm. gen.</a> <a href="./Inženýr" title="Inženýr">Ing.</a> <b>Petr Pavel</b>, <span class="new">M.A.</span>, (*<span>&nbsp;</span><a href="./1._listopad" title="1. listopad">1.<span>&nbsp;</span>listopadu</a> <a href="./1961" title="1961">1961</a> <a href="./Planá" title="Planá">Planá</a>) je <a href="./Česko" title="Česko">český</a> <a href="./Voják" title="Voják">voják</a>, <a href="./Generál" title="Generál">generál</a> <a href="./Armáda_České_republiky" title="Armáda České republiky">Armády České republiky</a> a<span>&nbsp;</span>od června 2015 <a href="./Předseda_vojenského_výboru_NATO" title="Předseda vojenského výboru NATO">předseda vojenského výboru NATO</a>. Jako první zástupce zemí bývalé <a href="./Varšavská_smlouva" title="Varšavská smlouva">Varšavské smlouvy</a> tak nastoupil do nejvyšší vojenské funkce <a href="./Severoatlantická_aliance" title="Severoatlantická aliance">Severoatlantické aliance</a>.<span class="mw-ref" id="cite_ref-nastup_NATO_1-0"><a href="./Petr_Pavel#cite_note-nastup_NATO-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></span><span class="mw-ref" id="cite_ref-ihned_2-0"><a href="./Petr_Pavel#cite_note-ihned-2" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text">[2]</span></a></span></p>',
-                '<p><span>Arm. gen.</span> <span>Ing.</span> <b>Petr Pavel</b>, <span class="new">M.A.</span>, je <span>český</span> <span>voják</span>, <span>generál</span> <span>Armády České republiky</span> a<span>&nbsp;</span>od června 2015 <span>předseda vojenského výboru NATO</span>. Jako první zástupce zemí bývalé <span>Varšavské smlouvy</span> tak nastoupil do nejvyšší vojenské funkce <span>Severoatlantické aliance</span>.</p>'
+                '<p>Arm. gen. Ing. <b>Petr Pavel</b>, <span class="new">M.A.</span>, je český voják, generál Armády České republiky a<span>&nbsp;</span>od června 2015 předseda vojenského výboru NATO. Jako první zástupce zemí bývalé Varšavské smlouvy tak nastoupil do nejvyšší vojenské funkce Severoatlantické aliance.</p>'
             ],
             // Bold tags are retained
             [
                 '<p><b>Vladimír Dlouhý</b> (*<span>&nbsp;</span><a href="./31._červenec" title="31. červenec">31. července</a> <a href="./1953" title="1953">1953</a> <a href="./Praha" title="Praha">Praha</a>) je <a href="./Češi" title="Češi">český</a> <a href="./Ekonom" title="Ekonom">ekonom</a> a <a href="./Politik" title="Politik">politik</a>, bývalý místopředseda strany <a href="./Občanská_demokratická_aliance" title="Občanská demokratická aliance">ODA</a> a ministr průmyslu a obchodu v letech <a href="./1992" title="1992">1992</a>–<a href="./1997" title="1997">1997</a> ve <a href="./První_vláda_Václava_Klause" title="První vláda Václava Klause">vládě Václava Klause</a>. V<span>&nbsp;</span>letech <a href="./1989" title="1989">1989</a>–<a href="./1992" title="1992">1992</a> byl ministrem hospodářství <a href="./Česká_a_Slovenská_Federativní_Republika" title="Česká a Slovenská Federativní Republika">ČSFR</a>. Nyní působí v&nbsp;soukromé sféře a věnuje se poradenské a pedagogické činnosti, v <a href="./Květen" title="Květen">květnu</a> <a href="./2014" title="2014">2014</a> byl zvolen prezidentem <a href="./Hospodářská_komora_České_republiky" title="Hospodářská komora České republiky">Hospodářské komory ČR</a>.</p>',
-                '<p><b>Vladimír Dlouhý</b> je <span>český</span> <span>ekonom</span> a <span>politik</span>, bývalý místopředseda strany <span>ODA</span> a ministr průmyslu a obchodu v letech <span>1992</span>–<span>1997</span> ve <span>vládě Václava Klause</span>. V<span>&nbsp;</span>letech <span>1989</span>–<span>1992</span> byl ministrem hospodářství <span>ČSFR</span>. Nyní působí v&nbsp;soukromé sféře a věnuje se poradenské a pedagogické činnosti, v <span>květnu</span> <span>2014</span> byl zvolen prezidentem <span>Hospodářské komory ČR</span>.</p>'
+                '<p><b>Vladimír Dlouhý</b> je český ekonom a politik, bývalý místopředseda strany ODA a ministr průmyslu a obchodu v letech 1992–1997 ve vládě Václava Klause. V<span>&nbsp;</span>letech 1989–1992 byl ministrem hospodářství ČSFR. Nyní působí v&nbsp;soukromé sféře a věnuje se poradenské a pedagogické činnosti, v květnu 2014 byl zvolen prezidentem Hospodářské komory ČR.</p>'
             ]
         ];
         testCases.forEach((test) => {
