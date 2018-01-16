@@ -57,6 +57,17 @@ describe('summary', function() {
             });
     });
 
+    it('main page in non-mainspace should also return type: \'mainpage\'', () => {
+        const uri = localUri('Wikipedia:Hauptseite', 'de.wikipedia.org');
+        return preq.get({ uri })
+            .then((res) => {
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.type, 'mainpage', 'type should be \'mainpage\'');
+                assert.deepEqual(res.body.extract, '', 'should send empty plaintext extract');
+                assert.deepEqual(res.body.extract_html, '', 'should send empty html extract');
+            });
+    });
+
     function should204(uri) {
         return preq.get({ uri })
         .then((res) => {
