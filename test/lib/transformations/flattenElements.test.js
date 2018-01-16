@@ -11,6 +11,12 @@ describe('lib:flattenElements', () => {
         assert.deepEqual(document.body.innerHTML, '<span class="bar">foo</span>');
     });
 
+    it('replaces a with span, keeps style attribute', () => {
+        const document = domino.createDocument('<a style="bar" href="#">foo</a>');
+        flattenElements(document, 'a');
+        assert.deepEqual(document.body.innerHTML, '<span style="bar">foo</span>');
+    });
+
     it('replaces a tag with plain text if no attributes to keep', () => {
         const document = domino.createDocument('<a href="#">foo</a>');
         flattenElements(document, 'a');
