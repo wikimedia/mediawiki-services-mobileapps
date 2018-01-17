@@ -22,4 +22,16 @@ describe('lib:flattenElements', () => {
         flattenElements(document, 'a');
         assert.deepEqual(document.body.innerHTML, 'foo');
     });
+
+    it('retains HTML inside elements', () => {
+        const document = domino.createDocument('<a><i>The Mummy</i> franchise</a>');
+        flattenElements(document, 'a');
+        assert.deepEqual(document.body.innerHTML, '<span><i>The Mummy</i> franchise</span>');
+    });
+
+    it('does not change the text content of the node', () => {
+        const document = domino.createDocument('<a>&lt;uh oh&gt;</a>');
+        flattenElements(document, 'a');
+        assert.deepEqual(document.body.innerHTML, '&lt;uh oh&gt;');
+    });
 });
