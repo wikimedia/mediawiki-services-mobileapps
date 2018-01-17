@@ -109,7 +109,7 @@ describe('mobile-sections', function() {
             });
     });
 
-    it('Beta cluster request should load successfully', () => {
+    it.skip('Beta cluster request should load successfully', () => {
         const uri = localUri('Foobar', 'en.wikipedia.beta.wmflabs.org');
         return preq.get({ uri })
             .then((res) => {
