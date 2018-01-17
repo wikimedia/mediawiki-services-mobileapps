@@ -12,8 +12,6 @@ const logger = require('bunyan').createLogger({
 
 logger.log = function(a, b) {};
 
-const list = [0, 1, 2, 3, 4];
-
 describe('lib:apiUtil', () => {
 
     it('checkForQueryPagesInResponse should return 504 when query.pages are absent', () => {
@@ -27,7 +25,7 @@ describe('lib:apiUtil', () => {
     });
 
     it('batching works correctly', () => {
-        const batches = api._batch(list, 2);
+        const batches = api._batch([0, 1, 2, 3, 4], 2);
         assert.deepEqual(batches.length, 3);
         assert.deepEqual(batches[0].length, 2);
         assert.deepEqual(batches[1].length, 2);
@@ -35,7 +33,7 @@ describe('lib:apiUtil', () => {
     });
 
     it('order is preserved when Array.reduce is called on resolved BBPromise.all batches', () => {
-        const batches = api._batch(list, 2);
+        const batches = api._batch([0, 1, 2, 3, 4], 2);
         const promises = BBPromise.all(batches.map((batch) => {
             return new BBPromise(resolve => setTimeout(() => resolve(batch), batch.length * 10));
         }));
