@@ -5,7 +5,7 @@ const media = require('../../../lib/media');
 
 const imageWithCaption =
     '<figure typeof="mw:Image">' +
-        '<img resource="./File:Foo"/>' +
+        '<img resource="./File:Foo"/ width="100" height="100">' +
         '<figcaption>An <i>example</i> image</figcaption>' +
     '</figure>';
 
@@ -40,7 +40,9 @@ const pronunciationAudio =
 
 const imageWithSection =
     '<section data-mw-section-id="0">' +
-        '<figure typeof="mw:Image"><img resource="./File:Foo"/></figure>' +
+        '<figure typeof="mw:Image">' +
+            '<img resource="./File:Foo"/ width="100" height="100">' +
+        '</figure>' +
     '</section>';
 
 describe('lib:media metadata is correctly parsed from HTML', () => {
