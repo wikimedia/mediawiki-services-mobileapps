@@ -5,13 +5,13 @@
 const assert = require('../../utils/assert');
 const media = require('../../../lib/media');
 
-const imageFigure = '<figure typeof="mw:Image"><img resource="./File:A"/></figure>';
-const imageSpan = '<span typeof="mw:Image"><img resource="./File:B"/></span>';
-const imageFigureInline = '<figure-inline typeof="mw:Image"><img resource="./File:C"/></figure-inline>';
+const imageFigure = '<figure typeof="mw:Image"><img resource="./File:A" width="100" height="100"/></figure>';
+const imageSpan = '<span typeof="mw:Image"><img resource="./File:B" width="100" height="100"/></span>';
+const imageFigureInline = '<figure-inline typeof="mw:Image"><img resource="./File:C" width="100" height="100"/></figure-inline>';
 
-const imageThumbFigure = '<figure typeof="mw:Image/Thumb"><img resource="./File:D"/></figure>';
-const imageThumbSpan = '<span typeof="mw:Image/Thumb"><img resource="./File:E"/></span>';
-const imageThumbFigureInline = '<figure-inline typeof="mw:Image/Thumb"><img resource="./File:F"/></figure-inline>';
+const imageThumbFigure = '<figure typeof="mw:Image/Thumb"><img resource="./File:D" width="100" height="100"/></figure>';
+const imageThumbSpan = '<span typeof="mw:Image/Thumb"><img resource="./File:E" width="100" height="100"/></span>';
+const imageThumbFigureInline = '<figure-inline typeof="mw:Image/Thumb"><img resource="./File:F" width="100" height="100"/></figure-inline>';
 
 const videoFigure = '<figure typeof="mw:Video"><video resource="./File:G"/></figure>';
 const videoSpan = '<span typeof="mw:Video"><video resource="./File:H"/></span>';
@@ -29,8 +29,8 @@ const noTypeFigure = '<figure><video resource="./File:P"/></figure>';
 const noTypeSpan = '<span><video resource="./File:Q"/></span>';
 const noTypeFigureInline = '<figure-inline><video resource="./File:R"/></figure-inline>';
 
-const imageNoViewer = '<figure typeof="mw:Image" class="noviewer"><img resource="./File:S"/></figure>';
-const imageMetadata = '<span class="metadata"><figure typeof="mw:Image"><img resource="./File:T"/></figure></span>';
+const imageNoViewer = '<figure typeof="mw:Image" class="noviewer"><img resource="./File:S" width="100" height="100"/></figure>';
+const imageMetadata = '<span class="metadata"><figure typeof="mw:Image"><img resource="./File:T" width="100" height="100"/></figure></span>';
 
 const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline];
 const videos = [videoFigure, videoSpan, videoFigureInline, videoThumbFigure, videoThumbSpan, videoThumbFigureInline];
