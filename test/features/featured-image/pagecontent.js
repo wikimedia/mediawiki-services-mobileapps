@@ -40,7 +40,7 @@ describe('featured-image', function() {
                 assert.equal(res.body.title, 'File:Kazakhstan Altay 3.jpg');
                 assert.equal(res.body.thumbnail.source, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Kazakhstan_Altay_3.jpg/640px-Kazakhstan_Altay_3.jpg');
                 assert.equal(res.body.image.source, 'https://upload.wikimedia.org/wikipedia/commons/9/99/Kazakhstan_Altay_3.jpg');
-                assert.contains(res.body.description.text, 'Altay mountains');
+                assert.contains(res.body.description.text, 'Altai Mountains');
                 assert.equal(res.body.description.lang, 'en');
             });
     });
