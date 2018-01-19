@@ -16,23 +16,16 @@ fi
 repo_dir="$( cd $( dirname $0 )/.. && pwd )"
 cd "$( git config deploy.dir )"
 
-# Check for deploy directory commit in past 2 hours
-if [[ -z "$( git log --since="2 hours ago" )" ]]; then
-  printf "\nWARNING: The most recent deploy commit is:\n\n"
-  printf "$( git log -1 )\n\n"
-  printf "This isn't very recent. You may need to pull the most recent changes.\n\n"
-  read -p "Continue anyway? (y/N) " -n 1 -r
-  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    echo
-    exit 1
-  fi
-fi
+# Get the corresponding commit in the src submodule
+cd src
+src_commit_id="$( git log --format="%h" -n 1 )"
+cd ..
 
 # Build the deployment tag
 deploy_commit_date="$( git show -s --format=%ci | awk '{print $1;}' )"
 deploy_commit_id="$( git rev-parse --short HEAD )"
 tag="deploy/$deploy_commit_date/$deploy_commit_id"
 
-# Tag the latest code repo commit with it & push tags
+# Tag the correct commit in the src repo with & push tags
 cd "$repo_dir"
-git tag -s "$tag" -m "deployed" && git push origin "$tag" && printf "Applied new tag: $tag\n"
+git tag -s "$tag" -m "deployed" $src_commit_id && git push origin "$tag" && printf "Applied new tag: $tag\n"
