@@ -55,7 +55,6 @@
     "express": "^4.16.2",
     "js-yaml": "^3.10.0",
     "mediawiki-title": "^0.6.5",
-    "parsoid-dom-utils": "^0.1.3",
     "preq": "^0.5.3",
     "service-runner": "^2.4.2",
     "swagger-router": "^0.7.1",
