@@ -7,29 +7,29 @@ const transforms = require('../../../lib/transforms');
 describe('lib:size-transforms', () => {
     const buildHtml = (title) => {
         return domino.createDocument('<body>'
-            + '<span class="mw-ref">'
+            + '<sup class="mw-ref">'
             + `<a href="${title}#cite_note-foo"><span>[1]</span></a>`
-            + '</span>'
-            + '<span class="mw-ref">'
+            + '</sup>'
+            + '<sup class="mw-ref">'
             + `<a href="${title}#cite_note-foo"><span>[2]</span></a>`
-            + '</span>'
-            + '<span class="mw-ref">'
+            + '</sup>'
+            + '<sup class="mw-ref">'
             + `<a href="anythingElse${title}#cite_note-foo"><span>[2]</span></a>`
-            + '</span>'
+            + '</sup>'
             + '</body>');
     };
 
     const buildHtml2 = () => {
         return domino.createDocument('<body>'
-            + '<span class="mw-ref">'
+            + '<sup class="mw-ref">'
             + `<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[1]</span></a>`
-            + '</span>'
-            + '<span class="mw-ref">'
+            + '</sup>'
+            + '<sup class="mw-ref">'
             + `<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>`
-            + '</span>'
-            + '<span class="mw-ref">'
+            + '</sup>'
+            + '<sup class="mw-ref">'
             + `<a href="anythingElseA_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>`
-            + '</span>'
+            + '</sup>'
             + '</body>');
     };
 
