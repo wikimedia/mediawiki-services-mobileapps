@@ -2,20 +2,19 @@
     display: none;
 }
 
-.same > td:nth-child(2) {
-    color: white;
-    background: -webkit-repeating-linear-gradient(-45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
-    background: repeating-linear-gradient(-45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
-}
-
 body {
     background-color: #CCC;
 }
 
-tr:nth-child(even) {
+table {
+    width: 100%;
+}
+
+tr {
     background: #FFF
 }
-tr:nth-child(odd) {
+
+tr.same {
     background: #EEE
 }
 
@@ -36,12 +35,24 @@ td {
     vertical-align: baseline;
 }
 
+td.titleColumn {
+    word-break: normal;
+}
+
+td.valueColumn {
+    word-break: break-all;
+}
+
 a[id][href]::before {
     content: "(";
 }
 
 a[id][href]::after {
     content: ")";
+}
+
+form {
+    display: inline;
 }
 
 /*
