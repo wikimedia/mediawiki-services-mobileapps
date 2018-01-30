@@ -56,19 +56,26 @@ const uriForLocalSummary = (title, lang, revTid, port = NEW_PORT) => {
 };
 
 const outputStart = () => {
+    /* eslint-disable max-len */
     htmlFile.write(`<html>\n`);
     htmlFile.write(`<head>\n`);
     htmlFile.write(`<meta charset="UTF-8"/>\n`);
     htmlFile.write(`<link rel="StyleSheet" href="./static/compare-table.css" />\n`);
     htmlFile.write(`</head>\n`);
     htmlFile.write(`<body>\n`);
+    htmlFile.write(`<script type="text/javascript" src="./static/compare-table.js" charset="utf-8"></script>\n`);
     htmlFile.write(`<h2>Extract comparison for top pages in ${lang}.wikipedia.org</h2>\n`);
+    htmlFile.write(`<form>\n`);
+    htmlFile.write(`<input type="checkbox" id="showSameCB" onchange="toggleShow();">\n`);
+    htmlFile.write(`<label for="showSameCB">Show same</label>\n`);
+    htmlFile.write(`</form>\n`);
     htmlFile.write(`<table>\n`);
     htmlFile.write(`<tr>\n`);
     htmlFile.write(`<th class="titleColumn">Title</th>\n`);
-    htmlFile.write(`<th class="valueColumn">Old</th>\n`);
-    htmlFile.write(`<th class="valueColumn">New</th>\n`);
+    htmlFile.write(`<th class="valueColumn">Old (:${OLD_PORT})</th>\n`);
+    htmlFile.write(`<th class="valueColumn">New (:${NEW_PORT})</th>\n`);
     htmlFile.write(`</tr>\n`);
+    /* eslint-enable max-len */
 };
 
 const outputEnd = () => {
@@ -84,16 +91,12 @@ const outputEnd = () => {
 const compareExtractsHTML = (oldExtract, newExtract, counter, title, revTid, lang) => {
     const displayTitle = title.replace(/_/g, ' ');
     const wikiLink = uriForWikiLink(title, revTid, lang);
+    const same = (oldExtract === newExtract) ? ' class="same"' : '';
     const positionLink = `<a id="${counter}" href="#${counter}">${counter}</a>`;
-    htmlFile.write(`<tr><td>${positionLink} <a href="${wikiLink}">${displayTitle}</a>\n`);
+    htmlFile.write(`<tr${same}><td>${positionLink} <a href="${wikiLink}">${displayTitle}</a>\n`);
     htmlFile.write(`[<a href="${uriForLocalSummary(title, lang, revTid)}">summary</a>]</td>\n`);
-    if (oldExtract !== newExtract) {
-        htmlFile.write(`<td>${oldExtract}</td>\n`);
-        htmlFile.write(`<td>${newExtract}</td>\n`);
-    } else {
-        htmlFile.write(`<td class="same-old">${oldExtract}</td>\n`);
-        htmlFile.write(`<td class="same-new">${newExtract}</td>\n`);
-    }
+    htmlFile.write(`<td>${oldExtract}</td>\n`);
+    htmlFile.write(`<td>${newExtract}</td>\n`);
     htmlFile.write(`</tr>\n`);
 };
 

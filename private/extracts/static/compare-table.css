@@ -1,3 +1,13 @@
+.hidden {
+    display: none;
+}
+
+.same > td:nth-child(2) {
+    color: white;
+    background: -webkit-repeating-linear-gradient(-45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
+    background: repeating-linear-gradient(-45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
+}
+
 body {
     background-color: #CCC;
 }
@@ -24,13 +34,6 @@ th.valueColumn {
 td {
     padding: .5rem;
     vertical-align: baseline;
-}
-
-.same-old,.same-new {
-    /* display: none; */
-    color: white;
-    background: -webkit-repeating-linear-gradient(-45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
-    background: repeating-linear-gradient(-45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
 }
 
 a[id][href]::before {
