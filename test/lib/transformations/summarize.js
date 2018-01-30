@@ -8,6 +8,11 @@ const summarize = require('./../../../lib/transformations/summarize');
 describe('summarize', () => {
     it('matches the spec', () => {
         const testCases = [
+            // Should not leave double spaces after stripping parentheticals
+            [
+                '<p>Justice League (both 2017). Justice (is forever)!</p>',
+                '<p>Justice League. Justice!</p>'
+            ],
             // Should remove problematic elements including their content
             [
                 '.<style>f</style><object>o</object><script>o</script>.',
@@ -92,6 +97,16 @@ describe('summarize', () => {
             [
                 'Hello world (this is in brackets and will be stripped (HW) it will all go (trust me)) and goodnight.',
                 'Hello world and goodnight.',
+            ],
+            // Nested parentheticals without other characters between the ( will be stripped.
+            [
+                '<p>Wazz ((listen) this will be removed) up (and this)</p>',
+                '<p>Wazz up</p>',
+            ],
+            // Trailing spaces after punctuation before closing tag will be stripped.
+            [
+                '<p>Wazz\'up? </p>',
+                '<p>Wazz\'up?</p>',
             ],
             [
                 '<p><b>Azerbaijan</b> (<small>æ(listen)</small> <i>AZ</i>; <span>Azerbaijani:</span><span>  Azərbaycan</span>, officially the <b>Republic of Azerbaijan</b> (Azerbaijani: Azərbaycan Respublikası)), is a country.</p>',
