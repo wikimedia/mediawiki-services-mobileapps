@@ -108,6 +108,11 @@ describe('summarize', () => {
                 '<p>Wazz\'up? </p>',
                 '<p>Wazz\'up?</p>',
             ],
+            // Should remove nested empty spans
+            [
+                'Hello (<span><span><span></span></span><span></span></span>) darkness',
+                'Hello darkness'
+            ],
             [
                 '<p><b>Azerbaijan</b> (<small>æ(listen)</small> <i>AZ</i>; <span>Azerbaijani:</span><span>  Azərbaycan</span>, officially the <b>Republic of Azerbaijan</b> (Azerbaijani: Azərbaycan Respublikası)), is a country.</p>',
                 '<p><b>Azerbaijan</b>, is a country.</p>'
