@@ -63,8 +63,8 @@ describe('lib:sanitizeSummary', () => {
 
         it('HEX_REGEX matches', () => {
             assert.ok(regex.HEX_REGEX.test('#1ac'));
-            assert.ok(regex.HEX_REGEX.test('#1a2b3c'));
-            assert.ok(regex.HEX_REGEX.test('#1a2b3c4d'));
+            assert.ok(regex.HEX_REGEX.test('#1A2b3c'));
+            assert.ok(regex.HEX_REGEX.test('#1a2B3c4d'));
         });
         it('HEX_REGEX does not match', () => {
             assert.ok(!regex.HEX_REGEX.test('1ac'));
@@ -82,10 +82,29 @@ describe('lib:sanitizeSummary', () => {
             assert.ok(regex.RGB_REGEX.test('rgba(34.6 12 64 / 30%)'));
         });
         it('RGB_REGEX does not match', () => {
-            assert.ok(!regex.RGB_REGEX.test('1ac'));
+            assert.ok(!regex.RGB_REGEX.test('not starting with rgb'));
+            assert.ok(!regex.RGB_REGEX.test('rgb()'));
             assert.ok(!regex.RGB_REGEX.test('rgb(34, 12, 64, 0.6) and more'));
-            assert.ok(!regex.RGB_REGEX.test('30%'));
-            assert.ok(!regex.RGB_REGEX.test('foo:'));
+        });
+
+        it('HSL_REGEX matches', () => {
+            assert.ok(regex.HSL_REGEX.test('hsl(270,60%,70%)'));
+            assert.ok(regex.HSL_REGEX.test('hsl(270, 60%, 70%)'));
+            assert.ok(regex.HSL_REGEX.test('hsl(240 100% 50%)'));
+            assert.ok(regex.HSL_REGEX.test('hsl(270deg, 60%, 70%)'));
+            assert.ok(regex.HSL_REGEX.test('hsl(4.71239rad, 60%, 70%)'));
+            assert.ok(regex.HSL_REGEX.test('hsl(.75turn, 60%, 70%)'));
+
+            assert.ok(regex.HSL_REGEX.test('hsla(240, 100%, 50%, .05)'));
+            assert.ok(regex.HSL_REGEX.test('hsla(240, 100%, 50%, 1)'));
+            assert.ok(regex.HSL_REGEX.test('hsla(240 100% 50% / .05)'));
+            assert.ok(regex.HSL_REGEX.test('hsla(240 100% 50% / 5%)'));
+        });
+        it('HSL_REGEX does not match', () => {
+            assert.ok(!regex.HSL_REGEX.test('1ac'));
+            assert.ok(!regex.HSL_REGEX.test('hsl(34, 12, 64, 0.6) and more'));
+            assert.ok(!regex.HSL_REGEX.test('30%'));
+            assert.ok(!regex.HSL_REGEX.test('foo:'));
         });
     });
 });
