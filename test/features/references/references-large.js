@@ -39,7 +39,7 @@ describe('references-large', function() {
     function verifyWithOriginalParsoidResponse(referencesResponse, parsoidResponse, title) {
         const document = domino.createDocument(parsoidResponse.body);
         const parsoidRefLists
-            = document.querySelectorAll('ol[typeof=\'mw:Extension/references\']');
+            = document.querySelectorAll('ol.mw-references');
         assert.equal(referencesResponse.body.structure.length, parsoidRefLists.length,
             'number of lists');
 

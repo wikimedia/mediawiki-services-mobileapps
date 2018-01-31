@@ -47,13 +47,18 @@ const indianFilmsRef = `<li about="#cite_note-Awaara-157" id="cite_note-Awaara-1
 <span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-Awaara-157" class="mw-reference-text">
 ${indianFilmsRefContent}</span></li>`;
 
-const oneRefInList = `<ol typeof="mw:Extension/references" class="mw-references" about="#mwt1678">
+const oneRefInListOld = `<ol typeof="mw:Extension/references" class="mw-references references" about="#mwt1678">
 ${simpleDogRef}
 </ol>`;
+const oneRefInListNew = `<div typeof="mw:Extension/references" about="#mwt1678"><ol class="mw-references references">
+${simpleDogRef}
+</ol><div>`;
 
 // List_of_most_viewed_YouTube_videos
 const mostViewedYoutubeVideosContent = `Some videos may not be available worldwide due to <a href="./Geolocation_software#Regional_licensing" title="Geolocation software">regional restrictions</a> in certain countries.`;
-const mostViewedYoutubeVideos = `<ol class="mw-references" typeof="mw:Extension/references" about="#mwt571"><li about="#cite_note-4" id="cite_note-4"><a href="./List_of_most_viewed_YouTube_videos#cite_ref-4" data-mw-group="upper-alpha" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-4" class="mw-reference-text">${mostViewedYoutubeVideosContent}</span></li>`;
+const mostViewedYoutubeVideosOld = `<ol class="mw-references references" typeof="mw:Extension/references" about="#mwt571"><li about="#cite_note-4" id="cite_note-4"><a href="./List_of_most_viewed_YouTube_videos#cite_ref-4" data-mw-group="upper-alpha" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-4" class="mw-reference-text">${mostViewedYoutubeVideosContent}</span></li></ol>`;
+const mostViewedYoutubeVideosNew = `<div typeof="mw:Extension/references" about="#mwt571"><ol class="mw-references references"><li about="#cite_note-4" id="cite_note-4"><a href="./List_of_most_viewed_YouTube_videos#cite_ref-4" data-mw-group="upper-alpha" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-4" class="mw-reference-text">${mostViewedYoutubeVideosContent}</span></li></ol></div>`;
+
 
 describe('lib:structureReferenceListContent', () => {
     let logger;
@@ -184,9 +189,9 @@ describe('lib:structureReferenceListContent', () => {
     });
 
     describe('.buildReferenceList', () => {
-        it('one simple reference in list', () => {
-            const doc = createDocument(oneRefInList);
-            const result = mut.buildReferenceList(doc.querySelector('ol'), logger);
+        it('one simple reference in list (old)', () => {
+            const doc = createDocument(oneRefInListOld);
+            const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
             assert.deepEqual(result.references, {
                 '101': {
                     back_links: [{
@@ -201,9 +206,43 @@ describe('lib:structureReferenceListContent', () => {
             assert.ok(logger.log.notCalled);
         });
 
-        it('one reference in list', () => {
-            const doc = createDocument(mostViewedYoutubeVideos);
-            const result = mut.buildReferenceList(doc.querySelector('ol'), logger);
+        it('one simple reference in list (new)', () => {
+            const doc = createDocument(oneRefInListNew);
+            const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
+            assert.deepEqual(result.references, {
+                '101': {
+                    back_links: [{
+                        "href": "./Dog#cite_ref-101",
+                        "text": "↑"
+                    }],
+                    content: 'some HTML',
+                    type: 'generic'
+                }
+            });
+            assert.deepEqual(result.order, [ '101' ]);
+            assert.ok(logger.log.notCalled);
+        });
+
+        it('one reference in list (old)', () => {
+            const doc = createDocument(mostViewedYoutubeVideosOld);
+            const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
+            assert.deepEqual(result.references, {
+                '4': {
+                    back_links: [{
+                        "href": "./List_of_most_viewed_YouTube_videos#cite_ref-4",
+                        "text": "↑"
+                    }],
+                    content: mostViewedYoutubeVideosContent,
+                    type: 'generic'
+                }
+            });
+            assert.deepEqual(result.order, [ '4' ]);
+            assert.ok(logger.log.notCalled);
+        });
+
+        it('one reference in list (new)', () => {
+            const doc = createDocument(mostViewedYoutubeVideosNew);
+            const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
             assert.deepEqual(result.references, {
                 '4': {
                     back_links: [{
