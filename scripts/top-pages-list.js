@@ -5,8 +5,9 @@
 const BBPromise = require('bluebird');
 const fs = require("fs");
 const preq = require('preq');
+const path = require('path');
 
-const BLACKLIST = require('../etc/feed/blacklist');
+const BLACKLIST = require(path.join(__dirname, '../etc/feed/blacklist'));
 const SPECIAL = 'Special:';
 const SPECIAL2 = 'special:';
 
@@ -98,7 +99,7 @@ const arg = process.argv[2];
 if (arg) {
     lang = arg;
     topMonthlyPageViews = `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/${lang}.wikipedia/all-access/2017/06/all-days`; // eslint-disable-line max-len
-    topPagesFile = `../private/top-pages/top-pages.${lang}.json`;
+    topPagesFile = path.join(__dirname, `../private/top-pages/top-pages.${lang}.json`);
     parsoidBaseUri = `https://${lang}.wikipedia.org/api/rest_v1/page/html`;
 
     getTopPageViews();

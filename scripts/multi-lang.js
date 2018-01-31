@@ -5,8 +5,9 @@
 const BBPromise = require('bluebird');
 const execSync = BBPromise.promisify(require('child_process').execSync);
 const underscore = require('underscore');
+const path = require('path');
 
-const wikipediaLanguagesRawList = require('../private/languages_list.json');
+const wikipediaLanguagesRawList = require(path.join(__dirname, '../private/languages_list.json'));
 const prepareWikipediaLanguageCodes = () => {
     delete wikipediaLanguagesRawList['Simplified Chinese']; // skip lang variants
     delete wikipediaLanguagesRawList['Traditional Chinese'];

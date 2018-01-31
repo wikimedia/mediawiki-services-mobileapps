@@ -17,8 +17,7 @@
   Arguments: provide a single argument which is the language code for the Wikipedia project.
 
   Example:
-  $ cd scripts
-  $ ./compare-sections.js en
+  $ ./scripts/compare-sections.js en
 
   The output will be in the private/compare-sections folder. Since the output is much larger than
   for text extracts each page gets it's own file.
@@ -30,10 +29,11 @@ const BBPromise = require('bluebird');
 const fs = require('fs');
 const mkdir = require('mkdirp');
 const preq = require('preq');
+const path = require('path');
 
 const DELAY = 10; // delay between requests in ms
-const topPagesDir = '../private/top-pages';
-const outDir = '../private/compare-sections';
+const topPagesDir = path.join(__dirname, '../private/top-pages');
+const outDir = path.join(__dirname, '../private/compare-sections');
 
 let lang;
 let topPages;
