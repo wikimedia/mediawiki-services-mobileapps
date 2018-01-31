@@ -4,7 +4,9 @@
 
 /*
   Notes:
-  * Start a local MCS instance for the "new" version before running this script.
+  * Start one local MCS instance for the "new" version before running this script.
+  * Optionally, start another local MCS instance for the "old" version before
+  * running this script. See OLD_PORT below.
   * Run the script from the script folder.
 
   Arguments: provide a single argument which is the language code for
@@ -23,7 +25,9 @@ const BBPromise = require('bluebird');
 const fs = require('fs');
 const preq = require('preq');
 
-const DELAY = 100; // delay between requests in ms
+const DELAY = 10; // delay between requests in ms
+const NEW_PORT = 6927;
+const OLD_PORT = 6928; // set to undefined to go against production
 const topPagesDir = '../private/top-pages';
 const outDir = '../private/extracts';
 
@@ -38,16 +42,17 @@ let oldFile;
 let newFile;
 let htmlFile;
 
-const uriForWikiLink = (title, lang) => {
-    return `https://${lang}.m.wikipedia.org/wiki/${title}`;
+const uriForWikiLink = (title, revTid, lang) => {
+    return `https://${lang}.m.wikipedia.org/wiki/${title}?oldid=${revTid.split('/')[0]}`;
 };
 
 const uriForProdSummary = (title, lang) => {
     return `https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`;
 };
 
-const uriForLocalSummary = (title, lang) => {
-    return `http://localhost:6927/${lang}.wikipedia.org/v1/page/summary/${encodeURIComponent(title)}`;
+const uriForLocalSummary = (title, lang, revTid, port = NEW_PORT) => {
+    const suffix = revTid ? `/${revTid}` : '';
+    return `http://localhost:${port}/${lang}.wikipedia.org/v1/page/summary/${encodeURIComponent(title)}${suffix}`;
 };
 
 const outputStart = () => {
@@ -76,11 +81,12 @@ const outputEnd = () => {
     htmlFile.end();
 };
 
-const compareExtractsHTML = (oldExtract, newExtract, counter, title, lang) => {
+const compareExtractsHTML = (oldExtract, newExtract, counter, title, revTid, lang) => {
     const displayTitle = title.replace(/_/g, ' ');
-    const wikiLink = uriForWikiLink(title, lang);
+    const wikiLink = uriForWikiLink(title, revTid, lang);
     const positionLink = `<a id="${counter}" href="#${counter}">${counter}</a>`;
-    htmlFile.write(`<tr><td>${positionLink} <a href="${wikiLink}">${displayTitle}</a></td>\n`);
+    htmlFile.write(`<tr><td>${positionLink} <a href="${wikiLink}">${displayTitle}</a>\n`);
+    htmlFile.write(`[<a href="${uriForLocalSummary(title, lang, revTid)}">summary</a>]</td>\n`);
     if (oldExtract !== newExtract) {
         htmlFile.write(`<td>${oldExtract}</td>\n`);
         htmlFile.write(`<td>${newExtract}</td>\n`);
@@ -110,15 +116,15 @@ const getExtractHtml = (response) => {
     return response.body && fixImgSources(response.body.extract_html);
 };
 
-const writeFile = (file, title, value) => {
-    file.write(`== ${title}\n`);
+const writeFile = (file, title, revTid, value) => {
+    file.write(`== ${title}/${revTid}\n`);
     file.write(`${value}\n`);
 };
 
-const compareExtracts = (oldExtract, newExtract, counter, title, lang) => {
-    compareExtractsHTML(oldExtract, newExtract, counter, title, lang);
-    writeFile(oldFile, title, oldExtract);
-    writeFile(newFile, title, newExtract);
+const compareExtracts = (oldExtract, newExtract, counter, title, revTid, lang) => {
+    compareExtractsHTML(oldExtract, newExtract, counter, title, revTid, lang);
+    writeFile(oldFile, title, revTid, oldExtract);
+    writeFile(newFile, title, revTid, newExtract);
 };
 
 const fetchExtract = (uri) => {
@@ -130,15 +136,19 @@ const fetchExtract = (uri) => {
     });
 };
 
-const fetchAndVerify = (title, counter, lang) => {
+const fetchAndVerify = (title, revTid, counter, lang) => {
     process.stdout.write('.');
     let newExtract;
-    return fetchExtract(uriForLocalSummary(title, lang))
+    return fetchExtract(uriForLocalSummary(title, lang, revTid))
     .then((response) => {
         newExtract = response;
-        return fetchExtract(uriForProdSummary(title, lang));
+        if (OLD_PORT) {
+            return fetchExtract(uriForLocalSummary(title, lang, revTid, OLD_PORT));
+        } else {
+            return fetchExtract(uriForProdSummary(title, lang));
+        }
     }).then((oldExtract) => {
-        compareExtracts(oldExtract, newExtract, counter, title, lang);
+        compareExtracts(oldExtract, newExtract, counter, title, revTid, lang);
     });
 };
 
@@ -146,7 +156,7 @@ const processOneLanguage = (lang) => {
     let counter = 0;
     outputStart();
     BBPromise.each(topPages, (page) => {
-        return fetchAndVerify(page.title, ++counter, lang);
+        return fetchAndVerify(page.title, page.rev, ++counter, lang);
     })
     .then(() => {
         outputEnd();
