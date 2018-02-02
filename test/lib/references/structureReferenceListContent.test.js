@@ -65,6 +65,9 @@ const attemptedXssRef = `<li about="#cite_note-101" id="cite_note-101">
   <span id="mw-reference-text-cite_note-101" class="mw-reference-text">&lt;script&gt;alert(2);&lt;/script&gt;</span>
 </li>`;
 
+// https://en.wikipedia.org/api/rest_v1/page/html/List_of_highest-grossing_Indian_films/822986388
+// Had issue parsing `toirupee` reference
+const indianFilmsToIRupeeRefInRef = `<li id="cite_note-toirupee-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-toirupee_6-0"><sup><i><b>a</b></i></sup></a> <a                   href="#cite_ref-toirupee_6-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-toirupee_6-2"><sup><i><b>c</b></i></sup></a></span> <span           class="reference-text"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20130816032924/http://timesofindia.indiatimes.com/business/india-business/Journey-of-Indian-rupee-since-independence/articleshow/21844179.cms">Journey of Indian rupee since independence</a>, <i><a href="/wiki/The_Times_of_India" title="The Times of India">The Times of India</a></i>. Retrieved on 2013-12-01.</span></li>`;
 
 describe('lib:structureReferenceListContent', () => {
     let logger;
@@ -209,6 +212,22 @@ describe('lib:structureReferenceListContent', () => {
                 content: '<cite class="citation journal">cite 1</cite><span>more HTML</span>',
                 type: 'journal',
                 id: 'perri2016-13'
+            });
+            assert.ok(logger.log.notCalled);
+        });
+
+        it('backlinks in span.mw-cite-backlink', () => {
+            const doc = createDocument(indianFilmsToIRupeeRefInRef);
+            const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
+            assert.deepEqual(result, {
+                back_links: [
+                    { href: '#cite_ref-toirupee_6-0', text: 'a' },
+                    { href: '#cite_ref-toirupee_6-1', text: 'b' },
+                    { href: '#cite_ref-toirupee_6-2', text: 'c' },
+                ],
+                content: '<a rel="nofollow" class="external text" href="https://web.archive.org/web/20130816032924/http://timesofindia.indiatimes.com/business/india-business/Journey-of-Indian-rupee-since-independence/articleshow/21844179.cms">Journey of Indian rupee since independence</a>, <i><a href="/wiki/The_Times_of_India" title="The Times of India">The Times of India</a></i>. Retrieved on 2013-12-01.',
+                type: 'generic',
+                id: 'toirupee-6'
             });
             assert.ok(logger.log.notCalled);
         });
