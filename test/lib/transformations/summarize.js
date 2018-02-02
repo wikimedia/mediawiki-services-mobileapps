@@ -8,6 +8,16 @@ const summarize = require('./../../../lib/transformations/summarize');
 describe('summarize', () => {
     it('matches the spec', () => {
         const testCases = [
+            // Ignore parens inside attributes by escaping them.
+            [
+                '<p>(Remove me) But not this (<img src="latin_paren).jpg"></p>',
+                '<p> But not this (<img src="latin_paren).jpg" /></p>'
+            ],
+            // Same as above but with non-latin parentheses
+            [
+                '<p>(Remove me) But not this （<img src="non-latin_paren）.jpg"></p>',
+                '<p> But not this （<img src="non-latin_paren）.jpg" /></p>'
+            ],
             // Should not leave double spaces after stripping parentheticals
             [
                 '<p>Justice League (both 2017). Justice (is forever)!</p>',
@@ -73,7 +83,9 @@ describe('summarize', () => {
                 '<p>The Planck–Einstein relation connects the particulate photon energy <span class="texhtml "><i>E</i></span> with its associated wave frequency <span class="texhtml "><i>f</i></span>:</p>\n\n<dl id="mwmQ"><dd id="mwmg"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML">\n  <semantics>\n    <mrow class="MJX-TeXAtom-ORD">\n      <mstyle displaystyle="true" scriptlevel="0">\n        <mi>E</mi>\n        <mo>=</mo>\n        <mi>h</mi>\n        <mi>f</mi>\n      </mstyle>\n    </mrow>\n    <annotation encoding="application/x-tex">{\\displaystyle E=hf}</annotation>\n  </semantics>\n</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f39fac3593bb1e2dec0282c112c4dff7a99007f6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:7.533ex; height:2.509ex;"></span></dd></dl>',
                 '<p>The Planck–Einstein relation connects the particulate photon energy <span class="texhtml "><i>E</i></span> with its associated wave frequency <span class="texhtml "><i>f</i></span>:</p>\n\n<dl><dd><span class="mwe-math-element"><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f39fac3593bb1e2dec0282c112c4dff7a99007f6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align:-0.671ex;width:7.533ex;height:2.509ex;" /></span></dd></dl>'
             ],
-            // Elements with style="display:none;" are retained
+            // Elements with style="display:none;" are retained.
+            // BTW, unneeded spaces are removed but that is just a side-effect
+            // we don't care too much about.
             [
                 '<span style="display: none;">I\'m invisible but still here.</span>',
                 '<span style="display:none;">I\'m invisible but still here.</span>',
