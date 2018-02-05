@@ -4,9 +4,9 @@
 
 'use strict';
 
-const mUtil = require('../lib/mobile-util');
-const sUtil = require('../lib/util');
-const parsoid = require('../lib/parsoid-access');
+const mUtil = require('../../lib/mobile-util');
+const sUtil = require('../../lib/util');
+const parsoid = require('../../lib/parsoid-access');
 
 /**
  * The main router object

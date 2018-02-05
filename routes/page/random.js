@@ -5,10 +5,10 @@
 
 'use strict';
 
-const mUtil = require('../lib/mobile-util');
-const mwapi = require('../lib/mwapi');
-const sUtil = require('../lib/util');
-const randomPage = require('../lib/feed/random');
+const mUtil = require('../../lib/mobile-util');
+const mwapi = require('../../lib/mwapi');
+const sUtil = require('../../lib/util');
+const randomPage = require('../../lib/feed/random');
 
 /**
  * The main router object

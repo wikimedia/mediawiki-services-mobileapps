@@ -2,13 +2,13 @@
 'use strict';
 
 const domino = require('domino');
-const sUtil = require('../lib/util');
+const sUtil = require('../../lib/util');
 const router = sUtil.router();
-const mUtil = require('../lib/mobile-util');
-const parsoid = require('../lib/parsoid-access');
+const mUtil = require('../../lib/mobile-util');
+const parsoid = require('../../lib/parsoid-access');
 const BBPromise = require('bluebird');
-const HTTPError = require('../lib/util').HTTPError;
-const languages = require('../lib/feed/on-this-day.languages.js').languages;
+const HTTPError = require('../../lib/util').HTTPError;
+const languages = require('../../lib/feed/on-this-day.languages.js').languages;
 
 let app;
 

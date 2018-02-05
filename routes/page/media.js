@@ -1,11 +1,11 @@
 'use strict';
 
 const BBPromise = require('bluebird');
-const mUtil = require('../lib/mobile-util');
-const parsoid = require('../lib/parsoid-access');
-const sUtil = require('../lib/util');
-const mwapi = require('../lib/mwapi');
-const media = require('../lib/media');
+const mUtil = require('../../lib/mobile-util');
+const parsoid = require('../../lib/parsoid-access');
+const sUtil = require('../../lib/util');
+const mwapi = require('../../lib/mwapi');
+const media = require('../../lib/media');
 
 const router = sUtil.router();
 let app;

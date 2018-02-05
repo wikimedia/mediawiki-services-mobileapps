@@ -2,12 +2,12 @@
 
 const BBPromise = require('bluebird');
 const domino = require('domino');
-const mwapi = require('../lib/mwapi');
-const apiUtil = require('../lib/api-util');
-const mUtil = require('../lib/mobile-util');
-const parsoid = require('../lib/parsoid-access');
-const sUtil = require('../lib/util');
-const transforms = require('../lib/transforms');
+const mwapi = require('../../lib/mwapi');
+const apiUtil = require('../../lib/api-util');
+const mUtil = require('../../lib/mobile-util');
+const parsoid = require('../../lib/parsoid-access');
+const sUtil = require('../../lib/util');
+const transforms = require('../../lib/transforms');
 
 /**
  * The main router object
