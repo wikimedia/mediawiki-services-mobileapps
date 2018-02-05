@@ -3,7 +3,7 @@
 const fs = require('fs');
 const domino = require('domino');
 const assert = require('../../utils/assert.js');
-const a = require('../../../lib/transformations/anchorPopUpMediaTransforms');
+const a = require('../../../lib/transforms').legacy.anchorPopUpMediaTransforms;
 const html = fs.readFileSync(`${__dirname}/../bill-clinton.html`, 'utf-8');
 
 describe('lib:app-transforms', () => {
