@@ -1,13 +1,14 @@
 'use strict';
 
 const server = require('../../utils/server.js');
-const onThisDay = require('../../../routes/feed/on-this-day.js')();
+const onThisDay = require('../../../lib/feed/on-this-day.js');
 const assert = require('../../utils/assert.js');
 const domino = require('domino');
 const preq = require('preq');
 const headers = require('../../utils/headers');
 const fs = require('fs');
 const path = require('path');
+const rbTemplate = require('../../utils/testUtil').rbTemplate;
 
 const onThisDayLangs = require('../../../lib/feed/on-this-day.languages.js');
 const languages = onThisDayLangs.languages;
@@ -23,7 +24,8 @@ const eventTypes = [
 // UTILITY
 
 function stringFromFixtureFile(fileName) {
-    return fs.readFileSync(path.resolve(__dirname, `fixtures/${fileName}`), 'utf8');
+    const fixturePath = `../../features/onthisday/fixtures/${fileName}`;
+    return fs.readFileSync(path.resolve(__dirname, fixturePath), 'utf8');
 }
 
 function documentFromFixtureFile(fileName) {
@@ -95,19 +97,19 @@ describe('onthisday', function() {
 
     it('titleForDayPageFromMonthDayNumberStrings handles 1 digit mm and 1 digit dd', () => {
         assert.deepEqual(
-            onThisDay.testing.titleForDayPageFromMonthDayNumberStrings('1', '1', 'en'),
+            onThisDay.titleForDayPageFromMonthDayNumberStrings('1', '1', 'en'),
             'January_1'
         );
     });
     it('titleForDayPageFromMonthDayNumberStrings handles 0 padded mm and 1 digit dd', () => {
         assert.deepEqual(
-            onThisDay.testing.titleForDayPageFromMonthDayNumberStrings('01', '1', 'en'),
+            onThisDay.titleForDayPageFromMonthDayNumberStrings('01', '1', 'en'),
             'January_1'
         );
     });
     it('titleForDayPageFromMonthDayNumberStrings handles 0 padded mm and 0 padded dd', () => {
         assert.deepEqual(
-            onThisDay.testing.titleForDayPageFromMonthDayNumberStrings('01', '01', 'en'),
+            onThisDay.titleForDayPageFromMonthDayNumberStrings('01', '01', 'en'),
             'January_1'
         );
     });
@@ -116,19 +118,19 @@ describe('onthisday', function() {
 
     it('dayTitleForRequest returns expected title for 0 padded month and 2 digit day', () => {
         assert.deepEqual(
-            onThisDay.testing.dayTitleForRequest(REQUEST_FOR_EN_01_30),
+            onThisDay.dayTitleForRequest(REQUEST_FOR_EN_01_30),
             'January_30'
         );
     });
     it('dayTitleForRequest returns expected title for 2 digit month and 0 padded day', () => {
         assert.deepEqual(
-            onThisDay.testing.dayTitleForRequest(REQUEST_FOR_EN_12_01),
+            onThisDay.dayTitleForRequest(REQUEST_FOR_EN_12_01),
             'December_1'
         );
     });
     it('dayTitleForRequest returns expected title for 1 digit month and 1 digit day', () => {
         assert.deepEqual(
-            onThisDay.testing.dayTitleForRequest(REQUEST_FOR_EN_1_1),
+            onThisDay.dayTitleForRequest(REQUEST_FOR_EN_1_1),
             'January_1'
         );
     });
@@ -137,19 +139,19 @@ describe('onthisday', function() {
 
     it('selectedTitleForRequest returns expected title for 0 padded month and 2 digit day', () => {
         assert.deepEqual(
-            onThisDay.testing.selectedTitleForRequest(REQUEST_FOR_EN_01_30),
+            onThisDay.selectedTitleForRequest(REQUEST_FOR_EN_01_30),
             'Wikipedia:Selected_anniversaries/January_30'
         );
     });
     it('selectedTitleForRequest returns expected title for 2 digit month and 0 padded day', () => {
         assert.deepEqual(
-            onThisDay.testing.selectedTitleForRequest(REQUEST_FOR_EN_12_01),
+            onThisDay.selectedTitleForRequest(REQUEST_FOR_EN_12_01),
             'Wikipedia:Selected_anniversaries/December_1'
         );
     });
     it('selectedTitleForRequest returns expected title for 1 digit month and 1 digit day', () => {
         assert.deepEqual(
-            onThisDay.testing.selectedTitleForRequest(REQUEST_FOR_EN_1_1),
+            onThisDay.selectedTitleForRequest(REQUEST_FOR_EN_1_1),
             'Wikipedia:Selected_anniversaries/January_1'
         );
     });
@@ -157,14 +159,14 @@ describe('onthisday', function() {
     // TEST ANCHOR TO WMFPage TRANSFORMS
 
     it('WMFPage model object is correctly created from a topic anchor', () => {
-        assert.deepEqual(onThisDay.testing.wmfPageFromAnchorElement(TOPIC_ANCHOR), {
+        assert.deepEqual(onThisDay.wmfPageFromAnchorElement(TOPIC_ANCHOR), {
             title: 'TOPIC_DBTITLE',
             isTopic: true
         });
     });
 
     it('WMFPage model object is correctly created from a non-topic anchor', () => {
-        assert.deepEqual(onThisDay.testing.wmfPageFromAnchorElement(NON_TOPIC_ANCHOR), {
+        assert.deepEqual(onThisDay.wmfPageFromAnchorElement(NON_TOPIC_ANCHOR), {
             title: 'NON_TOPIC_DBTITLE'
         });
     });
@@ -173,7 +175,7 @@ describe('onthisday', function() {
 
     it('WMFEvent model object is correctly created from a selected list element', () => {
         assert.deepEqual(
-            onThisDay.testing.wmfEventFromListElement(SEABISCUIT_SELECTED_LIST_ELEMENT, 'en'),
+            onThisDay.wmfEventFromListElement(SEABISCUIT_SELECTED_LIST_ELEMENT, 'en'),
             {
                 "text": "Canadian-American jockey George Woolf, who rode Seabiscuit to a famous " +
                         "victory over War Admiral in 1938, was fatally injured when he fell from " +
@@ -200,7 +202,7 @@ describe('onthisday', function() {
 
     it('WMFEvent model object is correctly created from a birth list element', () => {
         assert.deepEqual(
-            onThisDay.testing.wmfEventFromListElement(LIVIA_BIRTH_LIST_ELEMENT, 'en'),
+            onThisDay.wmfEventFromListElement(LIVIA_BIRTH_LIST_ELEMENT, 'en'),
             {
                 "text": "Livia, Roman wife of Augustus (d. 29)",
                 "pages": [
@@ -218,7 +220,7 @@ describe('onthisday', function() {
 
     it('WMFEvent model object is correctly created from an event list element', () => {
         assert.deepEqual(
-            onThisDay.testing.wmfEventFromListElement(TEMPLE_EVENT_LIST_ELEMENT, 'en'),
+            onThisDay.wmfEventFromListElement(TEMPLE_EVENT_LIST_ELEMENT, 'en'),
             {
                 "text": "The Second Temple of Jerusalem finishes construction.",
                 "pages": [
@@ -233,7 +235,7 @@ describe('onthisday', function() {
 
     it('WMFEvent model object is correctly created from a death list element', () => {
         assert.deepEqual(
-            onThisDay.testing.wmfEventFromListElement(GANDHI_DEATH_LIST_ELEMENT, 'en'),
+            onThisDay.wmfEventFromListElement(GANDHI_DEATH_LIST_ELEMENT, 'en'),
             {
                 "text": "Mahatma Gandhi, Indian lawyer, philosopher, and activist (b. 1869)",
                 "pages": [
@@ -248,7 +250,7 @@ describe('onthisday', function() {
 
     it('WMFHoliday model object is correctly created from a holiday list element', () => {
         assert.deepEqual(
-            onThisDay.testing.wmfHolidayFromListElement(MARTYRDOM_HOLIDAY_LIST_ELEMENT),
+            onThisDay.wmfHolidayFromListElement(MARTYRDOM_HOLIDAY_LIST_ELEMENT),
             {
                 "text": "Martyrdom of Mahatma Gandhi-related observances:\n Martyrs' Day " +
                         "(India)\n School Day of Non-violence and Peace (Spain)\n Start of " +
@@ -275,7 +277,7 @@ describe('onthisday', function() {
     });
 
     it('wmfEventFromListElement should return null for elements not describing events', () => {
-        assert.ok(onThisDay.testing.wmfEventFromListElement(NON_EVENT_LIST_ELEMENT, 'en') === null);
+        assert.ok(onThisDay.wmfEventFromListElement(NON_EVENT_LIST_ELEMENT, 'en') === null);
     });
 
     // LIVE TEST ENDPOINT INTERNALS PRODUCE AT LEAST SOME RESULTS FOR A GIVEN DAY.
@@ -332,7 +334,7 @@ describe('onthisday', function() {
 
     it('eventsForYearListElements returns a WMFEvent for only year list elements', () => {
         assert.deepEqual(
-            onThisDay.testing.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en').length, 4,
+            onThisDay.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en').length, 4,
             'Should return WMFEvent for each of 4 year list elements'
         );
     });
@@ -409,8 +411,8 @@ describe('onthisday', function() {
 
     it('Sort year list events in correct BC[E] aware manner', () => {
         const sortedEvents =
-            onThisDay.testing.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en')
-        .sort(onThisDay.testing.reverseChronologicalWMFEventComparator);
+            onThisDay.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en')
+        .sort(onThisDay.reverseChronologicalWMFEventComparator);
         assert.deepEqual(sortedEvents[0].year, 1948);
         assert.deepEqual(sortedEvents[1].year, 1946);
         assert.deepEqual(sortedEvents[2].year, -58);
@@ -418,8 +420,8 @@ describe('onthisday', function() {
     });
 
     it('Hydration should replace each \'title\' key with \'$merge\' key', () => {
-        const events = onThisDay.testing.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en');
-        events.push(onThisDay.testing.wmfHolidayFromListElement(MARTYRDOM_HOLIDAY_LIST_ELEMENT));
+        const events = onThisDay.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en');
+        events.push(onThisDay.wmfHolidayFromListElement(MARTYRDOM_HOLIDAY_LIST_ELEMENT));
 
         // Initially each page should have a title key but no $merge key
         for (const event of events) {
@@ -431,7 +433,7 @@ describe('onthisday', function() {
         }
 
         // Hydrate!
-        onThisDay.testing.hydrateAllTitles(events, REQUEST_FOR_EN_01_30);
+        onThisDay.hydrateAllTitles(rbTemplate, events, REQUEST_FOR_EN_01_30);
 
         // After hydration each page should have a $merge key but no title key
         for (const event of events) {
@@ -453,21 +455,21 @@ describe('onthisday', function() {
     it('listElementsByHeadingID extracts expected number of births from DE fixture', () => {
         // https://de.wikipedia.org/api/rest_v1/page/html/1._Dezember
         const document = documentFromFixtureFile('de.1._Dezember.html');
-        const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Geboren'], 'de');
+        const listElements = onThisDay.listElementsByHeadingID(document, ['Geboren'], 'de');
         assert.deepEqual(listElements.length, 188);
     });
 
     it('listElementsByHeadingID extracts expected number of births from EN fixture', () => {
         // https://en.wikipedia.org/api/rest_v1/page/html/December_1
         const document = documentFromFixtureFile('en.December_1.html');
-        const listElements = onThisDay.testing.listElementsByHeadingID(document, ['Births'], 'en');
+        const listElements = onThisDay.listElementsByHeadingID(document, ['Births'], 'en');
         assert.deepEqual(listElements.length, 203);
     });
 
     it('listElementsByHeadingID extracts expected number of births from AR fixture', () => {
         // https://ar.wikipedia.org/api/rest_v1/page/html/1_يناير
         const document = documentFromFixtureFile('ar.January_1.html');
-        const listElements = onThisDay.testing
+        const listElements = onThisDay
           .listElementsByHeadingID(document, ['.D9.85.D9.88.D8.A7.D9.84.D9.8A.D8.AF'], 'ar');
         assert.deepEqual(listElements.length, 69);
     });
@@ -476,7 +478,7 @@ describe('onthisday', function() {
         // https://en.wikipedia.org/api/rest_v1/page/html/December_1
         const enDocument = documentFromFixtureFile('en.December_1.html');
         const enListElements =
-            onThisDay.testing.listElementsByHeadingID(
+            onThisDay.listElementsByHeadingID(
                 enDocument, ['Holidays_and_observances'], 'en'
             );
         it('listElementsByHeadingID extracts expected number of holidays from EN fixture', () => {
@@ -493,7 +495,7 @@ describe('onthisday', function() {
 
         // https://ar.wikipedia.org/api/rest_v1/page/html/1_يناير
         const arDocument = documentFromFixtureFile('ar.January_1.html');
-        const arListElements = onThisDay.testing.listElementsByHeadingID(
+        const arListElements = onThisDay.listElementsByHeadingID(
             arDocument, ['.D9.85.D9.88.D8.A7.D9.84.D9.8A.D8.AF'], 'ar'
         );
         it('expected textContent for list items nested within a year-dash list item', () => {
@@ -505,7 +507,7 @@ describe('onthisday', function() {
 
         // https://sv.wikipedia.org/api/rest_v1/page/html/25_augusti
         const svDocument = documentFromFixtureFile('sv.Augusti_25.html');
-        const svListElements = onThisDay.testing.listElementsByHeadingID(
+        const svListElements = onThisDay.listElementsByHeadingID(
             svDocument, ['Avlidna'], 'sv'
         );
         it('expected textContent for list items nested within a year list item (no dash)', () => {
@@ -524,7 +526,7 @@ describe('onthisday', function() {
                         <li id='nestedLI'>This happened.
                       </ul>
                     </ul>`).querySelector('#nestedLI');
-                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                onThisDay.addPrefixFromAncestorListElementsToListElement(LI, 'en');
                 assert.equal(LI.textContent, '1992 - This happened.');
             });
             it('expected extraction from multiline ancestor year element', () => {
@@ -536,7 +538,7 @@ describe('onthisday', function() {
                         <li id='nestedLI'>This happened.
                       </ul>
                     </ul>`).querySelector('#nestedLI');
-                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                onThisDay.addPrefixFromAncestorListElementsToListElement(LI, 'en');
                 assert.equal(LI.textContent, '1992 - This happened.');
             });
             it('expected extraction from ancestor year element with dash', () => {
@@ -547,7 +549,7 @@ describe('onthisday', function() {
                         <li id='nestedLI'>This happened.
                       </ul>
                     </ul>`).querySelector('#nestedLI');
-                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                onThisDay.addPrefixFromAncestorListElementsToListElement(LI, 'en');
                 assert.equal(LI.textContent, '1992 - This happened.');
             });
             it('expected extraction from ancestor year element with dash space', () => {
@@ -558,7 +560,7 @@ describe('onthisday', function() {
                         <li id='nestedLI'>This happened.
                       </ul>
                     </ul>`).querySelector('#nestedLI');
-                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                onThisDay.addPrefixFromAncestorListElementsToListElement(LI, 'en');
                 assert.equal(LI.textContent, '1992 - This happened.');
             });
             it('expected extraction from multiline ancestor year element with dash', () => {
@@ -570,7 +572,7 @@ describe('onthisday', function() {
                         <li id='nestedLI'>This happened.
                       </ul>
                     </ul>`).querySelector('#nestedLI');
-                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                onThisDay.addPrefixFromAncestorListElementsToListElement(LI, 'en');
                 assert.equal(LI.textContent, '1992 - This happened.');
             });
             it('expected extraction from multiline non-year ancestor', () => {
@@ -582,7 +584,7 @@ describe('onthisday', function() {
                         <li id='nestedLI'>Blessed Bruna Pellesi
                       </ul>
                     </ul>`).querySelector('#nestedLI');
-                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                onThisDay.addPrefixFromAncestorListElementsToListElement(LI, 'en');
                 assert.equal(
                     LI.textContent, 'Christian feast day:\nBlessed Bruna Pellesi'
                 );
@@ -598,7 +600,7 @@ describe('onthisday', function() {
                         </ul>
                       </ul>
                     </ul>`).querySelector('#nestedLI');
-                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                onThisDay.addPrefixFromAncestorListElementsToListElement(LI, 'en');
                 assert.equal(
                     LI.textContent, 'Animal\nBird\nChicken'
                 );
@@ -617,7 +619,7 @@ describe('onthisday', function() {
                       </ul>
                     </ul>
                   </ul>`).querySelector('#nestedLI');
-                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                onThisDay.addPrefixFromAncestorListElementsToListElement(LI, 'en');
                 assert.equal(
                     LI.textContent, 'Animal\nBird\nChicken\nDinner'
                 );
@@ -630,7 +632,7 @@ describe('onthisday', function() {
                         <li id='nestedLI'>Посредством хакерской атаки была взломана компьютерная.
                       </ul>
                     </ul>`).querySelector('#nestedLI');
-                onThisDay.testing.addPrefixFromAncestorListElementsToListElement(LI, 'ru');
+                onThisDay.addPrefixFromAncestorListElementsToListElement(LI, 'ru');
                 assert.equal(
                     LI.textContent, '2002 - Посредством хакерской атаки была взломана компьютерная.'
                 );
@@ -642,27 +644,27 @@ describe('onthisday', function() {
         const a = domino.createDocument().createElement('A');
         it('correctly identifies anchor linking to year article', () => {
             a.title = '2008';
-            assert.ok(onThisDay.testing.isAnchorForYear(a, 2008, ''));
+            assert.ok(onThisDay.isAnchorForYear(a, 2008, ''));
         });
         it('correctly rejects anchor linking article starting with a year', () => {
             a.title = '2008 Something something';
-            assert.ok(!onThisDay.testing.isAnchorForYear(a, 2008, ''));
+            assert.ok(!onThisDay.isAnchorForYear(a, 2008, ''));
         });
         it('correctly rejects anchor linking article starting with a number', () => {
             a.title = '123456 Something something';
-            assert.ok(!onThisDay.testing.isAnchorForYear(a, 2008, ''));
+            assert.ok(!onThisDay.isAnchorForYear(a, 2008, ''));
         });
         it('correctly rejects anchor linking article not starting with a year', () => {
             a.title = 'Something something';
-            assert.ok(!onThisDay.testing.isAnchorForYear(a, 2008, ''));
+            assert.ok(!onThisDay.isAnchorForYear(a, 2008, ''));
         });
         it('correctly identifies anchor linking to year article with an era string', () => {
             a.title = '2008 BC';
-            assert.ok(onThisDay.testing.isAnchorForYear(a, 2008, 'BC'));
+            assert.ok(onThisDay.isAnchorForYear(a, 2008, 'BC'));
         });
         it('correctly identifies anchor linking to year article with era string w/o space', () => {
             a.title = '55BC';
-            assert.ok(onThisDay.testing.isAnchorForYear(a, 55, 'BC'));
+            assert.ok(onThisDay.isAnchorForYear(a, 55, 'BC'));
         });
     });
 
@@ -680,7 +682,7 @@ describe('onthisday', function() {
                   </li>
                 </ul>
               `).querySelector('#thisLI');
-            const event = onThisDay.testing.wmfHolidayFromListElement(LI, 'en');
+            const event = onThisDay.wmfHolidayFromListElement(LI, 'en');
             assert.equal(event.pages.length, 1);
             assert.equal(event.pages[0].title, 'Cat');
         });
@@ -698,7 +700,7 @@ describe('onthisday', function() {
                   </li>
                 </ul>
               `).querySelector('#thisLI');
-            const event = onThisDay.testing.wmfEventFromListElement(LI, 'en');
+            const event = onThisDay.wmfEventFromListElement(LI, 'en');
             assert.equal(event.pages.length, 1);
             assert.equal(event.pages[0].title, 'Dog');
         });

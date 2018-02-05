@@ -3,21 +3,13 @@
 const preq = require('preq');
 const domino = require('domino');
 const constants = require('./constants');
-const Template = require('swagger-router').Template;
 const news = require('../../../lib/feed/news');
 const summUrl = require('../../../lib/mobile-util').getRbPageSummaryUrl;
 const assert = require('../../utils/assert');
 const server = require('../../utils/server');
 const checkHeaders = require('../../utils/headers').checkHeaders;
 const NEWS_TEMPLATES = require('../../../etc/feed/news-sites');
-
-const rbTemplate = new Template({
-    method: '{{request.method}}',
-    uri: 'https://{{domain}}/api/rest_v1/{+path}',
-    query: '{{ default(request.query, {}) }}',
-    headers: '{{request.headers}}',
-    body: '{{request.body}}'
-});
+const rbTemplate = require('../../utils/testUtil').rbTemplate;
 
 const enwiki = 'en.wikipedia.org';
 
