@@ -8,6 +8,11 @@ const summarize = require('./../../../lib/transformations/summarize');
 describe('summarize', () => {
     it('matches the spec', () => {
         const testCases = [
+            // Exclude audio, video, and track tags.
+            [
+                '<p><audio></audio><video><track kind="subtitles"></video></p>',
+                '<p></p>'
+            ],
             // Ignore parens inside attributes by escaping them.
             [
                 '<p>(Remove me) But not this (<img src="latin_paren).jpg"></p>',

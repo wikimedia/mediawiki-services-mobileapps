@@ -147,8 +147,8 @@ describe('lib:sanitizeSummary', () => {
                 'almost as-is but an extra space gets removed');
         });
         /* eslint-disable max-len */
-        it('keeps video tag with common attributes', () => {
-            assertKeepsAsIs('<video poster="//upload.wikimedia.org/wikipedia/commons/thumb/9/94/Folgers.ogv/50px--Folgers.ogv.jpg" controls preload="none" height="38" width="50"></video>');
+        it('removes video tags', () => {
+            assert.deepEqual(sanitize('<video><source><track></video>'), '');
         });
         it('keeps img.src, .srcset, .width and .height attributes', () => {
             assertKeepsAsIs('<img src="//upload.wikimedia.org/wikipedia/commons/3/39/Fluorescence_in_calcite.jpg" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/39/Fluorescence_in_calcite.jpg/720px-Fluorescence_in_calcite.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/39/Fluorescence_in_calcite.jpg/960px-Fluorescence_in_calcite.jpg 2x" width="971" height="110" />');
