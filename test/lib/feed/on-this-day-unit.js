@@ -636,6 +636,17 @@ describe('onthisday', function() {
                     LI.textContent, '2002 - Посредством хакерской атаки была взломана компьютерная.'
                 );
             });
+            it('Prefixed text content from ancestor element is escaped', () => {
+                const LI = domino.createDocument(`
+                    <ul>
+                      <li>&lt;script&gt;alert(1);&lt;/script&gt;
+                      <ul>
+                        <li id='nestedLI'><b>Foo</b>
+                      </ul>
+                    </ul>`).querySelector('#nestedLI');
+                onThisDay.addPrefixFromAncestorListElementsToListElement(LI, 'en');
+                assert.equal(LI.innerHTML, '&lt;script&gt;alert(1);&lt;/script&gt;\n<b>Foo</b>');
+            });
         });
     });
 
