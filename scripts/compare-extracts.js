@@ -15,8 +15,7 @@
   Example:
   $ npm start
   In another terminal run:
-  $ cd scripts
-  $ ./compare-extracts.js en
+  $ ./scripts/compare-extracts.js en
 
   The output will be in the private/extracts folder.
 */
@@ -25,12 +24,13 @@ const BBPromise = require('bluebird');
 const fs = require('fs');
 const mkdir = require('mkdirp');
 const preq = require('preq');
+const path = require('path');
 
 const DELAY = 10; // delay between requests in ms
 const NEW_PORT = 6927;
 const OLD_PORT = 6928; // set to undefined to go against production
-const topPagesDir = '../private/top-pages';
-const outDir = '../private/extracts';
+const topPagesDir = path.join(__dirname, '../private/top-pages');
+const outDir = path.join(__dirname, '../private/extracts');
 
 let lang;
 let topPages;

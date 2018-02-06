@@ -7,13 +7,14 @@ const domino = require('domino');
 const preq = require('preq');
 const parseRssUrl = BBPromise.promisify(require('rss-parser').parseURL);
 const underscore = require('underscore');
+const path = require('path');
 
 //
 // LANGUAGES SECTION start
 //
-const wikiquoteLanguages = require('../private/wikiquotes.json');
-const wiktionaryLanguages = require('../private/wiktionaries.json');
-const wikipediaLanguagesRawList = require('../private/languages_list.json');
+const wikiquoteLanguages = require(path.join(__dirname, '../private/wikiquotes.json'));
+const wiktionaryLanguages = require(path.join(__dirname, '../private/wiktionaries.json'));
+const wikipediaLanguagesRawList = require(path.join(__dirname, '../private/languages_list.json'));
 
 const prepareWikipediaLanguageCodes = () => {
     delete wikipediaLanguagesRawList['Simplified Chinese']; // skip lang variants
