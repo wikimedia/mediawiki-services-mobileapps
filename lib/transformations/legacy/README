@@ -1,0 +1,6 @@
+Transforms in this subdirectory originate with the Wikipedia Android app,
+and they are still performed on the client for page loads from the
+MediaWiki API (action=mobileview).
+
+When making changes to these files, please consider whether a
+corresponding change is needed to the client-side transforms.

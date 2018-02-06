@@ -71,7 +71,7 @@ function buildLead(input, legacy) {
         // content if this turns out to be a main page.
         //
         // TODO: should we also exclude file and other special pages?
-        transforms.relocateFirstParagraph(lead);
+        transforms.legacy.relocateFirstParagraph(lead);
     }
     const hatnotes = transforms.extractHatnotes(lead, !legacy);
     const issues = transforms.extractPageIssues(lead, !legacy);
