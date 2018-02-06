@@ -59,6 +59,12 @@ const mostViewedYoutubeVideosContent = `Some videos may not be available worldwi
 const mostViewedYoutubeVideosOld = `<ol class="mw-references references" typeof="mw:Extension/references" about="#mwt571"><li about="#cite_note-4" id="cite_note-4"><a href="./List_of_most_viewed_YouTube_videos#cite_ref-4" data-mw-group="upper-alpha" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-4" class="mw-reference-text">${mostViewedYoutubeVideosContent}</span></li></ol>`;
 const mostViewedYoutubeVideosNew = `<div typeof="mw:Extension/references" about="#mwt571"><ol class="mw-references references"><li about="#cite_note-4" id="cite_note-4"><a href="./List_of_most_viewed_YouTube_videos#cite_ref-4" data-mw-group="upper-alpha" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-4" class="mw-reference-text">${mostViewedYoutubeVideosContent}</span></li></ol></div>`;
 
+// funny business
+const attemptedXssRef = `<li about="#cite_note-101" id="cite_note-101">
+  <a href="./Dog#cite_ref-101" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a>
+  <span id="mw-reference-text-cite_note-101" class="mw-reference-text">&lt;script&gt;alert(1);&lt;/script&gt;</span>
+</li>`;
+
 
 describe('lib:structureReferenceListContent', () => {
     let logger;
@@ -147,6 +153,16 @@ describe('lib:structureReferenceListContent', () => {
             assert.deepEqual(
                 mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
                     html: indianFilmsRefContent,
+                    type: 'generic'
+                });
+            assert.ok(logger.log.notCalled);
+        });
+
+        it('mw-reference-text text content is escaped', () => {
+            const doc = createDocument(attemptedXssRef);
+            assert.deepEqual(
+                mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
+                    html: '&lt;script&gt;alert(1);&lt;/script&gt;',
                     type: 'generic'
                 });
             assert.ok(logger.log.notCalled);
