@@ -419,7 +419,7 @@ describe('onthisday', function() {
         assert.deepEqual(sortedEvents[3].year, -516);
     });
 
-    it('Hydration should replace each \'title\' key with \'$merge\' key', () => {
+    it('\'title\' keys should be replaced with \'$merge\' keys', () => {
         const events = onThisDay.eventsForYearListElements(MOCK_EVENT_LIST_ELEMENTS, 'en');
         events.push(onThisDay.wmfHolidayFromListElement(MARTYRDOM_HOLIDAY_LIST_ELEMENT));
 
@@ -432,10 +432,9 @@ describe('onthisday', function() {
             }
         }
 
-        // Hydrate!
-        onThisDay.hydrateAllTitles(rbTemplate, events, REQUEST_FOR_EN_01_30);
+        onThisDay.createMergeNodes(rbTemplate, events, REQUEST_FOR_EN_01_30);
 
-        // After hydration each page should have a $merge key but no title key
+        // After creating merge nodes, each page should have a $merge key but no title key
         for (const event of events) {
             for (const page of event.pages) {
                 assert.ok(Object.prototype.hasOwnProperty.call(page, '$merge'));
@@ -444,7 +443,7 @@ describe('onthisday', function() {
             }
         }
 
-        // Confirm expected number of pages exist post-hydration
+        // Confirm expected number of pages exist
         assert.deepEqual(events[0].pages.length, 1);
         assert.deepEqual(events[1].pages.length, 4);
         assert.deepEqual(events[2].pages.length, 2);
@@ -668,7 +667,7 @@ describe('onthisday', function() {
         });
     });
 
-    describe('exclude urls which cannot be "hydrated" from hydration pages lists', () => {
+    describe('external urls should be excluded', () => {
         it('exclude external url from WMFHoliday pages', () => {
             const LI = domino.createDocument(`
                 <ul>
