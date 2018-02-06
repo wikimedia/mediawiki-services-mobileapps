@@ -1,11 +1,11 @@
 'use strict';
 
-const lib = require('../lib/summary');
+const lib = require('../../lib/summary');
 const BBPromise = require('bluebird');
-const mwapi = require('../lib/mwapi');
-const mUtil = require('../lib/mobile-util');
-const parsoid = require('../lib/parsoid-access');
-const sUtil = require('../lib/util');
+const mwapi = require('../../lib/mwapi');
+const mUtil = require('../../lib/mobile-util');
+const parsoid = require('../../lib/parsoid-access');
+const sUtil = require('../../lib/util');
 const Title = require('mediawiki-title').Title;
 
 /**

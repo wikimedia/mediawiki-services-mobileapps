@@ -1,7 +1,7 @@
 'use strict';
 
 const server = require('../../utils/server.js');
-const onThisDay = require('../../../routes/on-this-day.js')();
+const onThisDay = require('../../../routes/feed/on-this-day.js')();
 const assert = require('../../utils/assert.js');
 const domino = require('domino');
 const preq = require('preq');

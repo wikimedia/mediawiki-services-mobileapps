@@ -1,8 +1,8 @@
 'use strict';
 
-const sUtil = require('../lib/util');
-const mUtil = require('../lib/mobile-util');
-const mostRead = require('../lib/feed/most-read');
+const sUtil = require('../../lib/util');
+const mUtil = require('../../lib/mobile-util');
+const mostRead = require('../../lib/feed/most-read');
 
 /**
  * The main router object
