@@ -43,15 +43,20 @@ const processOnePage = (page) => {
     process.stdout.write('.');
     return preq.get({ uri: uriForParsoid(page.title) })
     .then((rsp) => {
-        return BBPromise.delay(300, rsp); // avoid timeouts
+        return BBPromise.delay(1, rsp);
     }).then((rsp) => {
         if (rsp.status !== 200) {
-            if (rsp.status === 302) {
+            if (rsp.status === 302) { // redirect through 302
                 page.title = rsp.headers.location;
                 return processOnePage(page);
             }
             process.stderr.write(` WARNING: skipping parsoid for ${page.title}!`);
             return BBPromise.resolve();
+        }
+        const contentLocation = rsp.headers['content-location'];
+        if (contentLocation) {
+            page.title = decodeURIComponent(
+                contentLocation.substring(contentLocation.lastIndexOf('/') + 1));
         }
         const etag = rsp.headers.etag;
         const revMatch = /"(\S+?)"/m.exec(etag);
@@ -63,7 +68,9 @@ const processOnePage = (page) => {
             // time out encountered: wait a few seconds and try again
             return BBPromise.delay(2000).then(() => processOnePage(page));
         } else {
-            process.stderr.write(` ERROR getting metadata ${page.title}: ${err.status}! `);
+            process.stderr.write(`
+ERROR getting metadata for ${page.title}: ${err.status}: ${err.body.detail}
+`);
         }
     });
 };
