@@ -61,8 +61,8 @@ const mostViewedYoutubeVideosNew = `<div typeof="mw:Extension/references" about=
 
 // funny business
 const attemptedXssRef = `<li about="#cite_note-101" id="cite_note-101">
-  <a href="./Dog#cite_ref-101" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a>
-  <span id="mw-reference-text-cite_note-101" class="mw-reference-text">&lt;script&gt;alert(1);&lt;/script&gt;</span>
+  <a href="./Dog#cite_ref-101" rel="mw:referencedBy"><span class="mw-linkback-text">&lt;script&gt;alert(1);&lt;/script&gt; </span></a>
+  <span id="mw-reference-text-cite_note-101" class="mw-reference-text">&lt;script&gt;alert(2);&lt;/script&gt;</span>
 </li>`;
 
 
@@ -115,6 +115,16 @@ describe('lib:structureReferenceListContent', () => {
                 []);
             assert.ok(logger.log.calledOnce);
         });
+
+        it('text content is escaped', () => {
+            const doc = createDocument(attemptedXssRef);
+            assert.deepEqual(
+                mut.unit.structureBackLinks(doc.querySelector('li'), logger), [{
+                    href: './Dog#cite_ref-101',
+                    text: '&lt;script&gt;alert(1);&lt;/script&gt;'
+                }]);
+            assert.ok(logger.log.notCalled);
+        });
     });
 
     describe('.getReferenceContent', () => {
@@ -158,11 +168,11 @@ describe('lib:structureReferenceListContent', () => {
             assert.ok(logger.log.notCalled);
         });
 
-        it('mw-reference-text text content is escaped', () => {
+        it('text content is escaped', () => {
             const doc = createDocument(attemptedXssRef);
             assert.deepEqual(
                 mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
-                    html: '&lt;script&gt;alert(1);&lt;/script&gt;',
+                    html: '&lt;script&gt;alert(2);&lt;/script&gt;',
                     type: 'generic'
                 });
             assert.ok(logger.log.notCalled);
