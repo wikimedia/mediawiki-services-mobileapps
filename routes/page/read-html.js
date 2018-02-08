@@ -23,7 +23,7 @@ router.get('/read-base-html/:title/:revision?/:tid?', (req, res) => {
     return parsoid.pageHtmlPromise(app, req, false)
     .then((response) => {
         res.status(200);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.readHtml, 'text/html');
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.readHtml);
         mUtil.setETag(res, response.meta.revision);
         res.send(response.html).end();
     });
@@ -38,7 +38,7 @@ router.get('/read-html/:title/:revision?/:tid?', (req, res) => {
     return parsoid.pageHtmlPromise(app, req, true)
     .then((response) => {
         res.status(200);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.readHtml, 'text/html');
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.readHtml);
         mUtil.setETag(res, response.meta.revision);
         res.send(response.html).end();
     });
