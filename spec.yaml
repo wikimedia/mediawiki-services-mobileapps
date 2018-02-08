@@ -1334,18 +1334,23 @@ definitions:
         type: array
         description: the hatnotes on the page, with html and plaintext representations provided for each
         items:
-          $ref: '#/definitions/hatnote'
+          $ref: '#/definitions/html_and_text_strings'
+      issues:
+        type: array
+        description: the page issues on the page, with html and plaintext representations provided for each
+        items:
+          $ref: '#/definitions/html_and_text_strings'
     additionalProperties: false
 
-  hatnote:
+  html_and_text_strings:
     type: object
     properties:
       html:
         type: string
-        description: the html for the hatnote
+        description: html snippet
       text:
         type: string
-        description: plain text of the hatnote
+        description: plain text respresentation of the html snippet
     additionalProperties: false
 
   media_list:
