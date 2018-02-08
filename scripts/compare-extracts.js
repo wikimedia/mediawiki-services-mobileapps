@@ -28,7 +28,9 @@ const path = require('path');
 
 const DELAY = 10; // delay between requests in ms
 const NEW_PORT = 6927;
-const OLD_PORT = 6928; // set to undefined to go against production
+// Set OLD_PORT to a valid port number to go against a second local MCS instance.
+// Set OLD_PORT to undefined to go against production.
+const OLD_PORT = 6928;
 const topPagesDir = path.join(__dirname, '../private/top-pages');
 const outDir = path.join(__dirname, '../private/extracts');
 
