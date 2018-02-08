@@ -61,7 +61,7 @@ paths:
               version: /.+/
               home: /.+/
 
-  # from routes/announcements.js
+  # from routes/feed/announcements.js
   /{domain}/v1/feed/announcements:
     get:
       tags:
@@ -124,7 +124,7 @@ paths:
             body:
               compilations: []
 
-  # from routes/on-this-day.js
+  # from routes/feed/on-this-day.js
   /{domain}/v1/feed/onthisday/{type}/{mm}/{dd}:
     get:
       tags:
@@ -237,7 +237,7 @@ paths:
                   pages:
                     - $merge: [ /.+/ ]
 
-  # from routes/featured.js
+  # from routes/feed/featured.js
   /{domain}/v1/page/featured/{yyyy}/{mm}/{dd}:
     get:
       tags:
@@ -318,7 +318,7 @@ paths:
             status: 204
             body: ""
 
-  # from routes/featured-image.js
+  # from routes/feed/featured-image.js
   /{domain}/v1/media/image/featured/{yyyy}/{mm}/{dd}:
     get:
       tags:
@@ -390,7 +390,7 @@ paths:
                 width: /.+/
                 height: /.+/
 
-  # from routes/most-read.js
+  # from routes/feed/most-read.js
   /{domain}/v1/page/most-read/{yyyy}/{mm}/{dd}:
     get:
       tags:
@@ -484,7 +484,7 @@ paths:
             status: 204
             body: ""
 
-  # from routes/random.js
+  # from routes/page/random.js
   /{domain}/v1/page/random/title:
     get:
       tags:
@@ -515,7 +515,7 @@ paths:
               items:
                 - title: /.+/
 
-  # from routes/news.js
+  # from routes/feed/news.js
   /{domain}/v1/page/news:
     get:
       tags:
@@ -560,7 +560,7 @@ paths:
             status: 204
             body: ""
 
-  # from routes/media.js
+  # from routes/page/media.js
   /{domain}/v1/page/media/{title}:
     get:
       tags:
@@ -599,7 +599,7 @@ paths:
                     mime: /.+/
                   license: /.+/
 
-  # from routes/definition.js
+  # from routes/page/definition.js
   /{domain}/v1/page/definition/{title}:
     get:
       tags:
@@ -619,7 +619,7 @@ paths:
               content-type: application/json
             body: /.+/
 
-  # from routes/mobile-sections.js
+  # from routes/page/mobile-sections.js
   /{domain}/v1/page/summary/{title}{/revision}{/tid}:
     get:
       tags:
@@ -779,7 +779,7 @@ paths:
               extract: /.+/
               extract_html: /.+/
 
-  # from routes/mobile-sections.js
+  # from routes/page/mobile-sections.js
   /{domain}/v1/page/mobile-sections/{title}:
     get:
       tags:
