@@ -206,8 +206,7 @@ function createServer(app) {
         );
         server = addShutdown(server);
     }).then(() => {
-        app.logger.log('info',
-            `Worker ${process.pid} listening on ${app.conf.interface || '*'}:${app.conf.port}`);
+        app.logger.log('info', `worker listening on ${app.conf.interface || '*'}:${app.conf.port}`);
 
         // Don't delay incomplete packets for 40ms (Linux default) on
         // pipelined HTTP sockets. We write in large chunks or buffers, so

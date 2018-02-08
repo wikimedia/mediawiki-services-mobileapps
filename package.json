@@ -57,7 +57,7 @@
     "mediawiki-title": "^0.6.5",
     "preq": "^0.5.3",
     "sanitize-html": "^1.17.0",
-    "service-runner": "^2.4.2",
+    "service-runner": "^2.5.1",
     "swagger-router": "^0.7.1",
     "swagger-ui": "git+https://github.com/wikimedia/swagger-ui#master",
     "http-shutdown": "^1.2.0",
