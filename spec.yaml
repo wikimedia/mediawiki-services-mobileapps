@@ -622,11 +622,15 @@ paths:
             params:
               domain: en.wikipedia.org
               title: Ganon
+              revision: 824060512
           response:
             status: 200
             headers:
               content-type: application/json
             body:
+              hatnotes:
+                - html: /.+/
+                  text: /.+/
 
   # from routes/page/definition.js
   /{domain}/v1/page/definition/{title}{/revision}{/tid}:
@@ -1325,7 +1329,23 @@ definitions:
 
   metadata:
     type: object
-    properties: {}
+    properties:
+      hatnotes:
+        type: array
+        description: the hatnotes on the page, with html and plaintext representations provided for each
+        items:
+          $ref: '#/definitions/hatnote'
+    additionalProperties: false
+
+  hatnote:
+    type: object
+    properties:
+      html:
+        type: string
+        description: the html for the hatnote
+      text:
+        type: string
+        description: plain text of the hatnote
     additionalProperties: false
 
   media_list:
