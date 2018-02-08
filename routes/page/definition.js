@@ -19,10 +19,10 @@ const router = sUtil.router();
 let app;
 
 /**
- * GET {domain}/v1/definition/{title}{/revision}
- * Gets the Wiktionary definition for a given term (and optional revision ID).
+ * GET {domain}/v1/definition/{title}{/revision}{/tid}
+ * Gets the Wiktionary definition for a given term (and optional revision and tid).
  */
-router.get('/definition/:title/:revision?', (req, res) => {
+router.get('/definition/:title/:revision?/:tid?', (req, res) => {
     return parsoid.definitionPromise(app, req)
     .then((response) => {
         res.status(200);

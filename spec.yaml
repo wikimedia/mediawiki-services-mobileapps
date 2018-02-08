@@ -520,7 +520,7 @@ paths:
     get:
       tags:
         - News-related content
-      description: Gets content related to the current In the News template (experimental, English-only).
+      description: Gets content related to the current In the News template.
       produces:
         - application/json
       responses:
@@ -561,7 +561,7 @@ paths:
             body: ""
 
   # from routes/page/media.js
-  /{domain}/v1/page/media/{title}:
+  /{domain}/v1/page/media/{title}{/revision}{/tid}:
     get:
       tags:
         - Media items on a given page
@@ -600,7 +600,7 @@ paths:
                   license: /.+/
 
   # from routes/page/definition.js
-  /{domain}/v1/page/definition/{title}:
+  /{domain}/v1/page/definition/{title}{/revision}{/tid}:
     get:
       tags:
         - Wiktionary definition of {title}
@@ -780,7 +780,7 @@ paths:
               extract_html: /.+/
 
   # from routes/page/mobile-sections.js
-  /{domain}/v1/page/mobile-sections/{title}:
+  /{domain}/v1/page/mobile-sections/{title}{/revision}{/tid}:
     get:
       tags:
         - Page content
@@ -814,7 +814,7 @@ paths:
               remaining:
                 sections: []
 
-  /{domain}/v1/page/mobile-sections-lead/{title}:
+  /{domain}/v1/page/mobile-sections-lead/{title}{/revision}{/tid}:
     get:
       tags:
         - Lead section of page content
@@ -852,7 +852,7 @@ paths:
                 longitude: /.+/
               sections: [ /.+/ ]
 
-  /{domain}/v1/page/mobile-sections-remaining/{title}:
+  /{domain}/v1/page/mobile-sections-remaining/{title}{/revision}{/tid}:
     get:
       tags:
         - Lead section of page content
