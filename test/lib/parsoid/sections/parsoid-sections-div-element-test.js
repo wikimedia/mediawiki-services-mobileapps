@@ -1,8 +1,8 @@
 'use strict';
 
-const assert = require('../../utils/assert.js');
+const assert = require('../../../utils/assert.js');
 const domino = require('domino');
-const parsoid = require('../../../lib/parsoidSections');
+const parsoid = require('../../../../lib/sections/parsoidSections');
 
 describe('lib:parsoid-sections (div elements)', function() {
 

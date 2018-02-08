@@ -2,10 +2,10 @@
 
 'use strict';
 
-const assert = require('../../utils/assert.js');
+const assert = require('../../../utils/assert.js');
 const domino = require('domino');
 const sinon = require('sinon');
-const parsoidSectionsUsingSectionTags = require('../../../lib/parsoidSectionsUsingSectionTags');
+const parsoidSectionsUsingSectionTags = require('../../../../lib/sections/parsoidSectionsUsingSectionTags'); // eslint-disable-line max-len
 const shouldWarn = parsoidSectionsUsingSectionTags.testing.shouldLogInvalidSectionWarning;
 const validatePreviousSection = parsoidSectionsUsingSectionTags.testing.validatePreviousSection;
 
