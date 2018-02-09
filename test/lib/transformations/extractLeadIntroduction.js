@@ -37,6 +37,12 @@ describe('extractLeadIntroduction', () => {
             [
                 '<ul><li>List item</li></ul><div><p>The lead paragraph is not here.</p></div>',
                 ''
+            ],
+            // Initial paragraphs from transclusions are skipped.
+            [
+                '<p about="#mwt1">Here is some unwanted transcluded content, perhaps an ' +
+                  'artifact of a dewiki hatnote.</p><p>Here is the first content paragraph.</p>',
+                '<p>Here is the first content paragraph.</p>'
             ]
         ];
 

@@ -125,4 +125,14 @@ describe('mobile-sections-v2', function() {
                     'List element is bundled into paragraph');
             });
     });
+
+    it('lead intro should come from first real content paragraph', () => {
+        const uri = localUri('Berliner_Mauer/173761365', 'de.wikipedia.org');
+        return preq.get({ uri })
+            .then((res) => {
+                const intro = res.body.lead.intro;
+                assert.deepEqual(res.status, 200);
+                assert.contains(intro, '<b>Berliner Mauer</b>');
+            });
+    });
 });

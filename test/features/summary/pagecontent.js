@@ -68,6 +68,17 @@ describe('summary', function() {
             });
     });
 
+    it('summary should come from first real content paragraph', () => {
+        const uri = localUri('Berliner_Mauer/173761365', 'de.wikipedia.org');
+        return preq.get({ uri })
+            .then((res) => {
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.type, 'standard', 'type should be \'standard\'');
+                assert.contains(res.body.extract, 'Berliner Mauer');
+                assert.contains(res.body.extract_html, '<b>Berliner Mauer</b>');
+            });
+    });
+
     function should204(uri) {
         return preq.get({ uri })
         .then((res) => {
