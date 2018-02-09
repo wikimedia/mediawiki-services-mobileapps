@@ -40,7 +40,8 @@ td.titleColumn {
 }
 
 td.valueColumn {
-    word-break: break-all;
+    word-break: normal;
+    /*word-break: break-all;*/
 }
 
 a[id][href]::before {
