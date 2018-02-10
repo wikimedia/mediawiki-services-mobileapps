@@ -6,7 +6,7 @@
   Notes:
   * Start one local MCS instance for the "new" version before running this script.
   * Optionally, start another local MCS instance for the "old" version before
-  * running this script. See OLD_PORT below.
+  * running this script. See comments near OLD_PORT below.
   * Run the script from the script folder.
 
   Arguments: provide a single argument which is the language code for
@@ -29,8 +29,8 @@ const path = require('path');
 const DELAY = 10; // delay between requests in ms
 const NEW_PORT = 6927;
 // Set OLD_PORT to a valid port number to go against a second local MCS instance.
-// Set OLD_PORT to undefined to go against production.
-const OLD_PORT = 6928;
+// Set OLD_PORT to 0 to go against production.
+const OLD_PORT = 0;
 const topPagesDir = path.join(__dirname, '../private/top-pages');
 const outDir = path.join(__dirname, '../private/extracts');
 
