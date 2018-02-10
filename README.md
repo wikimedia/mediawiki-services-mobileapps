@@ -64,6 +64,10 @@ Next generation routes for page content. See [Page_Content_Service](https://www.
 
 Example: `http://localhost:6927/en.wikipedia.org/v1/page/summary/Cat`
 
+* `http://localhost:6927/{domain}/v1/page/metadata/{title}`
+
+Example: `http://localhost:6927/en.wikipedia.org/v1/page/metadata/Cat`
+
 * `http://localhost:6927/{domain}/v1/page/media/{title}`
 
 Example: `http://localhost:6927/en.wikipedia.org/v1/page/media/Cat`
