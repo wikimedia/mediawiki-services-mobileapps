@@ -61,20 +61,9 @@ There are a few routes you may query (with a browser, or `curl` and friends).
 Next generation routes for page content. See [Page_Content_Service](https://www.mediawiki.org/wiki/Page_Content_Service).
 
 * `http://localhost:6927/{domain}/v1/page/summary/{title}`
-
-Example: `http://localhost:6927/en.wikipedia.org/v1/page/summary/Cat`
-
 * `http://localhost:6927/{domain}/v1/page/metadata/{title}`
-
-Example: `http://localhost:6927/en.wikipedia.org/v1/page/metadata/Cat`
-
 * `http://localhost:6927/{domain}/v1/page/media/{title}`
-
-Example: `http://localhost:6927/en.wikipedia.org/v1/page/media/Cat`
-
 * `http://localhost:6927/{domain}/v1/page/references/{title}`
-
-Example: `http://localhost:6927/en.wikipedia.org/v1/page/references/Cat`
 
 #### Mobile Content Service routes
 
