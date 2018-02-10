@@ -73,7 +73,7 @@ function buildLead(input, legacy) {
         // TODO: should we also exclude file and other special pages?
         transforms.legacy.relocateFirstParagraph(lead);
     }
-    const hatnotes = transforms.extractHatnotes(lead, !legacy);
+    const hatnotes = transforms.extractHatnotes(lead, !legacy, true);
     const issues = transforms.extractPageIssues(lead, !legacy);
 
     let infobox;
