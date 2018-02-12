@@ -5,6 +5,30 @@ const assert = require('../../utils/assert.js');
 const headers = require('../../utils/headers.js');
 const server = require('../../utils/server.js');
 
+
+function assertHasAllRequiredProperties(body) {
+    const desktopUrls = body.content_urls.desktop;
+    const mobileUrls = body.content_urls.mobile;
+    assert.ok(body.namespace.id || body.namespace.id === 0);
+    assert.ok(body.namespace.text || body.namespace.text === '');
+    assert.ok(body.titles.canonical);
+    assert.ok(body.titles.normalized);
+    assert.ok(body.titles.display);
+    assert.ok(body.pageid);
+    assert.ok(body.lang);
+    assert.ok(body.dir);
+    assert.ok(body.revision);
+    assert.ok(body.tid);
+    assert.ok(body.timestamp);
+    [ desktopUrls, mobileUrls ].forEach((contentUrls) => {
+        assert.ok(contentUrls.page);
+        assert.ok(contentUrls.revisions);
+        assert.ok(contentUrls.edit);
+    });
+    assert.ok(body.api_urls.summary);
+    assert.ok(body.api_urls.edit_html);
+}
+
 describe('summary', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
@@ -26,16 +50,11 @@ describe('summary', function() {
             .then((res) => {
                 assert.deepEqual(res.status, 200);
                 assert.deepEqual(res.body.type, 'standard');
-                assert.deepEqual(res.body.revision, 798652007);
-                assert.deepEqual(res.body.titles.canonical, "Foobar");
-                assert.deepEqual(res.body.titles.normalized, "Foobar");
-                assert.deepEqual(res.body.titles.display, "Foobar");
-                assert.ok(res.body.extract.indexOf('foobar') > -1);
-                assert.ok(res.body.extract_html.indexOf('<b>foobar</b>') > -1);
+                assertHasAllRequiredProperties(res.body);
             });
     });
 
-    it('empty summary (not 204) should be sent for empty page', () => {
+    it('empty summary should be sent for empty page', () => {
         const uri = localUri('Empty', 'test.wikipedia.org');
         return preq.get({ uri })
             .then((res) => {
@@ -43,10 +62,11 @@ describe('summary', function() {
                 assert.deepEqual(res.body.type, 'standard');
                 assert.deepEqual(res.body.extract, '', 'should send empty plaintext extract');
                 assert.deepEqual(res.body.extract_html, '', 'should send empty html extract');
+                assertHasAllRequiredProperties(res.body);
             });
     });
 
-    it('main page should return empty summary (not 204) and type should be \'mainpage\'', () => {
+    it('main page should return empty summary and type should be \'mainpage\'', () => {
         const uri = localUri('Main_Page');
         return preq.get({ uri })
             .then((res) => {
@@ -54,6 +74,7 @@ describe('summary', function() {
                 assert.deepEqual(res.body.type, 'mainpage', 'type should be \'mainpage\'');
                 assert.deepEqual(res.body.extract, '', 'should send empty plaintext extract');
                 assert.deepEqual(res.body.extract_html, '', 'should send empty html extract');
+                assertHasAllRequiredProperties(res.body);
             });
     });
 
@@ -65,6 +86,7 @@ describe('summary', function() {
                 assert.deepEqual(res.body.type, 'mainpage', 'type should be \'mainpage\'');
                 assert.deepEqual(res.body.extract, '', 'should send empty plaintext extract');
                 assert.deepEqual(res.body.extract_html, '', 'should send empty html extract');
+                assertHasAllRequiredProperties(res.body);
             });
     });
 
@@ -76,27 +98,31 @@ describe('summary', function() {
                 assert.deepEqual(res.body.type, 'standard', 'type should be \'standard\'');
                 assert.contains(res.body.extract, 'Berliner Mauer');
                 assert.contains(res.body.extract_html, '<b>Berliner Mauer</b>');
+                assertHasAllRequiredProperties(res.body);
             });
     });
 
-    function should204(uri) {
+    function shouldReturnEmptyExtracts(uri) {
         return preq.get({ uri })
         .then((res) => {
-            assert.deepEqual(res.status, 204);
-            assert.deepEqual(res.body, undefined, 'no content');
+            assert.deepEqual(res.status, 200);
+            assert.deepEqual(res.body.type, 'no-extract');
+            assert.deepEqual(res.body.extract, "", 'extract should be empty');
+            assert.deepEqual(res.body.extract_html, "", 'extract_html should be empty');
+            assertHasAllRequiredProperties(res.body);
         });
     }
 
-    it('204 should be returned for a file page', () => {
-        should204(localUri('File:En-Alliterative_verse-article.ogg', 'commons.wikimedia.org'));
+    it('Empty extracts should be returned for a file page', () => {
+        shouldReturnEmptyExtracts(localUri('File:En-Alliterative_verse-article.ogg', 'commons.wikimedia.org')); // eslint-disable-line max-len
     });
 
-    it('204 should be returned for a talk page', () => {
-        should204(localUri('Talk:Foobar'));
+    it('Empty extracts should be returned for a talk page', () => {
+        shouldReturnEmptyExtracts(localUri('Talk:Foobar'));
     });
 
-    it('204 should be returned for a redirected page', () => {
-        should204(localUri('Barack'));
+    it('Empty extracts should be returned for a redirected page', () => {
+        shouldReturnEmptyExtracts(localUri('Barack'));
     });
 
     it('timestamp should refer to the requested revision, not the latest revision', () => {
@@ -106,6 +132,16 @@ describe('summary', function() {
             assert.deepEqual(res.status, 200);
             assert.deepEqual(res.body.type, 'standard');
             assert.deepEqual(res.body.timestamp, '2017-12-01T07:29:24Z');
+            assertHasAllRequiredProperties(res.body);
         });
     });
+
+    it('404 For a page that doesn\'t exist', () => {
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/summary/ashsahahash`;
+        return preq.get({ uri })
+            .catch((res) => {
+                assert.ok(res.status === 404, 'Pages that do not exist 404');
+            });
+    });
+
 });
