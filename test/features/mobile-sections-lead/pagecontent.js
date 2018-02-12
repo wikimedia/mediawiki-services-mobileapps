@@ -139,6 +139,14 @@ describe('mobile-sections-lead', function() {
                 assert.ok(!{}.hasOwnProperty.call(lead, 'geo'));
             });
     });
+    it('Mare Tranquillitatis (lunar sea) should not have a geo property', () => {
+        const uri = `${server.config.uri}es.wikipedia.org/v1/page/mobile-sections-lead/Mare Tranquillitatis`; // eslint-disable-line max-len
+        return preq.get({ uri })
+            .then((res) => {
+                const lead = res.body;
+                assert.ok(!{}.hasOwnProperty.call(lead, 'geo'));
+            });
+    });
     it('Barack Obama should have a pronunciation', () => {
         const title = 'Barack_Obama';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
