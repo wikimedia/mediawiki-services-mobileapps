@@ -12,13 +12,13 @@ describe('lib:transforms', () => {
         assert.selectorExistsNTimes(doc, 'body span', 0);
     });
 
-    it('rmElementsWithSelectors should remove the spans with display:none', () => {
+    it('rmElementsWithSelector should remove the spans with display:none', () => {
         const doc = domino.createDocument('<body><span style="display:none">foo</span></body>');
         assert.selectorExistsNTimes(doc, 'body span', 1);
-        transforms._rmElementsWithSelectors(doc, [
+        transforms.rmElementsWithSelector(doc, [
             'span[style="display:none"]', // Remove <span style=\"display:none;\">&nbsp;</span>
             'span[style*=none]'             // Remove <span style=\"display:none;\">&nbsp;</span>
-        ]);
+        ].join());
         assert.selectorExistsNTimes(doc, 'body span', 0);
     });
 });
