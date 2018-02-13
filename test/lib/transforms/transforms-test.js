@@ -4,7 +4,7 @@ const assert = require('../../utils/assert.js');
 const domino = require('domino');
 const transforms = require('../../../lib/transforms');
 
-describe('lib:size-transforms', () => {
+describe('lib:transforms', () => {
     const buildHtml = (title) => {
         return domino.createDocument('<body>'
             + '<sup class="mw-ref">'
