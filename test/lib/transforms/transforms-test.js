@@ -82,4 +82,13 @@ describe('lib:size-transforms', () => {
         const title = 'Seven_Years\'_War';
         testShortenPageInternalLinks(buildHtml3('./Seven_Years\'_War'), title, './Seven_Years');
     });
+
+    describe('stripUnneededSummaryMarkup', () => {
+        it('remove spans with style display:none', () => {
+            const doc = domino.createDocument(
+                '<p><span class="geo noexcerpt" style="display:none">FOO</span></p>');
+            transforms.stripUnneededSummaryMarkup(doc);
+            assert.deepEqual(doc.body.innerHTML, '<p></p>');
+        });
+    });
 });
