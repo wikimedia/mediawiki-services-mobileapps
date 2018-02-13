@@ -126,13 +126,23 @@ describe('mobile-sections-v2', function() {
             });
     });
 
-    it('lead intro should come from first real content paragraph', () => {
+    it('intro should come from first content paragraph (not dewiki hatnote)', () => {
         const uri = localUri('Berliner_Mauer/173761365', 'de.wikipedia.org');
         return preq.get({ uri })
             .then((res) => {
                 const intro = res.body.lead.intro;
                 assert.deepEqual(res.status, 200);
                 assert.contains(intro, '<b>Berliner Mauer</b>');
+            });
+    });
+
+    it('intro should come from first content paragraph (even if transcluded)', () => {
+        const uri = localUri('Ariana_Grande/93426554', 'it.wikipedia.org');
+        return preq.get({ uri })
+            .then((res) => {
+                const intro = res.body.lead.intro;
+                assert.deepEqual(res.status, 200);
+                assert.contains(intro, '<b>Ariana Grande-Butera</b>');
             });
     });
 });

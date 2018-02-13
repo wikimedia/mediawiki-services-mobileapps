@@ -43,6 +43,13 @@ describe('extractLeadIntroduction', () => {
                 '<p about="#mwt1">Here is some unwanted transcluded content, perhaps an ' +
                   'artifact of a dewiki hatnote.</p><p>Here is the first content paragraph.</p>',
                 '<p>Here is the first content paragraph.</p>'
+            ],
+            // Initial paragraphs from transclusions are accepted if they contain <b> element.
+            [
+                '<p about="#mwt1">Here is a <b>good first paragraph</b> that happens to be' +
+                  'transcluded.</p><p>Second paragraph, we don\'t want this!</p>',
+                '<p about="#mwt1">Here is a <b>good first paragraph</b> that happens to be' +
+                  'transcluded.</p>'
             ]
         ];
 
