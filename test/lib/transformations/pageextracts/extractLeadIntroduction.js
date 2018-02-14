@@ -54,7 +54,7 @@ describe('extractLeadIntroduction', () => {
         ];
 
         testCases.forEach((test) => {
-            const doc = domino.createDocument(`<html><body>${test[0]}</body></html>`);
+            const doc = domino.createDocument(test[0]);
             const lead = extractLeadIntroduction(doc);
             assert.equal(lead, test[1]);
         });
