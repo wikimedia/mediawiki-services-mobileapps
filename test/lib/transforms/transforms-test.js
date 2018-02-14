@@ -84,7 +84,22 @@ describe('lib:size-transforms', () => {
     });
 
     describe('stripUnneededSummaryMarkup', () => {
-        it('remove spans with style display:none', () => {
+        it('removes IPA speaker symbols', () => {
+            const doc = domino.createDocument(
+                '<figure-inline typeof="mw:Transclusion mw:Image" ' +
+                'data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{' +
+                '&quot;target&quot;:{&quot;wt&quot;:&quot;IPA&quot;,' +
+                '&quot;href&quot;:&quot;./Vorlage:IPA&quot;},' +
+                '&quot;params&quot;:{&quot;1&quot;:' +
+                '{&quot;wt&quot;:&quot;ˈniːdɐzaksn̩&quot;},' +
+                '&quot;Tondatei&quot;:{&quot;wt&quot;:&quot;De-Niedersachsen.ogg&quot;}},' +
+                '&quot;i&quot;:0}}]}">' +
+                '<a href="//upload.wikimedia.org/wikipedia/commons/f/ff/De-Niedersachsen.ogg">' +
+                '<img src="Loudspeaker.svg/12px-Loudspeaker.svg.png"></a></figure-inline>');
+            transforms.stripUnneededSummaryMarkup(doc);
+            assert.deepEqual(doc.body.innerHTML, '');
+        });
+        it('removes spans with style display:none', () => {
             const doc = domino.createDocument(
                 '<p><span class="geo noexcerpt" style="display:none">FOO</span></p>');
             transforms.stripUnneededSummaryMarkup(doc);
