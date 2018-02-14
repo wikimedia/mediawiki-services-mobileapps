@@ -28,9 +28,11 @@ const path = require('path');
 
 const DELAY = 10; // delay between requests in ms
 const NEW_PORT = 6927;
+const NEW_VERSION_INFO = ``;
 // Set OLD_PORT to a valid port number to go against a second local MCS instance.
 // Set OLD_PORT to 0 to go against production.
 const OLD_PORT = 0;
+const OLD_VERSION_INFO = ``;
 const topPagesDir = path.join(__dirname, '../private/top-pages');
 const outDir = path.join(__dirname, '../private/extracts');
 
@@ -40,8 +42,54 @@ const html = { name: 'html' };
 const plain = { name: 'plain' };
 const other = { name: 'other' };
 
-const uriForWikiLink = (title, revTid, lang) => {
-    return `https://${lang}.m.wikipedia.org/wiki/${title}?oldid=${revTid.split('/')[0]}`;
+function getLanguageLinks() {
+    return [
+        'ar',
+        'bg',
+        'bn',
+        'ca',
+        'cs',
+        'da',
+        'de',
+        'el',
+        'en',
+        'es',
+        'fa',
+        'fi',
+        'fr',
+        'he',
+        'hi',
+        'hr',
+        'hu',
+        'id',
+        'it',
+        'ja',
+        'ko',
+        'ms',
+        'nl',
+        'no',
+        'pl',
+        'pt',
+        'ro',
+        'ru',
+        'sk',
+        'sl',
+        'sr',
+        'sv',
+        'th',
+        'tr',
+        'uk',
+        'vi',
+        'zh'
+    ].map(lang => `<a href="./${lang}.html">${lang}</a>`).join(' ');
+}
+
+const uriForWikiLink = (title, lang, revTid) => {
+    return `https://${lang}.wikipedia.org/wiki/${title}?oldid=${revTid.split('/')[0]}`;
+};
+
+const uriForParsoidLink = (title, lang, revTid) => {
+    return `https://${lang}.wikipedia.org/api/rest_v1/page/html/${title}/${revTid}`;
 };
 
 const uriForProdSummary = (title, lang) => {
@@ -53,7 +101,8 @@ const uriForLocalSummary = (title, lang, revTid, port = NEW_PORT) => {
     return `http://localhost:${port}/${lang}.wikipedia.org/v1/page/summary/${encodeURIComponent(title)}${suffix}`;
 };
 
-const outputStart = (file) => {
+const outputStart = (type) => {
+    const file = type.overviewFile;
     /* eslint-disable max-len */
     file.write(`<html>\n`);
     file.write(`<head>\n`);
@@ -63,13 +112,19 @@ const outputStart = (file) => {
     file.write(`<body>\n`);
     file.write(`<script type="text/javascript" src="../static/compare-table.js" charset="utf-8"></script>\n`);
     file.write(`<h2>Extract comparison for top pages in ${lang}.wikipedia.org</h2>\n`);
-    file.write(`<a href="../html/${lang}.html">extract_html</a> |\n`);
-    file.write(`<a href="../plain/${lang}.html">extract</a> |\n`);
-    file.write(`<a href="../other/${lang}.html">other properties</a> |\n`);
+    file.write(`<nav>\n`);
+    file.write(`${getLanguageLinks()}\n`);
+    file.write(`<br/>\n`);
+    file.write(`<a href="../html/${lang}.html">html</a> |\n`);
+    file.write(`<a href="../plain/${lang}.html">plain</a> |\n`);
+    file.write(`<a href="../other/${lang}.html">other</a> |\n`);
     file.write(`<form>\n`);
     file.write(`<input type="checkbox" id="showSameCB" onchange="toggleShow();">\n`);
     file.write(`<label for="showSameCB">Show same</label>\n`);
     file.write(`</form>\n`);
+    file.write(`</nav>\n`);
+    file.write(`<p>old version on port ${OLD_PORT}: ${OLD_VERSION_INFO}<br/>\n`);
+    file.write(`new version on port ${NEW_PORT}: ${NEW_VERSION_INFO}</p>\n`);
     file.write(`<table>\n`);
     file.write(`<tr>\n`);
     file.write(`<th class="titleColumn">Title</th>\n`);
@@ -79,7 +134,8 @@ const outputStart = (file) => {
     /* eslint-enable max-len */
 };
 
-const outputEnd = (file) => {
+const outputEnd = (type) => {
+    const file = type.overviewFile;
     file.write(`</table>\n`);
     file.write(`</body>\n`);
     file.write(`</html>\n`);
@@ -99,12 +155,14 @@ const compareExtractsHTML = (file, oldExtractValue, newExtractValue,
     counter, title, revTid, lang) => {
 
     const displayTitle = title.replace(/_/g, ' ');
-    const wikiLink = uriForWikiLink(title, revTid, lang);
     const same = (oldExtractValue === newExtractValue) ? ' class="same"' : '';
     const positionLink = `<a id="${counter}" href="#${counter}">${counter}</a>`;
     file.write(`<tr${same}><td class="titleColumn">${positionLink}\n`);
-    file.write(`<a href="${wikiLink}">${displayTitle}</a>\n`);
-    file.write(`[<a href="${uriForLocalSummary(title, lang, revTid)}">summary</a>]\n`);
+    file.write(`<a href="${uriForWikiLink(title, lang, revTid)}">${displayTitle}</a>\n`);
+    file.write(`[<a href="${uriForParsoidLink(title, lang, revTid)}">parsoid</a>]\n`);
+    file.write(`<br/>[summary:\n`);
+    file.write(`<a href="${uriForProdSummary(title, lang, revTid)}">prod</a>\n`);
+    file.write(`<a href="${uriForLocalSummary(title, lang, revTid)}">local</a>]\n`);
     file.write(`</td>\n`);
     file.write(`<td class="valueColumn" dir="auto">${oldExtractValue}</td>\n`);
     file.write(`<td class="valueColumn" dir="auto">${newExtractValue}</td>\n`);
@@ -192,16 +250,16 @@ const fetchAndVerify = (title, revTid, counter, lang) => {
 
 const processOneLanguage = (lang) => {
     let counter = 0;
-    outputStart(html.overviewFile);
-    outputStart(plain.overviewFile);
-    outputStart(other.overviewFile);
+    outputStart(html);
+    outputStart(plain);
+    outputStart(other);
     BBPromise.each(topPages, (page) => {
         return fetchAndVerify(page.title, page.rev, ++counter, lang);
     })
     .then(() => {
-        outputEnd(html.overviewFile);
-        outputEnd(plain.overviewFile);
-        outputEnd(other.overviewFile);
+        outputEnd(html);
+        outputEnd(plain);
+        outputEnd(other);
         outputEndTxtFiles();
     });
 };
