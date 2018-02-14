@@ -161,10 +161,9 @@ describe('lib:parsoid-sections (section elements)', function() {
         validatePreviousSection(logger, allSectionsWarn);
         assert.ok(logger.log.calledOnce);
         assert.deepEqual(logger.log.args,
-            [[ 'warn', {
-                warning: 'invalid_section',
-                title: 'Found section without expected heading',
-                detail: 'Cannot find heading for section number 1.'
+            [[ 'warn/sectioning', {
+                "msg": "Cannot find heading for section",
+                "section_number": 1
             }]]);
     });
 
