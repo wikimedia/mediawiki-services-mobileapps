@@ -1360,6 +1360,11 @@ definitions:
         description: categories the page belongs to
         items:
           $ref: '#/definitions/category'
+      coordinates:
+        type: array
+        description: coordinates for one or more locations in the article
+        items:
+          $ref: '#/definitions/coordinate_set'
     required: [ revision, tid ]
     additionalProperties: false
 
@@ -1388,6 +1393,22 @@ definitions:
         description: the numeric namespace id for the category page
     required: [ title, hidden, ns ]
     additionalProperties: false
+
+  coordinate_set:
+    type: object
+    properties:
+      lat:
+        type: number
+        description: latitude
+      lon:
+        type: number
+        description: longitude
+      primary:
+        type: boolean
+        description: whether this is the primary set of coordinates for the article
+      globe:
+        type: string
+        description: the globe to which the coordinates refer ('earth', 'moon', etc.)
 
   media_list:
     type: object
