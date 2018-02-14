@@ -10,6 +10,11 @@ describe('summarize', () => {
         const testCases = [
             // Exclude audio, video, and track tags.
             [
+                '<b>Niedersachsen</b> <span>&nbsp;</span>   ist ein Land',
+                '<b>Niedersachsen</b> ist ein Land'
+            ],
+            // Exclude audio, video, and track tags.
+            [
                 '<p><audio></audio><video><track kind="subtitles"></video></p>',
                 '<p></p>'
             ],
@@ -202,12 +207,12 @@ describe('summarize', () => {
             // Full stops do not impact the summary length (T173640)
             [
                 '<p><a href="./Armádní_generál" title="Armádní generál">Arm. gen.</a> <a href="./Inženýr" title="Inženýr">Ing.</a> <b>Petr Pavel</b>, <span class="new">M.A.</span>, (*<span>&nbsp;</span><a href="./1._listopad" title="1. listopad">1.<span>&nbsp;</span>listopadu</a> <a href="./1961" title="1961">1961</a> <a href="./Planá" title="Planá">Planá</a>) je <a href="./Česko" title="Česko">český</a> <a href="./Voják" title="Voják">voják</a>, <a href="./Generál" title="Generál">generál</a> <a href="./Armáda_České_republiky" title="Armáda České republiky">Armády České republiky</a> a<span> </span>od června 2015 <a href="./Předseda_vojenského_výboru_NATO" title="Předseda vojenského výboru NATO">předseda vojenského výboru NATO</a>. Jako první zástupce zemí bývalé <a href="./Varšavská_smlouva" title="Varšavská smlouva">Varšavské smlouvy</a> tak nastoupil do nejvyšší vojenské funkce <a href="./Severoatlantická_aliance" title="Severoatlantická aliance">Severoatlantické aliance</a>.<sup class="mw-ref" id="cite_ref-nastup_NATO_1-0"><a href="./Petr_Pavel#cite_note-nastup_NATO-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup><sup class="mw-ref" id="cite_ref-ihned_2-0"><a href="./Petr_Pavel#cite_note-ihned-2" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text">[2]</span></a></sup></p>',
-                '<p>Arm. gen. Ing. <b>Petr Pavel</b>, <span class="new">M.A.</span>, je český voják, generál Armády České republiky a<span> </span>od června 2015 předseda vojenského výboru NATO. Jako první zástupce zemí bývalé Varšavské smlouvy tak nastoupil do nejvyšší vojenské funkce Severoatlantické aliance.</p>'
+                '<p>Arm. gen. Ing. <b>Petr Pavel</b>, <span class="new">M.A.</span>, je český voják, generál Armády České republiky a od června 2015 předseda vojenského výboru NATO. Jako první zástupce zemí bývalé Varšavské smlouvy tak nastoupil do nejvyšší vojenské funkce Severoatlantické aliance.</p>'
             ],
             // Bold tags are retained
             [
                 '<p><b>Vladimír Dlouhý</b> (*<span>&nbsp;</span><a href="./31._červenec" title="31. červenec">31. července</a> <a href="./1953" title="1953">1953</a> <a href="./Praha" title="Praha">Praha</a>) je <a href="./Češi" title="Češi">český</a> <a href="./Ekonom" title="Ekonom">ekonom</a> a <a href="./Politik" title="Politik">politik</a>, bývalý místopředseda strany <a href="./Občanská_demokratická_aliance" title="Občanská demokratická aliance">ODA</a> a ministr průmyslu a obchodu v letech <a href="./1992" title="1992">1992</a>–<a href="./1997" title="1997">1997</a> ve <a href="./První_vláda_Václava_Klause" title="První vláda Václava Klause">vládě Václava Klause</a>. V<span>&nbsp;</span>letech <a href="./1989" title="1989">1989</a>–<a href="./1992" title="1992">1992</a> byl ministrem hospodářství <a href="./Česká_a_Slovenská_Federativní_Republika" title="Česká a Slovenská Federativní Republika">ČSFR</a>. Nyní působí v&nbsp;soukromé sféře a věnuje se poradenské a pedagogické činnosti, v <a href="./Květen" title="Květen">květnu</a> <a href="./2014" title="2014">2014</a> byl zvolen prezidentem <a href="./Hospodářská_komora_České_republiky" title="Hospodářská komora České republiky">Hospodářské komory ČR</a>.</p>',
-                '<p><b>Vladimír Dlouhý</b> je český ekonom a politik, bývalý místopředseda strany ODA a ministr průmyslu a obchodu v letech 1992–1997 ve vládě Václava Klause. V<span> </span>letech 1989–1992 byl ministrem hospodářství ČSFR. Nyní působí v soukromé sféře a věnuje se poradenské a pedagogické činnosti, v květnu 2014 byl zvolen prezidentem Hospodářské komory ČR.</p>'
+                '<p><b>Vladimír Dlouhý</b> je český ekonom a politik, bývalý místopředseda strany ODA a ministr průmyslu a obchodu v letech 1992–1997 ve vládě Václava Klause. V letech 1989–1992 byl ministrem hospodářství ČSFR. Nyní působí v soukromé sféře a věnuje se poradenské a pedagogické činnosti, v květnu 2014 byl zvolen prezidentem Hospodářské komory ČR.</p>'
             ]
         ];
         testCases.forEach((test) => {
