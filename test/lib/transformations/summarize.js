@@ -8,7 +8,12 @@ const summarize = require('./../../../lib/transformations/summarize');
 describe('summarize', () => {
     it('matches the spec', () => {
         const testCases = [
-            // Exclude audio, video, and track tags.
+            // Don't remove spaces before closing spans. it.wikipedia.org/api/rest_v1/page/html/Mino_Raiola/93869330
+            [
+                '<b>Mino Raiola</b><span>, all\'anagrafe </span><b>Carmine Raiola</b>',
+                '<b>Mino Raiola</b><span>, all\'anagrafe </span><b>Carmine Raiola</b>'
+            ],
+            // Flatten span with &nbsp;. Remove extra spaces around it, too.
             [
                 '<b>Niedersachsen</b> <span>&nbsp;</span>   ist ein Land',
                 '<b>Niedersachsen</b> ist ein Land'
