@@ -1,10 +1,8 @@
 'use strict';
 
-const fs = require('fs');
 const domino = require('domino');
 const assert = require('../../utils/assert.js');
 const a = require('../../../lib/transforms').legacy.anchorPopUpMediaTransforms;
-const html = fs.readFileSync(`${__dirname}/../bill-clinton.html`, 'utf-8');
 
 describe('lib:app-transforms', () => {
     it('fixVideoAnchor should skip video tags just holding audio', () => {
@@ -34,12 +32,5 @@ describe('lib:app-transforms', () => {
         a.fixVideoAnchor(doc);
         const videoThumbImgElements = doc.querySelectorAll('a.app_media');
         assert.equal(videoThumbImgElements.length, 1, 'Should have marked the video file');
-    });
-
-    it('fixVideoAnchor should apply app_media class to video anchors', () => {
-        const doc = domino.createDocument(html);
-        a.fixVideoAnchor(doc);
-        const videoThumbImgElements = doc.querySelectorAll('a.app_media');
-        assert.equal(videoThumbImgElements.length, 3, 'Failed to find app_media classes');
     });
 });
