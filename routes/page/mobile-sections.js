@@ -73,8 +73,6 @@ function buildLead(input, legacy) {
         // TODO: should we also exclude file and other special pages?
         transforms.legacy.relocateFirstParagraph(lead);
     }
-    const hatnotes = transforms.extractHatnotes(lead, !legacy, true);
-    const issues = transforms.extractPageIssues(lead, !legacy);
 
     let infobox;
     let intro;
@@ -113,7 +111,6 @@ function buildLead(input, legacy) {
         userinfo: input.meta.userinfo,
         imageinfo: input.meta.imageinfo,
         id: input.meta.id,
-        issues,
         revision: input.page.revision,
         lastmodified: input.meta.lastmodified,
         lastmodifier: input.meta.lastmodifier,
@@ -132,7 +129,8 @@ function buildLead(input, legacy) {
         })),
         pronunciation: input.page.pronunciation,
         spoken: input.page.spoken,
-        hatnotes,
+        hatnotes: input.page.hatnotes,
+        issues: input.page.issues,
         infobox,
         intro,
         geo: input.meta.geo,

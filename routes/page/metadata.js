@@ -1,6 +1,5 @@
 'use strict';
 
-const BBPromise = require('bluebird');
 const sUtil = require('../../lib/util');
 const mUtil = require('../../lib/mobile-util');
 const parsoid = require('../../lib/parsoid-access');
@@ -21,15 +20,12 @@ let app;
  * Gets extended metadata for a given wiki page.
  */
 router.get('/metadata/:title/:revision?/:tid?', (req, res) => {
-    return BBPromise.props({
-        html: parsoid.getParsoidHtml(app, req),
-        lead: parsoid.getMobileSectionsLead(app, req)
-    }).then((response) => {
+    return parsoid.getParsoidHtml(app, req).then((response) => {
         res.status(200);
-        const revTid = parsoid.getRevAndTidFromEtag(response.html.headers);
+        const revTid = parsoid.getRevAndTidFromEtag(response.headers);
         mUtil.setETag(res, revTid.revision, revTid.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
-        res.json(lib.buildMetadata(response.html, response.lead));
+        res.json(lib.buildMetadata(response));
     });
 });
 

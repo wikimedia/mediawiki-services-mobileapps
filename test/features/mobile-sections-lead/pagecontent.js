@@ -222,13 +222,10 @@ describe('mobile-sections-lead', function() {
     it('Enwiki hatnotes are promoted to the lead object', () => {
         const title = `Order_of_chivalry`;
         const uri = `${server.config.uri}${wikiSectionsLead}${title}/699553745`;
-        const anchor = `<a href="/wiki/Military_order_(society)" title="Military order (society)">`;
         return preq.get({ uri })
             .then((res) => {
                 assert.equal(res.status, 200);
-                assert.ok(res.body.hatnotes[0],
-                    `See also: ${anchor}Military order (society)</a>`,
-                    'hatnote property present on lead.');
+                assert.ok(res.body.hatnotes[0], 'hatnote property present on lead.');
                 assert.ok(res.body.sections[0].text.indexOf('See also:') > -1,
                     'Hatnote is repeated in text for backwards compatibility.');
             });
