@@ -22,11 +22,12 @@ let app;
  */
 router.get('/metadata/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
-        html: parsoid.pageHtmlPromise(app, req),
+        html: parsoid.getParsoidHtml(app, req),
         lead: parsoid.getMobileSectionsLead(app, req)
     }).then((response) => {
         res.status(200);
-        mUtil.setETag(res, response.html.meta.revision, response.html.meta.tid);
+        const revTid = parsoid.getRevAndTidFromEtag(response.html.headers);
+        mUtil.setETag(res, revTid.revision, revTid.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
         res.json(lib.buildMetadata(response.html, response.lead));
     });
