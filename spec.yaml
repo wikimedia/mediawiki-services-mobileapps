@@ -633,6 +633,10 @@ paths:
               hatnotes:
                 - html: /.+/
                   text: /.+/
+              categories:
+                - title: /.+/
+                  hidden: /.+/
+                  ns: /.+/
 
   # from routes/page/definition.js
   /{domain}/v1/page/definition/{title}{/revision}{/tid}:
@@ -1348,6 +1352,11 @@ definitions:
         description: the page issues on the page, with html and plaintext representations provided for each
         items:
           $ref: '#/definitions/html_and_text_strings'
+      categories:
+        type: array
+        description: categories the page belongs to
+        items:
+          $ref: '#/definitions/category'
     required: [ revision, tid ]
     additionalProperties: false
 
@@ -1360,6 +1369,21 @@ definitions:
       text:
         type: string
         description: plain text respresentation of the html snippet
+    additionalProperties: false
+
+  category:
+    type: object
+    properties:
+      title:
+        type: string
+        description: normalized title of the category page
+      hidden:
+        type: boolean
+        description: whether the category is hidden or not
+      ns:
+        type: integer
+        description: the numeric namespace id for the category page
+    required: [ title, hidden, ns ]
     additionalProperties: false
 
   media_list:
