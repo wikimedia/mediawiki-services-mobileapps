@@ -1,11 +1,11 @@
 'use strict';
 
-const onThisDay = require('../../../lib/feed/on-this-day.js');
-const assert = require('../../utils/assert.js');
 const domino = require('domino');
 const fs = require('fs');
 const path = require('path');
+const assert = require('../../utils/assert.js');
 const rbTemplate = require('../../utils/testUtil').rbTemplate;
+const onThisDay = require('../../../lib/feed/on-this-day.js');
 const onThisDayLangs = require('../../../lib/feed/on-this-day.languages.js');
 const languages = onThisDayLangs.languages;
 
@@ -52,7 +52,7 @@ const REQUEST_FOR_EN_1_1 = {
 
 // MOCK ANCHORS
 
-/*
+/**
  * Events on selected anniversary pages ( like
  * https://en.wikipedia.org/wiki/Wikipedia:Selected_anniversaries/January_30 ) often have certain
  * anchors bolded to signify they refer to the main "topic" of the event. We mock a document here
@@ -77,191 +77,188 @@ const NON_EVENT_LIST_ELEMENT = MOCK_EVENT_LIST_ELEMENTS[5];
 
 describe('onthisday-unit', () => {
 
-    // TEST PAGE TITLE GENERATION
-
-    it('titleForDayPageFromMonthDayNumberStrings handles 1 digit mm and 1 digit dd', () => {
-        assert.deepEqual(
-            onThisDay.titleForDayPageFromMonthDayNumberStrings('1', '1', 'en'),
-            'January_1'
-        );
-    });
-    it('titleForDayPageFromMonthDayNumberStrings handles 0 padded mm and 1 digit dd', () => {
-        assert.deepEqual(
-            onThisDay.titleForDayPageFromMonthDayNumberStrings('01', '1', 'en'),
-            'January_1'
-        );
-    });
-    it('titleForDayPageFromMonthDayNumberStrings handles 0 padded mm and 0 padded dd', () => {
-        assert.deepEqual(
-            onThisDay.titleForDayPageFromMonthDayNumberStrings('01', '01', 'en'),
-            'January_1'
-        );
-    });
-
-    // TEST DAY PAGE URI GENERATION
-
-    it('dayTitleForRequest returns expected title for 0 padded month and 2 digit day', () => {
-        assert.deepEqual(
-            onThisDay.dayTitleForRequest(REQUEST_FOR_EN_01_30),
-            'January_30'
-        );
-    });
-    it('dayTitleForRequest returns expected title for 2 digit month and 0 padded day', () => {
-        assert.deepEqual(
-            onThisDay.dayTitleForRequest(REQUEST_FOR_EN_12_01),
-            'December_1'
-        );
-    });
-    it('dayTitleForRequest returns expected title for 1 digit month and 1 digit day', () => {
-        assert.deepEqual(
-            onThisDay.dayTitleForRequest(REQUEST_FOR_EN_1_1),
-            'January_1'
-        );
-    });
-
-    // TEST SELECTED PAGE URI GENERATION
-
-    it('selectedTitleForRequest returns expected title for 0 padded month and 2 digit day', () => {
-        assert.deepEqual(
-            onThisDay.selectedTitleForRequest(REQUEST_FOR_EN_01_30),
-            'Wikipedia:Selected_anniversaries/January_30'
-        );
-    });
-    it('selectedTitleForRequest returns expected title for 2 digit month and 0 padded day', () => {
-        assert.deepEqual(
-            onThisDay.selectedTitleForRequest(REQUEST_FOR_EN_12_01),
-            'Wikipedia:Selected_anniversaries/December_1'
-        );
-    });
-    it('selectedTitleForRequest returns expected title for 1 digit month and 1 digit day', () => {
-        assert.deepEqual(
-            onThisDay.selectedTitleForRequest(REQUEST_FOR_EN_1_1),
-            'Wikipedia:Selected_anniversaries/January_1'
-        );
-    });
-
-    // TEST ANCHOR TO WMFPage TRANSFORMS
-
-    it('WMFPage model object is correctly created from a topic anchor', () => {
-        assert.deepEqual(onThisDay.wmfPageFromAnchorElement(TOPIC_ANCHOR), {
-            title: 'TOPIC_DBTITLE',
-            isTopic: true
+    describe('page title generation: titleForDayPageFromMonthDayNumberStrings', () => {
+        it('1 digit mm and 1 digit dd', () => {
+            assert.deepEqual(
+                onThisDay.titleForDayPageFromMonthDayNumberStrings('1', '1', 'en'),
+                'January_1'
+            );
+        });
+        it('0 padded mm and 1 digit dd', () => {
+            assert.deepEqual(
+                onThisDay.titleForDayPageFromMonthDayNumberStrings('01', '1', 'en'),
+                'January_1'
+            );
+        });
+        it('0 padded mm and 0 padded dd', () => {
+            assert.deepEqual(
+                onThisDay.titleForDayPageFromMonthDayNumberStrings('01', '01', 'en'),
+                'January_1'
+            );
         });
     });
 
-    it('WMFPage model object is correctly created from a non-topic anchor', () => {
-        assert.deepEqual(onThisDay.wmfPageFromAnchorElement(NON_TOPIC_ANCHOR), {
-            title: 'NON_TOPIC_DBTITLE'
+    describe('day page URI generation: dayTitleForRequest', () => {
+        it('returns expected title for 0 padded month and 2 digit day', () => {
+            assert.deepEqual(
+                onThisDay.dayTitleForRequest(REQUEST_FOR_EN_01_30),
+                'January_30'
+            );
+        });
+        it('returns expected title for 2 digit month and 0 padded day', () => {
+            assert.deepEqual(
+                onThisDay.dayTitleForRequest(REQUEST_FOR_EN_12_01),
+                'December_1'
+            );
+        });
+        it('returns expected title for 1 digit month and 1 digit day', () => {
+            assert.deepEqual(
+                onThisDay.dayTitleForRequest(REQUEST_FOR_EN_1_1),
+                'January_1'
+            );
         });
     });
 
-    // TEST LIST ELEMENT TO WMFEvent TRANSFORMS
-
-    it('WMFEvent model object is correctly created from a selected list element', () => {
-        assert.deepEqual(
-            onThisDay.wmfEventFromListElement(SEABISCUIT_SELECTED_LIST_ELEMENT, 'en'),
-            {
-                "text": "Canadian-American jockey George Woolf, who rode Seabiscuit to a famous " +
-                        "victory over War Admiral in 1938, was fatally injured when he fell from " +
-                        "his horse during a race.",
-                "pages": [
-                    {
-                        "title": "Jockey"
-                    },
-                    {
-                        "title": "George_Woolf",
-                        "isTopic": true
-                    },
-                    {
-                        "title": "Seabiscuit"
-                    },
-                    {
-                        "title": "War_Admiral"
-                    }
-                ],
-                "year": 1946
-            }
-        );
+    describe('selected page URI generation: selectedTitleForRequest', () => {
+        it('returns expected title for 0 padded month and 2 digit day', () => {
+            assert.deepEqual(
+                onThisDay.selectedTitleForRequest(REQUEST_FOR_EN_01_30),
+                'Wikipedia:Selected_anniversaries/January_30'
+            );
+        });
+        it('returns expected title for 2 digit month and 0 padded day', () => {
+            assert.deepEqual(
+                onThisDay.selectedTitleForRequest(REQUEST_FOR_EN_12_01),
+                'Wikipedia:Selected_anniversaries/December_1'
+            );
+        });
+        it('returns expected title for 1 digit month and 1 digit day', () => {
+            assert.deepEqual(
+                onThisDay.selectedTitleForRequest(REQUEST_FOR_EN_1_1),
+                'Wikipedia:Selected_anniversaries/January_1'
+            );
+        });
     });
 
-    it('WMFEvent model object is correctly created from a birth list element', () => {
-        assert.deepEqual(
-            onThisDay.wmfEventFromListElement(LIVIA_BIRTH_LIST_ELEMENT, 'en'),
-            {
-                "text": "Livia, Roman wife of Augustus (d. 29)",
-                "pages": [
-                    {
-                        "title": "Livia"
-                    },
-                    {
-                        "title": "Augustus"
-                    }
-                ],
-                "year": -58
-            }
-        );
+    describe('anchor to WMFPage transforms: wmfPageFromAnchorElement', () => {
+        it('WMFPage model object is correctly created from a topic anchor', () => {
+            assert.deepEqual(onThisDay.wmfPageFromAnchorElement(TOPIC_ANCHOR), {
+                title: 'TOPIC_DBTITLE',
+                isTopic: true
+            });
+        });
+        it('WMFPage model object is correctly created from a non-topic anchor', () => {
+            assert.deepEqual(onThisDay.wmfPageFromAnchorElement(NON_TOPIC_ANCHOR), {
+                title: 'NON_TOPIC_DBTITLE'
+            });
+        });
     });
 
-    it('WMFEvent model object is correctly created from an event list element', () => {
-        assert.deepEqual(
-            onThisDay.wmfEventFromListElement(TEMPLE_EVENT_LIST_ELEMENT, 'en'),
-            {
-                "text": "The Second Temple of Jerusalem finishes construction.",
-                "pages": [
-                    {
-                        "title": "Second_Temple"
-                    }
-                ],
-                "year": -516
-            }
-        );
+    describe('wmfEventFromListElement: WMFEvent model object is correctly created', () => {
+        it('from a selected list element', () => {
+            assert.deepEqual(
+                onThisDay.wmfEventFromListElement(SEABISCUIT_SELECTED_LIST_ELEMENT, 'en'),
+                {
+                    "text": "Canadian-American jockey George Woolf, who rode Seabiscuit to a " +
+                            "famous victory over War Admiral in 1938, was fatally injured when " +
+                            "he fell from his horse during a race.",
+                    "pages": [
+                        {
+                            "title": "Jockey"
+                        },
+                        {
+                            "title": "George_Woolf",
+                            "isTopic": true
+                        },
+                        {
+                            "title": "Seabiscuit"
+                        },
+                        {
+                            "title": "War_Admiral"
+                        }
+                    ],
+                    "year": 1946
+                }
+            );
+        });
+        it('from a birth list element', () => {
+            assert.deepEqual(
+                onThisDay.wmfEventFromListElement(LIVIA_BIRTH_LIST_ELEMENT, 'en'),
+                {
+                    "text": "Livia, Roman wife of Augustus (d. 29)",
+                    "pages": [
+                        {
+                            "title": "Livia"
+                        },
+                        {
+                            "title": "Augustus"
+                        }
+                    ],
+                    "year": -58
+                }
+            );
+        });
+        it('from an event list element', () => {
+            assert.deepEqual(
+                onThisDay.wmfEventFromListElement(TEMPLE_EVENT_LIST_ELEMENT, 'en'),
+                {
+                    "text": "The Second Temple of Jerusalem finishes construction.",
+                    "pages": [
+                        {
+                            "title": "Second_Temple"
+                        }
+                    ],
+                    "year": -516
+                }
+            );
+        });
+        it('from a death list element', () => {
+            assert.deepEqual(
+                onThisDay.wmfEventFromListElement(GANDHI_DEATH_LIST_ELEMENT, 'en'),
+                {
+                    "text": "Mahatma Gandhi, Indian lawyer, philosopher, and activist (b. 1869)",
+                    "pages": [
+                        {
+                            "title": "Mahatma_Gandhi"
+                        }
+                    ],
+                    "year": 1948
+                }
+            );
+        });
+        it('wmfEventFromListElement should return null for elements not describing events', () => {
+            assert.ok(onThisDay.wmfEventFromListElement(NON_EVENT_LIST_ELEMENT, 'en') === null);
+        });
     });
 
-    it('WMFEvent model object is correctly created from a death list element', () => {
-        assert.deepEqual(
-            onThisDay.wmfEventFromListElement(GANDHI_DEATH_LIST_ELEMENT, 'en'),
-            {
-                "text": "Mahatma Gandhi, Indian lawyer, philosopher, and activist (b. 1869)",
-                "pages": [
-                    {
-                        "title": "Mahatma_Gandhi"
-                    }
-                ],
-                "year": 1948
-            }
-        );
-    });
-
-    it('WMFHoliday model object is correctly created from a holiday list element', () => {
-        assert.deepEqual(
-            onThisDay.wmfHolidayFromListElement(MARTYRDOM_HOLIDAY_LIST_ELEMENT),
-            {
-                "text": "Martyrdom of Mahatma Gandhi-related observances:\n Martyrs' Day " +
-                        "(India)\n School Day of Non-violence and Peace (Spain)\n Start of " +
-                        "the Season for Nonviolence January 30-April 4",
-                "pages": [
-                    {
-                        "title": "Mahatma_Gandhi"
-                    },
-                    {
-                        "title": "Martyrs'_Day_(India)"
-                    },
-                    {
-                        "title": "School_Day_of_Non-violence_and_Peace"
-                    },
-                    {
-                        "title": "Spain"
-                    },
-                    {
-                        "title": "Season_for_Nonviolence"
-                    }
-                ]
-            }
-        );
-    });
-
-    it('wmfEventFromListElement should return null for elements not describing events', () => {
-        assert.ok(onThisDay.wmfEventFromListElement(NON_EVENT_LIST_ELEMENT, 'en') === null);
+    describe('wmfHolidayFromListElement: WMFHoliday model object is correctly created', () => {
+        it('WMFHoliday model object is correctly created from a holiday list element', () => {
+            assert.deepEqual(
+                onThisDay.wmfHolidayFromListElement(MARTYRDOM_HOLIDAY_LIST_ELEMENT),
+                {
+                    "text": "Martyrdom of Mahatma Gandhi-related observances:\n Martyrs' Day " +
+                            "(India)\n School Day of Non-violence and Peace (Spain)\n Start of " +
+                            "the Season for Nonviolence January 30-April 4",
+                    "pages": [
+                        {
+                            "title": "Mahatma_Gandhi"
+                        },
+                        {
+                            "title": "Martyrs'_Day_(India)"
+                        },
+                        {
+                            "title": "School_Day_of_Non-violence_and_Peace"
+                        },
+                        {
+                            "title": "Spain"
+                        },
+                        {
+                            "title": "Season_for_Nonviolence"
+                        }
+                    ]
+                }
+            );
+        });
     });
 
     it('eventsForYearListElements returns a WMFEvent for only year list elements', () => {
@@ -271,74 +268,68 @@ describe('onthisday-unit', () => {
         );
     });
 
-    it('Year list element regex rejects malformed BC strings', () => {
-        const regex = languages.en.yearListElementRegEx;
-        assert.ok('23 BC BC BC – Bla bla'.match(regex) === null);
-        assert.ok('23 BCBC – Bla bla'.match(regex) === null);
-        assert.ok('23 BCX – Bla bla'.match(regex) === null);
-    });
-
-    it('Year list element regex accepts well formed BC strings', () => {
-        const regex = languages.en.yearListElementRegEx;
-        assert.ok('23 BC – Bla bla'.match(regex) !== null);
-        assert.ok('23 bc – Bla bla'.match(regex) !== null);
-        assert.ok('23BC – Bla bla'.match(regex) !== null);
-    });
-
-    it('Year list element regex accepts well formed BCE strings', () => {
-        const regex = languages.en.yearListElementRegEx;
-        assert.ok('23 BCE – Bla bla'.match(regex) !== null);
-        assert.ok('23 bce – Bla bla'.match(regex) !== null);
-        assert.ok('23BCE – Bla bla'.match(regex) !== null);
-    });
-
-    it('Year list element regex accepts well formed CE strings', () => {
-        const regex = languages.en.yearListElementRegEx;
-        assert.ok('23 CE – Bla bla'.match(regex) !== null);
-        assert.ok('23 ce – Bla bla'.match(regex) !== null);
-        assert.ok('23CE – Bla bla'.match(regex) !== null);
-    });
-
-    it('Year list element regex accepts well formed year strings (no BCE/AD/CE)', () => {
-        const regex = languages.en.yearListElementRegEx;
-        assert.ok('1969 – Bla bla'.match(regex) !== null);
-        assert.ok('23 – Bla bla'.match(regex) !== null);
-    });
-
-    it('Year list element regex accepts well formed AD strings', () => {
-        const regex = languages.en.yearListElementRegEx;
-        assert.ok('4 AD – Bla bla'.match(regex) !== null);
-        assert.ok('1 AD – Bla bla'.match(regex) !== null);
-        assert.ok('AD 1 – Bla bla'.match(regex) !== null);
-    });
-
-    it('Year list element regex extracts expected BC/BCE strings', () => {
-        const regex = languages.en.yearListElementRegEx;
-        assert.ok('4 CE – Bla bla'.match(regex)[2] === undefined);
-        assert.ok('4CE – Bla bla'.match(regex)[2] === undefined);
-        assert.ok('4 AD – Bla bla'.match(regex)[2] === undefined);
-        assert.deepEqual('1 BC – Bla bla'.match(regex)[2], 'BC');
-        assert.deepEqual('1BC – Bla bla'.match(regex)[2], 'BC');
-        assert.deepEqual('1bce – Bla bla'.match(regex)[2], 'bce');
-        assert.deepEqual('1 bce – Bla bla'.match(regex)[2], 'bce');
-        assert.ok('AD 1 – Bla bla'.match(regex)[2] === undefined);
-    });
-
-    it('AD strings should not be negated', () => {
-        const regex = languages.en.yearListElementRegEx;
-        assert.ok('4 AD – Bla bla'.match(regex)[2] === undefined, 'should not capture 2nd group');
-    });
-
-    it('Year list element regex rejects non year list strings', () => {
-        const regex = languages.en.yearListElementRegEx;
-        assert.ok('Bla bla'.match(regex) === null);
-        assert.ok('XX – Bla bla'.match(regex) === null);
-    });
-
-    it('Year list element regex rejects strings missing text', () => {
-        const regex = languages.en.yearListElementRegEx;
-        assert.ok('23 BC – '.match(regex) === null);
-        assert.ok('1969 –'.match(regex) === null);
+    describe('yearListElementRegEx', () => {
+        it('rejects malformed BC strings', () => {
+            const regex = languages.en.yearListElementRegEx;
+            assert.ok('23 BC BC BC – Bla bla'.match(regex) === null);
+            assert.ok('23 BCBC – Bla bla'.match(regex) === null);
+            assert.ok('23 BCX – Bla bla'.match(regex) === null);
+        });
+        it('accepts well formed BC strings', () => {
+            const regex = languages.en.yearListElementRegEx;
+            assert.ok('23 BC – Bla bla'.match(regex) !== null);
+            assert.ok('23 bc – Bla bla'.match(regex) !== null);
+            assert.ok('23BC – Bla bla'.match(regex) !== null);
+        });
+        it('accepts well formed BCE strings', () => {
+            const regex = languages.en.yearListElementRegEx;
+            assert.ok('23 BCE – Bla bla'.match(regex) !== null);
+            assert.ok('23 bce – Bla bla'.match(regex) !== null);
+            assert.ok('23BCE – Bla bla'.match(regex) !== null);
+        });
+        it('accepts well formed CE strings', () => {
+            const regex = languages.en.yearListElementRegEx;
+            assert.ok('23 CE – Bla bla'.match(regex) !== null);
+            assert.ok('23 ce – Bla bla'.match(regex) !== null);
+            assert.ok('23CE – Bla bla'.match(regex) !== null);
+        });
+        it('accepts well formed year strings (no BCE/AD/CE)', () => {
+            const regex = languages.en.yearListElementRegEx;
+            assert.ok('1969 – Bla bla'.match(regex) !== null);
+            assert.ok('23 – Bla bla'.match(regex) !== null);
+        });
+        it('accepts well formed AD strings', () => {
+            const regex = languages.en.yearListElementRegEx;
+            assert.ok('4 AD – Bla bla'.match(regex) !== null);
+            assert.ok('1 AD – Bla bla'.match(regex) !== null);
+            assert.ok('AD 1 – Bla bla'.match(regex) !== null);
+        });
+        it('extracts expected BC/BCE strings', () => {
+            const regex = languages.en.yearListElementRegEx;
+            assert.ok('4 CE – Bla bla'.match(regex)[2] === undefined);
+            assert.ok('4CE – Bla bla'.match(regex)[2] === undefined);
+            assert.ok('4 AD – Bla bla'.match(regex)[2] === undefined);
+            assert.deepEqual('1 BC – Bla bla'.match(regex)[2], 'BC');
+            assert.deepEqual('1BC – Bla bla'.match(regex)[2], 'BC');
+            assert.deepEqual('1bce – Bla bla'.match(regex)[2], 'bce');
+            assert.deepEqual('1 bce – Bla bla'.match(regex)[2], 'bce');
+            assert.ok('AD 1 – Bla bla'.match(regex)[2] === undefined);
+        });
+        it('AD strings should not be negated', () => {
+            const regex = languages.en.yearListElementRegEx;
+            assert.ok('4 AD – Bla bla'.match(regex)[2] === undefined,
+                'should not capture 2nd group');
+        });
+        it('rejects non year list strings', () => {
+            const regex = languages.en.yearListElementRegEx;
+            assert.ok('Bla bla'.match(regex) === null);
+            assert.ok('XX – Bla bla'.match(regex) === null);
+        });
+        it('rejects strings missing text', () => {
+            const regex = languages.en.yearListElementRegEx;
+            assert.ok('23 BC – '.match(regex) === null);
+            assert.ok('1969 –'.match(regex) === null);
+        });
     });
 
     it('Sort year list events in correct BC[E] aware manner', () => {
@@ -383,26 +374,26 @@ describe('onthisday-unit', () => {
         assert.deepEqual(events[4].pages.length, 5);
     });
 
-    it('listElementsByHeadingID extracts expected number of births from DE fixture', () => {
-        // https://de.wikipedia.org/api/rest_v1/page/html/1._Dezember
-        const document = documentFromFixtureFile('de.1._Dezember.html');
-        const listElements = onThisDay.listElementsByHeadingID(document, ['Geboren'], 'de');
-        assert.deepEqual(listElements.length, 188);
-    });
-
-    it('listElementsByHeadingID extracts expected number of births from EN fixture', () => {
-        // https://en.wikipedia.org/api/rest_v1/page/html/December_1
-        const document = documentFromFixtureFile('en.December_1.html');
-        const listElements = onThisDay.listElementsByHeadingID(document, ['Births'], 'en');
-        assert.deepEqual(listElements.length, 203);
-    });
-
-    it('listElementsByHeadingID extracts expected number of births from AR fixture', () => {
-        // https://ar.wikipedia.org/api/rest_v1/page/html/1_يناير
-        const document = documentFromFixtureFile('ar.January_1.html');
-        const listElements = onThisDay
-          .listElementsByHeadingID(document, ['.D9.85.D9.88.D8.A7.D9.84.D9.8A.D8.AF'], 'ar');
-        assert.deepEqual(listElements.length, 69);
+    describe('listElementsByHeadingID extracts expected number of births from', () => {
+        it('DE fixture', () => {
+            // https://de.wikipedia.org/api/rest_v1/page/html/1._Dezember
+            const document = documentFromFixtureFile('de.1._Dezember.html');
+            const listElements = onThisDay.listElementsByHeadingID(document, ['Geboren'], 'de');
+            assert.deepEqual(listElements.length, 188);
+        });
+        it('EN fixture', () => {
+            // https://en.wikipedia.org/api/rest_v1/page/html/December_1
+            const document = documentFromFixtureFile('en.December_1.html');
+            const listElements = onThisDay.listElementsByHeadingID(document, ['Births'], 'en');
+            assert.deepEqual(listElements.length, 203);
+        });
+        it('AR fixture', () => {
+            // https://ar.wikipedia.org/api/rest_v1/page/html/1_يناير
+            const document = documentFromFixtureFile('ar.January_1.html');
+            const listElements = onThisDay
+              .listElementsByHeadingID(document, ['.D9.85.D9.88.D8.A7.D9.84.D9.8A.D8.AF'], 'ar');
+            assert.deepEqual(listElements.length, 69);
+        });
     });
 
     describe('nested list element handling', () => {
