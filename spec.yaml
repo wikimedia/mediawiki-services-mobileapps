@@ -628,6 +628,8 @@ paths:
             headers:
               content-type: application/json
             body:
+              revision: /.+/
+              tid: /.+/
               hatnotes:
                 - html: /.+/
                   text: /.+/
@@ -1330,6 +1332,12 @@ definitions:
   metadata:
     type: object
     properties:
+      revision:
+        type: integer
+        description: revision ID for the page
+      tid:
+        type: string
+        description: time UUID for the page/revision
       hatnotes:
         type: array
         description: the hatnotes on the page, with html and plaintext representations provided for each
@@ -1340,6 +1348,7 @@ definitions:
         description: the page issues on the page, with html and plaintext representations provided for each
         items:
           $ref: '#/definitions/html_and_text_strings'
+    required: [ revision, tid ]
     additionalProperties: false
 
   html_and_text_strings:
