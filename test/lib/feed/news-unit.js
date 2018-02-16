@@ -23,9 +23,16 @@ describe('news-unit', () => {
         ]
     };
 
-    it('News story constructed correctly (duplicate titles handled correctly)', () => {
+    it('news story constructed correctly (duplicate titles handled correctly)', () => {
         const html = domino.createDocument(fixtures.newsHtml3).getElementsByTagName('li')[0];
         const story = news.constructStory(rbTemplate, 'en.wikipedia.org', 'en', html);
         assert.deepEqual(story, testStoryObj);
+    });
+
+    it('floating spans are removed', () => {
+        const html = domino.createDocument(fixtures.newsHtmlWithFloatingSpan)
+            .getElementsByTagName('li')[0];
+        const story = news.constructStory(rbTemplate, 'de.wikipedia.org', 'de', html);
+        assert.ok(story.story.startsWith('Dem österreichischen Schriftsteller'));
     });
 });
