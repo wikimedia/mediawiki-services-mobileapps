@@ -1,41 +1,12 @@
 'use strict';
 
 const preq = require('preq');
-const domino = require('domino');
-const constants = require('./constants');
-const news = require('../../../lib/feed/news');
-const summUrl = require('../../../lib/mobile-util').getRbPageSummaryUrl;
 const assert = require('../../utils/assert');
 const server = require('../../utils/server');
 const checkHeaders = require('../../utils/headers').checkHeaders;
 const NEWS_TEMPLATES = require('../../../etc/feed/news-sites');
-const rbTemplate = require('../../utils/testUtil').rbTemplate;
 
-const enwiki = 'en.wikipedia.org';
-
-const testStoryObj = {
-    story: constants.newsHtml4,
-    links: [
-        { $merge: [
-            summUrl(rbTemplate, enwiki, '100_metres_hurdles')
-        ] },
-        { $merge: [
-            summUrl(rbTemplate, enwiki, 'Sport_of_athletics')
-        ] },
-        { $merge: [
-            summUrl(rbTemplate, enwiki, 'Kendra_Harrison')
-        ] },
-        { $merge: [
-            summUrl(rbTemplate, enwiki, `Women's_100_metres_hurdles_world_record_progression`)
-        ] },
-        { $merge: [
-            summUrl(rbTemplate, enwiki, 'London_Grand_Prix')
-        ] }
-    ]
-};
-
-
-describe('in the news', function() {
+describe('news', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
@@ -78,11 +49,5 @@ describe('in the news', function() {
             assert.status(res, 204);
             assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
         });
-    });
-
-    it('News story constructed correctly (duplicate titles handled correctly)', () => {
-        const html = domino.createDocument(constants.newsHtml3).getElementsByTagName('li')[0];
-        const story = news.constructStory(rbTemplate, 'en.wikipedia.org', 'en', html);
-        assert.deepEqual(story, testStoryObj);
     });
 });
