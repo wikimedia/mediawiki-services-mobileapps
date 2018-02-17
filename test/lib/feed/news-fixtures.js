@@ -11,11 +11,15 @@ const cleanNewsHtml2 = '<!--June 24 --> After the United Kingdom <b id="mwCA"><a
 const newsHtml3 = '<li id="mwCA"><!--July 22--> In <a rel="mw:WikiLink" href="./Sport_of_athletics" title="Sport of athletics" id="mwCQ">athletics</a>, American sprinter <a rel="mw:WikiLink" href="./Kendra_Harrison" title="Kendra Harrison" id="mwCg">Kendra Harrison</a> breaks the <a rel="mw:WikiLink" href="./Women\'s_100_metres_hurdles_world_record_progression" title="Women\'s 100 metres hurdles world record progression" id="mwCw">28-year-old</a> <a rel="mw:WikiLink" href="./100_metres_hurdles" title="100 metres hurdles" id="mwDA">100 metres hurdles</a> <b id="mwDQ"><a rel="mw:WikiLink" href="./100_metres_hurdles#Top_25_fastest_athletes" title="100 metres hurdles" id="mwDg">world record</a></b> at the <a rel="mw:WikiLink" href="./London_Grand_Prix" title="London Grand Prix" id="mwDw">London Grand Prix</a>.</li>';
 const newsHtml4 = '<!--July 22--> In <a rel="mw:WikiLink" href="./Sport_of_athletics" title="Sport of athletics" id="mwCQ">athletics</a>, American sprinter <a rel="mw:WikiLink" href="./Kendra_Harrison" title="Kendra Harrison" id="mwCg">Kendra Harrison</a> breaks the <a rel="mw:WikiLink" href="./Women\'s_100_metres_hurdles_world_record_progression" title="Women\'s 100 metres hurdles world record progression" id="mwCw">28-year-old</a> <a rel="mw:WikiLink" href="./100_metres_hurdles" title="100 metres hurdles" id="mwDA">100 metres hurdles</a> <b id="mwDQ"><a rel="mw:WikiLink" href="./100_metres_hurdles#Top_25_fastest_athletes" title="100 metres hurdles" id="mwDg">world record</a></b> at the <a rel="mw:WikiLink" href="./London_Grand_Prix" title="London Grand Prix" id="mwDw">London Grand Prix</a>.';
 
+// https://de.wikipedia.org/api/rest_v1/page/html/Vorlage:Hauptseite_Aktuelles/174045932
+const newsHtmlWithFloatingSpan = '<!-- 15.2.--><li><span style="float:right; padding-top:0.6em; padding-left:0.5em;"><figure-inline><a href="./Datei:Porträt_Christoph_Ransmayr_Foto_Johannes_Cizek_14_5KB.jpg" id="mwEQ"><img resource="./Datei:Porträt_Christoph_Ransmayr_Foto_Johannes_Cizek_14_5KB.jpg" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Portr%C3%A4t_Christoph_Ransmayr_Foto_Johannes_Cizek_14_5KB.jpg/122px-Portr%C3%A4t_Christoph_Ransmayr_Foto_Johannes_Cizek_14_5KB.jpg" data-file-width="283" data-file-height="188" data-file-type="bitmap" height="81" width="122"/></a></figure-inline></span>Dem österreichischen Schriftsteller <a rel="mw:WikiLink" href="./Christoph_Ransmayr" title="Christoph Ransmayr" id="mwEw">Christoph Ransmayr</a><span typeof="mw:Entity" id="mwFA"> </span><small>(Bild)</small> ist der <a rel="mw:WikiLink" href="./Kleist-Preis" title="Kleist-Preis">Kleist-Preis</a> zuerkannt worden.</li>';
+
 module.exports = {
     newsHtml1,
     newsHtml2,
     cleanNewsHtml1,
     cleanNewsHtml2,
     newsHtml3,
-    newsHtml4
+    newsHtml4,
+    newsHtmlWithFloatingSpan
 };
