@@ -13,7 +13,6 @@ function testMetadataResult(doc, expected) {
         for (let i = 0; i < expected.length; i++) {
             assert.deepEqual(result.section, expected.section);
             assert.deepEqual(result.html, expected.html);
-            assert.deepEqual(result.text, expected.text);
         }
     } else {
         assert.deepEqual(expected, result);
@@ -47,7 +46,7 @@ describe('extractHatnotes', () => {
         const html = '<html><head></head><body><section data-mw-section-id="0"><div class="hatnote">Here is a <b>hatnote</b></div></section></body></html>';
         const afterRemoveHtml = '<html><head></head><body><section data-mw-section-id="0"></section></body></html>';
         const doc = domino.createDocument(html);
-        testMetadataResult(doc, [ { section: 0, html: 'Here is a <b>hatnote</b>', text: 'Here is a hatnote' } ]);
+        testMetadataResult(doc, [ { section: 0, html: 'Here is a <b>hatnote</b>' } ]);
         testMobileSectionsResult(doc, [ 'Here is a <b>hatnote</b>' ]);
         testMobileSectionsNoRemoveAfterHtml(doc, html);
         testMobileSectionsRemoveAfterHtml(doc, afterRemoveHtml);
@@ -57,7 +56,7 @@ describe('extractHatnotes', () => {
         const html = '<html><head></head><body><section data-mw-section-id="0"><div class="dablink">Here is a <b>disambiguation hatnote</b></div></section></body></html>';
         const afterRemoveHtml = '<html><head></head><body><section data-mw-section-id="0"></section></body></html>';
         const doc = domino.createDocument(html);
-        testMetadataResult(doc, [ { section: 0, html: 'Here is a <b>disambiguation hatnote</b>', text: 'Here is a disambiguation hatnote' } ]);
+        testMetadataResult(doc, [ { section: 0, html: 'Here is a <b>disambiguation hatnote</b>' } ]);
         testMobileSectionsResult(doc, [ 'Here is a <b>disambiguation hatnote</b>' ]);
         testMobileSectionsNoRemoveAfterHtml(doc, html);
         testMobileSectionsRemoveAfterHtml(doc, afterRemoveHtml);
@@ -67,7 +66,7 @@ describe('extractHatnotes', () => {
         const html = '<html><head></head><body><section data-mw-section-id="0">Foo</section><section data-mw-section-id="1"><div class="hatnote">Hatnote in <b>section 1</b></div></section></body></html>';
         const afterRemoveHtml = html;
         const doc = domino.createDocument(html);
-        testMetadataResult(doc, [ { section: 1, html: 'Hatnote in <b>section 1</b>', text: 'Hatnote in section 1' } ]);
+        testMetadataResult(doc, [ { section: 1, html: 'Hatnote in <b>section 1</b>' } ]);
         testMobileSectionsResult(doc, undefined);
         testMobileSectionsNoRemoveAfterHtml(doc, html);
         testMobileSectionsRemoveAfterHtml(doc, afterRemoveHtml);
@@ -78,8 +77,8 @@ describe('extractHatnotes', () => {
         const afterRemoveHtml = '<html><head></head><body><section data-mw-section-id="0"></section><section data-mw-section-id="3"><div class="hatnote">Hatnote in <b>section 3</b></div></section></body></html>';
         const doc = domino.createDocument(html);
         testMetadataResult(doc, [
-            { section: 0, html: 'Hatnote in <b>section 0</b>', text: 'Hatnote in section 0' },
-            { section: 3, html: 'Hatnote in <b>section 3</b>', text: 'Hatnote in section 3' }
+            { section: 0, html: 'Hatnote in <b>section 0</b>' },
+            { section: 3, html: 'Hatnote in <b>section 3</b>' }
         ]);
         testMobileSectionsResult(doc, [ 'Hatnote in <b>section 0</b>' ]);
         testMobileSectionsNoRemoveAfterHtml(doc, html);

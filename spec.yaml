@@ -631,11 +631,11 @@ paths:
               revision: /.+/
               tid: /.+/
               hatnotes:
-                - html: /.+/
-                  text: /.+/
+                - section: /.+/
+                  html: /.+/
               issues:
-                - html: /.+/
-                  text: /.+/
+                - section: /.+/
+                  html: /.+/
               categories:
                 - title: /.+/
                   hidden: /.+/
@@ -1349,12 +1349,12 @@ definitions:
         type: array
         description: the hatnotes on the page, with html and plaintext representations provided for each
         items:
-          $ref: '#/definitions/html_and_text_strings'
+          $ref: '#/definitions/hatnote_or_page_issue'
       issues:
         type: array
         description: the page issues on the page, with html and plaintext representations provided for each
         items:
-          $ref: '#/definitions/html_and_text_strings'
+          $ref: '#/definitions/hatnote_or_page_issue'
       categories:
         type: array
         description: categories the page belongs to
@@ -1363,15 +1363,16 @@ definitions:
     required: [ revision, tid ]
     additionalProperties: false
 
-  html_and_text_strings:
+  hatnote_or_page_issue:
     type: object
     properties:
+      section:
+        type: integer
+        description: section ID containing the hatnote or page issue
       html:
         type: string
-        description: html snippet
-      text:
-        type: string
-        description: plain text respresentation of the html snippet
+        description: the hatnote or page issue HTML
+    required: [ section, html ]
     additionalProperties: false
 
   category:
