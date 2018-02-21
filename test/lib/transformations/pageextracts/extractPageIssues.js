@@ -13,7 +13,6 @@ function testMetadataResult(doc, expected) {
         for (let i = 0; i < expected.length; i++) {
             assert.deepEqual(result[i].section, expected[i].section);
             assert.deepEqual(result[i].html, expected[i].html);
-            assert.deepEqual(result[i].text, expected[i].text);
         }
     } else {
         assert.deepEqual(result, expected);
@@ -25,8 +24,6 @@ function testMobileSectionsResult(doc, expected) {
     if (expected) {
         for (let i = 0; i < expected.length; i++) {
             assert.deepEqual(result[i].text, expected[i].text);
-            assert.deepEqual(result[i].html, undefined);
-            assert.deepEqual(result[i].section, undefined);
         }
     } else {
         assert.deepEqual(result, expected);
@@ -92,8 +89,8 @@ describe('extractPageIssues', () => {
         const afterRemoveHtml = '<html><head></head><body><section data-mw-section-id="0"></section></body></html>';
         const doc = domino.createDocument(html);
         testMetadataResult(doc, [
-            { section: 0, html: '<b>First issue!</b>', text: 'First issue!' },
-            { section: 0, html: '<b>Second issue!</b>', text: 'Second issue!' },
+            { section: 0, html: '<b>First issue!</b>' },
+            { section: 0, html: '<b>Second issue!</b>' }
         ]);
         testMobileSectionsResult(doc, [
             { text: '<b>First issue!</b>' },
@@ -115,7 +112,7 @@ describe('extractPageIssues', () => {
                        '</table>' +
                      '</section></body></html>';
         const doc = domino.createDocument(html);
-        testMetadataResult(doc, [ { section: 1, html: '<b>Issue!</b>', text: 'Issue!' } ]);
+        testMetadataResult(doc, [ { section: 1, html: '<b>Issue!</b>' } ]);
         testMobileSectionsResult(doc, undefined);
         testMobileSectionsNoRemoveAfterHtml(doc, html);
         testMobileSectionsRemoveAfterHtml(doc, html);
