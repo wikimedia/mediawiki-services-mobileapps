@@ -617,12 +617,12 @@ paths:
           schema:
             $ref: '#/definitions/problem'
       x-amples:
-        - title: retrieve extended metadata for Ganon article on English Wikipedia
+        - title: retrieve extended metadata for Video article on English Wikipedia
           request:
             params:
               domain: en.wikipedia.org
-              title: Ganon
-              revision: 824060512
+              title: Video
+              revision: 824951281
           response:
             status: 200
             headers:
@@ -631,6 +631,9 @@ paths:
               revision: /.+/
               tid: /.+/
               hatnotes:
+                - html: /.+/
+                  text: /.+/
+              issues:
                 - html: /.+/
                   text: /.+/
               categories:
