@@ -640,6 +640,9 @@ paths:
                 - title: /.+/
                   hidden: /.+/
                   ns: /.+/
+              protection:
+                edit: [ /.+/ ]
+                move: [ /.+/ ]
 
   # from routes/page/definition.js
   /{domain}/v1/page/definition/{title}{/revision}{/tid}:
@@ -1365,7 +1368,12 @@ definitions:
         description: coordinates for one or more locations in the article
         items:
           $ref: '#/definitions/coordinate_set'
-    required: [ revision, tid ]
+      protection:
+        type: object
+        description: info on page edit and move rights
+        items:
+          $ref: '#/definitions/protection'
+    required: [ revision, tid, protection ]
     additionalProperties: false
 
   hatnote_or_page_issue:
@@ -1410,6 +1418,16 @@ definitions:
       globe:
         type: string
         description: the globe to which the coordinates refer ('earth', 'moon', etc.)
+
+  protection:
+    type: object
+    properties:
+      edit:
+        type: array
+        description: list of groups with the 'edit' permission
+      move:
+        type: array
+        description: list of groups with the 'move' permission
 
   media_list:
     type: object
