@@ -25,7 +25,7 @@ let app;
 router.get('/summary/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
         html: parsoid.getParsoidHtml(app, req),
-        meta: mwapi.getMetadata(app, req),
+        meta: mwapi.getMetadata(app, req, mwapi.LEAD_IMAGE_S),
         title: mwapi.getTitleObj(app, req),
         siteinfo: mwapi.getSiteInfo(app, req)
     }).then((response) => {
