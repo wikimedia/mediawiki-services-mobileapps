@@ -140,6 +140,13 @@ function selectorExistsOnce(doc, selector, message) {
 }
 
 
+function selectorDoesNotExist(doc, selector, message) {
+
+    selectorExistsNTimes(doc, selector, 0, message);
+
+}
+
+
 function selectorHasValue(doc, selector, expected, message) {
 
     if (!message) {
@@ -177,6 +184,7 @@ module.exports.contains       = contains;
 module.exports.notContains    = notContains;
 module.exports.selectorExistsNTimes = selectorExistsNTimes;
 module.exports.selectorExistsOnce = selectorExistsOnce;
+module.exports.selectorDoesNotExist = selectorDoesNotExist;
 module.exports.selectorHasValue = selectorHasValue;
 module.exports.selectorContainsValue = selectorContainsValue;
 module.exports.AssertionError = assert.AssertionError;

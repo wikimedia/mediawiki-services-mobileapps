@@ -636,6 +636,14 @@ paths:
               issues:
                 - section: /.+/
                   html: /.+/
+              toc:
+                title: /.+/
+                entries:
+                  - toclevel: /.+/
+                    tocsection: /.+/
+                    tocnumber: /.+/
+                    href: /.+/
+                    html: /.+/
               categories:
                 - title: /.+/
                   hidden: /.+/
@@ -1358,6 +1366,18 @@ definitions:
         description: the page issues on the page, with html and plaintext representations provided for each
         items:
           $ref: '#/definitions/hatnote_or_page_issue'
+      toc:
+        type: object
+        description: a table of contents for the page, in structured form
+        properties:
+          title:
+            type: string
+            description: the TOC title string for the wiki as reported by siteinfo
+          entries:
+            type: array
+            description: section info for the TOC in structured form
+            items:
+              $ref: '#/definitions/toc_entry'
       categories:
         type: array
         description: categories the page belongs to
@@ -1386,6 +1406,27 @@ definitions:
         type: string
         description: the hatnote or page issue HTML
     required: [ section, html ]
+    additionalProperties: false
+
+  toc_entry:
+    type: object
+    properties:
+      toclevel:
+        type: integer
+        description: the depth of the heading in the TOC hierarchy
+      tocsection:
+        type: integer
+        description: the position of the section in the order of appearance of all sections on the page
+      tocnumber:
+        type: string
+        description: a numeric representation of the section's position in the page hierarhcy (e.g., '1', '1.3', '1.3.2')
+      href:
+        type: string
+        description: the heading text to be used in constracting a page anchor for linking
+      html:
+        type: string
+        description: the heading display text (may contain HTML markup)
+    required: [ toclevel, tocsection, tocnumber, href, html ]
     additionalProperties: false
 
   category:
