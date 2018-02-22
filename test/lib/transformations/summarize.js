@@ -120,6 +120,11 @@ describe('summarize', () => {
                 'Hello world (HW) and goodnight.',
                 'Hello world (HW) and goodnight.',
             ],
+            // ... including when they contain HTML...
+            [
+                '<p>CH<sub id="mwCg">3</sub>(CH<sub id="mwCw">2</sub>)<sub id="mwDA">12</sub>COOH.</p>',
+                '<p>CH<sub>3</sub>(CH<sub>2</sub>)<sub>12</sub>COOH.</p>'
+            ],
             // ... but Nested parentheticals without spaces will be stripped.
             [
                 'Hello world (this is in brackets and will be stripped (HW) it will all go (trust me)) and goodnight.',
