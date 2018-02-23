@@ -83,9 +83,15 @@ describe('lib:transforms', () => {
         testShortenPageInternalLinks(buildHtml3('./Seven_Years\'_War'), title, './Seven_Years');
     });
 
+    // de.wikipedia.org/api/rest_v1/page/html/Niedersachsen/172984059
     describe('stripUnneededSummaryMarkup', () => {
-        it('removes IPA speaker symbols', () => {
-            const doc = domino.createDocument(
+        function test(input, expected) {
+            const doc = domino.createDocument(input);
+            transforms.stripUnneededSummaryMarkup(doc);
+            assert.deepEqual(doc.body.innerHTML, expected);
+        }
+        it('removes IPA speaker symbols (de): IPA in figure-inline', () => {
+            test(
                 '<figure-inline typeof="mw:Transclusion mw:Image" ' +
                 'data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{' +
                 '&quot;target&quot;:{&quot;wt&quot;:&quot;IPA&quot;,' +
@@ -95,15 +101,20 @@ describe('lib:transforms', () => {
                 '&quot;Tondatei&quot;:{&quot;wt&quot;:&quot;De-Niedersachsen.ogg&quot;}},' +
                 '&quot;i&quot;:0}}]}">' +
                 '<a href="//upload.wikimedia.org/wikipedia/commons/f/ff/De-Niedersachsen.ogg">' +
-                '<img src="Loudspeaker.svg/12px-Loudspeaker.svg.png"></a></figure-inline>');
-            transforms.stripUnneededSummaryMarkup(doc);
-            assert.deepEqual(doc.body.innerHTML, '');
+                '<img src="Loudspeaker.svg/12px-Loudspeaker.svg.png"></a></figure-inline>',
+                '');
+        });
+        // en.wikipedia.org/api/rest_v1/page/html/London/822677492
+        it('removes IPA speaker symbols (en): IPAc-en in span', () => {
+            test(
+                // eslint-disable-next-line max-len
+                `<span class="nowrap" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;IPAc-en&quot;,&quot;href&quot;:&quot;./Template:IPAc-en&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;ˈ&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;l&quot;},&quot;3&quot;:{&quot;wt&quot;:&quot;ʌ&quot;},&quot;4&quot;:{&quot;wt&quot;:&quot;n&quot;},&quot;5&quot;:{&quot;wt&quot;:&quot;d&quot;},&quot;6&quot;:{&quot;wt&quot;:&quot;ən&quot;},&quot;audio&quot;:{&quot;wt&quot;:&quot;En-uk-London.ogg&quot;}},&quot;i&quot;:0}}]}" id="mwDQ">[...]</span>`,
+                '');
         });
         it('removes spans with style display:none', () => {
-            const doc = domino.createDocument(
-                '<p><span class="geo noexcerpt" style="display:none">FOO</span></p>');
-            transforms.stripUnneededSummaryMarkup(doc);
-            assert.deepEqual(doc.body.innerHTML, '<p></p>');
+            test(
+                '<p><span class="geo noexcerpt" style="display:none">FOO</span></p>',
+                '<p></p>');
         });
     });
 });
