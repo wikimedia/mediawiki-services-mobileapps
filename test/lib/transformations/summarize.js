@@ -25,13 +25,13 @@ describe('summarize', () => {
             ],
             // Ignore parens inside attributes by escaping them.
             [
-                '<p>(Remove me) But not this (<img src="latin_paren).jpg"></p>',
-                '<p> But not this (<img src="latin_paren).jpg" /></p>'
+                '<p>(Keep me) and this (<img src="latin_paren).jpg"></p>',
+                '<p>(Keep me) and this (<img src="latin_paren).jpg" /></p>'
             ],
             // Same as above but with non-latin parentheses
             [
-                '<p>(Remove me) But not this （<img src="non-latin_paren）.jpg"></p>',
-                '<p> But not this （<img src="non-latin_paren）.jpg" /></p>'
+                '<p>(Keep me) and this （<img src="non-latin_paren）.jpg"></p>',
+                '<p>(Keep me) and this （<img src="non-latin_paren）.jpg" /></p>'
             ],
             // Should not leave double spaces after stripping parentheticals
             [
@@ -120,10 +120,16 @@ describe('summarize', () => {
                 'Hello world (HW) and goodnight.',
                 'Hello world (HW) and goodnight.',
             ],
-            // ... including when they contain HTML...
+            // ... including when they contain spaces from certain HTML attributes...
             [
                 '<p>CH<sub id="mwCg">3</sub>(CH<sub id="mwCw">2</sub>)<sub id="mwDA">12</sub>COOH.</p>',
                 '<p>CH<sub>3</sub>(CH<sub>2</sub>)<sub>12</sub>COOH.</p>'
+            ],
+            // ... including when they contain more complicated formulas or links...
+            // https://en.wikipedia.org/api/rest_v1/page/html/Nephrite/822315108
+            [
+                'is <a rel="mw:WikiLink" href="./Calcium" title="Calcium" id="mwDA">Ca</a><sub id="mwDQ">2</sub>(<a rel="mw:WikiLink" href="./Magnesium" title="Magnesium" id="mwDg">Mg</a>, <a rel="mw:WikiLink" href="./Iron" title="Iron" id="mwDw">Fe</a>)<sub id="mwEA">5</sub><a rel="mw:WikiLink" href="./Silicon" title="Silicon" id="mwEQ">Si</a><sub id="mwEg">8</sub><a rel="mw:WikiLink" href="./Oxygen" title="Oxygen" id="mwEw">O</a><sub id="mwFA">22</sub>(O<a rel="mw:WikiLink" href="./Hydrogen" title="Hydrogen" id="mwFQ">H</a>)<sub id="mwFg">2</sub>.',
+                'is Ca<sub>2</sub>(Mg, Fe)<sub>5</sub>Si<sub>8</sub>O<sub>22</sub>(OH)<sub>2</sub>.'
             ],
             // ... but Nested parentheticals without spaces will be stripped.
             [
