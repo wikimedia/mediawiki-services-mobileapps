@@ -132,12 +132,13 @@ describe('summarize', () => {
                 'Hello world (HW) and goodnight.',
                 'Hello world (HW) and goodnight.',
             ],
-            // ... including when they contain spaces from certain HTML attributes...
+            // ... including when they contain spaces that are coming only from HTML syntax...
             [
                 '<p>CH<sub id="mwCg">3</sub>(CH<sub id="mwCw">2</sub>)<sub id="mwDA">12</sub>COOH.</p>',
                 '<p>CH<sub>3</sub>(CH<sub>2</sub>)<sub>12</sub>COOH.</p>'
             ],
-            // ... including when they contain more complicated formulas or links...
+            // ... including when they contain more complicated formulas or links;
+            // no space before `(`...
             // https://en.wikipedia.org/api/rest_v1/page/html/Nephrite/822315108
             [
                 'is <a rel="mw:WikiLink" href="./Calcium" title="Calcium" id="mwDA">Ca</a><sub id="mwDQ">2</sub>(<a rel="mw:WikiLink" href="./Magnesium" title="Magnesium" id="mwDg">Mg</a>, <a rel="mw:WikiLink" href="./Iron" title="Iron" id="mwDw">Fe</a>)<sub id="mwEA">5</sub><a rel="mw:WikiLink" href="./Silicon" title="Silicon" id="mwEQ">Si</a><sub id="mwEg">8</sub><a rel="mw:WikiLink" href="./Oxygen" title="Oxygen" id="mwEw">O</a><sub id="mwFA">22</sub>(O<a rel="mw:WikiLink" href="./Hydrogen" title="Hydrogen" id="mwFQ">H</a>)<sub id="mwFg">2</sub>.',
@@ -152,6 +153,12 @@ describe('summarize', () => {
             [
                 '<p>Wazz ((listen) this will be removed) up (and this)</p>',
                 '<p>Wazz up</p>',
+            ],
+            // Parentheticals with leading &nbsp; (or space) are stripped. The whitespace character is retained.
+            // https://es.wikipedia.org/api/rest_v1/page/html/Grecia/105177728
+            [
+                'República Helénica (some IPA)',
+                'República Helénica ',
             ],
             // Trailing spaces after punctuation before closing tag will be stripped.
             [
