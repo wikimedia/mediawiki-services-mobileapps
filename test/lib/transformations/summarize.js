@@ -9,14 +9,26 @@ describe('summarize', () => {
     it('matches the spec', () => {
         const testCases = [
             // Don't remove spaces before closing spans. it.wikipedia.org/api/rest_v1/page/html/Mino_Raiola/93869330
+            // Obsolete now since spans are flattened
             [
                 '<b>Mino Raiola</b><span>, all\'anagrafe </span><b>Carmine Raiola</b>',
-                '<b>Mino Raiola</b><span>, all\'anagrafe </span><b>Carmine Raiola</b>'
+                '<b>Mino Raiola</b>, all\'anagrafe <b>Carmine Raiola</b>'
             ],
             // Flatten span with &nbsp;. Remove extra spaces around it, too.
             [
-                '<b>Niedersachsen</b> <span>&nbsp;</span>   ist ein Land',
-                '<b>Niedersachsen</b> ist ein Land'
+                '<b>Niedersachsen</b> <span>&nbsp;</span>   ist',
+                '<b>Niedersachsen</b> ist'
+            ],
+            // Flatten span with multiple &nbsp;s. Remove extra spaces around it, too.
+            [
+                '<b>Niedersachsen</b> <span>&nbsp;</span><span>&nbsp;</span>   ist',
+                '<b>Niedersachsen</b> ist'
+            ],
+            // Flattening span before the `(` enables this parenthetical to be removed
+            // en.wikipedia.org/api/rest_v1/page/html/Kyoto/823102615
+            [
+                `<b>Kyoto</b><span style="font-weight:normal;"><span typeof="mw:Entity"> </span>(lots of IPAs)</span> is a</p>`,
+                '<b>Kyoto</b><span style="font-weight:normal;"> </span> is a'
             ],
             // Exclude audio, video, and track tags.
             [
@@ -46,7 +58,7 @@ describe('summarize', () => {
             // Should remove unwanted attributes
             [
                 '<span bogus="dummy">f</span><b invalid="whateva">o</b>o',
-                '<span>f</span><b>o</b>o'
+                'f<b>o</b>o'
             ],
             // Should keep white-listed attributes
             [
@@ -61,7 +73,7 @@ describe('summarize', () => {
             // Should flatten empty nodes
             [
                 '<span></span><b></b><i></i><p><span>f</span></p>',
-                '<p><span>f</span></p>'
+                '<p>f</p>'
             ],
             // Should flatten links
             [
@@ -163,7 +175,7 @@ describe('summarize', () => {
             // Any content in parentheticals is stripped and no double spaces are left in the output
             [
                 '<p><b>Epistemology</b> (<span class="nowrap"><span class="IPA nopopups noexcerpt"><span>/<span style="border-bottom:1px dotted"><span title="/ɪ/ or /ə/ \'e\' in \'roses\'">ᵻ</span><span title="/ˌ/ secondary stress follows">ˌ</span><span title="\'p\' in \'pie\'">p</span><span title="/ɪ/ short \'i\' in \'bid\'">ɪ</span><span title="\'s\' in \'sigh\'">s</span><span title="\'t\' in \'tie\'">t</span><span title="/ɪ/ or /ə/ \'e\' in \'roses\'">ᵻ</span><span title="/ˈ/ primary stress follows">ˈ</span><span title="\'m\' in \'my\'">m</span><span title="/ɒ/ short \'o\' in \'body\'">ɒ</span><span title="\'l\' in \'lie\'">l</span><span title="/ə/ \'a\' in \'about\'">ə</span><span title="/dʒ/ \'j\' in \'jam\'">dʒ</span><span title="/i/ \'y\' in \'happy\'">i</span></span>/</span></span><small class="nowrap metadata">&nbsp;(<span class="unicode haudio"><span class="fn"><span style="white-space:nowrap"><span><img alt="About this sound" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Loudspeaker.svg/11px-Loudspeaker.svg.png" width="11" height="11" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Loudspeaker.svg/17px-Loudspeaker.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Loudspeaker.svg/22px-Loudspeaker.svg.png 2x" data-file-width="20" data-file-height="20"></span>&nbsp;</span><span>listen</span></span></span>)</small></span>; from <span>Greek</span> <span lang="gre" xml:lang="gre"><span >ἐπιστήμη</span><i>, epistēmē</i></span>, meaning \'knowledge\', and <span lang="" xml:lang=""><span>λόγος</span><i>, <span>logos</span></i></span>, meaning \'logical discourse\') is the <span>branch</span> of <span>philosophy</span> concerned with the theory of <span>knowledge</span>.</p>',
-                '<p><b>Epistemology</b> is the <span>branch</span> of <span>philosophy</span> concerned with the theory of <span>knowledge</span>.</p>',
+                '<p><b>Epistemology</b> is the branch of philosophy concerned with the theory of knowledge.</p>',
             ],
             // Even birth and death dates inside parentheticals are stripped, double quotes are entity encoded
             [
