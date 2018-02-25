@@ -234,6 +234,12 @@ describe('summarize', () => {
                 '<p>The golden age ( 1917 to 1980) saw lots of inventions.</p>',
                 '<p>The golden age saw lots of inventions.</p>'
             ],
+            // Content inside parentheticals with multiple words and leading &nbsp; is stripped
+            // https://en.wikipedia.org/api/rest_v1/page/html/Ottoman_Empire/822890778
+            [
+                '<p>The Ottoman Empire&nbsp;(/ˈɒtəmən/; Ottoman Turkish: ...) was</p>',
+                '<p>The Ottoman Empire was</p>'
+            ],
             // Parentheticals stripping is not greedy
             [
                 '<p>Spain (Spanish: España [esˈpaɲa]), officially the Kingdom of Spain (Spanish: Reino de España), is a sovereign state located on the Iberian Peninsula in southwestern Europe, with two large archipelagoes, the Balearic Islands in the Mediterranean Sea and the Canary Islands off the North African Atlantic coast, two cities, Ceuta and Melilla, in the North African mainland and several small islands in the Alboran Sea near the Moroccan coast. The country\'s mainland is bordered to the south and east by the Mediterranean Sea except for a small land boundary with Gibraltar; to the north and northeast by France, Andorra, and the Bay of Biscay; and to the west and northwest by Portugal and the Atlantic Ocean. It is the only European country to have a border with an African country (Morocco) and its African territory accounts for nearly 5% of its population, mostly in the Canary Islands but also in Ceuta and Melilla</p>',
