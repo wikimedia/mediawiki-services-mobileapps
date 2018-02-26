@@ -5,33 +5,44 @@ const assert = require('./../../utils/assert.js');
 const flattenElements = require('./../../../lib/transformations/flattenElements');
 
 describe('lib:flattenElements', () => {
-    it('replaces a with span, keeps class attribute', () => {
-        const document = domino.createDocument('<a class="bar" href="#">foo</a>');
+    function testFlattenAnchors(input, expected) {
+        const document = domino.createDocument(input);
         flattenElements(document, 'a');
-        assert.deepEqual(document.body.innerHTML, '<span class="bar">foo</span>');
+        assert.deepEqual(document.body.innerHTML, expected);
+    }
+
+    it('replaces a with span, keeps class attribute', () => {
+        testFlattenAnchors(
+            '<a class="bar" href="#">foo</a>',
+            '<span class="bar">foo</span>'
+        );
     });
 
     it('replaces a with span, keeps style attribute', () => {
-        const document = domino.createDocument('<a style="bar" href="#">foo</a>');
-        flattenElements(document, 'a');
-        assert.deepEqual(document.body.innerHTML, '<span style="bar">foo</span>');
+        testFlattenAnchors(
+            '<a style="bar" href="#">foo</a>',
+            '<span style="bar">foo</span>'
+        );
     });
 
     it('replaces a tag with plain text if no attributes to keep', () => {
-        const document = domino.createDocument('<a href="#">foo</a>');
-        flattenElements(document, 'a');
-        assert.deepEqual(document.body.innerHTML, 'foo');
+        testFlattenAnchors(
+            '<a href="#">foo</a>',
+            'foo'
+        );
     });
 
     it('retains HTML inside elements', () => {
-        const document = domino.createDocument('<a><i>The Mummy</i> franchise</a>');
-        flattenElements(document, 'a');
-        assert.deepEqual(document.body.innerHTML, '<span><i>The Mummy</i> franchise</span>');
+        testFlattenAnchors(
+            '<a><i>The Mummy</i> franchise</a>',
+            '<span><i>The Mummy</i> franchise</span>'
+        );
     });
 
     it('does not change the text content of the node', () => {
-        const document = domino.createDocument('<a>&lt;uh oh&gt;</a>');
-        flattenElements(document, 'a');
-        assert.deepEqual(document.body.innerHTML, '&lt;uh oh&gt;');
+        testFlattenAnchors(
+            '<a>&lt;uh oh&gt;</a>',
+            '&lt;uh oh&gt;'
+        );
     });
 });
