@@ -5,9 +5,9 @@ const assert = require('./../../utils/assert.js');
 const flattenElements = require('./../../../lib/transformations/flattenElements');
 
 describe('lib:flattenElements', () => {
-    function testFlattenAnchors(input, expected) {
+    function testFlattenAnchors(input, expected, keepAttributes, dropClasses) {
         const document = domino.createDocument(input);
-        flattenElements(document, 'a');
+        flattenElements(document, 'a', keepAttributes, dropClasses);
         assert.deepEqual(document.body.innerHTML, expected);
     }
 
@@ -43,6 +43,34 @@ describe('lib:flattenElements', () => {
         testFlattenAnchors(
             '<a>&lt;uh oh&gt;</a>',
             '&lt;uh oh&gt;'
+        );
+    });
+
+    // en.wikipedia.org/api/rest_v1/page/html/Charles_Darwin/822274022
+    it('drops `mw-redirect` class', () => {
+        testFlattenAnchors(
+            '<a class="mw-redirect">artificial selection</a>',
+            'artificial selection',
+            [ 'class' ],
+            [ 'mw-redirect', 'new' ]
+        );
+    });
+
+    it('drops `new` class', () => {
+        testFlattenAnchors(
+            '<a class="new">Something</a>',
+            'Something',
+            [ 'class' ],
+            [ 'mw-redirect', 'new' ]
+        );
+    });
+
+    it('keeps `foo` class', () => {
+        testFlattenAnchors(
+            '<a class="foo">Bar</a>',
+            '<span class="foo">Bar</span>',
+            [ 'class' ],
+            [ 'mw-redirect', 'new' ]
         );
     });
 });
