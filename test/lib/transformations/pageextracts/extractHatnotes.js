@@ -93,4 +93,14 @@ describe('extractHatnotes', () => {
         testMobileSectionsNoRemoveAfterHtml(doc, html);
         testMobileSectionsRemoveAfterHtml(doc, html);
     });
+
+    it('dewiki hatnotes', () => {
+        const html = '<html><head></head><body><section data-mw-section-id="0"><table id="Vorlage_Dieser_Artikel"><tbody><tr><td><i>Foo</i></td></tr></tbody></table>Hallo Welt</section></body></html>';
+        const afterRemoveHtml = '<html><head></head><body><section data-mw-section-id="0">Hallo Welt</section></body></html>';
+        const doc = domino.createDocument(html);
+        testMetadataResult(doc, { section: 0, html: '<i>Foo</i>' });
+        testMobileSectionsResult(doc, [ '<i>Foo</i>' ]);
+        testMobileSectionsNoRemoveAfterHtml(doc, html);
+        testMobileSectionsRemoveAfterHtml(doc, afterRemoveHtml);
+    });
 });
