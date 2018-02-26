@@ -14,6 +14,18 @@ describe('summarize', () => {
                 '<b>Mino Raiola</b><span>, all\'anagrafe </span><b>Carmine Raiola</b>',
                 '<b>Mino Raiola</b>, all\'anagrafe <b>Carmine Raiola</b>'
             ],
+            // Get really all double spaces, even the ones caused due to unmatched tags
+            // https://de.wikipedia.org/api/rest_v1/page/html/Malta/173025214
+            [
+                '<p>Die <b>Republik Malta</b> (englisch <span>Republic of Malta)</span> ist ein südeuropäischer Inselstaat</p>',
+                '<p>Die <b>Republik Malta</b> ist ein südeuropäischer Inselstaat</p>'
+            ],
+            // No space before comma
+            // https://en.wikipedia.org/api/rest_v1/page/html/Darth_Vader/822927781
+            [
+                '<b>Darth Vader</b> (some IPA), also',
+                '<b>Darth Vader</b>, also'
+            ],
             // Flatten span with &nbsp;. Remove extra spaces around it, too.
             [
                 '<b>Niedersachsen</b> <span>&nbsp;</span>   ist',
