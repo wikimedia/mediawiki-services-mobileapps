@@ -29,4 +29,12 @@ describe('lib:mobile-util', () => {
         const link = document.querySelector('a');
         assert.deepEqual(mUtil.extractDbTitleFromAnchor(link), 'My_db_title');
     });
+
+    it('mwApiTrue handles formatversions 1 and 2', () => {
+        const test = { true1: '', true2: true, false2: false };
+        assert.deepEqual(mUtil.mwApiTrue(test, 'true1'), true);
+        assert.deepEqual(mUtil.mwApiTrue(test, 'true2'), true);
+        assert.deepEqual(mUtil.mwApiTrue(test, 'false1'), false);
+        assert.deepEqual(mUtil.mwApiTrue(test, 'false2'), false);
+    });
 });
