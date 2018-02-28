@@ -5,7 +5,7 @@
 const assert = require('./../../utils/assert.js');
 const lib = require('./../../../lib/transformations/summarize');
 
-describe('lib:summarize', () => {
+describe('lib:summarize follows spec', () => {
     function tst(input, expected, message) {
         assert.equal(lib.summarize(input).extract_html, expected, message);
     }
@@ -130,6 +130,11 @@ describe('lib:summarize', () => {
         tst('is <a rel="mw:WikiLink" href="./Calcium" title="Calcium" id="mwDA">Ca</a><sub id="mwDQ">2</sub>(<a rel="mw:WikiLink" href="./Magnesium" title="Magnesium" id="mwDg">Mg</a>, <a rel="mw:WikiLink" href="./Iron" title="Iron" id="mwDw">Fe</a>)<sub id="mwEA">5</sub><a rel="mw:WikiLink" href="./Silicon" title="Silicon" id="mwEQ">Si</a><sub id="mwEg">8</sub><a rel="mw:WikiLink" href="./Oxygen" title="Oxygen" id="mwEw">O</a><sub id="mwFA">22</sub>(O<a rel="mw:WikiLink" href="./Hydrogen" title="Hydrogen" id="mwFQ">H</a>)<sub id="mwFg">2</sub>.',
             'is Ca<sub>2</sub>(Mg, Fe)<sub>5</sub>Si<sub>8</sub>O<sub>22</sub>(OH)<sub>2</sub>.');
     });
+    it('keeps some nested parentheticals with formulas intact', () => {
+        // https://en.wikipedia.org/api/rest_v1/page/html/Organic_acid_anhydride
+        tst('the formula of the anhydride being (RC(O))<sub id="mwDw">2</sub>O.',
+            'the formula of the anhydride being (RC(O))<sub>2</sub>O.');
+    });
     it('removes nested parentheticals without spaces', () => {
         tst('Hello world (this is in brackets and will be stripped (HW) it will all go (trust me)) and goodnight.',
             'Hello world and goodnight.');
@@ -223,4 +228,13 @@ describe('lib:summarize', () => {
         tst('<p><b>Vladimír Dlouhý</b> (*<span>&nbsp;</span><a href="./31._červenec" title="31. červenec">31. července</a> <a href="./1953" title="1953">1953</a> <a href="./Praha" title="Praha">Praha</a>) je <a href="./Češi" title="Češi">český</a> <a href="./Ekonom" title="Ekonom">ekonom</a> a <a href="./Politik" title="Politik">politik</a>, bývalý místopředseda strany <a href="./Občanská_demokratická_aliance" title="Občanská demokratická aliance">ODA</a> a ministr průmyslu a obchodu v letech <a href="./1992" title="1992">1992</a>–<a href="./1997" title="1997">1997</a> ve <a href="./První_vláda_Václava_Klause" title="První vláda Václava Klause">vládě Václava Klause</a>. V<span>&nbsp;</span>letech <a href="./1989" title="1989">1989</a>–<a href="./1992" title="1992">1992</a> byl ministrem hospodářství <a href="./Česká_a_Slovenská_Federativní_Republika" title="Česká a Slovenská Federativní Republika">ČSFR</a>. Nyní působí v&nbsp;soukromé sféře a věnuje se poradenské a pedagogické činnosti, v <a href="./Květen" title="Květen">květnu</a> <a href="./2014" title="2014">2014</a> byl zvolen prezidentem <a href="./Hospodářská_komora_České_republiky" title="Hospodářská komora České republiky">Hospodářské komory ČR</a>.</p>',
             '<p><b>Vladimír Dlouhý</b> je český ekonom a politik, bývalý místopředseda strany ODA a ministr průmyslu a obchodu v letech 1992–1997 ve vládě Václava Klause. V letech 1989–1992 byl ministrem hospodářství ČSFR. Nyní působí v soukromé sféře a věnuje se poradenské a pedagogické činnosti, v květnu 2014 byl zvolen prezidentem Hospodářské komory ČR.</p>');
     });
+});
+
+describe('lib:summarize regex fun', () => {
+    it('detects complex chemical formulas', () => {
+        assert.ok(lib.testing.reProbableChemFormulaPresent.test('(RC(O))<sub>2</sub>O'));
+        assert.ok(lib.testing.reProbableChemFormulaPresent.test('(CO<sub>3</sub>)<sup>2-</sup>'));
+        assert.ok(lib.testing.reProbableChemFormulaPresent.test('Zn<sup>+</sup>'));
+    });
+    // it doesn't detect simple atoms but that's ok since those are covered by the single word rule
 });
