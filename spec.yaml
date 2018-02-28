@@ -644,6 +644,7 @@ paths:
                     tocnumber: /.+/
                     href: /.+/
                     html: /.+/
+                flags: //
               categories:
                 - title: /.+/
                   hidden: /.+/
@@ -1378,6 +1379,21 @@ definitions:
             description: section info for the TOC in structured form
             items:
               $ref: '#/definitions/toc_entry'
+          flags:
+            type: object
+            description: flags affecting TOC depth or visibility ('notoc', 'forcetoc', and/or 'toclimit')
+            properties:
+              notoc:
+                type: boolean
+                description: true if the page has the 'notoc' pageprop
+              forcetoc:
+                type: boolean
+                description: if the page has the 'forcetoc' pageprop
+              toclimit:
+                type: integer
+                description: the toc depth limit for the page, if any
+        required: [ title, entries, flags ]
+        additionalProperties: false
       categories:
         type: array
         description: categories the page belongs to
