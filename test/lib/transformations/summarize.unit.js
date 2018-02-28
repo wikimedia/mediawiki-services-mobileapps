@@ -3,11 +3,11 @@
 /* eslint-disable max-len */
 
 const assert = require('./../../utils/assert.js');
-const summarize = require('./../../../lib/transformations/summarize');
+const lib = require('./../../../lib/transformations/summarize');
 
 describe('lib:summarize', () => {
     function tst(input, expected, message) {
-        assert.equal(summarize(input).extract_html, expected, message);
+        assert.equal(lib.summarize(input).extract_html, expected, message);
     }
 
     it('keeps spaces before closing spans', () => {
