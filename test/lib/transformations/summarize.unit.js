@@ -5,7 +5,7 @@
 const assert = require('./../../utils/assert.js');
 const summarize = require('./../../../lib/transformations/summarize');
 
-describe('summarize', () => {
+describe('lib:summarize', () => {
     function tst(input, expected, message) {
         assert.equal(summarize(input).extract_html, expected, message);
     }
