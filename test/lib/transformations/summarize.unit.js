@@ -243,9 +243,13 @@ describe('lib:summarize follows spec', () => {
 
 describe('lib:summarize regex fun', () => {
     it('detects complex chemical formulas', () => {
-        assert.ok(lib.testing.reProbableChemFormulaPresent.test('(RC(O))<sub>2</sub>O'));
-        assert.ok(lib.testing.reProbableChemFormulaPresent.test('(CO<sub>3</sub>)<sup>2-</sup>'));
-        assert.ok(lib.testing.reProbableChemFormulaPresent.test('Zn<sup>+</sup>'));
+        assert.ok(lib.testing.reProbableFormulaPresent.test('(RC(O))<sub>2</sub>O'));
+        assert.ok(lib.testing.reProbableFormulaPresent.test('(CO<sub>3</sub>)<sup>2-</sup>'));
+        assert.ok(lib.testing.reProbableFormulaPresent.test('Zn<sup>+</sup>'));
+        assert.ok(lib.testing.reProbableFormulaPresent.test('10<sup>14</sup>'));
+    });
+    it('but skips areas', () => {
+        assert.ok(!lib.testing.reProbableFormulaPresent.test('km<sub>2</sub>'));
     });
     // it doesn't detect simple atoms but that's ok since those are covered by the single word rule
 });
