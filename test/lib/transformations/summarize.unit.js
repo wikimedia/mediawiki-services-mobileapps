@@ -136,6 +136,11 @@ describe('lib:summarize follows spec', () => {
         tst('<p><b>Клетката</b> е структурна и функционална единица на всички живи организми и понякога е наричана <i>„най-малката единица на живот“</i>. Тя може да се самообновява, саморегулира и самовъзпроизвежда. Някои организми, като <a href="./Бактерия" class="mw-redirect">бактериите</a>, са <a href="./Едноклетъчно">едноклетъчни</a> (съставени само от една клетка). Други организми, като <a href="./Човек">човека</a>, са <a href="./Многоклетъчни" class="mw-redirect">многоклетъчни</a>. (Човекът има приблизително 100 трилиона (10<sup>14</sup>) клетки, като нормалната големина на една клетка е 10<span typeof="mw:Entity" id="mwHA">&nbsp;</span> <a rel="mw:WikiLink" href="./Микрометър" title="Микрометър" id="mwHQ" class="mw-redirect">µm</a>, а масата и<span typeof="mw:Entity">̀</span> е около 1<span typeof="mw:Entity">&nbsp;</span> <a href="./Грам">ng</a>). Най-голямата клетка е тази на неоплоденото <a href="./Щраус">щраусово</a> <a href="./Яйце_(зоология)">яйце</a>.</p>',
             '<p><b>Клетката</b> е структурна и функционална единица на всички живи организми и понякога е наричана <i>„най-малката единица на живот“</i>. Тя може да се самообновява, саморегулира и самовъзпроизвежда. Някои организми, като бактериите, са едноклетъчни (съставени само от една клетка). Други организми, като човека, са многоклетъчни. (Човекът има приблизително 100 трилиона (10<sup>14</sup>) клетки, като нормалната големина на една клетка е 10 µm, а масата ѝ е около 1 ng). Най-голямата клетка е тази на неоплоденото щраусово яйце.</p>');
     });
+    it('removes empty parentheticals also when nested parenthetical stripping is suspended', () => {
+        // https://en.wikipedia.org/api/rest_v1/page/html/Switzerland/822990856
+        tst('<p><b>Switzerland</b> (), officially the <b>Swiss Confederation</b>. ... (land area 39,997 km<sup>2</sup></p>',
+            '<p><b>Switzerland</b>, officially the <b>Swiss Confederation</b>.... (land area 39,997 km<sup>2</sup></p>');
+    });
     it('keeps some nested parentheticals with formulas intact', () => {
         // https://en.wikipedia.org/api/rest_v1/page/html/Organic_acid_anhydride
         tst('the formula of the anhydride being (RC(O))<sub id="mwDw">2</sub>O.',
