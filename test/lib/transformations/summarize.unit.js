@@ -124,11 +124,17 @@ describe('lib:summarize follows spec', () => {
         tst('<p>CH<sub id="mwCg">3</sub>(CH<sub id="mwCw">2</sub>)<sub id="mwDA">12</sub>COOH.</p>',
             '<p>CH<sub>3</sub>(CH<sub>2</sub>)<sub>12</sub>COOH.</p>');
     });
-    it('keeps parentheticals when they contain more complicated formulas or links', () => {
+    it('keeps parentheticals when they contain more complex formulas or links', () => {
         // no space before `(`...
         // https://en.wikipedia.org/api/rest_v1/page/html/Nephrite/822315108
         tst('is <a rel="mw:WikiLink" href="./Calcium" title="Calcium" id="mwDA">Ca</a><sub id="mwDQ">2</sub>(<a rel="mw:WikiLink" href="./Magnesium" title="Magnesium" id="mwDg">Mg</a>, <a rel="mw:WikiLink" href="./Iron" title="Iron" id="mwDw">Fe</a>)<sub id="mwEA">5</sub><a rel="mw:WikiLink" href="./Silicon" title="Silicon" id="mwEQ">Si</a><sub id="mwEg">8</sub><a rel="mw:WikiLink" href="./Oxygen" title="Oxygen" id="mwEw">O</a><sub id="mwFA">22</sub>(O<a rel="mw:WikiLink" href="./Hydrogen" title="Hydrogen" id="mwFQ">H</a>)<sub id="mwFg">2</sub>.',
             'is Ca<sub>2</sub>(Mg, Fe)<sub>5</sub>Si<sub>8</sub>O<sub>22</sub>(OH)<sub>2</sub>.');
+    });
+    it('keeps all parentheticals when they contain complex formulas or links', () => {
+        // make sure no parentheses get stripped when striping of nested parentheticals is skipped
+        // https://bg.wikipedia.org/api/rest_v1/page/html/Клетка/8323524
+        tst('<p><b>Клетката</b> е структурна и функционална единица на всички живи организми и понякога е наричана <i>„най-малката единица на живот“</i>. Тя може да се самообновява, саморегулира и самовъзпроизвежда. Някои организми, като <a href="./Бактерия" class="mw-redirect">бактериите</a>, са <a href="./Едноклетъчно">едноклетъчни</a> (съставени само от една клетка). Други организми, като <a href="./Човек">човека</a>, са <a href="./Многоклетъчни" class="mw-redirect">многоклетъчни</a>. (Човекът има приблизително 100 трилиона (10<sup>14</sup>) клетки, като нормалната големина на една клетка е 10<span typeof="mw:Entity" id="mwHA">&nbsp;</span> <a rel="mw:WikiLink" href="./Микрометър" title="Микрометър" id="mwHQ" class="mw-redirect">µm</a>, а масата и<span typeof="mw:Entity">̀</span> е около 1<span typeof="mw:Entity">&nbsp;</span> <a href="./Грам">ng</a>). Най-голямата клетка е тази на неоплоденото <a href="./Щраус">щраусово</a> <a href="./Яйце_(зоология)">яйце</a>.</p>',
+            '<p><b>Клетката</b> е структурна и функционална единица на всички живи организми и понякога е наричана <i>„най-малката единица на живот“</i>. Тя може да се самообновява, саморегулира и самовъзпроизвежда. Някои организми, като бактериите, са едноклетъчни (съставени само от една клетка). Други организми, като човека, са многоклетъчни. (Човекът има приблизително 100 трилиона (10<sup>14</sup>) клетки, като нормалната големина на една клетка е 10 µm, а масата ѝ е около 1 ng). Най-голямата клетка е тази на неоплоденото щраусово яйце.</p>');
     });
     it('keeps some nested parentheticals with formulas intact', () => {
         // https://en.wikipedia.org/api/rest_v1/page/html/Organic_acid_anhydride
