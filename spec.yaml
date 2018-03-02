@@ -645,6 +645,9 @@ paths:
                     href: /.+/
                     html: /.+/
                 flags: //
+              langlinks:
+                - lang: /.+/
+                  title: /.+/
               categories:
                 - title: /.+/
                   hidden: /.+/
@@ -1394,6 +1397,19 @@ definitions:
                 description: the toc depth limit for the page, if any
         required: [ title, entries, flags ]
         additionalProperties: false
+      langlinks:
+        type: array
+        description: list of titles and language codes for the article topic on other language Wikipedias
+        items:
+          type: object
+          description: titles and language codes for the article topic on another language Wikipedia
+          properties:
+            lang:
+              type: string
+              description: language code
+            title:
+              type: string
+              description: article title
       categories:
         type: array
         description: categories the page belongs to
