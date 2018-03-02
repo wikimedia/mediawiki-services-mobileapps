@@ -7,6 +7,7 @@
     "start": "service-runner",
     "test": "PREQ_CONNECT_TIMEOUT=15 mocha && nsp check",
     "test:unit": "mocha test/lib",
+    "test:diff": "mocha test/diff",
     "lint": "eslint --cache --max-warnings 0 --ext .js --ext .json .",
     "docker-start": "service-runner docker-start",
     "docker-test": "service-runner docker-test",
