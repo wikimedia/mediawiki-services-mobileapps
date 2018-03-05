@@ -21,23 +21,29 @@ describe('references', function() {
     });
 
     it('should respond with a reference item with back links and content', () => {
-        const uri = localUri('User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FFrankenstein');
+        const uri = localUri('User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FFrankenstein/803891963');
         return preq.get({ uri })
             .then((res) => {
-                assert.equal(res.status, 200);
-                assert.equal(res.body.structure.length, 1, '1 structure expected');
-                assert.ok(res.body.structure[0].id !== undefined, 'id should be defined');
-                assert.equal(res.body.structure[0].type, 'reference_list',
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.structure.length, 1, '1 structure expected');
+                assert.deepEqual(res.body.structure[0].id, null,
+                    'id should be defined (but can be null)');
+                assert.deepEqual(res.body.structure[0].type, 'reference_list',
                     'type should be "reference_list"');
-                assert.ok(res.body.structure[0].order.length > 0,
-                    'order should have items');
+                assert.deepEqual(res.body.structure[0].order.length, 5,
+                    'order should have 5 items');
                 const id = res.body.structure[0].order[0];
-                assert.ok(res.body.references[id], 'there should be some references');
-                assert.ok(res.body.references[id].back_links.length > 0,
+                assert.ok(res.body.references[id], 'ref detail object');
+                assert.deepEqual(res.body.references[id].back_links.length, 1,
                     'ref should have at least one back link');
-                assert.ok(res.body.references[id].content.length > 0,
-                    'ref should have content string');
-                assert.ok(res.body.references[id].id === undefined, `ref id shouldn't be repeated`);
+                assert.ok(res.body.references[id].content,
+                    'ref should have content object');
+                assert.ok(res.body.references[id].content.html.length > 0,
+                    'ref should have non-empty content.html string');
+                assert.equal(res.body.references[id].content.type, 'generic',
+                    'ref should have content.type generic');
+                assert.ok(res.body.references[id].id === undefined,
+                    `ref id shouldn't be included again`);
             });
     });
 });

@@ -39,7 +39,7 @@ describe('references-large', function() {
     }
 
     function verifyNonEmptyResults(response, uri) {
-        assert.equal(response.status, 200);
+        assert.deepEqual(response.status, 200);
         if (response.body.structure.length === 0) {
             console.log('warning: no reflist found');
         }
@@ -52,19 +52,22 @@ describe('references-large', function() {
     }
 
     function verifyReference(parsoidRef, refId, details) {
-        assert.equal(parsoidRef.id, `cite_note-${refId}`, 'ref id');
+        assert.deepEqual(parsoidRef.id, `cite_note-${refId}`, 'ref id');
         if (!knownRefIdsWithoutBackLinks.includes(parsoidRef.id)) {
             assert.ok(details[refId].back_links, `no back_links in ref ${parsoidRef.id}`);
         }
-        if (!details[refId].content) {
-            console.log(`warning: empty content in ref ${parsoidRef.id}`);
+        assert.ok(details[refId].content !== undefined, `no content object in ${refId}`);
+        assert.ok(details[refId].content.html !== undefined, `no content.html in ${refId}`);
+        if (details[refId].content.html.length === 0) {
+            console.log(`warning: empty content.html in ref ${parsoidRef.id}`);
         }
+        assert.ok(details[refId].content.type !== undefined, `no content.type in ${refId}`);
     }
 
     function verifyWithOriginalParsoidResponse(referencesResponse, parsoidResponse, title, rev) {
         const document = domino.createDocument(parsoidResponse.body);
         const parsoidRefLists = document.querySelectorAll('ol.mw-references');
-        assert.equal(referencesResponse.body.structure.length, parsoidRefLists.length,
+        assert.deepEqual(referencesResponse.body.structure.length, parsoidRefLists.length,
             'number of lists');
 
         // go over all reference lists
@@ -81,10 +84,10 @@ describe('references-large', function() {
             } else {
                 console.log(`== heading(${title}/${rev}) = !!Not found!!`);
             }
-            assert.equal(refList.type, 'reference_list', 'list type');
-            assert.equal(refList.id, parsoidRefList.getAttribute('about'), 'list id');
+            assert.deepEqual(refList.type, 'reference_list', 'list type');
+            assert.deepEqual(refList.id, parsoidRefList.getAttribute('about'), 'list id');
             const parsoidRefsInList = parsoidRefList.children;
-            assert.equal(refList.order.length, parsoidRefsInList.length, 'list length');
+            assert.deepEqual(refList.order.length, parsoidRefsInList.length, 'list length');
 
             // go over all references in one list
             for (let j = 0; j < parsoidRefsInList.length; j++) {

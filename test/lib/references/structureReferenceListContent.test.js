@@ -201,11 +201,13 @@ describe('lib:structureReferenceListContent', () => {
             const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
             assert.deepEqual(result, {
                 back_links: [{
-                    "href": "./Dog#cite_ref-101",
-                    "text": "↑"
+                    href: './Dog#cite_ref-101',
+                    text: '↑'
                 }],
-                content: 'some HTML',
-                type: 'generic',
+                content: {
+                    html: 'some HTML',
+                    type: 'generic'
+                },
                 id: '101'
             });
             assert.ok(logger.log.notCalled);
@@ -216,14 +218,16 @@ describe('lib:structureReferenceListContent', () => {
             const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
             assert.deepEqual(result, {
                 back_links: [{
-                    "href": "./Dog#cite_ref-perri2016_13-0",
-                    "text": "1"
+                    href: './Dog#cite_ref-perri2016_13-0',
+                    text: '1'
                 }, {
-                    "href": "./Dog#cite_ref-perri2016_13-1",
-                    "text": "2"
+                    href: './Dog#cite_ref-perri2016_13-1',
+                    text: '2'
                 }],
-                content: '<cite class="citation journal">cite 1</cite><span>more HTML</span>',
-                type: 'journal',
+                content: {
+                    html: '<cite class="citation journal">cite 1</cite><span>more HTML</span>',
+                    type: 'journal'
+                },
                 id: 'perri2016-13'
             });
             assert.ok(logger.log.notCalled);
@@ -238,8 +242,10 @@ describe('lib:structureReferenceListContent', () => {
                     { href: '#cite_ref-toirupee_6-1', text: 'b' },
                     { href: '#cite_ref-toirupee_6-2', text: 'c' },
                 ],
-                content: '<a rel="nofollow" class="external text" href="https://web.archive.org/web/20130816032924/http://timesofindia.indiatimes.com/business/india-business/Journey-of-Indian-rupee-since-independence/articleshow/21844179.cms">Journey of Indian rupee since independence</a>, <i><a href="/wiki/The_Times_of_India" title="The Times of India">The Times of India</a></i>. Retrieved on 2013-12-01.',
-                type: 'generic',
+                content: {
+                    html: '<a rel="nofollow" class="external text" href="https://web.archive.org/web/20130816032924/http://timesofindia.indiatimes.com/business/india-business/Journey-of-Indian-rupee-since-independence/articleshow/21844179.cms">Journey of Indian rupee since independence</a>, <i><a href="/wiki/The_Times_of_India" title="The Times of India">The Times of India</a></i>. Retrieved on 2013-12-01.',
+                    type: 'generic'
+                },
                 id: 'toirupee-6'
             });
             assert.ok(logger.log.notCalled);
@@ -252,8 +258,10 @@ describe('lib:structureReferenceListContent', () => {
                 back_links: [
                     { "href": "./List_of_highest-grossing_Indian_films#cite_ref-toirupee_6-0", "text": "↑" }
                 ],
-                content: '',
-                type: 'generic',
+                content: {
+                    html: '',
+                    type: 'generic'
+                },
                 id: 'toirupee-6'
             });
             assert.ok(logger.log.notCalled);
@@ -264,8 +272,10 @@ describe('lib:structureReferenceListContent', () => {
             const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
             assert.deepEqual(result, {
                 back_links: [],
-                content: 'Foo',
-                type: 'generic',
+                content: {
+                    html: 'Foo',
+                    type: 'generic'
+                },
                 id: 'S8renewal-120'
             });
             assert.ok(logger.log.calledOnce);
@@ -279,11 +289,13 @@ describe('lib:structureReferenceListContent', () => {
             assert.deepEqual(result.references, {
                 '101': {
                     back_links: [{
-                        "href": "./Dog#cite_ref-101",
-                        "text": "↑"
+                        href: './Dog#cite_ref-101',
+                        text: '↑'
                     }],
-                    content: 'some HTML',
-                    type: 'generic'
+                    content: {
+                        html: 'some HTML',
+                        type: 'generic'
+                    }
                 }
             });
             assert.deepEqual(result.order, [ '101' ]);
@@ -296,11 +308,13 @@ describe('lib:structureReferenceListContent', () => {
             assert.deepEqual(result.references, {
                 '101': {
                     back_links: [{
-                        "href": "./Dog#cite_ref-101",
-                        "text": "↑"
+                        href: './Dog#cite_ref-101',
+                        text: '↑'
                     }],
-                    content: 'some HTML',
-                    type: 'generic'
+                    content: {
+                        html: 'some HTML',
+                        type: 'generic'
+                    }
                 }
             });
             assert.deepEqual(result.order, [ '101' ]);
@@ -313,11 +327,13 @@ describe('lib:structureReferenceListContent', () => {
             assert.deepEqual(result.references, {
                 '4': {
                     back_links: [{
-                        "href": "./List_of_most_viewed_YouTube_videos#cite_ref-4",
-                        "text": "↑"
+                        href: './List_of_most_viewed_YouTube_videos#cite_ref-4',
+                        text: '↑'
                     }],
-                    content: mostViewedYoutubeVideosContent,
-                    type: 'generic'
+                    content: {
+                        html: mostViewedYoutubeVideosContent,
+                        type: 'generic'
+                    }
                 }
             });
             assert.deepEqual(result.order, [ '4' ]);
@@ -330,11 +346,13 @@ describe('lib:structureReferenceListContent', () => {
             assert.deepEqual(result.references, {
                 '4': {
                     back_links: [{
-                        "href": "./List_of_most_viewed_YouTube_videos#cite_ref-4",
-                        "text": "↑"
+                        href: './List_of_most_viewed_YouTube_videos#cite_ref-4',
+                        text: '↑'
                     }],
-                    content: mostViewedYoutubeVideosContent,
-                    type: 'generic'
+                    content: {
+                        html: mostViewedYoutubeVideosContent,
+                        type: 'generic'
+                    }
                 }
             });
             assert.deepEqual(result.order, [ '4' ]);
