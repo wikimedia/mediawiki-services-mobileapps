@@ -15,6 +15,56 @@ info:
 x-default-params:
   domain: en.wikipedia.org
 
+parameters:
+  domain:
+    in: path
+    name: domain
+    required: true
+    type: string
+    description: the project domain for the requested data
+  title:
+    in: path
+    name: title
+    required: true
+    type: string
+    description: page title
+  revision:
+    in: path
+    name: revision
+    required: true
+    type: integer
+    description: revision ID
+  tid:
+    in: path
+    name: tid
+    required: true
+    type: integer
+    description: time UUID for the revision (used when non-revision content changes)
+  year:
+    in: path
+    name: year
+    required: true
+    type: number
+    description: Year the featured article is requested for
+    minimum: 2016
+    maximum: 2999
+  month:
+    in: path
+    name: month
+    required: true
+    type: number
+    description: Month events are requested for, 0-padded
+    minimum: 01
+    maximum: 31
+  day:
+    in: path
+    name: day
+    required: true
+    type: number
+    description: Day events are requested for, 0-padded
+    minimum: 01
+    maximum: 31
+
 paths:
   # from routes/root.js
   /robots.txt:
@@ -23,6 +73,13 @@ paths:
         - Root
         - Robots
       description: Gets robots.txt
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-monitor: false
 
   /:
@@ -32,6 +89,13 @@ paths:
       description: The root service end-point
       produces:
         - application/json
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
         - title: spec from root
           request:
@@ -48,6 +112,13 @@ paths:
       description: Gets information about the service
       produces:
         - application/json
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
         - title: retrieve service info
           request: {}
@@ -69,11 +140,13 @@ paths:
       description: Gets announcements for display in the official Wikipedia iOS and Android apps
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/announcements/0.1.0"
+      parameters:
+        - $ref: '#/parameters/domain'
       responses:
-        '200':
+        200:
           description: Announcements for the given Wiki
           schema:
-            $ref: '$/definitions/announcements'
+            $ref: '#/definitions/announcements'
         default:
           description: Error
           schema:
@@ -106,11 +179,13 @@ paths:
       description: Gets information about the offline compilations available for download
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/compilations/0.1.0"
+      parameters:
+        - $ref: '#/parameters/domain'
       responses:
-        '200':
+        200:
           description: Offline compilation information
           schema:
-            $ref: '$/definitions/compilations'
+            $ref: '#/definitions/compilations'
         default:
           description: Error
           schema:
@@ -125,7 +200,7 @@ paths:
               compilations: []
 
   # from routes/feed/on-this-day.js
-  /{domain}/v1/feed/onthisday/{type}/{mm}/{dd}:
+  /{domain}/v1/feed/onthisday/{type}/{month}/{day}:
     get:
       tags:
         - Feed
@@ -141,6 +216,7 @@ paths:
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/onthisday/0.3.2"
       parameters:
+        - $ref: '#/parameters/domain'
         - name: type
           in: path
           description: "type of events"
@@ -153,30 +229,19 @@ paths:
             - deaths
             - holidays
             - events
-        - name: mm
-          in: path
-          description: "Month events are requested for, 0-padded"
-          type: string
-          required: true
-          minimum: "01"
-          maximum: "12"
-        - name: dd
-          in: path
-          description: "Day of the month the most-read articles are requested for"
-          type: string
-          required: true
-          minimum: "01"
-          maximum: "31"
+        - $ref: '#/parameters/month'
+        - $ref: '#/parameters/day'
+
       responses:
-        '200':
+        200:
           description: Annual events listed on this wiki for the requested month and day
           schema:
             $ref: '#/definitions/onthisdayResponse'
-        '404':
+        404:
           description: No data found for the requested date
           schema:
             $ref: '#/definitions/problem'
-        '501':
+        501:
           description: Unsupported language
           schema:
             $ref: '#/definitions/problem'
@@ -189,8 +254,8 @@ paths:
           request:
             params:
               type: "all"
-              mm: "01"
-              dd: "15"
+              month: 01
+              day: 15
           response:
             status: 200
             headers:
@@ -224,8 +289,8 @@ paths:
           request:
             params:
               type: "selected"
-              mm: "01"
-              dd: "15"
+              month: 01
+              day: 15
           response:
             status: 200
             headers:
@@ -238,7 +303,7 @@ paths:
                     - $merge: [ /.+/ ]
 
   # from routes/feed/featured.js
-  /{domain}/v1/page/featured/{yyyy}/{mm}/{dd}:
+  /{domain}/v1/page/featured/{year}/{month}/{day}:
     get:
       tags:
         - Featured article for a given date
@@ -246,45 +311,28 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: yyyy
-          in: path
-          description: "Year the featured article is requested for"
-          type: string
-          required: true
-          minimum: "2016"
-          maximum: "2999"
-        - name: mm
-          in: path
-          description: "Month the featured article is requested for"
-          type: string
-          required: true
-          minimum: "01"
-          maximum: "12"
-        - name: dd
-          in: path
-          description: "Day of the month the featured article is requested for"
-          type: string
-          required: true
-          minimum: "01"
-          maximum: "31"
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/year'
+        - $ref: '#/parameters/month'
+        - $ref: '#/parameters/day'
       responses:
-        '200':
+        200:
           description: The title of a Wikipedia's Featured Article of the Day
           schema:
             $ref: '#/definitions/article_summary_merge_link'
-        '204':
+        204:
           description: Empty response (for feed content aggregation requests from RESTBase)
           schema:
             $ref: '#/definitions/empty'
-        '404':
+        404:
           description: Not found
           schema:
             $ref: '#/definitions/problem'
-        '500':
+        500:
           description: API Error
           schema:
             $ref: '#/definitions/problem'
-        '501':
+        501:
           description: Unsupported language
           schema:
             $ref: '#/definitions/problem'
@@ -296,9 +344,9 @@ paths:
         - title: retrieve title of the featured article for April 29, 2016
           request:
             params:
-              yyyy: "2016"
-              mm: "04"
-              dd: "29"
+              year: 2016
+              month: '04'
+              day: 29
           response:
             status: 200
             headers:
@@ -309,9 +357,9 @@ paths:
           request:
             params:
               domain: "is.wikipedia.org"
-              yyyy: "2016"
-              mm: "04"
-              dd: "29"
+              year: 2016
+              month: '04'
+              day: 29
             query:
               aggregated: true
           response:
@@ -319,7 +367,7 @@ paths:
             body: ""
 
   # from routes/feed/featured-image.js
-  /{domain}/v1/media/image/featured/{yyyy}/{mm}/{dd}:
+  /{domain}/v1/media/image/featured/{year}/{month}/{day}:
     get:
       tags:
         - Featured image for a given date (aka Picture of the day)
@@ -327,37 +375,20 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: yyyy
-          in: path
-          description: "Year the featured image is requested for"
-          type: string
-          required: true
-          minimum: "2016"
-          maximum: "2999"
-        - name: mm
-          in: path
-          description: "Month the featured image is requested for"
-          type: string
-          required: true
-          minimum: "01"
-          maximum: "12"
-        - name: dd
-          in: path
-          description: "Day of the month the featured image is requested for"
-          type: string
-          required: true
-          minimum: "01"
-          maximum: "31"
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/year'
+        - $ref: '#/parameters/month'
+        - $ref: '#/parameters/day'
       responses:
-        '200':
+        200:
           description: Info on the Commons Featured Image of the Day for the requested date
           schema:
             $ref: '#/definitions/image'
-        '204':
+        204:
           description: Empty response (for feed content aggregation requests from RESTBase)
           schema:
             $ref: '#/definitions/empty'
-        '404':
+        404:
           description: Not found (no featured image for the requested date)
           schema:
             $ref: '#/definitions/problem'
@@ -369,9 +400,9 @@ paths:
         - title: retrieve featured image data for April 29, 2016
           request:
             params:
-              yyyy: "2016"
-              mm: "04"
-              dd: "29"
+              year: 2016
+              month: '04'
+              day: 29
           response:
             status: 200
             headers:
@@ -391,7 +422,7 @@ paths:
                 height: /.+/
 
   # from routes/feed/most-read.js
-  /{domain}/v1/page/most-read/{yyyy}/{mm}/{dd}:
+  /{domain}/v1/page/most-read/{year}/{month}/{day}:
     get:
       tags:
         - Most-read articles
@@ -399,37 +430,20 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: yyyy
-          in: path
-          description: "Year the most-read articles are requested for"
-          type: string
-          required: true
-          minimum: "2016"
-          maximum: "2999"
-        - name: mm
-          in: path
-          description: "Month the most-read articles are requested for"
-          type: string
-          required: true
-          minimum: "01"
-          maximum: "12"
-        - name: dd
-          in: path
-          description: "Day of the month the most-read articles are requested for"
-          type: string
-          required: true
-          minimum: "01"
-          maximum: "31"
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/year'
+        - $ref: '#/parameters/month'
+        - $ref: '#/parameters/day'
       responses:
-        '200':
+        200:
           description: Most-read article titles for this wiki for the requested date
           schema:
             $ref: '#/definitions/mostread'
-        '204':
+        204:
           description: Empty response (for feed content aggregation requests from RESTBase)
           schema:
             $ref: '#/definitions/empty'
-        '404':
+        404:
           description: No data found for the requested date
           schema:
             $ref: '#/definitions/problem'
@@ -441,9 +455,9 @@ paths:
         - title: retrieve the most-read articles for January 1, 2016
           request:
             params:
-              yyyy: "2016"
-              mm: "01"
-              dd: "01"
+              year: 2016
+              month: '01'
+              day: '01'
           response:
             status: 200
             headers:
@@ -457,9 +471,9 @@ paths:
         - title: retrieve the most-read articles for January 1, 2016 (with aggregated=true)
           request:
             params:
-              yyyy: "2016"
-              mm: "01"
-              dd: "01"
+              year: 2016
+              month: '01'
+              day: '01'
             query:
               aggregated: true
           response:
@@ -475,9 +489,9 @@ paths:
         - title: retrieve most-read articles for date with no data (with aggregated=true)
           request:
             params:
-              yyyy: "2015"
-              mm: "01"
-              dd: "01"
+              year: 2015
+              month: '01'
+              day: '01'
             query:
               aggregated: true
           response:
@@ -492,12 +506,14 @@ paths:
       description: Gets the title of a randomly picked article from main namespace. Preference is given to articles with a thumbnail, long extract, and an associated Wikidata description.
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/random/0.6.0"
+      parameters:
+        - $ref: '#/parameters/domain'
       responses:
-        '200':
+        200:
           description: A random (good) article title
           schema:
             $ref: '#/definitions/random'
-        '400':
+        400:
           description: Bad request
           schema:
             $ref: '#/definitions/problem'
@@ -523,16 +539,18 @@ paths:
       description: Gets content related to the current In the News template.
       produces:
         - application/json
+      parameters:
+        - $ref: '#/parameters/domain'
       responses:
-        '200':
+        200:
           description: News content from the a Wikipedia main page
           schema:
             $ref: '#/definitions/news'
-        '204':
+        204:
           description: Empty response (for feed content aggregation requests from RESTBase)
           schema:
             $ref: '#/definitions/empty'
-        '501':
+        501:
           description: Unsupported language
           schema:
             $ref: '#/definitions/problem'
@@ -561,15 +579,18 @@ paths:
             body: ""
 
   # from routes/page/media.js
-  /{domain}/v1/page/media/{title}{/revision}{/tid}:
+  /{domain}/v1/page/media/{title}:
     get:
       tags:
         - Media items on a given page
       description: Gets the media items (images, audio, and video) which appear on a given wiki page
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.0.0"
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
       responses:
-        '200':
+        200:
           description: Gets media items from a wiki page
           schema:
             $ref: '#/definitions/media_list'
@@ -600,15 +621,18 @@ paths:
                   license: /.+/
 
   # from routes/page/metadata.js
-  /{domain}/v1/page/metadata/{title}{/revision}{/tid}:
+  /{domain}/v1/page/metadata/{title}:
     get:
       tags:
         - Extended metadata for {title}
       description: Gets additional metadata about the title, primarily from the MediaWiki API
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.0.0"
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
       responses:
-        '200':
+        200:
           description: Extended article metadata
           schema:
             $ref: '#/definitions/metadata'
@@ -622,7 +646,6 @@ paths:
             params:
               domain: en.wikipedia.org
               title: Video
-              revision: 824951281
           response:
             status: 200
             headers:
@@ -657,13 +680,23 @@ paths:
                 move: [ /.+/ ]
 
   # from routes/page/definition.js
-  /{domain}/v1/page/definition/{title}{/revision}{/tid}:
+  /{domain}/v1/page/definition/{title}:
     get:
       tags:
         - Wiktionary definition of {title}
       description: Gets definitions parsed from Wiktionary for {title}
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.7.4"
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+      responses:
+        200:
+          description: Structured definition for the term
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
         - title: retrieve en-wiktionary definitions for 'cat'
           request:
@@ -677,45 +710,27 @@ paths:
             body: /.+/
 
   # from routes/page/summary.js
-  /{domain}/v1/page/summary/{title}{/revision}{/tid}:
+  /{domain}/v1/page/summary/{title}:
     get:
       tags:
         - Page content
-      summary: Get a text extract of a page.
+      summary: Gets key metadata about a page, including text and HTML page extracts.
       description: |
         The summary response includes an extract of the first paragraph of the page in plain text
         and HTML as well as the type of page. This is useful for page previews.
 
         Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.3.3"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/summary/1.3.3"
       parameters:
-        - name: title
-          in: path
-          description: "Page title. Use underscores instead of spaces. Example: `Main_Page`."
-          type: string
-          required: true
-        - name: revision
-          in: path
-          description: "Revision of page content"
-          type: integer
-          required: false
-        - name: tid
-          in: path
-          description: "Time UUID of requested summary render"
-          type: string
-          required: false
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
       responses:
-        '200':
+        200:
           description: The summary for the given page
           schema:
             $ref: '#/definitions/summary'
-          headers:
-            ETag:
-              description: >
-                Syntax: "{revision}/{tid}".
-                Example: "701384379/154d7bca-c264-11e5-8c2f-1b51b33b59fc"
-        '404':
+        404:
           description: Unknown page title or revision
           schema:
             $ref: '#/definitions/problem'
@@ -837,13 +852,23 @@ paths:
               extract_html: /.+/
 
   # from routes/page/mobile-sections.js
-  /{domain}/v1/page/mobile-sections/{title}{/revision}{/tid}:
+  /{domain}/v1/page/mobile-sections/{title}:
     get:
       tags:
         - Page content
       description: Gets the full page content of a given wiki page for mobile apps
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.13.1"
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+      responses:
+        200:
+          description: Structured info about a page and its sections
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
         - title: retrieve en.wp main page via mobile-sections
           request:
@@ -871,13 +896,23 @@ paths:
               remaining:
                 sections: []
 
-  /{domain}/v1/page/mobile-sections-lead/{title}{/revision}{/tid}:
+  /{domain}/v1/page/mobile-sections-lead/{title}:
     get:
       tags:
         - Lead section of page content
       description: Gets the lead section and general metadata of a given wiki page for mobile apps
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.13.1"
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+      responses:
+        200:
+          description: Structured info a page and its lead section
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
         - title: retrieve lead section of en.wp Altrincham page via mobile-sections-lead
           request:
@@ -909,13 +944,23 @@ paths:
                 longitude: /.+/
               sections: [ /.+/ ]
 
-  /{domain}/v1/page/mobile-sections-remaining/{title}{/revision}{/tid}:
+  /{domain}/v1/page/mobile-sections-remaining/{title}:
     get:
       tags:
         - Lead section of page content
       description: Gets the remaining sections of a given wiki page for mobile apps
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.13.1"
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+      responses:
+        200:
+          description: Structured info on non-lead sections for a page
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-monitor: false
 
 definitions:
@@ -1048,10 +1093,12 @@ definitions:
         description: Wikidata description for the page
         example: American poet
       content_urls:
-        desktop:
-          $ref: '#/definitions/content_urls'
-        mobile:
-          $ref: '#/definitions/content_urls'
+        type: object
+        properties:
+          desktop:
+            $ref: '#/definitions/content_urls'
+          mobile:
+            $ref: '#/definitions/content_urls'
       api_urls:
         $ref: '#/definitions/api_urls'
       coordinates:
@@ -1064,7 +1111,7 @@ definitions:
           lon:
             type: number
             description: The longitude
-        requiredProperties: [ 'lat', 'lon' ]
+        required: [ 'lat', 'lon' ]
     required:
       - type
       - title
@@ -1081,12 +1128,13 @@ definitions:
 
   dated_pageview:
     type: object
-    date:
-      type: string
-      description: ISO 8601 timestamp of pageviews recorded
-    views:
-      type: integer
-      description: Number of views on date
+    properties:
+      date:
+        type: string
+        description: ISO 8601 timestamp of pageviews recorded
+      views:
+        type: integer
+        description: Number of views on date
 
   mostread_article:
     type: object
@@ -1151,19 +1199,14 @@ definitions:
     description: Lists of events which happened on the provided day and month
     properties:
       births:
-        description: A list of birthdays which happened on the provided day and month
         $ref: '#/definitions/onthisdayList'
       deaths:
-        description: A list of deaths which happened on the provided day and month
         $ref: '#/definitions/onthisdayList'
       events:
-        description: A list of significant events which happened on the provided day and month and which are not covered by the other types yet
         $ref: '#/definitions/onthisdayList'
       holidays:
-        description: A list of fixed holidays celebrated on the provided day and month
         $ref: '#/definitions/onthisdayList'
       selected:
-        description: A list of a few selected anniversaries which occur on the provided day and month; often the entries are curated for the current year
         $ref: '#/definitions/onthisdayList'
     additionalProperties: false
 
@@ -1216,13 +1259,10 @@ definitions:
         type: string
         description: Image title
       thumbnail:
-        description: Image thumbnail
         $ref: '#/definitions/image_props'
       image:
-        description: Full-size image
         $ref: '#/definitions/image_props'
       description:
-        description: Description of an image
         $ref: '#/definitions/image_description'
     required:
       - title
@@ -1270,10 +1310,7 @@ definitions:
         type: string
         description: The URL of the image for the announcement (iOS App specific)
       action:
-        type: object
-        description: The action for the button of the announcement
-        schema:
-          $ref: '#/definitions/action'
+        $ref: '#/definitions/action'
       caption_HTML:
         type: string
         description: HTML to display below the announcement. Usually a privacy statment and link to a policy
@@ -1331,11 +1368,9 @@ definitions:
       image_thumb:
         type: object
         description: Thumbnail image (320px) representing the collection
-        $ref: '#/definitions/image_props'
       image_feature:
         type: object
         description: Feature-size image (640px) representing the collection
-        $ref: '#/definitions/image_props'
       count:
         type: integer
         description: The number of articles included in the compilation
@@ -1498,9 +1533,13 @@ definitions:
       edit:
         type: array
         description: list of groups with the 'edit' permission
+        items:
+          type: string
       move:
         type: array
         description: list of groups with the 'move' permission
+        items:
+          type: string
 
   media_list:
     type: object
@@ -1519,34 +1558,38 @@ definitions:
       titles:
         $ref: '#/definitions/titles_set'
       thumbnail:
-        source:
-          type: string
-          description: thumb URL
-        width:
-          type: integer
-          description: thumb width
-        height:
-          type: integer
-          description: thumb height
-        mime:
-          type: string
-          description: thumb MIME type
+        type: object
+        properties:
+          source:
+            type: string
+            description: thumb URL
+          width:
+            type: integer
+            description: thumb width
+          height:
+            type: integer
+            description: thumb height
+          mime:
+            type: string
+            description: thumb MIME type
       original:
-        source:
-          type: string
-          description: original URL
-        width:
-          type: integer
-          description: original width
-        height:
-          type: integer
-          description: original height
-        mime:
-          type: string
-          description: original MIME type
-        size:
-          type: integer
-          description: the original file size in bytes (sizes are not provided for video derivatives)
+        type: object
+        properties:
+          source:
+            type: string
+            description: original URL
+          width:
+            type: integer
+            description: original width
+          height:
+            type: integer
+            description: original height
+          mime:
+            type: string
+            description: original MIME type
+          size:
+            type: integer
+            description: the original file size in bytes (sizes are not provided for video derivatives)
       page_count:
         type: integer
         description: page count, if the item is a paged item (PDF, TIFF, DjVu, etc.)
@@ -1560,18 +1603,20 @@ definitions:
           - video
           - audio
       caption:
-        html:
-          type: string
-          description: on-wiki caption for the media item, including all HTML markup
-        text:
-          type: string
-          description: plain text of the on-wiki caption for the media item
+        type: object
+        properties:
+          html:
+            type: string
+            description: on-wiki caption for the media item, including all HTML markup
+          text:
+            type: string
+            description: plain text of the on-wiki caption for the media item
       start_time:
         type: number
-        desription: start time (if any) for the media item
+        description: start time (if any) for the media item
       end_time:
         type: number
-        desription: end time (if any) for the media item
+        description: end time (if any) for the media item
       duration:
         type: number
         description: the playback duration in seconds (for audio and video items)
@@ -1665,7 +1710,7 @@ definitions:
       - page
       - revisions
       - edit
-    additionalProperites: false
+    additionalProperties: false
 
   api_urls:
     type: object
