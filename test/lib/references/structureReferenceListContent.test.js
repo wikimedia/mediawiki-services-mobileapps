@@ -69,6 +69,19 @@ const attemptedXssRef = `<li about="#cite_note-101" id="cite_note-101">
 // Had issue parsing `toirupee` reference
 const indianFilmsToIRupeeRefInRef = `<li id="cite_note-toirupee-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-toirupee_6-0"><sup><i><b>a</b></i></sup></a> <a                   href="#cite_ref-toirupee_6-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-toirupee_6-2"><sup><i><b>c</b></i></sup></a></span> <span           class="reference-text"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20130816032924/http://timesofindia.indiatimes.com/business/india-business/Journey-of-Indian-rupee-since-independence/articleshow/21844179.cms">Journey of Indian rupee since independence</a>, <i><a href="/wiki/The_Times_of_India" title="The Times of India">The Times of India</a></i>. Retrieved on 2013-12-01.</span></li>`;
 
+// Also having issue parsing ref `181`
+const indianFilmsRef181 = `<li id="cite_note-toirupee-6">
+    <a href="./List_of_highest-grossing_Indian_films#cite_ref-toirupee_6-0" rel="mw:referencedBy">
+        <span class="mw-linkback-text">↑ </span>
+    </a>
+</li>`;
+
+// https://en.wikipedia.org/api/rest_v1/page/html/Shameless_(U.S._TV_series)/823068141
+const noBackLinkRef = `<li id="cite_note-S8renewal-120">
+    <span rel="mw:referencedBy"></span>
+    <span id="mw-reference-text-cite_note-S8renewal-120" class="mw-reference-text">Foo</span>
+</li>`;
+
 describe('lib:structureReferenceListContent', () => {
     let logger;
 
@@ -216,7 +229,7 @@ describe('lib:structureReferenceListContent', () => {
             assert.ok(logger.log.notCalled);
         });
 
-        it('backlinks in span.mw-cite-backlink', () => {
+        it('back links in span.mw-cite-backlink', () => {
             const doc = createDocument(indianFilmsToIRupeeRefInRef);
             const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
             assert.deepEqual(result, {
@@ -230,6 +243,32 @@ describe('lib:structureReferenceListContent', () => {
                 id: 'toirupee-6'
             });
             assert.ok(logger.log.notCalled);
+        });
+
+        it('no content in indianFilmsRef181', () => {
+            const doc = createDocument(indianFilmsRef181);
+            const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
+            assert.deepEqual(result, {
+                back_links: [
+                    { "href": "./List_of_highest-grossing_Indian_films#cite_ref-toirupee_6-0", "text": "↑" }
+                ],
+                content: '',
+                type: 'generic',
+                id: 'toirupee-6'
+            });
+            assert.ok(logger.log.notCalled);
+        });
+
+        it('no back link in Shameless_(U.S._TV_series)', () => {
+            const doc = createDocument(noBackLinkRef);
+            const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
+            assert.deepEqual(result, {
+                back_links: [],
+                content: 'Foo',
+                type: 'generic',
+                id: 'S8renewal-120'
+            });
+            assert.ok(logger.log.calledOnce);
         });
     });
 
