@@ -709,6 +709,48 @@ paths:
                 edit: [ /.+/ ]
                 move: [ /.+/ ]
 
+  # from routes/page/references.js
+  /{domain}/v1/page/references/{title}:
+    get:
+      tags:
+        - Page content
+      summary: Get reference lists and reference details.
+      description: |
+        Gets a list of reference lists and a map of reference ids to details for all references
+        appearing on the equivalent page. This content is parsed from Parsoid output.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/1.0.0"
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+      responses:
+        '200':
+          description: Reference lists and reference details
+          schema:
+            $ref: '#/definitions/references_response'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve structured reference data for the Cat article on English Wikipedia
+          request:
+            params:
+              domain: en.wikipedia.org
+              title: Cat
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              revision: /.+/
+              tid: /.+/
+              structure:
+                - type: /.+/
+                  id: /.+/
+                  order: [ /.+/ ]
+              references: /.+/
+
   # from routes/page/definition.js
   /{domain}/v1/page/definition/{title}:
     get:
@@ -1583,6 +1625,87 @@ definitions:
         description: list of groups with the 'move' permission
         items:
           type: string
+
+  references_response:
+    type: object
+    description: Reference lists and references
+    properties:
+      structure:
+        $ref: '#/definitions/reference_structures'
+      references:
+        $ref: '#/definitions/reference_details'
+    additionalProperties: false
+    required:
+      - structure
+      - references
+
+  reference_structures:
+    type: object
+    description: A list of reference lists
+    properties:
+      type:
+        type: string
+        enum:
+          - reference_list
+          - heading
+      id:
+        type: string
+        description: Identifier for the whole reference list
+      order:
+        type: array
+        description: |
+          List of identifiers for individual references, which can be used to lookup
+          the reference details
+        items:
+          type: string
+    additionalProperties: false
+
+  reference_details:
+    type: object
+    description: A map of reference ids to reference details
+    properties:
+      default:
+        $ref: '#/definitions/reference_detail_item'
+
+  reference_detail_item:
+    type: object
+    description: Information about one reference
+    properties:
+      back_links:
+        type: array
+        description: A list of back links, can be empty in rare cases
+        items:
+          $ref: '#/definitions/reference_detail_item_back_link'
+      content:
+        type: object
+        properties:
+          html:
+            type: string
+            description: HTML representation of the reference content
+          type:
+            type: string
+            enum:
+              - generic
+              - book
+              - journal
+              - news
+              - web
+            description: Known citation type if there is exactly one cite tag, else 'generic'
+    additionalProperties: false
+
+  reference_detail_item_back_link:
+    type: object
+    description: Information about one link back to where on the page a given reference was used
+    properties:
+      href:
+        type: string
+        description: Relative URL pointing to anchor on same page
+      text:
+        type: string
+        description: |
+          Either an arrow for a single back link or another (usually single) chararacter
+          to distinguish multiple back links.
+    additionalProperties: false
 
   media_list:
     type: object
