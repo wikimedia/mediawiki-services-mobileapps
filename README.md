@@ -42,7 +42,7 @@ You are now ready to get to work!
 * Inspect/modify/configure `app.js`
 * Add routes by placing files in `routes/` (look at the files there for examples)
 
-You can also read [the documentation](https://www.mediawiki.org/wiki/ServiceTemplateNode).
+You can also read [the ServiceTemplateNode documentation](https://www.mediawiki.org/wiki/ServiceTemplateNode).
 
 ### Running the service
 
@@ -55,7 +55,7 @@ npm start
 This starts an HTTP server listening on `localhost:6927`.
 
 ### Endpoints
-There are a few routes you may query (with a browser, or `curl` and friends).
+There are a few routes you may query (with a browser, or `curl` and friends). You can see more documentation at `localhost:6927/?doc`.
 
 #### Page Content Service routes
 Next generation routes for page content. See [Page_Content_Service](https://www.mediawiki.org/wiki/Page_Content_Service).

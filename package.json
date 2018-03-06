@@ -1,7 +1,7 @@
 {
   "name": "service-mobileapp-node",
   "version": "0.3.0",
-  "description": "A prototype for MediaWiki REST API services for mobile apps",
+  "description": "Collection of REST API services supporting Wikimedia Foundation Readers products",
   "main": "./app.js",
   "scripts": {
     "start": "service-runner",
