@@ -6,7 +6,6 @@ const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
 const parsoid = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
-const Title = require('mediawiki-title').Title;
 
 /**
  * The main router object
@@ -26,13 +25,11 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
         html: parsoid.getParsoidHtml(app, req),
         meta: mwapi.getMetadata(app, req, mwapi.LEAD_IMAGE_S),
-        title: mwapi.getTitleObj(app, req),
         siteinfo: mwapi.getSiteInfo(app, req)
     }).then((response) => {
         const revTid = parsoid.getRevAndTidFromEtag(response.html.headers);
-        const title = Title.newFromText(req.params.title, response.siteinfo);
-        const summary = lib.buildSummary(req.params.domain, title,
-            response.html.body, revTid, response.meta);
+        const summary = lib.buildSummary(req.params.domain, req.params.title,
+            response.html.body, revTid, response.meta, response.siteinfo);
         res.status(summary.code);
         if (summary.code === 200) {
             delete summary.code;

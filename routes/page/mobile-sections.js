@@ -254,18 +254,20 @@ function _handleNamespaceAndSpecialCases(req, res) {
 /**
  * Creates a raw object representing a page in preparation
  * for further massaging
- * @param {!Request} req
+ * @param {!Object} app the application object
+ * @param {!Object} req the request object
  * @param {?Boolean} [legacy] when true MCS will
  *  apply legacy transformations that we are in the process
  *  of deprecating.
  * @return {!BBPromise}
  */
-function _collectRawPageData(req, legacy) {
-    return BBPromise.props({
+function _collectRawPageData(app, req, legacy) {
+    return mwapi.getSiteInfo(app, req)
+    .then(si => BBPromise.props({
         page: parsoid.pageJsonPromise(app, req, legacy),
         meta: mwapi.getMetadata(app, req),
-        title: mwapi.getTitleObj(app, req)
-    }).then((interimState) => {
+        title: mwapi.getTitleObj(req.params.title, si)
+    })).then((interimState) => {
         return _handleNamespaceAndSpecialCases(req, interimState);
     });
 }
@@ -278,8 +280,8 @@ function _collectRawPageData(req, legacy) {
  *  of deprecating.
  * @return {!BBPromise}
  */
-function buildAllResponse(req, res, legacy) {
-    return _collectRawPageData(req, legacy).then((response) => {
+function buildAllResponse(app, req, res, legacy) {
+    return _collectRawPageData(app, req, legacy).then((response) => {
         response = buildAll(response, legacy);
         res.status(200);
         mUtil.setETag(res, response.lead.revision, response.lead.tid);
@@ -297,8 +299,8 @@ function buildAllResponse(req, res, legacy) {
  *  of deprecating.
  * @return {!BBPromise}
  */
-function buildLeadObject(req, legacy) {
-    return _collectRawPageData(req, legacy).then((lead) => {
+function buildLeadObject(app, req, legacy) {
+    return _collectRawPageData(app, req, legacy).then((lead) => {
         return buildLead(lead, legacy);
     });
 }
@@ -312,8 +314,8 @@ function buildLeadObject(req, legacy) {
  *  of deprecating.
  * @return {!BBPromise}
  */
-function buildLeadResponse(req, res, legacy) {
-    return buildLeadObject(req, legacy).then((response) => {
+function buildLeadResponse(app, req, res, legacy) {
+    return buildLeadObject(app, req, legacy).then((response) => {
         res.status(200);
         mUtil.setETag(res, response.revision, response.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
@@ -326,7 +328,7 @@ function buildLeadResponse(req, res, legacy) {
  * Gets the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections/:title/:revision?/:tid?', (req, res) => {
-    return buildAllResponse(req, res, true);
+    return buildAllResponse(app, req, res, true);
 });
 
 /**
@@ -334,7 +336,7 @@ router.get('/mobile-sections/:title/:revision?/:tid?', (req, res) => {
  * Gets the lead section for the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections-lead/:title/:revision?/:tid?', (req, res) => {
-    return buildLeadResponse(req, res, true);
+    return buildLeadResponse(app, req, res, true);
 });
 
 /**
@@ -357,7 +359,7 @@ router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
 * Gets a formatted version of a given wiki page rather than a blob of wikitext.
 */
 router.get('/formatted/:title/:revision?/:tid?', (req, res) => {
-    return buildAllResponse(req, res, false);
+    return buildAllResponse(app, req, res, false);
 });
 
 /**
@@ -365,7 +367,7 @@ router.get('/formatted/:title/:revision?/:tid?', (req, res) => {
 * Gets a formatted version of a given wiki page rather than a blob of wikitext.
 */
 router.get('/formatted-lead/:title/:revision?/:tid?', (req, res) => {
-    return buildLeadResponse(req, res, false);
+    return buildLeadResponse(app, req, res, false);
 });
 
 module.exports = function(appObj) {
