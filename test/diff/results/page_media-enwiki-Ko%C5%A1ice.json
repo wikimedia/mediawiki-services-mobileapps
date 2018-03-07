@@ -21,10 +21,16 @@
         "mime": "image/png"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:BandeauKosice.png",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Adehertogh\" title=\"User:Adehertogh\">Adehertogh</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Adehertogh\" title=\"User:Adehertogh\">Adehertogh</a>",
+        "name": "Adehertogh",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Adehertogh"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\" xml:lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Montage of picture from Košice"
     },
     {
@@ -48,10 +54,16 @@
         "mime": "image/png"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Košice.png",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Metronick\" title=\"User:Metronick\">Metronick</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Metronick\" title=\"User:Metronick\">Metronick</a>",
+        "name": "Metronick",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Metronick"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Flag of <a href=\"//commons.wikimedia.org/wiki/Ko%C5%A1ice\" title=\"Košice\">Košice</a> in <a href=\"//commons.wikimedia.org/wiki/Slovakia\" class=\"mw-redirect\" title=\"Slovakia\">Slovakia</a>."
     },
     {
@@ -75,9 +87,10 @@
         "mime": "image/png"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Košice.png",
-      "artist": "",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      }
     },
     {
       "section_id": 0,
@@ -100,9 +113,13 @@
         "mime": "image/png"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Slovakia_-_background_map.png",
-      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>",
+      "artist": {
+        "html": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>"
+      },
       "credit": "Made my myself from free maps available at www.demis.nl",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Background map of Slovakia, ready for the <a href=\"https://en.wikipedia.org/wiki/Template:Geobox\" class=\"extiw\" title=\"en:Template:Geobox\">Geobox</a> template, calibrated at <a href=\"https://en.wikipedia.org/wiki/Template:Geobox_locator_Slovakia\" class=\"extiw\" title=\"en:Template:Geobox locator Slovakia\">en:Template:Geobox locator Slovakia</a>"
     },
     {
@@ -124,10 +141,14 @@
         "mime": "image/svg+xml"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Slovakia_-_outline_map.svg",
-      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>",
+      "artist": {
+        "html": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Outline map of Slovakia, ready for the <a href=\"https://en.wikipedia.org/wiki/Template:Geobox\" class=\"extiw\" title=\"en:Template:Geobox\">Geobox</a> template, calibrated at <a href=\"https://en.wikipedia.org/wiki/Template:Geobox_locator_Slovakia\" class=\"extiw\" title=\"en:Template:Geobox locator Slovakia\">en:Template:Geobox locator Slovakia</a>"
     },
     {
@@ -151,9 +172,13 @@
         "mime": "image/png"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Košice_Region_-_background_map.png",
-      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>",
+      "artist": {
+        "html": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>"
+      },
       "credit": "Made my myself from free maps available at www.demis.nl",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Background map of the Košice Region, Slovakia, ready for the <a href=\"https://en.wikipedia.org/wiki/Template:Geobox\" class=\"extiw\" title=\"en:Template:Geobox\">Geobox</a> template, calibrated at <a href=\"https://en.wikipedia.org/wiki/Template:Geobox_locator_Ko%C5%A1ice_Region\" class=\"extiw\" title=\"en:Template:Geobox locator Košice Region\">en:Template:Geobox locator Košice Region</a>"
     },
     {
@@ -175,10 +200,14 @@
         "mime": "image/svg+xml"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Košice_Region_-_outline_map.svg",
-      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>",
+      "artist": {
+        "html": "<a href=\"https://en.wikipedia.org/wiki/User:Caroig\" class=\"extiw\" title=\"en:User:Caroig\">Caroig</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Outline map of the Košice Region, Slovakia, ready for the <a href=\"https://en.wikipedia.org/wiki/Template:Geobox\" class=\"extiw\" title=\"en:Template:Geobox\">Geobox</a> template, calibrated at <a href=\"https://en.wikipedia.org/wiki/Template:Geobox_locator_Ko%C5%A1ice_Region\" class=\"extiw\" title=\"en:Template:Geobox locator Košice Region\">en:Template:Geobox locator Košice Region</a>"
     },
     {
@@ -207,10 +236,14 @@
       },
       "page_count": 1,
       "file_page": "https://commons.wikimedia.org/wiki/File:Fő_utcza,_Kassa_-_1902_(1).tif",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=Unknown_photographer_(scanned_by_Derzsi_Elekes_Andor)&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"Unknown photographer (scanned by Derzsi Elekes Andor) (page does not exist)\">Unknown photographer (scanned by Derzsi Elekes Andor)</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=Unknown_photographer_(scanned_by_Derzsi_Elekes_Andor)&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"Unknown photographer (scanned by Derzsi Elekes Andor) (page does not exist)\">Unknown photographer (scanned by Derzsi Elekes Andor)</a>"
+      },
       "credit": "Courtesy of Derzsi Elekes Andor",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "license": {
+        "type": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "description": "Kassán, 1902. május 31-én keltezett képeslap. Egy és kétkoronás áruház. Kassa, Fő utcza. Courtesy, scanned by Derzsi Elekes Andor. ©© Derzsi Elekes Andor, Budapest, 2014, A kép másolását, bármilyen úton történő sokszorosítását és felhasználását a szerző ellenérték nélkül, jogutódjaira is kihatóan megengedi. Az engedély kiterjed a kereskedelmi célú hasznosításra is. Kéri azonban nevének feltüntetését a felhasználás során. A Metapolisz sorozat valamennyi képe és filmje Creative Commons alatti valamint kereskedelmi - for profit - célra is felhasználható. Ajánlott hivatkozás: Derzsi Elekes Andor: Metapolisz DVD line <a rel=\"nofollow\" class=\"external free\" href=\"http://nektar.oszk.hu/en/manifestation/2623913\">http://nektar.oszk.hu/en/manifestation/2623913</a>"
     },
     {
@@ -234,10 +267,16 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Kassa.ogg",
       "duration": 4.2144217687075,
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rokarudi\" title=\"User:Rokarudi\">Rokarudi</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Rokarudi\" title=\"User:Rokarudi\">Rokarudi</a>",
+        "name": "Rokarudi",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Rokarudi"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "The Hungarian name of Kassa pronunced ny a native speaker. (in Slovakian: Kosice)"
     },
     {
@@ -265,10 +304,15 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Slovakia_Kosice_21.jpg",
-      "artist": "Jozef Kotulič",
+      "artist": {
+        "html": "Jozef Kotulič",
+        "name": "Jozef Kotulič"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY 3.0",
-      "license_url": "http://creativecommons.org/licenses/by/3.0",
+      "license": {
+        "type": "CC BY 3.0",
+        "url": "http://creativecommons.org/licenses/by/3.0"
+      },
       "description": "Centrum mesta Košice"
     },
     {
@@ -296,9 +340,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Cassovia_1617.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "<a href=\"//commons.wikimedia.org/wiki/Ko%C5%A1ice\" title=\"Košice\">Košice</a> - Prvé mesto Horného Uhorska 1617."
     },
     {
@@ -326,10 +374,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Eastern-hungarian-kingdom1550.JPG",
-      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Fz22\" class=\"extiw\" title=\"wikipedia:User:Fz22\">Fz22</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+      "artist": {
+        "html": "<a href=\"https://en.wikipedia.org/wiki/User:Fz22\" class=\"extiw\" title=\"wikipedia:User:Fz22\">Fz22</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>"
+      },
       "credit": "Transferred from <span class=\"plainlinks\"><a class=\"external text\" href=\"//en.wikipedia.org\">en.wikipedia</a></span> to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Frokor\" title=\"User:Frokor\">Frokor</a> using <a href=\"https://tools.wmflabs.org/commonshelper/\" class=\"extiw\" title=\"toollabs:commonshelper/\">CommonsHelper</a>.",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      }
     },
     {
       "section_id": 2,
@@ -356,10 +408,14 @@
         "mime": "image/png"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Bethlen_Gábor_fejedelemsége.png",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Petolaszlo&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Petolaszlo (page does not exist)\">Petolaszlo</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Petolaszlo&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Petolaszlo (page does not exist)\">Petolaszlo</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Bethlen Gábor fejedelemsége"
     },
     {
@@ -387,10 +443,16 @@
         "mime": "image/png"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Central_europe_1683.png",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:PANONIAN\" title=\"User:PANONIAN\">PANONIAN</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:PANONIAN\" title=\"User:PANONIAN\">PANONIAN</a>",
+        "name": "PANONIAN",
+        "user_page": "https://commons.wikimedia.org/wiki/User:PANONIAN"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC0",
-      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "license": {
+        "type": "CC0",
+        "url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
       "description": "Central Europe in 1683 - Habsburg and Ottoman territories, including Habsburg Kingdom of Hungary (Royal Hungary) and Habsburg Croatia, Ottoman vassal states (Wallachia, Moldavia, Transylvania, Upper Hungary, Montenegro, Ragusa) and Ottoman eyalets. The Ottoman expansion was asked by prince <a href=\"//commons.wikimedia.org/wiki/Category:Imre_Th%C3%B6k%C3%B6ly\" title=\"Category:Imre Thököly\">Imre Thököly</a> in Upper Hungary (centered in present-day Slovakia) against the Habsburgs. The Ottoman Rule in Upper Hungary lasted only for 3 months."
     },
     {
@@ -418,9 +480,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Veduta10.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\" xml:lang=\"en\">Own work</span>",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "veduta Košice"
     },
     {
@@ -448,9 +514,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Divadlo_Kosice_1900.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Divadlo Kosice 1900"
     },
     {
@@ -478,7 +548,9 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Synagoga7.jpg",
-      "license": "Public domain"
+      "license": {
+        "type": "Public domain"
+      }
     },
     {
       "section_id": 7,
@@ -505,10 +577,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:102_0407.jpg",
-      "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/97725124@N00\">Ian Armstrong</a>",
+      "artist": {
+        "html": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/97725124@N00\">Ian Armstrong</a>"
+      },
       "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/97725124@N00/310440446\">Flickr</a>",
-      "license": "CC BY-SA 2.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "license": {
+        "type": "CC BY-SA 2.0",
+        "url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
       "description": "Mlynská ulica"
     },
     {
@@ -536,10 +612,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:133-3381_IMG.JPG",
-      "artist": "Erika Mlejová (<a href=\"https://sk.wikipedia.org/wiki/Redaktor:Erika_Mlejov%C3%A1\" class=\"extiw\" title=\"sk:Redaktor:Erika Mlejová\">sk:Redaktor:Erika Mlejová</a>)",
+      "artist": {
+        "html": "Erika Mlejová (<a href=\"https://sk.wikipedia.org/wiki/Redaktor:Erika_Mlejov%C3%A1\" class=\"extiw\" title=\"sk:Redaktor:Erika Mlejová\">sk:Redaktor:Erika Mlejová</a>)"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "description": "Slovakia, Košice, Andrassy's Coat of Arms Statue on Main Street"
     },
     {
@@ -567,10 +647,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Košice_Hlavná.jpg",
-      "artist": "Patrick Hendriksen (<a href=\"//commons.wikimedia.org/w/index.php?title=User:Tucquero&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Tucquero (page does not exist)\">Tucquero</a> 14:34, 24 July 2007 (UTC))",
+      "artist": {
+        "html": "Patrick Hendriksen (<a href=\"//commons.wikimedia.org/w/index.php?title=User:Tucquero&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Tucquero (page does not exist)\">Tucquero</a> 14:34, 24 July 2007 (UTC))"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "description": "Košice Hlavná from St. Elisabeth Cathedral"
     },
     {
@@ -598,10 +682,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:DomPocasOtvaraciehoCeremonialu.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Nasvietenie Dómu počas otváracieho ceremoniálu EHMK 1/2013"
     },
     {
@@ -629,10 +717,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:KulturparkKošice.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Kulturpark in Košice, Slovakia"
     },
     {
@@ -657,10 +749,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Kulturpark_Kasárne_Košice_2013.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Kasárne Kulturpark, ex-military barracks in European Capital of Culture Košice - Slovakia, 2013"
     },
     {
@@ -685,10 +781,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:KunsthalleKošice.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Kunsthalle, European Capital of Culture Košice - Slovakia, 2013"
     },
     {
@@ -713,10 +813,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:SPOT_Važecká.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "SPOT, a heat exchanger in a communist district in European Capital of Culture Košice - Slovakia 2013"
     },
     {
@@ -741,10 +845,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Kosice_State_Theatre_1.JPG",
-      "artist": "Erika Mlejová (<a href=\"https://sk.wikipedia.org/wiki/Redaktor:Erika_Mlejov%C3%A1\" class=\"extiw\" title=\"sk:Redaktor:Erika Mlejová\">sk:Redaktor:Erika Mlejová</a>)",
+      "artist": {
+        "html": "Erika Mlejová (<a href=\"https://sk.wikipedia.org/wiki/Redaktor:Erika_Mlejov%C3%A1\" class=\"extiw\" title=\"sk:Redaktor:Erika Mlejová\">sk:Redaktor:Erika Mlejová</a>)"
+      },
       "credit": "self",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "description": "Slovakia, Košice, State Theater on Main Street"
     },
     {
@@ -772,10 +880,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Kosice_(Slovakia)_-_Miklus's_Prison.jpg",
-      "artist": "Maros M r a z (<a href=\"https://sk.wikipedia.org/wiki/Redaktor:Maros\" class=\"extiw\" title=\"sk:Redaktor:Maros\">Maros</a>)",
+      "artist": {
+        "html": "Maros M r a z (<a href=\"https://sk.wikipedia.org/wiki/Redaktor:Maros\" class=\"extiw\" title=\"sk:Redaktor:Maros\">Maros</a>)"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "description": "Slovakia, Košice, Mikluš's Prison"
     },
     {
@@ -800,10 +912,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Kosice_-_St._Elisabeth_Cathedral_retouched.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Milkod2001&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Milkod2001 (page does not exist)\">Milkod2001</a> (Milan Dzunda)",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Milkod2001&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Milkod2001 (page does not exist)\">Milkod2001</a> (Milan Dzunda)"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "FAL",
-      "license_url": "http://artlibre.org/licence/lal/en",
+      "license": {
+        "type": "FAL",
+        "url": "http://artlibre.org/licence/lal/en"
+      },
       "description": "<p>Kosice - St. Elisabeth Cathedral</p>\n<table cellspacing=\"0\" style=\"width:550px; text-align:center; color:#000; background:#ddd; border:1px solid #bbb; margin:1px; direction:ltr;\" class=\"layouttemplate\"><tr>\n<td style=\"width:44px; height:22px;\"><a href=\"//commons.wikimedia.org/wiki/File:Coat_of_arms_of_Slovakia.svg\" class=\"image\"><img alt=\"Coat of arms of Slovakia.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/20px-Coat_of_arms_of_Slovakia.svg.png\" width=\"20\" height=\"25\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/30px-Coat_of_arms_of_Slovakia.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/40px-Coat_of_arms_of_Slovakia.svg.png 2x\" data-file-width=\"480\" data-file-height=\"600\"></a></td>\n<td style=\"font-size:8pt; padding:1pt; line-height:1.1em;\"><span lang=\"en\" class=\"description en\">This media shows the protected monument with the number <i>802-1117/1</i> <small><span style=\"display:none\"><a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1117/1&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1117/1 (page does not exist)\">CHMSK/802-1117/1</a>,<a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1117&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1117 (page does not exist)\">CHMSK/802-1117</a></span>(<a href=\"//commons.wikimedia.org/wiki/Special:WhatLinksHere/CHMSK/802-1117/1\" title=\"Special:WhatLinksHere/CHMSK/802-1117/1\">other</a>)</small> in the Slovak Republic.</span></td>\n</tr></table>"
     },
     {
@@ -828,10 +944,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:La_Tour_Urban.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Martin_B\" title=\"User:Martin B\">Martin B</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Martin_B\" title=\"User:Martin B\">Martin B</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span> <a rel=\"nofollow\" class=\"external free\" href=\"http://kosice-photo.blogspot.com/\">http://kosice-photo.blogspot.com/</a>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Urban Tower in Kosice"
     },
     {
@@ -856,9 +976,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:ZofiaBatoriKostol.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\" xml:lang=\"en\">Own work</span>",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Kostol Zofie Batoriovej"
     },
     {
@@ -883,10 +1007,16 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:BiskupskýPalácKošice.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+        "name": "Rl91",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Rl91"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "GFDL",
-      "license_url": "http://www.gnu.org/copyleft/fdl.html",
+      "license": {
+        "type": "GFDL",
+        "url": "http://www.gnu.org/copyleft/fdl.html"
+      },
       "description": "<p>Biskupský palác na Hlavnej ulici</p>\n<table cellspacing=\"0\" style=\"width:550px; text-align:center; color:#000; background:#ddd; border:1px solid #bbb; margin:1px; direction:ltr;\" class=\"layouttemplate\"><tr>\n<td style=\"width:44px; height:22px;\"><a href=\"//commons.wikimedia.org/wiki/File:Coat_of_arms_of_Slovakia.svg\" class=\"image\"><img alt=\"Coat of arms of Slovakia.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/20px-Coat_of_arms_of_Slovakia.svg.png\" width=\"20\" height=\"25\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/30px-Coat_of_arms_of_Slovakia.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/40px-Coat_of_arms_of_Slovakia.svg.png 2x\" data-file-width=\"480\" data-file-height=\"600\"></a></td>\n<td style=\"font-size:8pt; padding:1pt; line-height:1.1em;\"><span lang=\"en\" class=\"description en\">This media shows the protected monument with the number <i>802-1066/1</i> <small><span style=\"display:none\"><a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1066/1&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1066/1 (page does not exist)\">CHMSK/802-1066/1</a>,<a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1066&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1066 (page does not exist)\">CHMSK/802-1066</a></span>(<a href=\"//commons.wikimedia.org/wiki/Special:WhatLinksHere/CHMSK/802-1066/1\" title=\"Special:WhatLinksHere/CHMSK/802-1066/1\">other</a>)</small> in the Slovak Republic.</span></td>\n</tr></table>"
     },
     {
@@ -911,10 +1041,16 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Čákiho-Dezőfiho_palác.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+        "name": "Rl91",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Rl91"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "GFDL",
-      "license_url": "http://www.gnu.org/copyleft/fdl.html",
+      "license": {
+        "type": "GFDL",
+        "url": "http://www.gnu.org/copyleft/fdl.html"
+      },
       "description": "Čáky-Dezőfi Palace, <a href=\"https://sk.wikipedia.org/wiki/Ko%C5%A1ice\" class=\"extiw\" title=\"sk:Košice\">Košice</a>"
     },
     {
@@ -939,10 +1075,16 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Vedecká_knižnica.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+        "name": "Rl91",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Rl91"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "description": "<p>Pongrácovsko-forgáčovský palác, Košice</p>\n<table cellspacing=\"0\" style=\"width:550px; text-align:center; color:#000; background:#ddd; border:1px solid #bbb; margin:1px; direction:ltr;\" class=\"layouttemplate\"><tr>\n<td style=\"width:44px; height:22px;\"><a href=\"//commons.wikimedia.org/wiki/File:Coat_of_arms_of_Slovakia.svg\" class=\"image\"><img alt=\"Coat of arms of Slovakia.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/20px-Coat_of_arms_of_Slovakia.svg.png\" width=\"20\" height=\"25\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/30px-Coat_of_arms_of_Slovakia.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coat_of_arms_of_Slovakia.svg/40px-Coat_of_arms_of_Slovakia.svg.png 2x\" data-file-width=\"480\" data-file-height=\"600\"></a></td>\n<td style=\"font-size:8pt; padding:1pt; line-height:1.1em;\"><span lang=\"en\" class=\"description en\">This media shows the protected monument with the number <i>802-1055/0</i> <small><span style=\"display:none\"><a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1055/0&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1055/0 (page does not exist)\">CHMSK/802-1055/0</a>,<a href=\"//commons.wikimedia.org/w/index.php?title=CHMSK/802-1055&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"CHMSK/802-1055 (page does not exist)\">CHMSK/802-1055</a></span>(<a href=\"//commons.wikimedia.org/wiki/Special:WhatLinksHere/CHMSK/802-1055/0\" title=\"Special:WhatLinksHere/CHMSK/802-1055/0\">other</a>)</small> in the Slovak Republic.</span></td>\n</tr></table>"
     },
     {
@@ -967,9 +1109,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:LevočskýDom.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span> (own work by uploader)",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Levoča House in Košice"
     },
     {
@@ -994,10 +1140,16 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Jakabov_palác_2010.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+        "name": "Rl91",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Rl91"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "GFDL",
-      "license_url": "http://www.gnu.org/copyleft/fdl.html",
+      "license": {
+        "type": "GFDL",
+        "url": "http://www.gnu.org/copyleft/fdl.html"
+      },
       "description": "Jakab's Palace, Košice, Slovakia"
     },
     {
@@ -1022,10 +1174,16 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Andrášiho_palác,_Hlavná_81,_Košice.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+        "name": "Rl91",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Rl91"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "GFDL",
-      "license_url": "http://www.gnu.org/copyleft/fdl.html",
+      "license": {
+        "type": "GFDL",
+        "url": "http://www.gnu.org/copyleft/fdl.html"
+      },
       "description": "Palace of Andrássy in Košice, Slovakia"
     },
     {
@@ -1050,9 +1208,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:SláviaKošice2.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span> (own work by uploader)",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Coffee House Slávia, Art Noveau in Kosice"
     },
     {
@@ -1077,10 +1239,16 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Puškinova_-_Synagóga.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+        "name": "Rl91",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Rl91"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "GFDL",
-      "license_url": "http://www.gnu.org/copyleft/fdl.html",
+      "license": {
+        "type": "GFDL",
+        "url": "http://www.gnu.org/copyleft/fdl.html"
+      },
       "description": "Židovská synagóga škola, Košice"
     },
     {
@@ -1105,10 +1273,16 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Hlavná_004_-_Assicurazioni_Generali.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+        "name": "Rl91",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Rl91"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\" xml:lang=\"en\">Own work</span>",
-      "license": "GFDL",
-      "license_url": "http://www.gnu.org/copyleft/fdl.html",
+      "license": {
+        "type": "GFDL",
+        "url": "http://www.gnu.org/copyleft/fdl.html"
+      },
       "description": "Assicurazioni Generali, Košice"
     },
     {
@@ -1133,9 +1307,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Old_New_Košice.jpg",
-      "artist": "Marian Gladis",
+      "artist": {
+        "html": "Marian Gladis",
+        "name": "Marian Gladis"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "The old and new architecture of Košice, Slovakia"
     },
     {
@@ -1160,10 +1339,16 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Cassovar.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+        "name": "Rl91",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Rl91"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "GFDL",
-      "license_url": "http://www.gnu.org/copyleft/fdl.html",
+      "license": {
+        "type": "GFDL",
+        "url": "http://www.gnu.org/copyleft/fdl.html"
+      },
       "description": "Polyfunctional object Cassovar in <a href=\"https://en.wikipedia.org/wiki/Ko%C5%A1ice\" class=\"extiw\" title=\"en:Košice\">Košice</a>, <a href=\"https://en.wikipedia.org/wiki/Slovakia\" class=\"extiw\" title=\"en:Slovakia\">Slovakia</a>"
     },
     {
@@ -1191,9 +1376,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Divizia5.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "divizia z hlavnej"
     },
     {
@@ -1221,10 +1410,15 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Rodošto2.jpg",
-      "artist": "Marian Gladis",
+      "artist": {
+        "html": "Marian Gladis",
+        "name": "Marian Gladis"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "description": "Memorial house of <a href=\"https://en.wikipedia.org/wiki/Francis_II_R%C3%A1k%C3%B3czi\" class=\"extiw\" title=\"en:Francis II Rákóczi\">Francis II Rákóczi</a> in <a href=\"https://en.wikipedia.org/wiki/Ko%C5%A1ice\" class=\"extiw\" title=\"en:Košice\">Košice</a> (the replica of his house in the Turkish exile in Rodosto) with Rákóczi‘s sculpture"
     },
     {
@@ -1252,9 +1446,15 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Sidlisko_tahanovce_05.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+        "name": "Rl91",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Rl91"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "from Hradova"
     },
     {
@@ -1279,10 +1479,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:StElisabethKošiceAltar.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "St Elisabeht washing a beggar, a scene from the main altar of St Elisabeth Cathedral in Košice, Slovakia, 2nd half of the 15th century"
     },
     {
@@ -1307,9 +1511,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Orlai_P_Nadasdy_es_Tinodi.jpg",
-      "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Soma_Orlai_Petrich\" class=\"extiw\" title=\"w:en:Soma Orlai Petrich\">Soma Orlai Petrich</a></bdi>",
+      "artist": {
+        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Soma_Orlai_Petrich\" class=\"extiw\" title=\"w:en:Soma Orlai Petrich\">Soma Orlai Petrich</a></bdi>"
+      },
       "credit": "Fine Arts in Hungary: <a href=\"http://www.hung-art.hu/index-e.html\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.hung-art.hu/kep/o/orlai_pe/muvek/1/orlai110.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.hung-art.hu/frames-e.html?/english/o/orlai_pe/muvek/1/index.html\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a>",
-      "license": "Public domain"
+      "license": {
+        "type": "Public domain"
+      }
     },
     {
       "section_id": 22,
@@ -1333,7 +1541,9 @@
         "mime": "image/png"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Stephan_Bocskay.png",
-      "license": "Public domain"
+      "license": {
+        "type": "Public domain"
+      }
     },
     {
       "section_id": 22,
@@ -1357,9 +1567,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:II._Rákóczi_Ferenc_Mányoki.jpg",
-      "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:%C3%81d%C3%A1m_M%C3%A1nyoki\" class=\"extiw\" title=\"w:en:Ádám Mányoki\">Ádám Mányoki</a></bdi>",
+      "artist": {
+        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:%C3%81d%C3%A1m_M%C3%A1nyoki\" class=\"extiw\" title=\"w:en:Ádám Mányoki\">Ádám Mányoki</a></bdi>"
+      },
       "credit": "Fine Arts in Hungary: <a href=\"http://www.hung-art.hu/index-e.html\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.hung-art.hu/kep/m/manyoki/muvek/rakoczi.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.hung-art.hu/frames-e.html?/english/m/manyoki/muvek/index.html\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a>",
-      "license": "Public domain"
+      "license": {
+        "type": "Public domain"
+      }
     },
     {
       "section_id": 22,
@@ -1383,9 +1597,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Kazinczy.jpg",
-      "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Joseph_Kreutzinger\" class=\"extiw\" title=\"w:en:Joseph Kreutzinger\">Joseph Kreutzinger</a></bdi>",
+      "artist": {
+        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Joseph_Kreutzinger\" class=\"extiw\" title=\"w:en:Joseph Kreutzinger\">Joseph Kreutzinger</a></bdi>"
+      },
       "credit": "Joseph Kreutzinger",
-      "license": "Public domain"
+      "license": {
+        "type": "Public domain"
+      }
     },
     {
       "section_id": 22,
@@ -1409,9 +1627,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Jonáš_Záborský.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Jonáš Záborský, Slovak national novelist"
     },
     {
@@ -1436,9 +1658,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Henszlmann_Imre.jpg",
-      "artist": "Marastoni József",
+      "artist": {
+        "html": "Marastoni József",
+        "name": "Marastoni József"
+      },
       "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.bildarchivaustria.at/Pages/ImageDetail.aspx?p_iBildID=8191063\">https://www.bildarchivaustria.at/Pages/ImageDetail.aspx?p_iBildID=8191063</a>",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Imrich Henszlmann"
     },
     {
@@ -1463,9 +1690,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Kronenberg_Leopold.jpg",
-      "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q2314507\" class=\"extiw\" title=\"d:Q2314507\">Leopold Horovitz</a></bdi>",
+      "artist": {
+        "html": "<bdi><a href=\"https://www.wikidata.org/wiki/Q2314507\" class=\"extiw\" title=\"d:Q2314507\">Leopold Horovitz</a></bdi>"
+      },
       "credit": "Leopold Kronenberg",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "<div class=\"description\">portrait</div>"
     },
     {
@@ -1490,9 +1721,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Márai-socha2.jpg",
-      "artist": "User <a href=\"https://en.wikipedia.org/wiki/User:Marian_Gladis\" class=\"extiw\" title=\"en:User:Marian Gladis\">Marian Gladis</a> on <a class=\"external text\" href=\"http://en.wikipedia.org\">en.wikipedia</a>",
+      "artist": {
+        "html": "User <a href=\"https://en.wikipedia.org/wiki/User:Marian_Gladis\" class=\"extiw\" title=\"en:User:Marian Gladis\">Marian Gladis</a> on <a class=\"external text\" href=\"http://en.wikipedia.org\">en.wikipedia</a>"
+      },
       "credit": "Author: Marian Gladis",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Sándor Márai. Sándor Márai (detail of his statue in Košice, Slovakia)."
     },
     {
@@ -1517,10 +1752,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:RadolaGajda.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Portrait of general Radola Gajda, oil, canvas, 1924, Košice, Slovakia, Sándor Bortnyik"
     },
     {
@@ -1545,10 +1784,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:JosefPolák.JPG",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 3.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
       "description": "Portrait of Josef Polák, a director of East Slovak Museum in Košice, Slovakia, oil, canvas, 1924, Sándor Bortnyik"
     },
     {
@@ -1573,9 +1816,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Portrait_pridavok-anton.jpg",
-      "artist": "Slovenské kníhkupectvo, Praha",
+      "artist": {
+        "html": "Slovenské kníhkupectvo, Praha",
+        "name": "Slovenské kníhkupectvo, Praha"
+      },
       "credit": "The Pictures of Slovak Writers Serie, vol. 1 (Fotografie slovenských spisovateľov, 1. séria)",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Anton Prídavok (1904–1945)"
     },
     {
@@ -1600,9 +1848,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Ladislav_Troják.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Hockey player Ladislav Troják, Košice, Slovakia"
     },
     {
@@ -1627,10 +1879,15 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Pres._Rudolf_Schuster.jpg",
-      "artist": "Marián Gladiš",
+      "artist": {
+        "html": "Marián Gladiš",
+        "name": "Marián Gladiš"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "description": "Rudolf Schuster, a former president of Slovakia"
     },
     {
@@ -1655,10 +1912,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Martina_Hingis_Indian_Wells_2006_1.jpg",
-      "artist": "The original uploader was <a href=\"https://en.wikipedia.org/wiki/User:Akademan\" class=\"extiw\" title=\"wikipedia:User:Akademan\">Akademan</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a><br>\n(<span lang=\"en\">Original text: <i>me (<a href=\"https://en.wikipedia.org/wiki/w:User:Akademan\" class=\"extiw\" title=\"en:w:User:Akademan\">en:w:User:Akademan</a>)</i></span>)",
+      "artist": {
+        "html": "The original uploader was <a href=\"https://en.wikipedia.org/wiki/User:Akademan\" class=\"extiw\" title=\"wikipedia:User:Akademan\">Akademan</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a><br>\n(<span lang=\"en\">Original text: <i>me (<a href=\"https://en.wikipedia.org/wiki/w:User:Akademan\" class=\"extiw\" title=\"en:w:User:Akademan\">en:w:User:Akademan</a>)</i></span>)"
+      },
       "credit": "Transferred from <span class=\"plainlinks\"><a class=\"external text\" href=\"//en.wikipedia.org\">en.wikipedia</a></span> to Commons.<br>\n(<span lang=\"en\">Original text: <i>Image taken by me using my Canon EOS 20D</i></span>)",
-      "license": "CC BY-SA 2.5",
-      "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+      "license": {
+        "type": "CC BY-SA 2.5",
+        "url": "https://creativecommons.org/licenses/by-sa/2.5"
+      },
       "description": "Martina Hingis practicing in Indian Wells, California, USA, on Sunday March 12, 2006, on a side court in 2006 comeback."
     },
     {
@@ -1683,10 +1944,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:David_Dobrik_and_Friends.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cantstopariana&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cantstopariana (page does not exist)\">Cantstopariana</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cantstopariana&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cantstopariana (page does not exist)\">Cantstopariana</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\" xml:lang=\"en\">Own work</span>",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "license": {
+        "type": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
       "description": "David Dobrik with Friends all which are in his vlogs."
     },
     {
@@ -1714,10 +1979,16 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:MMM2006.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Rl91\" title=\"User:Rl91\">Rl91</a>",
+        "name": "Rl91",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Rl91"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "description": "Medzinárodný maratón mieru v Košiciach, 2006"
     },
     {
@@ -1745,10 +2016,14 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Kosice_(Slovakia)_-_Tree_of_Partnership.jpg",
-      "artist": "Maros M r a z (<a href=\"https://sk.wikipedia.org/wiki/Redaktor:Maros\" class=\"extiw\" title=\"sk:Redaktor:Maros\">Maros</a>)",
+      "artist": {
+        "html": "Maros M r a z (<a href=\"https://sk.wikipedia.org/wiki/Redaktor:Maros\" class=\"extiw\" title=\"sk:Redaktor:Maros\">Maros</a>)"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "description": "Slovakia, Košice, Tree of Partnership on Main Street, design by Tomáš Grega"
     },
     {
@@ -1772,9 +2047,13 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Sckeskova_panoráma_Košíc.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Of&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Of (page does not exist)\">Of</a>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "license": "Public domain",
+      "license": {
+        "type": "Public domain"
+      },
       "description": "Panorama of Košice"
     },
     {
@@ -1802,10 +2081,14 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:En-Kosice.ogg",
       "duration": 1651.9673922902,
-      "artist": "The original uploader was <a href=\"https://en.wikipedia.org/wiki/User:Slovakjoe\" class=\"extiw\" title=\"wikipedia:User:Slovakjoe\">Slovakjoe</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+      "artist": {
+        "html": "The original uploader was <a href=\"https://en.wikipedia.org/wiki/User:Slovakjoe\" class=\"extiw\" title=\"wikipedia:User:Slovakjoe\">Slovakjoe</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>"
+      },
       "credit": "<a href=\"https://en.wikipedia.org/wiki/User:Slovakjoe\" class=\"extiw\" title=\"en:User:Slovakjoe\">Slovakjoe</a> made this recording based on Wikipedia.",
-      "license": "CC-BY-SA-3.0",
-      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "description": "<i>See Below</i>"
     }
   ]

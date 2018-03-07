@@ -646,7 +646,8 @@ paths:
                     width: /.+/
                     height: /.+/
                     mime: /.+/
-                  license: /.+/
+                  license:
+                    type: /.+/
 
   # from routes/page/metadata.js
   /{domain}/v1/page/metadata/{title}:
@@ -1792,14 +1793,35 @@ definitions:
         items:
           type: object
       artist:
-        type: string
-        description: author of the media item
+        type: object
+        description: structured info about the author of the media item
+        properties:
+          html:
+            type: string
+            description: HTML string describing the artist
+          name:
+            type: string
+            description: the plain text artist name, if available
+          user_page:
+            type: string
+            description: Wikimedia Commons user page for the artist, if available
+        required:
+          - html
       credit:
         type: string
         description: source of the media item
       license:
-        type: string
+        type: object
         description: license under which the media item is available on Wikimedia Commons
+        properties:
+          type:
+            type: string
+            description: license type
+          url:
+            type: string
+            description: URL describing the terms and conditions of the license, if any
+        required:
+          - type
       license_url:
         type: string
         description: URL for the pertinent license
