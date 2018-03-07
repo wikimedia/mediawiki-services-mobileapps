@@ -56,7 +56,7 @@ function buildLeadSections(sections) {
     return out;
 }
 
-/*
+/**
  * Build the lead for the requested page.
  * @param {!Object} input (needs to have a meta, page, and title property)
  * @param {?Boolean} [legacy] whether to perform legacy transformations
@@ -152,7 +152,7 @@ function buildRemaining(input) {
     };
 }
 
-/*
+/**
  * @param {!Object} input
  * @param {?Boolean} [legacy] whether to perform legacy transformations
  * @return {!Object}
@@ -272,9 +272,10 @@ function _collectRawPageData(app, req, legacy) {
     });
 }
 
-/*
- * @param {!Request} req
- * @param {!Response} res
+/**
+ * @param {!Object} app the application object
+ * @param {!Object} req the request object
+ * @param {!Object} res the response object
  * @param {?Boolean} [legacy] when true MCS will
  *  apply legacy transformations that we are in the process
  *  of deprecating.
@@ -290,10 +291,11 @@ function buildAllResponse(app, req, res, legacy) {
     });
 }
 
-/*
+/**
  * Builds an object which gives structure to the lead of an article
  * providing access to metadata.
- * @param {!Request} req
+ * @param {!Object} app the application object
+ * @param {!Object} req the request object
  * @param {?Boolean} [legacy] when true MCS will
  *  apply legacy transformations that we are in the process
  *  of deprecating.
@@ -305,10 +307,11 @@ function buildLeadObject(app, req, legacy) {
     });
 }
 
-/*
+/**
  * Responds with the lead content of a page in structured form.
- * @param {!Request} req
- * @param {!Response} res
+ * @param {!Object} app the application object
+ * @param {!Object} req the request object
+ * @param {!Object} res the response object
  * @param {?Boolean} [legacy] when true MCS will
  *  apply legacy transformations that we are in the process
  *  of deprecating.
@@ -355,17 +358,17 @@ router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
 });
 
 /**
-* GET {domain}/v1/page/formatted/{title}{/revision}{/tid}
-* Gets a formatted version of a given wiki page rather than a blob of wikitext.
-*/
+ * GET {domain}/v1/page/formatted/{title}{/revision}{/tid}
+ * Gets a formatted version of a given wiki page rather than a blob of wikitext.
+ */
 router.get('/formatted/:title/:revision?/:tid?', (req, res) => {
     return buildAllResponse(app, req, res, false);
 });
 
 /**
-* GET {domain}/v1/page/formatted-lead/{title}{/revision}{/tid}
-* Gets a formatted version of a given wiki page rather than a blob of wikitext.
-*/
+ * GET {domain}/v1/page/formatted-lead/{title}{/revision}{/tid}
+ * Gets a formatted version of a given wiki page rather than a blob of wikitext.
+ */
 router.get('/formatted-lead/:title/:revision?/:tid?', (req, res) => {
     return buildLeadResponse(app, req, res, false);
 });
