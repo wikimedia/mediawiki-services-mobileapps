@@ -665,19 +665,25 @@ paths:
               toc:
                 title: /.+/
                 entries:
-                  - toclevel: /.+/
-                    tocsection: /.+/
-                    tocnumber: /.+/
-                    href: /.+/
+                  - level: /.+/
+                    section: /.+/
+                    number: /.+/
+                    anchor: /.+/
                     html: /.+/
-                flags: //
-              langlinks:
+              language_links:
                 - lang: /.+/
-                  title: /.+/
+                  titles:
+                    canonical: /.+/
+                    normalized: /.+/
+                  summary_url: /.+/
               categories:
-                - title: /.+/
+                - titles:
+                    canonical: /.+/
+                    normalized: /.+/
+                    display: /.+/
                   hidden: /.+/
                   ns: /.+/
+                  summary_url: /.+/
               protection:
                 edit: [ /.+/ ]
                 move: [ /.+/ ]
@@ -1417,22 +1423,9 @@ definitions:
             description: section info for the TOC in structured form
             items:
               $ref: '#/definitions/toc_entry'
-          flags:
-            type: object
-            description: flags affecting TOC depth or visibility ('notoc', 'forcetoc', and/or 'toclimit')
-            properties:
-              notoc:
-                type: boolean
-                description: true if the page has the 'notoc' pageprop
-              forcetoc:
-                type: boolean
-                description: if the page has the 'forcetoc' pageprop
-              toclimit:
-                type: integer
-                description: the toc depth limit for the page, if any
-        required: [ title, entries, flags ]
+        required: [ title, entries ]
         additionalProperties: false
-      langlinks:
+      language_links:
         type: array
         description: list of titles and language codes for the article topic on other language Wikipedias
         items:
@@ -1442,19 +1435,31 @@ definitions:
             lang:
               type: string
               description: language code
-            title:
+            titles:
+              type: object
+              description: titles dictionary
+              properties:
+                canonical:
+                  type: string
+                  description: canonical title
+                normalized:
+                  type: string
+                  description: normalized title
+              required:
+                - canonical
+                - normalized
+            summary_url:
               type: string
-              description: article title
+              description: link to REST API summary
+          required:
+            - lang
+            - titles
+            - summary_url
       categories:
         type: array
         description: categories the page belongs to
         items:
           $ref: '#/definitions/category'
-      coordinates:
-        type: array
-        description: coordinates for one or more locations in the article
-        items:
-          $ref: '#/definitions/coordinate_set'
       protection:
         type: object
         description: info on page edit and move rights
@@ -1478,54 +1483,55 @@ definitions:
   toc_entry:
     type: object
     properties:
-      toclevel:
+      level:
         type: integer
         description: the depth of the heading in the TOC hierarchy
-      tocsection:
+      section:
         type: integer
         description: the position of the section in the order of appearance of all sections on the page
-      tocnumber:
+      number:
         type: string
         description: a numeric representation of the section's position in the page hierarhcy (e.g., '1', '1.3', '1.3.2')
-      href:
+      anchor:
         type: string
         description: the heading text to be used in constracting a page anchor for linking
       html:
         type: string
         description: the heading display text (may contain HTML markup)
-    required: [ toclevel, tocsection, tocnumber, href, html ]
+    required: [ level, section, number, anchor, html ]
     additionalProperties: false
 
   category:
     type: object
     properties:
-      title:
+      titles:
+        type: object
+        description: titles dictionary
+        properties:
+          canonical:
+            type: string
+            description: canonical title
+          normalized:
+            type: string
+            description: normalized title
+          display:
+            type: string
+            description: display title (omitting the "Category:" namespace prefix)
+        required:
+          - canonical
+          - normalized
+          - display
+      summary_url:
         type: string
-        description: normalized title of the category page
+        description: link to REST API summary
       hidden:
         type: boolean
         description: whether the category is hidden or not
       ns:
         type: integer
         description: the numeric namespace id for the category page
-    required: [ title, hidden, ns ]
+    required: [ titles, hidden, summary_url, ns ]
     additionalProperties: false
-
-  coordinate_set:
-    type: object
-    properties:
-      lat:
-        type: number
-        description: latitude
-      lon:
-        type: number
-        description: longitude
-      primary:
-        type: boolean
-        description: whether this is the primary set of coordinates for the article
-      globe:
-        type: string
-        description: the globe to which the coordinates refer ('earth', 'moon', etc.)
 
   protection:
     type: object
