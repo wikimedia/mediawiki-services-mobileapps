@@ -43,7 +43,7 @@ describe('mobile-sections-lead', function() {
                 const lead = res.body;
                 const lastMod = lead.lastmodified;
                 // const files = lead.spoken.files;
-                const path = "//upload.wikimedia.org/wikipedia/commons/thumb/0/0b";
+                const path = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b";
                 assert.equal(res.status, 200);
                 assert.ok(lastMod.startsWith('201'), `${lastMod} should start with 201`); // 2015-
                 assert.equal(lead.displaytitle, 'Cat');
