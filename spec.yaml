@@ -1390,7 +1390,7 @@ definitions:
     type: object
     properties:
       revision:
-        type: integer
+        type: string
         description: revision ID for the page
       tid:
         type: string
@@ -1545,17 +1545,25 @@ definitions:
     type: object
     description: Reference lists and references
     properties:
+      revision:
+        type: string
+        description: revision ID for the page
+      tid:
+        type: string
+        description: time UUID for the page/revision
       structure:
         $ref: '#/definitions/reference_structures'
       references:
         $ref: '#/definitions/reference_details'
     additionalProperties: false
     required:
+      - revision
+      - tid
       - structure
       - references
 
   reference_structures:
-    type: object
+    type: array
     description: A list of reference lists
     properties:
       type:
@@ -1574,6 +1582,10 @@ definitions:
         items:
           type: string
     additionalProperties: false
+    required:
+      - type
+      - id
+      - order
 
   reference_details:
     type: object
@@ -1621,6 +1633,9 @@ definitions:
           Either an arrow for a single back link or another (usually single) chararacter
           to distinguish multiple back links.
     additionalProperties: false
+    required:
+      - href
+      - text
 
   media_list:
     type: object

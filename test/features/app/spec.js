@@ -366,9 +366,19 @@ describe('Swagger spec', function() {
             return assertValidSchema(uri, '#/definitions/summary');
         });
 
+        it('metadata response should conform to schema', () => {
+            const uri = `${baseUri}page/metadata/Hummingbird`;
+            return assertValidSchema(uri, '#/definitions/metadata');
+        });
+
         it('media response should conform to schema', () => {
             const uri = `${baseUri}page/media/Hummingbird`;
             return assertValidSchema(uri, '#/definitions/media_list');
+        });
+
+        it('references response should conform to schema', () => {
+            const uri = `${baseUri}page/references/List_of_highest-grossing_Indian_films`;
+            return assertValidSchema(uri, '#/definitions/references_response');
         });
 
         // Bad requests return empty response for aggregated=true
