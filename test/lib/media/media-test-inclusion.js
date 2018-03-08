@@ -4,6 +4,9 @@
 
 const assert = require('../../utils/assert');
 const media = require('../../../lib/media');
+const image = media.testing.imageName;
+const video = media.testing.videoName;
+const audio = media.testing.audioName;
 
 const imageFigure = '<figure typeof="mw:Image"><img resource="./File:A" width="100" height="100"/></figure>';
 const imageSpan = '<span typeof="mw:Image"><img resource="./File:B" width="100" height="100"/></span>';
@@ -34,8 +37,8 @@ const imageMetadata = '<span class="metadata"><figure typeof="mw:Image"><img res
 
 const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline];
 const videos = [videoFigure, videoSpan, videoFigureInline, videoThumbFigure, videoThumbSpan, videoThumbFigureInline];
-const audio = [audioFigure, audioSpan, audioFigureInline];
-const validItems = images.concat(videos).concat(audio);
+const audios = [audioFigure, audioSpan, audioFigureInline];
+const validItems = images.concat(videos).concat(audios);
 
 const noType = [noTypeFigure, noTypeSpan, noTypeFigureInline];
 const blacklisted = [imageNoViewer, imageMetadata];
@@ -47,9 +50,9 @@ describe('lib:media expected items are included or excluded', () => {
         const page = validItems.join('');
         const result = media.getMediaItemInfoFromPage(page);
         assert.deepEqual(result.length, validItems.length);
-        assert.deepEqual(result.filter(i => i.type === media.Image.name).length, images.length);
-        assert.deepEqual(result.filter(i => i.type === media.Video.name).length, videos.length);
-        assert.deepEqual(result.filter(i => i.type === media.Audio.name).length, audio.length);
+        assert.deepEqual(result.filter(i => i.type === image).length, images.length);
+        assert.deepEqual(result.filter(i => i.type === video).length, videos.length);
+        assert.deepEqual(result.filter(i => i.type === audio).length, audios.length);
     });
 
     it('items should not be found for other selectors', () => {
