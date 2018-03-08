@@ -178,34 +178,6 @@ paths:
 #                  caption_HTML: /.+/
 #                  countries: [ /.+/ ]
 
-  # from routes/compilations.js
-  /{domain}/v1/compilations:
-    get:
-      tags:
-        - Other
-      description: Gets information about the offline compilations available for download.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/compilations/0.1.0"
-      parameters:
-        - $ref: '#/parameters/domain'
-      responses:
-        200:
-          description: Offline compilation information
-          schema:
-            $ref: '#/definitions/compilations'
-        default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
-      x-amples:
-        - title: Offline compilations
-          response:
-            status: 200
-            headers:
-              content-type: application/json
-            body:
-              compilations: []
-
   # from routes/feed/on-this-day.js
   /{domain}/v1/feed/onthisday/{type}/{month}/{day}:
     get:
@@ -1413,64 +1385,6 @@ definitions:
       - platforms
       - text
       - countries
-
-  compilations:
-    type: object
-    properties:
-      compilations:
-        type: array
-        description: list of available offline article compilations
-        items:
-          $ref: '#/definitions/compilation'
-    required:
-      - compilations
-
-  compilation:
-    type: object
-    properties:
-      name:
-        type: string
-        description: The name of the compilation
-      url:
-        type: string
-        description: Download URL for the compilation file
-      lang:
-        type: array
-        description: A list of wiki language codes documenting the language(s) of the articles in the compilation
-        items:
-          type: string
-      summary:
-        type: string
-        description: A short description of the compilation contents
-      description:
-        type: string
-        description: A detailed description of the compilation contents
-      media:
-        type: string
-        enum:
-          - all
-          - images
-          - none
-      image_thumb:
-        type: object
-        description: Thumbnail image (320px) representing the collection
-      image_feature:
-        type: object
-        description: Feature-size image (640px) representing the collection
-      count:
-        type: integer
-        description: The number of articles included in the compilation
-      size:
-        type: integer
-        description: The size of the compilation, in bytes
-      timestamp:
-        type: integer
-        description: Unix timestamp for the compilation file creation
-    required:
-      - name
-      - count
-      - size
-      - timestamp
 
   metadata:
     type: object
