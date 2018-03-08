@@ -1,7 +1,7 @@
 {
   "revision": "2640831",
   "tid": "ab21dbfa-f23b-11e7-9ffb-8e725cd7335b",
-  "structure": [
+  "reference_lists": [
     {
       "type": "reference_list",
       "id": "#mwt4",
@@ -10,7 +10,7 @@
       ]
     }
   ],
-  "references": {
+  "references_by_id": {
     "ref2-1": {
       "back_links": [
         {

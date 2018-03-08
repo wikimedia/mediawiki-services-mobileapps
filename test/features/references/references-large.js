@@ -40,11 +40,11 @@ describe('references-large', function() {
 
     function verifyNonEmptyResults(response, uri) {
         assert.deepEqual(response.status, 200);
-        if (response.body.structure.length === 0) {
+        if (response.body.reference_lists.length === 0) {
             console.log('warning: no reflist found');
         }
-        for (let i = 0; i < response.body.structure.length; i++) {
-            const reflist = response.body.structure[i];
+        for (let i = 0; i < response.body.reference_lists.length; i++) {
+            const reflist = response.body.reference_lists[i];
             if (reflist.length === 0) {
                 console.log('warning: reflist empty');
             }
@@ -67,12 +67,12 @@ describe('references-large', function() {
     function verifyWithOriginalParsoidResponse(referencesResponse, parsoidResponse, title, rev) {
         const document = domino.createDocument(parsoidResponse.body);
         const parsoidRefLists = document.querySelectorAll('ol.mw-references');
-        assert.deepEqual(referencesResponse.body.structure.length, parsoidRefLists.length,
+        assert.deepEqual(referencesResponse.body.reference_lists.length, parsoidRefLists.length,
             'number of lists');
 
         // go over all reference lists
         for (let i = 0; i < parsoidRefLists.length; i++) {
-            const refList = referencesResponse.body.structure[i];
+            const refList = referencesResponse.body.reference_lists[i];
             const parsoidRefList = parsoidRefLists[i];
             const section = parsoidRefList.closest('section') || undefined;
             const sectionHeadingElement = section && section.querySelector('h1,h2,h3,h4,h5,h5');
@@ -93,7 +93,7 @@ describe('references-large', function() {
             for (let j = 0; j < parsoidRefsInList.length; j++) {
                 const parsoidRef = parsoidRefsInList[j];
                 const refId = refList.order[j];
-                verifyReference(parsoidRef, refId, referencesResponse.body.references);
+                verifyReference(parsoidRef, refId, referencesResponse.body.references_by_id);
             }
         }
     }

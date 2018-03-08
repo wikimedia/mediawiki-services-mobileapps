@@ -718,11 +718,11 @@ paths:
             body:
               revision: /.+/
               tid: /.+/
-              structure:
+              reference_lists:
                 - type: /.+/
                   id: /.+/
                   order: [ /.+/ ]
-              references: /.+/
+              references_by_id: /.+/
 
   # from routes/page/definition.js
   /{domain}/v1/page/definition/{title}:
@@ -1551,18 +1551,18 @@ definitions:
       tid:
         type: string
         description: time UUID for the page/revision
-      structure:
-        $ref: '#/definitions/reference_structures'
-      references:
-        $ref: '#/definitions/reference_details'
+      reference_lists:
+        $ref: '#/definitions/reference_lists'
+      references_by_id:
+        $ref: '#/definitions/references_by_id'
     additionalProperties: false
     required:
       - revision
       - tid
-      - structure
-      - references
+      - reference_lists
+      - references_by_id
 
-  reference_structures:
+  reference_lists:
     type: array
     description: A list of reference lists
     properties:
@@ -1587,7 +1587,7 @@ definitions:
       - id
       - order
 
-  reference_details:
+  references_by_id:
     type: object
     description: A map of reference ids to reference details
     properties:

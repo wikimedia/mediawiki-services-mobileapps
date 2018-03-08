@@ -286,7 +286,7 @@ describe('lib:structureReferenceListContent', () => {
         it('one simple reference in list (old)', () => {
             const doc = createDocument(oneRefInListOld);
             const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
-            assert.deepEqual(result.references, {
+            assert.deepEqual(result.references_by_id, {
                 '101': {
                     back_links: [{
                         href: './Dog#cite_ref-101',
@@ -305,7 +305,7 @@ describe('lib:structureReferenceListContent', () => {
         it('one simple reference in list (new)', () => {
             const doc = createDocument(oneRefInListNew);
             const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
-            assert.deepEqual(result.references, {
+            assert.deepEqual(result.references_by_id, {
                 '101': {
                     back_links: [{
                         href: './Dog#cite_ref-101',
@@ -324,7 +324,7 @@ describe('lib:structureReferenceListContent', () => {
         it('one reference in list (old)', () => {
             const doc = createDocument(mostViewedYoutubeVideosOld);
             const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
-            assert.deepEqual(result.references, {
+            assert.deepEqual(result.references_by_id, {
                 '4': {
                     back_links: [{
                         href: './List_of_most_viewed_YouTube_videos#cite_ref-4',
@@ -343,7 +343,7 @@ describe('lib:structureReferenceListContent', () => {
         it('one reference in list (new)', () => {
             const doc = createDocument(mostViewedYoutubeVideosNew);
             const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
-            assert.deepEqual(result.references, {
+            assert.deepEqual(result.references_by_id, {
                 '4': {
                     back_links: [{
                         href: './List_of_most_viewed_YouTube_videos#cite_ref-4',

@@ -18,7 +18,7 @@ describe('lib:extractReferenceLists', () => {
         const doc = domino.createDocument('');
 
         const refLists = extractReferenceLists(doc, logger);
-        assert.deepEqual(refLists.structure.length, 0);
+        assert.deepEqual(refLists.reference_lists.length, 0);
     });
 
     it('one list (old)', () => {
@@ -30,7 +30,7 @@ describe('lib:extractReferenceLists', () => {
             + '</body>');
 
         const refLists = extractReferenceLists(doc, logger);
-        assert.deepEqual(refLists.structure.length, 1);
+        assert.deepEqual(refLists.reference_lists.length, 1);
     });
 
     it('one list (new)', () => {
@@ -44,7 +44,7 @@ describe('lib:extractReferenceLists', () => {
             + '</body>');
 
         const refLists = extractReferenceLists(doc, logger);
-        assert.deepEqual(refLists.structure.length, 1);
+        assert.deepEqual(refLists.reference_lists.length, 1);
     });
 
     it('two lists (old)', () => {
@@ -57,7 +57,7 @@ describe('lib:extractReferenceLists', () => {
             + '</body>');
 
         const refLists = extractReferenceLists(doc, logger);
-        assert.deepEqual(refLists.structure.length, 2);
+        assert.deepEqual(refLists.reference_lists.length, 2);
     });
 
     it('two lists (new)', () => {
@@ -74,7 +74,7 @@ describe('lib:extractReferenceLists', () => {
             + '</body>');
 
         const refLists = extractReferenceLists(doc, logger);
-        assert.deepEqual(refLists.structure.length, 2);
+        assert.deepEqual(refLists.reference_lists.length, 2);
     });
 
 });
