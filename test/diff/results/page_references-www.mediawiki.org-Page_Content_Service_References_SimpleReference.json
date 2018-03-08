@@ -1,0 +1,27 @@
+{
+  "revision": "2640831",
+  "tid": "ab21dbfa-f23b-11e7-9ffb-8e725cd7335b",
+  "structure": [
+    {
+      "type": "reference_list",
+      "id": "#mwt4",
+      "order": [
+        "ref2-1"
+      ]
+    }
+  ],
+  "references": {
+    "ref2-1": {
+      "back_links": [
+        {
+          "href": "./Page_Content_Service/References/SimpleReference#cite_ref-ref2_1-0",
+          "text": "↑"
+        }
+      ],
+      "content": {
+        "html": "source 1",
+        "type": "generic"
+      }
+    }
+  }
+}

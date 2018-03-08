@@ -245,6 +245,10 @@ const TEST_SPECS = [
     new TestPageSpec('en.wikipedia.org', 'page/media', 'Hummingbird', '810247947', '63e03102-d5e8-11e7-b8d6-89c3c376722f'),
     new TestPageSpec('en.wikipedia.org', 'page/media', 'Košice', '809487065', '60462cc6-c6d0-11e7-b18a-320d7376a8ae'),
 
+    new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/SimpleReference', '2640831', 'ab21dbfa-f23b-11e7-9ffb-8e725cd7335b'),
+    new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/MultipleReflists', '2640615', '830e4743-f238-11e7-ab56-48e0735b1d90'),
+    new TestPageSpec('en.wikipedia.org', 'page/references', 'List_of_highest-grossing_Indian_films', '829288202', 'f3135246-2238-11e8-937f-8782452db3c6'),
+
     // new TestSpec('en.wiktionary.org', 'page/definition', ['cat']),
 ];
 /* eslint-enable max-len */

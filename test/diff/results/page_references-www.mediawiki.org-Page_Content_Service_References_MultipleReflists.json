@@ -1,0 +1,50 @@
+{
+  "revision": "2640615",
+  "tid": "830e4743-f238-11e7-ab56-48e0735b1d90",
+  "structure": [
+    {
+      "type": "reference_list",
+      "id": "#mwt8",
+      "order": [
+        "ref1-1"
+      ]
+    },
+    {
+      "type": "reference_list",
+      "id": "#mwt10",
+      "order": [
+        "ref2-2"
+      ]
+    }
+  ],
+  "references": {
+    "ref1-1": {
+      "back_links": [
+        {
+          "href": "./Page_Content_Service/References/MultipleReflists#cite_ref-ref1_1-0",
+          "text": "1"
+        },
+        {
+          "href": "./Page_Content_Service/References/MultipleReflists#cite_ref-ref1_1-1",
+          "text": "2"
+        }
+      ],
+      "content": {
+        "html": "note 1",
+        "type": "generic"
+      }
+    },
+    "ref2-2": {
+      "back_links": [
+        {
+          "href": "./Page_Content_Service/References/MultipleReflists#cite_ref-ref2_2-0",
+          "text": "↑"
+        }
+      ],
+      "content": {
+        "html": "source 1",
+        "type": "generic"
+      }
+    }
+  }
+}
