@@ -104,7 +104,6 @@ function buildLead(input, legacy) {
         input.page.sections[0].text = lead.body.innerHTML;
     }
 
-
     return {
         ns: input.meta.ns,
         contentmodel,
@@ -125,7 +124,8 @@ function buildLead(input, legacy) {
         languagecount: input.meta.languagecount,
         image: mUtil.defaultVal(mUtil.filterEmpty({
             file: input.meta.image && input.meta.image.file,
-            urls: input.meta.thumb && mwapi.buildLeadImageUrls(input.meta.thumb.url)
+            urls: input.meta.thumbnail && input.meta.thumbnail.source
+                && mwapi.buildLeadImageUrls(input.meta.thumbnail.source)
         })),
         pronunciation: input.page.pronunciation,
         spoken: input.page.spoken,
