@@ -20,8 +20,4 @@ describe('css', function() {
         return checkHeaders(localUri('pageview'), contentType, 'cache-control');
     });
 
-    it('/css/preview should respond to GET request with expected headers', () => {
-        return checkHeaders(localUri('preview'), contentType, 'cache-control');
-    });
-
 });
