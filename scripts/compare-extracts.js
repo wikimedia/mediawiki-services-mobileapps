@@ -10,7 +10,9 @@
   * Run the script from the script folder.
 
   Arguments: provide a single argument which is the language code for
-  the Wikipedia project.
+  the Wikipedia project or provide no argument for the default page list.
+  The default list is a curated list of pages across wikis which are some
+  good test pages for summary extracts.
 
   Example:
   $ npm start
@@ -34,10 +36,10 @@ const NEW_VERSION_INFO = ``;
 const OLD_PORT = 0;
 const OLD_VERSION_INFO = ``;
 const topPagesDir = path.join(__dirname, '../private/top-pages');
+const pagesListsDir = path.join(__dirname, '../private/page-lists');
 const outDir = path.join(__dirname, '../private/extracts');
+const UNKNOWN_LANGUAGE = 'various';
 
-let lang;
-let topPages;
 const html = { name: 'html' };
 const plain = { name: 'plain' };
 const other = { name: 'other' };
@@ -84,24 +86,24 @@ function getLanguageLinks() {
     ].map(lang => `<a href="./${lang}.html">${lang}</a>`).join(' ');
 }
 
-const uriForWikiLink = (title, lang, revTid) => {
-    return `https://${lang}.wikipedia.org/wiki/${title}?oldid=${revTid.split('/')[0]}`;
+const uriForWikiLink = (domain, title, revTid) => {
+    return `https://${domain}/wiki/${title}?oldid=${revTid.split('/')[0]}`; // no tid
 };
 
-const uriForParsoidLink = (title, lang, revTid) => {
-    return `https://${lang}.wikipedia.org/api/rest_v1/page/html/${title}/${revTid}`;
+const uriForParsoidLink = (domain, title, revTid) => {
+    return `https://${domain}/api/rest_v1/page/html/${title}/${revTid}`;
 };
 
-const uriForProdSummary = (title, lang) => {
-    return `https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`;
+const uriForProdSummary = (domain, title) => {
+    return `https://${domain}/api/rest_v1/page/summary/${encodeURIComponent(title)}`;
 };
 
-const uriForLocalSummary = (title, lang, revTid, port = NEW_PORT) => {
+const uriForLocalSummary = (domain, title, revTid, port = NEW_PORT) => {
     const suffix = revTid ? `/${revTid}` : '';
-    return `http://localhost:${port}/${lang}.wikipedia.org/v1/page/summary/${encodeURIComponent(title)}${suffix}`;
+    return `http://localhost:${port}/${domain}/v1/page/summary/${encodeURIComponent(title)}${suffix}`;
 };
 
-const outputStart = (type) => {
+const outputStart = (type, lang) => {
     const file = type.overviewFile;
     /* eslint-disable max-len */
     file.write(`<html>\n`);
@@ -113,8 +115,9 @@ const outputStart = (type) => {
     file.write(`<script type="text/javascript" src="../static/compare-table.js" charset="utf-8"></script>\n`);
     file.write(`<h2>Extract comparison for top pages in ${lang}.wikipedia.org</h2>\n`);
     file.write(`<nav>\n`);
-    file.write(`${getLanguageLinks()}\n`);
-    file.write(`<br/>\n`);
+    if (lang !== UNKNOWN_LANGUAGE) {
+        file.write(`${getLanguageLinks()}\n<br/>\n`);
+    }
     file.write(`<a href="../html/${lang}.html">html</a> |\n`);
     file.write(`<a href="../plain/${lang}.html">plain</a> |\n`);
     file.write(`<a href="../other/${lang}.html">other</a> |\n`);
@@ -152,17 +155,17 @@ const outputEndTxtFiles = () => {
 };
 
 const compareExtractsHTML = (file, oldExtractValue, newExtractValue,
-    counter, title, revTid, lang) => {
+    counter, domain, title, revTid) => {
 
     const displayTitle = title.replace(/_/g, ' ');
     const same = (oldExtractValue === newExtractValue) ? ' class="same"' : '';
     const positionLink = `<a id="${counter}" href="#${counter}">${counter}</a>`;
     file.write(`<tr${same}><td class="titleColumn">${positionLink}\n`);
-    file.write(`<a href="${uriForWikiLink(title, lang, revTid)}">${displayTitle}</a>\n`);
-    file.write(`[<a href="${uriForParsoidLink(title, lang, revTid)}">parsoid</a>]\n`);
+    file.write(`<a href="${uriForWikiLink(domain, title, revTid)}">${displayTitle}</a>\n`);
+    file.write(`[<a href="${uriForParsoidLink(domain, title, revTid)}">parsoid</a>]\n`);
     file.write(`<br/>[summary:\n`);
-    file.write(`<a href="${uriForProdSummary(title, lang, revTid)}">prod</a>\n`);
-    file.write(`<a href="${uriForLocalSummary(title, lang, revTid)}">local</a>]\n`);
+    file.write(`<a href="${uriForProdSummary(domain, title)}">prod</a>\n`);
+    file.write(`<a href="${uriForLocalSummary(domain, title, revTid)}">local</a>]\n`);
     file.write(`</td>\n`);
     file.write(`<td class="valueColumn" dir="auto">${oldExtractValue}</td>\n`);
     file.write(`<td class="valueColumn" dir="auto">${newExtractValue}</td>\n`);
@@ -206,21 +209,21 @@ const buildOtherPropString = (input) => {
 };
 
 const compareExtractsSingleType = (type, oldExtractString, newExtractString,
-    counter, title, revTid, lang) => {
+    counter, domain, title, revTid) => {
 
-    compareExtractsHTML(type.overviewFile, oldExtractString, newExtractString,
-        counter, title, revTid, lang);
+    compareExtractsHTML(type.overviewFile, oldExtractString, newExtractString, counter,
+        domain, title, revTid);
     writeFile(type.oldFile, title, revTid, oldExtractString);
     writeFile(type.newFile, title, revTid, newExtractString);
 };
 
-const compareExtracts = (oldExtract, newExtract, counter, title, revTid, lang) => {
-    compareExtractsSingleType(html, oldExtract.extract_html, newExtract.extract_html,
-        counter, title, revTid, lang);
-    compareExtractsSingleType(plain, oldExtract.extract, newExtract.extract,
-        counter, title, revTid, lang);
+const compareExtracts = (oldExtract, newExtract, counter, domain, title, revTid) => {
+    compareExtractsSingleType(html, oldExtract.extract_html, newExtract.extract_html, counter,
+        domain, title, revTid);
+    compareExtractsSingleType(plain, oldExtract.extract, newExtract.extract, counter,
+        domain, title, revTid);
     compareExtractsSingleType(other, buildOtherPropString(oldExtract),
-        buildOtherPropString(newExtract), counter, title, revTid, lang);
+        buildOtherPropString(newExtract), counter, domain, title, revTid);
 };
 
 const fetchExtract = (uri) => {
@@ -232,29 +235,38 @@ const fetchExtract = (uri) => {
     });
 };
 
-const fetchAndVerify = (title, revTid, counter, lang) => {
+const fetchAndVerify = (page, counter) => {
+    const domain = page.domain;
+    const title = page.title;
+    const revTid = page.rev;
     process.stdout.write('.');
     let newExtract;
-    return fetchExtract(uriForLocalSummary(title, lang, revTid))
+    return fetchExtract(uriForLocalSummary(domain, title, revTid))
     .then((response) => {
         newExtract = response;
         if (OLD_PORT) {
-            return fetchExtract(uriForLocalSummary(title, lang, revTid, OLD_PORT));
+            return fetchExtract(uriForLocalSummary(domain, title, revTid, OLD_PORT));
         } else {
-            return fetchExtract(uriForProdSummary(title, lang));
+            return fetchExtract(uriForProdSummary(domain, title));
         }
     }).then((oldExtract) => {
-        compareExtracts(oldExtract, newExtract, counter, title, revTid, lang);
+        compareExtracts(oldExtract, newExtract, counter, domain, title, revTid);
     });
 };
 
-const processOneLanguage = (lang) => {
+const iteratePages = (pageList, defaultDomain, pageFunction) => {
     let counter = 0;
-    outputStart(html);
-    outputStart(plain);
-    outputStart(other);
-    BBPromise.each(topPages, (page) => {
-        return fetchAndVerify(page.title, page.rev, ++counter, lang);
+    return BBPromise.each(pageList, (page) => {
+        if (!page.domain) {
+            page.domain = defaultDomain;
+        }
+        return pageFunction(page, ++counter);
+    });
+};
+
+const processOneList = (defaultDomain, pageList) => {
+    iteratePages(pageList, defaultDomain, (page, counter) => {
+        return fetchAndVerify(page, counter);
     })
     .then(() => {
         outputEnd(html);
@@ -264,7 +276,7 @@ const processOneLanguage = (lang) => {
     });
 };
 
-const setupFiles = (type) => {
+const setupFiles = (type, lang) => {
     type.dir = `${outDir}/${type.name}`;
     mkdir.sync(type.dir);
     type.oldFileName = `${type.dir}/${lang}.v1.txt`;
@@ -274,18 +286,29 @@ const setupFiles = (type) => {
     type.oldFile = fs.createWriteStream(type.oldFileName, { flags: 'w' });
     type.newFile = fs.createWriteStream(type.newFileName, { flags: 'w' });
     type.overviewFile = fs.createWriteStream(type.overviewFileName, { flags: 'w' });
+
+    outputStart(type, lang);
 };
 
 // MAIN
 const arg = process.argv[2];
-if (arg) {
-    lang = arg;
-    topPages = require(`${topPagesDir}/top-pages.${lang}.json`).items;
-    setupFiles(html);
-    setupFiles(plain);
-    setupFiles(other);
-    processOneLanguage(arg);
-} else {
-    process.stderr.write(`Error: supply one language parameter (e.g. en)!\n`);
+if (process.argv.length > 3) {
+    process.stderr.write(`Error: supply only 0 or 1 language parameter (e.g. en)!\n`);
     process.exit(-1);
 }
+
+let lang;
+let pageList;
+
+if (arg) {
+    lang = arg;
+    pageList = require(`${topPagesDir}/top-pages.${lang}.json`).items;
+} else {
+    lang = UNKNOWN_LANGUAGE;
+    pageList = require(`${pagesListsDir}/summary-test-pages.json`).items;
+}
+setupFiles(html, lang);
+setupFiles(plain, lang);
+setupFiles(other, lang);
+processOneList(`${lang}.wikipedia.org`, pageList);
+
