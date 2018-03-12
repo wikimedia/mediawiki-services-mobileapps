@@ -36,15 +36,15 @@ parameters:
   revision:
     in: path
     name: revision
-    required: true
+    required: false
     type: integer
     description: Revision ID
   tid:
     in: path
     name: tid
-    required: true
+    required: false
     type: integer
-    description: Time UUID for the revision (used when non-revision content changes)
+    description: Time UUID of the rendering (used for rerenders when non-revision content changes)
   year:
     in: path
     name: year
@@ -576,7 +576,7 @@ paths:
             body: ''
 
   # from routes/page/media.js
-  /{domain}/v1/page/media/{title}:
+  /{domain}/v1/page/media/{title}{/revision}{/tid}:
     get:
       tags:
         - Page content
@@ -589,6 +589,8 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
+        - $ref: '#/parameters/revision'
+        - $ref: '#/parameters/tid'
       responses:
         200:
           description: Gets media items from a wiki page
@@ -622,7 +624,7 @@ paths:
                     type: /.+/
 
   # from routes/page/metadata.js
-  /{domain}/v1/page/metadata/{title}:
+  /{domain}/v1/page/metadata/{title}{/revision}{/tid}:
     get:
       tags:
         - Page content
@@ -634,6 +636,8 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
+        - $ref: '#/parameters/revision'
+        - $ref: '#/parameters/tid'
       responses:
         200:
           description: Extended article metadata
@@ -689,7 +693,7 @@ paths:
                 move: [ /.+/ ]
 
   # from routes/page/references.js
-  /{domain}/v1/page/references/{title}:
+  /{domain}/v1/page/references/{title}{/revision}{/tid}:
     get:
       tags:
         - Page content
@@ -702,6 +706,8 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
+        - $ref: '#/parameters/revision'
+        - $ref: '#/parameters/tid'
       responses:
         '200':
           description: Reference lists and reference details
@@ -731,7 +737,7 @@ paths:
               references_by_id: /.+/
 
   # from routes/page/definition.js
-  /{domain}/v1/page/definition/{title}:
+  /{domain}/v1/page/definition/{title}{/revision}{/tid}:
     get:
       tags:
         - Word definitions (English Wiktionary only)
@@ -742,6 +748,8 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
+        - $ref: '#/parameters/revision'
+        - $ref: '#/parameters/tid'
       responses:
         200:
           description: Structured definition for the term
@@ -762,7 +770,7 @@ paths:
             body: /.+/
 
   # from routes/page/summary.js
-  /{domain}/v1/page/summary/{title}:
+  /{domain}/v1/page/summary/{title}{/revision}{/tid}:
     get:
       tags:
         - Page content
@@ -778,6 +786,8 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
+        - $ref: '#/parameters/revision'
+        - $ref: '#/parameters/tid'
       responses:
         200:
           description: The summary for the given page
@@ -905,7 +915,7 @@ paths:
               extract_html: /.+/
 
   # from routes/page/mobile-sections.js
-  /{domain}/v1/page/mobile-sections/{title}:
+  /{domain}/v1/page/mobile-sections/{title}{/revision}{/tid}:
     get:
       tags:
         - Page content
@@ -918,6 +928,8 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
+        - $ref: '#/parameters/revision'
+        - $ref: '#/parameters/tid'
       responses:
         200:
           description: Structured info about a page and its sections
@@ -952,7 +964,7 @@ paths:
               remaining:
                 sections: []
 
-  /{domain}/v1/page/mobile-sections-lead/{title}:
+  /{domain}/v1/page/mobile-sections-lead/{title}{/revision}{/tid}:
     get:
       tags:
         - Page content
@@ -964,6 +976,8 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
+        - $ref: '#/parameters/revision'
+        - $ref: '#/parameters/tid'
       responses:
         200:
           description: Structured info a page and its lead section
@@ -1002,7 +1016,7 @@ paths:
                 longitude: /.+/
               sections: [ /.+/ ]
 
-  /{domain}/v1/page/mobile-sections-remaining/{title}:
+  /{domain}/v1/page/mobile-sections-remaining/{title}{/revision}{/tid}:
     get:
       tags:
         - Page content
@@ -1013,6 +1027,8 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
+        - $ref: '#/parameters/revision'
+        - $ref: '#/parameters/tid'
       responses:
         200:
           description: Structured info on non-lead sections for a page
