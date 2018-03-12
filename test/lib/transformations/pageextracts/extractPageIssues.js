@@ -53,8 +53,8 @@ describe('extractPageIssues', () => {
                      '</section></body></html>';
         const afterRemoveHtml = '<html><head></head><body><section data-mw-section-id="0"></section></body></html>';
         const doc = domino.createDocument(html);
-        testMetadataResult(doc, [ { section: 0, html: '<b>Issue!</b>', text: 'Issue!' } ]);
-        testMobileSectionsResult(doc, [ { text: '<b>Issue!</b>' } ]);
+        testMetadataResult(doc, [ { section: 0, html: '<b>Issue!</b>' } ]);
+        testMobileSectionsResult(doc, [ { html: '<b>Issue!</b>', text: 'Issue!' } ]);
         testMobileSectionsNoRemoveAfterHtml(doc, html);
         testMobileSectionsRemoveAfterHtml(doc, afterRemoveHtml);
     });
@@ -93,8 +93,8 @@ describe('extractPageIssues', () => {
             { section: 0, html: '<b>Second issue!</b>' }
         ]);
         testMobileSectionsResult(doc, [
-            { text: '<b>First issue!</b>' },
-            { text: '<b>Second issue!</b>' }
+            { html: '<b>First issue!</b>', text: 'First issue!' },
+            { html: '<b>Second issue!</b>', text: 'Second issue!' }
         ]);
         testMobileSectionsNoRemoveAfterHtml(doc, html);
         testMobileSectionsRemoveAfterHtml(doc, afterRemoveHtml);
