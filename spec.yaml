@@ -726,7 +726,7 @@ paths:
               tid: /.+/
               reference_lists:
                 - type: /.+/
-                  id: /.+/
+                  id: /.*/
                   order: [ /.+/ ]
               references_by_id: /.+/
 
