@@ -5,7 +5,7 @@
   "main": "./app.js",
   "scripts": {
     "start": "service-runner",
-    "test": "PREQ_CONNECT_TIMEOUT=15 mocha && swagger-cli validate spec.yaml && nsp check",
+    "test": "PREQ_CONNECT_TIMEOUT=15 mocha && nsp check",
     "test:unit": "mocha test/lib",
     "test:diff": "mocha test/diff",
     "lint": "eslint --cache --max-warnings 0 --ext .js --ext .json .",
@@ -13,7 +13,7 @@
     "docker-test": "service-runner docker-test",
     "test-build": "service-runner docker-test && service-runner build --deploy-repo --force",
     "coverage": "istanbul cover _mocha -- -R spec",
-    "swagger": "swagger-cli validate spec.yaml"
+    "swagger": "./node_modules/swagger-tools/bin/swagger-tools validate spec.yaml"
   },
   "pre-commit": [
     "lint"
@@ -86,7 +86,7 @@
     "sepia": "^2.0.2",
     "sinon": "^4.1.2",
     "pre-commit": "^1.2.2",
-    "swagger-cli": "^1.0.1"
+    "swagger-tools": "^0.10.3"
   },
   "deploy": {
     "target": "debian",
