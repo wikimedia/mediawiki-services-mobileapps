@@ -247,7 +247,7 @@ const TEST_SPECS = [
 
     new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/SimpleReference', '2640831', 'ab21dbfa-f23b-11e7-9ffb-8e725cd7335b'),
     new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/MultipleReflists', '2640615', '830e4743-f238-11e7-ab56-48e0735b1d90'),
-    new TestPageSpec('en.wikipedia.org', 'page/references', 'List_of_highest-grossing_Indian_films', '829288202', '57e9f2e7-25f9-11e8-bea9-7e6443abc34b'),
+    new TestPageSpec('en.wikipedia.org', 'page/references', 'List_of_highest-grossing_Indian_films', '829288202', '7d9d20b8-26ed-11e8-a706-d4eb8263ed2c'),
 
     // new TestSpec('en.wiktionary.org', 'page/definition', ['cat']),
 ];
