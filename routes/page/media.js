@@ -28,13 +28,13 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
         const titles = mUtil.deduplicate(pageMediaList.map(item => item.title));
         return lib.getMetadataFromApi(app, req, titles, response.siteinfo)
         .then((apiResponse) => {
-            lib.combineResponses(apiResponse, pageMediaList);
+            const result = lib.combineResponses(apiResponse, pageMediaList);
             mUtil.setETag(res, revTid.revision, revTid.tid);
             mUtil.setContentType(res, mUtil.CONTENT_TYPES.media);
             res.send({
                 revision: revTid.revision,
                 tid: revTid.tid,
-                items: pageMediaList.filter(item => lib.filterResult(item))
+                items: result
             });
         });
     });
