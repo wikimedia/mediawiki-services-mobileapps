@@ -242,12 +242,12 @@ const TEST_SPECS = [
     new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682', '45076ace-ec99-11e6-8bd2-d4f45196333f'),
     new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613', 'cb218d7e-30dc-11e7-8133-b946c9a92329'),
 
-    new TestPageSpec('en.wikipedia.org', 'page/media', 'Hummingbird', '810247947', '63e03102-d5e8-11e7-b8d6-89c3c376722f'),
+    new TestPageSpec('en.wikipedia.org', 'page/media', 'Hummingbird', '810247947', '7573614c-27ae-11e8-acd8-c3391cf3a42b'),
     new TestPageSpec('en.wikipedia.org', 'page/media', 'Košice', '809487065', '34013eaf-27ae-11e8-bd02-0e1814223388'),
 
     new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/SimpleReference', '2640831', 'ab21dbfa-f23b-11e7-9ffb-8e725cd7335b'),
     new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/MultipleReflists', '2640615', '830e4743-f238-11e7-ab56-48e0735b1d90'),
-    new TestPageSpec('en.wikipedia.org', 'page/references', 'List_of_highest-grossing_Indian_films', '829288202', '7d9d20b8-26ed-11e8-a706-d4eb8263ed2c'),
+    new TestPageSpec('en.wikipedia.org', 'page/references', 'List_of_highest-grossing_Indian_films', '829288202', '190e19e9-27b7-11e8-88f1-d10244f84441'),
 
     // new TestSpec('en.wiktionary.org', 'page/definition', ['cat']),
 ];
