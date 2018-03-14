@@ -58,6 +58,7 @@
     "express": "^4.16.2",
     "js-yaml": "^3.10.0",
     "mediawiki-title": "^0.6.5",
+    "microformat-node": "^2.0.1",
     "preq": "^0.5.3",
     "sanitize-html": "^1.17.0",
     "service-runner": "^2.5.1",

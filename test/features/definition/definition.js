@@ -32,8 +32,19 @@ describe('definition', function() {
                     assert.notDeepEqual(en[i].definitions, undefined);
                     for (let j = 0; j < en[i].definitions.length; j++) {
                         assert.notDeepEqual(en[i].definitions[j].definition, undefined);
-                        if (en[i].definitions[j].examples) {
-                            assert.ok(en[i].definitions[j].examples.length !== 0);
+                        const examples = en[i].definitions[j].examples;
+                        if (examples) {
+                            assert.ok(examples.length > 0);
+                            for (const example of examples) {
+                                assert.ok(example.trim().length > 0);
+                            }
+                        }
+                        const parsedExamples = en[i].definitions[j].parsedExamples;
+                        if (parsedExamples) {
+                            assert.ok(parsedExamples.length > 0);
+                            for (const parsedExample of parsedExamples) {
+                                assert.ok(parsedExample.example.trim().length > 0);
+                            }
                         }
                     }
                 }
