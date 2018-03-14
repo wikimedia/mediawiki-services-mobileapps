@@ -31,7 +31,11 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
             lib.combineResponses(apiResponse, pageMediaList);
             mUtil.setETag(res, revTid.revision, revTid.tid);
             mUtil.setContentType(res, mUtil.CONTENT_TYPES.media);
-            res.send({ items: pageMediaList.filter(item => lib.filterResult(item)) });
+            res.send({
+                revision: revTid.revision,
+                tid: revTid.tid,
+                items: pageMediaList.filter(item => lib.filterResult(item))
+            });
         });
     });
 });

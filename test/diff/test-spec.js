@@ -243,7 +243,7 @@ const TEST_SPECS = [
     new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613', 'cb218d7e-30dc-11e7-8133-b946c9a92329'),
 
     new TestPageSpec('en.wikipedia.org', 'page/media', 'Hummingbird', '810247947', '63e03102-d5e8-11e7-b8d6-89c3c376722f'),
-    new TestPageSpec('en.wikipedia.org', 'page/media', 'Košice', '809487065', '60462cc6-c6d0-11e7-b18a-320d7376a8ae'),
+    new TestPageSpec('en.wikipedia.org', 'page/media', 'Košice', '809487065', '34013eaf-27ae-11e8-bd02-0e1814223388'),
 
     new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/SimpleReference', '2640831', 'ab21dbfa-f23b-11e7-9ffb-8e725cd7335b'),
     new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/MultipleReflists', '2640615', '830e4743-f238-11e7-ab56-48e0735b1d90'),

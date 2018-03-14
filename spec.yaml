@@ -610,6 +610,8 @@ paths:
             headers:
               content-type: application/json
             body:
+              revision: /.+/
+              tid: /.+/
               items:
                 - titles:
                     canonical: /.+/
@@ -1716,6 +1718,12 @@ definitions:
   media_list:
     type: object
     properties:
+      revision:
+        type: string
+        description: the revision ID used to create the list
+      tid:
+        type: string
+        description: the time uuid of the page rendering used to create the list
       items:
         type: array
         description: a list of media items
@@ -1723,6 +1731,8 @@ definitions:
           $ref: '#/definitions/media_item'
     required:
       - items
+      - revision
+      - tid
 
   media_item:
     type: object
