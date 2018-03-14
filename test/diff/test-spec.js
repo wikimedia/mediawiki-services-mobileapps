@@ -204,6 +204,10 @@ class TestPageSpec extends TestSpec {
             }
         }
 
+        if (input.tid) {
+            input.tid = 'present';
+        }
+
         rsp.body = input;
         return rsp;
     }
