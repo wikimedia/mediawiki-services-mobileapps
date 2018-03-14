@@ -735,7 +735,6 @@ paths:
               reference_lists:
                 - type: /.+/
                   id: /.*/
-                  order: [ /.+/ ]
               references_by_id: /.+/
 
   # from routes/page/definition.js
@@ -1648,22 +1647,27 @@ definitions:
         type: string
         enum:
           - reference_list
-          - heading
+          - section_heading
       id:
         type: string
-        description: Identifier for the whole reference list
+        description: |
+          For type = reference_list: identifier for the whole reference list.
+          For type = section_heading: identifier for the section, which can be used to link to it.
+      html:
+        type: string
+        description: |
+          HTML content of section heading. For section_heading type only.
       order:
         type: array
         description: |
           List of identifiers for individual references, which can be used to lookup
-          the reference details
+          the reference details. For reference_list type only.
         items:
           type: string
     additionalProperties: false
     required:
       - type
       - id
-      - order
 
   references_by_id:
     type: object

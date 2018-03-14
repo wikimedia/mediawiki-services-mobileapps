@@ -67,12 +67,13 @@ describe('references-large', function() {
     function verifyWithOriginalParsoidResponse(referencesResponse, parsoidResponse, title, rev) {
         const document = domino.createDocument(parsoidResponse.body);
         const parsoidRefLists = document.querySelectorAll('ol.mw-references');
-        assert.deepEqual(referencesResponse.body.reference_lists.length, parsoidRefLists.length,
-            'number of lists');
+        const responseRefLists
+            = referencesResponse.body.reference_lists.filter(o => o.type === 'reference_list');
+        assert.deepEqual(responseRefLists.length, parsoidRefLists.length, 'number of lists');
 
         // go over all reference lists
         for (let i = 0; i < parsoidRefLists.length; i++) {
-            const refList = referencesResponse.body.reference_lists[i];
+            const refList = responseRefLists[i];
             const parsoidRefList = parsoidRefLists[i];
             const section = parsoidRefList.closest('section') || undefined;
             const sectionHeadingElement = section && section.querySelector('h1,h2,h3,h4,h5,h5');

@@ -3,6 +3,11 @@
   "tid": "present",
   "reference_lists": [
     {
+      "type": "section_heading",
+      "id": "Notes",
+      "html": "Notes"
+    },
+    {
       "type": "reference_list",
       "id": "#mwt2834",
       "order": [
