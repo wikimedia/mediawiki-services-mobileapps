@@ -5,9 +5,9 @@
 const assert = require('../../../utils/assert.js');
 const domino = require('domino');
 const sinon = require('sinon');
-const parsoidSectionsUsingSectionTags = require('../../../../lib/sections/parsoidSectionsUsingSectionTags'); // eslint-disable-line max-len
-const shouldWarn = parsoidSectionsUsingSectionTags.testing.shouldLogInvalidSectionWarning;
-const validatePreviousSection = parsoidSectionsUsingSectionTags.testing.validatePreviousSection;
+const parsoidSections = require('../../../../lib/sections/parsoidSections'); // eslint-disable-line max-len
+const shouldWarn = parsoidSections.testing.shouldLogInvalidSectionWarning;
+const validatePreviousSection = parsoidSections.testing.validatePreviousSection;
 
 describe('lib:parsoid-sections (section elements)', function() {
 
@@ -37,7 +37,7 @@ describe('lib:parsoid-sections (section elements)', function() {
 
     it('getSectionsText(empty) should produce an empty lead section', () => {
         const doc = domino.createDocument('');
-        const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
+        const sections = parsoidSections.getSectionsText(doc);
         assert.deepEqual(sections.length, 1);
         assert.deepEqual(sections[0].id, 0);
         assert.deepEqual(sections[0].text, '');
@@ -45,7 +45,7 @@ describe('lib:parsoid-sections (section elements)', function() {
 
     it('getSectionsText() with just text should produce a lead section', () => {
         const doc = domino.createDocument('<section data-mw-section-id="0">text0</section>');
-        const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
+        const sections = parsoidSections.getSectionsText(doc);
         assert.deepEqual(sections.length, 1);
         assertSection0(sections);
     });
@@ -53,7 +53,7 @@ describe('lib:parsoid-sections (section elements)', function() {
     it('getSectionsText() with one h2 should produce two sections', () => {
         const doc = domino.createDocument('<section data-mw-section-id="0">text0</section>' +
             '<section data-mw-section-id="1"><h2 id="foo">foo</h2>text1</section>');
-        const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
+        const sections = parsoidSections.getSectionsText(doc);
         assert.deepEqual(sections.length, 2);
         assertSection0(sections);
         assertSection1(sections);
@@ -65,7 +65,7 @@ describe('lib:parsoid-sections (section elements)', function() {
             '<section data-mw-section-id="2">' +
             '<h3 id="Funny_section_.21.40.23.24">Funny section !@#$%^&*()</h3>text2' +
             '</section></section>');
-        const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
+        const sections = parsoidSections.getSectionsText(doc);
         assert.deepEqual(sections.length, 3);
         assertSection0(sections);
         assertSection1(sections);
@@ -79,7 +79,7 @@ describe('lib:parsoid-sections (section elements)', function() {
         const doc = domino.createDocument('<section data-mw-section-id="0">text0</section>' +
             '<section data-mw-section-id="1"><h2 id="foo">foo</h2>text1' + sectionInDiv +
             '</section>');
-        const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
+        const sections = parsoidSections.getSectionsText(doc);
         assert.deepEqual(sections.length, 2);
         assertSection0(sections);
         assertSection1(sections, sectionInDiv);
@@ -92,7 +92,7 @@ describe('lib:parsoid-sections (section elements)', function() {
         const doc = domino.createDocument('<section data-mw-section-id="0">text0</section>' +
             '<section data-mw-section-id="1"><h2 id="foo">foo</h2>text1' + sectionInDiv +
             '</section>');
-        const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
+        const sections = parsoidSections.getSectionsText(doc);
         assert.deepEqual(sections.length, 2);
         assertSection0(sections);
         assertSection1(sections, sectionInDiv);
@@ -105,7 +105,7 @@ describe('lib:parsoid-sections (section elements)', function() {
             sectionNotInDiv +
             '</section>'
         );
-        const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
+        const sections = parsoidSections.getSectionsText(doc);
         assert.deepEqual(sections.length, 2);
         assertSection0(sections);
     });
@@ -118,7 +118,7 @@ describe('lib:parsoid-sections (section elements)', function() {
             sectionInDiv +
             '</section>'
         );
-        const sections = parsoidSectionsUsingSectionTags.getSectionsText(doc);
+        const sections = parsoidSections.getSectionsText(doc);
         assert.deepEqual(sections.length, 1);
         assertSection0(sections, sectionInDiv);
     });
@@ -172,7 +172,7 @@ describe('lib:parsoid-sections (section elements)', function() {
             const doc = domino.createDocument(
                 '<section data-mw-section-id="0"><p>text0</p></section>' +
                 '<section data-mw-section-id="1"><h2 id="foo">foo</h2>text1</section>');
-            const leadSectionDoc = parsoidSectionsUsingSectionTags.justLeadSection(doc);
+            const leadSectionDoc = parsoidSections.justLeadSection(doc);
             assert.deepEqual(leadSectionDoc.body.innerHTML, '<p>text0</p>');
         });
     });
