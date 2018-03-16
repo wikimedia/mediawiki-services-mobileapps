@@ -8,7 +8,8 @@ const fs = require('fs');
 const path = require('path');
 
 const lang = 'en'; // prepped for 'en' and 'zh'
-const TOP_PAGES_FILE = path.join(__dirname, `../private/top-pages/top-pages.${lang}.json`);
+const TOP_PAGES_DIR = path.join(__dirname, `../private/page-lists/top-pages/wikipedia`);
+const TOP_PAGES_FILE = path.join(TOP_PAGES_DIR, `top-pages.${lang}.json`);
 const GZIP = 'gzip -6';
 const PARSOID_BASE_URI = `https://${lang}.wikipedia.org/api/rest_v1/page/html`;
 const LOCAL_MCS_BASE_URI = `http://localhost:6927/${lang}.wikipedia.org/v1/page/read-html`;

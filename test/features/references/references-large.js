@@ -1,6 +1,6 @@
 'use strict';
 
-const topPages = require('../../../private/top-pages/top-pages.en.json').items;
+const topPages = require('../../../private/page-lists/top-pages/wikipedia/top-pages.en.json').items;
 
 const server = require('../../utils/server.js');
 const assert = require('../../utils/assert.js');

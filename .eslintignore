@@ -1,5 +1,5 @@
 private/compare-sections/
-private/top-pages/top-pages.*.json
+private/page-lists/top-pages/*/top-pages.*.json
 test/diff/results/page_definition-enwiktionary-*.json
 test/diff/results/page_*MCS_Test_Frankenstein.json
 tmp/

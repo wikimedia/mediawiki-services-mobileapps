@@ -35,7 +35,7 @@ const NEW_VERSION_INFO = ``;
 // Set OLD_PORT to 0 to go against production.
 const OLD_PORT = 0;
 const OLD_VERSION_INFO = ``;
-const topPagesDir = path.join(__dirname, '../private/top-pages');
+const topPagesDir = path.join(__dirname, '../private/page-lists/top-pages/wikipedia');
 const pagesListsDir = path.join(__dirname, '../private/page-lists');
 const outDir = path.join(__dirname, '../private/extracts');
 const UNKNOWN_LANGUAGE = 'various';

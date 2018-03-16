@@ -32,7 +32,7 @@ const preq = require('preq');
 const path = require('path');
 
 const DELAY = 10; // delay between requests in ms
-const topPagesDir = path.join(__dirname, '../private/top-pages');
+const topPagesDir = path.join(__dirname, '../private/page-lists/top-pages/wikipedia');
 const outDir = path.join(__dirname, '../private/compare-sections');
 
 let lang;

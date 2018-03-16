@@ -13,7 +13,7 @@ const SPECIAL2 = 'special:';
 const PROJECT = 'wikipedia';
 const YEAR = '2017';
 const MONTH = '06';
-const OUTPUT_DIR = path.join(__dirname, `../private/top-pages`);
+const OUTPUT_DIR = path.join(__dirname, `../private/page-lists/top-pages/${PROJECT}`);
 
 // Will be set later
 let lang;
