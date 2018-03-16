@@ -1057,24 +1057,6 @@ paths:
           schema:
             $ref: '#/definitions/problem'
 
-  /{domain}/v1/page/css/pageview:
-    get:
-      tags:
-        - Page styles
-      summary: Get page view styles
-      description: Gets page view styles not used for previews
-      produces:
-        - text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/1.0.0"
-      parameters:
-        - $ref: '#/parameters/domain'
-      responses:
-        200:
-          description: Success
-        default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
-
 definitions:
   # A https://tools.ietf.org/html/draft-nottingham-http-problem
   problem:

@@ -12,12 +12,8 @@ describe('css', function() {
 
     before(() => { return server.start(); });
 
-    it('/css/base should respond to GET request with expected headers', () => {
+    it('should respond to GET request with expected headers', () => {
         return checkHeaders(localUri('base'), contentType, 'cache-control');
-    });
-
-    it('/css/pageview should respond to GET request with expected headers', () => {
-        return checkHeaders(localUri('pageview'), contentType, 'cache-control');
     });
 
 });
