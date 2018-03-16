@@ -35,10 +35,12 @@ const NEW_VERSION_INFO = ``;
 // Set OLD_PORT to 0 to go against production.
 const OLD_PORT = 0;
 const OLD_VERSION_INFO = ``;
-const topPagesDir = path.join(__dirname, '../private/page-lists/top-pages/wikipedia');
+const PROJECT = 'wikipedia';
+const topPagesDir = path.join(__dirname, `../private/page-lists/top-pages/${PROJECT}`);
 const pagesListsDir = path.join(__dirname, '../private/page-lists');
 const outDir = path.join(__dirname, '../private/extracts');
 const UNKNOWN_LANGUAGE = 'various';
+const ENDPOINT = 'page/summary';
 
 const html = { name: 'html' };
 const plain = { name: 'plain' };
@@ -94,13 +96,13 @@ const uriForParsoidLink = (domain, title, revTid) => {
     return `https://${domain}/api/rest_v1/page/html/${title}/${revTid}`;
 };
 
-const uriForProdSummary = (domain, title) => {
-    return `https://${domain}/api/rest_v1/page/summary/${encodeURIComponent(title)}`;
+const uriForProd = (domain, title) => {
+    return `https://${domain}/api/rest_v1/${ENDPOINT}/${encodeURIComponent(title)}`;
 };
 
-const uriForLocalSummary = (domain, title, revTid, port = NEW_PORT) => {
+const uriForLocal = (domain, title, revTid, port = NEW_PORT) => {
     const suffix = revTid ? `/${revTid}` : '';
-    return `http://localhost:${port}/${domain}/v1/page/summary/${encodeURIComponent(title)}${suffix}`;
+    return `http://localhost:${port}/${domain}/v1/${ENDPOINT}/${encodeURIComponent(title)}${suffix}`;
 };
 
 const outputStart = (type, lang) => {
@@ -113,7 +115,7 @@ const outputStart = (type, lang) => {
     file.write(`</head>\n`);
     file.write(`<body>\n`);
     file.write(`<script type="text/javascript" src="../static/compare-table.js" charset="utf-8"></script>\n`);
-    file.write(`<h2>Extract comparison for top pages in ${lang}.wikipedia.org</h2>\n`);
+    file.write(`<h2>Extract comparison for top pages in ${lang}.${PROJECT}.org</h2>\n`);
     file.write(`<nav>\n`);
     if (lang !== UNKNOWN_LANGUAGE) {
         file.write(`${getLanguageLinks()}\n<br/>\n`);
@@ -163,9 +165,9 @@ const compareExtractsHTML = (file, oldExtractValue, newExtractValue,
     file.write(`<tr${same}><td class="titleColumn">${positionLink}\n`);
     file.write(`<a href="${uriForWikiLink(domain, title, revTid)}">${displayTitle}</a>\n`);
     file.write(`[<a href="${uriForParsoidLink(domain, title, revTid)}">parsoid</a>]\n`);
-    file.write(`<br/>[summary:\n`);
-    file.write(`<a href="${uriForProdSummary(domain, title)}">prod</a>\n`);
-    file.write(`<a href="${uriForLocalSummary(domain, title, revTid)}">local</a>]\n`);
+    file.write(`<br/>[${ENDPOINT}:\n`);
+    file.write(`<a href="${uriForProd(domain, title)}">prod</a>\n`);
+    file.write(`<a href="${uriForLocal(domain, title, revTid)}">local</a>]\n`);
     file.write(`</td>\n`);
     file.write(`<td class="valueColumn" dir="auto">${oldExtractValue}</td>\n`);
     file.write(`<td class="valueColumn" dir="auto">${newExtractValue}</td>\n`);
@@ -241,13 +243,13 @@ const fetchAndVerify = (page, counter) => {
     const revTid = page.rev;
     process.stdout.write('.');
     let newExtract;
-    return fetchExtract(uriForLocalSummary(domain, title, revTid))
+    return fetchExtract(uriForLocal(domain, title, revTid))
     .then((response) => {
         newExtract = response;
         if (OLD_PORT) {
-            return fetchExtract(uriForLocalSummary(domain, title, revTid, OLD_PORT));
+            return fetchExtract(uriForLocal(domain, title, revTid, OLD_PORT));
         } else {
-            return fetchExtract(uriForProdSummary(domain, title));
+            return fetchExtract(uriForProd(domain, title));
         }
     }).then((oldExtract) => {
         compareExtracts(oldExtract, newExtract, counter, domain, title, revTid);
@@ -310,5 +312,5 @@ if (arg) {
 setupFiles(html, lang);
 setupFiles(plain, lang);
 setupFiles(other, lang);
-processOneList(`${lang}.wikipedia.org`, pageList);
+processOneList(`${lang}.${PROJECT}.org`, pageList);
 
