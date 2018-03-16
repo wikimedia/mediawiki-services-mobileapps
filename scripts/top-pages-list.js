@@ -10,11 +10,15 @@ const path = require('path');
 const BLACKLIST = require(path.join(__dirname, '../etc/feed/blacklist'));
 const SPECIAL = 'Special:';
 const SPECIAL2 = 'special:';
+const PROJECT = 'wikipedia';
+const YEAR = '2017';
+const MONTH = '06';
+const OUTPUT_DIR = path.join(__dirname, `../private/top-pages`);
 
 // Will be set later
 let lang;
 let topMonthlyPageViews;
-let topPagesFile;
+let outputFile;
 let parsoidBaseUri;
 
 const fixTitleForRequest = (pageTitle) => {
@@ -26,7 +30,7 @@ const uriForParsoid = (pageTitle) => {
 };
 
 const writePages = (myPages) => {
-    const logger = fs.createWriteStream(topPagesFile, { flags: 'w' });
+    const logger = fs.createWriteStream(outputFile, { flags: 'w' });
     logger.write(`{ "items": [\n`);
     myPages.forEach((page, index, array) => {
         if (page) {
@@ -105,9 +109,9 @@ const getTopPageViews = () => {
 const arg = process.argv[2];
 if (arg) {
     lang = arg;
-    topMonthlyPageViews = `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/${lang}.wikipedia/all-access/2017/06/all-days`; // eslint-disable-line max-len
-    topPagesFile = path.join(__dirname, `../private/top-pages/top-pages.${lang}.json`);
-    parsoidBaseUri = `https://${lang}.wikipedia.org/api/rest_v1/page/html`;
+    topMonthlyPageViews = `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/${lang}.${PROJECT}/all-access/${YEAR}/${MONTH}/all-days`; // eslint-disable-line max-len
+    outputFile = path.join(OUTPUT_DIR, `top-pages.${lang}.json`);
+    parsoidBaseUri = `https://${lang}.${PROJECT}.org/api/rest_v1/page/html`;
 
     getTopPageViews();
 }
