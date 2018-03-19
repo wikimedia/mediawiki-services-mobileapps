@@ -36,46 +36,6 @@ describe('mobile-sections-lead', function() {
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
-    it('en Cat page should have a lead object with expected properties', () => {
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Cat`;
-        return preq.get({ uri })
-            .then((res) => {
-                const lead = res.body;
-                const lastMod = lead.lastmodified;
-                // const files = lead.spoken.files;
-                const path = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b";
-                assert.equal(res.status, 200);
-                assert.ok(lastMod.startsWith('201'), `${lastMod} should start with 201`); // 2015-
-                assert.equal(lead.displaytitle, 'Cat');
-                assert.contains(lead.description, 'species');
-                assert.deepEqual(lead.protection, {
-                    "edit": [
-                        "autoconfirmed"
-                    ],
-                    "move": [
-                        "sysop"
-                    ]
-                });
-                assert.equal(lead.editable, false);
-                assert.deepEqual(lead.image, {
-                    "file": "Cat_poster_1.jpg",
-                    "urls": {
-                        "320": `${path}/Cat_poster_1.jpg/320px-Cat_poster_1.jpg`,
-                        "640": `${path}/Cat_poster_1.jpg/640px-Cat_poster_1.jpg`,
-                        "800": `${path}/Cat_poster_1.jpg/800px-Cat_poster_1.jpg`,
-                        "1024": `${path}/Cat_poster_1.jpg/1024px-Cat_poster_1.jpg`
-                    }
-                });
-                /* TODO: bring back next week after Parsoid deploys the fix for T177612
-                assert.ok(files.length > 0, 'Expected at least one Spoken Wikipedia audio file');
-                assert.ok(files[0].indexOf('.') > -1, 'Expected file extension in spoken filename');
-                assert.ok(files[0].indexOf('File:') === 0, 'Expected File namespace in filename');
-                */
-                assert.ok(lead.sections.length > 0, 'Expected at least one section element');
-                assert.equal(lead.sections[0].id, 0);
-                assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
-            });
-    });
     it('en San Francisco should have a last modifier', () => {
         const title = 'San_Francisco';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
