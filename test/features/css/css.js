@@ -12,8 +12,12 @@ describe('css', function() {
 
     before(() => { return server.start(); });
 
-    it('should respond to GET request with expected headers', () => {
-        return checkHeaders(localUri('base'), contentType, 'cache-control');
+    it('/mobile/app/base should respond to GET request with expected headers', () => {
+        return checkHeaders(localUri('/mobile/app/base'), contentType, 'cache-control');
+    });
+
+    it('/mobile/app/site should respond to GET request with expected headers', () => {
+        return checkHeaders(localUri('/mobile/app/site'), contentType, 'cache-control');
     });
 
 });

@@ -1039,7 +1039,7 @@ paths:
             $ref: '#/definitions/problem'
       x-monitor: false
 
-  /{domain}/v1/page/css/base:
+  /{domain}/v1/page/css/mobile/app/base:
     get:
       tags:
         - Page styles
