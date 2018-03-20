@@ -17,23 +17,6 @@ describe('mobile-sections', function() {
 
     shared.shouldBehaveLikeMobileSections(localUri);
 
-    // slightly different
-
-    it('Page with IPA content', () => {
-        const title = 'Sunderland_A.F.C./738562635';
-        const uri = localUri(title);
-        return preq.get({ uri })
-        .then((res) => {
-            const text = res.body.lead.sections[0].text;
-            const expected = 'style="display: none;"><span class="IPA';
-            assert.equal(res.status, 200);
-            assert.ok(text.indexOf(expected) > -1,
-                'IPA information should be wrapped in hidden container');
-        });
-    });
-
-    // special
-
     it('Sections/deep page should have a lead object with expected properties', () => {
         const title = 'Sections%2Fdeep';
         const uri = localUri(title, 'test.wikipedia.org');

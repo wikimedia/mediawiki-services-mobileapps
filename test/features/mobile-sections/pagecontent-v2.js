@@ -17,21 +17,6 @@ describe('mobile-sections-v2', function() {
 
     shared.shouldBehaveLikeMobileSections(localUri);
 
-    // slightly different
-
-    it('Page with IPA content', () => {
-        const title = 'Sunderland_A.F.C./738562635';
-        const uri = localUri(title);
-        return preq.get({ uri })
-        .then((res) => {
-            const text = res.body.lead.intro;
-            const regex = /<span class="nowrap mcs-ipa">/;
-            assert.ok(regex.test(text), `mcs-ipa class should be in ${text}`);
-        });
-    });
-
-    // special
-
     it('Hatnotes do not appear in the lead object', () => {
         const title = 'Order_of_chivalry/699553745';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/formatted/${title}`;
