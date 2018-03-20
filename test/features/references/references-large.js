@@ -69,10 +69,12 @@ describe('references-large', function() {
         const parsoidRefLists = document.querySelectorAll('ol.mw-references');
         const responseRefLists
             = referencesResponse.body.reference_lists.filter(o => o.type === 'reference_list');
-        assert.deepEqual(responseRefLists.length, parsoidRefLists.length, 'number of lists');
+        assert.ok(responseRefLists.length === parsoidRefLists.length
+            || responseRefLists.length === parsoidRefLists.length - 1
+            , 'number of lists');
 
         // go over all reference lists
-        for (let i = 0; i < parsoidRefLists.length; i++) {
+        for (let i = 0; i < responseRefLists.length; i++) {
             const refList = responseRefLists[i];
             const parsoidRefList = parsoidRefLists[i];
             const section = parsoidRefList.closest('section') || undefined;

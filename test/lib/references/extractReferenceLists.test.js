@@ -23,46 +23,54 @@ describe('lib:extractReferenceLists', () => {
     });
 
     it('one list (old)', () => {
-        const doc = domino.createDocument('<body>'
+        const doc = domino.createDocument(
+            '<section data-mw-section-id="1">'
+            + '<h2 id="References"> References </h2>'
             + '<ol typeof="mw:Extension/references" class="mw-references references">'
             + '<li><span>foo A1</span></li>'
             + '<li><span>foo A2</span></li>'
             + '</ol>'
-            + '</body>');
+            + '</section>');
 
         const refLists = extractReferenceLists(doc, logger);
         assert.deepEqual(refLists.reference_lists.length, 1);
     });
 
     it('one list (new)', () => {
-        const doc = domino.createDocument('<body>'
+        const doc = domino.createDocument(
+            '<section data-mw-section-id="1">'
+            + '<h2 id="References"> References </h2>'
             + '<div typeof="mw:Extension/references">'
             + '<ol class="mw-references references">'
             + '<li><span>foo A1</span></li>'
             + '<li><span>foo A2</span></li>'
             + '</ol>'
-            + '<div>'
-            + '</body>');
+            + '</div>'
+            + '</section>');
 
         const refLists = extractReferenceLists(doc, logger);
         assert.deepEqual(refLists.reference_lists.length, 1);
     });
 
     it('two lists (old)', () => {
-        const doc = domino.createDocument('<body>'
+        const doc = domino.createDocument(
+            '<section data-mw-section-id="1">'
+            + '<h2 id="References"> References </h2>'
             + '<ol typeof="mw:Extension/references" class="mw-references references">'
             + '<li><span>foo B</span></li>'
             + '</ol>'
             + '<ol typeof="mw:Extension/references" class="mw-references references">'
             + '</ol>'
-            + '</body>');
+            + '</section>');
 
         const refLists = extractReferenceLists(doc, logger);
         assert.deepEqual(refLists.reference_lists.length, 2);
     });
 
     it('two lists (new)', () => {
-        const doc = domino.createDocument('<body>'
+        const doc = domino.createDocument(
+            '<section data-mw-section-id="1">'
+            + '<h2 id="References"> References </h2>'
             + '<div typeof="mw:Extension/references">'
             + '<ol class="mw-references references">'
             + '<li><span>foo B</span></li>'
@@ -72,7 +80,7 @@ describe('lib:extractReferenceLists', () => {
             + '<ol class="mw-references references">'
             + '</ol>'
             + '</div>'
-            + '</body>');
+            + '</section>');
 
         const refLists = extractReferenceLists(doc, logger);
         assert.deepEqual(refLists.reference_lists.length, 2);
@@ -100,9 +108,9 @@ describe('lib:extractReferenceLists', () => {
                 + '</section>');
 
             const refLists = extractReferenceLists(doc, logger);
-            assert.deepEqual(refLists.reference_lists.length, 2);
-            assert.deepEqual(refLists.reference_lists[0], {
-                type: 'section_heading',
+            assert.deepEqual(refLists.reference_lists.length, 1);
+            assert.deepEqual(refLists.reference_lists[0].type, 'reference_list');
+            assert.deepEqual(refLists.reference_lists[0].section_heading, {
                 id: 'References',
                 html: 'References'
             });
@@ -121,8 +129,8 @@ describe('lib:extractReferenceLists', () => {
                 + '</section>');
 
             const refLists = extractReferenceLists(doc, logger);
-            assert.deepEqual(refLists.reference_lists.length, 1);
-            assert.deepEqual(refLists.reference_lists[0].type, 'reference_list');
+            assert.deepEqual(refLists.reference_lists.length, 0,
+                'only add reference_list if the section would be empty');
         });
 
         it('with extra text after', () => {
@@ -138,8 +146,8 @@ describe('lib:extractReferenceLists', () => {
                 + '</section>');
 
             const refLists = extractReferenceLists(doc, logger);
-            assert.deepEqual(refLists.reference_lists.length, 1);
-            assert.deepEqual(refLists.reference_lists[0].type, 'reference_list');
+            assert.deepEqual(refLists.reference_lists.length, 0,
+                'only add reference_list if the section would be empty');
         });
 
         it('nested section only adds direct parent', () => {
@@ -169,21 +177,17 @@ describe('lib:extractReferenceLists', () => {
                 + '</section>');
 
             const refLists = extractReferenceLists(doc, logger);
-            assert.deepEqual(refLists.reference_lists.length, 4);
-            assert.deepEqual(refLists.reference_lists[0], {
-                type: 'section_heading',
+            assert.deepEqual(refLists.reference_lists.length, 2);
+            assert.deepEqual(refLists.reference_lists[0].type, 'reference_list');
+            assert.deepEqual(refLists.reference_lists[0].section_heading, {
                 id: 'Notes',
                 html: 'Notes'
             });
-            assert.deepEqual(refLists.reference_lists[1].type,
-                'reference_list');
-            assert.deepEqual(refLists.reference_lists[2], {
-                type: 'section_heading',
+            assert.deepEqual(refLists.reference_lists[1].type, 'reference_list');
+            assert.deepEqual(refLists.reference_lists[1].section_heading, {
                 id: 'References',
                 html: 'References'
             });
-            assert.deepEqual(refLists.reference_lists[3].type,
-                'reference_list');
         });
     });
 });

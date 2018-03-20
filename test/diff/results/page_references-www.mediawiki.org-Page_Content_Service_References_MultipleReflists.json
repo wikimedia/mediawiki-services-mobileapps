@@ -3,25 +3,23 @@
   "tid": "present",
   "reference_lists": [
     {
-      "type": "section_heading",
-      "id": "Notes",
-      "html": "Notes"
-    },
-    {
       "type": "reference_list",
       "id": "#mwt_present",
+      "section_heading": {
+        "id": "Notes",
+        "html": "Notes"
+      },
       "order": [
         "ref1-1"
       ]
     },
     {
-      "type": "section_heading",
-      "id": "References",
-      "html": "References"
-    },
-    {
       "type": "reference_list",
       "id": "#mwt_present",
+      "section_heading": {
+        "id": "References",
+        "html": "References"
+      },
       "order": [
         "ref2-2"
       ]

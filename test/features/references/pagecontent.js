@@ -25,19 +25,19 @@ describe('references', function() {
         return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
-                assert.deepEqual(res.body.reference_lists.length, 2,
-                    '2 reference_lists items expected');
-                assert.deepEqual(res.body.reference_lists[0].type, 'section_heading',
-                    'type should be section_heading');
-                assert.deepEqual(res.body.reference_lists[0].id, 'Footnotes',
+                assert.deepEqual(res.body.reference_lists.length, 1,
+                    '1 reference_lists items expected');
+                assert.deepEqual(res.body.reference_lists[0].section_heading.id, 'Footnotes',
                     'id of section_heading');
-                assert.deepEqual(res.body.reference_lists[1].type, 'reference_list',
+                assert.deepEqual(res.body.reference_lists[0].section_heading.html, 'Footnotes',
+                    'html of section_heading');
+                assert.deepEqual(res.body.reference_lists[0].type, 'reference_list',
                     'type should be reference_list');
-                assert.deepEqual(res.body.reference_lists[1].id, null,
+                assert.deepEqual(res.body.reference_lists[0].id, null,
                     'id should be defined (but can be null)');
-                assert.deepEqual(res.body.reference_lists[1].order.length, 5,
+                assert.deepEqual(res.body.reference_lists[0].order.length, 5,
                     'order should have 5 items');
-                const id = res.body.reference_lists[1].order[0];
+                const id = res.body.reference_lists[0].order[0];
                 assert.ok(res.body.references_by_id[id], 'ref detail object');
                 assert.deepEqual(res.body.references_by_id[id].back_links.length, 1,
                     'ref should have at least one back link');
