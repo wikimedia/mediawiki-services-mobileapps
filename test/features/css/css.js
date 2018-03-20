@@ -13,11 +13,15 @@ describe('css', function() {
     before(() => { return server.start(); });
 
     it('/mobile/app/base should respond to GET request with expected headers', () => {
-        return checkHeaders(localUri('/mobile/app/base'), contentType, 'cache-control');
+        return checkHeaders(localUri('mobile/app/base'), contentType, 'cache-control');
     });
 
     it('/mobile/app/site should respond to GET request with expected headers', () => {
-        return checkHeaders(localUri('/mobile/app/site'), contentType, 'cache-control');
+        return checkHeaders(localUri('mobile/app/site'), contentType, 'cache-control');
+    });
+
+    it('/mobile/app/bundle should respond to GET request with expected headers', () => {
+        return checkHeaders(localUri('mobile/app/bundle'), contentType, 'cache-control');
     });
 
 });
