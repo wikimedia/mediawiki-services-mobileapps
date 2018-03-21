@@ -85,7 +85,7 @@
     "eslint-plugin-jsdoc": "^3.0.0",
     "rss-parser": "^2.10.8",
     "sepia": "^2.0.2",
-    "sinon": "4.4.6",
+    "sinon": "^4.4.8",
     "pre-commit": "^1.2.2",
     "swagger-tools": "^0.10.3"
   },
