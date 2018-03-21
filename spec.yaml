@@ -733,8 +733,10 @@ paths:
               revision: /.+/
               tid: /.+/
               reference_lists:
-                - type: /.+/
-                  id: /.*/
+                - id: /.*/
+                  section_heading:
+                    id: /.+/
+                    html: /.+/
                   order: [ /.*/ ]
               references_by_id: /.+/
 
@@ -1608,10 +1610,6 @@ definitions:
     type: array
     description: A list of reference lists
     properties:
-      type:
-        type: string
-        enum:
-          - reference_list
       id:
         type: string
         description: Identifier for the whole reference list. May be null.
@@ -1636,7 +1634,6 @@ definitions:
           type: string
     additionalProperties: false
     required:
-      - type
       - id
       - section_heading
       - order

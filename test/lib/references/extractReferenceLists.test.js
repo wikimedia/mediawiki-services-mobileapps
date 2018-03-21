@@ -109,7 +109,6 @@ describe('lib:extractReferenceLists', () => {
 
             const refLists = extractReferenceLists(doc, logger);
             assert.deepEqual(refLists.reference_lists.length, 1);
-            assert.deepEqual(refLists.reference_lists[0].type, 'reference_list');
             assert.deepEqual(refLists.reference_lists[0].section_heading, {
                 id: 'References',
                 html: 'References'
@@ -178,12 +177,10 @@ describe('lib:extractReferenceLists', () => {
 
             const refLists = extractReferenceLists(doc, logger);
             assert.deepEqual(refLists.reference_lists.length, 2);
-            assert.deepEqual(refLists.reference_lists[0].type, 'reference_list');
             assert.deepEqual(refLists.reference_lists[0].section_heading, {
                 id: 'Notes',
                 html: 'Notes'
             });
-            assert.deepEqual(refLists.reference_lists[1].type, 'reference_list');
             assert.deepEqual(refLists.reference_lists[1].section_heading, {
                 id: 'References',
                 html: 'References'

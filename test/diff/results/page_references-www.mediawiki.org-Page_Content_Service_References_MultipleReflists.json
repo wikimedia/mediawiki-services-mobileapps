@@ -3,7 +3,6 @@
   "tid": "present",
   "reference_lists": [
     {
-      "type": "reference_list",
       "id": "#mwt_present",
       "section_heading": {
         "id": "Notes",
@@ -14,7 +13,6 @@
       ]
     },
     {
-      "type": "reference_list",
       "id": "#mwt_present",
       "section_heading": {
         "id": "References",

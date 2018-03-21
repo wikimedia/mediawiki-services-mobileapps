@@ -67,15 +67,13 @@ describe('references-large', function() {
     function verifyWithOriginalParsoidResponse(referencesResponse, parsoidResponse, title, rev) {
         const document = domino.createDocument(parsoidResponse.body);
         const parsoidRefLists = document.querySelectorAll('ol.mw-references');
-        const responseRefLists
-            = referencesResponse.body.reference_lists.filter(o => o.type === 'reference_list');
-        assert.ok(responseRefLists.length === parsoidRefLists.length
-            || responseRefLists.length === parsoidRefLists.length - 1
+        assert.ok(referencesResponse.body.reference_lists.length === parsoidRefLists.length
+            || referencesResponse.body.reference_lists.length === parsoidRefLists.length - 1
             , 'number of lists');
 
         // go over all reference lists
-        for (let i = 0; i < responseRefLists.length; i++) {
-            const refList = responseRefLists[i];
+        for (let i = 0; i < referencesResponse.body.reference_lists.length; i++) {
+            const refList = referencesResponse.body.reference_lists[i];
             const parsoidRefList = parsoidRefLists[i];
             const section = parsoidRefList.closest('section') || undefined;
             const sectionHeadingElement = section && section.querySelector('h1,h2,h3,h4,h5,h5');
@@ -87,7 +85,6 @@ describe('references-large', function() {
             } else {
                 console.log(`== heading(${title}/${rev}) = !!Not found!!`);
             }
-            assert.deepEqual(refList.type, 'reference_list', 'list type');
             assert.deepEqual(refList.id, parsoidRefList.getAttribute('about'), 'list id');
             const parsoidRefsInList = parsoidRefList.children;
             assert.deepEqual(refList.order.length, parsoidRefsInList.length, 'list length');
