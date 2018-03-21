@@ -15,7 +15,7 @@ describe('news headline selectors', function() {
      * @return {!Document}
     */
     function readTestDoc(lang) {
-        const timestamp = '2017-12-12';
+        const timestamp = '2018-03-21';
         const filename = `test/fixtures/news-site-${lang}-${timestamp}.htm`;
         const html = fs.readFileSync(filename);
         return domino.createDocument(html);
@@ -41,7 +41,7 @@ describe('news headline selectors', function() {
         const doc = readTestDoc(lang);
         const headlines = doc.querySelectorAll(NEWS_SITES[lang].headlineSelectorAll);
         const topic = headlines[2].querySelector(NEWS_SITES[lang].topicAnchorSelector);
-        assert.equal(topic.getAttribute('href'), './Halszkaraptor');
+        assert.equal(topic.getAttribute('href'), './Poisoning_of_Sergei_and_Yulia_Skripal');
     });
 
     it(`news headline topic should be the first link when no link is bolded`, () => {
@@ -49,6 +49,7 @@ describe('news headline selectors', function() {
         const doc = readTestDoc(lang);
         const headlines = doc.querySelectorAll(NEWS_SITES[lang].headlineSelectorAll);
         const topic = headlines[1].querySelector(NEWS_SITES[lang].topicAnchorSelector);
-        assert.equal(topic.getAttribute('href'), './Liga_Sudamericana_de_Clubes_2017');
+        assert.equal(topic.getAttribute('href'),
+            './Campeonato_Mundial_de_Patinaje_Artístico_sobre_Hielo_de_2018');
     });
 });

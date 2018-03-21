@@ -49,6 +49,7 @@ const TOPIC_SELECTOR_BOLD_LINK = 'b:nth-of-type(1) a[rel="mw:WikiLink"]';
  * @type {{Object.<string, NewsSite>}} A map of Wikipedia site languages codes to NewsSites
  */
 module.exports = {
+    bs: new NewsSite('Šablon:Vijesti', 'section > ul > li', TOPIC_SELECTOR_BOLD_LINK),
     da: new NewsSite('Skabelon:Forside_aktuelle_begivenheder', 'div > li', TOPIC_SELECTOR_BOLD_LINK),
     de: new NewsSite('Wikipedia:Hauptseite/Aktuelles', 'li', TOPIC_SELECTOR_LINK),
     el: new NewsSite('Πύλη:Τρέχοντα_γεγονότα/Επικεφαλίδες', 'li', TOPIC_SELECTOR_LINK),
