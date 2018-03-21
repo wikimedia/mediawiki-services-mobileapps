@@ -173,7 +173,10 @@ class TestPageSpec extends TestSpec {
     }
 
     postProcessing(rsp) {
-        const input = rsp.body;
+        let input = rsp.body;
+
+        input = JSON.parse(JSON.stringify(input).replace(/#mwt\d+/g, '#mwt_present'));
+
         if (input.lead) { // for mobile-sections and formatted
             // value does not come from wikitext but from Wikidata links
             delete input.lead.languagecount;
