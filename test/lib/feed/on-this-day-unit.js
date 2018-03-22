@@ -394,6 +394,12 @@ describe('onthisday-unit', () => {
               .listElementsByHeadingID(document, ['.D9.85.D9.88.D8.A7.D9.84.D9.8A.D8.AF'], 'ar');
             assert.deepEqual(listElements.length, 69);
         });
+        it('BS fixture', () => {
+            // https://bs.wikipedia.org/api/rest_v1/page/html/1._januar
+            const document = documentFromFixtureFile('bs.1._januar.html');
+            const listElements = onThisDay.listElementsByHeadingID(document, ['Rođeni'], 'bs');
+            assert.deepEqual(listElements.length, 28);
+        });
     });
 
     describe('nested list element handling', () => {
