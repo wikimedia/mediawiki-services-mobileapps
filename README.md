@@ -119,6 +119,12 @@ reporting the percentage of code covered. Start it with:
 npm run-script coverage
 ```
 
+To just run the unit tests (faster), use:
+
+```
+npm run test:unit
+```
+
 #### HTTP Recording
 
 This project takes advantage of HTTP request recording provided by the
