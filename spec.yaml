@@ -146,7 +146,7 @@ paths:
         Gets announcements for display in the official Wikipedia iOS and Android apps.
         This is usually used to show announcements for surveys or fundraising.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/announcements/0.1.0"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/announcements/0.2.0"
       parameters:
         - $ref: '#/parameters/domain'
       responses:
@@ -165,18 +165,18 @@ paths:
             headers:
               content-type: application/json
             body:
-              announce: []
-#                - id: /.+/
-#                  type: /.+/
-#                  start_time: /.+/
-#                  end_time: /.+/
-#                  platforms: [ /.+/ ]
-#                  text: /.+/
-#                  action:
-#                    title: /.+/
-#                    url: /.+/
-#                  caption_HTML: /.+/
-#                  countries: [ /.+/ ]
+              announce:
+                - id: /.+/
+                  type: /.+/
+                  start_time: /.+/
+                  end_time: /.+/
+                  platforms: [ /.+/ ]
+                  text: /.+/
+                  action:
+                    title: /.+/
+                    url: /.+/
+                  caption_HTML: /.+/
+                  countries: [ /.+/ ]
 
   # from routes/feed/on-this-day.js
   /{domain}/v1/feed/onthisday/{type}/{month}/{day}:
