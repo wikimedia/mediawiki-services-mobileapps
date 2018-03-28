@@ -15,29 +15,29 @@ let app;
  * Gets the media items associated with the given page.
  */
 router.get('/media/:title/:revision?/:tid?', (req, res) => {
-    return BBPromise.props({
-        html: parsoid.getParsoidHtml(app, req),
-        siteinfo: mwapi.getSiteInfo(app, req)
-    }).then((response) => {
-        const revTid = parsoid.getRevAndTidFromEtag(response.html.headers);
-        const pageMediaList = lib.getMediaItemInfoFromPage(response.html.body);
-        if (!pageMediaList.length) {
-            res.send({ items: [] });
-            return;
-        }
-        const titles = mUtil.deduplicate(pageMediaList.map(item => item.title));
-        return lib.getMetadataFromApi(app, req, titles, response.siteinfo)
-        .then((apiResponse) => {
-            const result = lib.combineResponses(apiResponse, pageMediaList);
-            mUtil.setETag(res, revTid.revision, revTid.tid);
-            mUtil.setContentType(res, mUtil.CONTENT_TYPES.media);
-            res.send({
-                revision: revTid.revision,
-                tid: revTid.tid,
-                items: result
+    return BBPromise.join(
+        parsoid.getParsoidHtml(app, req),
+        mwapi.getSiteInfo(app, req),
+        (html, siteinfo) => {
+            const revTid = parsoid.getRevAndTidFromEtag(html.headers);
+            const pageMediaList = lib.getMediaItemInfoFromPage(html.body);
+            if (!pageMediaList.length) {
+                res.send({ items: [] });
+                return;
+            }
+            const titles = mUtil.deduplicate(pageMediaList.map(item => item.title));
+            return lib.getMetadataFromApi(app, req, titles, siteinfo)
+            .then((apiResponse) => {
+                const result = lib.combineResponses(apiResponse, pageMediaList);
+                mUtil.setETag(res, revTid.revision, revTid.tid);
+                mUtil.setContentType(res, mUtil.CONTENT_TYPES.media);
+                res.send({
+                    revision: revTid.revision,
+                    tid: revTid.tid,
+                    items: result
+                });
             });
         });
-    });
 });
 
 module.exports = function(appObj) {

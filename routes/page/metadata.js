@@ -22,17 +22,17 @@ let app;
  * Gets extended metadata for a given wiki page.
  */
 router.get('/metadata/:title/:revision?/:tid?', (req, res) => {
-    return BBPromise.props({
-        html: parsoid.getParsoidHtml(app, req),
-        meta: mwapi.getMetadata(app, req),
-        siteinfo: mwapi.getSiteInfo(app, req)
-    }).then((response) => {
-        res.status(200);
-        const revTid = parsoid.getRevAndTidFromEtag(response.html.headers);
-        mUtil.setETag(res, revTid.revision, revTid.tid);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
-        res.json(lib.buildMetadata(req, response.html, response.meta, response.siteinfo));
-    });
+    return BBPromise.join(
+        parsoid.getParsoidHtml(app, req),
+        mwapi.getMetadata(app, req),
+        mwapi.getSiteInfo(app, req),
+        (html, meta, siteinfo) => {
+            res.status(200);
+            const revTid = parsoid.getRevAndTidFromEtag(html.headers);
+            mUtil.setETag(res, revTid.revision, revTid.tid);
+            mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
+            res.json(lib.buildMetadata(req, html, meta, siteinfo));
+        });
 });
 
 module.exports = function(appObj) {

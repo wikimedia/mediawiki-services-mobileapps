@@ -22,23 +22,23 @@ let app;
  * Extracts a summary of a given wiki page limited to one paragraph of text
  */
 router.get('/summary/:title/:revision?/:tid?', (req, res) => {
-    return BBPromise.props({
-        html: parsoid.getParsoidHtml(app, req),
-        meta: mwapi.getMetadata(app, req, mwapi.LEAD_IMAGE_S),
-        siteinfo: mwapi.getSiteInfo(app, req)
-    }).then((response) => {
-        const revTid = parsoid.getRevAndTidFromEtag(response.html.headers);
-        const summary = lib.buildSummary(req.params.domain, req.params.title,
-            response.html.body, revTid, response.meta, response.siteinfo);
-        res.status(summary.code);
-        if (summary.code === 200) {
-            delete summary.code;
-            mUtil.setETag(res, revTid.revision, revTid.tid);
-            mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
-            res.send(summary);
-        }
-        res.end();
-    });
+    return BBPromise.join(
+        parsoid.getParsoidHtml(app, req),
+        mwapi.getMetadata(app, req, mwapi.LEAD_IMAGE_S),
+        mwapi.getSiteInfo(app, req),
+        (html, meta, siteinfo) => {
+            const revTid = parsoid.getRevAndTidFromEtag(html.headers);
+            const summary = lib.buildSummary(req.params.domain, req.params.title,
+                html.body, revTid, meta, siteinfo);
+            res.status(summary.code);
+            if (summary.code === 200) {
+                delete summary.code;
+                mUtil.setETag(res, revTid.revision, revTid.tid);
+                mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
+                res.send(summary);
+            }
+            res.end();
+        });
 });
 
 module.exports = function(appObj) {
