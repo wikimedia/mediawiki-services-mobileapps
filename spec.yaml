@@ -1060,6 +1060,42 @@ paths:
           schema:
             $ref: '#/definitions/problem'
 
+  /{domain}/v1/page/css/mobile/app/site:
+    get:
+      tags:
+        - Page styles
+      summary: Get site-wide mobile styles
+      description: Gets the site-wide mobile styles for the site, as defined in MediaWiki\:Mobile.css
+      produces:
+        - text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/1.0.0"
+      parameters:
+        - $ref: '#/parameters/domain'
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+
+  /{domain}/v1/page/css/mobile/app/bundle:
+    get:
+      tags:
+        - Page styles
+      summary: Get full per-site app style bundle
+      description: Gets the full mobile app style bundle for a site (including generic app styles and site-specific mobile styles)
+      produces:
+        - text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/1.0.0"
+      parameters:
+        - $ref: '#/parameters/domain'
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+
 definitions:
   # A https://tools.ietf.org/html/draft-nottingham-http-problem
   problem:
