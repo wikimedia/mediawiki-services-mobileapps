@@ -117,6 +117,15 @@ describe('lib:media parse structured artist info', () => {
         assert.deepEqual(result.user_page, undefined);
     });
 
+    it('only html returned if additional text is present', () => {
+        const html = '<a href="//commons.wikimedia.org/wiki/User:Foo" title="User:Foo">Foo</a>, ' +
+            'Jimbo Wales';
+        const result = getStructuredArtistInfo(html);
+        assert.deepEqual(result.html, html);
+        assert.deepEqual(result.name, undefined);
+        assert.deepEqual(result.user_page, undefined);
+    });
+
     it('only html returned if non-namespace portion of the title !== html.textContent', () => {
         const html = '<a href="//commons.wikimedia.org/wiki/User:Foo" title="User:Foo">Bar</a>';
         const result = getStructuredArtistInfo(html);
