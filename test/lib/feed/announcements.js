@@ -16,29 +16,35 @@ describe('announcements-unit', () => {
 
     it('should return some announcements for active wiki', () => {
         const res = mut.getAnnouncements(activeAnnouncementDomain);
-        assert.ok(res.announce.length === 0);
-        // assert.ok(res.announce.length === 12);
-        // assert.equal(res.announce[0].id, 'EN1217FUNDRAISINGANDROIDUS');
-        // assert.equal(res.announce[1].id, 'EN1217FUNDRAISINGANDROIDGB');
-        // assert.equal(res.announce[2].id, 'EN1217FUNDRAISINGANDROIDAU');
+        // assert.ok(res.announce.length === 0);
+        assert.ok(res.announce.length === 1);
+        assert.equal(res.announce[0].id, 'EN0418SURVEYANDROID');
     });
 
-    it('should return no images', () => {
+    it('should return an image', () => {
         const announcements = mut.testing.getActiveAnnouncements();
         announcements.forEach((elem) => {
-            assert.ok(elem.image === undefined);
-            assert.ok(elem.image_url === undefined);
+            assert.ok(elem.image !== undefined);
+            // assert.ok(elem.image_url === undefined);
         });
     });
 
-    it('should return fundraising type', () => {
+    it('should return survey type', () => {
         const announcements = mut.testing.getActiveAnnouncements();
         announcements.forEach((elem) => {
-            assert.ok(elem.type === 'fundraising');
+            assert.ok(elem.type === 'survey');
         });
     });
 
-    it('should not deliver HTML in certain iOS announcements fields', () => {
+    it('countries is an array of strings', () => {
+        const announcements = mut.testing.getActiveAnnouncements();
+        announcements.forEach((elem) => {
+            assert.ok(elem.countries.every(value => typeof value === 'string'));
+        });
+    });
+
+
+    it.skip('should not deliver HTML in certain iOS announcements fields', () => { // no iOS
         const doc = domino.createDocument();
         // destructure 'id', 'text' and 'action.title' from the iOS announcement
         const { text, action: { title } }
@@ -57,7 +63,8 @@ describe('announcements-unit', () => {
         }
     });
 
-    it('should deliver HTML in certain Android announcements fields', () => {
+    // skipped because the Android announcement is simpler this time
+    it.skip('should deliver HTML in certain Android announcements fields', () => {
         const doc = domino.createDocument();
         const { text } = mut.testing.buildAndroidAnnouncement(config.countryVariants[0]);
         const fieldsToCheck = { text };
@@ -74,14 +81,14 @@ describe('announcements-unit', () => {
         }
     });
 
-    it('caption_HTML on iOS should be inside a paragraph', () => {
+    it.skip('caption_HTML on iOS should be inside a paragraph', () => { // no iOS this time
         const { caption_HTML } = mut.testing.buildIosAnnouncement(config.countryVariants[0]); // eslint-disable-line max-len,camelcase
         const doc = domino.createDocument(caption_HTML);
         assert.deepEqual(doc.body.firstElementChild.tagName, 'P');
     });
 
     it('caption_HTML on Android should not be inside a paragraph', () => {
-        const { caption_HTML } = mut.testing.buildAndroidAnnouncement(config.countryVariants[0]); // eslint-disable-line max-len,camelcase
+        const { caption_HTML } = mut.testing.buildAndroidAnnouncement(); // eslint-disable-line max-len,camelcase
         const doc = domino.createDocument(caption_HTML);
         assert.notDeepEqual(doc.body.firstElementChild.tagName, 'P');
     });
@@ -92,6 +99,16 @@ describe('announcements-unit', () => {
     });
 
     describe('.hasEnded', () => {
+        let oldEndTime;
+
+        beforeEach(() => {
+            oldEndTime = config.endTime;
+        });
+
+        afterEach(() => {
+            config.endTime = oldEndTime;
+        });
+
         it('invalid endTime', () => {
             config.endTime = 'INVALID';
             assert.throws(() => {
