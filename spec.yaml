@@ -1042,7 +1042,7 @@ paths:
             $ref: '#/definitions/problem'
       x-monitor: false
 
-  /{domain}/v1/media/css/mobile/base:
+  /{domain}/v1/data/css/mobile/base:
     get:
       tags:
         - Page styles
@@ -1060,7 +1060,7 @@ paths:
           schema:
             $ref: '#/definitions/problem'
 
-  /{domain}/v1/media/css/mobile/site:
+  /{domain}/v1/data/css/mobile/site:
     get:
       tags:
         - Page styles
@@ -1078,7 +1078,7 @@ paths:
           schema:
             $ref: '#/definitions/problem'
 
-  /{domain}/v1/media/css/mobile/bundle:
+  /{domain}/v1/data/css/mobile/bundle:
     get:
       tags:
         - Page styles

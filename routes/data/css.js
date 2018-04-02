@@ -26,7 +26,7 @@ router.get('/bundle', (req, res) => fetchMobileAppBundle(req, res));
 
 module.exports = function() {
     return {
-        path: '/media/css/mobile',
+        path: '/data/css/mobile',
         api_version: 1,
         router
     };
