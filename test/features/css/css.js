@@ -1,5 +1,7 @@
 'use strict';
 
+const preq = require('preq');
+const assert = require('../../utils/assert');
 const server = require('../../utils/server');
 const checkHeaders = require('../../utils/headers').checkHeaders;
 const contentType = require('../../utils/headers').CSS_CONTENT_TYPE_REGEX;
@@ -22,6 +24,18 @@ describe('css', function() {
 
     it('/bundle should respond to GET request with expected headers', () => {
         return checkHeaders(localUri('/bundle'), contentType, 'cache-control');
+    });
+
+    it('/base response should have nonzero length', () => {
+        return preq.get(localUri('/base')).then(res => assert.ok(res.body.length > 0));
+    });
+
+    it('/site response should have nonzero length', () => {
+        return preq.get(localUri('/site')).then(res => assert.ok(res.body.length > 0));
+    });
+
+    it('/bundle response should have nonzero length', () => {
+        return preq.get(localUri('/bundle')).then(res => assert.ok(res.body.length > 0));
     });
 
 });
