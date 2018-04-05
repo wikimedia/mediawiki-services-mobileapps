@@ -56,7 +56,7 @@ module.exports = {
     en: new NewsSite('Template:In_the_news', 'section > ul > li', TOPIC_SELECTOR_BOLD_LINK),
     es: new NewsSite('Portal:Actualidad', 'table:nth-of-type(1) > tbody > tr > td > ul:nth-of-type(1) > li', TOPIC_SELECTOR_LINK),
     fi: new NewsSite('Malline:Uutisissa', 'body > section > ul > li', TOPIC_SELECTOR_BOLD_LINK),
-    fr: new NewsSite('Modèle:Accueil_actualité', 'body > section > div > ul > li', TOPIC_SELECTOR_BOLD_LINK),
+    fr: new NewsSite('Modèle:Accueil_actualité', 'section > div > ul > li', TOPIC_SELECTOR_BOLD_LINK),
     he: new NewsSite('תבנית:חדשות_ואקטואליה', 'section > ul > li', TOPIC_SELECTOR_LINK),
     ko: new NewsSite('틀:새로_들어온_소식', 'body > section > ul > li', TOPIC_SELECTOR_BOLD_LINK),
     no: new NewsSite('Mal:Aktuelt', 'ul > li', TOPIC_SELECTOR_BOLD_LINK),
