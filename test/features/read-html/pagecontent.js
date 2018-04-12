@@ -48,7 +48,7 @@ describe('content-html', function() {
         .then((res) => {
             const document = domino.createDocument(res.body);
             assert.ok(document.querySelector('section[data-mw-section-id=0]').innerHTML.startsWith(
-                '<span><p>The <b>domestic dog</b>' // TODO: get rid of span
+                '<p>The <b>domestic dog</b>'
             ));
         });
     });
