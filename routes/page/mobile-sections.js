@@ -59,7 +59,7 @@ function buildLeadSections(sections) {
 /**
  * Build the lead for the requested page.
  * @param {!Object} input (needs to have a meta, page, and title property)
- * @param {?Boolean} [legacy] whether to perform legacy transformations
+ * @param {?boolean} [legacy] whether to perform legacy transformations
  * @return {!Object} lead json
  */
 function buildLead(input, legacy) {
@@ -154,7 +154,7 @@ function buildRemaining(input) {
 
 /**
  * @param {!Object} input
- * @param {?Boolean} [legacy] whether to perform legacy transformations
+ * @param {?boolean} [legacy] whether to perform legacy transformations
  * @return {!Object}
  */
 function buildAll(input, legacy) {
@@ -256,7 +256,7 @@ function _handleNamespaceAndSpecialCases(req, res) {
  * for further massaging
  * @param {!Object} app the application object
  * @param {!Object} req the request object
- * @param {?Boolean} [legacy] when true MCS will
+ * @param {?boolean} [legacy] when true MCS will
  *  apply legacy transformations that we are in the process
  *  of deprecating.
  * @return {!BBPromise}
@@ -276,7 +276,7 @@ function _collectRawPageData(app, req, legacy) {
  * @param {!Object} app the application object
  * @param {!Object} req the request object
  * @param {!Object} res the response object
- * @param {?Boolean} [legacy] when true MCS will
+ * @param {?boolean} [legacy] when true MCS will
  *  apply legacy transformations that we are in the process
  *  of deprecating.
  * @return {!BBPromise}
@@ -296,7 +296,7 @@ function buildAllResponse(app, req, res, legacy) {
  * providing access to metadata.
  * @param {!Object} app the application object
  * @param {!Object} req the request object
- * @param {?Boolean} [legacy] when true MCS will
+ * @param {?boolean} [legacy] when true MCS will
  *  apply legacy transformations that we are in the process
  *  of deprecating.
  * @return {!BBPromise}
@@ -312,7 +312,7 @@ function buildLeadObject(app, req, legacy) {
  * @param {!Object} app the application object
  * @param {!Object} req the request object
  * @param {!Object} res the response object
- * @param {?Boolean} [legacy] when true MCS will
+ * @param {?boolean} [legacy] when true MCS will
  *  apply legacy transformations that we are in the process
  *  of deprecating.
  * @return {!BBPromise}

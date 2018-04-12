@@ -313,7 +313,7 @@
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
       "license": {
         "type": "CC BY 3.0",
-        "url": "http://creativecommons.org/licenses/by/3.0"
+        "url": "https://creativecommons.org/licenses/by/3.0"
       },
       "description": "Centrum mesta Košice"
     },
@@ -440,8 +440,8 @@
       },
       "original": {
         "source": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Central_europe_1683.png",
-        "width": 1543,
-        "height": 1170,
+        "width": 1280,
+        "height": 971,
         "mime": "image/png"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Central_europe_1683.png",
@@ -455,7 +455,7 @@
         "type": "CC0",
         "url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
       },
-      "description": "Central Europe in 1683 - Habsburg and Ottoman territories, including Habsburg Kingdom of Hungary (Royal Hungary) and Habsburg Croatia, Ottoman vassal states (Wallachia, Moldavia, Transylvania, Upper Hungary, Montenegro, Ragusa) and Ottoman eyalets. The Ottoman expansion was asked by prince <a href=\"//commons.wikimedia.org/wiki/Category:Imre_Th%C3%B6k%C3%B6ly\" title=\"Category:Imre Thököly\">Imre Thököly</a> in Upper Hungary (centered in present-day Slovakia) against the Habsburgs. The Ottoman Rule in Upper Hungary lasted only for 3 months."
+      "description": "Central Europe during the short-term existence of Imre Thököly's Principality of Upper Hungary. - Habsburg and Ottoman territories, including Habsburg Kingdom of Hungary (Royal Hungary) and Habsburg Croatia, Ottoman vassal states (Wallachia, Moldavia, Transylvania, Principality of Upper Hungary (existed between 1682-1685), Montenegro, Ragusa) and Ottoman eyalets. The Ottoman expansion was asked by prince <a href=\"//commons.wikimedia.org/wiki/Category:Imre_Th%C3%B6k%C3%B6ly\" title=\"Category:Imre Thököly\">Imre Thököly</a> in Upper Hungary (centered in present-day Slovakia) against the Habsburgs. The Ottoman Rule in Upper Hungary lasted only for 3 months."
     },
     {
       "section_id": 2,
