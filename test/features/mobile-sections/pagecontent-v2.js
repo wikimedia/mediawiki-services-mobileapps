@@ -97,20 +97,6 @@ describe('mobile-sections-v2', function() {
             });
     });
 
-    it('Planet introduction contains nodes other than P (T111958)', () => {
-        const uri = localUri('Planet');
-        return preq.get({ uri })
-            .then((res) => {
-                const intro = res.body.lead.intro;
-
-                assert.equal(res.status, 200);
-                assert.ok(intro.indexOf('<p>') > -1, 'intro is html');
-                assert.ok(intro.indexOf('stellar remnant') > -1);
-                assert.ok(intro.indexOf('</ul>') > -1,
-                    'List element is bundled into paragraph');
-            });
-    });
-
     it('intro should come from first content paragraph (not dewiki hatnote)', () => {
         const uri = localUri('Berliner_Mauer/173761365', 'de.wikipedia.org');
         return preq.get({ uri })

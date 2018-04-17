@@ -170,7 +170,7 @@
         }
       ],
       "content": {
-        "html": "<cite class=\"citation news\" id=\"mwEcA\">Raveendran, Karthika. <a rel=\"mw:ExtLink\" class=\"external text\" href=\"http://www.bollywoodlife.com/news-gossip/baahubali-2-box-office-collection-japan-prabhas-magnum-opus-rakes-in-550-usd-in-six-weeks/\">\"Baahubali 2 box office collection Japan: Prabhas' magnum opus rakes in 550 USD in six weeks\"</a>. <i><a href=\"./Bollywood_Life\" title=\"Bollywood Life\">Bollywood Life</a></i>.</cite>",
+        "html": "<cite class=\"citation news\" id=\"mwEcA\">Raveendran, Karthika. <a rel=\"mw:ExtLink\" class=\"external text\" href=\"http://www.bollywoodlife.com/news-gossip/baahubali-2-box-office-collection-japan-prabhas-magnum-opus-rakes-in-550-usd-in-six-weeks/\">\"Baahubali 2 box office collection Japan: Prabhas' magnum opus rakes in 550 USD in six weeks\"</a>. <i><a href=\"./Bollywood_Life\" title=\"Bollywood Life\" class=\"new\">Bollywood Life</a></i>.</cite>",
         "type": "news"
       }
     },
@@ -482,7 +482,7 @@
         }
       ],
       "content": {
-        "html": "<cite class=\"citation news\" id=\"mwEzs\"> <a rel=\"mw:ExtLink\" class=\"external free\" href=\"http://www.epaper.eisamay.com/Details.aspx?id=32352&amp;boxid=15131326\">http://www.epaper.eisamay.com/Details.aspx?id=32352&amp;boxid=15131326</a>.</cite><span> </span><span style=\"font-size:100%\" class=\"error citation-comment\">Missing or empty <code style=\"color:inherit; border:inherit; padding:inherit;\"><span>|</span>title=</code> (<a href=\"./Help:CS1_errors#citation_missing_title\" title=\"Help:CS1 errors\">help</a>)</span><link rel=\"mw:PageProp/Category\" href=\"./Category:Pages_with_citations_lacking_titles\" about=\"#mwt_present\" id=\"mwE0U\"><link rel=\"mw:PageProp/Category\" href=\"./Category:Pages_with_citations_having_bare_URLs\" about=\"#mwt_present\" id=\"mwE0Y\">",
+        "html": "<cite class=\"citation news\" id=\"mwEzs\"> <a rel=\"mw:ExtLink\" class=\"external text\" href=\"http://www.epaper.eisamay.com/Details.aspx?id=32352&amp;boxid=15131326\">http://www.epaper.eisamay.com/Details.aspx?id=32352&amp;boxid=15131326</a>.</cite><span> </span><span style=\"font-size:100%\" class=\"error citation-comment\">Missing or empty <code style=\"color:inherit; border:inherit; padding:inherit;\"><span>|</span>title=</code> (<a href=\"./Help:CS1_errors#citation_missing_title\" title=\"Help:CS1 errors\">help</a>)</span><link rel=\"mw:PageProp/Category\" href=\"./Category:Pages_with_citations_lacking_titles\" about=\"#mwt_present\" id=\"mwE0U\"><link rel=\"mw:PageProp/Category\" href=\"./Category:Pages_with_citations_having_bare_URLs\" about=\"#mwt_present\" id=\"mwE0Y\">",
         "type": "news"
       }
     },
@@ -4074,7 +4074,7 @@
         }
       ],
       "content": {
-        "html": "<cite class=\"citation news\" id=\"mwEdw\">Shah, Karan (28 January 2018). <a rel=\"mw:ExtLink\" class=\"external text\" href=\"http://www.bollywoodlife.com/news-gossip/aamir-khans-secret-superstar-beats-salman-khans-tiger-zinda-hai-to-become-the-biggest-worldwide-bollywood-grosser-of-2017/\">\"Aamir Khan's Secret Superstar BEATS Salman Khan's Tiger Zinda Hai to become the Biggest Worldwide Bollywood grosser of 2017\"</a>. <i><a href=\"./Bollywood_Life\" title=\"Bollywood Life\">Bollywood Life</a></i>.</cite>",
+        "html": "<cite class=\"citation news\" id=\"mwEdw\">Shah, Karan (28 January 2018). <a rel=\"mw:ExtLink\" class=\"external text\" href=\"http://www.bollywoodlife.com/news-gossip/aamir-khans-secret-superstar-beats-salman-khans-tiger-zinda-hai-to-become-the-biggest-worldwide-bollywood-grosser-of-2017/\">\"Aamir Khan's Secret Superstar BEATS Salman Khan's Tiger Zinda Hai to become the Biggest Worldwide Bollywood grosser of 2017\"</a>. <i><a href=\"./Bollywood_Life\" title=\"Bollywood Life\" class=\"new\">Bollywood Life</a></i>.</cite>",
         "type": "news"
       }
     },

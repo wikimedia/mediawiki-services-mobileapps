@@ -16,9 +16,9 @@ describe('announcements-unit', () => {
 
     it('should return some announcements for active wiki', () => {
         const res = mut.getAnnouncements(activeAnnouncementDomain);
-        // assert.ok(res.announce.length === 0);
-        assert.ok(res.announce.length === 1);
-        assert.equal(res.announce[0].id, 'EN0418SURVEYANDROID');
+        assert.ok(res.announce.length === 0);
+        // assert.ok(res.announce.length === 1);
+        // assert.equal(res.announce[0].id, 'EN0418SURVEYANDROID');
     });
 
     it('should return an image', () => {
@@ -42,7 +42,6 @@ describe('announcements-unit', () => {
             assert.ok(elem.countries.every(value => typeof value === 'string'));
         });
     });
-
 
     it.skip('should not deliver HTML in certain iOS announcements fields', () => { // no iOS
         const doc = domino.createDocument();
