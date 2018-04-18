@@ -136,11 +136,19 @@ describe('summary', function() {
         });
     });
 
-    it('404 For a page that doesn\'t exist', () => {
+    it('404 for a page that doesn\'t exist', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/summary/ashsahahash`;
         return preq.get({ uri })
             .catch((res) => {
                 assert.ok(res.status === 404, 'Pages that do not exist 404');
+            });
+    });
+
+    it('404 for a page with invalid title', () => {
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/summary/W::Mammalia`;
+        return preq.get({ uri })
+            .catch((res) => {
+                assert.ok(res.status === 404, 'Invalid page titles 404');
             });
     });
 
