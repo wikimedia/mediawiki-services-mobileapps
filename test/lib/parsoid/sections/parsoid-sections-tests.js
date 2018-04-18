@@ -15,7 +15,8 @@ describe('lib:parsoid-sections (section elements)', function() {
 
     function assertSection0(sections, extraText = '') {
         assert.deepEqual(sections[0].id, 0);
-        assert.equal(sections[0].text, `text0${extraText}`, JSON.stringify(sections[0], null, 2));
+        // eslint-disable-next-line max-len
+        assert.deepEqual(sections[0].text, `text0${extraText}`, JSON.stringify(sections[0], null, 2));
     }
 
     function assertSection1(sections, extraText = '') {
@@ -165,6 +166,17 @@ describe('lib:parsoid-sections (section elements)', function() {
                 "msg": "Cannot find heading for section",
                 "section_number": 1
             }]]);
+    });
+
+    it('non-editable sections are flagged', () => {
+        const doc = domino.createDocument(
+            '<section data-mw-section-id="0"><p>text0</p></section>' +
+            '<section data-mw-section-id="-1"><h2 id="foo">foo</h2>text1</section>' +
+            '<section data-mw-section-id="-2"><h2 id="bar">bar</h2>text2</section>');
+        const sections = parsoidSections.getSectionsText(doc);
+        assert.deepEqual(sections[0].noedit, undefined);
+        assert.ok(sections[1].noedit);
+        assert.ok(sections[2].noedit);
     });
 
     describe('justLeadSection', () => {

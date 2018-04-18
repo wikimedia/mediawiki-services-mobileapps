@@ -49,7 +49,8 @@ function buildLeadSections(sections) {
             id: section.id,
             toclevel: section.toclevel,
             anchor: section.anchor,
-            line: section.line
+            line: section.line,
+            noedit: section.id < 0 || undefined
         };
         out.push(item);
     }
