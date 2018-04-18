@@ -5,6 +5,7 @@ const assert = require('../../utils/assert');
 const server = require('../../utils/server');
 const checkHeaders = require('../../utils/headers').checkHeaders;
 const contentType = require('../../utils/headers').CSS_CONTENT_TYPE_REGEX;
+const css = require('../../../lib/css').testing;
 
 const localUri = path => `${server.config.uri}meta.wikimedia.org/v1/data/css/mobile${path}`;
 
@@ -28,6 +29,10 @@ describe('css', function() {
 
     it('/site response should have nonzero length', () => {
         return preq.get(localUri('/site')).then(res => assert.ok(res.body.length > 0));
+    });
+
+    it('default RL request wiki uses canonical domain (request should not redirect)', () => {
+        return css.load(css.BASE_MODULES).then(res => assert.ok(!res.headers['content-location']));
     });
 
 });
