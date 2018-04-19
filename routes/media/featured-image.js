@@ -4,6 +4,7 @@
 
 'use strict';
 
+const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
 const sUtil = require('../../lib/util');
 const featured = require('../../lib/feed/featured-image');
@@ -24,13 +25,14 @@ let app;
  * ETag is set to the pageid and the revision.
  */
 router.get('/image/featured/:yyyy/:mm/:dd', (req, res) => {
-    return featured.promise(app, req)
-        .then((response) => {
-            res.status(!response.payload ? 204 : 200);
-            mUtil.setETag(res, response.meta.revision, response.meta.tid);
-            mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
-            res.json(response.payload || null).end();
-        });
+    return mwapi.getSiteInfo(app, req)
+    .then(si => featured.promise(app, req, si.general.lang)
+    .then((response) => {
+        res.status(!response.payload ? 204 : 200);
+        mUtil.setETag(res, response.meta.revision, response.meta.tid);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
+        res.json(response.payload || null).end();
+    }));
 });
 
 module.exports = function(appObj) {
