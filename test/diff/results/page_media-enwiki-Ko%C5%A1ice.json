@@ -239,14 +239,14 @@
       "page_count": 1,
       "file_page": "https://commons.wikimedia.org/wiki/File:Fő_utcza,_Kassa_-_1902_(1).tif",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=Unknown_photographer_(scanned_by_Derzsi_Elekes_Andor)&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"Unknown photographer (scanned by Derzsi Elekes Andor) (page does not exist)\">Unknown photographer (scanned by Derzsi Elekes Andor)</a>"
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=Unknown_photographer_(scanned_by_Derzsi_Elekes_Andor)&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"Unknown photographer (scanned by Derzsi Elekes Andor) (page does not exist)\">Unknown photographer (scanned by Derzsi Elekes Andor) </a>"
       },
       "credit": "Courtesy of Derzsi Elekes Andor",
       "license": {
         "type": "CC BY-SA 4.0",
         "url": "https://creativecommons.org/licenses/by-sa/4.0"
       },
-      "description": "Kassán, 1902. május 31-én keltezett képeslap. Egy és kétkoronás áruház. Kassa, Fő utcza. Courtesy, scanned by Derzsi Elekes Andor. ©© Derzsi Elekes Andor, Budapest, 2014, A kép másolását, bármilyen úton történő sokszorosítását és felhasználását a szerző ellenérték nélkül, jogutódjaira is kihatóan megengedi. Az engedély kiterjed a kereskedelmi célú hasznosításra is. Kéri azonban nevének feltüntetését a felhasználás során. A Metapolisz sorozat valamennyi képe és filmje Creative Commons alatti valamint kereskedelmi - for profit - célra is felhasználható. Ajánlott hivatkozás: Derzsi Elekes Andor: Metapolisz DVD line <a rel=\"nofollow\" class=\"external free\" href=\"http://nektar.oszk.hu/en/manifestation/2623913\">http://nektar.oszk.hu/en/manifestation/2623913</a>"
+      "description": "Kassán, 1902. május  31-én keltezett képeslap. Egy és kétkoronás áruház. Kassa, Fő utcza. Courtesy, scanned by Derzsi Elekes Andor. ©© Derzsi Elekes Andor, Budapest,  2014,  A kép másolását, bármilyen  úton történő sokszorosítását és felhasználását a szerző ellenérték nélkül, jogutódjaira is kihatóan megengedi. Az engedély kiterjed a kereskedelmi célú hasznosításra is. Kéri azonban nevének feltüntetését a felhasználás során. A Metapolisz sorozat valamennyi képe és filmje Creative Commons alatti valamint kereskedelmi - for profit - célra is felhasználható. Ajánlott hivatkozás: Derzsi Elekes Andor: Metapolisz DVD line  <a rel=\"nofollow\" class=\"external free\" href=\"http://nektar.oszk.hu/en/manifestation/2623913\">http://nektar.oszk.hu/en/manifestation/2623913</a>"
     },
     {
       "section_id": 1,
@@ -1514,7 +1514,7 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Orlai_P_Nadasdy_es_Tinodi.jpg",
       "artist": {
-        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Soma_Orlai_Petrich\" class=\"extiw\" title=\"w:en:Soma Orlai Petrich\">Soma Orlai Petrich</a></bdi>"
+        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Soma_Orlai_Petrich\" class=\"extiw\" title=\"w:en:Soma Orlai Petrich\">Soma Orlai Petrich</a>\n</bdi>"
       },
       "credit": "Fine Arts in Hungary: <a href=\"http://www.hung-art.hu/index-e.html\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.hung-art.hu/kep/o/orlai_pe/muvek/1/orlai110.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.hung-art.hu/frames-e.html?/english/o/orlai_pe/muvek/1/index.html\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a>",
       "license": {
@@ -1570,7 +1570,7 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:II._Rákóczi_Ferenc_Mányoki.jpg",
       "artist": {
-        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:%C3%81d%C3%A1m_M%C3%A1nyoki\" class=\"extiw\" title=\"w:en:Ádám Mányoki\">Ádám Mányoki</a></bdi>"
+        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:%C3%81d%C3%A1m_M%C3%A1nyoki\" class=\"extiw\" title=\"w:en:Ádám Mányoki\">Ádám Mányoki</a>\n</bdi>"
       },
       "credit": "Fine Arts in Hungary: <a href=\"http://www.hung-art.hu/index-e.html\" rel=\"nofollow\"><img alt=\"Nuvola filesystems folder home.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/24px-Nuvola_filesystems_folder_home.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/36px-Nuvola_filesystems_folder_home.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Nuvola_filesystems_folder_home.svg/48px-Nuvola_filesystems_folder_home.svg.png 2x\" data-file-width=\"128\" data-file-height=\"128\"></a><a href=\"http://www.hung-art.hu/kep/m/manyoki/muvek/rakoczi.jpg\" rel=\"nofollow\"><img alt=\"Inkscape.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/24px-Inkscape.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/36px-Inkscape.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/48px-Inkscape.svg.png 2x\" data-file-width=\"60\" data-file-height=\"60\"></a><a href=\"http://www.hung-art.hu/frames-e.html?/english/m/manyoki/muvek/index.html\" rel=\"nofollow\"><img alt=\"Information icon.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/24px-Information_icon.svg.png\" width=\"24\" height=\"24\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/36px-Information_icon.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/48px-Information_icon.svg.png 2x\" data-file-width=\"620\" data-file-height=\"620\"></a>",
       "license": {
@@ -1600,7 +1600,7 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Kazinczy.jpg",
       "artist": {
-        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Joseph_Kreutzinger\" class=\"extiw\" title=\"w:en:Joseph Kreutzinger\">Joseph Kreutzinger</a></bdi>"
+        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Joseph_Kreutzinger\" class=\"extiw\" title=\"w:en:Joseph Kreutzinger\">Joseph Kreutzinger</a>\n</bdi>"
       },
       "credit": "Joseph Kreutzinger",
       "license": {
@@ -1693,13 +1693,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Kronenberg_Leopold.jpg",
       "artist": {
-        "html": "<bdi><a href=\"https://www.wikidata.org/wiki/Q2314507\" class=\"extiw\" title=\"d:Q2314507\">Leopold Horovitz</a></bdi>"
+        "html": "<bdi><a href=\"https://www.wikidata.org/wiki/Q2314507\" class=\"extiw\" title=\"d:Q2314507\">Leopold Horovitz</a>\n</bdi>"
       },
       "credit": "Leopold Kronenberg",
       "license": {
         "type": "Public domain"
       },
-      "description": "<div class=\"description\">portrait</div>"
+      "description": "<div class=\"description\">\nportrait</div>"
     },
     {
       "section_id": 22,
@@ -1991,7 +1991,7 @@
         "type": "CC-BY-SA-3.0",
         "url": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
-      "description": "Medzinárodný maratón mieru v Košiciach, 2006"
+      "description": "<p>Medzinárodný maratón mieru v Košiciach, 2006\n</p>"
     },
     {
       "section_id": 25,
