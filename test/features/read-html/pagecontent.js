@@ -10,7 +10,7 @@ describe('read-html', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
-    before(() => { return server.start(); });
+    before(() => server.start());
 
     const localUri = (title, domain = 'en.wikipedia.org') => {
         return `${server.config.uri}${domain}/v1/page/read-html/${title}`;

@@ -13,7 +13,7 @@ describe('css', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
-    before(() => { return server.start(); });
+    before(() => server.start());
 
     it('/base should respond to GET request with expected headers', () => {
         return checkHeaders(localUri('/base'), contentType, 'cache-control');

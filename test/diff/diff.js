@@ -10,7 +10,7 @@ describe.skip('diff', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
-    before(() => { return server.start(); });
+    before(() => server.start());
 
     const buildUri = (path) => {
         return `${server.config.uri}${path}`;

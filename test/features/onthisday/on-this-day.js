@@ -20,7 +20,7 @@ const eventTypes = [
 describe('onthisday', function() {
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
-    before(() => { return server.start(); });
+    before(() => server.start());
 
     function january30uriForEndpointName(endpointName, lang = 'en') {
         return `${server.config.uri}${lang}.wikipedia.org/v1/feed/onthisday/${endpointName}/01/30/`;

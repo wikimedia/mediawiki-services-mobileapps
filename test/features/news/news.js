@@ -10,7 +10,7 @@ describe('news', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
-    before(() => { return server.start(); });
+    before(() => server.start());
 
     for (const lang in NEWS_TEMPLATES) {
         if ({}.hasOwnProperty.call(NEWS_TEMPLATES, lang)) {
