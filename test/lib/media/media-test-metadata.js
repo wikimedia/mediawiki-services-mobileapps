@@ -46,6 +46,11 @@ const imageWithSection =
         '</figure>' +
     '</section>';
 
+const imageWithPercentEncodedTitle =
+    '<figure typeof="mw:Image">' +
+        '<img resource="./File:What%3F.jpg" width="100" height="100">' +
+    '</figure>';
+
 describe('lib:media metadata is correctly parsed from HTML', () => {
 
     it('all expected captions are present', () => {
@@ -88,6 +93,11 @@ describe('lib:media metadata is correctly parsed from HTML', () => {
     it('section is correctly identified', () => {
         const result = media.getMediaItemInfoFromPage(imageWithSection)[0];
         assert.deepEqual(result.section_id, 0);
+    });
+
+    it('titles are decoded after parsing from HTML', () => {
+        const result = media.getMediaItemInfoFromPage(imageWithPercentEncodedTitle)[0];
+        assert.deepEqual(result.title, 'File:What?.jpg');
     });
 
 });
