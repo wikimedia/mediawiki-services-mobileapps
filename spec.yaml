@@ -136,6 +136,41 @@ paths:
               version: /.+/
               home: /.+/
 
+  # from routes/feed/availability.js
+  /{domain}/v1/feed/availability:
+    get:
+      tags:
+        - Feed
+      summary: Get availability of featured feed content by wiki language code.
+      produces:
+        - application/json; charset=utf-8, profile="https://www.mediawiki.org/wiki/Specs/announcements/1.0.0"
+      parameters:
+        - $ref: '#/parameters/domain'
+      responses:
+        200:
+          description: Availability of the feed content by wiki language code
+          schema:
+            $ref: '#/definitions/availability'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Retrieve feed content availability from \'wikipedia.org\'
+          request:
+            params:
+              domain: wikimedia.org
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              todays_featured_article: [ /.+/ ]
+              most_read: [ '*' ]
+              picture_of_the_day: [ '*' ]
+              in_the_news: [ /.+/ ]
+              on_this_day: [ /.+/ ]
+
   # from routes/feed/announcements.js
   /{domain}/v1/feed/announcements:
     get:
@@ -1384,6 +1419,37 @@ definitions:
           $ref: '#/definitions/announcement'
     required:
       - announce
+
+  availability:
+    type: object
+    properties:
+      todays_featured_article:
+        type: array
+        description: language codes for wikis with this feature enabled, or [ '*' ] for universally enabled
+        items:
+          type: string
+      most_read:
+        type: array
+        description: language codes for wikis with this feature enabled or [ '*' ] for universally enabled
+        items:
+          type: string
+      picture_of_the_day:
+        type: array
+        description: language codes for wikis with this feature enabled or [ '*' ] for universally enabled
+        items:
+          type: string
+      in_the_news:
+        type: array
+        description: language codes for wikis with this feature enabled or [ '*' ] for universally enabled
+        items:
+          type: string
+      on_this_day:
+        type: array
+        description: language codes for wikis with this feature enabled or [ '*' ] for universally enabled
+        items:
+          type: string
+    required: [ todays_featured_article, most_read, picture_of_the_day, in_the_news, on_this_day ]
+    additionalProperties: false
 
   announcement:
     type: object

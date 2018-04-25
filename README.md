@@ -96,6 +96,9 @@ A list of language codes can be found [here](https://meta.wikimedia.org/wiki/Spe
 Note that day and month need to be 2 digits to be accepted. 0-pad them if necessary.
 
 #### Generic routes
+Feed endpoint availability by language:
+* `http://localhost:6927/wikimedia.org/v1/feed/availability`
+
 Swagger spec:
 * `http://localhost:6927/?spec`
 
