@@ -119,6 +119,7 @@ function buildLead(input, legacy) {
         wikibase_item: input.meta.pageprops && input.meta.pageprops.wikibase_item,
         disambiguation,
         description: input.meta.description,
+        description_source: input.meta.description_source,
         protection: input.meta.protection,
         editable: input.meta.editable,
         mainpage: input.meta.mainpage,

@@ -152,4 +152,13 @@ describe('summary', function() {
             });
     });
 
+    it('Description from local wiki should be used', () => {
+        const uri = localUri(encodeURIComponent('User:BSitzmann_(WMF)/MCS/Test/Description'),
+            'test.wikipedia.org');
+        return preq.get({ uri })
+        .then((res) => {
+            const summary = res.body;
+            assert.deepEqual(summary.description, 'funny description, haha');
+        });
+    });
 });

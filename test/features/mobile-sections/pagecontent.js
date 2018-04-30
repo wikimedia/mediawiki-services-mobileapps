@@ -67,6 +67,17 @@ describe('mobile-sections', function() {
             });
     });
 
+    it('Description from local wiki should be used', () => {
+        const uri = localUri(encodeURIComponent('User:BSitzmann_(WMF)/MCS/Test/Description'),
+            'test.wikipedia.org');
+        return preq.get({ uri })
+        .then((res) => {
+            const lead = res.body.lead;
+            assert.deepEqual(lead.description, 'funny description, haha');
+            assert.deepEqual(lead.description_source, 'local');
+        });
+    });
+
     it('Titles with special chars should not error out when parsing pronunciation files', () => {
         const uri = localUri('Sunn_O)))', 'vi.wikipedia.org');
         return preq.get({ uri })
