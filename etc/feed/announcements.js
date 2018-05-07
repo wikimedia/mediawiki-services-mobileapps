@@ -7,14 +7,14 @@ const AnnouncementType = {
 
 const type = AnnouncementType.SURVEY;
 const activeWiki = 'en.wikipedia.org';
-const startTime = '2018-04-03T15:00:00Z';
-const endTime = '2018-04-17T15:00:00Z';
+const startTime = '2018-05-08T15:00:00Z';
+const endTime = '2018-05-15T15:00:00Z';
 const androidMinVersion = 230;
 const androidMaxVersion = 240;
-const idPrefix = 'EN0418';
+const idPrefix = 'EN0518';
 const androidDestinationUrl
     = 'https://docs.google.com/forms/d/e/1FAIpQLSdbDr9g5jqWMenW5TQH__H-WGz3iYZC9T3ASeMzCgUFh7foDQ/viewform';
-const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Announcement_card_-_sync_reading_list_feedback_form.png';
+const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Announcement_card_-_sync_reading_list_feedback_form.png/800px-Announcement_card_-_sync_reading_list_feedback_form.png';
 const imageHeight = 80; // usually 160dp for Android
 const buttonLabel = 'Send feedback';
 const negativeButtonLabel = 'No thanks';

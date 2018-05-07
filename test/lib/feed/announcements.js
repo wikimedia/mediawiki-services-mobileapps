@@ -16,9 +16,9 @@ describe('announcements-unit', () => {
 
     it('should return some announcements for active wiki', () => {
         const res = mut.getAnnouncements(activeAnnouncementDomain);
-        assert.ok(res.announce.length === 0);
-        // assert.ok(res.announce.length === 1);
-        // assert.equal(res.announce[0].id, 'EN0418SURVEYANDROID');
+        // assert.ok(res.announce.length === 0);
+        assert.ok(res.announce.length === 1);
+        assert.equal(res.announce[0].id, 'EN0518SURVEYANDROID');
     });
 
     it('should return an image', () => {
