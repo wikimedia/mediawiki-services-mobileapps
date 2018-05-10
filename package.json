@@ -8,6 +8,7 @@
     "test": "PREQ_CONNECT_TIMEOUT=15 mocha && nsp check",
     "test:unit": "mocha test/lib",
     "test:diff": "mocha test/diff",
+    "test:spec": "mocha test/features/app/spec.js",
     "periodic": "npm run test:diff",
     "lint": "eslint --cache --max-warnings 0 --ext .js --ext .json .",
     "docker-start": "service-runner docker-start",
