@@ -621,7 +621,7 @@ paths:
       description: |
         Gets additional metadata about a page, primarily from the MediaWiki API.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.0.0"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.1.0"
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -680,6 +680,7 @@ paths:
               protection:
                 edit: [ /.+/ ]
                 move: [ /.+/ ]
+              description_source: /.+/
 
   # from routes/page/references.js
   /{domain}/v1/page/references/{title}{/revision}{/tid}:
@@ -1509,6 +1510,12 @@ definitions:
         description: info on page edit and move rights
         items:
           $ref: '#/definitions/protection'
+      description_source:
+        type: string
+        enum:
+          - central
+          - local
+        description: Whether the description is defined locally or comes from Wikidata.  May be 'central' or 'local'.
     required: [ revision, tid, protection ]
     additionalProperties: false
 
