@@ -51,6 +51,17 @@ const imageWithPercentEncodedTitle =
         '<img resource="./File:What%3F.jpg" width="100" height="100">' +
     '</figure>';
 
+const pronunciationWithPercentEncodedTitle =
+    '<span class="IPA"></span>' +
+    '<small>' +
+        '(<span class="unicode haudio">' +
+            '<a rel="mw:MediaLink" href="//upload.wikimedia.org/wikipedia/commons/4/48/En-us-' +
+            'A.p.j._Abdul_Kalam_from_India_pronunciation_%28Voice_of_America%29.ogg" title=' +
+            '"En-us-A.p.j. Abdul Kalam from India pronunciation %28Voice of America%29.ogg">' +
+            'listen</a>' +
+        '</span>)' +
+    '</small>';
+
 describe('lib:media metadata is correctly parsed from HTML', () => {
 
     it('all expected captions are present', () => {
@@ -100,6 +111,11 @@ describe('lib:media metadata is correctly parsed from HTML', () => {
         assert.deepEqual(result.title, 'File:What?.jpg');
     });
 
+    it('pronunciation titles are decoded after parsing from HTML', () => {
+        const result = media.getMediaItemInfoFromPage(pronunciationWithPercentEncodedTitle)[0];
+        // eslint-disable-next-line max-len
+        assert.deepEqual(result.title, 'File:En-us-A.p.j. Abdul Kalam from India pronunciation (Voice of America).ogg');
+    });
 });
 
 describe('lib:media parse structured artist info', () => {
