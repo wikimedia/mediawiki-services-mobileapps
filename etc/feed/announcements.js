@@ -6,7 +6,7 @@ const AnnouncementType = {
 };
 
 const type = AnnouncementType.SURVEY;
-const activeWiki = 'en.wikipedia.org';
+const activeWiki = null; // 'en.wikipedia.org';
 const startTime = '2018-05-08T15:00:00Z';
 const endTime = '2018-05-15T15:00:00Z';
 const androidMinVersion = 230;
