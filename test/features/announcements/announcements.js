@@ -30,7 +30,6 @@ describe('announcements', function() {
                 assert.ok(elem.text, 'text should be present');
                 assert.ok(elem.action.title, 'action text should be present');
                 assert.ok(elem.action.url, 'action url should be present');
-                assert.ok(elem.caption_HTML, 'caption_HTML should be present');
                 assert.ok(elem.countries, 'countries should be present');
             });
         });

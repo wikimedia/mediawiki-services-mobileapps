@@ -2,49 +2,51 @@
 
 const AnnouncementType = {
     SURVEY: 'survey',
-    FUNDRAISING: 'fundraising'
+    FUNDRAISING: 'fundraising',
+    ANNOUNCEMENT: 'announcement'
 };
 
-const type = AnnouncementType.SURVEY;
-const activeWiki = null; // 'en.wikipedia.org';
-const startTime = '2018-05-08T15:00:00Z';
-const endTime = '2018-05-15T15:00:00Z';
-const androidMinVersion = 230;
-const androidMaxVersion = 240;
-const idPrefix = 'EN0518';
-const androidDestinationUrl
-    = 'https://docs.google.com/forms/d/e/1FAIpQLSdbDr9g5jqWMenW5TQH__H-WGz3iYZC9T3ASeMzCgUFh7foDQ/viewform';
-const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Announcement_card_-_sync_reading_list_feedback_form.png/800px-Announcement_card_-_sync_reading_list_feedback_form.png';
-const imageHeight = 80; // usually 160dp for Android
-const buttonLabel = 'Send feedback';
-const negativeButtonLabel = 'No thanks';
-const disclaimerHtml
-    = 'Feedback form powered by 3rd-party service; see <a href="https://wikimediafoundation.org/wiki/Reading_List_Sync_Feedback_Survey_Privacy_Statement">privacy statement</a>.';
+const type = AnnouncementType.ANNOUNCEMENT;
+const activeWiki = 'en.wikipedia.org';
+const startTime = '2018-05-25T00:01:00Z';
+const endTime = '2018-05-31T23:59:00Z';
+const androidMinVersion = 232;
+const iosMinVersion = '5.8.0';
+const iosMaxVersion = '5.8.1';
+const idPrefix = 'ENBROWSEREXTENSION0518';
+const callToActionUrl
+    = 'https://www.mediawiki.org/wiki/Wikimedia_Apps/Reading_list_browser_extension';
+const androidImageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Browser_extension_-_Android.png/800px-Browser_extension_-_Android.png';
+const iosImageUrl = 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Browser_extension_-_iOS.png';
+const androidImageHeight = 168; // usually 160dp for Android
+const buttonLabel = 'Learn more';
+const negativeButtonLabel = 'Got it';
 
-const countries = [ 'US', 'CA', 'GB', 'IE', 'AU', 'NZ' ];
+const countries = [ 'US', 'CA', 'GB', 'IE', 'AU', 'NZ', 'ZA' ];
 
-/**
- * Builds the body text for Android. HTML is ok here since it's not for iOS.
- */
-const buildAndroidBodyText = () => {
-    /* eslint-disable-next-line max-len */
-    return `<b>Hi Android reader</b>, what’s been your experience with using our new reading list syncing feature? Send your feedback in the form linked below.`;
-};
+/* eslint-disable-next-line max-len */
+const coreBodyText = 'We now offer browser extensions for Chrome and Firefox, so you can save articles to your reading list when visiting Wikipedia on your laptop/desktop as well!';
+
+const androidBodyText = `<b>Add to reading lists from the web</b><br><br>${coreBodyText}`;
+
+const iosBodyText = `Add to reading lists from the web\n\n${coreBodyText}`;
 
 module.exports = {
     activeWiki,
     startTime,
     endTime,
     androidMinVersion,
-    androidMaxVersion,
+    iosMinVersion,
+    iosMaxVersion,
     idPrefix,
     type,
-    androidDestinationUrl,
-    imageUrl,
-    imageHeight,
+    callToActionUrl,
+    androidImageUrl,
+    iosImageUrl,
+    androidImageHeight,
     buttonLabel,
     negativeButtonLabel,
-    disclaimerHtml,
     countries,
-    buildAndroidBodyText
+    androidBodyText,
+    iosBodyText
 };

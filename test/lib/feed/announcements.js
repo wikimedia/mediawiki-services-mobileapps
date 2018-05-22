@@ -14,25 +14,32 @@ describe('announcements-unit', () => {
         assert.ok(res.announce.length === 0);
     });
 
-    it('should return no announcement for active wiki', () => {
+    it('should return one or more announcements for active wiki', () => {
         const res = mut.getAnnouncements(activeAnnouncementDomain);
-        assert.ok(res.announce.length === 0);
-        // assert.ok(res.announce.length === 1);
-        // assert.equal(res.announce[0].id, 'EN0518SURVEYANDROID');
+        // assert.ok(res.announce.length === 0);
+        assert.ok(res.announce.length === 2);
+        assert.equal(res.announce[0].id, 'ENBROWSEREXTENSION0518ANNOUNCEMENTANDROID');
+        assert.equal(res.announce[1].id, 'ENBROWSEREXTENSION0518ANNOUNCEMENTIOS');
     });
 
-    it('should return an image', () => {
+    it('should return an image (with correct per-platform label)', () => {
         const announcements = mut.testing.getActiveAnnouncements();
-        announcements.forEach((elem) => {
-            assert.ok(elem.image !== undefined);
-            // assert.ok(elem.image_url === undefined);
+        announcements.forEach((announcement) => {
+            if (announcement.id.includes('ANDROID')) {
+                assert.ok(announcement.image);
+                assert.ok(!announcement.image_url);
+            }
+            if (announcement.id.includes('IOS')) {
+                assert.ok(announcement.image_url);
+                assert.ok(!announcement.image);
+            }
         });
     });
 
     it('should return survey type', () => {
         const announcements = mut.testing.getActiveAnnouncements();
         announcements.forEach((elem) => {
-            assert.ok(elem.type === 'survey');
+            assert.ok(elem.type === 'announcement');
         });
     });
 
@@ -43,11 +50,11 @@ describe('announcements-unit', () => {
         });
     });
 
-    it.skip('should not deliver HTML in certain iOS announcements fields', () => { // no iOS
+    it('should not deliver HTML in certain iOS announcements fields', () => {
         const doc = domino.createDocument();
         // destructure 'id', 'text' and 'action.title' from the iOS announcement
         const { text, action: { title } }
-            = mut.testing.buildIosAnnouncement(config.countryVariants[0]);
+            = mut.testing.iosAnnouncement;
         const fieldsToCheck = { text, title };
         for (const textOnlyFieldName of Object.keys(fieldsToCheck)) {
             const textToCheck = fieldsToCheck[textOnlyFieldName];
@@ -62,10 +69,10 @@ describe('announcements-unit', () => {
         }
     });
 
-    // skipped because the Android announcement is simpler this time
+    // not applicable
     it.skip('should deliver HTML in certain Android announcements fields', () => {
         const doc = domino.createDocument();
-        const { text } = mut.testing.buildAndroidAnnouncement(config.countryVariants[0]);
+        const { text } = mut.testing.androidAnnouncement;
         const fieldsToCheck = { text };
         for (const textOnlyFieldName of Object.keys(fieldsToCheck)) {
             const textToCheck = fieldsToCheck[textOnlyFieldName];
@@ -80,14 +87,18 @@ describe('announcements-unit', () => {
         }
     });
 
-    it.skip('caption_HTML on iOS should be inside a paragraph', () => { // no iOS this time
-        const { caption_HTML } = mut.testing.buildIosAnnouncement(config.countryVariants[0]); // eslint-disable-line max-len,camelcase
+    // no caption html
+    it.skip('caption_HTML on iOS should be inside a paragraph', () => {
+        // eslint-disable-next-line camelcase
+        const { caption_HTML } = mut.testing.iosAnnouncement;
         const doc = domino.createDocument(caption_HTML);
         assert.deepEqual(doc.body.firstElementChild.tagName, 'P');
     });
 
-    it('caption_HTML on Android should not be inside a paragraph', () => {
-        const { caption_HTML } = mut.testing.buildAndroidAnnouncement(); // eslint-disable-line max-len,camelcase
+    // no caption html
+    it.skip('caption_HTML on Android should not be inside a paragraph', () => {
+        // eslint-disable-next-line camelcase
+        const { caption_HTML } = mut.testing.androidAnnouncement;
         const doc = domino.createDocument(caption_HTML);
         assert.notDeepEqual(doc.body.firstElementChild.tagName, 'P');
     });
