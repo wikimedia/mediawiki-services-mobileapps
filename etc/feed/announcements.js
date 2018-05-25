@@ -9,7 +9,9 @@ const AnnouncementType = {
 const type = AnnouncementType.ANNOUNCEMENT;
 const activeWiki = 'en.wikipedia.org';
 const startTime = '2018-05-25T00:01:00Z';
-const endTime = '2018-05-31T23:59:00Z';
+const endTimeIOS = '2018-05-31T23:59:00Z';
+const endTimeAndroid = '2018-06-05T17:59:00Z';
+const endTime = endTimeAndroid;
 const androidMinVersion = 232;
 const iosMinVersion = '5.8.0';
 const iosMaxVersion = '5.8.1';
@@ -35,6 +37,8 @@ module.exports = {
     activeWiki,
     startTime,
     endTime,
+    endTimeIOS,
+    endTimeAndroid,
     androidMinVersion,
     iosMinVersion,
     iosMaxVersion,
