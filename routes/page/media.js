@@ -25,7 +25,7 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
                 res.send({ items: [] });
                 return;
             }
-            const titles = mUtil.deduplicate(pageMediaList.map(item => item.title));
+            const titles = mUtil.deduplicate(pageMediaList.filter(i => i.title).map(i => i.title));
             return lib.getMetadataFromApi(app, req, titles, siteinfo)
             .then((apiResponse) => {
                 const result = lib.combineResponses(apiResponse, pageMediaList);

@@ -16,6 +16,8 @@ const imageThumbFigure = '<figure typeof="mw:Image/Thumb"><img resource="./File:
 const imageThumbSpan = '<span typeof="mw:Image/Thumb"><img resource="./File:E" width="100" height="100"/></span>';
 const imageThumbFigureInline = '<figure-inline typeof="mw:Image/Thumb"><img resource="./File:F" width="100" height="100"/></figure-inline>';
 
+const mathImage = '<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/11235" class="mwe-math-fallback-image-inline">';
+
 const videoFigure = '<figure typeof="mw:Video"><video resource="./File:G"/></figure>';
 const videoSpan = '<span typeof="mw:Video"><video resource="./File:H"/></span>';
 const videoFigureInline = '<figure-inline typeof="mw:Video"><video resource="./File:I"/></figure-inline>';
@@ -35,7 +37,7 @@ const noTypeFigureInline = '<figure-inline><video resource="./File:R"/></figure-
 const imageNoViewer = '<figure typeof="mw:Image" class="noviewer"><img resource="./File:S" width="100" height="100"/></figure>';
 const imageMetadata = '<span class="metadata"><figure typeof="mw:Image"><img resource="./File:T" width="100" height="100"/></figure></span>';
 
-const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline];
+const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline, mathImage];
 const videos = [videoFigure, videoSpan, videoFigureInline, videoThumbFigure, videoThumbSpan, videoThumbFigureInline];
 const audios = [audioFigure, audioSpan, audioFigureInline];
 const validItems = images.concat(videos).concat(audios);
