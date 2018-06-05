@@ -264,3 +264,5 @@ module.exports = {
     ENABLE_HTML_DEBUG,
     TEST_SPECS
 };
+
+// TODO: Check that we get back from the server the same version as mUtil.CONTENT_TYPES.html

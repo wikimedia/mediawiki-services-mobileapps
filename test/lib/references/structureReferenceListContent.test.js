@@ -26,8 +26,8 @@ const twoBacklinksDogRef = `<li about="#cite_note-perri2016-13" id="cite_note-pe
 
 // Example adopted from https://en.wikipedia.org/api/rest_v1/page/html/Barack_Obama/795995847
 const ulRefContent = `<ul>
-    <li> <cite class="citation web">foo</cite> </li>
-    <li> <cite class="citation book">bar</cite> </li>
+    <li><cite class="citation web">foo</cite></li>
+    <li><cite class="citation book">bar</cite></li>
 </ul>`;
 const ulRef = `<li about="#cite_note-Merriam-Webster_Dictionary-1" id="cite_note-Merriam-Webster_Dictionary-1">
 <a href="./Barack_Obama#cite_ref-Merriam-Webster_Dictionary_1-0" rel="mw:referencedBy">
