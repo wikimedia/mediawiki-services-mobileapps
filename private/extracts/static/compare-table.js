@@ -2,7 +2,7 @@
 
 /* global document */
 /* eslint-disable no-console */
-/* jshint browser: true */
+/* eslint-env browser */
 
 function toggleShow() {
     const show = document.querySelector('#showSameCB').checked;
