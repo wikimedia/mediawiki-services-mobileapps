@@ -16,10 +16,10 @@ describe('announcements-unit', () => {
 
     it('should return one or more announcements for active wiki', () => {
         const res = mut.getAnnouncements(activeAnnouncementDomain);
-        // assert.ok(res.announce.length === 0);
-        assert.ok(res.announce.length === 2);
-        assert.equal(res.announce[0].id, 'ENBROWSEREXTENSION0518ANNOUNCEMENTANDROID');
-        assert.equal(res.announce[1].id, 'ENBROWSEREXTENSION0518ANNOUNCEMENTIOS');
+        assert.ok(res.announce.length === 0);
+        // assert.ok(res.announce.length === 2);
+        // assert.equal(res.announce[0].id, 'ENBROWSEREXTENSION0518ANNOUNCEMENTANDROID');
+        // assert.equal(res.announce[1].id, 'ENBROWSEREXTENSION0518ANNOUNCEMENTIOS');
     });
 
     it('should return an image (with correct per-platform label)', () => {
