@@ -15,11 +15,11 @@ const router = sUtil.router();
 let app;
 
 /**
- * GET {domain}/v1/page/read-base-html/{title}{/revision}{/tid}
- * Gets page content in HTML. This is based on Parsoid with some minor modifications more
+ * GET {domain}/v1/page/read-compat-html/{title}{/revision}{/tid}
+ * Gets in HTML. This is based on Parsoid with some minor modifications more
  * suitable for the reading use cases.
  */
-router.get('/read-base-html/:title/:revision?/:tid?', (req, res) => {
+router.get('/read-compat-html/:title/:revision?/:tid?', (req, res) => {
     return parsoid.pageHtmlPromise(app, req, false)
     .then((response) => {
         res.status(200);
@@ -30,11 +30,11 @@ router.get('/read-base-html/:title/:revision?/:tid?', (req, res) => {
 });
 
 /**
- * GET {domain}/v1/page/read-html/{title}{/revision}{/tid}
+ * GET {domain}/v1/page/content-html/{title}{/revision}{/tid}
  * Gets page content in HTML. This is a more optimized for direct consumption by reading
  * clients.
  */
-router.get('/read-html/:title/:revision?/:tid?', (req, res) => {
+router.get('/content-html/:title/:revision?/:tid?', (req, res) => {
     return parsoid.pageHtmlPromise(app, req, true)
     .then((response) => {
         res.status(200);
