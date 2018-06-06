@@ -15,8 +15,8 @@ function langCodesToWikipediaDomains(langCodes) {
 router.get('/availability', (req, res) => {
     const response = {
         todays_featured_article: tfaDomains,
-        most_read: ['*'],
-        picture_of_the_day: ['*'],
+        most_read: langCodesToWikipediaDomains(['*']),
+        picture_of_the_day: langCodesToWikipediaDomains(['*']),
         in_the_news: langCodesToWikipediaDomains(newsLangs),
         on_this_day: langCodesToWikipediaDomains(onThisDayLangs)
     };
