@@ -42,4 +42,15 @@ describe('content-html', function() {
         });
     });
 
+    it('content-html should have lead paragraph moved up', () => {
+        const uri = localUri('Dog/844680047');
+        return preq.get({ uri })
+        .then((res) => {
+            const document = domino.createDocument(res.body);
+            assert.ok(document.querySelector('section[data-mw-section-id=0]').innerHTML.startsWith(
+                '<span><p>The <b>domestic dog</b>' // TODO: get rid of span
+            ));
+        });
+    });
+
 });
