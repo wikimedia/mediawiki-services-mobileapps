@@ -287,22 +287,6 @@ paths:
                 - text: /.+/
                   pages:
                     - $merge: [ /.+/ ]
-        - title: retrieve the selected anniversaries for January 15
-          request:
-            params:
-              type: selected
-              month: 01
-              day: 15
-          response:
-            status: 200
-            headers:
-              content-type: application/json
-            body:
-              selected:
-                - text: /.+/
-                  year: /.+/
-                  pages:
-                    - $merge: [ /.+/ ]
 
   # from routes/feed/featured.js
   /{domain}/v1/page/featured/{year}/{month}/{day}:
@@ -623,10 +607,11 @@ paths:
           schema:
             $ref: '#/definitions/problem'
       x-amples:
-        - title: retrieve media items of en.wp Cat page via media route
+        - title: Get media in test page
           request:
             params:
-              title: Cat
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+              revision: 803891963
           response:
             status: 200
             headers:
@@ -635,17 +620,8 @@ paths:
               revision: /.+/
               tid: /.+/
               items:
-                - titles:
-                    canonical: /.+/
-                    normalized: /.+/
-                    display: /.+/
-                  thumbnail:
-                    source: /.+/
-                    width: /.+/
-                    height: /.+/
-                    mime: /.+/
-                  license:
-                    type: /.+/
+                - section_id: /.+/
+                  type: /.+/
 
   # from routes/page/metadata.js
   /{domain}/v1/page/metadata/{title}{/revision}{/tid}:
@@ -675,7 +651,6 @@ paths:
         - title: retrieve extended metadata for Video article on English Wikipedia
           request:
             params:
-              domain: en.wikipedia.org
               title: Video
           response:
             status: 200
@@ -743,11 +718,11 @@ paths:
           schema:
             $ref: '#/definitions/problem'
       x-amples:
-        - title: retrieve structured reference data for the Cat article on English Wikipedia
+        - title: Get references of a test page
           request:
             params:
-              domain: en.wikipedia.org
-              title: Cat
+              title: Video
+              revision: 830543386
           response:
             status: 200
             headers:
@@ -829,11 +804,10 @@ paths:
           schema:
             $ref: '#/definitions/problem'
       x-amples:
-        - title: Get summary for Manitowoc, Wisconsin
+        - title: Get summary for test page
           request:
             params:
-              domain: en.wikipedia.org
-              title: Manitowoc,_Wisconsin
+              title: San_Francisco
           response:
             status: 200
             headers:
@@ -890,56 +864,6 @@ paths:
                 talk_page_html: /.+/
               extract: /.+/
               extract_html: /.+/
-        - title: Get summary for 2nd Earl of Derby
-          request:
-            params:
-              domain: en.wikipedia.org
-              title: 2nd_Earl_of_Derby
-          response:
-            status: 200
-            headers:
-              etag: /.+/
-              content-type: /^application\/json/
-            body:
-              type: disambiguation
-              title: /.+/
-              displaytitle: /.+/
-              namespace:
-                id: /.+/
-                text: /.*/
-              titles:
-                canonical: /.+/
-                normalized: /.+/
-                display: /.+/
-              pageid: /.+/
-              lang: /.+/
-              dir: /.+/
-              revision: /.+/
-              tid: /.+/
-              timestamp: /.+/
-              description: /.+/
-              content_urls:
-                desktop:
-                  page: /.+/
-                  revisions: /.+/
-                  edit: /.+/
-                  talk: /.+/
-                mobile:
-                  page: /.+/
-                  revisions: /.+/
-                  edit: /.+/
-                  talk: /.+/
-              api_urls:
-                summary: /.+/
-#                read_html: /.+/
-#                content_html: /.+/
-                metadata: /.+/
-                references: /.+/
-                media: /.+/
-                edit_html: /.+/
-                talk_page_html: /.+/
-              extract: /.+/
-              extract_html: /.+/
 
   # from routes/page/mobile-sections.js
   /{domain}/v1/page/mobile-sections/{title}{/revision}{/tid}:
@@ -965,10 +889,10 @@ paths:
           schema:
             $ref: '#/definitions/problem'
       x-amples:
-        - title: retrieve en.wp main page via mobile-sections
+        - title: retrieve test page via mobile-sections
           request:
             params:
-              title: Main_Page
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
           response:
             status: 200
             headers:
@@ -981,15 +905,19 @@ paths:
                 lastmodifier: /.+/
                 displaytitle: /.+/
                 normalizedtitle: /.+/
-                wikibase_item: Q5296
                 protection: /.+/
                 editable: /.+/
-                mainpage: true
                 languagecount: /.+/
                 ns: /.+/
-                sections: [ /.+/ ]
+                sections:
+                  - id: /.+/
               remaining:
-                sections: []
+                sections:
+                  - id: /.+/
+                    text: /.*/
+                    toclevel: /.+/
+                    line: /.+/
+                    anchor: /.+/
 
   /{domain}/v1/page/mobile-sections-lead/{title}{/revision}{/tid}:
     get:
@@ -1012,37 +940,7 @@ paths:
           description: Error
           schema:
             $ref: '#/definitions/problem'
-      x-amples:
-        - title: retrieve lead section of en.wp Altrincham page via mobile-sections-lead
-          request:
-            params:
-              title: Altrincham
-          response:
-            status: 200
-            headers:
-              content-type: application/json
-            body:
-              id: /.+/
-              revision: /.+/
-              lastmodified: /.+/
-              lastmodifier: /.+/
-              displaytitle: /.+/
-              wikibase_item: Q445058
-              description: /.+/
-              description_source: /.+/
-              hatnotes: /.+/
-              protection: /.+/
-              editable: /.+/
-              languagecount: /.+/
-              ns: /.+/
-              pronunciation:
-                url: /.+/
-              spoken:
-                files: [ /.+/ ]
-              geo:
-                latitude: /.+/
-                longitude: /.+/
-              sections: [ /.+/ ]
+      x-monitor: false
 
   /{domain}/v1/page/mobile-sections-remaining/{title}{/revision}{/tid}:
     get:
@@ -1083,6 +981,13 @@ paths:
           description: Error
           schema:
             $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get base CSS
+          response:
+            status: 200
+            headers:
+              content-type: /^text\/css; charset=utf-8/
+            body: /.+/
 
   /{domain}/v1/data/css/mobile/site:
     get:
@@ -1101,6 +1006,13 @@ paths:
           description: Error
           schema:
             $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get site-specific CSS
+          response:
+            status: 200
+            headers:
+              content-type: /^text\/css; charset=utf-8/
+            body: /.+/
 
 definitions:
   # A https://tools.ietf.org/html/draft-nottingham-http-problem
