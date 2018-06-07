@@ -29,4 +29,17 @@ describe('content-html', function() {
             assert.selectorExistsNTimes(document, 'section', 7, 'should have 7 sections');
         });
     });
+
+    it('content-html should have css links + viewport set', () => {
+        const uri = localUri('Foobar/788941783');
+        return preq.get({ uri })
+        .then((res) => {
+            const document = domino.createDocument(res.body);
+            assert.selectorExistsNTimes(document, 'html > head > link[rel=stylesheet]', 2,
+                'should have 2 css files');
+            assert.selectorExistsNTimes(document, 'html > head > meta[name=viewport]', 1,
+                'should have 1 meta element setting viewport');
+        });
+    });
+
 });
