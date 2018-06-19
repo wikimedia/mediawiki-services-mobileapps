@@ -15,20 +15,14 @@ describe('css', function() {
 
     before(() => server.start());
 
-    it('/base should respond to GET request with expected headers', () => {
-        return checkHeaders(localUri('/base'), contentType, 'cache-control');
-    });
+    ['/base', '/site'].forEach((cssType) => {
+        it(`${cssType} should respond to GET request with expected headers`, () => {
+            return checkHeaders(localUri(cssType), contentType, 'cache-control');
+        });
 
-    it('/site should respond to GET request with expected headers', () => {
-        return checkHeaders(localUri('/site'), contentType, 'cache-control');
-    });
-
-    it('/base response should have nonzero length', () => {
-        return preq.get(localUri('/base')).then(res => assert.ok(res.body.length > 0));
-    });
-
-    it('/site response should have nonzero length', () => {
-        return preq.get(localUri('/site')).then(res => assert.ok(res.body.length > 0));
+        it(`${cssType} response should have non-zero length`, () => {
+            return preq.get(localUri(cssType)).then(res => assert.ok(res.body.length > 0));
+        });
     });
 
     it('default RL request wiki uses canonical domain (request should not redirect)', () => {
