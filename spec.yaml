@@ -989,6 +989,31 @@ paths:
               content-type: /^text\/css; charset=utf-8/
             body: /.+/
 
+  /{domain}/v1/data/css/mobile/pagelib:
+    get:
+      tags:
+        - Page styles
+      summary: Get page styles from page library
+      description: Gets the styles provided by the page library for the mobile apps
+      produces:
+        - text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/1.0.0"
+      parameters:
+        - $ref: '#/parameters/domain'
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get pagelib CSS
+          response:
+            status: 200
+            headers:
+              content-type: /^text\/css; charset=utf-8/
+            body: /.+/
+
   /{domain}/v1/data/css/mobile/site:
     get:
       tags:
