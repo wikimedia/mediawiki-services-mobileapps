@@ -100,7 +100,8 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('Mare Tranquillitatis (lunar sea) should not have a geo property', () => {
-        const uri = `${server.config.uri}es.wikipedia.org/v1/page/mobile-sections-lead/Mare Tranquillitatis`; // eslint-disable-line max-len
+        // eslint-disable-next-line max-len
+        const uri = `${server.config.uri}es.wikipedia.org/v1/page/mobile-sections-lead/Mare Tranquillitatis`;
         return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;

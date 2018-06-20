@@ -5,7 +5,7 @@
 const assert = require('../../../utils/assert.js');
 const domino = require('domino');
 const sinon = require('sinon');
-const parsoidSections = require('../../../../lib/sections/parsoidSections'); // eslint-disable-line max-len
+const parsoidSections = require('../../../../lib/sections/parsoidSections');
 const shouldWarn = parsoidSections.testing.shouldLogInvalidSectionWarning;
 const validatePreviousSection = parsoidSections.testing.validatePreviousSection;
 

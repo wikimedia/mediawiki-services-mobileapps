@@ -54,7 +54,8 @@ class TestSpec {
      * @return {!string} name of this test to print to the console
      */
     testName() {
-        return `${TestSpec.fsName(this._route)}-${TestSpec.fsName(this.project())}-${this._parameters.join('-')}`; // eslint-disable-line max-len
+        // eslint-disable-next-line max-len
+        return `${TestSpec.fsName(this._route)}-${TestSpec.fsName(this.project())}-${this._parameters.join('-')}`;
     }
 
     /**
@@ -109,7 +110,8 @@ class TestSpec {
      */
     generator() {
         if (this._parameters) {
-            return `    new TestSpec('${this._domain}', '${this._route}', ${TestSpec.toStringArrayCode(this._parameters)}),`; // eslint-disable-line max-len
+            // eslint-disable-next-line max-len
+            return `    new TestSpec('${this._domain}', '${this._route}', ${TestSpec.toStringArrayCode(this._parameters)}),`;
         } else {
             return `    new TestSpec('${this._domain}', '${this._route}'),`;
         }
@@ -146,7 +148,8 @@ class TestPageSpec extends TestSpec {
      * @return {!string} name of this test to print to the console
      */
     testName() {
-        return `${TestSpec.fsName(this._route)}-${TestSpec.fsName(this.project())}-${TestSpec.fsName(this._title)}`; // eslint-disable-line max-len
+        // eslint-disable-next-line max-len
+        return `${TestSpec.fsName(this._route)}-${TestSpec.fsName(this.project())}-${TestSpec.fsName(this._title)}`;
     }
 
     /**

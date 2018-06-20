@@ -114,7 +114,8 @@ describe('summary', function() {
     }
 
     it('Empty extracts should be returned for a file page', () => {
-        shouldReturnEmptyExtracts(localUri('File:En-Alliterative_verse-article.ogg', 'commons.wikimedia.org')); // eslint-disable-line max-len
+        // eslint-disable-next-line max-len
+        shouldReturnEmptyExtracts(localUri('File:En-Alliterative_verse-article.ogg', 'commons.wikimedia.org'));
     });
 
     it('Empty extracts should be returned for a talk page', () => {
