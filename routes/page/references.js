@@ -36,6 +36,9 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
         res.status(200);
         mUtil.setETag(res, response.meta.revision);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.references);
+        mUtil.setLanguageHeaders(res, response.meta._headers);
+        // Don't poison the client response with the internal _headers object
+        delete response.meta._headers;
         res.json(buildReferences(response.meta, response.doc, req.logger)).end();
     });
 });

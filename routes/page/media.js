@@ -31,6 +31,7 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
                 const result = lib.combineResponses(apiResponse, pageMediaList);
                 mUtil.setETag(res, revTid.revision, revTid.tid);
                 mUtil.setContentType(res, mUtil.CONTENT_TYPES.media);
+                mUtil.setLanguageHeaders(res, html.headers);
                 res.send({
                     revision: revTid.revision,
                     tid: revTid.tid,

@@ -35,6 +35,7 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
                 delete summary.code;
                 mUtil.setETag(res, revTid.revision, revTid.tid);
                 mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
+                mUtil.setLanguageHeaders(res, html.headers);
                 res.send(summary);
             }
             res.end();

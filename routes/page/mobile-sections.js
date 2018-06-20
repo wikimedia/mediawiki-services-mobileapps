@@ -162,7 +162,9 @@ function buildRemaining(input) {
 function buildAll(input, legacy) {
     return {
         lead: buildLead(input, legacy),
-        remaining: buildRemaining(input)
+        remaining: buildRemaining(input),
+        // Any additional headers we've been passed.
+        _headers: input.page._headers
     };
 }
 
@@ -289,6 +291,11 @@ function buildAllResponse(app, req, res, legacy) {
         res.status(200);
         mUtil.setETag(res, response.lead.revision, response.lead.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
+
+        mUtil.setLanguageHeaders(res, response._headers);
+        // Don't poison the client response with the internal _headers object
+        delete response._headers;
+
         res.json(response).end();
     });
 }

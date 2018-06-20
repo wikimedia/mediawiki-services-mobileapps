@@ -25,6 +25,9 @@ router.get('/read-compat-html/:title/:revision?/:tid?', (req, res) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.readHtml);
         mUtil.setETag(res, response.meta.revision);
+        mUtil.setLanguageHeaders(res, response.meta._headers);
+        // Don't poison the client response with the internal _headers object
+        delete response.meta._headers;
         res.send(response.html).end();
     });
 });
@@ -40,6 +43,9 @@ router.get('/content-html/:title/:revision?/:tid?', (req, res) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.readHtml);
         mUtil.setETag(res, response.meta.revision);
+        mUtil.setLanguageHeaders(res, response.meta._headers);
+        // Don't poison the client response with the internal _headers object
+        delete response.meta._headers;
         res.send(response.html).end();
     });
 });
