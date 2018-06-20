@@ -1,0 +1,33 @@
+# Map author and committer names and email addresses to canonical real names
+# and email addresses.
+#
+# See also: https://git-scm.com/docs/git-shortlog#_mapping_authors
+#
+[BOT] Jenkins merge bot <jenkins-bot@gerrit.wikimedia.org>
+Aftab <Aftabuzzamanullah@gmail.com>
+Arlo Breault <abreault@wikimedia.org>
+Bernd Sitzmann <bernd@wikimedia.org>
+Bernd Sitzmann <bernd@wikimedia.org> <bsitzmann@wikimedia.org>
+Bernd Sitzmann <bernd@wikimedia.org> <berndsi@users.noreply.github.com>
+Bernd Sitzmann <bernd@wikimedia.org> <besitzus@gmail.com>
+Corey Floyd <cfloyd@wikimedia.org>
+Dmitry Brant <dbrant@wikimedia.org>
+Gabriel Wicke <gwicke@wikimedia.org>
+Gabriel Wicke <gwicke@wikimedia.org> <gswicke@gmail.com>
+Gergő Tisza <tgr.huwiki@gmail.com>
+James D. Forrester <jforrester@wikimedia.org>
+Jan Berkel <jan@berkel.fr>
+Jon Robson <jrobson@wikimedia.org>
+Jon Robson <jrobson@wikimedia.org> <jdlrobson@gmail.com>
+joakin <joaquin@chimeces.com>
+Joewalsh <joewalsh@wikimedia.org>
+Marko Obrovac <mobrovac@wikimedia.org>
+Marko Obrovac <mobrovac@wikimedia.org> <marko.obrovac@gmail.com>
+Michael Holloway <mholloway@wikimedia.org>
+Monte Hurd <mhurd@wikimedia.org>
+Monte Hurd <mhurd@wikimedia.org> <montehurd@gmail.com>
+Petr Pchelko <ppchelko@wikimedia.org>
+Stephen Niedzielski <sniedzielski@wikimedia.org>
+Stephen Niedzielski <sniedzielski@wikimedia.org> <stephen@niedzielski.com>
+The Discoverer <wiki.discoverer@gmail.com>
+Yuri Astrakhan <yurik@wikimedia.org>
