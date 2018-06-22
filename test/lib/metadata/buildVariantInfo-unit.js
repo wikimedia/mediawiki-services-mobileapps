@@ -16,12 +16,42 @@ describe('lib:metadata buildVariantInfo', () => {
         const meta = {
             variants: [ 'en-foo', 'en-bar' ],
             talkNsText: 'Talk',
-            mobileHost: 'https://en.m.wikipedia.org'
+            displaytitle: 'Test',
+            mobileHost: 'https://en.m.wikipedia.org',
+            varianttitles: {
+                'en-foo': 'Test-foo',
+                'en-bar': 'Test-bar',
+            }
         };
         const result = buildVariantInfo(req, meta, mwapi.getTitleObj('Test', si));
         assert.deepEqual(result, {
-            'en-foo': {},
-            'en-bar': {}
+            'en-foo': {
+                display_title: 'Test-foo'
+            },
+            'en-bar': {
+                display_title: 'Test-bar'
+            }
+        });
+    });
+    // eslint-disable-next-line max-len
+    it('builds content URLs if variants are found even if variant display_title is missing ', () => {
+        const meta = {
+            variants: [ 'en-foo', 'en-bar' ],
+            talkNsText: 'Talk',
+            mobileHost: 'https://en.m.wikipedia.org',
+            displaytitle: 'Test',
+            varianttitles: {
+                'en-foo': 'Test-foo',
+            }
+        };
+        const result = buildVariantInfo(req, meta, mwapi.getTitleObj('Test', si));
+        assert.deepEqual(result, {
+            'en-foo': {
+                display_title: 'Test-foo'
+            },
+            'en-bar': {
+                display_title: 'Test'
+            }
         });
     });
 
