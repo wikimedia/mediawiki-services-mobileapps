@@ -440,4 +440,3 @@ describe('Swagger spec', function() {
     });
 
 });
-

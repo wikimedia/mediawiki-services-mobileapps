@@ -136,7 +136,7 @@ function initApp(options) {
 
 /**
  * Loads all routes declared in routes/ into the app
- * @param {!Application} app the application object to load routes into
+ * @param {Application} app the application object to load routes into
  * @return {bluebird} a promise resolving to the app object
  */
 function loadRoutes(app, dir) {
@@ -189,7 +189,7 @@ function loadRoutes(app, dir) {
 
 /**
  * Creates and start the service's web server
- * @param {!Application} app the app object to use in the service
+ * @param {Application} app the app object to use in the service
  * @return {bluebird} a promise creating the web server
  */
 function createServer(app) {
@@ -206,7 +206,8 @@ function createServer(app) {
         );
         server = addShutdown(server);
     }).then(() => {
-        app.logger.log('info', `worker listening on ${app.conf.interface || '*'}:${app.conf.port}`);
+        app.logger.log('info',
+            `Worker ${process.pid} listening on ${app.conf.interface || '*'}:${app.conf.port}`);
 
         // Don't delay incomplete packets for 40ms (Linux default) on
         // pipelined HTTP sockets. We write in large chunks or buffers, so
