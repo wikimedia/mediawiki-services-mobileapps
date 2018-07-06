@@ -23,6 +23,9 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Trinidad_and_Tobago_hummingbirds_composite.jpg",
+      "artist": {
+        "html": "<bdi>Charles J Sharp\n</bdi>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
       "license": {
         "type": "CC BY-SA 4.0",
@@ -59,6 +62,9 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Purple-throated_carib_hummingbird_feeding.jpg",
+      "artist": {
+        "html": "<bdi>Charles J Sharp\n</bdi>"
+      },
       "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"http://www.sharpphotography.co.uk/\">Sharp Photography, sharpphotography</a>",
       "license": {
         "type": "CC BY 3.0",
@@ -95,14 +101,17 @@
         "mime": "image/jpeg"
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Haeckel_Trochilidae.jpg",
+      "artist": {
+        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Ernst_Haeckel\" class=\"extiw\" title=\"w:en:Ernst Haeckel\">Ernst Haeckel</a>\n</bdi>"
+      },
       "credit": "<i><a href=\"//commons.wikimedia.org/wiki/Kunstformen_der_Natur\" title=\"Kunstformen der Natur\">Kunstformen der Natur</a></i> (1904), plate 99: Trochilidae (see <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_300.html\">here</a>, <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_text_1_200.html\">here</a> and <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_text_2_200.html\">here</a>)",
       "license": {
         "type": "Public domain",
         "code": "pd"
       },
       "description": {
-        "html": "<span class=\"langlabel-en\" lang=\"en\" style=\"font-weight:bold;\">English:</span> Hummingbirds (drawn from millinery specimens, body positions are not natural)<br><ul>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Ruby-throated_Hummingbird\" class=\"extiw\" title=\"en:Ruby-throated Hummingbird\">Ruby-throated Hummingbird</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Horned_Sungem\" class=\"extiw\" title=\"en:Horned Sungem\">Horned Sungem</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Crimson_Topaz\" class=\"extiw\" title=\"en:Crimson Topaz\">Crimson Topaz</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Red-tailed_Comet\" class=\"extiw\" title=\"en:Red-tailed Comet\">Red-tailed Comet</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Tufted_Coquette\" class=\"extiw\" title=\"en:Tufted Coquette\">Tufted Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Sword-billed_Hummingbird\" class=\"extiw\" title=\"en:Sword-billed Hummingbird\">Sword-billed Hummingbird</a>\n</li>\n<li><a href=\"https://en.wikipedia.org/wiki/Buff-tailed_Sicklebill\" class=\"extiw\" title=\"en:Buff-tailed Sicklebill\">Buff-tailed Sicklebill</a></li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Dot-eared_Coquette\" class=\"extiw\" title=\"en:Dot-eared Coquette\">Dot-eared Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/White-vented_Violetear\" class=\"extiw\" title=\"en:White-vented Violetear\">White-vented Violetear</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Hooded_Visorbearer\" class=\"extiw\" title=\"en:Hooded Visorbearer\">Hooded Visorbearer</a>\n</li>\n<li>Female <a href=\"https://en.wikipedia.org/wiki/Juan_Fern%C3%A1ndez_Firecrown\" class=\"extiw\" title=\"en:Juan Fernández Firecrown\">Juan Fernández Firecrown</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Booted_Racket-tail\" class=\"extiw\" title=\"en:Booted Racket-tail\">Booted Racket-tail</a>\n</li>\n</ul>",
-        "text": "English: Hummingbirds (drawn from millinery specimens, body positions are not natural)\nMale Ruby-throated Hummingbird\n\nMale Horned Sungem\n\nMale Crimson Topaz\n\nMale Red-tailed Comet\n\nMale Tufted Coquette\n\nMale Sword-billed Hummingbird\n\nBuff-tailed Sicklebill\nMale Dot-eared Coquette\n\nMale White-vented Violetear\n\nMale Hooded Visorbearer\n\nFemale Juan Fernández Firecrown\n\nMale Booted Racket-tail\n\n"
+        "html": "<span class=\"langlabel-en\" lang=\"en\" style=\"font-weight:bold;\">English: </span> Hummingbirds (drawn from millinery specimens, body positions are not natural)<br><li>Male <a href=\"https://en.wikipedia.org/wiki/Ruby-throated_Hummingbird\" class=\"extiw\" title=\"en:Ruby-throated Hummingbird\">Ruby-throated Hummingbird</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Horned_Sungem\" class=\"extiw\" title=\"en:Horned Sungem\">Horned Sungem</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Crimson_Topaz\" class=\"extiw\" title=\"en:Crimson Topaz\">Crimson Topaz</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Red-tailed_Comet\" class=\"extiw\" title=\"en:Red-tailed Comet\">Red-tailed Comet</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Tufted_Coquette\" class=\"extiw\" title=\"en:Tufted Coquette\">Tufted Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Sword-billed_Hummingbird\" class=\"extiw\" title=\"en:Sword-billed Hummingbird\">Sword-billed Hummingbird</a>\n</li>\n<li><a href=\"https://en.wikipedia.org/wiki/Buff-tailed_Sicklebill\" class=\"extiw\" title=\"en:Buff-tailed Sicklebill\">Buff-tailed Sicklebill</a></li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Dot-eared_Coquette\" class=\"extiw\" title=\"en:Dot-eared Coquette\">Dot-eared Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/White-vented_Violetear\" class=\"extiw\" title=\"en:White-vented Violetear\">White-vented Violetear</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Hooded_Visorbearer\" class=\"extiw\" title=\"en:Hooded Visorbearer\">Hooded Visorbearer</a>\n</li>\n<li>Female <a href=\"https://en.wikipedia.org/wiki/Juan_Fern%C3%A1ndez_Firecrown\" class=\"extiw\" title=\"en:Juan Fernández Firecrown\">Juan Fernández Firecrown</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Booted_Racket-tail\" class=\"extiw\" title=\"en:Booted Racket-tail\">Booted Racket-tail</a>\n</li>",
+        "text": "English:  Hummingbirds (drawn from millinery specimens, body positions are not natural)Male Ruby-throated Hummingbird\n\nMale Horned Sungem\n\nMale Crimson Topaz\n\nMale Red-tailed Comet\n\nMale Tufted Coquette\n\nMale Sword-billed Hummingbird\n\nBuff-tailed Sicklebill\nMale Dot-eared Coquette\n\nMale White-vented Violetear\n\nMale Hooded Visorbearer\n\nFemale Juan Fernández Firecrown\n\nMale Booted Racket-tail\n"
       }
     },
     {
@@ -209,8 +218,8 @@
         "url": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       "description": {
-        "html": "Calliope Hummingbird / Stellula calliope - female feeding two chicks",
-        "text": "Calliope Hummingbird / Stellula calliope - female feeding two chicks"
+        "html": "<p>Calliope Hummingbird / Stellula calliope - female feeding two chicks\n</p>",
+        "text": "Calliope Hummingbird / Stellula calliope - female feeding two chicks\n"
       }
     },
     {
@@ -695,13 +704,13 @@
         "html": "Tovar, Juan de, circa 1546-circa 1626",
         "name": "Tovar, Juan de, circa 1546-circa 1626"
       },
-      "credit": "<p><a rel=\"nofollow\" class=\"external free\" href=\"http://dl.wdl.org/6725.png\">http://dl.wdl.org/6725.png</a></p>\n<ul>\n<li>Gallery: <a rel=\"nofollow\" class=\"external free\" href=\"http://www.wdl.org/en/item/6725/\">http://www.wdl.org/en/item/6725/</a>\n</li>\n</ul>",
+      "credit": "<p><a rel=\"nofollow\" class=\"external free\" href=\"http://dl.wdl.org/6725.png\">http://dl.wdl.org/6725.png</a>\n</p>\n<ul><li>Gallery: <a rel=\"nofollow\" class=\"external free\" href=\"http://www.wdl.org/en/item/6725/\">http://www.wdl.org/en/item/6725/</a>\n</li></ul>",
       "license": {
         "type": "Public domain",
         "code": "pd"
       },
       "description": {
-        "html": "The Tovar Codex, attributed to the 16th-century Mexican Jesuit Juan de Tovar, contains detailed information about the rites and ceremonies of the Aztecs (also known as Mexica). The codex is illustrated with 51 full-page paintings in watercolor. Strongly influenced by pre-contact pictographic manuscripts, the paintings are of exceptional artistic quality. The manuscript is divided into three sections. The first section is a history of the travels of the Aztecs prior to the arrival of the Spanish. The second section, an illustrated history of the Aztecs, forms the main body of the manuscript. The third section contains the Tovar calendar. This illustration, from the second section, depicts Huitzilopochtli, holding a turquoise serpent or rattlesnake in one hand and a shield with the five directions of space and three arrows in the other. Huitzilopochtli wears a hummingbird mask or helmet with feathered quetzal crown, which is identified with the two Moctezumas (or Montezumas). Huitzilopochtli, whose name means \"Blue hummingbird on the left,\" was the Aztec god of the sun and war. The <em>xiuhcoatl</em> (turquoise or fire serpent) was his mystical weapon.<br>\nAztec gods; Aztec mythology; Aztecs; Codex; Indians of Mexico; Indigenous peoples; Mesoamerica; Tovar Codex",
+        "html": "The Tovar Codex, attributed to the 16th-century Mexican Jesuit Juan de Tovar, contains detailed information about the rites and ceremonies of the Aztecs (also known as Mexica). The codex is illustrated with 51 full-page paintings in watercolor. Strongly influenced by pre-contact pictographic manuscripts, the paintings are of exceptional artistic quality. The manuscript is divided into three sections. The first section is a history of the travels of the Aztecs prior to the arrival of the Spanish. The second section, an illustrated history of the Aztecs, forms the main body of the manuscript. The third section contains the Tovar calendar. This illustration, from the second section, depicts Huitzilopochtli, holding a turquoise serpent or rattlesnake in one hand and a shield with the five directions of space and three arrows in the other. Huitzilopochtli wears a hummingbird mask or helmet with feathered quetzal crown, which is identified with the two Moctezumas (or Montezumas). Huitzilopochtli, whose name means \"Blue hummingbird on the left,\" was the Aztec god of the sun and war. The <em>xiuhcoatl</em> (turquoise or fire serpent) was his mystical weapon.\n<br>Aztec gods; Aztec mythology; Aztecs; Codex; Indians of Mexico; Indigenous peoples; Mesoamerica; Tovar Codex",
         "text": "The Tovar Codex, attributed to the 16th-century Mexican Jesuit Juan de Tovar, contains detailed information about the rites and ceremonies of the Aztecs (also known as Mexica). The codex is illustrated with 51 full-page paintings in watercolor. Strongly influenced by pre-contact pictographic manuscripts, the paintings are of exceptional artistic quality. The manuscript is divided into three sections. The first section is a history of the travels of the Aztecs prior to the arrival of the Spanish. The second section, an illustrated history of the Aztecs, forms the main body of the manuscript. The third section contains the Tovar calendar. This illustration, from the second section, depicts Huitzilopochtli, holding a turquoise serpent or rattlesnake in one hand and a shield with the five directions of space and three arrows in the other. Huitzilopochtli wears a hummingbird mask or helmet with feathered quetzal crown, which is identified with the two Moctezumas (or Montezumas). Huitzilopochtli, whose name means \"Blue hummingbird on the left,\" was the Aztec god of the sun and war. The xiuhcoatl (turquoise or fire serpent) was his mystical weapon.\nAztec gods; Aztec mythology; Aztecs; Codex; Indians of Mexico; Indigenous peoples; Mesoamerica; Tovar Codex"
       }
     },
