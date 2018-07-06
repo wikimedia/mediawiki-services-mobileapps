@@ -47,9 +47,9 @@ describe('content-html', function() {
         return preq.get({ uri })
         .then((res) => {
             const document = domino.createDocument(res.body);
-            assert.ok(document.querySelector('section[data-mw-section-id=0]').innerHTML.startsWith(
-                '<p>The <b>domestic dog</b>'
-            ));
+            const section0 = document.querySelector('section[data-mw-section-id=0]');
+            // children[0] is the container span for the edit button.
+            assert.ok(section0.children[1].outerHTML.startsWith(`<p>The <b>domestic dog</b>`));
         });
     });
 
