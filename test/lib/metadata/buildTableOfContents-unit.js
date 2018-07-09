@@ -30,7 +30,7 @@ const deepSections = [
     { id: 10, toclevel: 10, line: "Foo", anchor: "Foo" }
 ];
 
-describe('lib:metadata', () => {
+describe('lib:metadata buildTableOfContents', () => {
     it('should exclude lead section and non-displayable or pseudo-sections', () => {
         const result = buildTocEntries(sections, {});
         assert.deepEqual(result.length, 7, 'result should have 7 entries (3 excluded)');

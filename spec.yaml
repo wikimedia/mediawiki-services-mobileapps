@@ -632,7 +632,7 @@ paths:
       description: |
         Gets additional metadata about a page, primarily from the MediaWiki API.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.1.0"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.2.0"
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -1494,6 +1494,8 @@ definitions:
           - central
           - local
         description: Whether the description is defined locally or comes from Wikidata.  May be 'central' or 'local'.
+      variants:
+        type: object
     required: [ revision, tid, protection ]
     additionalProperties: false
 
