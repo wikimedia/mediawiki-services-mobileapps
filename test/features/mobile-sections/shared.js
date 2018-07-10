@@ -69,21 +69,6 @@ exports.shouldBehaveLikeMobileSections = function(localUri) {
         });
     });
 
-    it('Check content of fresh revision', () => {
-        const title = 'Leonard_Cohen';
-        const uri = localUri(title);
-        return preq.get({ uri })
-        .then((res) => {
-            let hasDeathSection = false;
-            res.body.remaining.sections.forEach((section) => {
-                if (section.line === 'Death') {
-                    hasDeathSection = true;
-                }
-            });
-            assert.ok(hasDeathSection, '... but he is now which makes me sad.');
-        });
-    });
-
     it('Missing title should respond with 404', () => {
         const uri = localUri('weoiuyrxcmxn', 'test.wikipedia.org');
         return preq.get({ uri })
