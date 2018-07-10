@@ -72,6 +72,7 @@
   { "domain": "en.wikipedia.org", "title": "Planck–Einstein_relation", "rev": "", "note": "" },
   { "domain": "en.wikipedia.org", "title": "Suit", "rev": "822913926", "note": "disambig: consider not stripping () from paragraphs after the first paragraph (e.g. in <li> elements)" },
   { "domain": "en.wikipedia.org", "title": "Epistemology", "rev": "", "note": "" },
+  { "domain": "en.wikipedia.org", "title": ".NET_Foundation", "rev": "787437872", "note": "extract used to have missing space in `the.NET Framework`" },
   { "domain": "en.wikipedia.org", "title": "Albert_Einstein", "rev": "823049899", "note": "" },
   { "domain": "en.wikipedia.org", "title": "Charles_Darwin", "rev": "", "note": "" },
   { "domain": "en.wikipedia.org", "title": "Paul_McCartney", "rev": "822867780", "note": "" },
