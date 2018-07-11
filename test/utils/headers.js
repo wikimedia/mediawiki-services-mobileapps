@@ -8,6 +8,7 @@ const PROFILE_REGEX = 'profile="https://www.mediawiki.org/wiki/Specs/[A-Za-z-]+/
 const JSON_CONTENT_TYPE_REGEX = `^application/json; charset=utf-8; ${PROFILE_REGEX}`;
 const HTML_CONTENT_TYPE_REGEX = `^text/html; charset=utf-8; ${PROFILE_REGEX}`;
 const CSS_CONTENT_TYPE_REGEX = `^text/css; charset=utf-8; ${PROFILE_REGEX}`;
+const JS_CONTENT_TYPE_REGEX = `^text/javascript; charset=utf-8; ${PROFILE_REGEX}`;
 
 /**
  * Check response headers for a request
@@ -67,5 +68,6 @@ function checkHeaders(uri, expContentType, ...additionalHeaders) {
 module.exports = {
     HTML_CONTENT_TYPE_REGEX,
     CSS_CONTENT_TYPE_REGEX,
+    JS_CONTENT_TYPE_REGEX,
     checkHeaders
 };
