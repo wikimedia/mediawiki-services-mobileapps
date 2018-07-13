@@ -982,8 +982,6 @@ paths:
         * Additional classes are added to img elements to fix issues with non-white backgrounds.
           See Theme support below for instructions on how to enable that.
         * Pagelib CSS files needed to display the content are referenced.
-
-        Coming soon:
         * LazyLoadTransform: server-side portion/prep for lazy loading of images.
         * CollapseTable: server-side portion/prep for collapsing tables.
 
@@ -998,10 +996,11 @@ paths:
           The pagelib JS has functionality to do that: ThemeTransform.setTheme(document, theme).
         * Dim images: DimImagesTransform.dim(window, enable)
         * PlatformTransform.classify(window) to trigger Android and iOS app specific CSS rules
-        * LazyLoadTransformer
-        * FooterTransformer
+        * LazyLoadTransformer: client side companion of LazyLoadTransform (note the extra *er*
+        here)
+        * FooterTransformer: seems to be more UI than content, requires I18N, too
       produces:
-        - text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Content-HTML/1.0.0"
+        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Content-HTML/1.0.0"
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
