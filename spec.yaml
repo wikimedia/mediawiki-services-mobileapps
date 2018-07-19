@@ -964,14 +964,14 @@ paths:
             $ref: '#/definitions/problem'
       x-monitor: false
 
-  /{domain}/v1/page/content-html/{title}{/revision}{/tid}:
+  /{domain}/v1/page/mobile-html/{title}{/revision}{/tid}:
     get:
       tags:
         - Page content
-      summary: Get page content HTML
+      summary: Get page content HTML optimized for mobile consumption
       description: |
-        Gets the content HTML for the given page. This content is derived from Parsoid HTML (see
-        `/page/html/{title}` endpoint).
+        Gets the content HTML optimized for mobile consumption for the given page. This content
+        is derived from Parsoid HTML (see `/page/html/{title}` endpoint).
         The difference to Parsoid HTML is roughly:
         * Some elements and attributes not needed for the reading case are removed.
         * LeadIntroductionTransform: The introductory paragraph is moved before an infobox.
@@ -1000,7 +1000,7 @@ paths:
         here)
         * FooterTransformer: seems to be more UI than content, requires I18N, too
       produces:
-        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Content-HTML/1.0.0"
+        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -1080,7 +1080,7 @@ paths:
       summary: Get javascript bundle for page library
       description: |
         Gets the javascript bundle from the wikimedia-page-library so that clients can have
-        convenient access to that for consuming the content-html HTML.
+        convenient access to that for consuming the mobile-html HTML.
         Amongst other things,
         * it allows to detect the platform and through that enable platform specific CSS rules,
         * has code to lazy load images on the page,

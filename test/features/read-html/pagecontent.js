@@ -6,14 +6,14 @@ const assert = require('../../utils/assert.js');
 const headers = require('../../utils/headers.js');
 const server = require('../../utils/server.js');
 
-describe('content-html', function() {
+describe('mobile-html', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
     before(() => server.start());
 
     const localUri = (title, domain = 'en.wikipedia.org') => {
-        return `${server.config.uri}${domain}/v1/page/content-html/${title}`;
+        return `${server.config.uri}${domain}/v1/page/mobile-html/${title}`;
     };
 
     it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
@@ -30,7 +30,7 @@ describe('content-html', function() {
         });
     });
 
-    it('content-html should have css links + viewport set', () => {
+    it('mobile-html should have css links + viewport set', () => {
         const uri = localUri('Foobar/788941783');
         return preq.get({ uri })
         .then((res) => {
@@ -42,7 +42,7 @@ describe('content-html', function() {
         });
     });
 
-    it('content-html should have lead paragraph moved up', () => {
+    it('mobile-html should have lead paragraph moved up', () => {
         const uri = localUri('Dog/844680047');
         return preq.get({ uri })
         .then((res) => {

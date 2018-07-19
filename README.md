@@ -64,9 +64,9 @@ Next generation routes for page content. See [Page_Content_Service](https://www.
 * `http://localhost:6927/{domain}/v1/page/metadata/{title}`
 * `http://localhost:6927/{domain}/v1/page/media/{title}`
 * `http://localhost:6927/{domain}/v1/page/references/{title}`
-* `http://localhost:6927/{domain}/v1/page/read-compat-html/{title}` (no plans to be exposed
+* `http://localhost:6927/{domain}/v1/page/mobile-compat-html/{title}` (no plans to be exposed
 publicly)
-* `http://localhost:6927/{domain}/v1/page/content-html/{title}`
+* `http://localhost:6927/{domain}/v1/page/mobile-html/{title}`
 * `http://localhost:6927/{domain}/v1/data/css/base`
 * `http://localhost:6927/{domain}/v1/data/css/site`
 

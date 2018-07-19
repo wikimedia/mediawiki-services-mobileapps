@@ -12,9 +12,9 @@ const TOP_PAGES_DIR = path.join(__dirname, `../private/page-lists/top-pages/wiki
 const TOP_PAGES_FILE = path.join(TOP_PAGES_DIR, `top-pages.${lang}.json`);
 const GZIP = 'gzip -6';
 const PARSOID_BASE_URI = `https://${lang}.wikipedia.org/api/rest_v1/page/html`;
-const LOCAL_MCS_BASE_URI = `http://localhost:6927/${lang}.wikipedia.org/v1/page/content-html`;
+const LOCAL_MCS_BASE_URI = `http://localhost:6927/${lang}.wikipedia.org/v1/page/mobile-html`;
 
-const headers = ['title', 'parsoid', 'parsoid-gz', 'content-html', 'content-html-gz'];
+const headers = ['title', 'parsoid', 'parsoid-gz', 'mobile-html', 'mobile-html-gz'];
 const measurements = [];
 
 const fixTitleForRequest = (pageTitle) => {
@@ -48,7 +48,7 @@ const processParsoid = (page, measurement) => {
 };
 
 const processReadHtml = (page, measurement) => {
-    return processEndpoint('content-html', LOCAL_MCS_BASE_URI, page, measurement);
+    return processEndpoint('mobile-html', LOCAL_MCS_BASE_URI, page, measurement);
 };
 
 const printResultSummary = () => {
