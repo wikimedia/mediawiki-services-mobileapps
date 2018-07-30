@@ -181,7 +181,7 @@ paths:
         Gets announcements for display in the official Wikipedia iOS and Android apps.
         This is usually used to show announcements for surveys or fundraising.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/announcements/0.2.0"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Announcements/0.2.0"
       parameters:
         - $ref: '#/parameters/domain'
       responses:
@@ -216,7 +216,7 @@ paths:
          - Events: a list of significant events which happened on the provided day and month and which are not covered by the other types yet
          - All: all of the above
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/onthisday/0.3.3"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/OnThisDay/0.3.3"
       parameters:
         - $ref: '#/parameters/domain'
         - name: type
@@ -505,7 +505,7 @@ paths:
         Preference is given to articles with a thumbnail, long extract,
         and an associated Wikidata description.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/random/0.6.0"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Random/0.6.0"
       parameters:
         - $ref: '#/parameters/domain'
       responses:
