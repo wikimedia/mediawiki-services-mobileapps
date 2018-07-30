@@ -746,7 +746,7 @@ paths:
       summary: Get Wiktionary definitions for a word.
       description: Gets definitions for a word parsed from an article in Wiktionary.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.7.4"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.0"
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -784,7 +784,7 @@ paths:
 
         Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/summary/1.3.6"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/summary/1.3.7"
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -855,8 +855,7 @@ paths:
                   talk: /.+/
               api_urls:
                 summary: /.+/
-#                read_html: /.+/
-#                content_html: /.+/
+#                mobile_html: /.+/
                 metadata: /.+/
                 references: /.+/
                 media: /.+/

@@ -23,7 +23,7 @@ router.get('/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
     return parsoid.pageHtmlPromise(app, req, false)
     .then((response) => {
         res.status(200);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.readHtml);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
         mUtil.setETag(res, response.meta.revision);
         mUtil.setLanguageHeaders(res, response.meta._headers);
         // Don't poison the client response with the internal _headers object
@@ -41,7 +41,7 @@ router.get('/mobile-html/:title/:revision?/:tid?', (req, res) => {
     return parsoid.pageHtmlPromise(app, req, true)
     .then((response) => {
         res.status(200);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.readHtml);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
         mUtil.setETag(res, response.meta.revision);
         mUtil.setLanguageHeaders(res, response.meta._headers);
         // Don't poison the client response with the internal _headers object
