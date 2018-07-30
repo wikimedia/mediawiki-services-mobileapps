@@ -93,6 +93,7 @@ paths:
       description: The root service end-point
       produces:
         - application/json
+        - application/problem+json
       responses:
         200:
           description: Success
@@ -116,6 +117,7 @@ paths:
       description: Gets information about the service.
       produces:
         - application/json
+        - application/problem+json
       responses:
         200:
           description: Success
@@ -144,6 +146,7 @@ paths:
       summary: Get availability of featured feed content by wiki domain.
       produces:
         - application/json; charset=utf-8, profile="https://www.mediawiki.org/wiki/Specs/Availability/1.0.1"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
       responses:
@@ -182,6 +185,7 @@ paths:
         This is usually used to show announcements for surveys or fundraising.
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Announcements/0.2.0"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
       responses:
@@ -217,6 +221,7 @@ paths:
          - All: all of the above
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/OnThisDay/0.3.3"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - name: type
@@ -298,6 +303,7 @@ paths:
         Page title of "Today's featured article" (only works on select wikis for now).
       produces:
         - application/json
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/year'
@@ -366,6 +372,7 @@ paths:
         on the domain used.
       produces:
         - application/json
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/year'
@@ -425,6 +432,7 @@ paths:
         Only days prior to today's date are accepted.
       produces:
         - application/json
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/year'
@@ -506,6 +514,7 @@ paths:
         and an associated Wikidata description.
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Random/0.6.0"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
       responses:
@@ -542,6 +551,7 @@ paths:
         (for some wikis for now).
       produces:
         - application/json
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
       responses:
@@ -592,6 +602,7 @@ paths:
         given wiki page.
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.3.1"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -633,6 +644,7 @@ paths:
         Gets additional metadata about a page, primarily from the MediaWiki API.
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.2.0"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -703,6 +715,7 @@ paths:
         appearing on the equivalent page. This content is parsed from Parsoid output.
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/1.0.0"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -747,6 +760,7 @@ paths:
       description: Gets definitions for a word parsed from an article in Wiktionary.
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.0"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -785,6 +799,7 @@ paths:
         Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/summary/1.3.7"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -875,6 +890,7 @@ paths:
         For a faster page load experience the Android app uses the following two endpoints instead.
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.1"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -927,6 +943,7 @@ paths:
         Gets the lead section and general metadata of a given wiki page for the Android app.
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.1"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -949,6 +966,7 @@ paths:
       description: Gets the remaining sections of a given wiki page for the Android app.
       produces:
         - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.1"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -1000,6 +1018,7 @@ paths:
         * FooterTransformer: seems to be more UI than content, requires I18N, too
       produces:
         - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
@@ -1030,6 +1049,7 @@ paths:
       description: Gets the base styles used for viewing all pages in the mobile apps
       produces:
         - text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/1.0.0"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
       responses:
@@ -1055,6 +1075,7 @@ paths:
       description: Gets the site-wide mobile styles for the site, as defined in MediaWiki\:Mobile.css
       produces:
         - text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/1.0.0"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
       responses:
@@ -1086,6 +1107,7 @@ paths:
         * code for collapsing and expanding tables.
       produces:
         - text/javascript; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/JavaScript/1.0.0"
+        - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
       responses:
