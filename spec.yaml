@@ -1713,9 +1713,15 @@ definitions:
   reference_lists:
     type: array
     description: A list of reference lists
+    items:
+      $ref: '#/definitions/reference_list'
+
+  reference_list:
+    type: object
+    description: A single reference list
     properties:
       id:
-        type: string
+        type: ['string', 'null']
         description: Identifier for the whole reference list. May be null.
       section_heading:
         type: object
@@ -1739,7 +1745,6 @@ definitions:
     additionalProperties: false
     required:
       - id
-      - section_heading
       - order
 
   references_by_id:
