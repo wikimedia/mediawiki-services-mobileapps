@@ -1000,7 +1000,6 @@ paths:
           See Theme support below for instructions on how to enable that.
         * Pagelib CSS files needed to display the content are referenced.
         * LazyLoadTransform: server-side portion/prep for lazy loading of images.
-        * CollapseTable: server-side portion/prep for collapsing tables.
 
         What's not included? What parts of the PageLibrary does a client still have to do?
         * Theme support: Themes can be turned on by adding a theme class to the root <html> tag.
@@ -1015,6 +1014,7 @@ paths:
         * PlatformTransform.classify(window) to trigger Android and iOS app specific CSS rules
         * LazyLoadTransformer: client side companion of LazyLoadTransform (note the extra *er*
         here)
+        * CollapseTable: server-side portion/prep for collapsing tables.
         * FooterTransformer: seems to be more UI than content, requires I18N, too
       produces:
         - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
