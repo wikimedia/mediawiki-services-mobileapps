@@ -5,6 +5,19 @@ const parsoid = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
 
 /**
+ * script-src:
+ *   The pagelib JavaScript bundle is served on meta.wikimedia.org.
+ *   We also add a small piece of inline JS to the end of the body to trigger lazyloading.
+ * style-src:
+ *   The site CSS bundle is served from the current domain (TODO: currently assumes WP).
+ *   The base CSS bundle is served on meta.wikimedia.org.
+ *   The pages also have some inline styles.
+ * img-src:
+ *   TODO: need to allow also certain data: URIs for the buttons from the wikimedia-page-library.
+ */
+const HTML_CSP = `default-src 'none'; media-src *; img-src *; script-src https://meta.wikimedia.org 'unsafe-inline'; style-src https://meta.wikimedia.org https://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'`;
+
+/**
  * The main router object
  */
 const router = sUtil.router();
@@ -26,6 +39,7 @@ router.get('/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
         mUtil.setETag(res, response.meta.revision);
         mUtil.setLanguageHeaders(res, response.meta._headers);
+        mUtil.setContentSecurityPolicy(res, HTML_CSP);
         // Don't poison the client response with the internal _headers object
         delete response.meta._headers;
         res.send(response.html).end();
@@ -44,6 +58,7 @@ router.get('/mobile-html/:title/:revision?/:tid?', (req, res) => {
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
         mUtil.setETag(res, response.meta.revision);
         mUtil.setLanguageHeaders(res, response.meta._headers);
+        mUtil.setContentSecurityPolicy(res, HTML_CSP);
         // Don't poison the client response with the internal _headers object
         delete response.meta._headers;
         res.send(response.html).end();

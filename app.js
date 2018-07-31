@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const fs = BBPromise.promisifyAll(require('fs'));
 const sUtil = require('./lib/util');
 const apiUtil = require('./lib/api-util');
+const mUtil = require('./lib/mobile-util');
 const packageInfo = require('./package.json');
 const yaml = require('js-yaml');
 const addShutdown = require('http-shutdown');
@@ -107,9 +108,7 @@ function initApp(options) {
             res.header('x-xss-protection', '1; mode=block');
             res.header('x-content-type-options', 'nosniff');
             res.header('x-frame-options', 'SAMEORIGIN');
-            res.header('content-security-policy', app.conf.csp);
-            res.header('x-content-security-policy', app.conf.csp);
-            res.header('x-webkit-csp', app.conf.csp);
+            mUtil.setContentSecurityPolicy(res, app.conf.csp);
         }
         sUtil.initAndLogRequest(req, app);
         next();

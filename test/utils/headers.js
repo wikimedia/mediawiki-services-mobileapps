@@ -48,12 +48,8 @@ function checkHeaders(uri, expContentType, ...additionalHeaders) {
             assert.deepEqual(res.headers['access-control-allow-headers'],
                 'accept, x-requested-with, content-type');
 
-            assert.deepEqual(res.headers['content-security-policy'],
-                // eslint-disable-next-line max-len
-                "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'");
-            assert.deepEqual(res.headers['x-content-security-policy'],
-                // eslint-disable-next-line max-len
-                "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'");
+            assert.ok(res.headers['content-security-policy'].startsWith(`default-src '`));
+            assert.ok(typeof res.headers['x-content-security-policy'].startsWith(`default-src '`));
 
             assert.deepEqual(res.headers['x-frame-options'], 'SAMEORIGIN');
             // eslint-disable-next-line max-len
