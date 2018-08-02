@@ -5,6 +5,7 @@
     {
       "section_id": 0,
       "type": "image",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Trinidad_and_Tobago_hummingbirds_composite.jpg",
         "normalized": "File:Trinidad and Tobago hummingbirds composite.jpg",
@@ -44,6 +45,7 @@
         "html": "<a rel=\"mw:WikiLink\" href=\"./Purple-throated_carib\" title=\"Purple-throated carib\" id=\"mwTA\">Purple-throated carib</a> feeding at a flower",
         "text": "Purple-throated carib feeding at a flower"
       },
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Purple-throated_carib_hummingbird_feeding.jpg",
         "normalized": "File:Purple-throated carib hummingbird feeding.jpg",
@@ -83,6 +85,7 @@
         "html": "A color plate illustration from <a rel=\"mw:WikiLink\" href=\"./Ernst_Haeckel\" title=\"Ernst Haeckel\" id=\"mwbw\">Ernst Haeckel</a>'s <i id=\"mwcA\"><a rel=\"mw:WikiLink\" href=\"./Kunstformen_der_Natur\" title=\"Kunstformen der Natur\" id=\"mwcQ\">Kunstformen der Natur</a></i> (1899), showing a variety of hummingbirds",
         "text": "A color plate illustration from Ernst Haeckel's Kunstformen der Natur (1899), showing a variety of hummingbirds"
       },
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Haeckel_Trochilidae.jpg",
         "normalized": "File:Haeckel Trochilidae.jpg",
@@ -118,6 +121,7 @@
       "section_id": 15,
       "type": "image",
       "gallery_id": "mwARU",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird_Incubating3.jpg",
         "normalized": "File:Hummingbird Incubating3.jpg",
@@ -154,6 +158,7 @@
       "section_id": 15,
       "type": "image",
       "gallery_id": "mwARU",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird_nest_with_two_chicks_in_Santa_Monica,_CA._Photo_taken_June_26,_2006.jpg",
         "normalized": "File:Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006.jpg",
@@ -182,14 +187,15 @@
         "code": "pd"
       },
       "description": {
-        "html": "Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006.",
-        "text": "Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006."
+        "html": "<p>Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006.\n</p>",
+        "text": "Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006.\n"
       }
     },
     {
       "section_id": 15,
       "type": "image",
       "gallery_id": "mwARU",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Calliope-nest_edit.jpg",
         "normalized": "File:Calliope-nest edit.jpg",
@@ -226,6 +232,7 @@
       "section_id": 15,
       "type": "image",
       "gallery_id": "mwARU",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:AnnasHummingbird-NestCollage.png",
         "normalized": "File:AnnasHummingbird-NestCollage.png",
@@ -254,8 +261,8 @@
         "url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
       },
       "description": {
-        "html": "This is a collage of photographs of an <a href=\"//commons.wikimedia.org/w/index.php?title=Anna%27s_Hummingbird&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"Anna's Hummingbird (page does not exist)\">Anna's Hummingbird</a> nest that fell from a tree in <a href=\"//commons.wikimedia.org/w/index.php?title=Ventura_County,_California&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"Ventura County, California (page does not exist)\">Ventura County, California</a>. The macroscopic shots have been artificially brightened to enhance the view of detail from the original shot, with no intent to distort the image scientifically. The microscopic shots are original. The image is compared to a <a href=\"//commons.wikimedia.org/w/index.php?title=Toothpick&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"Toothpick (page does not exist)\">toothpick</a> for size. The feather in the lower-right macroscopic shot may be from a hatched juvenile; it is only a few millimeters long at most. It can be seen in the upper right in the middle of the nest.",
-        "text": "This is a collage of photographs of an Anna's Hummingbird nest that fell from a tree in Ventura County, California. The macroscopic shots have been artificially brightened to enhance the view of detail from the original shot, with no intent to distort the image scientifically. The microscopic shots are original. The image is compared to a toothpick for size. The feather in the lower-right macroscopic shot may be from a hatched juvenile; it is only a few millimeters long at most. It can be seen in the upper right in the middle of the nest."
+        "html": "This is a collage of photographs of an <a href=\"//commons.wikimedia.org/w/index.php?title=Anna%27s_Hummingbird&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"Anna's Hummingbird (page does not exist)\">Anna's Hummingbird</a> nest that fell from a tree in <a href=\"//commons.wikimedia.org/w/index.php?title=Ventura_County,_California&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"Ventura County, California (page does not exist)\">Ventura County, California</a>.  The macroscopic shots have been artificially brightened to enhance the view of detail from the original shot, with no intent to distort the image scientifically.  The microscopic shots are original.  The image is compared to a <a href=\"//commons.wikimedia.org/w/index.php?title=Toothpick&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"Toothpick (page does not exist)\">toothpick</a> for size.  The feather in the lower-right macroscopic shot may be from a hatched juvenile;  it is only a few millimeters long at most.  It can be seen in the upper right in the middle of the nest.",
+        "text": "This is a collage of photographs of an Anna's Hummingbird nest that fell from a tree in Ventura County, California.  The macroscopic shots have been artificially brightened to enhance the view of detail from the original shot, with no intent to distort the image scientifically.  The microscopic shots are original.  The image is compared to a toothpick for size.  The feather in the lower-right macroscopic shot may be from a hatched juvenile;  it is only a few millimeters long at most.  It can be seen in the upper right in the middle of the nest."
       }
     },
     {
@@ -265,6 +272,7 @@
         "html": "Male Anna's hummingbird showing iridescent crown and gorget feathers",
         "text": "Male Anna's hummingbird showing iridescent crown and gorget feathers"
       },
+      "showInGallery": true,
       "titles": {
         "canonical": "File:AnnasHummingbirdPaloAltoNorvig.jpg",
         "normalized": "File:AnnasHummingbirdPaloAltoNorvig.jpg",
@@ -304,6 +312,7 @@
         "html": "A female <a rel=\"mw:WikiLink\" href=\"./Ruby-throated_hummingbird\" title=\"Ruby-throated hummingbird\" id=\"mwATY\">ruby-throated hummingbird</a> hovering in mid-air",
         "text": "A female ruby-throated hummingbird hovering in mid-air"
       },
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird_Aerodynamics_of_flight.jpg",
         "normalized": "File:Hummingbird Aerodynamics of flight.jpg",
@@ -343,6 +352,7 @@
         "html": "A trail of wake <a rel=\"mw:WikiLink\" href=\"./Vortex\" title=\"Vortex\" id=\"mwATs\">vortices</a> generated by a hummingbird's flight discovered after training a bird to fly through a cloud of neutrally buoyant, helium-filled soap bubbles and recording airflows in the wake with <a rel=\"mw:WikiLink\" href=\"./Stereo_photography\" title=\"Stereo photography\" id=\"mwATw\" class=\"mw-redirect\">stereo photography</a>.<sup about=\"#mwt_present\" class=\"mw-ref\" id=\"cite_ref-65\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-65&quot;},&quot;attrs&quot;:{}}\"><a href=\"./Hummingbird#cite_note-65\" style=\"counter-reset: mw-Ref 65;\"><span class=\"mw-reflink-text\">[65]</span></a></sup>",
         "text": "A trail of wake vortices generated by a hummingbird's flight discovered after training a bird to fly through a cloud of neutrally buoyant, helium-filled soap bubbles and recording airflows in the wake with stereo photography.[65]"
       },
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird_wake_Pengo.svg",
         "normalized": "File:Hummingbird wake Pengo.svg",
@@ -362,7 +372,7 @@
       "artist": {
         "html": "Peter Halasz (<a href=\"https://en.wikipedia.org/wiki/User:Pengo\" class=\"extiw\" title=\"wikipedia:User:Pengo\">Pengo</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>="
       },
-      "credit": "<ul>\n<li>Based on diagram seen in: <i>Analysis of Vertebrate Structure</i>, 5th Ed. (textbook) Milton Hildebrand, George Goslow. 2001. Figure 28.15. p537.</li>\n<li>Torus created in <a href=\"//commons.wikimedia.org/wiki/File:Aoi_icon64.png\" class=\"image\"><img alt=\"Aoi icon64.png\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/20px-Aoi_icon64.png\" width=\"20\" height=\"20\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/30px-Aoi_icon64.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/40px-Aoi_icon64.png 2x\" data-file-width=\"64\" data-file-height=\"64\"></a> <a href=\"https://en.wikipedia.org/wiki/Art_of_Illusion\" class=\"extiw\" title=\"w:Art of Illusion\">Art of Illusion</a> and re-vectorised in Inkscape (via PoTrace).</li>\n</ul>\n<div class=\"mw-content-ltr\">\n<table cellspacing=\"0\" style=\"color:#000;background:#DDD;border:1px solid #BBB;margin:.1em;width:;\" class=\"createdwithtemplate layouttemplate\"><tr>\n<td style=\"width:1.2em;height:1.2em;padding:.2em;\">\n<div class=\"center\">\n<div class=\"floatnone\"><a href=\"//commons.wikimedia.org/wiki/File:Inkscape-un.svg\" title=\"File:Inkscape-un.svg\"><img alt=\"Inkscape-un.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/20px-Inkscape-un.svg.png\" width=\"20\" height=\"17\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/30px-Inkscape-un.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/40px-Inkscape-un.svg.png 2x\" data-file-width=\"500\" data-file-height=\"420\"></a></div>\n</div>\n</td>\n<td style=\"font-size:.85em;padding:.2em;vertical-align:middle;\">This  <a href=\"https://en.wikipedia.org/wiki/Vector_images\" class=\"extiw\" title=\"w:Vector images\">vector image</a> was created with <a href=\"https://en.wikipedia.org/wiki/Inkscape\" class=\"extiw\" title=\"w:Inkscape\">Inkscape</a>.</td>\n</tr></table>\n</div>",
+      "credit": "<ul>\n<li>Based on diagram seen in: <i>Analysis of Vertebrate Structure</i>, 5th Ed. (textbook) Milton Hildebrand, George Goslow. 2001. Figure 28.15. p537.</li>\n<li>Torus created in <a href=\"//commons.wikimedia.org/wiki/File:Aoi_icon64.png\" class=\"image\"><img alt=\"Aoi icon64.png\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/20px-Aoi_icon64.png\" width=\"20\" height=\"20\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/30px-Aoi_icon64.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/40px-Aoi_icon64.png 2x\" data-file-width=\"64\" data-file-height=\"64\"></a> <a href=\"https://en.wikipedia.org/wiki/Art_of_Illusion\" class=\"extiw\" title=\"w:Art of Illusion\">Art of Illusion</a> and re-vectorised in Inkscape (via PoTrace).</li>\n</ul>\n<div class=\"mw-content-ltr\">\n<table cellspacing=\"0\" style=\"color:#000;background:#DDD;border:1px solid #BBB;margin:.1em;width:;\" class=\"createdwithtemplate layouttemplate\"><tbody><tr>\n<td style=\"width:1.2em;height:1.2em;padding:.2em;\">\n<div class=\"center\"><div class=\"floatnone\"><a href=\"//commons.wikimedia.org/wiki/File:Inkscape-un.svg\" title=\"File:Inkscape-un.svg\"><img alt=\"Inkscape-un.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/20px-Inkscape-un.svg.png\" width=\"20\" height=\"17\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/30px-Inkscape-un.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/40px-Inkscape-un.svg.png 2x\" data-file-width=\"500\" data-file-height=\"420\"></a></div></div>\n</td>\n<td style=\"font-size:.85em;padding:.2em;vertical-align:middle;\">This  <a href=\"https://en.wikipedia.org/wiki/Vector_images\" class=\"extiw\" title=\"w:Vector images\">vector image</a> was created with <a href=\"https://en.wikipedia.org/wiki/Inkscape\" class=\"extiw\" title=\"w:Inkscape\">Inkscape</a>.\n</td>\n</tr></tbody></table>\n</div>",
       "license": {
         "type": "CC BY-SA 3.0",
         "code": "cc-by-sa-3.0",
@@ -442,6 +452,7 @@
           "height": "474"
         }
       ],
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird_feeding_closeup_2000fps.webm",
         "normalized": "File:Hummingbird feeding closeup 2000fps.webm",
@@ -467,6 +478,7 @@
         "html": "High speed capture sequence of two <a rel=\"mw:WikiLink\" href=\"./Velvet-purple_coronet\" title=\"Velvet-purple coronet\" id=\"mwAWA\">velvet-purple coronets</a> sparring near a hummingbird feeder in Ecuador",
         "text": "High speed capture sequence of two velvet-purple coronets sparring near a hummingbird feeder in Ecuador"
       },
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Velvet-purple_coronets_sequence.tif",
         "normalized": "File:Velvet-purple coronets sequence.tif",
@@ -507,6 +519,7 @@
         "html": "<a rel=\"mw:WikiLink\" href=\"./Lesser_violetear\" title=\"Lesser violetear\" id=\"mwAbA\">Lesser violetear</a> at a flower",
         "text": "Lesser violetear at a flower"
       },
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Colibri-thalassinus-001-edit.jpg",
         "normalized": "File:Colibri-thalassinus-001-edit.jpg",
@@ -608,6 +621,7 @@
           "height": "480"
         }
       ],
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird.ogg",
         "normalized": "File:Hummingbird.ogg",
@@ -643,6 +657,7 @@
         "html": "Hummingbirds hovering at an artificial nectar feeder",
         "text": "Hummingbirds hovering at an artificial nectar feeder"
       },
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbirds_at_feeder.jpg",
         "normalized": "File:Hummingbirds at feeder.jpg",
@@ -682,6 +697,7 @@
         "html": "<a rel=\"mw:WikiLink\" href=\"./Huitzilopochtli\" title=\"Huitzilopochtli\" id=\"mwAiw\">Huitzilopochtli</a> wielding the <a rel=\"mw:WikiLink\" href=\"./Xiuhcoatl\" title=\"Xiuhcoatl\" id=\"mwAi0\">xiuhcoatl</a>, as depicted in the <a rel=\"mw:WikiLink\" href=\"./Tovar_Codex\" title=\"Tovar Codex\" id=\"mwAi4\" class=\"mw-redirect\">Tovar Codex</a>.",
         "text": "Huitzilopochtli wielding the xiuhcoatl, as depicted in the Tovar Codex."
       },
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Huitzilopochtli,_the_Principal_Aztec_God_WDL6725.png",
         "normalized": "File:Huitzilopochtli, the Principal Aztec God WDL6725.png",
@@ -721,6 +737,7 @@
         "html": "Aerial photograph of hummingbird image as part of <a rel=\"mw:WikiLink\" href=\"./Nazca_Lines\" title=\"Nazca Lines\" id=\"mwAjM\">Nazca Lines</a> in <a rel=\"mw:WikiLink\" href=\"./Peru\" title=\"Peru\" id=\"mwAjQ\">Peru</a>",
         "text": "Aerial photograph of hummingbird image as part of Nazca Lines in Peru"
       },
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Nazca_colibri.jpg",
         "normalized": "File:Nazca colibri.jpg",
@@ -752,6 +769,7 @@
         "html": "Hummingbird as part of the emblem for Caribbean Airlines",
         "text": "Hummingbird as part of the emblem for Caribbean Airlines"
       },
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Caribbean_Airlines_logo-600x270.png",
         "normalized": "File:Caribbean Airlines logo-600x270.png",
@@ -846,6 +864,7 @@
           "height": "474"
         }
       ],
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Humming_birds_feeding_at_1500fps.webm",
         "normalized": "File:Humming birds feeding at 1500fps.webm",
@@ -877,6 +896,7 @@
       "section_id": 30,
       "type": "image",
       "gallery_id": "mwAkw",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird_feeding.jpg",
         "normalized": "File:Hummingbird feeding.jpg",
@@ -913,6 +933,7 @@
       "section_id": 30,
       "type": "image",
       "gallery_id": "mwAkw",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird_headshot.jpg",
         "normalized": "File:Hummingbird headshot.jpg",
@@ -949,6 +970,7 @@
       "section_id": 30,
       "type": "image",
       "gallery_id": "mwAkw",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Eugenes-fulgens-001.jpg",
         "normalized": "File:Eugenes-fulgens-001.jpg",
@@ -987,6 +1009,7 @@
       "section_id": 30,
       "type": "image",
       "gallery_id": "mwAkw",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird.jpg",
         "normalized": "File:Hummingbird.jpg",
@@ -1022,6 +1045,7 @@
       "section_id": 30,
       "type": "image",
       "gallery_id": "mwAkw",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
         "normalized": "File:Juvenile Annas Hummingbird at San Francisco Botanical Garden - Stierch - E.jpg",
@@ -1058,6 +1082,7 @@
       "section_id": 30,
       "type": "image",
       "gallery_id": "mwAkw",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird_Calypte_anna_in_ggp_15n.jpg",
         "normalized": "File:Hummingbird Calypte anna in ggp 15n.jpg",
@@ -1086,14 +1111,15 @@
         "url": "https://creativecommons.org/licenses/by-sa/3.0"
       },
       "description": {
-        "html": "The colors of <a href=\"https://en.wikipedia.org/wiki/en:Hummingbird\" class=\"extiw\" title=\"w:en:Hummingbird\">hummingbird</a>. Species: <i><a href=\"https://en.wikipedia.org/wiki/Calypte_anna\" class=\"extiw\" title=\"en:Calypte anna\">Calypte anna</a></i>.",
-        "text": "The colors of hummingbird. Species: Calypte anna."
+        "html": "<p>The colors of <a href=\"https://en.wikipedia.org/wiki/en:Hummingbird\" class=\"extiw\" title=\"w:en:Hummingbird\">hummingbird</a>. Species: <i><a href=\"https://en.wikipedia.org/wiki/Calypte_anna\" class=\"extiw\" title=\"en:Calypte anna\">Calypte anna</a></i>.\n</p>",
+        "text": "The colors of hummingbird. Species: Calypte anna.\n"
       }
     },
     {
       "section_id": 30,
       "type": "image",
       "gallery_id": "mwAkw",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Nano_Hummingbird.jpg",
         "normalized": "File:Nano Hummingbird.jpg",
@@ -1129,6 +1155,7 @@
       "section_id": 30,
       "type": "image",
       "gallery_id": "mwAkw",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
         "normalized": "File:Hummingbird Chicks in Nest in Cactus in Mesa, Arizona.jpg",
@@ -1165,6 +1192,7 @@
       "section_id": 30,
       "type": "image",
       "gallery_id": "mwAkw",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
         "normalized": "File:Hummingbird Adult in Nest in Cactus in Mesa, Arizona.jpg",
@@ -1201,6 +1229,7 @@
       "section_id": 30,
       "type": "image",
       "gallery_id": "mwAkw",
+      "showInGallery": true,
       "titles": {
         "canonical": "File:Female_Anna's_Hummingbird.JPG",
         "normalized": "File:Female Anna's Hummingbird.JPG",
