@@ -26,9 +26,13 @@ const videoThumbFigure = '<figure typeof="mw:Video/Thumb"><video resource="./Fil
 const videoThumbSpan = '<span typeof="mw:Video/Thumb"><video resource="./File:K"/></span>';
 const videoThumbFigureInline = '<figure-inline typeof="mw:Video/Thumb"><video resource="./File:L"/></figure-inline>';
 
-const audioFigure = '<figure typeof="mw:Audio"><video resource="./File:M"/></figure>';
-const audioSpan = '<span typeof="mw:Audio"><video resource="./File:N"/></span>';
-const audioFigureInline = '<figure-inline typeof="mw:Audio"><video resource="./File:O"/></figure-inline>';
+const audioFigure = '<figure typeof="mw:Audio"><audio resource="./File:M"/></figure>';
+const audioSpan = '<span typeof="mw:Audio"><audio resource="./File:N"/></span>';
+const audioFigureInline = '<figure-inline typeof="mw:Audio"><audio resource="./File:O"/></figure-inline>';
+
+const audioVideoFigure = '<figure typeof="mw:Audio"><video resource="./File:M2"/></figure>';
+const audioVideoSpan = '<span typeof="mw:Audio"><video resource="./File:N2"/></span>';
+const audioVideoFigureInline = '<figure-inline typeof="mw:Audio"><video resource="./File:O2"/></figure-inline>';
 
 const noTypeFigure = '<figure><video resource="./File:P"/></figure>';
 const noTypeSpan = '<span><video resource="./File:Q"/></span>';
@@ -39,7 +43,9 @@ const imageMetadata = '<span class="metadata"><figure typeof="mw:Image"><img res
 
 const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline, mathImage];
 const videos = [videoFigure, videoSpan, videoFigureInline, videoThumbFigure, videoThumbSpan, videoThumbFigureInline];
-const audios = [audioFigure, audioSpan, audioFigureInline];
+const audios = [audioFigure, audioSpan, audioFigureInline,
+    // TODO: remove after Parsoid change https://gerrit.wikimedia.org/r/c/mediawiki/services/parsoid/+/449903 is deployed
+    audioVideoFigure, audioVideoSpan, audioVideoFigureInline];
 const validItems = images.concat(videos).concat(audios);
 
 const noType = [noTypeFigure, noTypeSpan, noTypeFigureInline];
