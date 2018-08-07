@@ -4,11 +4,12 @@ const domino = require('domino');
 const assert = require('../../utils/assert');
 const mut = require('../../../lib/feed/announcements.js'); // module under test
 const config = require('../../../etc/feed/announcements');
+const Platform = config.Platform;
 
-const inactiveAnnouncementDomain = 'de.wikipedia.org';
+const inactiveAnnouncementDomain = 'cs.wikipedia.org';
 const activeAnnouncementDomain = 'en.wikipedia.org';
 
-describe('announcements-unit', () => {
+describe('lib:announcements', () => {
     it('should return no announcement for inactive wiki', () => {
         const res = mut.getAnnouncements(inactiveAnnouncementDomain);
         assert.ok(res.announce.length === 0);
@@ -16,45 +17,49 @@ describe('announcements-unit', () => {
 
     it('should return one or more announcements for active wiki', () => {
         const res = mut.getAnnouncements(activeAnnouncementDomain);
-        assert.ok(res.announce.length === 0);
-        // assert.ok(res.announce.length === 2);
-        // assert.equal(res.announce[0].id, 'ENBROWSEREXTENSION0518ANNOUNCEMENTANDROID');
-        // assert.equal(res.announce[1].id, 'ENBROWSEREXTENSION0518ANNOUNCEMENTIOS');
+        // assert.ok(res.announce.length === 0);
+        assert.ok(res.announce.length === 2);
+        assert.equal(res.announce[0].id, 'MULTILANG0818ANDROIDLATESTEN');
+        assert.equal(res.announce[1].id, 'MULTILANG0818ANDROIDUPDATEPROMPTEN');
     });
+});
 
+describe('lib:announcements:etc', () => {
     it('should return an image (with correct per-platform label)', () => {
-        const announcements = mut.testing.getActiveAnnouncements();
+        const announcements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
         announcements.forEach((announcement) => {
-            if (announcement.id.includes('ANDROID')) {
+            if (announcement.platforms.includes(Platform.ANDROID_V2)) {
                 assert.ok(announcement.image);
                 assert.ok(!announcement.image_url);
             }
-            if (announcement.id.includes('IOS')) {
-                assert.ok(announcement.image_url);
-                assert.ok(!announcement.image);
-            }
+            // if (announcement.platforms.includes(Platform.IOS)) {
+            //     assert.ok(announcement.image_url);
+            //     assert.ok(!announcement.image);
+            // }
         });
     });
 
     it('should return survey type', () => {
-        const announcements = mut.testing.getActiveAnnouncements();
+        const announcements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
         announcements.forEach((elem) => {
             assert.ok(elem.type === 'announcement');
         });
     });
 
     it('countries is an array of strings', () => {
-        const announcements = mut.testing.getActiveAnnouncements();
+        const announcements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
         announcements.forEach((elem) => {
             assert.ok(elem.countries.every(value => typeof value === 'string'));
         });
     });
 
-    it('should not deliver HTML in certain iOS announcements fields', () => {
+    // no iOS announcement this time
+    it.skip('should not deliver HTML in certain iOS announcements fields', () => {
         const doc = domino.createDocument();
+        const activeAnnouncements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
+        const iosAnnouncement = activeAnnouncements.find(a => a.platforms.includes(Platform.IOS));
         // destructure 'id', 'text' and 'action.title' from the iOS announcement
-        const { text, action: { title } }
-            = mut.testing.iosAnnouncement;
+        const { text, action: { title } } = iosAnnouncement;
         const fieldsToCheck = { text, title };
         for (const textOnlyFieldName of Object.keys(fieldsToCheck)) {
             const textToCheck = fieldsToCheck[textOnlyFieldName];
@@ -69,10 +74,12 @@ describe('announcements-unit', () => {
         }
     });
 
-    // not applicable
-    it.skip('should deliver HTML in certain Android announcements fields', () => {
+    it('should deliver HTML in certain Android announcements fields', () => {
         const doc = domino.createDocument();
-        const { text } = mut.testing.androidAnnouncement;
+        const activeAnnouncements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
+        const androidAnnouncement
+            = activeAnnouncements.find(a => a.platforms.includes(Platform.ANDROID_V2));
+        const { text } = androidAnnouncement;
         const fieldsToCheck = { text };
         for (const textOnlyFieldName of Object.keys(fieldsToCheck)) {
             const textToCheck = fieldsToCheck[textOnlyFieldName];
@@ -104,7 +111,7 @@ describe('announcements-unit', () => {
     });
 
     it('buildId should not return lower case characters', () => {
-        const id = mut.testing.buildId('IOS', 'US');
+        const id = config.buildId('IOS', 'US');
         assert.deepEqual(id, id.toUpperCase());
     });
 
