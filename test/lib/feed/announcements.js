@@ -17,10 +17,13 @@ describe('lib:announcements', () => {
 
     it('should return one or more announcements for active wiki', () => {
         const res = mut.getAnnouncements(activeAnnouncementDomain);
-        // assert.ok(res.announce.length === 0);
-        assert.ok(res.announce.length === 2);
-        assert.equal(res.announce[0].id, 'MULTILANG0818ANDROIDLATESTEN');
-        assert.equal(res.announce[1].id, 'MULTILANG0818ANDROIDUPDATEPROMPTEN');
+        if (mut.testing.hasEnded(new Date())) {
+            assert.ok(res.announce.length === 0);
+        } else {
+            assert.ok(res.announce.length === 2);
+            assert.equal(res.announce[0].id, 'MULTILANG0818ANDROIDLATESTEN');
+            assert.equal(res.announce[1].id, 'MULTILANG0818ANDROIDUPDATEPROMPTEN');
+        }
     });
 });
 
