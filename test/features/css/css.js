@@ -15,7 +15,7 @@ describe('css', function() {
 
     before(() => server.start());
 
-    ['/base', '/site'].forEach((cssType) => {
+    ['/base', '/pagelib', '/site'].forEach((cssType) => {
         it(`${cssType} should respond to GET request with expected headers`, () => {
             return checkHeaders(localUri(cssType), contentType, 'cache-control');
         });

@@ -68,6 +68,7 @@ Next generation routes for page content. See [Page_Content_Service](https://www.
 publicly)
 * `http://localhost:6927/{domain}/v1/page/mobile-html/{title}`
 * `http://localhost:6927/{domain}/v1/data/css/base`
+* `http://localhost:6927/{domain}/v1/data/css/pagelib`
 * `http://localhost:6927/{domain}/v1/data/css/site`
 
 #### Mobile Content Service routes
