@@ -35,8 +35,8 @@ describe('mobile-html', function() {
         return preq.get({ uri })
         .then((res) => {
             const document = domino.createDocument(res.body);
-            assert.selectorExistsNTimes(document, 'html > head > link[rel=stylesheet]', 2,
-                'should have 2 css files');
+            assert.selectorExistsNTimes(document, 'html > head > link[rel=stylesheet]', 3,
+                'should have 3 css files');
             assert.selectorExistsNTimes(document, 'html > head > meta[name=viewport]', 1,
                 'should have 1 meta element setting viewport');
         });
