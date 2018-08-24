@@ -202,6 +202,12 @@ class TestPageSpec extends TestSpec {
                     // usemap=\"#ImageMap_1_922168371\"></a>
                     // <map name=\"ImageMap_1_922168371\" id=\"ImageMap_1_922168371\">
                     section.text = section.text.replace(/ImageMap_\d+_\d+/g, 'ImageMap_');
+                    // Simplify the revision numbers in:
+                    // data-mw-deduplicate=\"TemplateStyles:r856303569\"
+                    section.text = section.text.replace(
+                        /(data-mw-deduplicate="TemplateStyles:r)\d+(")/g,
+                        '$1_REV_$2'
+                    );
                 });
             }
 
