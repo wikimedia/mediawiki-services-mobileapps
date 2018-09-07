@@ -31,8 +31,8 @@ describe('references', function() {
                     'id of section_heading');
                 assert.deepEqual(res.body.reference_lists[0].section_heading.html, 'Footnotes',
                     'html of section_heading');
-                assert.deepEqual(res.body.reference_lists[0].id, null,
-                    'id should be defined (but can be null)');
+                assert.ok(res.body.reference_lists[0].id.startsWith('#mwt'),
+                    'id should start with #mwt');
                 assert.deepEqual(res.body.reference_lists[0].order.length, 5,
                     'order should have 5 items');
                 const id = res.body.reference_lists[0].order[0];
