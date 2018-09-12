@@ -3,17 +3,12 @@
 const preq   = require('preq');
 const assert = require('../../utils/assert');
 const server = require('../../utils/server');
-const headers = require('../../utils/headers');
 
 describe('media', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
     before(() => server.start());
-
-    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        return headers.checkHeaders(`${server.config.uri}en.wikipedia.org/v1/page/media/Foobar`);
-    });
 
     it('Sections/deep page should have no media items', () => {
         const uri = `${server.config.uri}test.wikipedia.org/v1/page/media/Sections%2Fdeep`;

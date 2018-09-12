@@ -3,7 +3,6 @@
 const preq   = require('preq');
 const assert = require('../../utils/assert');
 const server = require('../../utils/server');
-const headers = require('../../utils/headers');
 
 describe('announcements', function() {
 
@@ -12,10 +11,6 @@ describe('announcements', function() {
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
     before(() => server.start());
-
-    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        return headers.checkHeaders(activeAnnouncementUri);
-    });
 
     it('should return a valid response', () => {
         return preq.get({ uri: activeAnnouncementUri })

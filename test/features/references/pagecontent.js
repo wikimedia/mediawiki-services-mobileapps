@@ -2,7 +2,6 @@
 
 const preq   = require('preq');
 const assert = require('../../utils/assert.js');
-const headers = require('../../utils/headers.js');
 const server = require('../../utils/server.js');
 
 describe('references', function() {
@@ -14,11 +13,6 @@ describe('references', function() {
     const localUri = (title, domain = 'en.wikipedia.org') => {
         return `${server.config.uri}${domain}/v1/page/references/${title}`;
     };
-
-    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        const uri = localUri('Foobar');
-        return headers.checkHeaders(uri);
-    });
 
     it('should respond with a reference item with back links and content', () => {
         const uri = localUri('User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FFrankenstein/803891963');

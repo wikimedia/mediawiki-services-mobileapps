@@ -34,6 +34,7 @@ router.get('/random/title', (req, res) => {
     .then((result) => {
         res.status(200);
         mUtil.setETag(res, result.meta.etag);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.random);
         res.json(mwapi.buildTitleResponse(result.payload)).end();
     });
 });
@@ -53,6 +54,7 @@ router.get('/random/summary', (req, res) => {
     .then((result) => {
         res.status(200);
         mUtil.setETag(res, result.meta.etag);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.random);
         res.json(result.payload).end();
     });
 });
