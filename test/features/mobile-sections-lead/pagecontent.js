@@ -3,7 +3,6 @@
 const assert = require('../../utils/assert.js');
 const preq   = require('preq');
 const server = require('../../utils/server.js');
-const headers = require('../../utils/headers.js');
 
 const wikiSectionsLead = 'en.wikipedia.org/v1/page/mobile-sections-lead/';
 
@@ -13,10 +12,6 @@ describe('mobile-sections-lead', function() {
 
     before(() => server.start());
 
-    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Foobar`;
-        return headers.checkHeaders(uri);
-    });
     it('Sections/deep page should have a lead object with expected properties', () => {
         const title = `Sections%2Fdeep`;
         const uri = `${server.config.uri}test.wikipedia.org/v1/page/mobile-sections-lead/${title}`;

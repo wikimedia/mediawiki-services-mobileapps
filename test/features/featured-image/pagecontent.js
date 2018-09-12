@@ -3,18 +3,12 @@
 const assert = require('../../utils/assert.js');
 const preq   = require('preq');
 const server = require('../../utils/server.js');
-const headers = require('../../utils/headers.js');
 
 describe('featured-image', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
     before(() => server.start());
-
-    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        const uri = `${server.config.uri}en.wikipedia.org/v1/media/image/featured/2016/04/15`;
-        return headers.checkHeaders(uri, 'application/json');
-    });
 
     it('featured image of 2016/04/15 should have expected properties', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/media/image/featured/2016/04/15`;

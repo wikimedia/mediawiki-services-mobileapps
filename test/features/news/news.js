@@ -3,7 +3,6 @@
 const preq = require('preq');
 const assert = require('../../utils/assert');
 const server = require('../../utils/server');
-const checkHeaders = require('../../utils/headers').checkHeaders;
 const NEWS_TEMPLATES = require('../../../etc/feed/news-sites');
 
 describe('news', function() {
@@ -14,11 +13,6 @@ describe('news', function() {
 
     for (const lang in NEWS_TEMPLATES) {
         if ({}.hasOwnProperty.call(NEWS_TEMPLATES, lang)) {
-            it(`${lang}: should respond with expected headers, incl. CORS and CSP headers`, () => {
-                return checkHeaders(`${server.config.uri}${lang}.wikipedia.org/v1/page/news`,
-                    'application/json');
-            });
-
             it(`${lang}: results list should have expected properties`, () => {
                 return preq.get({ uri: `${server.config.uri + lang}.wikipedia.org/v1/page/news` })
                     .then((res) => {

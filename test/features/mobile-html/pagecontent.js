@@ -3,7 +3,6 @@
 const domino = require('domino');
 const preq   = require('preq');
 const assert = require('../../utils/assert.js');
-const headers = require('../../utils/headers.js');
 const server = require('../../utils/server.js');
 
 describe('mobile-html', function() {
@@ -15,11 +14,6 @@ describe('mobile-html', function() {
     const localUri = (title, domain = 'en.wikipedia.org') => {
         return `${server.config.uri}${domain}/v1/page/mobile-html/${title}`;
     };
-
-    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        const uri = localUri('Foobar');
-        return headers.checkHeaders(uri, headers.HTML_CONTENT_TYPE_REGEX);
-    });
 
     it('HTML should be sectioned', () => {
         const uri = localUri('Foobar/788941783');

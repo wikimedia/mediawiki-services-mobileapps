@@ -3,8 +3,6 @@
 const preq = require('preq');
 const assert = require('../../utils/assert');
 const server = require('../../utils/server');
-const checkHeaders = require('../../utils/headers').checkHeaders;
-const contentType = require('../../utils/headers').CSS_CONTENT_TYPE_REGEX;
 const css = require('../../../lib/css').testing;
 
 const localUri = path => `${server.config.uri}meta.wikimedia.org/v1/data/css/mobile${path}`;
@@ -16,10 +14,6 @@ describe('css', function() {
     before(() => server.start());
 
     ['/base', '/pagelib', '/site'].forEach((cssType) => {
-        it(`${cssType} should respond to GET request with expected headers`, () => {
-            return checkHeaders(localUri(cssType), contentType, 'cache-control');
-        });
-
         it(`${cssType} response should have non-zero length`, () => {
             return preq.get(localUri(cssType)).then(res => assert.ok(res.body.length > 0));
         });

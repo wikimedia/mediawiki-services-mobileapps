@@ -3,7 +3,6 @@
 const server = require('../../utils/server.js');
 const assert = require('../../utils/assert.js');
 const preq = require('preq');
-const headers = require('../../utils/headers');
 
 const eventTypes = [
     'all',
@@ -44,10 +43,6 @@ describe('onthisday', function() {
     }
 
     for (const type of eventTypes) {
-        it(`${type}: should respond to GET req w/expected headers`, () => {
-            headers.checkHeaders(january30uriForEndpointName(type));
-        });
-
         it(`${type}: unsupported language throws 501`, () => {
             return getJanuary30ResponseForEndpointName(type, 'nl')
             .catch((error) => {

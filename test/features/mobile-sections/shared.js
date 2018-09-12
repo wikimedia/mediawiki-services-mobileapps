@@ -1,14 +1,9 @@
 'use strict';
 
 const assert = require('../../utils/assert.js');
-const headers = require('../../utils/headers.js');
 const preq = require('preq');
 
 exports.shouldBehaveLikeMobileSections = function(localUri) {
-    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        const uri = localUri('Foobar');
-        return headers.checkHeaders(uri);
-    });
 
     it('Supports revision number in request URL', () => {
         const title = '%2Fr%2FThe_Donald';

@@ -2,7 +2,6 @@
 
 const preq = require('preq');
 const assert = require('../../utils/assert.js');
-const headers = require('../../utils/headers.js');
 const server = require('../../utils/server.js');
 
 
@@ -38,11 +37,6 @@ describe('summary', function() {
     const localUri = (title, domain = 'en.wikipedia.org') => {
         return `${server.config.uri}${domain}/v1/page/summary/${title}`;
     };
-
-    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        const uri = localUri('Foobar');
-        return headers.checkHeaders(uri);
-    });
 
     it('should respond with expected properties in payload', () => {
         const uri = localUri('Foobar/798652007');

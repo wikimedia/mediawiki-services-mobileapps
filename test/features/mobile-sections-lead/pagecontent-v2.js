@@ -2,7 +2,6 @@
 
 const preq   = require('preq');
 const assert = require('../../utils/assert.js');
-const headers = require('../../utils/headers.js');
 const server = require('../../utils/server.js');
 
 describe('formatted-lead', function() {
@@ -14,11 +13,6 @@ describe('formatted-lead', function() {
     const localUri = (title, domain = 'en.wikipedia.org') => {
         return `${server.config.uri}${domain}/v1/page/formatted-lead/${title}`;
     };
-
-    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        const uri = localUri('Foobar');
-        return headers.checkHeaders(uri);
-    });
 
     it('File pages have a file property', () => {
         const title = 'File:Charlie_and_the_Chocolate_Factory_original_cover.jpg';

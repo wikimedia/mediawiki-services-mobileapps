@@ -4,7 +4,6 @@ const preq = require('preq');
 const assert = require('../../utils/assert');
 const dateUtil = require('../../../lib/dateUtil');
 const server = require('../../utils/server');
-const headers = require('../../utils/headers');
 const testUtil = require('../../utils/testUtil');
 const BLACKLIST = require('../../../etc/feed/blacklist');
 
@@ -19,11 +18,6 @@ describe('most-read articles', function() {
     this.timeout(20000); // eslint-disable-line no-invalid-this
 
     before(() => server.start());
-
-    it('should respond to GET request with expected headers, incl. CORS and CSP headers', () => {
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/most-read/${dateString}`;
-        return headers.checkHeaders(uri);
-    });
 
     it('results list should have expected properties', () => {
         const mergeUriPrefix = "https://en.wikipedia.org/api/rest_v1/page/summary/";
