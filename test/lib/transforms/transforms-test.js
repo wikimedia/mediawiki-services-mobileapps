@@ -117,4 +117,37 @@ describe('lib:transforms', () => {
                 '<p></p>');
         });
     });
+
+    describe('_rmMwIdAttributes', () => {
+        /* See also:
+           https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec/Element_IDs#ID_prefixing_/_pattern
+           https://phabricator.wikimedia.org/diffusion/GPAR/browse/master/lib/utils/jsutils.js$166
+         */
+        function test(input, expected) {
+            const doc = domino.createDocument(input);
+            transforms._rmMwIdAttributes(doc, 'b');
+            assert.deepEqual(doc.body.innerHTML, expected);
+        }
+        it('removes id attribute with -', () => {
+            test(
+                '<b id="mwa-b"></b>',
+                '<b></b>');
+        });
+        it('removes id attribute with _', () => {
+            // _ is covered in the regex by \w
+            test(
+                '<b id="mwa_b"></b>',
+                '<b></b>');
+        });
+        it('does not remove id attribute with id not starting with mw', () => {
+            test(
+                '<b id="abc"></b>',
+                '<b id="abc"></b>');
+        });
+        it('does not remove id attribute with id too long', () => {
+            test(
+                '<b id="mw_too-long"></b>',
+                '<b id="mw_too-long"></b>');
+        });
+    });
 });
