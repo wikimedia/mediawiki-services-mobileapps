@@ -31,15 +31,6 @@ describe('mobile-sections-lead', function() {
                 assert.ok(lead.sections[0].text.length > 0, 'Expected text to be non-empty');
             });
     });
-    it('en San Francisco should have a last modifier', () => {
-        const title = 'San_Francisco';
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
-        return preq.get({ uri })
-            .then((res) => {
-                const lead = res.body;
-                assert.ok(lead.lastmodifier !== undefined);
-            });
-    });
     it('en San Francisco should have a lead object with a geo property', () => {
         const title = 'San_Francisco';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
@@ -48,24 +39,6 @@ describe('mobile-sections-lead', function() {
                 const lead = res.body;
                 assert.equal(lead.geo.latitude, 37.78333333);
                 assert.equal(lead.geo.longitude, -122.41666667);
-            });
-    });
-    it('en Talk:San Francisco should have a lead object with correct namespace property', () => {
-        const title = 'Talk:San_Francisco';
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
-        return preq.get({ uri })
-            .then((res) => {
-                const lead = res.body;
-                assert.ok(lead.ns === 1);
-            });
-    });
-    it('en San Francisco should have a lead object with correct namespace property', () => {
-        const title = 'San_Francisco';
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
-        return preq.get({ uri })
-            .then((res) => {
-                const lead = res.body;
-                assert.ok(lead.ns === 0);
             });
     });
     it('es Savonlinna should have a lead object with a geo property', () => {
@@ -186,16 +159,6 @@ describe('mobile-sections-lead', function() {
                     'Hatnote is repeated in text for backwards compatibility.');
             });
     });
-    it('Enwiki multiple hatnotes are separated by <br> tag', () => {
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/S`;
-        return preq.get({ uri })
-            .then((res) => {
-                assert.equal(res.status, 200);
-                // TODO bring back next week after Parsoid deploys the fix for T177612
-                // assert.ok(res.body.hatnotes.length === 4,
-                //      '4 lines of hatnote inside hatnote property present on lead.');
-            });
-    });
     it('Enwiki Multiple page issues are promoted to lead', () => {
         const title = `User:Jdlrobson%2Fmcs-tests%2Fissues_bug`;
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
@@ -220,15 +183,6 @@ describe('mobile-sections-lead', function() {
                     'No ambox issues class in response.');
             });
     });
-    it('Enwiki Main page has no issues.', () => {
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Main_Page`;
-        return preq.get({ uri })
-            .then((res) => {
-                const err = 'No page issues should be recorded on the main page.';
-                assert.equal(res.status, 200);
-                assert.ok(res.body.issues === undefined, err);
-            });
-    });
     it('Disambiguation pages are flagged.', () => {
         const title = 'Barack_(disambiguation)';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
@@ -239,17 +193,7 @@ describe('mobile-sections-lead', function() {
                     'Disambiguation flag is present in meta data.');
             });
     });
-    it('Most pages are not flagged as disambiguation.', () => {
-        const title = 'Barack Obama';
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
-        return preq.get({ uri })
-            .then((res) => {
-                assert.equal(res.status, 200);
-                assert.ok(res.body.disambiguation === undefined,
-                    'Disambiguation flag is missing in meta data.');
-            });
-    });
-    it('Content model present in response', () => {
+    it('Content model present in response for non-wikitext content', () => {
         const title = 'Schema:RelatedArticles';
         const uri = `${server.config.uri}meta.wikimedia.org/v1/page/mobile-sections-lead/${title}`;
         return preq.get({ uri })

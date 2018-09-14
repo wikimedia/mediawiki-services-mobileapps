@@ -20,23 +20,6 @@ describe('featured', function() {
 
     before(() => server.start());
 
-    it('featured article of 4/15/2016 should have expected properties', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/featured/2016/04/15` })
-            .then((res) => {
-                assert.status(res, 200);
-                assert.contains(res.body.$merge[0],
-                    'v1/page/summary/Cosmic_Stories_and_Stirring_Science_Stories');
-            });
-    });
-
-    it('featured article of 4/29/2016 should have a description', () => {
-        return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/featured/2016/04/29` })
-            .then((res) => {
-                assert.status(res, 200);
-                assert.contains(res.body.$merge[0], 'v1/page/summary/Lightning_(Final_Fantasy)');
-            });
-    });
-
     it('incomplete date should return 404', () => {
         return preq.get({ uri: `${server.config.uri}en.wikipedia.org/v1/page/featured/2016/04` })
             .then((res) => {
@@ -54,27 +37,6 @@ describe('featured', function() {
             }, (err) => {
                 assert.status(err, 404);
             });
-    });
-
-    it('unsupported language', () => {
-        return preq.get({ uri: `${server.config.uri}aa.wikipedia.org/v1/page/featured/2016/04/15` })
-            .then((res) => {
-                throw new Error(`Expected an error, but got status: ${res.status}`);
-            }, (err) => {
-                assert.status(err, 501);
-                assert.equal(err.body.type, 'unsupported_language');
-            });
-    });
-
-    it('unsupported language with aggregated=true should return 204', () => {
-        return preq.get({
-            uri: `${server.config.uri}zh.wikipedia.org/v1/page/featured/2016/04/15`,
-            query: { aggregated: true }
-        })
-        .then((res) => {
-            assert.status(res, 204);
-            assert.deepEqual(!!res.body, false, 'Expected the body to be empty');
-        });
     });
 
     it('Missing TFA should return 204', () => {
