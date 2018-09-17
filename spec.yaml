@@ -597,54 +597,6 @@ paths:
               items:
                 - title: /.+/
 
-  # deprecated
-  /{domain}/v1/page/random/summary:
-    get:
-      tags:
-        - Feed
-      summary: Get a random article summary. (DEPRECATED)
-      description: |
-        Gets basic information about a randomly picked article from main namespace.
-        Preference is given to articles with a thumbnail, long extract,
-        and an associated Wikidata description.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Random/0.6.0"
-        - application/problem+json
-      parameters:
-        - $ref: '#/parameters/domain'
-      responses:
-        200:
-          description: A random (good) article summary
-        400:
-          description: Bad request
-          schema:
-            $ref: '#/definitions/problem'
-        default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
-      x-amples:
-        - title: retrieve a random article summary
-          response:
-            status: 200
-            headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Random/0.6.0"
-              vary: Accept-Encoding
-              etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
-              access-control-allow-headers: accept, x-requested-with, content-type
-              content-security-policy: default-src
-              x-content-security-policy: default-src
-              x-frame-options: SAMEORIGIN
-            body:
-              title: /.+/
-              normalizedtitle: /.+/
-              thumbnail:
-                source: /.+/
-                width: /.+/
-                height: /.+/
-              extract: /.+/
-
   # from routes/feed/news.js
   /{domain}/v1/page/news:
     get:
