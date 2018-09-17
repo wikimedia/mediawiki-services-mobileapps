@@ -1,5 +1,13 @@
 'use strict';
 
+// Featured feed announcement definitions
+//
+// This file contains the definition objects for announcements to be shown
+// in the app featured feeds.
+//
+// Documentation of the various config options:
+// https://www.mediawiki.org/wiki/Specs/Announcements/0.2.0
+
 const AnnouncementType = {
     SURVEY: 'survey',
     FUNDRAISING: 'fundraising',

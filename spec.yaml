@@ -1662,29 +1662,36 @@ definitions:
         description: Unique ID of the announcement
       type:
         type: string
-        description: The type of announcement. Possible values are "survey" or "fundraising".
+        description: The announcement type
+        enum:
+          - survey
+          - fundraising
+          - announcement
       start_time:
         type: string
-        description: The date to begin showing the announcement.
+        description: The ISO 8601 date to begin showing the announcement.
       end_time:
         type: string
-        description: The date to stop showing the announcement.
+        description: The ISO 8601 date to stop showing the announcement.
       platforms:
         type: array
         description: |
-          An array of platforms to display the announcement.
-          Possible values are "iOSApp" or "AndroidApp".
+          An array of platforms on which to display the announcement.
         items:
           type: string
+          enum:
+            - iOSApp
+            - AndroidApp
+            - AndroidAppV2
       text:
         type: string
         description: The text of the announcement
       image:
         type: string
-        description: The URL of the image for the announcement
+        description: \[DEPRECATED\] The URL of the image for the announcement (Android only)
       image_url:
         type: string
-        description: The URL of the image for the announcement (iOS App specific)
+        description: The URL of the image for the announcement
       action:
         $ref: '#/definitions/action'
       caption_HTML:
@@ -1697,6 +1704,42 @@ definitions:
           the country from 'GeoIP' portion of the Set-Cookie header.
         items:
           type: string
+      min_version:
+        type: string
+        description: minimum app version code for which to show the announcement
+      max_version:
+        type: string
+        description: maximum app version code for which to show the announcement
+      beta:
+        type: boolean
+        description: |
+          (AndroidAppV2 only) Optional boolean flag controlling the release builds for which the announcement should be shown.
+          Set to true if the announcement should be shown only in pre-production builds (beta, alpha, dev).
+          Set to false if the announcement should be shown only in release builds.
+          If not defined, the announcement will be shown for all builds.
+      logged_in:
+        type: boolean
+        description: |
+          (AndroidAppV2 only) Optional boolean flag controlling whether announcements should be shown based on the user login state.
+          Set to true if the announcement should be shown only if the user is logged in.
+          Set to false if the announcement should be shown only if the user is NOT logged in.
+          If not defined, the announcement will be shown regardless of the user's login state.
+      reading_list_sync_enabled:
+        type: boolean
+        description: |
+          (AndroidAppV2 only) Optional boolean flag controlling whether announcements should be shown based on whether the user
+          has enabled reading list syncing.
+          Set to true if the announcement should be shown only if the user has enabled reading list syncing.
+          Set to false if the announcement should be shown only if the user has NOT enabled reading list syncing.
+          If not defined, the announcement will be shown regardless of whether the user has enabled reading list syncing.
+      negative_text:
+        type: string
+        description: |
+          (AndroidAppV2 only) text to show on a "negative" button on the announcement. If absent, the button is not shown
+      image_height:
+        type: integer
+        description: |
+          (AndroidAppV2 only) height, in device-independent pixels, of the image portion of the announcement card
     required:
       - id
       - type
