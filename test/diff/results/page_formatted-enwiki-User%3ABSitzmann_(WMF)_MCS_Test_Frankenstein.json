@@ -7,10 +7,10 @@
     "normalizedtitle": "User:BSitzmann (WMF)/MCS/Test/Frankenstein",
     "protection": {
       "edit": [
-        "sysop"
+        "autoconfirmed"
       ],
       "move": [
-        "sysop"
+        "autoconfirmed"
       ]
     },
     "editable": false,
