@@ -1011,7 +1011,6 @@ paths:
             params:
               title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
               revision: 803891963
-              tid: aadc05f2-a952-11e8-8b02-e85dc7d5cd0b
           response:
             status: 200
             headers:
