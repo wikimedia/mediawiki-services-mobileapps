@@ -139,7 +139,7 @@ describe('mobile-sections-lead', function() {
     it('Enwiki Lead_paragraph_move has the infobox moved after the lead paragraph', () => {
         const title = `User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FLead_paragraph_move`;
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
-        const regex = /<span><p>Lead paragraph should appear first/;
+        const regex = /<p>Lead paragraph should appear first/;
         return preq.get({ uri })
             .then((res) => {
                 assert.equal(res.status, 200);
