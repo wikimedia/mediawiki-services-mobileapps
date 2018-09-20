@@ -65,16 +65,6 @@ function buildLeadSections(sections) {
  */
 function buildLead(input, legacy) {
     const lead = domino.createDocument(input.page.sections[0].text);
-
-    if (legacy) {
-        // Move the first good paragraph up for any page except main pages.
-        // It's ok to do unconditionally since we throw away the page
-        // content if this turns out to be a main page.
-        //
-        // TODO: should we also exclude file and other special pages?
-        transforms.legacy.relocateFirstParagraph(lead, lead.body);
-    }
-
     let infobox;
     let intro;
     let sections;
