@@ -221,6 +221,14 @@ describe('lib:summarize follows spec', () => {
         tst('<p>The golden age ( 1917 to 1980) saw lots of inventions.</p>',
             '<p>The golden age saw lots of inventions.</p>');
     });
+    it('removes empty parentheticals with leading comma', () => {
+        tst('<p><b>Cape Verde</b> (), or <b>Cabo Verde</b> (, ), is an island country.</p>',
+            '<p><b>Cape Verde</b>, or <b>Cabo Verde</b>, is an island country.</p>');
+    });
+    it('removes parentheticals beginning and ending with spaces', () => {
+        tst(`<p>The <b>Scythian languages</b> ( or ) are a group of Eastern Iranian languages.</p>`,
+            '<p>The <b>Scythian languages</b> are a group of Eastern Iranian languages.</p>');
+    });
     it('removes parentheticals with multiple words and leading &nbsp;', () => {
         // Content inside parentheticals with multiple words and leading &nbsp; is stripped
         // https://en.wikipedia.org/api/rest_v1/page/html/Ottoman_Empire/822890778
