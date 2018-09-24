@@ -826,7 +826,7 @@
       "section_id": 29,
       "type": "image",
       "caption": {
-        "html": "<a rel=\"mw:WikiLink\" href=\"./Huitzilopochtli\" title=\"Huitzilopochtli\" id=\"mwAjY\">Huitzilopochtli</a> wielding the <a rel=\"mw:WikiLink\" href=\"./Xiuhcoatl\" title=\"Xiuhcoatl\" id=\"mwAjc\">xiuhcoatl</a>, as depicted in the <a rel=\"mw:WikiLink\" href=\"./Tovar_Codex\" title=\"Tovar Codex\" id=\"mwAjg\" class=\"mw-redirect\">Tovar Codex</a>.",
+        "html": "<a rel=\"mw:WikiLink\" href=\"./Huitzilopochtli\" title=\"Huitzilopochtli\" id=\"mwAjY\" class=\"mw-redirect\">Huitzilopochtli</a> wielding the <a rel=\"mw:WikiLink\" href=\"./Xiuhcoatl\" title=\"Xiuhcoatl\" id=\"mwAjc\">xiuhcoatl</a>, as depicted in the <a rel=\"mw:WikiLink\" href=\"./Tovar_Codex\" title=\"Tovar Codex\" id=\"mwAjg\" class=\"mw-redirect\">Tovar Codex</a>.",
         "text": "Huitzilopochtli wielding the xiuhcoatl, as depicted in the Tovar Codex."
       },
       "showInGallery": true,
