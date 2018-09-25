@@ -5,8 +5,6 @@ const htmlDebug = require('./html-debug');
 // To update the expected test results temporarily set the constant UPDATE_EXPECTED_RESULTS to true.
 // After the run consider updating the TestSpec constructors later in this file to paste in the
 // revisions and time ids (if any were left out or need to be updated).
-// You may want to uncomment the console.log in parsoid-access.getRevisionFromEtag() to get the
-// tid values from Parsoid.
 const UPDATE_EXPECTED_RESULTS = false;
 
 // If enabled creates HTML files, one for each section covered by the diff tests.
@@ -126,7 +124,6 @@ class TestSpec {
  * @protected {!string} _route
  * @protected {!string} _title
  * @protected {?string} _revision
- * @protected {?string} _tid
  */
 class TestPageSpec extends TestSpec {
     /**
@@ -134,13 +131,11 @@ class TestPageSpec extends TestSpec {
      * @param {!string} route endpoint specifier
      * @param {!string} title human readable page title (unencoded)
      * @param {?string} revision revision of the page when the expectation was saved
-     * @param {?string} tid time id of the page when the expectation was saved
      */
-    constructor(domain, route, title, revision, tid) {
+    constructor(domain, route, title, revision) {
         super(domain, route, [title, revision]);
         this._title = title;
         this._revision = revision;
-        this._tid = tid;
     }
 
     /**
@@ -168,9 +163,6 @@ class TestPageSpec extends TestSpec {
         let path = `${this._domain}/v1/${this._route}/${this.encodedTitle()}`;
         if (this._revision) {
             path += `/${this._revision}`; // prefer revisions for more stability
-            if (this._tid) {
-                path += `/${this._tid}`; // prefer tid for even more stability
-            }
         }
         return path;
     }
@@ -190,11 +182,6 @@ class TestPageSpec extends TestSpec {
 
             // to be able to generate a constructor with the revision
             this._revision = input.lead.revision;
-            // It's better to also get the tid but that one is harder to get
-            // Experiment: getting tid from mobile-sections / formatted responses:
-            // const etag = rsp.headers.etag;
-            // const match = etag && etag.match(/\/(\S+)"$/, '');
-            // this._tid = match && match[1];
 
             if (input.remaining) {
                 input.remaining.sections.forEach((section) => {
@@ -235,9 +222,6 @@ class TestPageSpec extends TestSpec {
 
         if (this._revision) {
             optionalParams = `, '${this._revision}'`;
-            if (this._tid) {
-                optionalParams += `, '${this._tid}'`;
-            }
         }
 
         return `    new TestPageSpec(${requiredParams}${optionalParams}),`;
@@ -252,17 +236,17 @@ const TEST_SPECS = [
 
     /* Note: to add a time uuid uncomment a line in parsoid-access.js getRevisionFromEtag() */
 
-    new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682', '45076ace-ec99-11e6-8bd2-d4f45196333f'),
-    new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613', 'cb218d7e-30dc-11e7-8133-b946c9a92329'),
+    new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'),
+    new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'),
 
-    new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682', '45076ace-ec99-11e6-8bd2-d4f45196333f'),
-    new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613', 'cb218d7e-30dc-11e7-8133-b946c9a92329'),
+    new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'),
+    new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'),
 
-    new TestPageSpec('en.wikipedia.org', 'page/media', 'Hummingbird', '810247947', '7573614c-27ae-11e8-acd8-c3391cf3a42b'),
+    new TestPageSpec('en.wikipedia.org', 'page/media', 'Hummingbird', '810247947'),
 
-    new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/SimpleReference', '2640831', 'ab21dbfa-f23b-11e7-9ffb-8e725cd7335b'),
-    new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/MultipleReflists', '2640615', '830e4743-f238-11e7-ab56-48e0735b1d90'),
-    new TestPageSpec('en.wikipedia.org', 'page/references', 'Neutronium', '857150438', '9c6d9eda-abd5-11e8-aea3-d35446d895a5'),
+    new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/SimpleReference', '2640831'),
+    new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/MultipleReflists', '2640615'),
+    new TestPageSpec('en.wikipedia.org', 'page/references', 'Neutronium', '857150438'),
 
     // new TestSpec('en.wiktionary.org', 'page/definition', ['cat']),
 ];
