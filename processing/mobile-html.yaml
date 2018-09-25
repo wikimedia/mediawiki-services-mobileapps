@@ -52,6 +52,7 @@
 - prepForTheme
 - relocateFirstParagraph
 - addSectionEditButtons
+- prepForCollapseTable
 - widenImages
 - lazyLoadImagePrep
 - addCssLinks

@@ -8,6 +8,7 @@ const lib = require('../../../lib/domUtil');
 const headHtml1
     = `<html><head>
         <base href="//en.wikipedia.org/wiki/"/>
+        <title>Hope (painting)</title>
         <link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/Hope_(painting)"/>
     </head></html>`;
 
@@ -51,6 +52,13 @@ describe('lib:domUtil', () => {
         it('returns URL with https protocol', () => {
             const doc = domino.createDocument(headHtml1);
             assert.deepEqual(lib.getHttpsBaseUri(doc), 'https://en.wikipedia.org/wiki/');
+        });
+    });
+
+    describe('getParsoidPlainTitle', () => {
+        it('getParsoidPlainTitle should return normalized title', () => {
+            const doc = domino.createDocument(headHtml1);
+            assert.deepEqual(lib.getParsoidPlainTitle(doc), 'Hope (painting)');
         });
     });
 
