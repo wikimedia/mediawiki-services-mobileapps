@@ -991,7 +991,7 @@ paths:
         Gets the full page content of a given wiki page for the Android app.
         For a faster page load experience the Android app uses the following two endpoints instead.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.2"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.3"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
@@ -1014,7 +1014,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.2"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.3"
               content-language: en
               vary: Accept-Encoding
               etag: /^"[^/"]+/[^/"]+"$/
@@ -1053,7 +1053,7 @@ paths:
       description: |
         Gets the lead section and general metadata of a given wiki page for the Android app.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.2"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.3"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
@@ -1076,7 +1076,7 @@ paths:
       summary: Get non-lead sections of a page.
       description: Gets the remaining sections of a given wiki page for the Android app.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.2"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.3"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
