@@ -692,7 +692,7 @@ paths:
             headers:
               content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.0"
               content-language: en
-              vary: Accept-Encoding
+              vary: Accept, Accept-Encoding
               etag: /^"[^/"]+/[^/"]+"$/
               access-control-allow-origin: '*'
               access-control-allow-headers: accept, x-requested-with, content-type
@@ -1016,7 +1016,7 @@ paths:
             headers:
               content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.3"
               content-language: en
-              vary: Accept-Encoding
+              vary: Accept, Accept-Encoding
               etag: /^"[^/"]+/[^/"]+"$/
               access-control-allow-origin: '*'
               access-control-allow-headers: accept, x-requested-with, content-type
