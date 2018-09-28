@@ -46,7 +46,7 @@
       },
       {
         "id": 4,
-        "text": "\n<p><a href=\"//upload.wikimedia.org/wikipedia/commons/5/53/Classical_guitar_scale.ogg\" title=\"Classical guitar scale.ogg\">Sound</a></p>\n\n",
+        "text": "\n<p><a href=\"//upload.wikimedia.org/wikipedia/commons/5/53/Classical_guitar_scale.ogg\" resource=\"./Media:Classical_guitar_scale.ogg\" title=\"Classical guitar scale.ogg\">Sound</a></p>\n\n",
         "toclevel": 1,
         "line": "Media",
         "anchor": "Media"
