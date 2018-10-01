@@ -28,7 +28,7 @@
       },
       {
         "id": 3,
-        "text": "\n<div class=\"mw-references-wrap\"><ol class=\"mw-references references\"><li id=\"cite_note-1\"><a href=\"./User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding#cite_ref-1\"><span class=\"mw-linkback-text\">↑ </span></a> <span id=\"mw-reference-text-cite_note-1\" class=\"mw-reference-text\">There's something else <a href=\"./Foo\" title=\"Foo\" class=\"mw-redirect\">Foo</a></span></li></ol></div>",
+        "text": "\n<div class=\"mw-references-wrap\" about=\"#mwt_present\"><ol class=\"mw-references references\"><li id=\"cite_note-1\"><a href=\"./User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding#cite_ref-1\"><span class=\"mw-linkback-text\">↑ </span></a> <span id=\"mw-reference-text-cite_note-1\" class=\"mw-reference-text\">There's something else <a href=\"./Foo\" title=\"Foo\" class=\"mw-redirect\">Foo</a></span></li></ol></div>",
         "toclevel": 1,
         "line": "References",
         "anchor": "References",
