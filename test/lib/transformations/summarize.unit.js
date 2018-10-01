@@ -229,6 +229,10 @@ describe('lib:summarize follows spec', () => {
         tst(`<p>The <b>Scythian languages</b> ( or ) are a group of Eastern Iranian languages.</p>`,
             '<p>The <b>Scythian languages</b> are a group of Eastern Iranian languages.</p>');
     });
+    it('removes nested parentheticals for non-Latin parens', () => {
+        tst('<p><b>羽生 結弦</b>（はにゅう ゆづる、1994年（平成6年）12月7日 - ）は、宮城県仙台市泉区出身のフィギュアスケート選手（男子シングル）。</p>',
+            '<p><b>羽生 結弦</b> は、宮城県仙台市泉区出身のフィギュアスケート選手（男子シングル）。</p>');
+    });
     it('removes parentheticals with multiple words and leading &nbsp;', () => {
         // Content inside parentheticals with multiple words and leading &nbsp; is stripped
         // https://en.wikipedia.org/api/rest_v1/page/html/Ottoman_Empire/822890778
