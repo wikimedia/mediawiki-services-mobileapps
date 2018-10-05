@@ -87,13 +87,6 @@ describe('lib:extractReferenceLists', () => {
     });
 
     describe('section headings', () => {
-        it('white space ignored', () => {
-            assert.ok(!lib.testing.reNonWhiteSpace.test(' '));
-            assert.ok(!lib.testing.reNonWhiteSpace.test('\t'));
-            assert.ok(!lib.testing.reNonWhiteSpace.test('\r'));
-            assert.ok(!lib.testing.reNonWhiteSpace.test('\n'));
-        });
-
         it('only white space around', () => {
             const doc = domino.createDocument(
                 '<section data-mw-section-id="1">'
@@ -128,8 +121,11 @@ describe('lib:extractReferenceLists', () => {
                 + '</section>');
 
             const refLists = extractReferenceLists(doc, logger);
-            assert.deepEqual(refLists.reference_lists.length, 0,
-                'only add reference_list if the section would be empty');
+            assert.deepEqual(refLists.reference_lists.length, 1);
+            assert.deepEqual(refLists.reference_lists[0].section_heading, {
+                id: 'References',
+                html: 'References'
+            });
         });
 
         it('with extra text after', () => {
@@ -145,8 +141,11 @@ describe('lib:extractReferenceLists', () => {
                 + '</section>');
 
             const refLists = extractReferenceLists(doc, logger);
-            assert.deepEqual(refLists.reference_lists.length, 0,
-                'only add reference_list if the section would be empty');
+            assert.deepEqual(refLists.reference_lists.length, 1);
+            assert.deepEqual(refLists.reference_lists[0].section_heading, {
+                id: 'References',
+                html: 'References'
+            });
         });
 
         it('nested section only adds direct parent', () => {
