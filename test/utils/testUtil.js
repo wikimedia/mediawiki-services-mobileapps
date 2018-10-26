@@ -2,6 +2,10 @@
 
 const dateUtil = require('../../lib/dateUtil');
 const Template = require('swagger-router').Template;
+const domino = require('domino');
+const fs = require('fs');
+const path = require('path');
+const FIXTURES = 'test/fixtures/';
 
 const testUtil = {};
 
@@ -24,5 +28,14 @@ testUtil.rbTemplate = new Template({
     headers: '{{request.headers}}',
     body: '{{request.body}}'
 });
+
+/**
+ * @param {!string} fileName name of the fixture file to load
+ * @return {!Document}
+ */
+testUtil.readTestFixtureDoc = (fileName) => {
+    const html = fs.readFileSync(path.resolve(FIXTURES, fileName));
+    return domino.createDocument(html);
+};
 
 module.exports = testUtil;
