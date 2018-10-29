@@ -46,6 +46,7 @@
 
 # PCS Transforms
 
+- addRtlPageLibSupport
 - pcsHideRedLinks
 - adjustThumbWidths
 - prepForTheme
