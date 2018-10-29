@@ -69,7 +69,7 @@
     "swagger-router": "^0.7.1",
     "swagger-ui": "git+https://github.com/wikimedia/swagger-ui#master",
     "underscore": "^1.8.3",
-    "wikimedia-page-library": "^6.1.1"
+    "wikimedia-page-library": "^6.2.0"
   },
   "devDependencies": {
     "ajv": "^6.5.1",

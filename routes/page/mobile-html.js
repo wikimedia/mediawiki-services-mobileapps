@@ -1,8 +1,13 @@
 'use strict';
 
+const BBPromise = require('bluebird');
+const domUtil = require('../../lib/domUtil');
+const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
-const parsoid = require('../../lib/parsoid-access');
+const parsoidApi = require('../../lib/parsoid-access');
+const preprocessParsoidHtml = require('../../lib/processing');
 const sUtil = require('../../lib/util');
+const transforms = require('../../lib/transforms');
 
 /**
  * script-src:
@@ -33,7 +38,7 @@ let app;
  * suitable for the reading use cases.
  */
 router.get('/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
-    return parsoid.pageHtmlPromise(app, req, false)
+    return parsoidApi.pageDocumentPromise(app, req, false)
     .then((response) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
@@ -42,7 +47,7 @@ router.get('/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
         mUtil.setContentSecurityPolicy(res, HTML_CSP);
         // Don't poison the client response with the internal _headers object
         delete response.meta._headers;
-        res.send(response.html).end();
+        res.send(response.document.outerHTML).end();
     });
 });
 
@@ -52,16 +57,28 @@ router.get('/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
  * clients.
  */
 router.get('/mobile-html/:title/:revision?/:tid?', (req, res) => {
-    return parsoid.pageHtmlPromise(app, req, true)
-    .then((response) => {
+    return BBPromise.props({
+        parsoid: parsoidApi.pageDocumentPromise(app, req, true),
+        mw: mwapi.getMetadataForMobileHtml(app, req)
+    }).then((response) => {
+        return BBPromise.props({
+            // run another processing script after we've retrieved the metadata response from MW API
+            processedParsoidResponse: preprocessParsoidHtml(response.parsoid.document,
+                app.conf.processing_scripts['mobile-html-post-meta'],
+                { mw: response.mw, parsoid: response.parsoid }),
+            parsoid: BBPromise.resolve(response.parsoid),
+            mw: BBPromise.resolve(response.mw)
+        });
+    }).then((response) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
-        mUtil.setETag(res, response.meta.revision);
-        mUtil.setLanguageHeaders(res, response.meta._headers);
+        mUtil.setETag(res, response.parsoid.meta.revision);
+        mUtil.setLanguageHeaders(res, response.parsoid.meta._headers);
         mUtil.setContentSecurityPolicy(res, HTML_CSP);
         // Don't poison the client response with the internal _headers object
-        delete response.meta._headers;
-        res.send(response.html).end();
+        delete response.parsoid.meta._headers;
+
+        res.send(response.processedParsoidResponse.outerHTML).end();
     });
 });
 

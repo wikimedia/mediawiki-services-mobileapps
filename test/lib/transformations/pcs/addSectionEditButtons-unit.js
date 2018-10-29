@@ -14,9 +14,9 @@ describe('lib:addSectionEditButtons', () => {
         addSectionEditButtons(document, 'Dog');
 
         assert.selectorExistsNTimes(document, '.pagelib_edit_section_header', 46, 'post transform');
-        assert.selectorExistsNTimes(document, '.pagelib_edit_section_link_container', 47, 'post 2');
-        assert.selectorExistsNTimes(document, '.pagelib_edit_section_link', 47, 'post tx 3');
+        assert.selectorExistsNTimes(document, '.pagelib_edit_section_link_container', 46, 'post 2');
+        assert.selectorExistsNTimes(document, '.pagelib_edit_section_link', 46, 'post tx 3');
         assert.deepEqual(document.querySelector('.pagelib_edit_section_link').href,
-            '/w/index.php?title=Dog&action=edit&section=0', 'post tx 4: first edit link');
+            '/w/index.php?title=Dog&action=edit&section=1', 'post tx 4: edit link for section 1');
     });
 });
