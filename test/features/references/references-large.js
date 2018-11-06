@@ -2,8 +2,9 @@
 
 const topPages = require('../../../private/page-lists/top-pages/wikipedia/top-pages.en.json').items;
 
-const server = require('../../utils/server.js');
-const assert = require('../../utils/assert.js');
+const server = require('../../utils/server');
+const assert = require('../../utils/assert');
+const mUtil = require('../../../lib/mobile-util');
 const domino = require('domino');
 const preq = require('preq');
 
@@ -30,7 +31,12 @@ describe('references-large', function() {
     }
 
     function prodParsoid(title, rev, lang = 'en') {
-        return `https://${lang}.wikipedia.org/api/rest_v1/page/html/${uriSuffix(title, rev)}`;
+        return {
+            uri: `https://${lang}.wikipedia.org/api/rest_v1/page/html/${uriSuffix(title, rev)}`,
+            headers: {
+                accept: mUtil.getContentTypeString(mUtil.CONTENT_TYPES.html),
+            }
+        };
     }
 
     function uriForEndpointName(title, rev, lang = 'en') {
@@ -102,8 +108,12 @@ describe('references-large', function() {
         let referencesResponse;
         const uri = uriForEndpointName(title, rev);
         console.log(uri);
-        return preq.get(uri)
-        .then((response) => {
+        return preq.get({
+            uri,
+            headers: {
+                accept: mUtil.getContentTypeString(mUtil.CONTENT_TYPES.references)
+            }
+        }).then((response) => {
             referencesResponse = response;
             verifyNonEmptyResults(response, uri);
             console.log(prodParsoid(title, rev));
