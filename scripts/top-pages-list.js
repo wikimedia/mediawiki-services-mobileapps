@@ -64,7 +64,7 @@ const processOnePage = (page) => {
         }
         const etag = rsp.headers.etag;
         const revMatch = /"(\S+?)"/m.exec(etag);
-        page.rev = revMatch[1];
+        page.rev = revMatch[1].split('/')[0];
         return page;
     }).catch((err) => {
         if (err.status === 504) {
