@@ -2,7 +2,7 @@
 
 const assert = require('../../utils/assert');
 const media = require('../../../lib/media');
-const getStructuredArtistInfo = media.testing.getStructuredArtistInfo;
+const getStructuredArtistInfo = media.getStructuredArtistInfo;
 
 const imageWithCaption =
     '<figure typeof="mw:Image">' +

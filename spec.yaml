@@ -451,6 +451,10 @@ paths:
                 source: /.+/
                 width: /.+/
                 height: /.+/
+              credit: /.+/
+              license: /.+/
+              artist: /.+/
+              file_page: /.+/
               thumbnail:
                 source: /.+/
                 width: /.+/
@@ -1607,10 +1611,44 @@ definitions:
         $ref: '#/definitions/image_props'
       description:
         $ref: '#/definitions/image_description'
+      file_page:
+        type: string
+        description: Full URL to the file page for the item on Wikimedia Commons
+      artist:
+        type: object
+        description: structured info about the author of the media item
+        properties:
+          html:
+            type: string
+            description: HTML string describing the artist
+          name:
+            type: string
+            description: the plain text artist name, if available
+          user_page:
+            type: string
+            description: Wikimedia Commons user page for the artist, if available
+        required:
+          - html
+      credit:
+        type: string
+        description: source of the media item
+      license:
+        type: object
+        description: license under which the media item is available on Wikimedia Commons
+        properties:
+          type:
+            type: string
+            description: license type
+          url:
+            type: string
+            description: URL describing the terms and conditions of the license, if any
+        required:
+          - type
     required:
       - title
       - thumbnail
       - image
+      - license
 
   announcements:
     type: object

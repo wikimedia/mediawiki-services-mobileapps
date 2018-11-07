@@ -5,6 +5,16 @@
     "width": 2870,
     "height": 2153
   },
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+  "license": {
+    "type": "CC BY-SA 3.0",
+    "code": "cc-by-sa-3.0",
+    "url": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "artist": {
+    "html": "<a href=\"//commons.wikimedia.org/wiki/User:%D0%90%D1%80%D0%BA%D0%B0%D0%B4%D0%B8%D0%B9_%D0%97%D0%B0%D1%80%D1%83%D0%B1%D0%B8%D0%BD\" title=\"User:Аркадий Зарубин\">Аркадий Зарубин</a>"
+  },
+  "file_page": "https://commons.wikimedia.org/wiki/File:Khagdaev_02.jpg",
   "thumbnail": {
     "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Khagdaev_02.jpg/640px-Khagdaev_02.jpg",
     "width": 640,
