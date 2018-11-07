@@ -1,5 +1,8 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
 const assert = require('../../utils/assert.js');
 const domino = require('domino');
 const transforms = require('../../../lib/transforms');
@@ -84,10 +87,18 @@ describe('lib:transforms', () => {
     });
 
     // de.wikipedia.org/api/rest_v1/page/html/Niedersachsen/172984059
-    describe('stripUnneededSummaryMarkup', () => {
+    describe('summary:preprocessing', () => {
+
+        let script;
+
+        before(() => {
+            const processing = path.join(__dirname, '../../../processing/summary.yaml');
+            script = yaml.safeLoad(fs.readFileSync(processing));
+        });
+
         function test(input, expected) {
             const doc = domino.createDocument(input);
-            transforms.stripUnneededSummaryMarkup(doc);
+            transforms.preprocessParsoidHtml(doc, script);
             assert.deepEqual(doc.body.innerHTML, expected);
         }
         it('removes IPA speaker symbols (de): IPA in figure-inline', () => {

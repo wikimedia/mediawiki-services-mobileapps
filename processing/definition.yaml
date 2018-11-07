@@ -1,0 +1,65 @@
+- rmElements:
+  - span.Z3988
+  - span:empty
+  - link
+  - '#coordinates'
+  - table.navbox
+  - .geo-nondefault
+  - .geo-multi-punct
+  - .hide-when-compact
+  - div.infobox
+  - div.magnify
+- _rmBracketSpans
+- _rmComments
+- rmElements:
+  - .ib-brac
+  - .ib-content
+  - .defdate
+  - sup
+- rmAttributes:
+    a: ['about', 'data-mw', 'typeof']
+    a:not([rel=nofollow],[rel~=mw:ExtLink]): ['rel']
+    abbr: ['title']
+    b: ['about', 'data-mw', 'typeof']
+    blockquote: ['about', 'data-mw', 'typeof']
+    br: ['about', 'data-mw', 'typeof']
+    cite: ['about', 'data-mw', 'typeof']
+    code: ['about', 'data-mw', 'typeof']
+    div: ['data-mw', 'typeof']
+    figure: ['typeof']
+    figure-inline: ['about', 'data-file-type', 'data-mw', 'itemscope', 'itemtype', 'lang', 'rel', 'title', 'typeof']
+    i: ['about', 'data-mw', 'typeof']
+    img: ['about', 'alt', 'resource']
+    li: ['about']
+    link: ['data-mw', 'typeof']
+    ol: ['about', 'data-mw', 'typeof']
+    p: ['data-mw', 'typeof']
+    span: ['about', 'data-file-type', 'data-mw', 'itemscope', 'itemtype', 'lang', 'rel', 'title', 'typeof']
+    style: ['about', 'data-mw']
+    sup: ['about', 'data-mw', 'rel', 'typeof']
+    table: ['about', 'data-mw', 'typeof']
+    ul: ['about', 'data-mw', 'typeof']
+- rmMwIdAttributes:
+  - a[href]
+  - b
+  - blockquote
+  - br
+  - cite
+  - code
+  - div
+  - em
+  - figcaption
+  - figure-inline
+  - i
+  - img
+  - li
+  - link
+  - ol
+  - p
+  - q
+  - ul
+  - span
+  - sup
+  - td
+- hideRedLinks
+- moveReferenceListStyles

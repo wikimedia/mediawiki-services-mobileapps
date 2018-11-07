@@ -30,7 +30,9 @@ function pageContentForMainPagePromise(req) {
         // transform all sections
         for (let idx = 0; idx < sections.length; idx++) {
             section = sections[idx];
-            section.text = transforms.runMainPageDomTransforms(section.text);
+            const doc = domino.createDocument(section.text);
+            transforms.preprocessParsoidHtml(doc, app.conf.processing_scripts.mainpage);
+            section.text = doc.body.innerHTML;
         }
 
         page.sections = sections;

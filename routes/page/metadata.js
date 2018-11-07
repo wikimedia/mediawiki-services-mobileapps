@@ -32,7 +32,8 @@ router.get('/metadata/:title/:revision?/:tid?', (req, res) => {
             mUtil.setETag(res, revTid.revision, revTid.tid);
             mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
             mUtil.setLanguageHeaders(res, html.headers);
-            res.json(lib.buildMetadata(req, html, meta, siteinfo));
+            res.json(lib.buildMetadata(req, html, meta, siteinfo,
+                app.conf.processing_scripts.metadata));
         });
 });
 

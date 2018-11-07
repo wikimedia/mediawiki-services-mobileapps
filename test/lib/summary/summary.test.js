@@ -2,15 +2,26 @@
 
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
 const assert = require('../../utils/assert.js');
+const parsoidSections = require('../../../lib/sections/parsoidSections');
 const unit = require('../../../lib/summary').testing;
 const domino = require('domino');
 
 describe('lib:summary', () => {
     describe('buildExtracts', () => {
+        let script;
+
+        before(() => {
+            const processing = path.join(__dirname, '../../../processing/summary.yaml');
+            script = yaml.safeLoad(fs.readFileSync(processing));
+        });
+
         function test(inputString, expected, message) {
-            const doc = domino.createDocument(inputString);
-            const extract = unit.buildExtracts(doc, { ns: 0, contentmodel: 'wikitext' });
+            const doc = parsoidSections.justLeadSection(domino.createDocument(inputString));
+            const extract = unit.buildExtracts(doc, { ns: 0, contentmodel: 'wikitext' }, script);
             assert.deepEqual(extract.extract_html, expected, message);
         }
         it('Applies stripUnneededMarkup', () => {

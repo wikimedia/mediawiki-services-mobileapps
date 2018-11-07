@@ -1,0 +1,3 @@
+- rmElements:
+  - span[typeof=mw:FallbackId]
+  - span:empty

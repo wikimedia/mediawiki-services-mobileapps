@@ -1,0 +1,13 @@
+- rmElements:
+  - span.Z3988
+  - span:empty
+  - link
+  - '#coordinates'
+  - table.navbox
+  - .geo-nondefault
+  - .geo-multi-punct
+  - .hide-when-compact
+  - div.infobox
+  - div.magnify
+- _rmBracketSpans
+- _rmComments

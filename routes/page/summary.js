@@ -29,7 +29,7 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
         (html, meta, siteinfo) => {
             const revTid = parsoid.getRevAndTidFromEtag(html.headers);
             const summary = lib.buildSummary(req.params.domain, req.params.title,
-                html.body, revTid, meta, siteinfo);
+                html.body, revTid, meta, siteinfo, app.conf.processing_scripts.summary);
             res.status(summary.code);
             if (summary.code === 200) {
                 delete summary.code;

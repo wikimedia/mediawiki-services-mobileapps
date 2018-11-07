@@ -191,6 +191,23 @@ function loadRoutes(app, dir) {
 }
 
 /**
+ * Preload scripts for preprocessing Parsoid HTML for page content endpoints
+ * @param {Application} app the app object to use in the service
+ * @return {bluebird} a promise resolving to the app object, with preprocessing scripts attached
+ */
+function loadPreProcessingScripts(app, dir) {
+    app.conf.processing_scripts = {};
+    return fs.readdirAsync(dir).map(filename => BBPromise.try(() => {
+        const name = filename.split('.')[0];
+        app.conf.processing_scripts[name] = yaml.safeLoad(
+            fs.readFileSync(`${dir}/${filename}`)
+        );
+    })
+    .catch(e => app.logger.log('warn/loading', `Error loading processing scripts: ${e}`)))
+    .then(() => BBPromise.resolve(app));
+}
+
+/**
  * Creates and start the service's web server
  * @param {Application} app the app object to use in the service
  * @return {bluebird} a promise creating the web server
@@ -234,6 +251,7 @@ module.exports = function(options) {
 
     return initApp(options)
     .then(app => loadRoutes(app, `${__dirname}/routes`))
+    .then(app => loadPreProcessingScripts(app, `${__dirname}/processing`))
     .then((app) => {
         // serve static files from static/
         app.use('/static', express.static(`${__dirname}/static`));

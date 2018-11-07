@@ -1,5 +1,8 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
 const assert = require('../../utils/assert.js');
 const mut = require('../../../lib/references/structureReferenceListContent.js');
 const transforms = require('../../../lib/transforms');
@@ -84,6 +87,12 @@ const noBackLinkRef = `<li id="cite_note-S8renewal-120">
 
 describe('lib:structureReferenceListContent', () => {
     let logger;
+    let script;
+
+    before(() => {
+        const processing = path.join(__dirname, '../../../processing/references.yaml');
+        script = yaml.safeLoad(fs.readFileSync(processing));
+    });
 
     beforeEach(() => {
         logger = {
@@ -93,7 +102,7 @@ describe('lib:structureReferenceListContent', () => {
 
     const createDocument = (html) => {
         const doc = domino.createDocument(html);
-        transforms.stripUnneededReferenceMarkup(doc);
+        transforms.preprocessParsoidHtml(doc, script);
         return doc;
     };
 
