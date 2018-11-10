@@ -73,6 +73,16 @@ describe('lib:parsoid-sections (section elements)', function() {
         assertSection2(sections);
     });
 
+    // From T209158: Lead section with heading inside
+    it('getSectionsText() with h2 inside lead should produce one section', () => {
+        const doc = domino.createDocument('<section data-mw-section-id="0">text0' +
+            '<h2 id="foo">foo</h2>text1' +
+            '</section>');
+        const sections = parsoidSections.getSectionsText(doc);
+        assert.deepEqual(sections.length, 1);
+        assertSection0(sections, '<h2 id="foo">foo</h2>text1');
+    });
+
     // From T175305 http://localhost:8000/fy.wikipedia.org/v3/page/html/De_Kanto%27s
     it('getSectionsText() with one h2 inside div should not produce another section', () => {
         const sectionInDiv = '<div style="position:absolute;visibility:hidden;height:0;">' +
