@@ -20,47 +20,41 @@ describe('lib:announcements', () => {
         if (mut.testing.hasEnded(new Date())) {
             assert.ok(res.announce.length === 0);
         } else {
-            assert.ok(res.announce.length === 2);
-            assert.equal(res.announce[0].id, 'MULTILANG0818ANDROIDLATESTEN');
-            assert.equal(res.announce[1].id, 'MULTILANG0818ANDROIDUPDATEPROMPTEN');
+            assert.ok(res.announce.length === 18);
         }
     });
 });
 
 describe('lib:announcements:etc', () => {
-    it('should return an image (with correct per-platform label)', () => {
-        const announcements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
+    const announcements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
+
+    it('should return an image_url for Android but not iOS', () => {
         announcements.forEach((announcement) => {
             if (announcement.platforms.includes(Platform.ANDROID_V2)) {
-                assert.ok(announcement.image);
+                assert.ok(announcement.image_url);
+            }
+            if (announcement.platforms.includes(Platform.IOS)
+                || announcement.platforms.includes(Platform.IOS_V2)) {
                 assert.ok(!announcement.image_url);
             }
-            // if (announcement.platforms.includes(Platform.IOS)) {
-            //     assert.ok(announcement.image_url);
-            //     assert.ok(!announcement.image);
-            // }
         });
     });
 
-    it('should return survey type', () => {
-        const announcements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
+    it('should return correct type', () => {
         announcements.forEach((elem) => {
-            assert.ok(elem.type === 'announcement');
+            assert.ok(elem.type === config.AnnouncementType.FUNDRAISING);
         });
     });
 
     it('countries is an array of strings', () => {
-        const announcements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
         announcements.forEach((elem) => {
             assert.ok(elem.countries.every(value => typeof value === 'string'));
         });
     });
 
-    // no iOS announcement this time
-    it.skip('should not deliver HTML in certain iOS announcements fields', () => {
+    it('should not deliver HTML in certain legacy iOS announcements fields', () => {
         const doc = domino.createDocument();
-        const activeAnnouncements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
-        const iosAnnouncement = activeAnnouncements.find(a => a.platforms.includes(Platform.IOS));
+        const iosAnnouncement = mut.testing.getLegacyiOSAnnouncements(activeAnnouncementDomain)[0];
         // destructure 'id', 'text' and 'action.title' from the iOS announcement
         const { text, action: { title } } = iosAnnouncement;
         const fieldsToCheck = { text, title };
@@ -77,12 +71,10 @@ describe('lib:announcements:etc', () => {
         }
     });
 
-    it('should deliver HTML in certain Android announcements fields', () => {
+    it('should deliver HTML in certain V2 announcements fields', () => {
         const doc = domino.createDocument();
-        const activeAnnouncements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
-        const androidAnnouncement
-            = activeAnnouncements.find(a => a.platforms.includes(Platform.ANDROID_V2));
-        const { text } = androidAnnouncement;
+        const v2Announcement = mut.testing.getAndroidAnnouncements(activeAnnouncementDomain)[0];
+        const { text } = v2Announcement;
         const fieldsToCheck = { text };
         for (const textOnlyFieldName of Object.keys(fieldsToCheck)) {
             const textToCheck = fieldsToCheck[textOnlyFieldName];
@@ -92,29 +84,28 @@ describe('lib:announcements:etc', () => {
             // Looking for <br> tags
             assert.ok(
                 element.querySelector('BR'),
-                `Android should have some HTML line breaks in the "${textOnlyFieldName}" field`
+                // eslint-disable-next-line max-len
+                `V2 announcements should have some HTML line breaks in the "${textOnlyFieldName}" field`
             );
         }
     });
 
-    // no caption html
-    it.skip('caption_HTML on iOS should be inside a paragraph', () => {
+    it('caption_HTML on iOS should be inside a paragraph', () => {
         // eslint-disable-next-line camelcase
-        const { caption_HTML } = mut.testing.iosAnnouncement;
+        const { caption_HTML } = mut.testing.getLegacyiOSAnnouncements(activeAnnouncementDomain)[0];
         const doc = domino.createDocument(caption_HTML);
         assert.deepEqual(doc.body.firstElementChild.tagName, 'P');
     });
 
-    // no caption html
-    it.skip('caption_HTML on Android should not be inside a paragraph', () => {
+    it('caption_HTML on Android should not be inside a paragraph', () => {
         // eslint-disable-next-line camelcase
-        const { caption_HTML } = mut.testing.androidAnnouncement;
+        const { caption_HTML } = mut.testing.getAndroidAnnouncements(activeAnnouncementDomain)[0];
         const doc = domino.createDocument(caption_HTML);
         assert.notDeepEqual(doc.body.firstElementChild.tagName, 'P');
     });
 
     it('buildId should not return lower case characters', () => {
-        const id = config.buildId('IOS', 'US');
+        const id = mut.testing.buildId('IOS', 'US');
         assert.deepEqual(id, id.toUpperCase());
     });
 
