@@ -35,11 +35,6 @@ function testMobileSectionsNoRemoveAfterHtml(doc, expected) {
     assert.deepEqual(doc.outerHTML, expected);
 }
 
-function testMobileSectionsRemoveAfterHtml(doc, expected) {
-    extractPageIssuesForMobileSections(doc, true);
-    assert.deepEqual(doc.outerHTML, expected);
-}
-
 describe('extractPageIssues', () => {
     it('single issue', () => {
         const html = '<html><head></head><body><section data-mw-section-id="0">' +
@@ -51,12 +46,10 @@ describe('extractPageIssues', () => {
                          '</td></tr></tbody>' +
                        '</table>' +
                      '</section></body></html>';
-        const afterRemoveHtml = '<html><head></head><body><section data-mw-section-id="0"></section></body></html>';
         const doc = domino.createDocument(html);
         testMetadataResult(doc, [ { section: 0, html: '<b>Issue!</b>' } ]);
         testMobileSectionsResult(doc, [ { html: '<b>Issue!</b>', text: 'Issue!' } ]);
         testMobileSectionsNoRemoveAfterHtml(doc, html);
-        testMobileSectionsRemoveAfterHtml(doc, afterRemoveHtml);
     });
 
     it('multiple issues', () => {
@@ -86,7 +79,6 @@ describe('extractPageIssues', () => {
                          '</td></tr></tbody>' +
                        '</table>' +
                      '</section></body></html>';
-        const afterRemoveHtml = '<html><head></head><body><section data-mw-section-id="0"></section></body></html>';
         const doc = domino.createDocument(html);
         testMetadataResult(doc, [
             { section: 0, html: '<b>First issue!</b>' },
@@ -97,7 +89,6 @@ describe('extractPageIssues', () => {
             { html: '<b>Second issue!</b>', text: 'Second issue!' }
         ]);
         testMobileSectionsNoRemoveAfterHtml(doc, html);
-        testMobileSectionsRemoveAfterHtml(doc, afterRemoveHtml);
     });
 
     it('issue in non-lead section', () => {
@@ -115,7 +106,6 @@ describe('extractPageIssues', () => {
         testMetadataResult(doc, [ { section: 1, html: '<b>Issue!</b>' } ]);
         testMobileSectionsResult(doc, undefined);
         testMobileSectionsNoRemoveAfterHtml(doc, html);
-        testMobileSectionsRemoveAfterHtml(doc, html);
     });
 
     it('no issues', () => {
@@ -124,6 +114,5 @@ describe('extractPageIssues', () => {
         testMetadataResult(doc, undefined);
         testMobileSectionsResult(doc, undefined);
         testMobileSectionsNoRemoveAfterHtml(doc, html);
-        testMobileSectionsRemoveAfterHtml(doc, html);
     });
 });

@@ -172,7 +172,7 @@ class TestPageSpec extends TestSpec {
 
         input = JSON.parse(JSON.stringify(input).replace(/#mwt\d+/g, '#mwt_present'));
 
-        if (input.lead) { // for mobile-sections and formatted
+        if (input.lead) {
             // value does not come from wikitext but from Wikidata links
             delete input.lead.languagecount;
 
@@ -238,9 +238,6 @@ const TEST_SPECS = [
 
     new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'),
     new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'),
-
-    new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'),
-    new TestPageSpec('en.wikipedia.org', 'page/formatted', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'),
 
     new TestPageSpec('en.wikipedia.org', 'page/media', 'Hummingbird', '810247947'),
 

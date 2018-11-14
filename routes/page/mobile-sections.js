@@ -60,14 +60,12 @@ function buildLeadSections(sections) {
 /**
  * Build the lead for the requested page.
  * @param {!Object} input (needs to have a meta, page, and title property)
- * @param {?boolean} [legacy] whether to perform legacy transformations
  * @return {!Object} lead json
  */
-function buildLead(input, legacy) {
+function buildLead(input) {
     const lead = domino.createDocument(input.page.sections[0].text);
     let infobox;
     let intro;
-    let sections;
     let text;
     let disambiguation;
     let contentmodel;
@@ -77,23 +75,8 @@ function buildLead(input, legacy) {
     if (input.meta.pageprops && input.meta.pageprops.disambiguation !== undefined) {
         disambiguation = true;
     }
-    if (!legacy && !input.meta.mainpage) {
-        const stubArticle = input.page.sections.length <= 1;
-        if (!stubArticle) {
-            infobox = transforms.extractInfobox(lead);
-        }
-        // We should always extract the introduction as it's useful for
-        // things like the summary endpoint
-        // however on pages where there is only
-        // one section we shouldn't remove it from initial HTML as it may
-        // have an undesirable result.
-        intro = transforms.extractLeadIntroduction(lead, !stubArticle);
-        text = lead.body.innerHTML;
-    } else {
-        // update text after extractions have taken place
-        sections = buildLeadSections(input.page.sections);
-        input.page.sections[0].text = lead.body.innerHTML;
-    }
+    // update text after extractions have taken place
+    input.page.sections[0].text = lead.body.innerHTML;
 
     return {
         ns: input.meta.ns,
@@ -126,7 +109,7 @@ function buildLead(input, legacy) {
         infobox,
         intro,
         geo: input.meta.geo,
-        sections,
+        sections: buildLeadSections(input.page.sections),
         text,
         redirect: input.meta.redirect // needed to test that MCS isn't handling redirects internally
     };
@@ -146,12 +129,11 @@ function buildRemaining(input) {
 
 /**
  * @param {!Object} input
- * @param {?boolean} [legacy] whether to perform legacy transformations
  * @return {!Object}
  */
-function buildAll(input, legacy) {
+function buildAll(input) {
     return {
-        lead: buildLead(input, legacy),
+        lead: buildLead(input),
         remaining: buildRemaining(input),
         // Any additional headers we've been passed.
         _headers: input.page._headers
@@ -250,15 +232,12 @@ function _handleNamespaceAndSpecialCases(req, res) {
  * for further massaging
  * @param {!Object} app the application object
  * @param {!Object} req the request object
- * @param {?boolean} [legacy] when true MCS will
- *  apply legacy transformations that we are in the process
- *  of deprecating.
  * @return {!BBPromise}
  */
-function _collectRawPageData(app, req, legacy) {
+function _collectRawPageData(app, req) {
     return mwapi.getSiteInfo(app, req)
     .then(si => BBPromise.props({
-        page: parsoid.pageJsonPromise(app, req, legacy),
+        page: parsoid.pageJsonPromise(app, req),
         meta: mwapi.getMetadata(app, req),
         title: mwapi.getTitleObj(req.params.title, si)
     })).then((interimState) => {
@@ -270,14 +249,11 @@ function _collectRawPageData(app, req, legacy) {
  * @param {!Object} app the application object
  * @param {!Object} req the request object
  * @param {!Object} res the response object
- * @param {?boolean} [legacy] when true MCS will
- *  apply legacy transformations that we are in the process
- *  of deprecating.
  * @return {!BBPromise}
  */
-function buildAllResponse(app, req, res, legacy) {
-    return _collectRawPageData(app, req, legacy).then((response) => {
-        response = buildAll(response, legacy);
+function buildAllResponse(app, req, res) {
+    return _collectRawPageData(app, req).then((response) => {
+        response = buildAll(response);
         res.status(200);
         mUtil.setETag(res, response.lead.revision, response.lead.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
@@ -295,14 +271,11 @@ function buildAllResponse(app, req, res, legacy) {
  * providing access to metadata.
  * @param {!Object} app the application object
  * @param {!Object} req the request object
- * @param {?boolean} [legacy] when true MCS will
- *  apply legacy transformations that we are in the process
- *  of deprecating.
  * @return {!BBPromise}
  */
-function buildLeadObject(app, req, legacy) {
-    return _collectRawPageData(app, req, legacy).then((lead) => {
-        return buildLead(lead, legacy);
+function buildLeadObject(app, req) {
+    return _collectRawPageData(app, req).then((lead) => {
+        return buildLead(lead);
     });
 }
 
@@ -311,13 +284,10 @@ function buildLeadObject(app, req, legacy) {
  * @param {!Object} app the application object
  * @param {!Object} req the request object
  * @param {!Object} res the response object
- * @param {?boolean} [legacy] when true MCS will
- *  apply legacy transformations that we are in the process
- *  of deprecating.
  * @return {!BBPromise}
  */
-function buildLeadResponse(app, req, res, legacy) {
-    return buildLeadObject(app, req, legacy).then((response) => {
+function buildLeadResponse(app, req, res) {
+    return buildLeadObject(app, req).then((response) => {
         res.status(200);
         mUtil.setETag(res, response.revision, response.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
@@ -330,7 +300,7 @@ function buildLeadResponse(app, req, res, legacy) {
  * Gets the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections/:title/:revision?/:tid?', (req, res) => {
-    return buildAllResponse(app, req, res, true);
+    return buildAllResponse(app, req, res);
 });
 
 /**
@@ -338,7 +308,7 @@ router.get('/mobile-sections/:title/:revision?/:tid?', (req, res) => {
  * Gets the lead section for the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections-lead/:title/:revision?/:tid?', (req, res) => {
-    return buildLeadResponse(app, req, res, true);
+    return buildLeadResponse(app, req, res);
 });
 
 /**
@@ -347,29 +317,13 @@ router.get('/mobile-sections-lead/:title/:revision?/:tid?', (req, res) => {
  */
 router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
-        page: parsoid.pageJsonPromise(app, req, true)
+        page: parsoid.pageJsonPromise(app, req)
     }).then((response) => {
         res.status(200);
         mUtil.setETag(res, response.page.revision, response.page.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);
         res.json(buildRemaining(response)).end();
     });
-});
-
-/**
- * GET {domain}/v1/page/formatted/{title}{/revision}{/tid}
- * Gets a formatted version of a given wiki page rather than a blob of wikitext.
- */
-router.get('/formatted/:title/:revision?/:tid?', (req, res) => {
-    return buildAllResponse(app, req, res, false);
-});
-
-/**
- * GET {domain}/v1/page/formatted-lead/{title}{/revision}{/tid}
- * Gets a formatted version of a given wiki page rather than a blob of wikitext.
- */
-router.get('/formatted-lead/:title/:revision?/:tid?', (req, res) => {
-    return buildLeadResponse(app, req, res, false);
 });
 
 module.exports = function(appObj) {
