@@ -245,7 +245,7 @@ const TEST_SPECS = [
     new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/MultipleReflists', '2640615'),
     new TestPageSpec('en.wikipedia.org', 'page/references', 'Neutronium', '857150438'),
 
-    // new TestSpec('en.wiktionary.org', 'page/definition', ['cat']),
+    new TestPageSpec('en.wiktionary.org', 'page/definition', 'cat', '50657469'),
 ];
 /* eslint-enable max-len */
 
