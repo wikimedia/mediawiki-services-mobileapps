@@ -1,53 +1,18 @@
 # strip unneeded markup
 
-- rmElements:
-  - span.Z3988
-  - span:empty
-  - link
-  - '#coordinates'
-  - table.navbox
-  - .geo-nondefault
-  - .geo-multi-punct
-  - .hide-when-compact
-  - div.infobox
-  - div.magnify
-- rmBracketSpans
-- rmComments
 - rmElements: # special unwanted content from wiktionary
   - .ib-brac
   - .ib-content
   - .defdate
   - sup
 - rmAttributes:
-    a: ['about', 'data-mw', 'typeof']
-    a:not([rel=nofollow],[rel~=mw:ExtLink]): ['rel']
-    abbr: ['title']
-    b: ['about', 'data-mw', 'typeof']
-    blockquote: ['about', 'data-mw', 'typeof']
-    br: ['about', 'data-mw', 'typeof']
-    cite: ['about', 'data-mw', 'typeof']
-    code: ['about', 'data-mw', 'typeof']
-    div: ['data-mw', 'typeof']
-    figure: ['typeof']
-    figure-inline: ['about', 'data-file-type', 'data-mw', 'itemscope', 'itemtype', 'lang', 'rel', 'title', 'typeof']
-    i: ['about', 'data-mw', 'typeof']
-    img: ['about', 'alt', 'resource']
-    li: ['about']
-    link: ['data-mw', 'typeof']
-    ol: ['about', 'data-mw', 'typeof']
-    p: ['data-mw', 'typeof']
-    span: ['about', 'data-file-type', 'data-mw', 'itemscope', 'itemtype', 'lang', 'rel', 'title', 'typeof']
-    style: ['about', 'data-mw']
-    sup: ['about', 'data-mw', 'rel', 'typeof']
-    table: ['about', 'data-mw', 'typeof']
-    ul: ['about', 'data-mw', 'typeof']
+    '*': ['data-mw']
 - rmMwIdAttributes
+- pcsHideRedLinks
 
 # additional app transforms
 
-- legacyHideRedLinks
-- moveReferenceListStyles
-- rewriteUrlAttribute: 
-    a: href # format links like the MW parser 
+- rewriteUrlAttribute:
+    a: href # format links like the MW parser
 - addClassTo:
     a[rel~=mw:ExtLink]: external # add class for external link icon

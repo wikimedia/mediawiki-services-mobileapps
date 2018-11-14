@@ -854,7 +854,7 @@ paths:
       summary: Get Wiktionary definitions for a word.
       description: Gets definitions for a word parsed from an article in Wiktionary.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.0"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
@@ -877,7 +877,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.0"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
