@@ -9,8 +9,8 @@
   - .hide-when-compact
   - div.infobox
   - div.magnify
-- _rmBracketSpans
-- _rmComments
+- rmBracketSpans
+- rmComments
 - rmElements:
   - .ib-brac
   - .ib-content

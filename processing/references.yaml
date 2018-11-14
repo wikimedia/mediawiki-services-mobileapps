@@ -1,8 +1,8 @@
 - rmElements:
   - span.Z3988
   - span:empty
-- _rmBracketSpans
-- _rmComments
+- rmBracketSpans
+- rmComments
 - rmAttributes:
     a: ['about', 'data-mw', 'typeof']
     a:not([rel=nofollow],[rel~=mw:ExtLink],[rel~=mw:referencedBy]): ['rel']

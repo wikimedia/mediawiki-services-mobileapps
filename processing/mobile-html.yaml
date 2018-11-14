@@ -10,8 +10,8 @@
   - .hide-when-compact
   - div.infobox
   - div.magnify
-- _rmBracketSpans
-- _rmComments
+- rmBracketSpans
+- rmComments
 - rmAttributes:
     a: ['about', 'data-mw', 'typeof']
     a:not([rel=nofollow],[rel~=mw:ExtLink]): ['rel']
