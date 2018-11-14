@@ -2,6 +2,7 @@
 
 const domino = require('domino');
 const parsoid = require('../../../lib/parsoid-access');
+const transforms = require('../../../lib/transforms');
 const assert = require('../../utils/assert');
 
 const headHtml1
@@ -27,17 +28,17 @@ describe('lib:parsoid-access', () => {
 
     it('getBaseUri()', () => {
         const doc = domino.createDocument(headHtml1);
-        assert.deepEqual(parsoid.getBaseUri(doc), '//en.wikipedia.org/wiki/');
+        assert.deepEqual(transforms._getBaseUri(doc), '//en.wikipedia.org/wiki/');
     });
 
     it('getParsoidLinkTitle should return DB title', () => {
         const doc = domino.createDocument(headHtml1);
-        assert.deepEqual(parsoid.getParsoidLinkTitle(doc), 'Hope_(painting)');
+        assert.deepEqual(transforms._getParsoidLinkTitle(doc), 'Hope_(painting)');
     });
 
     it('getParsoidLinkTitle should percent-decode title', () => {
         const doc = domino.createDocument(headHtml2);
-        assert.deepEqual(parsoid.getParsoidLinkTitle(doc),
+        assert.deepEqual(transforms._getParsoidLinkTitle(doc),
             'User:BSitzmann_(WMF)/MCS/Test/Title_with_:');
     });
 

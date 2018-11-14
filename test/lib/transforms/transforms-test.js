@@ -8,82 +8,94 @@ const domino = require('domino');
 const transforms = require('../../../lib/transforms');
 
 describe('lib:transforms', () => {
-    const buildHtml = (title) => {
-        return domino.createDocument('<body>'
-            + '<sup class="mw-ref">'
-            + `<a href="${title}#cite_note-foo"><span>[1]</span></a>`
-            + '</sup>'
-            + '<sup class="mw-ref">'
-            + `<a href="${title}#cite_note-foo"><span>[2]</span></a>`
-            + '</sup>'
-            + '<sup class="mw-ref">'
-            + `<a href="anythingElse${title}#cite_note-foo"><span>[2]</span></a>`
-            + '</sup>'
-            + '</body>');
-    };
+    const buildHtml = title => domino.createDocument('<html>'
+        + '<head>'
+        + '<base href="//en.wikipedia.org/wiki/"/>'
+        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${encodeURIComponent(title)}">`
+        + '</head>'
+        + '<body>'
+        + '<sup class="mw-ref">'
+        + `<a href="${title}#cite_note-foo"><span>[1]</span></a>`
+        + '</sup>'
+        + '<sup class="mw-ref">'
+        + `<a href="${title}#cite_note-foo"><span>[2]</span></a>`
+        + '</sup>'
+        + '<sup class="mw-ref">'
+        + `<a href="anythingElse${title}#cite_note-foo"><span>[2]</span></a>`
+        + '</sup>'
+        + '</body>'
+        + '</html>');
 
-    const buildHtml2 = () => {
-        return domino.createDocument('<body>'
-            + '<sup class="mw-ref">'
-            + '<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[1]</span></a>'
-            + '</sup>'
-            + '<sup class="mw-ref">'
-            + '<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>'
-            + '</sup>'
-            + '<sup class="mw-ref">'
-            + '<a href="anythingElseA_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>'
-            + '</sup>'
-            + '</body>');
-    };
+    const buildHtml2 = title => domino.createDocument('<html>'
+        + '<head>'
+        + '<base href="//en.wikipedia.org/wiki/"/>'
+        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${encodeURIComponent(title)}">`
+        + '</head>'
+        + '<body>'
+        + '<sup class="mw-ref">'
+        + '<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[1]</span></a>'
+        + '</sup>'
+        + '<sup class="mw-ref">'
+        + '<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>'
+        + '</sup>'
+        + '<sup class="mw-ref">'
+        + '<a href="anythingElseA_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>'
+        + '</sup>'
+        + '</body>'
+        + '</html>');
 
-    const buildHtml3 = () => {
-        return domino.createDocument('<body>'
-            + '<span class="mw-reference-text">'
-            + '<a href="./Seven_Years\'_War#cite_note-foo">Fish 2003</a>'
-            + '</span>'
-            + '<span class="mw-reference-text">'
-            + '<a href="./Seven_Years\'_War#cite_note-foo">Fish 2003</a>'
-            + '</span>'
-            + '</body>');
-    };
+    const buildHtml3 = title => domino.createDocument('<html>'
+        + '<head>'
+        + '<base href="//en.wikipedia.org/wiki/"/>'
+        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${encodeURIComponent(title)}">`
+        + '</head>'
+        + '<body>'
+        + '<span class="mw-reference-text">'
+        + '<a href="./Seven_Years\'_War#cite_note-foo">Fish 2003</a>'
+        + '</span>'
+        + '<span class="mw-reference-text">'
+        + '<a href="./Seven_Years\'_War#cite_note-foo">Fish 2003</a>'
+        + '</span>'
+        + '</body>'
+        + '</html>');
 
-    const testShortenPageInternalLinks = (doc, title, selectorTitle) => {
+    const testShortenPageInternalLinks = (doc, selectorTitle) => {
         assert.selectorExistsNTimes(doc, `a[href^=${selectorTitle}]`, 2,
             `before: did not find href starting with '${selectorTitle}' in ${doc.innerHTML}`);
-        transforms.shortenPageInternalLinks(doc, title);
+        transforms.shortenPageInternalLinks(doc);
         assert.selectorExistsNTimes(doc, 'a[href=#cite_note-foo]', 2,
             `after: did not find href starting with '#cite_note-foo' in ${doc.innerHTML}`);
     };
 
     it('shortenPageInternalLinks should remove the title in the href', () => {
         const title = 'Test_page';
-        testShortenPageInternalLinks(buildHtml(title), title, title);
+        testShortenPageInternalLinks(buildHtml(title), title);
     });
 
     it('shortenPageInternalLinks with single quote and space', () => {
         const title = 'Seven_Years\'_War';
-        testShortenPageInternalLinks(buildHtml(title), title, 'Seven_Years');
+        testShortenPageInternalLinks(buildHtml(title), 'Seven_Years');
     });
 
     it('shortenPageInternalLinks with colon and single quote', () => {
         const title = 'Wikipedia:Today\'s_featured_article%2FNovember%207,_2016';
-        testShortenPageInternalLinks(buildHtml(title), title, 'Wikipedia:Today');
+        testShortenPageInternalLinks(buildHtml(title), 'Wikipedia:Today');
     });
 
     it('shortenPageInternalLinks with special chars', () => {
         // https://www.mediawiki.org/wiki/Manual:$wgLegalTitleChars -- except ' and "
         const title = '%!$&()*,\\-.\\/0-9:;=?@A-Z\\\\^_`a-z~\\x80-\\xFF+';
-        testShortenPageInternalLinks(buildHtml(title), title, title);
+        testShortenPageInternalLinks(buildHtml(title), title);
     });
 
     it('shortenPageInternalLinks with double quote', () => {
         const title = 'A_"B"_C';
-        testShortenPageInternalLinks(buildHtml2(), title, 'A_');
+        testShortenPageInternalLinks(buildHtml2(title), 'A_');
     });
 
     it('shortenPageInternalLinks with single quote and startsWith ./', () => {
         const title = 'Seven_Years\'_War';
-        testShortenPageInternalLinks(buildHtml3('./Seven_Years\'_War'), title, './Seven_Years');
+        testShortenPageInternalLinks(buildHtml3(title), './Seven_Years');
     });
 
     // de.wikipedia.org/api/rest_v1/page/html/Niedersachsen/172984059

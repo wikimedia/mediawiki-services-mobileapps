@@ -11,9 +11,9 @@ describe('lib:size-transforms', () => {
         assert.deepEqual(doc.body.innerHTML, '<a>[1]</a>');
     });
 
-    it('rmElementsWithSelector should remove the spans with style="display:none"', () => {
+    it('rmElements should remove the spans with style="display:none"', () => {
         const doc = domino.createDocument('<span style="display:none">foo</span>');
-        transforms.rmElementsWithSelector(doc, 'span[style="display:none"]');
+        transforms.rmElements(doc, 'span[style="display:none"]');
         assert.deepEqual(doc.body.innerHTML, '');
     });
 });

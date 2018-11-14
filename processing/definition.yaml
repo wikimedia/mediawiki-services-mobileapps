@@ -1,3 +1,5 @@
+# strip unneeded markup
+
 - rmElements:
   - span.Z3988
   - span:empty
@@ -11,7 +13,7 @@
   - div.magnify
 - rmBracketSpans
 - rmComments
-- rmElements:
+- rmElements: # special unwanted content from wiktionary
   - .ib-brac
   - .ib-content
   - .defdate
@@ -61,5 +63,12 @@
   - span
   - sup
   - td
+
+# additional app transforms
+
 - hideRedLinks
 - moveReferenceListStyles
+- rewriteUrlAttribute: 
+    a: href # format links like the MW parser 
+- addClassTo:
+    a[rel~=mw:ExtLink]: external # add class for external link icon

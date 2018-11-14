@@ -1,3 +1,5 @@
+# strip unneeded markup
+
 - rmElements:
   - span.Z3988
   - span:empty

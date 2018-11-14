@@ -1,3 +1,18 @@
+# transform content for the Android app
+
+- relocateFirstParagraph
+- shortenPageInternalLinks
+- rewriteUrlAttribute:
+    a: href # format links like the MW parser 
+- addClassTo:
+    a[rel~=mw:ExtLink]: external # add class for external link icon
+    '*[typeof^=mw:Image] > a': image # add 'image' class for correct display
+- fixVideoAnchor
+- flattenElements:
+    sup.mw-ref: ['class', 'id'] # T185427
+
+# strip unneeded markup
+
 - rmElements:
   - span.Z3988
   - span:empty
@@ -57,5 +72,8 @@
   - span
   - sup
   - td
+
+# additional app transforms
+
 - hideRedLinks
 - moveReferenceListStyles

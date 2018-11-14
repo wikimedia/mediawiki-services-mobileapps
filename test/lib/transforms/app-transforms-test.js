@@ -2,7 +2,7 @@
 
 const domino = require('domino');
 const assert = require('../../utils/assert.js');
-const a = require('../../../lib/transforms').legacy.anchorPopUpMediaTransforms;
+const fixVideoAnchor = require('../../../lib/transforms').fixVideoAnchor;
 
 describe('lib:app-transforms', () => {
     it('fixVideoAnchor should skip video tags just holding audio', () => {
@@ -16,7 +16,7 @@ describe('lib:app-transforms', () => {
                         type='audio/ogg; codecs="vorbis"'/>
         </video>
 </span></figure-inline></div>`);
-        a.fixVideoAnchor(doc);
+        fixVideoAnchor(doc);
         const videoThumbImgElements = doc.querySelectorAll('a.app_media');
         assert.equal(videoThumbImgElements.length, 0, 'Should not have marked the audio file');
     });
@@ -29,7 +29,7 @@ describe('lib:app-transforms', () => {
         type='video/ogg; codecs="theora, vorbis"' />
     </video>
 </span></figure>`);
-        a.fixVideoAnchor(doc);
+        fixVideoAnchor(doc);
         const videoThumbImgElements = doc.querySelectorAll('a.app_media');
         assert.equal(videoThumbImgElements.length, 1, 'Should have marked the video file');
     });

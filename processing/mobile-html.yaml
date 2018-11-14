@@ -1,4 +1,7 @@
-- stripReferenceListContent
+- stripReferenceListContent # will be lazy-loaded
+
+# strip unneeded markup
+
 - rmElements:
   - span.Z3988
   - span:empty
@@ -57,5 +60,8 @@
   - span
   - sup
   - td
+
+# additional app transforms
+
 - hideRedLinks
 - moveReferenceListStyles
