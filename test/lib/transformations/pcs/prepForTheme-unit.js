@@ -3,8 +3,8 @@
 const domino = require('domino');
 const fs = require('fs');
 const path = require('path');
-const assert = require('../../../utils/assert.js');
-const prepForTheme = require('../../../../lib/transformations/pcs/prepForTheme');
+const assert = require('../../../utils/assert');
+const prepForTheme = require('../../../../lib/transforms').prepForTheme;
 
 const FIXTURES = 'test/fixtures/';
 

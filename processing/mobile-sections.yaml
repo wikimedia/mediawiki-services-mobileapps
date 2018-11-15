@@ -75,5 +75,5 @@
 
 # additional app transforms
 
-- hideRedLinks
+- legacyHideRedLinks
 - moveReferenceListStyles

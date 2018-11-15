@@ -141,14 +141,14 @@ describe('lib:transforms', () => {
         });
     });
 
-    describe('_rmMwIdAttributes', () => {
+    describe('rmMwIdAttributes', () => {
         /* See also:
            https://www.mediawiki.org/wiki/Parsoid/MediaWiki_DOM_spec/Element_IDs#ID_prefixing_/_pattern
            https://phabricator.wikimedia.org/diffusion/GPAR/browse/master/lib/utils/jsutils.js$166
          */
         function test(input, expected) {
             const doc = domino.createDocument(input);
-            transforms._rmMwIdAttributes(doc, 'b');
+            transforms.rmMwIdAttributes(doc, 'b');
             assert.deepEqual(doc.body.innerHTML, expected);
         }
         it('removes id attribute with -', () => {

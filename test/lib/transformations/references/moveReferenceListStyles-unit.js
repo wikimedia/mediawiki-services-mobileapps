@@ -1,9 +1,8 @@
 'use strict';
 
-const assert = require('../../utils/assert.js');
+const assert = require('../../../utils/assert');
 const domino = require('domino');
-const lib = require('../../../lib/references/moveReferenceListStyles');
-const moveReferenceListStyles = lib.moveReferenceListStyles;
+const moveReferenceListStyles = require('../../../../lib/transforms').moveReferenceListStyles;
 
 describe('lib:moveReferenceListStyles', () => {
     it('empty document', () => {

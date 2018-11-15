@@ -1,7 +1,7 @@
 'use strict';
 
-const assert = require('../../../utils/assert.js');
-const addSectionEditButtons = require('../../../../lib/transformations/pcs/addSectionEditButtons');
+const assert = require('../../../utils/assert');
+const addSectionEditButtons = require('../../../../lib/transforms').addSectionEditButtons;
 const testUtil = require('../../../utils/testUtil');
 
 describe('lib:addSectionEditButtons', () => {

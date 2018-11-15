@@ -1,9 +1,8 @@
 'use strict';
 
-const assert = require('../../utils/assert.js');
+const assert = require('../../../utils/assert');
 const domino = require('domino');
-const lib = require('../../../lib/references/extractReferenceLists');
-const extractReferenceLists = lib.extractReferenceLists;
+const extractReferenceLists = require('../../../../lib/transforms').extractReferenceLists;
 const sinon = require('sinon');
 
 describe('lib:extractReferenceLists', () => {

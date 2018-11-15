@@ -1,8 +1,8 @@
 'use strict';
 
-const assert = require('../../utils/assert.js');
+const assert = require('../../../utils/assert');
 const domino = require('domino');
-const stripReferenceListContent = require('../../../lib/references/stripReferenceListContent');
+const stripReferenceListContent = require('../../../../lib/transforms').stripReferenceListContent;
 
 describe('lib:strip reference list transform', () => {
     it('reference list contents should be replaced by placeholders (old)', () => {

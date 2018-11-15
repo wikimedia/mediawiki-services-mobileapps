@@ -2,8 +2,8 @@
 
 /* eslint-disable max-len */
 
-const assert = require('./../../utils/assert.js');
-const lib = require('./../../../lib/transformations/summarize');
+const assert = require('../../../utils/assert');
+const lib = require('../../../../lib/transforms').summarize;
 
 describe('lib:summarize follows spec', () => {
     function tst(input, expected, message) {

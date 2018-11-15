@@ -4,7 +4,7 @@
 
 const domino = require('domino');
 const assert = require('../../../utils/assert');
-const adjustThumbWidths = require('../../../../lib/transformations/pcs/adjustThumbWidths');
+const adjustThumbWidths = require('../../../../lib/transforms').adjustThumbWidths;
 
 describe('lib:adjustThumbWidths', () => {
 

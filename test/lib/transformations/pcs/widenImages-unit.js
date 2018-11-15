@@ -4,7 +4,7 @@ const domino = require('domino');
 const fs = require('fs');
 const path = require('path');
 const assert = require('../../../utils/assert.js');
-const widenImages = require('../../../../lib/transformations/pcs/widenImages');
+const widenImages = require('../../../../lib/transforms').widenImages;
 
 const FIXTURES = 'test/fixtures/';
 

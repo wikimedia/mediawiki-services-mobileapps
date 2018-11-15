@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('./../../utils/assert.js');
+const assert = require('./../../utils/assert');
 const escape = require('./../../../lib/transformations/escapeParens');
 
 describe('lib:escape + unescape parentheses', () => {

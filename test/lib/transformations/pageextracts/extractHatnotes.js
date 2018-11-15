@@ -3,7 +3,7 @@
 'use strict';
 
 const domino = require('domino');
-const assert = require('./../../../utils/assert.js');
+const assert = require('./../../../utils/assert');
 const extractHatnotesForMobileSections = require('./../../../../lib/transforms').extractHatnotesForMobileSections;
 const extractHatnotesForMetadata = require('./../../../../lib/transforms').extractHatnotesForMetadata;
 

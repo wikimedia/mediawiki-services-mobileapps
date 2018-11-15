@@ -1,7 +1,7 @@
 'use strict';
 
-const assert = require('./../../utils/assert.js');
-const sanitizeSummary = require('./../../../lib/transformations/sanitizeSummary');
+const assert = require('../../../utils/assert');
+const sanitizeSummary = require('../../../../lib/transforms').sanitizeSummary;
 const regex = sanitizeSummary.testing;
 const sanitize = sanitizeSummary.sanitize;
 

@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('../../utils/assert.js');
+const assert = require('../../utils/assert');
 const domino = require('domino');
 const transforms = require('../../../lib/transforms');
 

@@ -1,7 +1,7 @@
 'use strict';
 
 const domino = require('domino');
-const assert = require('./../../../utils/assert.js');
+const assert = require('./../../../utils/assert');
 const extractLeadIntroduction = require('./../../../../lib/transforms').extractLeadIntroduction;
 
 describe('extractLeadIntroduction', () => {

@@ -1,8 +1,8 @@
 'use strict';
 
 const domino = require('domino');
-const assert = require('./../../utils/assert.js');
-const stripGermanIPA = require('./../../../lib/transformations/stripGermanIPA');
+const assert = require('../../../utils/assert');
+const stripGermanIPA = require('../../../../lib/transforms').stripGermanIPA;
 
 describe('lib:stripGermanIPA', () => {
     // de.wikipedia.org/api/rest_v1/page/html/Roger_Federer

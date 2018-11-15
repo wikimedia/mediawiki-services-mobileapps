@@ -3,9 +3,9 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
-const assert = require('../../utils/assert.js');
-const mut = require('../../../lib/references/structureReferenceListContent.js');
-const transforms = require('../../../lib/transforms');
+const assert = require('../../../utils/assert');
+const transforms = require('../../../../lib/transforms');
+const mut = transforms.structureReferenceListContent;
 const domino = require('domino');
 const sinon = require('sinon');
 
@@ -90,7 +90,7 @@ describe('lib:structureReferenceListContent', () => {
     let script;
 
     before(() => {
-        const processing = path.join(__dirname, '../../../processing/references.yaml');
+        const processing = path.join(__dirname, '../../../../processing/references.yaml');
         script = yaml.safeLoad(fs.readFileSync(processing));
     });
 

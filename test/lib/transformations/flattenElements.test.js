@@ -1,8 +1,8 @@
 'use strict';
 
 const domino = require('domino');
-const assert = require('./../../utils/assert.js');
-const flattenElements = require('./../../../lib/transformations/flattenElements');
+const assert = require('../../utils/assert.js');
+const flattenElements = require('../../../lib/transforms').flattenElements;
 
 describe('lib:flattenElements', () => {
     function testFlattenAnchors(input, expected, keepAttributes, dropClasses) {
