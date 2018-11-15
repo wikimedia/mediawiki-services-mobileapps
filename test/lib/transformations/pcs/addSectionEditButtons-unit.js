@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('../../../utils/assert.js');
-const lib = require('../../../../lib/transformations/pcs/addSectionEditButtons');
+const addSectionEditButtons = require('../../../../lib/transformations/pcs/addSectionEditButtons');
 const testUtil = require('../../../utils/testUtil');
 
 describe('lib:addSectionEditButtons', () => {
@@ -11,7 +11,7 @@ describe('lib:addSectionEditButtons', () => {
         assert.selectorExistsNTimes(document, '.pagelib_edit_section_link_container', 0, 'pre 2');
         assert.selectorExistsNTimes(document, '.pagelib_edit_section_link', 0, 'pre tx 3');
 
-        lib.addSectionEditButtons(document, 'Dog');
+        addSectionEditButtons(document, 'Dog');
 
         assert.selectorExistsNTimes(document, '.pagelib_edit_section_header', 46, 'post transform');
         assert.selectorExistsNTimes(document, '.pagelib_edit_section_link_container', 47, 'post 2');

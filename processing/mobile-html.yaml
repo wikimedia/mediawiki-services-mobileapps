@@ -5,7 +5,7 @@
 - rmElements:
   - span.Z3988
   - span:empty
-  - link
+  - link:not([rel="dc:isVersionOf"])
   - '#coordinates'
   - table.navbox
   - .geo-nondefault
@@ -65,3 +65,15 @@
 
 - hideRedLinks
 - moveReferenceListStyles
+
+# PCS Transforms
+- hideRedLinks
+- adjustThumbWidths
+- prepForTheme
+- relocateFirstParagraph
+- addSectionEditButtons
+- widenImages
+- lazyLoadImagePrep
+- addCssLinks
+- addMetaViewport
+- addPageLibJs
