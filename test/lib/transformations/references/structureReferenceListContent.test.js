@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const assert = require('../../../utils/assert');
+const preprocessParsoidHtml = require('../../../../lib/processing');
 const transforms = require('../../../../lib/transforms');
 const mut = transforms.structureReferenceListContent;
 const domino = require('domino');
@@ -101,271 +102,305 @@ describe('lib:structureReferenceListContent', () => {
     });
 
     const createDocument = (html) => {
-        const doc = domino.createDocument(html);
-        transforms.preprocessParsoidHtml(doc, script);
-        return doc;
+        return preprocessParsoidHtml(domino.createDocument(html), [ script ]);
     };
 
     describe('.structureBackLinks', () => {
         it('one back link', () => {
-            const doc = createDocument(simpleDogRef);
-            assert.deepEqual(
-                mut.unit.structureBackLinks(doc.querySelector('li'), logger), [{
-                    href: './Dog#cite_ref-101',
-                    text: '↑'
-                }]);
-            assert.ok(logger.log.notCalled);
+            return createDocument(simpleDogRef)
+            .then((result) => {
+                assert.deepEqual(
+                    mut.unit.structureBackLinks(result.querySelector('li'), logger), [{
+                        href: './Dog#cite_ref-101',
+                        text: '↑'
+                    }]);
+                assert.ok(logger.log.notCalled);
+            });
         });
 
         it('two back links', () => {
-            const doc = createDocument(twoBacklinksDogRef);
-            assert.deepEqual(
-                mut.unit.structureBackLinks(doc.querySelector('li'), logger), [ {
-                    href: './Dog#cite_ref-perri2016_13-0',
-                    text: '1'
-                }, {
-                    href: './Dog#cite_ref-perri2016_13-1',
-                    text: '2'
-                }]
-            );
-            assert.ok(logger.log.notCalled);
+            return createDocument(twoBacklinksDogRef)
+            .then((result) => {
+                assert.deepEqual(
+                    mut.unit.structureBackLinks(result.querySelector('li'), logger), [ {
+                        href: './Dog#cite_ref-perri2016_13-0',
+                        text: '1'
+                    }, {
+                        href: './Dog#cite_ref-perri2016_13-1',
+                        text: '2'
+                    }]
+                );
+                assert.ok(logger.log.notCalled);
+            });
         });
 
         it('unexpected child element should emit logging', () => {
             // a <li> without a <span> nor <a>
             const illegalRef = '<li about="#cite_note-101" id="cite_note-101"><div></div></li>';
-            const doc = createDocument(illegalRef);
-            assert.deepEqual(
-                mut.unit.structureBackLinks(doc.querySelector('li'), logger),
-                []);
-            assert.ok(logger.log.calledOnce);
+            return createDocument(illegalRef)
+            .then((result) => {
+                assert.deepEqual(
+                    mut.unit.structureBackLinks(result.querySelector('li'), logger),
+                    []);
+                assert.ok(logger.log.calledOnce);
+            });
         });
 
         it('text content is escaped', () => {
-            const doc = createDocument(attemptedXssRef);
-            assert.deepEqual(
-                mut.unit.structureBackLinks(doc.querySelector('li'), logger), [{
-                    href: './Dog#cite_ref-101',
-                    text: '&lt;script&gt;alert(1);&lt;/script&gt;'
-                }]);
-            assert.ok(logger.log.notCalled);
+            return createDocument(attemptedXssRef)
+            .then((result) => {
+                assert.deepEqual(
+                    mut.unit.structureBackLinks(result.querySelector('li'), logger), [{
+                        href: './Dog#cite_ref-101',
+                        text: '&lt;script&gt;alert(1);&lt;/script&gt;'
+                    }]);
+                assert.ok(logger.log.notCalled);
+            });
         });
     });
 
     describe('.getReferenceContent', () => {
         it('no citation', () => {
-            const doc = createDocument(simpleDogRef);
-            assert.deepEqual(
-                mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
-                    html: 'some HTML',
-                    type: 'generic'
-                });
-            assert.ok(logger.log.notCalled);
+            return createDocument(simpleDogRef)
+            .then((result) => {
+                assert.deepEqual(
+                    mut.unit.getReferenceContent(result.querySelector('span.mw-reference-text')), {
+                        html: 'some HTML',
+                        type: 'generic'
+                    });
+                assert.ok(logger.log.notCalled);
+            });
         });
 
         it('one citation', () => {
-            const doc = createDocument(twoBacklinksDogRef);
-            assert.deepEqual(
-                mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
-                    html: '<cite class="citation journal">cite 1</cite><span>more HTML</span>',
-                    type: 'journal'
-                });
-            assert.ok(logger.log.notCalled);
+            return createDocument(twoBacklinksDogRef)
+            .then((result) => {
+                assert.deepEqual(
+                    mut.unit.getReferenceContent(result.querySelector('span.mw-reference-text')), {
+                        html: '<cite class="citation journal">cite 1</cite><span>more HTML</span>',
+                        type: 'journal'
+                    });
+                assert.ok(logger.log.notCalled);
+            });
         });
 
         it('<ul>', () => {
-            const doc = createDocument(ulRef);
-            assert.deepEqual(
-                mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
-                    html: ulRefContent,
-                    type: 'generic'
-                });
-            assert.ok(logger.log.notCalled);
+            return createDocument(ulRef)
+            .then((result) => {
+                assert.deepEqual(
+                    mut.unit.getReferenceContent(result.querySelector('span.mw-reference-text')), {
+                        html: ulRefContent,
+                        type: 'generic'
+                    });
+                assert.ok(logger.log.notCalled);
+            });
         });
 
         it('single <ul> child', () => {
-            const doc = createDocument(indianFilmsRef);
-            assert.deepEqual(
-                mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
-                    html: indianFilmsRefContent,
-                    type: 'generic'
-                });
-            assert.ok(logger.log.notCalled);
+            return createDocument(indianFilmsRef)
+            .then((result) => {
+                assert.deepEqual(
+                    mut.unit.getReferenceContent(result.querySelector('span.mw-reference-text')), {
+                        html: indianFilmsRefContent,
+                        type: 'generic'
+                    });
+                assert.ok(logger.log.notCalled);
+            });
         });
 
         it('text content is escaped', () => {
-            const doc = createDocument(attemptedXssRef);
-            assert.deepEqual(
-                mut.unit.getReferenceContent(doc.querySelector('span.mw-reference-text')), {
-                    html: '&lt;script&gt;alert(2);&lt;/script&gt;',
-                    type: 'generic'
-                });
-            assert.ok(logger.log.notCalled);
+            return createDocument(attemptedXssRef)
+            .then((result) => {
+                assert.deepEqual(
+                    mut.unit.getReferenceContent(result.querySelector('span.mw-reference-text')), {
+                        html: '&lt;script&gt;alert(2);&lt;/script&gt;',
+                        type: 'generic'
+                    });
+                assert.ok(logger.log.notCalled);
+            });
         });
     });
 
     describe('.buildOneReferenceItem', () => {
         it('simple ref', () => {
-            const doc = createDocument(simpleDogRef);
-            const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
-            assert.deepEqual(result, {
-                back_links: [{
-                    href: './Dog#cite_ref-101',
-                    text: '↑'
-                }],
-                content: {
-                    html: 'some HTML',
-                    type: 'generic'
-                },
-                id: '101'
+            return createDocument(simpleDogRef)
+            .then((doc) => {
+                const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
+                assert.deepEqual(result, {
+                    back_links: [{
+                        href: './Dog#cite_ref-101',
+                        text: '↑'
+                    }],
+                    content: {
+                        html: 'some HTML',
+                        type: 'generic'
+                    },
+                    id: '101'
+                });
+                assert.ok(logger.log.notCalled);
             });
-            assert.ok(logger.log.notCalled);
         });
 
         it('two back links + one cite tag', () => {
-            const doc = createDocument(twoBacklinksDogRef);
-            const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
-            assert.deepEqual(result, {
-                back_links: [{
-                    href: './Dog#cite_ref-perri2016_13-0',
-                    text: '1'
-                }, {
-                    href: './Dog#cite_ref-perri2016_13-1',
-                    text: '2'
-                }],
-                content: {
-                    html: '<cite class="citation journal">cite 1</cite><span>more HTML</span>',
-                    type: 'journal'
-                },
-                id: 'perri2016-13'
+            return createDocument(twoBacklinksDogRef)
+            .then((doc) => {
+                const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
+                assert.deepEqual(result, {
+                    back_links: [{
+                        href: './Dog#cite_ref-perri2016_13-0',
+                        text: '1'
+                    }, {
+                        href: './Dog#cite_ref-perri2016_13-1',
+                        text: '2'
+                    }],
+                    content: {
+                        html: '<cite class="citation journal">cite 1</cite><span>more HTML</span>',
+                        type: 'journal'
+                    },
+                    id: 'perri2016-13'
+                });
+                assert.ok(logger.log.notCalled);
             });
-            assert.ok(logger.log.notCalled);
         });
 
         it('back links in span.mw-cite-backlink', () => {
-            const doc = createDocument(indianFilmsToIRupeeRefInRef);
-            const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
-            assert.deepEqual(result, {
-                back_links: [
-                    { href: '#cite_ref-toirupee_6-0', text: 'a' },
-                    { href: '#cite_ref-toirupee_6-1', text: 'b' },
-                    { href: '#cite_ref-toirupee_6-2', text: 'c' },
-                ],
-                content: {
-                    html: '<a rel="nofollow" class="external text" href="https://web.archive.org/web/20130816032924/http://timesofindia.indiatimes.com/business/india-business/Journey-of-Indian-rupee-since-independence/articleshow/21844179.cms">Journey of Indian rupee since independence</a>, <i><a href="/wiki/The_Times_of_India" title="The Times of India">The Times of India</a></i>. Retrieved on 2013-12-01.',
-                    type: 'generic'
-                },
-                id: 'toirupee-6'
+            return createDocument(indianFilmsToIRupeeRefInRef)
+            .then((doc) => {
+                const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
+                assert.deepEqual(result, {
+                    back_links: [
+                        { href: '#cite_ref-toirupee_6-0', text: 'a' },
+                        { href: '#cite_ref-toirupee_6-1', text: 'b' },
+                        { href: '#cite_ref-toirupee_6-2', text: 'c' },
+                    ],
+                    content: {
+                        html: '<a rel="nofollow" class="external text" href="https://web.archive.org/web/20130816032924/http://timesofindia.indiatimes.com/business/india-business/Journey-of-Indian-rupee-since-independence/articleshow/21844179.cms">Journey of Indian rupee since independence</a>, <i><a href="/wiki/The_Times_of_India" title="The Times of India">The Times of India</a></i>. Retrieved on 2013-12-01.',
+                        type: 'generic'
+                    },
+                    id: 'toirupee-6'
+                });
+                assert.ok(logger.log.notCalled);
             });
-            assert.ok(logger.log.notCalled);
         });
 
         it('no content in indianFilmsRef181', () => {
-            const doc = createDocument(indianFilmsRef181);
-            const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
-            assert.deepEqual(result, {
-                back_links: [
-                    { href: './List_of_highest-grossing_Indian_films#cite_ref-toirupee_6-0', text: '↑' }
-                ],
-                content: {
-                    html: '',
-                    type: 'generic'
-                },
-                id: 'toirupee-6'
+            return createDocument(indianFilmsRef181)
+            .then((doc) => {
+                const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
+                assert.deepEqual(result, {
+                    back_links: [
+                        { href: './List_of_highest-grossing_Indian_films#cite_ref-toirupee_6-0', text: '↑' }
+                    ],
+                    content: {
+                        html: '',
+                        type: 'generic'
+                    },
+                    id: 'toirupee-6'
+                });
+                assert.ok(logger.log.notCalled);
             });
-            assert.ok(logger.log.notCalled);
         });
 
         it('no back link in Shameless_(U.S._TV_series)', () => {
-            const doc = createDocument(noBackLinkRef);
-            const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
-            assert.deepEqual(result, {
-                back_links: [],
-                content: {
-                    html: 'Foo',
-                    type: 'generic'
-                },
-                id: 'S8renewal-120'
+            return createDocument(noBackLinkRef)
+            .then((doc) => {
+                const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
+                assert.deepEqual(result, {
+                    back_links: [],
+                    content: {
+                        html: 'Foo',
+                        type: 'generic'
+                    },
+                    id: 'S8renewal-120'
+                });
+                assert.ok(logger.log.calledOnce);
             });
-            assert.ok(logger.log.calledOnce);
         });
     });
 
     describe('.buildReferenceList', () => {
         it('one simple reference in list (old)', () => {
-            const doc = createDocument(oneRefInListOld);
-            const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
-            assert.deepEqual(result.references_by_id, {
-                101: {
-                    back_links: [{
-                        href: './Dog#cite_ref-101',
-                        text: '↑'
-                    }],
-                    content: {
-                        html: 'some HTML',
-                        type: 'generic'
+            return createDocument(oneRefInListOld)
+            .then((doc) => {
+                const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
+                assert.deepEqual(result.references_by_id, {
+                    101: {
+                        back_links: [{
+                            href: './Dog#cite_ref-101',
+                            text: '↑'
+                        }],
+                        content: {
+                            html: 'some HTML',
+                            type: 'generic'
+                        }
                     }
-                }
+                });
+                assert.deepEqual(result.order, [ '101' ]);
+                assert.ok(logger.log.notCalled);
             });
-            assert.deepEqual(result.order, [ '101' ]);
-            assert.ok(logger.log.notCalled);
         });
 
         it('one simple reference in list (new)', () => {
-            const doc = createDocument(oneRefInListNew);
-            const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
-            assert.deepEqual(result.references_by_id, {
-                101: {
-                    back_links: [{
-                        href: './Dog#cite_ref-101',
-                        text: '↑'
-                    }],
-                    content: {
-                        html: 'some HTML',
-                        type: 'generic'
+            return createDocument(oneRefInListNew)
+            .then((doc) => {
+                const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
+                assert.deepEqual(result.references_by_id, {
+                    101: {
+                        back_links: [{
+                            href: './Dog#cite_ref-101',
+                            text: '↑'
+                        }],
+                        content: {
+                            html: 'some HTML',
+                            type: 'generic'
+                        }
                     }
-                }
+                });
+                assert.deepEqual(result.order, [ '101' ]);
+                assert.ok(logger.log.notCalled);
             });
-            assert.deepEqual(result.order, [ '101' ]);
-            assert.ok(logger.log.notCalled);
         });
 
         it('one reference in list (old)', () => {
-            const doc = createDocument(mostViewedYoutubeVideosOld);
-            const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
-            assert.deepEqual(result.references_by_id, {
-                4: {
-                    back_links: [{
-                        href: './List_of_most_viewed_YouTube_videos#cite_ref-4',
-                        text: '↑'
-                    }],
-                    content: {
-                        html: mostViewedYoutubeVideosContent,
-                        type: 'generic'
+            return createDocument(mostViewedYoutubeVideosOld)
+            .then((doc) => {
+                const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
+                assert.deepEqual(result.references_by_id, {
+                    4: {
+                        back_links: [{
+                            href: './List_of_most_viewed_YouTube_videos#cite_ref-4',
+                            text: '↑'
+                        }],
+                        content: {
+                            html: mostViewedYoutubeVideosContent,
+                            type: 'generic'
+                        }
                     }
-                }
+                });
+                assert.deepEqual(result.order, [ '4' ]);
+                assert.ok(logger.log.notCalled);
             });
-            assert.deepEqual(result.order, [ '4' ]);
-            assert.ok(logger.log.notCalled);
         });
 
         it('one reference in list (new)', () => {
-            const doc = createDocument(mostViewedYoutubeVideosNew);
-            const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
-            assert.deepEqual(result.references_by_id, {
-                4: {
-                    back_links: [{
-                        href: './List_of_most_viewed_YouTube_videos#cite_ref-4',
-                        text: '↑'
-                    }],
-                    content: {
-                        html: mostViewedYoutubeVideosContent,
-                        type: 'generic'
+            return createDocument(mostViewedYoutubeVideosNew)
+            .then((doc) => {
+                const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
+                assert.deepEqual(result.references_by_id, {
+                    4: {
+                        back_links: [{
+                            href: './List_of_most_viewed_YouTube_videos#cite_ref-4',
+                            text: '↑'
+                        }],
+                        content: {
+                            html: mostViewedYoutubeVideosContent,
+                            type: 'generic'
+                        }
                     }
-                }
+                });
+                assert.deepEqual(result.order, [ '4' ]);
+                assert.ok(logger.log.notCalled);
             });
-            assert.deepEqual(result.order, [ '4' ]);
-            assert.ok(logger.log.notCalled);
         });
     });
 });

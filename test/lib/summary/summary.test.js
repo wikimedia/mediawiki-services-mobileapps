@@ -21,8 +21,10 @@ describe('lib:summary', () => {
 
         function test(inputString, expected, message) {
             const doc = parsoidSections.justLeadSection(domino.createDocument(inputString));
-            const extract = unit.buildExtracts(doc, { ns: 0, contentmodel: 'wikitext' }, script);
-            assert.deepEqual(extract.extract_html, expected, message);
+            return unit.buildExtracts(doc, { ns: 0, contentmodel: 'wikitext' }, [ script ])
+            .then((extract) => {
+                assert.deepEqual(extract.extract_html, expected, message);
+            });
         }
         it('Applies stripUnneededMarkup', () => {
             test('<section data-mw-section-id="0"><p><span><span id="coordinates"><a>Hello</a></span></span></p><p>2</p></section>',

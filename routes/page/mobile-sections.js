@@ -8,6 +8,7 @@ const mUtil = require('../../lib/mobile-util');
 const parsoid = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
 const transforms = require('../../lib/transforms');
+const preprocessParsoidHtml = require('../../lib/processing');
 
 /**
  * The main router object
@@ -24,19 +25,13 @@ function pageContentForMainPagePromise(req) {
     return mwapi.getMainPageData(app, req)
     .then((response) => {
         const page = response.body.mobileview;
-        const sections = page.sections;
-        let section;
-
-        // transform all sections
-        for (let idx = 0; idx < sections.length; idx++) {
-            section = sections[idx];
+        return BBPromise.each(page.sections, (section) => {
             const doc = domino.createDocument(section.text);
-            transforms.preprocessParsoidHtml(doc, app.conf.processing_scripts.mainpage);
-            section.text = doc.body.innerHTML;
-        }
-
-        page.sections = sections;
-        return page;
+            return preprocessParsoidHtml(doc, app.conf.processing_scripts.mainpage)
+            .then((doc) => {
+                section.text = doc.body.innerHTML;
+            });
+        }).then(() => page);
     });
 }
 

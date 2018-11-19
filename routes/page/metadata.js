@@ -27,13 +27,16 @@ router.get('/metadata/:title/:revision?/:tid?', (req, res) => {
         mwapi.getMetadata(app, req),
         mwapi.getSiteInfo(app, req),
         (html, meta, siteinfo) => {
-            res.status(200);
             const revTid = parsoid.getRevAndTidFromEtag(html.headers);
-            mUtil.setETag(res, revTid.revision, revTid.tid);
-            mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
-            mUtil.setLanguageHeaders(res, html.headers);
-            res.json(lib.buildMetadata(req, html, meta, siteinfo,
-                app.conf.processing_scripts.metadata));
+            return lib.buildMetadata(req, html, meta, siteinfo,
+                app.conf.processing_scripts.metadata)
+            .then((metadata) => {
+                res.status(200);
+                mUtil.setETag(res, revTid.revision, revTid.tid);
+                mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
+                mUtil.setLanguageHeaders(res, html.headers);
+                res.json(metadata);
+            });
         });
 });
 

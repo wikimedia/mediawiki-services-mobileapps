@@ -5,6 +5,7 @@ const path = require('path');
 const yaml = require('js-yaml');
 const assert = require('../../utils/assert.js');
 const domino = require('domino');
+const preprocessParsoidHtml = require('../../../lib/processing');
 const transforms = require('../../../lib/transforms');
 
 describe('lib:transforms', () => {
@@ -110,8 +111,10 @@ describe('lib:transforms', () => {
 
         function test(input, expected) {
             const doc = domino.createDocument(input);
-            transforms.preprocessParsoidHtml(doc, script);
-            assert.deepEqual(doc.body.innerHTML, expected);
+            return preprocessParsoidHtml(doc, [ script ])
+            .then((doc) => {
+                assert.deepEqual(doc.body.innerHTML, expected);
+            });
         }
         it('removes IPA speaker symbols (de): IPA in figure-inline', () => {
             test(
