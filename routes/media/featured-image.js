@@ -26,7 +26,7 @@ let app;
  */
 router.get('/image/featured/:yyyy/:mm/:dd', (req, res) => {
     return mwapi.getSiteInfo(app, req)
-    .then(si => featured.promise(app, req, si.general.lang)
+    .then(si => featured.promise(app, req, si)
     .then((response) => {
         res.status(!response.payload ? 204 : 200);
         mUtil.setETag(res, response.meta.revision, response.meta.tid);

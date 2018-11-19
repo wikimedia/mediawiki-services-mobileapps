@@ -452,7 +452,10 @@ paths:
                 width: /.+/
                 height: /.+/
               credit: /.+/
-              license: /.+/
+              license:
+                type: /.+/
+                code: /.+/
+                url: /.+/
               artist: /.+/
               file_page: /.+/
               thumbnail:

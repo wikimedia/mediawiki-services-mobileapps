@@ -6,6 +6,7 @@ const parsoid = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
 const mwapi = require('../../lib/mwapi');
 const lib = require('../../lib/media');
+const imageinfo = require('../../lib/imageinfo');
 
 const router = sUtil.router();
 let app;
@@ -26,7 +27,7 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
                 return;
             }
             const titles = mUtil.deduplicate(pageMediaList.filter(i => i.title).map(i => i.title));
-            return lib.getMetadataFromApi(app, req, titles, siteinfo)
+            return imageinfo.getMetadataFromApi(app, req, titles, siteinfo)
             .then((apiResponse) => {
                 const result = lib.combineResponses(apiResponse, pageMediaList);
                 mUtil.setETag(res, revTid.revision, revTid.tid);
