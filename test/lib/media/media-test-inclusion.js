@@ -2,8 +2,8 @@
 
 'use strict';
 
-const assert = require('../../utils/assert');
-const media = require('../../../lib/media');
+const assert = require( '../../utils/assert' );
+const media = require( '../../../lib/media' );
 const image = media.testing.imageName;
 const video = media.testing.videoName;
 const audio = media.testing.audioName;
@@ -41,32 +41,32 @@ const noTypeFigureInline = '<figure-inline><video resource="./File:R"/></figure-
 const imageNoViewer = '<figure typeof="mw:Image" class="noviewer"><img resource="./File:S" width="100" height="100"/></figure>';
 const imageMetadata = '<span class="metadata"><figure typeof="mw:Image"><img resource="./File:T" width="100" height="100"/></figure></span>';
 
-const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline, mathImage];
-const videos = [videoFigure, videoSpan, videoFigureInline, videoThumbFigure, videoThumbSpan, videoThumbFigureInline];
-const audios = [audioFigure, audioSpan, audioFigureInline,
-    // TODO: remove after Parsoid change https://gerrit.wikimedia.org/r/c/mediawiki/services/parsoid/+/449903 is deployed
-    audioVideoFigure, audioVideoSpan, audioVideoFigureInline];
-const validItems = images.concat(videos).concat(audios);
+const images = [ imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline, mathImage ];
+const videos = [ videoFigure, videoSpan, videoFigureInline, videoThumbFigure, videoThumbSpan, videoThumbFigureInline ];
+const audios = [ audioFigure, audioSpan, audioFigureInline,
+	// TODO: remove after Parsoid change https://gerrit.wikimedia.org/r/c/mediawiki/services/parsoid/+/449903 is deployed
+	audioVideoFigure, audioVideoSpan, audioVideoFigureInline ];
+const validItems = images.concat( videos ).concat( audios );
 
-const noType = [noTypeFigure, noTypeSpan, noTypeFigureInline];
-const blacklisted = [imageNoViewer, imageMetadata];
-const invalidItems = noType.concat(blacklisted);
+const noType = [ noTypeFigure, noTypeSpan, noTypeFigureInline ];
+const blacklisted = [ imageNoViewer, imageMetadata ];
+const invalidItems = noType.concat( blacklisted );
 
-describe('lib:media expected items are included or excluded', () => {
+describe( 'lib:media expected items are included or excluded', () => {
 
-    it('items should be found for expected selectors', () => {
-        const page = validItems.join('');
-        const result = media.getMediaItemInfoFromPage(page);
-        assert.deepEqual(result.length, validItems.length);
-        assert.deepEqual(result.filter(i => i.type === image).length, images.length);
-        assert.deepEqual(result.filter(i => i.type === video).length, videos.length);
-        assert.deepEqual(result.filter(i => i.type === audio).length, audios.length);
-    });
+	it( 'items should be found for expected selectors', () => {
+		const page = validItems.join( '' );
+		const result = media.getMediaItemInfoFromPage( page );
+		assert.deepEqual( result.length, validItems.length );
+		assert.deepEqual( result.filter( ( i ) => i.type === image ).length, images.length );
+		assert.deepEqual( result.filter( ( i ) => i.type === video ).length, videos.length );
+		assert.deepEqual( result.filter( ( i ) => i.type === audio ).length, audios.length );
+	} );
 
-    it('items should not be found for other selectors', () => {
-        const page = invalidItems.join('');
-        const result = media.getMediaItemInfoFromPage(page);
-        assert.deepEqual(result.length, 0);
-    });
+	it( 'items should not be found for other selectors', () => {
+		const page = invalidItems.join( '' );
+		const result = media.getMediaItemInfoFromPage( page );
+		assert.deepEqual( result.length, 0 );
+	} );
 
-});
+} );

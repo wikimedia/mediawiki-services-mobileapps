@@ -1,11 +1,11 @@
 'use strict';
 
-const BBPromise = require('bluebird');
-const sUtil = require('../../lib/util');
-const mUtil = require('../../lib/mobile-util');
-const parsoid = require('../../lib/parsoid-access');
-const mwapi = require('../../lib/mwapi');
-const lib = require('../../lib/metadata');
+const BBPromise = require( 'bluebird' );
+const sUtil = require( '../../lib/util' );
+const mUtil = require( '../../lib/mobile-util' );
+const parsoid = require( '../../lib/parsoid-access' );
+const mwapi = require( '../../lib/mwapi' );
+const lib = require( '../../lib/metadata' );
 
 /**
  * The main router object
@@ -21,26 +21,26 @@ let app;
  * GET {domain}/v1/page/metadata/{title}{/revision}{/tid}
  * Gets extended metadata for a given wiki page.
  */
-router.get('/metadata/:title/:revision?/:tid?', (req, res) => {
-    return BBPromise.join(
-        parsoid.getParsoidHtml(app, req),
-        mwapi.getMetadata(app, req),
-        mwapi.getSiteInfo(app, req),
-        (html, meta, siteinfo) => {
-            res.status(200);
-            const revTid = parsoid.getRevAndTidFromEtag(html.headers);
-            mUtil.setETag(res, revTid.revision, revTid.tid);
-            mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
-            mUtil.setLanguageHeaders(res, html.headers);
-            res.json(lib.buildMetadata(req, html, meta, siteinfo));
-        });
-});
+router.get( '/metadata/:title/:revision?/:tid?', ( req, res ) => {
+	return BBPromise.join(
+		parsoid.getParsoidHtml( app, req ),
+		mwapi.getMetadata( app, req ),
+		mwapi.getSiteInfo( app, req ),
+		( html, meta, siteinfo ) => {
+			res.status( 200 );
+			const revTid = parsoid.getRevAndTidFromEtag( html.headers );
+			mUtil.setETag( res, revTid.revision, revTid.tid );
+			mUtil.setContentType( res, mUtil.CONTENT_TYPES.metadata );
+			mUtil.setLanguageHeaders( res, html.headers );
+			res.json( lib.buildMetadata( req, html, meta, siteinfo ) );
+		} );
+} );
 
-module.exports = function(appObj) {
-    app = appObj;
-    return {
-        path: '/page',
-        api_version: 1,
-        router
-    };
+module.exports = function ( appObj ) {
+	app = appObj;
+	return {
+		path: '/page',
+		api_version: 1,
+		router
+	};
 };

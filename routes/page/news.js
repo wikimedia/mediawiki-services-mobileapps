@@ -1,8 +1,8 @@
 'use strict';
 
-const sUtil = require('../../lib/util');
-const mUtil = require('../../lib/mobile-util');
-const news = require('../../lib/feed/news');
+const sUtil = require( '../../lib/util' );
+const mUtil = require( '../../lib/mobile-util' );
+const news = require( '../../lib/feed/news' );
 
 /**
  * The main router object
@@ -20,20 +20,20 @@ let app;
  * Get descriptions of current events and related article links.
  * Experimental and English-only.
  */
-router.get('/news', (req, res) => {
-    return news.promise(app, req)
-    .then((response) => {
-        res.status(!response.payload ? 204 : 200);
-        mUtil.setETag(res, response.meta && response.meta.etag);
-        res.json(response.payload || null).end();
-    });
-});
+router.get( '/news', ( req, res ) => {
+	return news.promise( app, req )
+		.then( ( response ) => {
+			res.status( !response.payload ? 204 : 200 );
+			mUtil.setETag( res, response.meta && response.meta.etag );
+			res.json( response.payload || null ).end();
+		} );
+} );
 
-module.exports = function(appObj) {
-    app = appObj;
-    return {
-        path: '/page',
-        api_version: 1,
-        router
-    };
+module.exports = function ( appObj ) {
+	app = appObj;
+	return {
+		path: '/page',
+		api_version: 1,
+		router
+	};
 };

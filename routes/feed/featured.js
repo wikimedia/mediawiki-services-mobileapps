@@ -4,9 +4,9 @@
 
 'use strict';
 
-const mUtil = require('../../lib/mobile-util');
-const sUtil = require('../../lib/util');
-const featured = require('../../lib/feed/featured');
+const mUtil = require( '../../lib/mobile-util' );
+const sUtil = require( '../../lib/util' );
+const featured = require( '../../lib/feed/featured' );
 
 /**
  * The main router object
@@ -22,21 +22,21 @@ let app;
  * GET {domain}/v1/page/featured/{year}/{month}/{day}
  * Gets the title for a featured article of a given date.
  */
-router.get('/featured/:yyyy/:mm/:dd', (req, res) => {
-    return featured.promise(app, req)
-        .then((response) => {
-            res.status(!response.payload ? 204 : 200);
-            mUtil.setETag(res, response.meta && response.meta.etag);
-            mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
-            res.json(response.payload || null).end();
-        });
-});
+router.get( '/featured/:yyyy/:mm/:dd', ( req, res ) => {
+	return featured.promise( app, req )
+		.then( ( response ) => {
+			res.status( !response.payload ? 204 : 200 );
+			mUtil.setETag( res, response.meta && response.meta.etag );
+			mUtil.setContentType( res, mUtil.CONTENT_TYPES.unpublished );
+			res.json( response.payload || null ).end();
+		} );
+} );
 
-module.exports = function(appObj) {
-    app = appObj;
-    return {
-        path: '/page',
-        api_version: 1,
-        router
-    };
+module.exports = function ( appObj ) {
+	app = appObj;
+	return {
+		path: '/page',
+		api_version: 1,
+		router
+	};
 };
