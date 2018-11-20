@@ -35,7 +35,7 @@ describe('media', function() {
     it('Missing title should respond with 404', () => {
         return preq.get({ uri: `${server.config.uri}test.wikipedia.org/v1/page/media/weoiuyrxxn` })
             .then(() => {
-                assert.fail("expected an exception to be thrown");
+                assert.fail('expected an exception to be thrown');
             }).catch((res) => {
                 assert.deepEqual(res.status, 404);
             });

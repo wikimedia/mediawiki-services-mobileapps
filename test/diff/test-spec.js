@@ -99,7 +99,7 @@ class TestSpec {
      * @return {!string} a string of JS code to make a array of strings
      */
     static toStringArrayCode(array) {
-        return `['${array.join('\', \'')}']`;
+        return `['${array.join("', '")}']`;
     }
 
     /**

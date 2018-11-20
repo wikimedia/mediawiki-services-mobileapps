@@ -311,7 +311,7 @@ describe('Swagger spec', function() {
         const assertBadRequest = (uri) => {
             return preq.get({ uri })
             .then((res) => {
-                assert.fail("This request should fail!");
+                assert.fail('This request should fail!');
             })
             .catch((err) => {
                 if (!ajv.validate('#/definitions/problem', err.body)) {

@@ -67,11 +67,11 @@ const simplifyExtractValue = (value) => {
         .replace(/#mwt\d{1,4}/g, '#mwt000')
         .replace(/ data-mw=\\"\\.+?\\}\\"/g, ' data-mw="{}"')
         // break lines for easier diffing:
-        .replace(/(<h\d)/g, "\n$1")
-        .replace(/(<\/h\d>)/g, "$1\n")
-        .replace(/(<section)/g, "\n$1")
-        .replace(/(<\/section>)/g, "$1\n")
-        .replace(/(.{50}[^<>]{0,50}>?)/g, "$1\n");
+        .replace(/(<h\d)/g, '\n$1')
+        .replace(/(<\/h\d>)/g, '$1\n')
+        .replace(/(<section)/g, '\n$1')
+        .replace(/(<\/section>)/g, '$1\n')
+        .replace(/(.{50}[^<>]{0,50}>?)/g, '$1\n');
     // ^ keep lines to a reasonable width (try to break near HTML tags)
 };
 
@@ -136,6 +136,6 @@ if (arg) {
 
     processOneLanguage(arg);
 } else {
-    process.stderr.write(`Error: supply one language parameter (e.g. en)!\n`);
+    process.stderr.write('Error: supply one language parameter (e.g. en)!\n');
     process.exit(-1);
 }

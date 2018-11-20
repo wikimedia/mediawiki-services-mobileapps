@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const domino = require('domino');
 const assert = require('../../utils/assert');

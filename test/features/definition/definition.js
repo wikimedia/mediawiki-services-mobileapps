@@ -10,7 +10,7 @@ describe('definition', function() {
 
     before(() => server.start());
 
-    it('en \'cat\' request should have expected structure and content', () => {
+    it("en 'cat' request should have expected structure and content", () => {
         return preq.get(
             { uri: `${server.config.uri}en.wiktionary.org/v1/page/definition/cat/42803194` })
             .then((res) => {

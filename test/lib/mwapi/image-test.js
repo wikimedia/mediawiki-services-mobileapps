@@ -68,8 +68,8 @@ describe('lib:mwapi buildLeadImageUrls', () => {
         });
     });
 
-    it('should ignore \'thumb\' when not a path segment', () => {
-        const file = `https://upload.wikimedia.org/wikipedia/commons/9/9d/200px-thumb.jpg`;
+    it("should ignore 'thumb' when not a path segment", () => {
+        const file = 'https://upload.wikimedia.org/wikipedia/commons/9/9d/200px-thumb.jpg';
         assert.deepEqual(buildUrls(file), {
             320: file,
             640: file,

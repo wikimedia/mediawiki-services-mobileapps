@@ -36,7 +36,7 @@ describe('news headline selectors', function() {
         });
     }
 
-    it(`news headline topic should be the first bold link`, () => {
+    it('news headline topic should be the first bold link', () => {
         const lang = 'en';
         const doc = readTestDoc(lang);
         const headlines = doc.querySelectorAll(NEWS_SITES[lang].headlineSelectorAll);
@@ -44,7 +44,7 @@ describe('news headline selectors', function() {
         assert.equal(topic.getAttribute('href'), './Poisoning_of_Sergei_and_Yulia_Skripal');
     });
 
-    it(`news headline topic should be the first link when no link is bolded`, () => {
+    it('news headline topic should be the first link when no link is bolded', () => {
         const lang = 'es';
         const doc = readTestDoc(lang);
         const headlines = doc.querySelectorAll(NEWS_SITES[lang].headlineSelectorAll);

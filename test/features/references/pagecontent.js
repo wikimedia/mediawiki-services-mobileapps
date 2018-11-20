@@ -40,7 +40,7 @@ describe('references', function() {
                 assert.equal(res.body.references_by_id[id].content.type, 'generic',
                     'ref should have content.type generic');
                 assert.ok(res.body.references_by_id[id].id === undefined,
-                    `ref id shouldn't be included again`);
+                    "ref id shouldn't be included again");
             });
     });
 });

@@ -22,7 +22,7 @@ describe('page filtering', () => {
 
     it('Page with skewed pageview distribution by platform should be omitted from results', () => {
         filter.filterBots(combinedMostRead, desktopMostRead).forEach((entry) => {
-            assert.ok(entry.article !== "AMGTV");
+            assert.ok(entry.article !== 'AMGTV');
         });
     });
 });

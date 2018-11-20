@@ -17,7 +17,7 @@ describe('news-unit', () => {
             { $merge: [ summUrl(rbTemplate, enwiki, 'Sport_of_athletics') ] },
             { $merge: [ summUrl(rbTemplate, enwiki, 'Kendra_Harrison') ] },
             { $merge: [ summUrl(rbTemplate, enwiki,
-                `Women's_100_metres_hurdles_world_record_progression`) ]
+                "Women's_100_metres_hurdles_world_record_progression") ]
             },
             { $merge: [ summUrl(rbTemplate, enwiki, 'London_Grand_Prix') ] }
         ]

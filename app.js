@@ -211,7 +211,7 @@ function createServer(app) {
         // Don't delay incomplete packets for 40ms (Linux default) on
         // pipelined HTTP sockets. We write in large chunks or buffers, so
         // lack of coalescing should not be an issue here.
-        server.on("connection", (socket) => {
+        server.on('connection', (socket) => {
             socket.setNoDelay(true);
         });
 

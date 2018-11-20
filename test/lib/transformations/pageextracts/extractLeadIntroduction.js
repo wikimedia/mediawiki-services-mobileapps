@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const domino = require('domino');
 const assert = require('./../../../utils/assert.js');
@@ -47,7 +47,7 @@ describe('extractLeadIntroduction', () => {
             // Initial paragraphs from transclusions are accepted if they contain <b> element.
             [
                 '<p about="#mwt1">Here is a <b>good first paragraph</b> that happens to be' +
-                  'transcluded.</p><p>Second paragraph, we don\'t want this!</p>',
+                  "transcluded.</p><p>Second paragraph, we don't want this!</p>",
                 '<p about="#mwt1">Here is a <b>good first paragraph</b> that happens to be' +
                   'transcluded.</p>'
             ]

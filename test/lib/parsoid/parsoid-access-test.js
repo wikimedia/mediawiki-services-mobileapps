@@ -46,7 +46,7 @@ describe('lib:parsoid-access', () => {
 describe('lib:parsoid-access etag handling', () => {
 
     it('gets strong etag with no quotes', () => {
-        const headers = { etag: "123/Foo" };
+        const headers = { etag: '123/Foo' };
         assert.deepEqual(parsoid.getEtagFromHeaders(headers), '123/Foo');
     });
 
@@ -56,12 +56,12 @@ describe('lib:parsoid-access etag handling', () => {
     });
 
     it('gets revision from etag', () => {
-        const headers = { etag: "123/Foo" };
+        const headers = { etag: '123/Foo' };
         assert.deepEqual(parsoid.getRevisionFromEtag(headers), '123');
     });
 
     it('gets revision and tid from etag', () => {
-        const headers = { etag: "123/Foo" };
+        const headers = { etag: '123/Foo' };
         const revTid = parsoid.getRevAndTidFromEtag(headers);
         assert.deepEqual(revTid.revision, '123');
         assert.deepEqual(revTid.tid, 'Foo');

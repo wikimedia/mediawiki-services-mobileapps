@@ -60,24 +60,24 @@ describe('summary', function() {
             });
     });
 
-    it('main page should return empty summary and type should be \'mainpage\'', () => {
+    it("main page should return empty summary and type should be 'mainpage'", () => {
         const uri = localUri('Main_Page');
         return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
-                assert.deepEqual(res.body.type, 'mainpage', 'type should be \'mainpage\'');
+                assert.deepEqual(res.body.type, 'mainpage', "type should be 'mainpage'");
                 assert.deepEqual(res.body.extract, '', 'should send empty plaintext extract');
                 assert.deepEqual(res.body.extract_html, '', 'should send empty html extract');
                 assertHasAllRequiredProperties(res.body);
             });
     });
 
-    it('main page in non-mainspace should also return type: \'mainpage\'', () => {
+    it("main page in non-mainspace should also return type: 'mainpage'", () => {
         const uri = localUri('Wikipedia:Hauptseite', 'de.wikipedia.org');
         return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
-                assert.deepEqual(res.body.type, 'mainpage', 'type should be \'mainpage\'');
+                assert.deepEqual(res.body.type, 'mainpage', "type should be 'mainpage'");
                 assert.deepEqual(res.body.extract, '', 'should send empty plaintext extract');
                 assert.deepEqual(res.body.extract_html, '', 'should send empty html extract');
                 assertHasAllRequiredProperties(res.body);
@@ -89,7 +89,7 @@ describe('summary', function() {
         return preq.get({ uri })
             .then((res) => {
                 assert.deepEqual(res.status, 200);
-                assert.deepEqual(res.body.type, 'standard', 'type should be \'standard\'');
+                assert.deepEqual(res.body.type, 'standard', "type should be 'standard'");
                 assert.contains(res.body.extract, 'Berliner Mauer');
                 assert.contains(res.body.extract_html, '<b>Berliner Mauer</b>');
                 assertHasAllRequiredProperties(res.body);
@@ -101,8 +101,8 @@ describe('summary', function() {
         .then((res) => {
             assert.deepEqual(res.status, 200);
             assert.deepEqual(res.body.type, 'no-extract');
-            assert.deepEqual(res.body.extract, "", 'extract should be empty');
-            assert.deepEqual(res.body.extract_html, "", 'extract_html should be empty');
+            assert.deepEqual(res.body.extract, '', 'extract should be empty');
+            assert.deepEqual(res.body.extract_html, '', 'extract_html should be empty');
             assertHasAllRequiredProperties(res.body);
         });
     }
@@ -131,7 +131,7 @@ describe('summary', function() {
         });
     });
 
-    it('404 for a page that doesn\'t exist', () => {
+    it("404 for a page that doesn't exist", () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/summary/ashsahahash`;
         return preq.get({ uri })
             .catch((res) => {

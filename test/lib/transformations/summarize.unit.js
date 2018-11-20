@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /* eslint-disable max-len */
 
@@ -36,7 +36,7 @@ describe('lib:summarize follows spec', () => {
     });
     it('flattening spans before the `(` enables this parenthetical to be removed', () => {
         // en.wikipedia.org/api/rest_v1/page/html/Kyoto/823102615
-        tst(`<b>Kyoto</b><span style="font-weight:normal;"><span typeof="mw:Entity"> </span>(lots of IPAs)</span> is a</p>`,
+        tst('<b>Kyoto</b><span style="font-weight:normal;"><span typeof="mw:Entity"> </span>(lots of IPAs)</span> is a</p>',
             '<b>Kyoto</b><span style="font-weight:normal;"> </span> is a');
     });
     it('removes audio, video, and track tags', () => {
@@ -226,7 +226,7 @@ describe('lib:summarize follows spec', () => {
             '<p><b>Cape Verde</b>, or <b>Cabo Verde</b>, is an island country.</p>');
     });
     it('removes parentheticals beginning and ending with spaces', () => {
-        tst(`<p>The <b>Scythian languages</b> ( or ) are a group of Eastern Iranian languages.</p>`,
+        tst('<p>The <b>Scythian languages</b> ( or ) are a group of Eastern Iranian languages.</p>',
             '<p>The <b>Scythian languages</b> are a group of Eastern Iranian languages.</p>');
     });
     it('removes nested parentheticals for non-Latin parens', () => {

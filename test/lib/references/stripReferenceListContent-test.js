@@ -19,9 +19,9 @@ describe('lib:strip reference list transform', () => {
             + '</body>');
 
         stripReferenceListContent(doc);
-        assert.selectorExistsNTimes(doc, 'ol', 0, `expected <ol> tags to be removed`);
-        assert.selectorExistsNTimes(doc, 'li', 0, `expected <li> tags to be removed`);
-        assert.selectorExistsNTimes(doc, 'div', 3, `expected 3 <div> tags to be found`);
+        assert.selectorExistsNTimes(doc, 'ol', 0, 'expected <ol> tags to be removed');
+        assert.selectorExistsNTimes(doc, 'li', 0, 'expected <li> tags to be removed');
+        assert.selectorExistsNTimes(doc, 'div', 3, 'expected 3 <div> tags to be found');
     });
     it('reference list contents should be replaced by placeholders (new)', () => {
         const doc = domino.createDocument('<body>'
@@ -43,8 +43,8 @@ describe('lib:strip reference list transform', () => {
             + '</body>');
 
         stripReferenceListContent(doc);
-        assert.selectorExistsNTimes(doc, 'ol', 0, `expected <ol> tags to be removed`);
-        assert.selectorExistsNTimes(doc, 'li', 0, `expected <li> tags to be removed`);
-        assert.selectorExistsNTimes(doc, 'div', 3, `expected 3 <div> tags to be found`);
+        assert.selectorExistsNTimes(doc, 'ol', 0, 'expected <ol> tags to be removed');
+        assert.selectorExistsNTimes(doc, 'li', 0, 'expected <li> tags to be removed');
+        assert.selectorExistsNTimes(doc, 'div', 3, 'expected 3 <div> tags to be found');
     });
 });

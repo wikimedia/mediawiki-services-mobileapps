@@ -15,7 +15,7 @@ const sUtil = require('../../lib/util');
  * img-src:
  *   We need to specifically allow data: URIs for the buttons from the wikimedia-page-library.
  */
-const HTML_CSP = `default-src 'none'; media-src *; img-src * data:; script-src https://meta.wikimedia.org 'unsafe-inline'; style-src https://meta.wikimedia.org https://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'`;
+const HTML_CSP = "default-src 'none'; media-src *; img-src * data:; script-src https://meta.wikimedia.org 'unsafe-inline'; style-src https://meta.wikimedia.org https://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'";
 
 /**
  * The main router object

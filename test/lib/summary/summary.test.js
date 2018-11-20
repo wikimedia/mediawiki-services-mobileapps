@@ -18,7 +18,7 @@ describe('lib:summary', () => {
                 '<p>2</p>', 'Unneeded markup is stripped.');
         });
         // https://bg.wikipedia.org/api/rest_v1/page/html/%D0%92%D1%82%D0%BE%D1%80%D0%B0_%D1%81%D0%B2%D0%B5%D1%82%D0%BE%D0%B2%D0%BD%D0%B0_%D0%B2%D0%BE%D0%B9%D0%BD%D0%B0/8391615
-        it('Don\'t select scribunto errors.', () => {
+        it("Don't select scribunto errors.", () => {
             test(
                 `<section data-mw-section-id="0"><p><strong><span class="scribunto-error">Грешка в Lua: not enough memory.
 </span></strong></p></section>`,
@@ -31,7 +31,7 @@ describe('lib:summary', () => {
             assert.deepEqual(unit.getSummaryType({ mainpage: true }), 'mainpage');
         });
         it('identifies disambig page', () => {
-            assert.deepEqual(unit.getSummaryType({ pageprops: { disambiguation: "" } }),
+            assert.deepEqual(unit.getSummaryType({ pageprops: { disambiguation: '' } }),
                 'disambiguation');
         });
         it('defaults to "standard"', () => {

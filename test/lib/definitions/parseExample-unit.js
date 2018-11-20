@@ -6,7 +6,7 @@ const parseExample = require('../../../lib/definitions/parseExample');
 
 describe('lib:definitions:parseExamples', () => {
 
-    describe("formatted with microformats", () => {
+    describe('formatted with microformats', () => {
         it('extracts usage examples', () => {
             const element = createDocument('<div class="h-usage-example">' +
                 '<span class="e-example">Example</span>' +
@@ -17,14 +17,14 @@ describe('lib:definitions:parseExamples', () => {
             const example = parseExample('en', element);
 
             assert.deepEqual(example, {
-                example: "Example",
-                translation: "Translation",
-                literally: "Literally",
+                example: 'Example',
+                translation: 'Translation',
+                literally: 'Literally',
             });
         });
     });
 
-    describe("formatted with plain MediaWiki markup", () => {
+    describe('formatted with plain MediaWiki markup', () => {
         it('extracts usage examples', () => {
             const element = createDocument(
                 '<dl>' +

@@ -19,7 +19,7 @@ describe('featured-image-unit', () => {
     });
 
     it('getDescription returns undefined for non-object input', () => {
-        const result = getDescription("<span>lol</span>", 'zh');
+        const result = getDescription('<span>lol</span>', 'zh');
         assert.deepEqual(result, undefined);
     });
 

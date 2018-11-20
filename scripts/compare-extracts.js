@@ -30,11 +30,11 @@ const path = require('path');
 
 const DELAY = 10; // delay between requests in ms
 const NEW_PORT = 6927;
-const NEW_VERSION_INFO = ``;
+const NEW_VERSION_INFO = '';
 // Set OLD_PORT to a valid port number to go against a second local MCS instance.
 // Set OLD_PORT to 0 to go against production.
 const OLD_PORT = 0;
-const OLD_VERSION_INFO = ``;
+const OLD_VERSION_INFO = '';
 const PROJECT = 'wikipedia';
 const topPagesDir = path.join(__dirname, `../private/page-lists/top-pages/${PROJECT}`);
 const pagesListsDir = path.join(__dirname, '../private/page-lists');
@@ -108,42 +108,42 @@ const uriForLocal = (domain, title, revTid, port = NEW_PORT) => {
 const outputStart = (type, lang) => {
     const file = type.overviewFile;
     /* eslint-disable max-len */
-    file.write(`<html>\n`);
-    file.write(`<head>\n`);
-    file.write(`<meta charset="UTF-8"/>\n`);
-    file.write(`<link rel="StyleSheet" href="../static/compare-table.css" />\n`);
-    file.write(`</head>\n`);
-    file.write(`<body>\n`);
-    file.write(`<script type="text/javascript" src="../static/compare-table.js" charset="utf-8"></script>\n`);
+    file.write('<html>\n');
+    file.write('<head>\n');
+    file.write('<meta charset="UTF-8"/>\n');
+    file.write('<link rel="StyleSheet" href="../static/compare-table.css" />\n');
+    file.write('</head>\n');
+    file.write('<body>\n');
+    file.write('<script type="text/javascript" src="../static/compare-table.js" charset="utf-8"></script>\n');
     file.write(`<h2>Extract comparison for top pages in ${lang}.${PROJECT}.org</h2>\n`);
-    file.write(`<nav>\n`);
+    file.write('<nav>\n');
     if (lang !== UNKNOWN_LANGUAGE) {
         file.write(`${getLanguageLinks()}\n<br/>\n`);
     }
     file.write(`<a href="../html/${lang}.html">html</a> |\n`);
     file.write(`<a href="../plain/${lang}.html">plain</a> |\n`);
     file.write(`<a href="../other/${lang}.html">other</a> |\n`);
-    file.write(`<form>\n`);
-    file.write(`<input type="checkbox" id="showSameCB" onchange="toggleShow();">\n`);
-    file.write(`<label for="showSameCB">Show same</label>\n`);
-    file.write(`</form>\n`);
-    file.write(`</nav>\n`);
+    file.write('<form>\n');
+    file.write('<input type="checkbox" id="showSameCB" onchange="toggleShow();">\n');
+    file.write('<label for="showSameCB">Show same</label>\n');
+    file.write('</form>\n');
+    file.write('</nav>\n');
     file.write(`<p>old version on port ${OLD_PORT}: ${OLD_VERSION_INFO}<br/>\n`);
     file.write(`new version on port ${NEW_PORT}: ${NEW_VERSION_INFO}</p>\n`);
-    file.write(`<table>\n`);
-    file.write(`<tr>\n`);
-    file.write(`<th class="titleColumn">Title</th>\n`);
+    file.write('<table>\n');
+    file.write('<tr>\n');
+    file.write('<th class="titleColumn">Title</th>\n');
     file.write(`<th class="valueColumn">Old (:${OLD_PORT})</th>\n`);
     file.write(`<th class="valueColumn">New (:${NEW_PORT})</th>\n`);
-    file.write(`</tr>\n`);
+    file.write('</tr>\n');
     /* eslint-enable max-len */
 };
 
 const outputEnd = (type) => {
     const file = type.overviewFile;
-    file.write(`</table>\n`);
-    file.write(`</body>\n`);
-    file.write(`</html>\n`);
+    file.write('</table>\n');
+    file.write('</body>\n');
+    file.write('</html>\n');
     file.end();
 };
 
@@ -168,10 +168,10 @@ const compareExtractsHTML = (file, oldExtractValue, newExtractValue,
     file.write(`<br/>[${ENDPOINT}:\n`);
     file.write(`<a href="${uriForProd(domain, title)}">prod</a>\n`);
     file.write(`<a href="${uriForLocal(domain, title, revTid)}">local</a>]\n`);
-    file.write(`</td>\n`);
+    file.write('</td>\n');
     file.write(`<td class="valueColumn" dir="auto">${oldExtractValue}</td>\n`);
     file.write(`<td class="valueColumn" dir="auto">${newExtractValue}</td>\n`);
-    file.write(`</tr>\n`);
+    file.write('</tr>\n');
 };
 
 /**
@@ -295,7 +295,7 @@ const setupFiles = (type, lang) => {
 // MAIN
 const arg = process.argv[2];
 if (process.argv.length > 3) {
-    process.stderr.write(`Error: supply only 0 or 1 language parameter (e.g. en)!\n`);
+    process.stderr.write('Error: supply only 0 or 1 language parameter (e.g. en)!\n');
     process.exit(-1);
 }
 

@@ -3,7 +3,7 @@
 'use strict';
 
 const BBPromise = require('bluebird');
-const fs = require("fs");
+const fs = require('fs');
 const preq = require('preq');
 const path = require('path');
 
@@ -31,7 +31,7 @@ const uriForParsoid = (pageTitle) => {
 
 const writePages = (myPages) => {
     const logger = fs.createWriteStream(outputFile, { flags: 'w' });
-    logger.write(`{ "items": [\n`);
+    logger.write('{ "items": [\n');
     myPages.forEach((page, index, array) => {
         if (page) {
             const comma = (index < array.length - 1) ? ',' : '';
@@ -39,7 +39,7 @@ const writePages = (myPages) => {
             logger.write(`  { "title": "${title}", "rev": "${page.rev}" }${comma}\n`);
         }
     });
-    logger.write(`]}\n`);
+    logger.write(']}\n');
     logger.end();
 };
 

@@ -87,7 +87,7 @@ describe('lib:media metadata is correctly parsed from HTML', () => {
         const derivative = result.sources[0];
         assert.deepEqual(derivative.url, 'https://example.com/Foo.ogv');
         assert.deepEqual(derivative.mime, 'video/ogg');
-        assert.deepEqual(derivative.codecs, [ "theora", "vorbis" ]);
+        assert.deepEqual(derivative.codecs, [ 'theora', 'vorbis' ]);
         assert.deepEqual(derivative.name, 'Foo');
         assert.deepEqual(derivative.short_name, 'Foo');
         assert.deepEqual(derivative.width, 120);
@@ -139,7 +139,7 @@ describe('lib:media parse structured artist info', () => {
         assert.deepEqual(result.user_page, 'https://commons.wikimedia.org/wiki/User:Foo');
     });
 
-    it('\'html\' and \'name\' fields are returned from plain text input', () => {
+    it("'html' and 'name' fields are returned from plain text input", () => {
         const html = 'Foo';
         const result = getStructuredArtistInfo(req(), html);
         assert.deepEqual(result.html, html);

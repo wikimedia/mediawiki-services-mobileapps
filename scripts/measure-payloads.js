@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const lang = 'en'; // prepped for 'en' and 'zh'
-const TOP_PAGES_DIR = path.join(__dirname, `../private/page-lists/top-pages/wikipedia`);
+const TOP_PAGES_DIR = path.join(__dirname, '../private/page-lists/top-pages/wikipedia');
 const TOP_PAGES_FILE = path.join(TOP_PAGES_DIR, `top-pages.${lang}.json`);
 const GZIP = 'gzip -6';
 const PARSOID_BASE_URI = `https://${lang}.wikipedia.org/api/rest_v1/page/html`;
@@ -80,7 +80,7 @@ const processAllPages = () => {
 // MAIN
 const arg = process.argv[2];
 if (arg) {
-    process.stderr.write(`Error: unrecognized parameter!`);
+    process.stderr.write('Error: unrecognized parameter!');
     process.exit(-1);
 } else {
     processAllPages();

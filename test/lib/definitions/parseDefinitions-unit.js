@@ -21,33 +21,33 @@ describe('lib:definitions', () => {
     const avere  = parse('avere');
     const kuulua = parse('kuulua');
 
-    describe("Level 2 headers", () => {
-        it("extracts them to language code keys", () => {
+    describe('Level 2 headers', () => {
+        it('extracts them to language code keys', () => {
             assert.deepEqual(Object.keys(avere), ['ast', 'it', 'la', 'ro', 'roa-tara']);
         });
     });
 
-    describe("parts of speech", () => {
-        it("is set", () => {
+    describe('parts of speech', () => {
+        it('is set', () => {
             assert.deepEqual(avere.it.map(e => e.partOfSpeech), ['Verb', 'Noun']);
         });
     });
 
-    describe("language", () => {
-        it("is set on each entry", () => {
+    describe('language', () => {
+        it('is set on each entry', () => {
             avere.it.forEach(e => assert.deepEqual(e.language, 'Italian'));
         });
     });
 
-    describe("definitions", () => {
+    describe('definitions', () => {
         const definitions = kuulua.fi[0].definitions;
         assert.deepEqual(definitions.map(d => toText(d.definition)), [
             'to be heard/audible',
             'to be said',
-            'Used to refer to the state of one\'s life.',
+            "Used to refer to the state of one's life.",
             '( ~ + allative) to belong (showing ownership or location)',
             '( ~ + illative) to belong (to be member of)',
-            '( ~ + allative) to concern, to be someone\'s business'
+            "( ~ + allative) to concern, to be someone's business"
         ]);
     });
 
@@ -72,14 +72,14 @@ describe('lib:definitions', () => {
                 });
             });
 
-            describe("formatted with microformats", () => {
+            describe('formatted with microformats', () => {
                 it('extracts usage examples', () => {
                     const examples = avere.it.find(e => e.partOfSpeech === 'Verb')
                         .definitions[0].parsedExamples;
 
                     assert.deepEqual(examples, [
                         {
-                            example: '<b>Avevo</b> un\'anima.',
+                            example: "<b>Avevo</b> un'anima.",
                             translation: '<b>I used to have</b> a soul.'
                         },
                         {
@@ -108,13 +108,13 @@ describe('lib:definitions', () => {
                 });
             });
 
-            describe("formatted with microformats", () => {
+            describe('formatted with microformats', () => {
                 it('extracts usage examples', () => {
                     const examples = avere.it.find(e => e.partOfSpeech === 'Verb')
                         .definitions[0].examples;
 
                     assert.deepEqual(examples, [
-                        '<b>Avevo</b> un\'anima.',
+                        "<b>Avevo</b> un'anima.",
                         '<b>Ho</b> una macchina.',
                         '<b>Ho</b> diciassette anni.'
                     ]);

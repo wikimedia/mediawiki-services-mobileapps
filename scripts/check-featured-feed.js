@@ -53,7 +53,7 @@ const lookForBoldAnchor = (document, projectLang, html) => {
 
 const getWikitext = (projectLang, feature) => {
     const baseUri = `https://${projectLang}.${feature.projectFamily}.org`;
-    const queryParams1 = `action=query&format=json&prop=revisions&rvprop=content`;
+    const queryParams1 = 'action=query&format=json&prop=revisions&rvprop=content';
     const queryParams2 = `&rvslots=main&titles=MediaWiki%3A${feature.title}`;
     const uri = `${baseUri}/w/api.php?${queryParams1}${queryParams2}`;
 

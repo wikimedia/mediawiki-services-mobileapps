@@ -22,13 +22,13 @@ describe('lib:transforms', () => {
     const buildHtml2 = () => {
         return domino.createDocument('<body>'
             + '<sup class="mw-ref">'
-            + `<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[1]</span></a>`
+            + '<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[1]</span></a>'
             + '</sup>'
             + '<sup class="mw-ref">'
-            + `<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>`
+            + '<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>'
             + '</sup>'
             + '<sup class="mw-ref">'
-            + `<a href="anythingElseA_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>`
+            + '<a href="anythingElseA_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>'
             + '</sup>'
             + '</body>');
     };
@@ -108,7 +108,7 @@ describe('lib:transforms', () => {
         it('removes IPA speaker symbols (en): IPAc-en in span', () => {
             test(
                 // eslint-disable-next-line max-len
-                `<span class="nowrap" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;IPAc-en&quot;,&quot;href&quot;:&quot;./Template:IPAc-en&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;ˈ&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;l&quot;},&quot;3&quot;:{&quot;wt&quot;:&quot;ʌ&quot;},&quot;4&quot;:{&quot;wt&quot;:&quot;n&quot;},&quot;5&quot;:{&quot;wt&quot;:&quot;d&quot;},&quot;6&quot;:{&quot;wt&quot;:&quot;ən&quot;},&quot;audio&quot;:{&quot;wt&quot;:&quot;En-uk-London.ogg&quot;}},&quot;i&quot;:0}}]}" id="mwDQ">[...]</span>`,
+                '<span class="nowrap" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;IPAc-en&quot;,&quot;href&quot;:&quot;./Template:IPAc-en&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;ˈ&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;l&quot;},&quot;3&quot;:{&quot;wt&quot;:&quot;ʌ&quot;},&quot;4&quot;:{&quot;wt&quot;:&quot;n&quot;},&quot;5&quot;:{&quot;wt&quot;:&quot;d&quot;},&quot;6&quot;:{&quot;wt&quot;:&quot;ən&quot;},&quot;audio&quot;:{&quot;wt&quot;:&quot;En-uk-London.ogg&quot;}},&quot;i&quot;:0}}]}" id="mwDQ">[...]</span>',
                 '');
         });
         it('removes spans with style display:none', () => {

@@ -13,7 +13,7 @@ describe('mobile-sections-lead', function() {
     before(() => server.start());
 
     it('Sections/deep page should have a lead object with expected properties', () => {
-        const title = `Sections%2Fdeep`;
+        const title = 'Sections%2Fdeep';
         const uri = `${server.config.uri}test.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
         return preq.get({ uri })
             .then((res) => {
@@ -108,7 +108,7 @@ describe('mobile-sections-lead', function() {
     });
     it('Enwiki Odisha loads successfully (no pronunciation parsing TypeErrors)', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Odisha`;
-        const path = `//upload.wikimedia.org/wikipedia/commons/c/c2`;
+        const path = '//upload.wikimedia.org/wikipedia/commons/c/c2';
         const exp = `${path}/Pronunciation_of_the_Odia_language_word_%22Odisha%22.ogg`;
         return preq.get({ uri })
             .then((res) => {
@@ -119,7 +119,7 @@ describe('mobile-sections-lead', function() {
     });
     it('Enwiki Yazidis loads successfully (no pronunciation parsing TypeErrors)', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Yazidis`;
-        const path = `//upload.wikimedia.org/wikipedia/commons/8/8d`;
+        const path = '//upload.wikimedia.org/wikipedia/commons/8/8d';
         const exp = `${path}/En-us-Yazidis_from_Iraq_pronunciation_%28Voice_of_America%29.ogg`;
         return preq.get({ uri })
                    .then((res) => {
@@ -128,7 +128,7 @@ describe('mobile-sections-lead', function() {
                        assert.equal(lead.pronunciation.url, exp);
                    });
     });
-    it('\' in pronunciation file name does not cause parsing error)', () => {
+    it("' in pronunciation file name does not cause parsing error)", () => {
         const title = '%D8%A2%D8%A6%DB%8C%D9%88%D8%B1%DB%8C_%DA%A9%D9%88%D8%B3%D9%B9';
         const uri = `${server.config.uri}ur.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
         return preq.get({ uri })
@@ -137,7 +137,7 @@ describe('mobile-sections-lead', function() {
                    });
     });
     it('Enwiki Lead_paragraph_move has the infobox moved after the lead paragraph', () => {
-        const title = `User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FLead_paragraph_move`;
+        const title = 'User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FLead_paragraph_move';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
         const regex = /<p>Lead paragraph should appear first/;
         return preq.get({ uri })
@@ -149,7 +149,7 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('Enwiki hatnotes are promoted to the lead object', () => {
-        const title = `Order_of_chivalry`;
+        const title = 'Order_of_chivalry';
         const uri = `${server.config.uri}${wikiSectionsLead}${title}/699553745`;
         return preq.get({ uri })
             .then((res) => {
@@ -160,7 +160,7 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('Enwiki Multiple page issues are promoted to lead', () => {
-        const title = `User:Jdlrobson%2Fmcs-tests%2Fissues_bug`;
+        const title = 'User:Jdlrobson%2Fmcs-tests%2Fissues_bug';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
         return preq.get({ uri })
             .then((res) => {
@@ -172,7 +172,7 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('Enwiki Pages with single issue have issue promoted to lead', () => {
-        const title = `User:Jdlrobson%2Fmcs-tests%2Fissues_bug_3`;
+        const title = 'User:Jdlrobson%2Fmcs-tests%2Fissues_bug_3';
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
         return preq.get({ uri })
             .then((res) => {

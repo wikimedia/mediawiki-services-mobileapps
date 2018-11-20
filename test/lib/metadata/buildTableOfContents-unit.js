@@ -5,29 +5,29 @@ const buildTocEntries = require('../../../lib/metadata').testing.buildTocEntries
 
 const sections = [
     { id: 0 },
-    { id: 1, toclevel: 1, line: "Foo", anchor: "Foo" },
-    { id: 2, toclevel: 2, line: "Foo", anchor: "Foo" },
+    { id: 1, toclevel: 1, line: 'Foo', anchor: 'Foo' },
+    { id: 2, toclevel: 2, line: 'Foo', anchor: 'Foo' },
     { id: -1 },
-    { id: 3, toclevel: 3, line: "Foo", anchor: "Foo" },
-    { id: 4, toclevel: 2, line: "Foo", anchor: "Foo" },
+    { id: 3, toclevel: 3, line: 'Foo', anchor: 'Foo' },
+    { id: 4, toclevel: 2, line: 'Foo', anchor: 'Foo' },
     { id: -2 },
-    { id: 5, toclevel: 3, line: "Foo", anchor: "Foo" },
-    { id: 6, toclevel: 2, line: "Foo", anchor: "Foo" },
-    { id: 7, toclevel: 1, line: "Foo", anchor: "Foo" }
+    { id: 5, toclevel: 3, line: 'Foo', anchor: 'Foo' },
+    { id: 6, toclevel: 2, line: 'Foo', anchor: 'Foo' },
+    { id: 7, toclevel: 1, line: 'Foo', anchor: 'Foo' }
 ];
 
 const deepSections = [
     { id: 0 },
-    { id: 1, toclevel: 1, line: "Foo", anchor: "Foo" },
-    { id: 2, toclevel: 2, line: "Foo", anchor: "Foo" },
-    { id: 3, toclevel: 3, line: "Foo", anchor: "Foo" },
-    { id: 4, toclevel: 4, line: "Foo", anchor: "Foo" },
-    { id: 5, toclevel: 5, line: "Foo", anchor: "Foo" },
-    { id: 6, toclevel: 6, line: "Foo", anchor: "Foo" },
-    { id: 7, toclevel: 7, line: "Foo", anchor: "Foo" },
-    { id: 8, toclevel: 8, line: "Foo", anchor: "Foo" },
-    { id: 9, toclevel: 9, line: "Foo", anchor: "Foo" },
-    { id: 10, toclevel: 10, line: "Foo", anchor: "Foo" }
+    { id: 1, toclevel: 1, line: 'Foo', anchor: 'Foo' },
+    { id: 2, toclevel: 2, line: 'Foo', anchor: 'Foo' },
+    { id: 3, toclevel: 3, line: 'Foo', anchor: 'Foo' },
+    { id: 4, toclevel: 4, line: 'Foo', anchor: 'Foo' },
+    { id: 5, toclevel: 5, line: 'Foo', anchor: 'Foo' },
+    { id: 6, toclevel: 6, line: 'Foo', anchor: 'Foo' },
+    { id: 7, toclevel: 7, line: 'Foo', anchor: 'Foo' },
+    { id: 8, toclevel: 8, line: 'Foo', anchor: 'Foo' },
+    { id: 9, toclevel: 9, line: 'Foo', anchor: 'Foo' },
+    { id: 10, toclevel: 10, line: 'Foo', anchor: 'Foo' }
 ];
 
 describe('lib:metadata buildTableOfContents', () => {

@@ -55,7 +55,7 @@ ${simpleDogRef}
 </ol><div>`;
 
 // List_of_most_viewed_YouTube_videos
-const mostViewedYoutubeVideosContent = `Some videos may not be available worldwide due to <a href="./Geolocation_software#Regional_licensing" title="Geolocation software">regional restrictions</a> in certain countries.`;
+const mostViewedYoutubeVideosContent = 'Some videos may not be available worldwide due to <a href="./Geolocation_software#Regional_licensing" title="Geolocation software">regional restrictions</a> in certain countries.';
 const mostViewedYoutubeVideosOld = `<ol class="mw-references references" typeof="mw:Extension/references" about="#mwt571"><li about="#cite_note-4" id="cite_note-4"><a href="./List_of_most_viewed_YouTube_videos#cite_ref-4" data-mw-group="upper-alpha" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-4" class="mw-reference-text">${mostViewedYoutubeVideosContent}</span></li></ol>`;
 const mostViewedYoutubeVideosNew = `<div typeof="mw:Extension/references" about="#mwt571"><ol class="mw-references references"><li about="#cite_note-4" id="cite_note-4"><a href="./List_of_most_viewed_YouTube_videos#cite_ref-4" data-mw-group="upper-alpha" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-4" class="mw-reference-text">${mostViewedYoutubeVideosContent}</span></li></ol></div>`;
 
@@ -67,7 +67,7 @@ const attemptedXssRef = `<li about="#cite_note-101" id="cite_note-101">
 
 // https://en.wikipedia.org/api/rest_v1/page/html/List_of_highest-grossing_Indian_films/822986388
 // Had issue parsing `toirupee` reference
-const indianFilmsToIRupeeRefInRef = `<li id="cite_note-toirupee-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-toirupee_6-0"><sup><i><b>a</b></i></sup></a> <a                   href="#cite_ref-toirupee_6-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-toirupee_6-2"><sup><i><b>c</b></i></sup></a></span> <span           class="reference-text"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20130816032924/http://timesofindia.indiatimes.com/business/india-business/Journey-of-Indian-rupee-since-independence/articleshow/21844179.cms">Journey of Indian rupee since independence</a>, <i><a href="/wiki/The_Times_of_India" title="The Times of India">The Times of India</a></i>. Retrieved on 2013-12-01.</span></li>`;
+const indianFilmsToIRupeeRefInRef = '<li id="cite_note-toirupee-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-toirupee_6-0"><sup><i><b>a</b></i></sup></a> <a                   href="#cite_ref-toirupee_6-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-toirupee_6-2"><sup><i><b>c</b></i></sup></a></span> <span           class="reference-text"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20130816032924/http://timesofindia.indiatimes.com/business/india-business/Journey-of-Indian-rupee-since-independence/articleshow/21844179.cms">Journey of Indian rupee since independence</a>, <i><a href="/wiki/The_Times_of_India" title="The Times of India">The Times of India</a></i>. Retrieved on 2013-12-01.</span></li>';
 
 // Also having issue parsing ref `181`
 const indianFilmsRef181 = `<li id="cite_note-toirupee-6">
@@ -124,7 +124,7 @@ describe('lib:structureReferenceListContent', () => {
 
         it('unexpected child element should emit logging', () => {
             // a <li> without a <span> nor <a>
-            const illegalRef = `<li about="#cite_note-101" id="cite_note-101"><div></div></li>`;
+            const illegalRef = '<li about="#cite_note-101" id="cite_note-101"><div></div></li>';
             const doc = createDocument(illegalRef);
             assert.deepEqual(
                 mut.unit.structureBackLinks(doc.querySelector('li'), logger),
@@ -256,7 +256,7 @@ describe('lib:structureReferenceListContent', () => {
             const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
             assert.deepEqual(result, {
                 back_links: [
-                    { href: "./List_of_highest-grossing_Indian_films#cite_ref-toirupee_6-0", text: "↑" }
+                    { href: './List_of_highest-grossing_Indian_films#cite_ref-toirupee_6-0', text: '↑' }
                 ],
                 content: {
                     html: '',

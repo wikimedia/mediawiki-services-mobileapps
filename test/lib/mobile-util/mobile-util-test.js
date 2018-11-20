@@ -68,7 +68,7 @@ describe('lib:mobile-util', () => {
             assert.deepEqual(res.get('Content-Language'), 'bar');
         });
 
-        it('strips \'accept\' from vary value with other values present', () => {
+        it("strips 'accept' from vary value with other values present", () => {
             const res = new MockResponse();
             mUtil.setLanguageHeaders(res, {
                 vary: 'accept, accept-language',
@@ -76,7 +76,7 @@ describe('lib:mobile-util', () => {
             assert.deepEqual(res.get('Vary'), 'accept-language');
         });
 
-        it('strips \'Accept\' from vary value with other values present', () => {
+        it("strips 'Accept' from vary value with other values present", () => {
             const res = new MockResponse();
             mUtil.setLanguageHeaders(res, {
                 Vary: 'Accept, Accept-Language',
@@ -84,7 +84,7 @@ describe('lib:mobile-util', () => {
             assert.deepEqual(res.get('Vary'), 'Accept-Language');
         });
 
-        it('strips vary header if set to \'Accept\' only', () => {
+        it("strips vary header if set to 'Accept' only", () => {
             const res = new MockResponse();
             mUtil.setLanguageHeaders(res, {
                 Vary: 'Accept',
@@ -92,7 +92,7 @@ describe('lib:mobile-util', () => {
             assert.deepEqual(res.get('Vary'), undefined);
         });
 
-        it('strips vary header if set to \'accept\' only', () => {
+        it("strips vary header if set to 'accept' only", () => {
             const res = new MockResponse();
             mUtil.setLanguageHeaders(res, {
                 Vary: 'accept',

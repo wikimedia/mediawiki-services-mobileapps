@@ -38,7 +38,7 @@ describe('mobile-sections', function() {
         const uri = localUri('weoiuyrxcmxn', 'test.wikipedia.org');
         return preq.get({ uri })
         .then(() => {
-            assert.fail("expected an exception to be thrown");
+            assert.fail('expected an exception to be thrown');
         }).catch((res) => {
             assert.equal(res.status, 404);
         });
@@ -79,10 +79,10 @@ describe('mobile-sections', function() {
                 assert.equal(lead.wikibase_item, 'Q5296');
                 assert.deepEqual(lead.protection, {
                     edit: [
-                        "sysop"
+                        'sysop'
                     ],
                     move: [
-                        "sysop"
+                        'sysop'
                     ]
                 });
                 assert.equal(lead.editable, false);
@@ -121,8 +121,8 @@ describe('mobile-sections', function() {
             });
     });
 
-    it('Page with known past \'text-decoration\' error should load successfully', () => {
-        const title = `%E6%9F%A5%E5%85%8B%C2%B7%E8%91%9B%E9%87%8C%E8%8A%AC%E7%B4%8D%E5%A5%87`;
+    it("Page with known past 'text-decoration' error should load successfully", () => {
+        const title = '%E6%9F%A5%E5%85%8B%C2%B7%E8%91%9B%E9%87%8C%E8%8A%AC%E7%B4%8D%E5%A5%87';
         const uri = localUri(title, 'zh.wikipedia.org');
         return preq.get({ uri })
             .then((res) => {
@@ -139,8 +139,8 @@ describe('mobile-sections', function() {
     });
 
     it('Page with irregular Spoken Wikipedia template usage should load correctly', () => {
-        const filename = `File:En-Alliterative_verse-article.ogg`;
-        const title = `Alliterative_verse`;
+        const filename = 'File:En-Alliterative_verse-article.ogg';
+        const title = 'Alliterative_verse';
         const uri = localUri(title);
         return preq.get({ uri })
             .then((res) => {
@@ -150,7 +150,7 @@ describe('mobile-sections', function() {
     });
 
     it('Internal links should have title attribute', () => {
-        const title = `User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FTitleLinkEncoding`;
+        const title = 'User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FTitleLinkEncoding';
         const uri = localUri(title);
         const expectedText = '<a href="/wiki/Sort_(C++)" title="Sort (C++)"';
         return preq.get({ uri })
@@ -196,7 +196,7 @@ describe('mobile-sections', function() {
     });
 
     it('Page with math formulas should load without error', () => {
-        const title = `Verallgemeinerter_Laplace-Operator`;
+        const title = 'Verallgemeinerter_Laplace-Operator';
         const uri = localUri(title, 'de.wikipedia.org');
         return preq.get({ uri })
             .then((res) => {
