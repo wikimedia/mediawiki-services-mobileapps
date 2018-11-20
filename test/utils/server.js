@@ -36,7 +36,9 @@ sepia.filter( {
 	forceLive: true
 } );
 
-module.exports.stop = () => { return BBPromise.resolve(); };
+module.exports.stop = () => {
+	return BBPromise.resolve();
+};
 let options = null;
 const runner = new ServiceRunner();
 

@@ -159,7 +159,9 @@ describe( 'lib:parsoid-sections (section elements)', function () {
 	} );
 
 	it( 'should throw if sectionObj is invalid', () => {
-		assert.throws( () => { shouldWarn( undefined ); }, /TypeError/ );
+		assert.throws( () => {
+			shouldWarn( undefined );
+		}, /TypeError/ );
 	} );
 
 	it( 'validatePreviousSection should log a warning if appropriate', () => {

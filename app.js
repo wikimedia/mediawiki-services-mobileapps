@@ -31,10 +31,18 @@ function initApp( options ) {
 	app.info = packageInfo; // this app's package info
 
 	// ensure some sane defaults
-	if ( !app.conf.port ) { app.conf.port = 8888; }
-	if ( !app.conf.interface ) { app.conf.interface = '0.0.0.0'; }
-	if ( app.conf.compression_level === undefined ) { app.conf.compression_level = 3; }
-	if ( app.conf.cors === undefined ) { app.conf.cors = '*'; }
+	if ( !app.conf.port ) {
+		app.conf.port = 8888;
+	}
+	if ( !app.conf.interface ) {
+		app.conf.interface = '0.0.0.0';
+	}
+	if ( app.conf.compression_level === undefined ) {
+		app.conf.compression_level = 3;
+	}
+	if ( app.conf.cors === undefined ) {
+		app.conf.cors = '*';
+	}
 	if ( app.conf.csp === undefined ) {
 		// eslint-disable-next-line max-len
 		app.conf.csp = "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'";
