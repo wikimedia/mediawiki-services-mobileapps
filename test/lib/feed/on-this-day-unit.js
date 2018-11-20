@@ -159,25 +159,25 @@ describe('onthisday-unit', () => {
             assert.deepEqual(
                 onThisDay.wmfEventFromListElement(SEABISCUIT_SELECTED_LIST_ELEMENT, 'en'),
                 {
-                    "text": "Canadian-American jockey George Woolf, who rode Seabiscuit to a " +
+                    text: "Canadian-American jockey George Woolf, who rode Seabiscuit to a " +
                             "famous victory over War Admiral in 1938, was fatally injured when " +
                             "he fell from his horse during a race.",
-                    "pages": [
+                    pages: [
                         {
-                            "title": "Jockey"
+                            title: "Jockey"
                         },
                         {
-                            "title": "George_Woolf",
-                            "isTopic": true
+                            title: "George_Woolf",
+                            isTopic: true
                         },
                         {
-                            "title": "Seabiscuit"
+                            title: "Seabiscuit"
                         },
                         {
-                            "title": "War_Admiral"
+                            title: "War_Admiral"
                         }
                     ],
-                    "year": 1946
+                    year: 1946
                 }
             );
         });
@@ -185,16 +185,16 @@ describe('onthisday-unit', () => {
             assert.deepEqual(
                 onThisDay.wmfEventFromListElement(LIVIA_BIRTH_LIST_ELEMENT, 'en'),
                 {
-                    "text": "Livia, Roman wife of Augustus (d. 29)",
-                    "pages": [
+                    text: "Livia, Roman wife of Augustus (d. 29)",
+                    pages: [
                         {
-                            "title": "Livia"
+                            title: "Livia"
                         },
                         {
-                            "title": "Augustus"
+                            title: "Augustus"
                         }
                     ],
-                    "year": -58
+                    year: -58
                 }
             );
         });
@@ -202,13 +202,13 @@ describe('onthisday-unit', () => {
             assert.deepEqual(
                 onThisDay.wmfEventFromListElement(TEMPLE_EVENT_LIST_ELEMENT, 'en'),
                 {
-                    "text": "The Second Temple of Jerusalem finishes construction.",
-                    "pages": [
+                    text: "The Second Temple of Jerusalem finishes construction.",
+                    pages: [
                         {
-                            "title": "Second_Temple"
+                            title: "Second_Temple"
                         }
                     ],
-                    "year": -516
+                    year: -516
                 }
             );
         });
@@ -216,13 +216,13 @@ describe('onthisday-unit', () => {
             assert.deepEqual(
                 onThisDay.wmfEventFromListElement(GANDHI_DEATH_LIST_ELEMENT, 'en'),
                 {
-                    "text": "Mahatma Gandhi, Indian lawyer, philosopher, and activist (b. 1869)",
-                    "pages": [
+                    text: "Mahatma Gandhi, Indian lawyer, philosopher, and activist (b. 1869)",
+                    pages: [
                         {
-                            "title": "Mahatma_Gandhi"
+                            title: "Mahatma_Gandhi"
                         }
                     ],
-                    "year": 1948
+                    year: 1948
                 }
             );
         });
@@ -236,24 +236,24 @@ describe('onthisday-unit', () => {
             assert.deepEqual(
                 onThisDay.wmfHolidayFromListElement(MARTYRDOM_HOLIDAY_LIST_ELEMENT),
                 {
-                    "text": "Martyrdom of Mahatma Gandhi-related observances:\n Martyrs' Day " +
+                    text: "Martyrdom of Mahatma Gandhi-related observances:\n Martyrs' Day " +
                             "(India)\n School Day of Non-violence and Peace (Spain)\n Start of " +
                             "the Season for Nonviolence January 30-April 4",
-                    "pages": [
+                    pages: [
                         {
-                            "title": "Mahatma_Gandhi"
+                            title: "Mahatma_Gandhi"
                         },
                         {
-                            "title": "Martyrs'_Day_(India)"
+                            title: "Martyrs'_Day_(India)"
                         },
                         {
-                            "title": "School_Day_of_Non-violence_and_Peace"
+                            title: "School_Day_of_Non-violence_and_Peace"
                         },
                         {
-                            "title": "Spain"
+                            title: "Spain"
                         },
                         {
-                            "title": "Season_for_Nonviolence"
+                            title: "Season_for_Nonviolence"
                         }
                     ]
                 }

@@ -173,7 +173,7 @@ describe('lib:media parse structured artist info', () => {
     });
 
     it('parses html with lang from metadata object', () => {
-        const obj = { 'en': 'Foo', 'de': 'Bar' };
+        const obj = { en: 'Foo', de: 'Bar' };
         const result = getStructuredArtistInfo(req(), obj);
         assert.deepEqual(result.html, obj.en);
         assert.deepEqual(result.name, 'Foo');
@@ -182,7 +182,7 @@ describe('lib:media parse structured artist info', () => {
     });
 
     it('parses html with lang (non-English) from metadata object', () => {
-        const obj = { 'en': 'Foo', 'de': 'Bar' };
+        const obj = { en: 'Foo', de: 'Bar' };
         const result = getStructuredArtistInfo(req('de.wikipedia.org'), obj);
         assert.deepEqual(result.html, obj.de);
         assert.deepEqual(result.name, 'Bar');

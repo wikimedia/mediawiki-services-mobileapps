@@ -256,7 +256,7 @@ describe('lib:structureReferenceListContent', () => {
             const result = mut.unit.buildOneReferenceItem(doc.querySelector('li'), logger);
             assert.deepEqual(result, {
                 back_links: [
-                    { "href": "./List_of_highest-grossing_Indian_films#cite_ref-toirupee_6-0", "text": "↑" }
+                    { href: "./List_of_highest-grossing_Indian_films#cite_ref-toirupee_6-0", text: "↑" }
                 ],
                 content: {
                     html: '',
@@ -287,7 +287,7 @@ describe('lib:structureReferenceListContent', () => {
             const doc = createDocument(oneRefInListOld);
             const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
             assert.deepEqual(result.references_by_id, {
-                '101': {
+                101: {
                     back_links: [{
                         href: './Dog#cite_ref-101',
                         text: '↑'
@@ -306,7 +306,7 @@ describe('lib:structureReferenceListContent', () => {
             const doc = createDocument(oneRefInListNew);
             const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
             assert.deepEqual(result.references_by_id, {
-                '101': {
+                101: {
                     back_links: [{
                         href: './Dog#cite_ref-101',
                         text: '↑'
@@ -325,7 +325,7 @@ describe('lib:structureReferenceListContent', () => {
             const doc = createDocument(mostViewedYoutubeVideosOld);
             const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
             assert.deepEqual(result.references_by_id, {
-                '4': {
+                4: {
                     back_links: [{
                         href: './List_of_most_viewed_YouTube_videos#cite_ref-4',
                         text: '↑'
@@ -344,7 +344,7 @@ describe('lib:structureReferenceListContent', () => {
             const doc = createDocument(mostViewedYoutubeVideosNew);
             const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
             assert.deepEqual(result.references_by_id, {
-                '4': {
+                4: {
                     back_links: [{
                         href: './List_of_most_viewed_YouTube_videos#cite_ref-4',
                         text: '↑'

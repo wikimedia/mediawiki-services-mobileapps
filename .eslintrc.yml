@@ -17,7 +17,6 @@ rules: {
     'no-unused-vars': 0,
     'one-var': 0,
     'operator-linebreak': 0,
-    'quote-props': 0,
     'quotes': 0,
     'space-before-function-paren': 0,
     'space-in-parens': 0,

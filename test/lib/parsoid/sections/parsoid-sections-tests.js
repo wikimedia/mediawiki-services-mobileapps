@@ -173,8 +173,8 @@ describe('lib:parsoid-sections (section elements)', function() {
         assert.ok(logger.log.calledOnce);
         assert.deepEqual(logger.log.args,
             [[ 'warn/sectioning', {
-                "msg": "Cannot find heading for section",
-                "section_number": 1
+                msg: "Cannot find heading for section",
+                section_number: 1
             }]]);
     });
 

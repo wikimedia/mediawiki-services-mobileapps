@@ -28,10 +28,10 @@ describe('lib:summary', () => {
 
     describe('getSummaryType', () => {
         it('identifies main page', () => {
-            assert.deepEqual(unit.getSummaryType({ "mainpage": true }), 'mainpage');
+            assert.deepEqual(unit.getSummaryType({ mainpage: true }), 'mainpage');
         });
         it('identifies disambig page', () => {
-            assert.deepEqual(unit.getSummaryType({ "pageprops": { "disambiguation": "" } }),
+            assert.deepEqual(unit.getSummaryType({ pageprops: { disambiguation: "" } }),
                 'disambiguation');
         });
         it('defaults to "standard"', () => {

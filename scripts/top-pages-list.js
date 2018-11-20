@@ -96,7 +96,7 @@ const getTopPageViews = () => {
             return (title.indexOf(SPECIAL) !== 0 && title.indexOf(SPECIAL2) !== 0
                 && !BLACKLIST.includes(title));
         }).map((article) => {
-            return { "title": article.article };
+            return { title: article.article };
         });
     }).catch((err) => {
         process.stderr.write(`ERROR: could not get top monthly page views: ${err}`);

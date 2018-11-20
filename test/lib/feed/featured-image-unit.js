@@ -7,13 +7,13 @@ const getDescription = featuredImage.testing.getDescription;
 describe('featured-image-unit', () => {
 
     it('getDescription returns description for preferred lang if present', () => {
-        const result = getDescription({ 'en':'foo','de':'bar' }, 'de');
+        const result = getDescription({ en:'foo',de:'bar' }, 'de');
         assert.deepEqual(result.lang, 'de');
         assert.deepEqual(result.text, 'bar');
     });
 
     it('getDescription falls back to en description if preferred lang not present', () => {
-        const result = getDescription({ 'en':'foo','de':'bar' }, 'ja');
+        const result = getDescription({ en:'foo',de:'bar' }, 'ja');
         assert.deepEqual(result.lang, 'en');
         assert.deepEqual(result.text, 'foo');
     });

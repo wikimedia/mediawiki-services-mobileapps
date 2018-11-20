@@ -137,8 +137,8 @@ describe('references-large', function() {
         }
     } else {
         it(`references-large: single page`, () => {
-            return runTest({ "title": "List_of_highest-grossing_Indian_films",
-                "rev": "822986388" });
+            return runTest({ title: "List_of_highest-grossing_Indian_films",
+                rev: "822986388" });
         });
     }
 });

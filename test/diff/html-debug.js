@@ -10,7 +10,7 @@ const writeFilePrettifiedHtml = (html, baseFilePath, filePart2) => {
     }
 
     const prettyHtml = beautifyHtml(html,
-        { indent_size: 2, "html": { end_with_newline: true } });
+        { indent_size: 2, html: { end_with_newline: true } });
     fs.writeFileSync(`${baseFilePath}${filePart2}.html`, prettyHtml, 'utf8');
 };
 
