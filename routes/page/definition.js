@@ -6,7 +6,7 @@
 
 const mUtil = require('../../lib/mobile-util');
 const sUtil = require('../../lib/util');
-const parsoid = require('../../lib/parsoid-access');
+const getDefinitions = require('../../lib/definition');
 
 /**
  * The main router object
@@ -23,7 +23,7 @@ let app;
  * Gets the Wiktionary definition for a given term (and optional revision and tid).
  */
 router.get('/definition/:title/:revision?/:tid?', (req, res) => {
-    return parsoid.definitionPromise(app, req)
+    return getDefinitions(app, req)
     .then((response) => {
         res.status(200);
         mUtil.setETag(res, response.meta.revision);
