@@ -5,7 +5,7 @@
   "main": "./app.js",
   "scripts": {
     "start": "service-runner",
-    "test": "PREQ_CONNECT_TIMEOUT=15 mocha 'test/{,!(diff)/**}/*.js' && nsp check",
+    "test": "PREQ_CONNECT_TIMEOUT=15 mocha 'test/{,!(diff)/**}/*.js' && npm run lint && nsp check",
     "test:unit": "mocha test/lib",
     "test:diff": "mocha --exit test/diff",
     "test:spec": "mocha test/features/app/spec.js",
@@ -73,7 +73,7 @@
   "devDependencies": {
     "ajv": "^6.5.1",
     "csv-parse": "^2.0.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.9.0",
     "eslint-config-node-services": "^2.2.5",
     "eslint-config-wikimedia": "^0.5.0",
     "eslint-plugin-jsdoc": "^3.7.1",
@@ -83,7 +83,6 @@
     "js-beautify": "^1.7.4",
     "mkdirp": "^0.5.1",
     "mocha": "^5.2.0",
-    "mocha-eslint": "^4.1.0",
     "mocha-lcov-reporter": "^1.3.0",
     "mock-express-response": "^0.2.2",
     "nsp": "^3.2.1",

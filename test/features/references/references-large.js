@@ -75,7 +75,7 @@ describe('references-large', function() {
         const parsoidRefLists = document.querySelectorAll('ol.mw-references');
         assert.ok(referencesResponse.body.reference_lists.length === parsoidRefLists.length
             || referencesResponse.body.reference_lists.length === parsoidRefLists.length - 1
-            , 'number of lists');
+        , 'number of lists');
 
         // go over all reference lists
         for (let i = 0; i < referencesResponse.body.reference_lists.length; i++) {
