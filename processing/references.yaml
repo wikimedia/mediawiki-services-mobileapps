@@ -28,25 +28,4 @@
     sup: ['about', 'data-mw', 'rel', 'typeof']
     table: ['about', 'data-mw', 'typeof']
     ul: ['about', 'data-mw', 'typeof']
-- rmMwIdAttributes:
-  - a[href]
-  - b
-  - blockquote
-  - br
-  - cite
-  - code
-  - div
-  - em
-  - figcaption
-  - figure-inline
-  - i
-  - img
-  - li
-  - link
-  - ol
-  - p
-  - q
-  - ul
-  - span
-  - sup
-  - td
+- rmMwIdAttributes
