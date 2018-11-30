@@ -20,10 +20,10 @@ describe('lib:summary', () => {
         });
 
         function test(inputString, expected, message) {
-            const doc = parsoidSections.justLeadSection(domino.createDocument(inputString));
+            const doc = domino.createDocument(inputString);
             return unit.buildExtracts(doc, { ns: 0, contentmodel: 'wikitext' }, [ script ])
-            .then((extract) => {
-                assert.deepEqual(extract.extract_html, expected, message);
+            .then((result) => {
+                assert.deepEqual(result.extract_html, expected, message);
             });
         }
         it('Applies stripUnneededMarkup', () => {
