@@ -11,6 +11,7 @@
     "test:spec": "mocha test/features/app/spec.js",
     "periodic": "npm run test:diff",
     "lint": "eslint --cache --max-warnings 0 .",
+    "lint:fix": "eslint --fix .",
     "docker-start": "service-runner docker-start",
     "docker-test": "service-runner docker-test",
     "test-build": "service-runner docker-test && service-runner build --deploy-repo --force",
