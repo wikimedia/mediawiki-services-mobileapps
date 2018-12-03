@@ -7,21 +7,21 @@
  * TODO: Get this filtering or something like it into the upstream pageview API.
  */
 const BLACKLIST = [
-	'-',
-	'Test_card',
-	'Web_scraping',
-	'XHamster',
-	'Java_(programming_language)',
-	'Images/upload/bel.jpg',
-	'Superintelligence:_Paths,_Dangers,_Strategies',
-	'Okto',
-	'Proyecto_40',
-	'AMGTV',
-	'Lali_Espósito',
-	'La7',
-	'Vagina',
-	'کس', // mznwiki
-	'مقعد' // mznwiki
+    '-',
+    'Test_card',
+    'Web_scraping',
+    'XHamster',
+    'Java_(programming_language)',
+    'Images/upload/bel.jpg',
+    'Superintelligence:_Paths,_Dangers,_Strategies',
+    'Okto',
+    'Proyecto_40',
+    'AMGTV',
+    'Lali_Espósito',
+    'La7',
+    'Vagina',
+    'کس', // mznwiki
+    'مقعد', // mznwiki
 ];
 
 module.exports = BLACKLIST;

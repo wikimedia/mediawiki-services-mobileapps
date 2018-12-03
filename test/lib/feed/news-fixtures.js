@@ -15,11 +15,11 @@ const newsHtml4 = '<!--July 22--> In <a rel="mw:WikiLink" href="./Sport_of_athle
 const newsHtmlWithFloatingSpan = '<!-- 15.2.--><li><span style="float:right; padding-top:0.6em; padding-left:0.5em;"><figure-inline><a href="./Datei:Porträt_Christoph_Ransmayr_Foto_Johannes_Cizek_14_5KB.jpg" id="mwEQ"><img resource="./Datei:Porträt_Christoph_Ransmayr_Foto_Johannes_Cizek_14_5KB.jpg" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Portr%C3%A4t_Christoph_Ransmayr_Foto_Johannes_Cizek_14_5KB.jpg/122px-Portr%C3%A4t_Christoph_Ransmayr_Foto_Johannes_Cizek_14_5KB.jpg" data-file-width="283" data-file-height="188" data-file-type="bitmap" height="81" width="122"/></a></figure-inline></span>Dem österreichischen Schriftsteller <a rel="mw:WikiLink" href="./Christoph_Ransmayr" title="Christoph Ransmayr" id="mwEw">Christoph Ransmayr</a><span typeof="mw:Entity" id="mwFA"> </span><small>(Bild)</small> ist der <a rel="mw:WikiLink" href="./Kleist-Preis" title="Kleist-Preis">Kleist-Preis</a> zuerkannt worden.</li>';
 
 module.exports = {
-	newsHtml1,
-	newsHtml2,
-	cleanNewsHtml1,
-	cleanNewsHtml2,
-	newsHtml3,
-	newsHtml4,
-	newsHtmlWithFloatingSpan
+    newsHtml1,
+    newsHtml2,
+    cleanNewsHtml1,
+    cleanNewsHtml2,
+    newsHtml3,
+    newsHtml4,
+    newsHtmlWithFloatingSpan
 };

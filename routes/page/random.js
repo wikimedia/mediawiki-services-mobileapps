@@ -5,10 +5,10 @@
 
 'use strict';
 
-const mUtil = require( '../../lib/mobile-util' );
-const mwapi = require( '../../lib/mwapi' );
-const sUtil = require( '../../lib/util' );
-const randomPage = require( '../../lib/feed/random' );
+const mUtil = require('../../lib/mobile-util');
+const mwapi = require('../../lib/mwapi');
+const sUtil = require('../../lib/util');
+const randomPage = require('../../lib/feed/random');
 
 /**
  * The main router object
@@ -29,21 +29,21 @@ let app;
  * the highest relative score is returned. Requesting about 12 items
  * seems to consistently produce a really "good" result.
  */
-router.get( '/random/title', ( req, res ) => {
-	return randomPage.promise( app, req )
-		.then( ( result ) => {
-			res.status( 200 );
-			mUtil.setETag( res, result.meta.etag );
-			mUtil.setContentType( res, mUtil.CONTENT_TYPES.random );
-			res.json( mwapi.buildTitleResponse( result.payload ) ).end();
-		} );
-} );
+router.get('/random/title', (req, res) => {
+    return randomPage.promise(app, req)
+    .then((result) => {
+        res.status(200);
+        mUtil.setETag(res, result.meta.etag);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.random);
+        res.json(mwapi.buildTitleResponse(result.payload)).end();
+    });
+});
 
-module.exports = function ( appObj ) {
-	app = appObj;
-	return {
-		path: '/page',
-		api_version: 1,
-		router
-	};
+module.exports = function(appObj) {
+    app = appObj;
+    return {
+        path: '/page',
+        api_version: 1,
+        router
+    };
 };

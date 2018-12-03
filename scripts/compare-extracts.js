@@ -22,11 +22,11 @@
   The output will be in the private/extracts folder.
 */
 
-const BBPromise = require( 'bluebird' );
-const fs = require( 'fs' );
-const mkdir = require( 'mkdirp' );
-const preq = require( 'preq' );
-const path = require( 'path' );
+const BBPromise = require('bluebird');
+const fs = require('fs');
+const mkdir = require('mkdirp');
+const preq = require('preq');
+const path = require('path');
 
 const DELAY = 10; // delay between requests in ms
 const NEW_PORT = 6927;
@@ -36,9 +36,9 @@ const NEW_VERSION_INFO = '';
 const OLD_PORT = 0;
 const OLD_VERSION_INFO = '';
 const PROJECT = 'wikipedia';
-const topPagesDir = path.join( __dirname, `../private/page-lists/top-pages/${PROJECT}` );
-const pagesListsDir = path.join( __dirname, '../private/page-lists' );
-const outDir = path.join( __dirname, '../private/extracts' );
+const topPagesDir = path.join(__dirname, `../private/page-lists/top-pages/${PROJECT}`);
+const pagesListsDir = path.join(__dirname, '../private/page-lists');
+const outDir = path.join(__dirname, '../private/extracts');
 const UNKNOWN_LANGUAGE = 'various';
 const ENDPOINT = 'page/summary';
 
@@ -47,131 +47,131 @@ const plain = { name: 'plain' };
 const other = { name: 'other' };
 
 function getLanguageLinks() {
-	return [
-		'ar',
-		'bg',
-		'bn',
-		'ca',
-		'cs',
-		'da',
-		'de',
-		'el',
-		'en',
-		'es',
-		'fa',
-		'fi',
-		'fr',
-		'he',
-		'hi',
-		'hr',
-		'hu',
-		'id',
-		'it',
-		'ja',
-		'ko',
-		'ms',
-		'nl',
-		'no',
-		'pl',
-		'pt',
-		'ro',
-		'ru',
-		'sk',
-		'sl',
-		'sr',
-		'sv',
-		'th',
-		'tr',
-		'uk',
-		'vi',
-		'zh'
-	].map( ( lang ) => `<a href="./${lang}.html">${lang}</a>` ).join( ' ' );
+    return [
+        'ar',
+        'bg',
+        'bn',
+        'ca',
+        'cs',
+        'da',
+        'de',
+        'el',
+        'en',
+        'es',
+        'fa',
+        'fi',
+        'fr',
+        'he',
+        'hi',
+        'hr',
+        'hu',
+        'id',
+        'it',
+        'ja',
+        'ko',
+        'ms',
+        'nl',
+        'no',
+        'pl',
+        'pt',
+        'ro',
+        'ru',
+        'sk',
+        'sl',
+        'sr',
+        'sv',
+        'th',
+        'tr',
+        'uk',
+        'vi',
+        'zh'
+    ].map(lang => `<a href="./${lang}.html">${lang}</a>`).join(' ');
 }
 
-const uriForWikiLink = ( domain, title, revTid ) => {
-	return `https://${domain}/wiki/${title}?oldid=${revTid.split( '/' )[ 0 ]}`; // no tid
+const uriForWikiLink = (domain, title, revTid) => {
+    return `https://${domain}/wiki/${title}?oldid=${revTid.split('/')[0]}`; // no tid
 };
 
-const uriForParsoidLink = ( domain, title, revTid ) => {
-	return `https://${domain}/api/rest_v1/page/html/${title}/${revTid}`;
+const uriForParsoidLink = (domain, title, revTid) => {
+    return `https://${domain}/api/rest_v1/page/html/${title}/${revTid}`;
 };
 
-const uriForProd = ( domain, title ) => {
-	return `https://${domain}/api/rest_v1/${ENDPOINT}/${encodeURIComponent( title )}`;
+const uriForProd = (domain, title) => {
+    return `https://${domain}/api/rest_v1/${ENDPOINT}/${encodeURIComponent(title)}`;
 };
 
-const uriForLocal = ( domain, title, revTid, port = NEW_PORT ) => {
-	const suffix = revTid ? `/${revTid}` : '';
-	return `http://localhost:${port}/${domain}/v1/${ENDPOINT}/${encodeURIComponent( title )}${suffix}`;
+const uriForLocal = (domain, title, revTid, port = NEW_PORT) => {
+    const suffix = revTid ? `/${revTid}` : '';
+    return `http://localhost:${port}/${domain}/v1/${ENDPOINT}/${encodeURIComponent(title)}${suffix}`;
 };
 
-const outputStart = ( type, lang ) => {
-	const file = type.overviewFile;
-	/* eslint-disable max-len */
-	file.write( '<html>\n' );
-	file.write( '<head>\n' );
-	file.write( '<meta charset="UTF-8"/>\n' );
-	file.write( '<link rel="StyleSheet" href="../static/compare-table.css" />\n' );
-	file.write( '</head>\n' );
-	file.write( '<body>\n' );
-	file.write( '<script type="text/javascript" src="../static/compare-table.js" charset="utf-8"></script>\n' );
-	file.write( `<h2>Extract comparison for top pages in ${lang}.${PROJECT}.org</h2>\n` );
-	file.write( '<nav>\n' );
-	if ( lang !== UNKNOWN_LANGUAGE ) {
-		file.write( `${getLanguageLinks()}\n<br/>\n` );
-	}
-	file.write( `<a href="../html/${lang}.html">html</a> |\n` );
-	file.write( `<a href="../plain/${lang}.html">plain</a> |\n` );
-	file.write( `<a href="../other/${lang}.html">other</a> |\n` );
-	file.write( '<form>\n' );
-	file.write( '<input type="checkbox" id="showSameCB" onchange="toggleShow();">\n' );
-	file.write( '<label for="showSameCB">Show same</label>\n' );
-	file.write( '</form>\n' );
-	file.write( '</nav>\n' );
-	file.write( `<p>old version on port ${OLD_PORT}: ${OLD_VERSION_INFO}<br/>\n` );
-	file.write( `new version on port ${NEW_PORT}: ${NEW_VERSION_INFO}</p>\n` );
-	file.write( '<table>\n' );
-	file.write( '<tr>\n' );
-	file.write( '<th class="titleColumn">Title</th>\n' );
-	file.write( `<th class="valueColumn">Old (:${OLD_PORT})</th>\n` );
-	file.write( `<th class="valueColumn">New (:${NEW_PORT})</th>\n` );
-	file.write( '</tr>\n' );
-	/* eslint-enable max-len */
+const outputStart = (type, lang) => {
+    const file = type.overviewFile;
+    /* eslint-disable max-len */
+    file.write('<html>\n');
+    file.write('<head>\n');
+    file.write('<meta charset="UTF-8"/>\n');
+    file.write('<link rel="StyleSheet" href="../static/compare-table.css" />\n');
+    file.write('</head>\n');
+    file.write('<body>\n');
+    file.write('<script type="text/javascript" src="../static/compare-table.js" charset="utf-8"></script>\n');
+    file.write(`<h2>Extract comparison for top pages in ${lang}.${PROJECT}.org</h2>\n`);
+    file.write('<nav>\n');
+    if (lang !== UNKNOWN_LANGUAGE) {
+        file.write(`${getLanguageLinks()}\n<br/>\n`);
+    }
+    file.write(`<a href="../html/${lang}.html">html</a> |\n`);
+    file.write(`<a href="../plain/${lang}.html">plain</a> |\n`);
+    file.write(`<a href="../other/${lang}.html">other</a> |\n`);
+    file.write('<form>\n');
+    file.write('<input type="checkbox" id="showSameCB" onchange="toggleShow();">\n');
+    file.write('<label for="showSameCB">Show same</label>\n');
+    file.write('</form>\n');
+    file.write('</nav>\n');
+    file.write(`<p>old version on port ${OLD_PORT}: ${OLD_VERSION_INFO}<br/>\n`);
+    file.write(`new version on port ${NEW_PORT}: ${NEW_VERSION_INFO}</p>\n`);
+    file.write('<table>\n');
+    file.write('<tr>\n');
+    file.write('<th class="titleColumn">Title</th>\n');
+    file.write(`<th class="valueColumn">Old (:${OLD_PORT})</th>\n`);
+    file.write(`<th class="valueColumn">New (:${NEW_PORT})</th>\n`);
+    file.write('</tr>\n');
+    /* eslint-enable max-len */
 };
 
-const outputEnd = ( type ) => {
-	const file = type.overviewFile;
-	file.write( '</table>\n' );
-	file.write( '</body>\n' );
-	file.write( '</html>\n' );
-	file.end();
+const outputEnd = (type) => {
+    const file = type.overviewFile;
+    file.write('</table>\n');
+    file.write('</body>\n');
+    file.write('</html>\n');
+    file.end();
 };
 
 const outputEndTxtFiles = () => {
-	html.oldFile.end();
-	html.newFile.end();
-	plain.oldFile.end();
-	plain.newFile.end();
-	other.oldFile.end();
-	other.newFile.end();
+    html.oldFile.end();
+    html.newFile.end();
+    plain.oldFile.end();
+    plain.newFile.end();
+    other.oldFile.end();
+    other.newFile.end();
 };
 
-const compareExtractsHTML = ( file, oldExtractValue, newExtractValue,
-	counter, domain, title, revTid ) => {
+const compareExtractsHTML = (file, oldExtractValue, newExtractValue,
+    counter, domain, title, revTid) => {
 
-	const displayTitle = title.replace( /_/g, ' ' );
-	const same = ( oldExtractValue === newExtractValue ) ? ' class="same"' : '';
-	const positionLink = `<a id="${counter}" href="#${counter}">${counter}</a>`;
-	file.write( `<tr${same}><td class="titleColumn">${positionLink}\n` );
-	file.write( `<a href="${uriForWikiLink( domain, title, revTid )}">${displayTitle}</a>\n` );
-	file.write( `[<a href="${uriForParsoidLink( domain, title, revTid )}">parsoid</a>]\n` );
-	file.write( `<br/>[${ENDPOINT}:\n` );
-	file.write( `<a href="${uriForProd( domain, title )}">prod</a>\n` );
-	file.write( `<a href="${uriForLocal( domain, title, revTid )}">local</a>]\n` );
-	file.write( '</td>\n' );
-	file.write( `<td class="valueColumn" dir="auto">${oldExtractValue}</td>\n` );
-	file.write( `<td class="valueColumn" dir="auto">${newExtractValue}</td>\n` );
-	file.write( '</tr>\n' );
+    const displayTitle = title.replace(/_/g, ' ');
+    const same = (oldExtractValue === newExtractValue) ? ' class="same"' : '';
+    const positionLink = `<a id="${counter}" href="#${counter}">${counter}</a>`;
+    file.write(`<tr${same}><td class="titleColumn">${positionLink}\n`);
+    file.write(`<a href="${uriForWikiLink(domain, title, revTid)}">${displayTitle}</a>\n`);
+    file.write(`[<a href="${uriForParsoidLink(domain, title, revTid)}">parsoid</a>]\n`);
+    file.write(`<br/>[${ENDPOINT}:\n`);
+    file.write(`<a href="${uriForProd(domain, title)}">prod</a>\n`);
+    file.write(`<a href="${uriForLocal(domain, title, revTid)}">local</a>]\n`);
+    file.write('</td>\n');
+    file.write(`<td class="valueColumn" dir="auto">${oldExtractValue}</td>\n`);
+    file.write(`<td class="valueColumn" dir="auto">${newExtractValue}</td>\n`);
+    file.write('</tr>\n');
 };
 
 /**
@@ -179,137 +179,138 @@ const compareExtractsHTML = ( file, oldExtractValue, newExtractValue,
  * Only needed if the HTML files are viewed locally (=base URL protocol is file) and you care
  * about seeing the images.
  */
-const fixImgSources = ( value ) => {
-	return value && value
-		.replace( /<img src="\/\//g, '<img src="https://' )
-		.replace( /srcset="\/\//g, 'srcset="https://' )
-		.replace( / 2x, \/\//g, ' 2x, https://' );
+const fixImgSources = (value) => {
+    return value && value
+        .replace(/<img src="\/\//g, '<img src="https://')
+        .replace(/srcset="\/\//g, 'srcset="https://')
+        .replace(/ 2x, \/\//g, ' 2x, https://');
 };
 
-const getExtract = ( response ) => {
-	if ( response.status !== 200 ) {
-		return `!! STATUS = ${response.status} !!\n`;
-	}
-	fixImgSources( response.body.extract_html );
-	return response.body;
+const getExtract = (response) => {
+    if (response.status !== 200) {
+        return `!! STATUS = ${response.status} !!\n`;
+    }
+    fixImgSources(response.body.extract_html);
+    return response.body;
 };
 
-const writeFile = ( file, title, revTid, value ) => {
-	file.write( `== ${title}/${revTid}\n` );
-	file.write( `${value}\n` );
+const writeFile = (file, title, revTid, value) => {
+    file.write(`== ${title}/${revTid}\n`);
+    file.write(`${value}\n`);
 };
 
 const OTHER_PROPS = [ 'title', 'displaytitle', 'pageid', 'thumbnail', 'originalimage',
-	'lang', 'dir', 'timestamp', 'coordinates' ];
+    'lang', 'dir', 'timestamp', 'coordinates' ];
 
-const buildOtherPropString = ( input ) => {
-	const result = {};
-	OTHER_PROPS.forEach( ( key ) => {
-		result[ key ] = input[ key ];
-	} );
-	return JSON.stringify( result, null, 2 );
+const buildOtherPropString = (input) => {
+    const result = {};
+    OTHER_PROPS.forEach((key) => {
+        result[key] = input[key];
+    });
+    return JSON.stringify(result, null, 2);
 };
 
-const compareExtractsSingleType = ( type, oldExtractString, newExtractString,
-	counter, domain, title, revTid ) => {
+const compareExtractsSingleType = (type, oldExtractString, newExtractString,
+    counter, domain, title, revTid) => {
 
-	compareExtractsHTML( type.overviewFile, oldExtractString, newExtractString, counter,
-		domain, title, revTid );
-	writeFile( type.oldFile, title, revTid, oldExtractString );
-	writeFile( type.newFile, title, revTid, newExtractString );
+    compareExtractsHTML(type.overviewFile, oldExtractString, newExtractString, counter,
+        domain, title, revTid);
+    writeFile(type.oldFile, title, revTid, oldExtractString);
+    writeFile(type.newFile, title, revTid, newExtractString);
 };
 
-const compareExtracts = ( oldExtract, newExtract, counter, domain, title, revTid ) => {
-	compareExtractsSingleType( html, oldExtract.extract_html, newExtract.extract_html, counter,
-		domain, title, revTid );
-	compareExtractsSingleType( plain, oldExtract.extract, newExtract.extract, counter,
-		domain, title, revTid );
-	compareExtractsSingleType( other, buildOtherPropString( oldExtract ),
-		buildOtherPropString( newExtract ), counter, domain, title, revTid );
+const compareExtracts = (oldExtract, newExtract, counter, domain, title, revTid) => {
+    compareExtractsSingleType(html, oldExtract.extract_html, newExtract.extract_html, counter,
+        domain, title, revTid);
+    compareExtractsSingleType(plain, oldExtract.extract, newExtract.extract, counter,
+        domain, title, revTid);
+    compareExtractsSingleType(other, buildOtherPropString(oldExtract),
+        buildOtherPropString(newExtract), counter, domain, title, revTid);
 };
 
-const fetchExtract = ( uri ) => {
-	return preq.get( { uri } )
-		.then( ( response ) => {
-			return BBPromise.delay( DELAY, getExtract( response ) );
-		} ).catch( ( err ) => {
-			return BBPromise.resolve( `!!! ${err} "${uri}" !!!` );
-		} );
+const fetchExtract = (uri) => {
+    return preq.get({ uri })
+    .then((response) => {
+        return BBPromise.delay(DELAY, getExtract(response));
+    }).catch((err) => {
+        return BBPromise.resolve(`!!! ${err} "${uri}" !!!`);
+    });
 };
 
-const fetchAndVerify = ( page, counter ) => {
-	const domain = page.domain;
-	const title = page.title;
-	const revTid = page.rev;
-	process.stdout.write( '.' );
-	let newExtract;
-	return fetchExtract( uriForLocal( domain, title, revTid ) )
-		.then( ( response ) => {
-			newExtract = response;
-			if ( OLD_PORT ) {
-				return fetchExtract( uriForLocal( domain, title, revTid, OLD_PORT ) );
-			} else {
-				return fetchExtract( uriForProd( domain, title ) );
-			}
-		} ).then( ( oldExtract ) => {
-			compareExtracts( oldExtract, newExtract, counter, domain, title, revTid );
-		} );
+const fetchAndVerify = (page, counter) => {
+    const domain = page.domain;
+    const title = page.title;
+    const revTid = page.rev;
+    process.stdout.write('.');
+    let newExtract;
+    return fetchExtract(uriForLocal(domain, title, revTid))
+    .then((response) => {
+        newExtract = response;
+        if (OLD_PORT) {
+            return fetchExtract(uriForLocal(domain, title, revTid, OLD_PORT));
+        } else {
+            return fetchExtract(uriForProd(domain, title));
+        }
+    }).then((oldExtract) => {
+        compareExtracts(oldExtract, newExtract, counter, domain, title, revTid);
+    });
 };
 
-const iteratePages = ( pageList, defaultDomain, pageFunction ) => {
-	let counter = 0;
-	return BBPromise.each( pageList, ( page ) => {
-		if ( !page.domain ) {
-			page.domain = defaultDomain;
-		}
-		return pageFunction( page, ++counter );
-	} );
+const iteratePages = (pageList, defaultDomain, pageFunction) => {
+    let counter = 0;
+    return BBPromise.each(pageList, (page) => {
+        if (!page.domain) {
+            page.domain = defaultDomain;
+        }
+        return pageFunction(page, ++counter);
+    });
 };
 
-const processOneList = ( defaultDomain, pageList ) => {
-	iteratePages( pageList, defaultDomain, ( page, counter ) => {
-		return fetchAndVerify( page, counter );
-	} )
-		.then( () => {
-			outputEnd( html );
-			outputEnd( plain );
-			outputEnd( other );
-			outputEndTxtFiles();
-		} );
+const processOneList = (defaultDomain, pageList) => {
+    iteratePages(pageList, defaultDomain, (page, counter) => {
+        return fetchAndVerify(page, counter);
+    })
+    .then(() => {
+        outputEnd(html);
+        outputEnd(plain);
+        outputEnd(other);
+        outputEndTxtFiles();
+    });
 };
 
-const setupFiles = ( type, lang ) => {
-	type.dir = `${outDir}/${type.name}`;
-	mkdir.sync( type.dir );
-	type.oldFileName = `${type.dir}/${lang}.v1.txt`;
-	type.newFileName = `${type.dir}/${lang}.v2.txt`;
-	type.overviewFileName = `${type.dir}/${lang}.html`;
+const setupFiles = (type, lang) => {
+    type.dir = `${outDir}/${type.name}`;
+    mkdir.sync(type.dir);
+    type.oldFileName = `${type.dir}/${lang}.v1.txt`;
+    type.newFileName = `${type.dir}/${lang}.v2.txt`;
+    type.overviewFileName = `${type.dir}/${lang}.html`;
 
-	type.oldFile = fs.createWriteStream( type.oldFileName, { flags: 'w' } );
-	type.newFile = fs.createWriteStream( type.newFileName, { flags: 'w' } );
-	type.overviewFile = fs.createWriteStream( type.overviewFileName, { flags: 'w' } );
+    type.oldFile = fs.createWriteStream(type.oldFileName, { flags: 'w' });
+    type.newFile = fs.createWriteStream(type.newFileName, { flags: 'w' });
+    type.overviewFile = fs.createWriteStream(type.overviewFileName, { flags: 'w' });
 
-	outputStart( type, lang );
+    outputStart(type, lang);
 };
 
 // MAIN
-const arg = process.argv[ 2 ];
-if ( process.argv.length > 3 ) {
-	process.stderr.write( 'Error: supply only 0 or 1 language parameter (e.g. en)!\n' );
-	process.exit( -1 );
+const arg = process.argv[2];
+if (process.argv.length > 3) {
+    process.stderr.write('Error: supply only 0 or 1 language parameter (e.g. en)!\n');
+    process.exit(-1);
 }
 
 let lang;
 let pageList;
 
-if ( arg ) {
-	lang = arg;
-	pageList = require( `${topPagesDir}/top-pages.${lang}.json` ).items;
+if (arg) {
+    lang = arg;
+    pageList = require(`${topPagesDir}/top-pages.${lang}.json`).items;
 } else {
-	lang = UNKNOWN_LANGUAGE;
-	pageList = require( `${pagesListsDir}/summary-test-pages.json` ).items;
+    lang = UNKNOWN_LANGUAGE;
+    pageList = require(`${pagesListsDir}/summary-test-pages.json`).items;
 }
-setupFiles( html, lang );
-setupFiles( plain, lang );
-setupFiles( other, lang );
-processOneList( `${lang}.${PROJECT}.org`, pageList );
+setupFiles(html, lang);
+setupFiles(plain, lang);
+setupFiles(other, lang);
+processOneList(`${lang}.${PROJECT}.org`, pageList);
+
