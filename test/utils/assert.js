@@ -5,7 +5,6 @@
 const _ = require('underscore');
 const assert = require('assert');
 
-
 function deepEqual(result, expected, message) {
 
     try {
@@ -18,7 +17,6 @@ function deepEqual(result, expected, message) {
 
 }
 
-
 /**
  * Asserts whether the return status was as expected
  */
@@ -28,7 +26,6 @@ function status(res, expected) {
         `Expected status to be ${expected}, but was ${res.status}`);
 
 }
-
 
 /**
  * Asserts whether content type was as expected
@@ -41,7 +38,6 @@ function contentType(res, expectedRegexString) {
 
 }
 
-
 function isDeepEqual(result, expected, message) {
 
     try {
@@ -52,7 +48,6 @@ function isDeepEqual(result, expected, message) {
     }
 
 }
-
 
 function notDeepEqual(result, expected, message) {
 
@@ -66,19 +61,16 @@ function notDeepEqual(result, expected, message) {
 
 }
 
-
 function property(object, property) {
     const msg = `expected property="${property}"`;
     assert.ok(object, msg);
     assert.ok({}.hasOwnProperty.call(object, property), msg);
 }
 
-
 function notProperty(object, property) {
     assert.ok(!object || !{}.hasOwnProperty.call(object, property),
         `unexpected property="${property}"`);
 }
-
 
 function fails(promise, onRejected) {
 
@@ -99,7 +91,6 @@ function fails(promise, onRejected) {
 
 }
 
-
 /**
  * @param {?number} result
  * @param {!number} expected
@@ -111,7 +102,6 @@ function closeTo(result, expected, delta, message) {
         message || `Result is ${result}; expected ${expected} ± ${delta}`);
 }
 
-
 function contains(result, sub, message) {
     assert.ok(result.includes(sub),
         message || `'${sub}' not in:\n${result}`);
@@ -122,7 +112,6 @@ function notContains(result, sub, message) {
         message || `Unexpected substring '${sub}' found in:\n${result}`);
 }
 
-
 function selectorExistsNTimes(doc, selector, n, message) {
 
     if (!message) {
@@ -132,20 +121,17 @@ function selectorExistsNTimes(doc, selector, n, message) {
 
 }
 
-
 function selectorExistsOnce(doc, selector, message) {
 
     selectorExistsNTimes(doc, selector, 1, message);
 
 }
 
-
 function selectorDoesNotExist(doc, selector, message) {
 
     selectorExistsNTimes(doc, selector, 0, message);
 
 }
-
 
 function selectorHasValue(doc, selector, expected, message) {
 
@@ -156,7 +142,6 @@ function selectorHasValue(doc, selector, expected, message) {
 
 }
 
-
 function selectorContainsValue(doc, selector, expected, message) {
 
     if (!message) {
@@ -165,7 +150,6 @@ function selectorContainsValue(doc, selector, expected, message) {
     assert.ok(doc.querySelector(selector).innerHTML.includes(expected), message);
 
 }
-
 
 module.exports.ok             = assert.ok;
 module.exports.equal          = assert.equal;

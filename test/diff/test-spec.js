@@ -10,7 +10,6 @@ const UPDATE_EXPECTED_RESULTS = false;
 // If enabled creates HTML files, one for each section covered by the diff tests.
 const ENABLE_HTML_DEBUG = false;
 
-
 /**
  * @protected {!string} _domain
  * @protected {!string} _route
@@ -62,7 +61,6 @@ class TestSpec {
     dir() {
         return `${__dirname}/results/`;
     }
-
 
     /**
      * @return {!string} file name to store expected result in (without file extension)

@@ -35,7 +35,6 @@ describe('lib:parsoid-sections (section elements)', function() {
         assert.deepEqual(sections[2].text, 'text2');
     }
 
-
     it('getSectionsText(empty) should produce an empty lead section', () => {
         const doc = domino.createDocument('');
         const sections = parsoidSections.getSectionsText(doc);

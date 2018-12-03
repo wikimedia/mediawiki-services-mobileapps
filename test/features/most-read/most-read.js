@@ -4,7 +4,6 @@ const preq = require('preq');
 const assert = require('../../utils/assert');
 const server = require('../../utils/server');
 
-
 describe('most-read articles', function() {
 
     this.timeout(20000); // eslint-disable-line no-invalid-this

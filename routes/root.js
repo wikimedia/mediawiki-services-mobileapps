@@ -1,9 +1,7 @@
 'use strict';
 
-
 const sUtil = require('../lib/util');
 const swaggerUi = require('../lib/swagger-ui');
-
 
 /**
  * The main router object
@@ -14,7 +12,6 @@ const router = sUtil.router();
  * The main application object reported when this module is require()d
  */
 let app;
-
 
 /**
  * GET /robots.txt
@@ -28,7 +25,6 @@ router.get('/robots.txt', (req, res) => {
     }).end();
 
 });
-
 
 /**
  * GET /
@@ -47,7 +43,6 @@ router.get('/', (req, res, next) => {
 
 });
 
-
 module.exports = (appObj) => {
 
     app = appObj;
@@ -59,4 +54,3 @@ module.exports = (appObj) => {
     };
 
 };
-

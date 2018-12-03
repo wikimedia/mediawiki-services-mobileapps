@@ -34,7 +34,6 @@ const errNotConfigured = [];
 const errElse = [];
 const errHttp = [];
 
-
 const cleanUpHtml = html => html.replace(/<!--[\s\S]*?-->/mg, '').replace(/\n/mg, '');
 
 /* eslint-disable no-console */

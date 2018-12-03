@@ -4,7 +4,6 @@ const preq = require('preq');
 const assert = require('../../utils/assert.js');
 const server = require('../../utils/server.js');
 
-
 function assertHasAllRequiredProperties(body) {
     const desktopUrls = body.content_urls.desktop;
     const mobileUrls = body.content_urls.mobile;

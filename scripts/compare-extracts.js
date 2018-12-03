@@ -313,4 +313,3 @@ setupFiles(html, lang);
 setupFiles(plain, lang);
 setupFiles(other, lang);
 processOneList(`${lang}.${PROJECT}.org`, pageList);
-

@@ -6,7 +6,6 @@ const domino = require('domino');
 const assert = require('../../../utils/assert');
 const adjustThumbWidths = require('../../../../lib/transformations/pcs/adjustThumbWidths');
 
-
 describe('lib:adjustThumbWidths', () => {
 
     it('thumbnail with large original', () => {

@@ -1,6 +1,5 @@
 'use strict';
 
-
 const BBPromise = require('bluebird');
 const ServiceRunner = require('service-runner');
 const logStream = require('./logStream');
@@ -9,7 +8,6 @@ const assert = require('./assert');
 const yaml = require('js-yaml');
 const extend = require('extend');
 const sepia = require('sepia');
-
 
 // set up the configuration
 let config = {
@@ -43,7 +41,6 @@ module.exports.stop = () => {
 };
 let options = null;
 const runner = new ServiceRunner();
-
 
 function start(_options) {
 

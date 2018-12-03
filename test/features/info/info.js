@@ -2,7 +2,6 @@
 
 'use strict';
 
-
 const preq   = require('preq');
 const assert = require('../../utils/assert.js');
 const server = require('../../utils/server.js');
@@ -72,4 +71,3 @@ describe('service information', function() {
         });
     });
 });
-

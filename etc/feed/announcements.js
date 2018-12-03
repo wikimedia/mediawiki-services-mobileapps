@@ -78,7 +78,6 @@ const countryVars = {
     }
 };
 
-
 module.exports = {
     activeWikis,
     domain,

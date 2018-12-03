@@ -2,7 +2,6 @@
 
 'use strict';
 
-
 const preq   = require('preq');
 const assert = require('../../utils/assert.js');
 const server = require('../../utils/server.js');
@@ -43,7 +42,6 @@ function staticSpecLoad() {
 
 }
 
-
 function validateExamples(pathStr, defParams, mSpec) {
 
     const uri = new URI(pathStr, {}, true);
@@ -79,7 +77,6 @@ function validateExamples(pathStr, defParams, mSpec) {
 
 }
 
-
 function constructTestCase(title, path, method, request, response) {
 
     return {
@@ -100,7 +97,6 @@ function constructTestCase(title, path, method, request, response) {
     };
 
 }
-
 
 function constructTests(paths, defParams) {
 
@@ -139,7 +135,6 @@ function constructTests(paths, defParams) {
     return ret;
 
 }
-
 
 function cmp(result, expected, errMsg) {
 
@@ -197,7 +192,6 @@ function cmp(result, expected, errMsg) {
 
 }
 
-
 function validateTestResponse(testCase, res) {
 
     const expRes = testCase.response;
@@ -239,7 +233,6 @@ function validateTestResponse(testCase, res) {
     return true;
 
 }
-
 
 describe('Swagger spec', function() {
 
