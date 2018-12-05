@@ -456,7 +456,8 @@ paths:
                 type: /.+/
                 code: /.+/
                 url: /.+/
-              artist: /.+/
+              artist:
+                html: /.+/
               file_page: /.+/
               thumbnail:
                 source: /.+/
