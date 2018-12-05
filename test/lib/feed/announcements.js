@@ -28,15 +28,9 @@ describe('lib:announcements', () => {
 describe('lib:announcements:etc', () => {
     const announcements = mut.testing.getActiveAnnouncements(activeAnnouncementDomain);
 
-    it('should return an image_url for Android but not iOS', () => {
+    it('should return no image_url', () => {
         announcements.forEach((announcement) => {
-            if (announcement.platforms.includes(Platform.ANDROID_V2)) {
-                assert.ok(announcement.image_url);
-            }
-            if (announcement.platforms.includes(Platform.IOS)
-                || announcement.platforms.includes(Platform.IOS_V2)) {
-                assert.ok(!announcement.image_url);
-            }
+            assert.ok(!announcement.image_url);
         });
     });
 
