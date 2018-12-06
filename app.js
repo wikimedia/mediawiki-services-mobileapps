@@ -14,6 +14,8 @@ const yaml = require('js-yaml');
 const addShutdown = require('http-shutdown');
 const path = require('path');
 
+const MAX_STEPS_PER_TICK = 5;
+
 /**
  * Creates an express app and initialises it
  * @param {!Object} options the options to initialise the app with
@@ -196,12 +198,43 @@ function loadRoutes(app, dir) {
  * @return {bluebird} a promise resolving to the app object, with preprocessing scripts attached
  */
 function loadPreProcessingScripts(app, dir) {
+
+    /**
+     * Break down array into chunks of the specified size
+     * @param {!Array} arr array
+     * @param {!integer} size chunk size
+     */
+    function _chunk(arr, size) {
+        return arr.reduce((acc, cur, idx) => {
+            const i = Math.floor(idx / size);
+            if (!acc[i]) {
+                acc[i] = [];
+            }
+            acc[i].push(cur);
+            return acc;
+        }, []);
+    }
+
+    /**
+     * Validate the script format
+     * @param {!Array} script processing script
+     * @throws error if script format is invalid
+     */
+    function _validate(script) {
+        if (script.filter((i) => {
+            return typeof i === 'object' && Object.keys(i).length !== 1;
+        }).length) {
+            throw new Error('Invalid processing script format');
+        }
+    }
+
     app.conf.processing_scripts = {};
     return fs.readdirAsync(dir).map(filename => BBPromise.try(() => {
         const name = filename.split('.')[0];
-        app.conf.processing_scripts[name] = yaml.safeLoad(
-            fs.readFileSync(`${dir}/${filename}`)
-        );
+        let script = yaml.safeLoad(fs.readFileSync(`${dir}/${filename}`));
+        _validate(script);
+        script = _chunk(script, MAX_STEPS_PER_TICK);
+        app.conf.processing_scripts[name] = script;
     })
     .catch(e => app.logger.log('warn/loading', `Error loading processing scripts: ${e}`)))
     .then(() => BBPromise.resolve(app));

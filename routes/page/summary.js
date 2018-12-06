@@ -28,17 +28,19 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
         mwapi.getSiteInfo(app, req),
         (html, meta, siteinfo) => {
             const revTid = parsoid.getRevAndTidFromEtag(html.headers);
-            const summary = lib.buildSummary(req.params.domain, req.params.title,
-                html.body, revTid, meta, siteinfo, app.conf.processing_scripts.summary);
-            res.status(summary.code);
-            if (summary.code === 200) {
-                delete summary.code;
-                mUtil.setETag(res, revTid.revision, revTid.tid);
-                mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
-                mUtil.setLanguageHeaders(res, html.headers);
-                res.send(summary);
-            }
-            res.end();
+            return lib.buildSummary(req.params.domain, req.params.title,
+                html.body, revTid, meta, siteinfo, app.conf.processing_scripts.summary)
+            .then((summary) => {
+                res.status(summary.code);
+                if (summary.code === 200) {
+                    delete summary.code;
+                    mUtil.setETag(res, revTid.revision, revTid.tid);
+                    mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
+                    mUtil.setLanguageHeaders(res, html.headers);
+                    res.send(summary);
+                }
+                res.end();
+            });
         });
 });
 
