@@ -24,7 +24,7 @@ let app;
 router.get('/metadata/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.join(
         parsoid.getParsoidHtml(app, req),
-        mwapi.getMetadata(app, req),
+        mwapi.getMetadataForMetadata(app, req),
         mwapi.getSiteInfo(app, req),
         (html, meta, siteinfo) => {
             res.status(200);
