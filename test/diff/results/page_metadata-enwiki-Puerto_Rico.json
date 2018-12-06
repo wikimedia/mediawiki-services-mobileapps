@@ -1,0 +1,2305 @@
+{
+  "revision": "872108133",
+  "tid": "present",
+  "hatnotes": [
+    {
+      "section": 0,
+      "html": "This article is about the U.S. territory. For other uses, see <a rel=\"mw:WikiLink\" href=\"./Puerto_Rico_(disambiguation)\" title=\"Puerto Rico (disambiguation)\">Puerto Rico (disambiguation)</a>."
+    },
+    {
+      "section": 0,
+      "html": "\"Porto Rico\" and \"Borinquen\" redirect here. For other uses, see <a rel=\"mw:WikiLink\" href=\"./Porto_Rico_(disambiguation)\" title=\"Porto Rico (disambiguation)\">Porto Rico (disambiguation)</a> and <a rel=\"mw:WikiLink\" href=\"./Borinquen_(disambiguation)\" title=\"Borinquen (disambiguation)\">Borinquen (disambiguation)</a>."
+    },
+    {
+      "section": 2,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./History_of_Puerto_Rico\" title=\"History of Puerto Rico\">History of Puerto Rico</a>"
+    },
+    {
+      "section": 4,
+      "html": "Further information: <a rel=\"mw:WikiLink\" href=\"./Captaincy_General_of_Puerto_Rico\" title=\"Captaincy General of Puerto Rico\">Captaincy General of Puerto Rico</a>"
+    },
+    {
+      "section": 9,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Puerto_Rican_Campaign\" title=\"Puerto Rican Campaign\">Puerto Rican Campaign</a>"
+    },
+    {
+      "section": 17,
+      "html": "Further information: <a rel=\"mw:WikiLink\" href=\"./Proposed_political_status_for_Puerto_Rico\" title=\"Proposed political status for Puerto Rico\">Proposed political status for Puerto Rico</a>; <a rel=\"mw:WikiLink\" href=\"./Puerto_Rican_status_referendum,_2012\" title=\"Puerto Rican status referendum, 2012\">Puerto Rican status referendum, 2012</a>; and <a rel=\"mw:WikiLink\" href=\"./President's_Task_Force_on_Puerto_Rico's_Status\" title=\"President's Task Force on Puerto Rico's Status\">President's Task Force on Puerto Rico's Status</a>"
+    },
+    {
+      "section": 22,
+      "html": "Main articles: <a rel=\"mw:WikiLink\" href=\"./Geography_of_Puerto_Rico\" title=\"Geography of Puerto Rico\">Geography of Puerto Rico</a> and <a rel=\"mw:WikiLink\" href=\"./Geology_of_Puerto_Rico\" title=\"Geology of Puerto Rico\">Geology of Puerto Rico</a>"
+    },
+    {
+      "section": 23,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Climate_of_Puerto_Rico\" title=\"Climate of Puerto Rico\">Climate of Puerto Rico</a>"
+    },
+    {
+      "section": 24,
+      "html": "Main articles: <a rel=\"mw:WikiLink\" href=\"./Fauna_of_Puerto_Rico\" title=\"Fauna of Puerto Rico\">Fauna of Puerto Rico</a> and <a rel=\"mw:WikiLink\" href=\"./Flora_of_Puerto_Rico\" title=\"Flora of Puerto Rico\" class=\"mw-redirect\">Flora of Puerto Rico</a>"
+    },
+    {
+      "section": 25,
+      "html": "Main articles: <a rel=\"mw:WikiLink\" href=\"./Demographics_of_Puerto_Rico\" title=\"Demographics of Puerto Rico\">Demographics of Puerto Rico</a> and <a rel=\"mw:WikiLink\" href=\"./Cultural_diversity_in_Puerto_Rico\" title=\"Cultural diversity in Puerto Rico\">Cultural diversity in Puerto Rico</a>"
+    },
+    {
+      "section": 26,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Puerto_Rican_people\" title=\"Puerto Rican people\" class=\"mw-redirect\">Puerto Rican people</a>"
+    },
+    {
+      "section": 30,
+      "html": "Main articles: <a rel=\"mw:WikiLink\" href=\"./Puerto_Rican_Spanish\" title=\"Puerto Rican Spanish\">Puerto Rican Spanish</a> and <a rel=\"mw:WikiLink\" href=\"./English_language_in_Puerto_Rico\" title=\"English language in Puerto Rico\">English language in Puerto Rico</a>"
+    },
+    {
+      "section": 32,
+      "html": "Main articles: <a rel=\"mw:WikiLink\" href=\"./Government_of_Puerto_Rico\" title=\"Government of Puerto Rico\">Government of Puerto Rico</a> and <a rel=\"mw:WikiLink\" href=\"./Politics_of_Puerto_Rico\" title=\"Politics of Puerto Rico\">Politics of Puerto Rico</a>"
+    },
+    {
+      "section": 33,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Political_party_strength_in_Puerto_Rico\" title=\"Political party strength in Puerto Rico\">Political party strength in Puerto Rico</a>"
+    },
+    {
+      "section": 34,
+      "html": "Main articles: <a rel=\"mw:WikiLink\" href=\"./Constitution_of_Puerto_Rico\" title=\"Constitution of Puerto Rico\">Constitution of Puerto Rico</a> and <a rel=\"mw:WikiLink\" href=\"./Law_of_Puerto_Rico\" title=\"Law of Puerto Rico\">Law of Puerto Rico</a>"
+    },
+    {
+      "section": 35,
+      "html": "Main articles: <a rel=\"mw:WikiLink\" href=\"./Political_status_of_Puerto_Rico\" title=\"Political status of Puerto Rico\">Political status of Puerto Rico</a> and <a rel=\"mw:WikiLink\" href=\"./Proposed_political_status_for_Puerto_Rico\" title=\"Proposed political status for Puerto Rico\">Proposed political status for Puerto Rico</a>"
+    },
+    {
+      "section": 37,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Foreign_and_intergovernmental_relations_of_Puerto_Rico\" title=\"Foreign and intergovernmental relations of Puerto Rico\">Foreign and intergovernmental relations of Puerto Rico</a>"
+    },
+    {
+      "section": 38,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Military_of_Puerto_Rico\" title=\"Military of Puerto Rico\">Military of Puerto Rico</a>"
+    },
+    {
+      "section": 39,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Municipalities_of_Puerto_Rico\" title=\"Municipalities of Puerto Rico\">Municipalities of Puerto Rico</a>"
+    },
+    {
+      "section": 40,
+      "html": "Main articles: <a rel=\"mw:WikiLink\" href=\"./Economy_of_Puerto_Rico\" title=\"Economy of Puerto Rico\">Economy of Puerto Rico</a> and <a rel=\"mw:WikiLink\" href=\"./Puerto_Rico_government-debt_crisis\" title=\"Puerto Rico government-debt crisis\" class=\"mw-redirect\">Puerto Rico government-debt crisis</a>"
+    },
+    {
+      "section": 42,
+      "html": "Main articles: <a rel=\"mw:WikiLink\" href=\"./Puerto_Rico_government-debt_crisis\" title=\"Puerto Rico government-debt crisis\" class=\"mw-redirect\">Puerto Rico government-debt crisis</a>, <a rel=\"mw:WikiLink\" href=\"./Budget_of_the_Government_of_Puerto_Rico\" title=\"Budget of the Government of Puerto Rico\">Budget of the Government of Puerto Rico</a>, and <a rel=\"mw:WikiLink\" href=\"./Public_debt_of_Puerto_Rico\" title=\"Public debt of Puerto Rico\">public debt of Puerto Rico</a>"
+    },
+    {
+      "section": 44,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Education_in_Puerto_Rico\" title=\"Education in Puerto Rico\">Education in Puerto Rico</a>"
+    },
+    {
+      "section": 46,
+      "html": "See also: <a rel=\"mw:WikiLink\" href=\"./Illegal_drugs_in_Puerto_Rico\" title=\"Illegal drugs in Puerto Rico\">Illegal drugs in Puerto Rico</a>"
+    },
+    {
+      "section": 47,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Culture_of_Puerto_Rico\" title=\"Culture of Puerto Rico\">Culture of Puerto Rico</a>"
+    },
+    {
+      "section": 48,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Architecture_of_Puerto_Rico\" title=\"Architecture of Puerto Rico\">Architecture of Puerto Rico</a>"
+    },
+    {
+      "section": 49,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Puerto_Rican_art\" title=\"Puerto Rican art\">Puerto Rican art</a>"
+    },
+    {
+      "section": 50,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Puerto_Rican_literature\" title=\"Puerto Rican literature\">Puerto Rican literature</a>"
+    },
+    {
+      "section": 51,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Media_in_Puerto_Rico\" title=\"Media in Puerto Rico\" class=\"mw-redirect\">Media in Puerto Rico</a>"
+    },
+    {
+      "section": 52,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Music_of_Puerto_Rico\" title=\"Music of Puerto Rico\">Music of Puerto Rico</a>"
+    },
+    {
+      "section": 53,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Puerto_Rican_cuisine\" title=\"Puerto Rican cuisine\">Puerto Rican cuisine</a>"
+    },
+    {
+      "section": 54,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Puerto_Rico_on_stamps\" title=\"Puerto Rico on stamps\">Puerto Rico on stamps</a>"
+    },
+    {
+      "section": 55,
+      "html": "Main article: <a rel=\"mw:WikiLink\" href=\"./Sports_in_Puerto_Rico\" title=\"Sports in Puerto Rico\">Sports in Puerto Rico</a>"
+    },
+    {
+      "section": 56,
+      "html": "Main articles: <a rel=\"mw:WikiLink\" href=\"./Transportation_in_Puerto_Rico\" title=\"Transportation in Puerto Rico\">Transportation in Puerto Rico</a>, <a rel=\"mw:WikiLink\" href=\"./Communications_in_Puerto_Rico\" title=\"Communications in Puerto Rico\" class=\"mw-redirect\">Communications in Puerto Rico</a>, <a rel=\"mw:WikiLink\" href=\"./Puerto_Rico_Electric_Power_Authority\" title=\"Puerto Rico Electric Power Authority\">Puerto Rico Electric Power Authority</a>, and <a rel=\"mw:WikiLink\" href=\"./Puerto_Rico_Aqueducts_and_Sewers_Authority\" title=\"Puerto Rico Aqueducts and Sewers Authority\">Puerto Rico Aqueducts and Sewers Authority</a>"
+    }
+  ],
+  "issues": [
+    {
+      "section": 37,
+      "html": "This section <b>needs additional citations for <a rel=\"mw:WikiLink\" href=\"./Wikipedia:Verifiability\" title=\"Wikipedia:Verifiability\">verification</a></b>.<span class=\"hide-when-compact\"> Please help <a rel=\"mw:ExtLink\" class=\"external text\" href=\"//en.wikipedia.org/w/index.php?title=Puerto_Rico&amp;action=edit\">improve this article</a> by <a rel=\"mw:WikiLink\" href=\"./Help:Introduction_to_referencing_with_Wiki_Markup/1\" title=\"Help:Introduction to referencing with Wiki Markup/1\">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.</span>  <small><i>(November 2017)</i></small><small class=\"hide-when-compact\"><i> (<a rel=\"mw:WikiLink\" href=\"./Help:Maintenance_template_removal\" title=\"Help:Maintenance template removal\">Learn how and when to remove this template message</a>)</i></small>"
+    }
+  ],
+  "toc": {
+    "title": "Contents",
+    "entries": [
+      {
+        "level": 1,
+        "section": 1,
+        "number": "1",
+        "anchor": "Etymology",
+        "html": "Etymology"
+      },
+      {
+        "level": 1,
+        "section": 2,
+        "number": "2",
+        "anchor": "History",
+        "html": "History"
+      },
+      {
+        "level": 2,
+        "section": 3,
+        "number": "2.1",
+        "anchor": "Pre-Columbian_era",
+        "html": "Pre-Columbian era"
+      },
+      {
+        "level": 2,
+        "section": 4,
+        "number": "2.2",
+        "anchor": "Spanish_colony_(1493–1898)",
+        "html": "Spanish colony (1493–1898)"
+      },
+      {
+        "level": 3,
+        "section": 5,
+        "number": "2.2.1",
+        "anchor": "Conquest_and_early_settlement",
+        "html": "Conquest and early settlement"
+      },
+      {
+        "level": 3,
+        "section": 6,
+        "number": "2.2.2",
+        "anchor": "Colonization,_the_Habsburgs",
+        "html": "Colonization, the Habsburgs"
+      },
+      {
+        "level": 3,
+        "section": 7,
+        "number": "2.2.3",
+        "anchor": "Late_colonial_period",
+        "html": "Late colonial period"
+      },
+      {
+        "level": 3,
+        "section": 8,
+        "number": "2.2.4",
+        "anchor": "Politics_of_liberalism",
+        "html": "Politics of liberalism"
+      },
+      {
+        "level": 2,
+        "section": 9,
+        "number": "2.3",
+        "anchor": "American_era_(1898–present)",
+        "html": "American era (1898–present)"
+      },
+      {
+        "level": 3,
+        "section": 10,
+        "number": "2.3.1",
+        "anchor": "United_States_unincorporated_organized_territory_(1900–1952)",
+        "html": "United States unincorporated organized territory (1900–1952)"
+      },
+      {
+        "level": 4,
+        "section": 11,
+        "number": "2.3.1.1",
+        "anchor": "U.S._citizenship_and_Puerto_Rican_citizenship",
+        "html": "U.S. citizenship and Puerto Rican citizenship"
+      },
+      {
+        "level": 3,
+        "section": 12,
+        "number": "2.3.2",
+        "anchor": "United_States_unincorporated_organized_territory_with_commonwealth_constitution_(1952–present)",
+        "html": "United States unincorporated organized territory with commonwealth constitution (1952–present)"
+      },
+      {
+        "level": 3,
+        "section": 13,
+        "number": "2.3.3",
+        "anchor": "Estado_Libre_Asociado",
+        "html": "<i id=\"mwAZ4\">Estado Libre Asociado</i>"
+      },
+      {
+        "level": 2,
+        "section": 14,
+        "number": "2.4",
+        "anchor": "Referendums_on_statehood_or_independence",
+        "html": "Referendums on statehood or independence"
+      },
+      {
+        "level": 2,
+        "section": 15,
+        "number": "2.5",
+        "anchor": "United_Nations_Special_Committee_on_Decolonization",
+        "html": "United Nations Special Committee on Decolonization"
+      },
+      {
+        "level": 3,
+        "section": 16,
+        "number": "2.5.1",
+        "anchor": "International_status",
+        "html": "International status"
+      },
+      {
+        "level": 2,
+        "section": 17,
+        "number": "2.6",
+        "anchor": "21st_century",
+        "html": "21st century"
+      },
+      {
+        "level": 2,
+        "section": 18,
+        "number": "2.7",
+        "anchor": "Political_status",
+        "html": "Political status"
+      },
+      {
+        "level": 2,
+        "section": 19,
+        "number": "2.8",
+        "anchor": "Hurricane_Maria",
+        "html": "Hurricane Maria"
+      },
+      {
+        "level": 3,
+        "section": 20,
+        "number": "2.8.1",
+        "anchor": "Rebuilding_efforts",
+        "html": "Rebuilding efforts"
+      },
+      {
+        "level": 3,
+        "section": 21,
+        "number": "2.8.2",
+        "anchor": "Death_toll",
+        "html": "Death toll"
+      },
+      {
+        "level": 1,
+        "section": 22,
+        "number": "3",
+        "anchor": "Geography",
+        "html": "Geography"
+      },
+      {
+        "level": 2,
+        "section": 23,
+        "number": "3.1",
+        "anchor": "Climate",
+        "html": "Climate"
+      },
+      {
+        "level": 2,
+        "section": 24,
+        "number": "3.2",
+        "anchor": "Biodiversity",
+        "html": "Biodiversity"
+      },
+      {
+        "level": 1,
+        "section": 25,
+        "number": "4",
+        "anchor": "Demographics",
+        "html": "Demographics"
+      },
+      {
+        "level": 2,
+        "section": 26,
+        "number": "4.1",
+        "anchor": "Population_makeup",
+        "html": "Population makeup"
+      },
+      {
+        "level": 3,
+        "section": 27,
+        "number": "4.1.1",
+        "anchor": "Population_genetics",
+        "html": "Population genetics"
+      },
+      {
+        "level": 2,
+        "section": 28,
+        "number": "4.2",
+        "anchor": "Immigration_and_emigration",
+        "html": "Immigration and emigration"
+      },
+      {
+        "level": 2,
+        "section": 29,
+        "number": "4.3",
+        "anchor": "Population_distribution",
+        "html": "Population distribution"
+      },
+      {
+        "level": 2,
+        "section": 30,
+        "number": "4.4",
+        "anchor": "Languages",
+        "html": "Languages"
+      },
+      {
+        "level": 2,
+        "section": 31,
+        "number": "4.5",
+        "anchor": "Religion",
+        "html": "Religion"
+      },
+      {
+        "level": 1,
+        "section": 32,
+        "number": "5",
+        "anchor": "Government",
+        "html": "Government"
+      },
+      {
+        "level": 2,
+        "section": 33,
+        "number": "5.1",
+        "anchor": "Political_parties_and_elections",
+        "html": "Political parties and elections"
+      },
+      {
+        "level": 2,
+        "section": 34,
+        "number": "5.2",
+        "anchor": "Law",
+        "html": "Law"
+      },
+      {
+        "level": 2,
+        "section": 35,
+        "number": "5.3",
+        "anchor": "Political_status_2",
+        "html": "Political status"
+      },
+      {
+        "level": 3,
+        "section": 36,
+        "number": "5.3.1",
+        "anchor": "Within_the_United_States",
+        "html": "Within the United States"
+      },
+      {
+        "level": 2,
+        "section": 37,
+        "number": "5.4",
+        "anchor": "Foreign_and_intergovernmental_relations",
+        "html": "Foreign and intergovernmental relations"
+      },
+      {
+        "level": 2,
+        "section": 38,
+        "number": "5.5",
+        "anchor": "Military",
+        "html": "Military"
+      },
+      {
+        "level": 2,
+        "section": 39,
+        "number": "5.6",
+        "anchor": "Administrative_divisions",
+        "html": "Administrative divisions"
+      },
+      {
+        "level": 1,
+        "section": 40,
+        "number": "6",
+        "anchor": "Economy",
+        "html": "Economy"
+      },
+      {
+        "level": 2,
+        "section": 41,
+        "number": "6.1",
+        "anchor": "Heavy_debt_load",
+        "html": "Heavy debt load"
+      },
+      {
+        "level": 2,
+        "section": 42,
+        "number": "6.2",
+        "anchor": "Public_finances",
+        "html": "Public finances"
+      },
+      {
+        "level": 2,
+        "section": 43,
+        "number": "6.3",
+        "anchor": "Cost_of_living",
+        "html": "Cost of living"
+      },
+      {
+        "level": 1,
+        "section": 44,
+        "number": "7",
+        "anchor": "Education",
+        "html": "Education"
+      },
+      {
+        "level": 1,
+        "section": 45,
+        "number": "8",
+        "anchor": "Public_health_and_safety",
+        "html": "Public health and safety"
+      },
+      {
+        "level": 2,
+        "section": 46,
+        "number": "8.1",
+        "anchor": "Crime",
+        "html": "Crime"
+      },
+      {
+        "level": 1,
+        "section": 47,
+        "number": "9",
+        "anchor": "Culture",
+        "html": "Culture"
+      },
+      {
+        "level": 2,
+        "section": 48,
+        "number": "9.1",
+        "anchor": "Architecture",
+        "html": "Architecture"
+      },
+      {
+        "level": 2,
+        "section": 49,
+        "number": "9.2",
+        "anchor": "Arts",
+        "html": "Arts"
+      },
+      {
+        "level": 2,
+        "section": 50,
+        "number": "9.3",
+        "anchor": "Literature",
+        "html": "Literature"
+      },
+      {
+        "level": 2,
+        "section": 51,
+        "number": "9.4",
+        "anchor": "Media",
+        "html": "Media"
+      },
+      {
+        "level": 2,
+        "section": 52,
+        "number": "9.5",
+        "anchor": "Music",
+        "html": "Music"
+      },
+      {
+        "level": 2,
+        "section": 53,
+        "number": "9.6",
+        "anchor": "Cuisine",
+        "html": "Cuisine"
+      },
+      {
+        "level": 2,
+        "section": 54,
+        "number": "9.7",
+        "anchor": "Philately",
+        "html": "Philately"
+      },
+      {
+        "level": 2,
+        "section": 55,
+        "number": "9.8",
+        "anchor": "Sports",
+        "html": "Sports"
+      },
+      {
+        "level": 1,
+        "section": 56,
+        "number": "10",
+        "anchor": "Infrastructure",
+        "html": "Infrastructure"
+      },
+      {
+        "level": 1,
+        "section": 57,
+        "number": "11",
+        "anchor": "See_also",
+        "html": "See also"
+      },
+      {
+        "level": 1,
+        "section": 58,
+        "number": "12",
+        "anchor": "Notes",
+        "html": "Notes"
+      },
+      {
+        "level": 1,
+        "section": 59,
+        "number": "13",
+        "anchor": "References",
+        "html": "References"
+      },
+      {
+        "level": 1,
+        "section": 60,
+        "number": "14",
+        "anchor": "Further_reading",
+        "html": "Further reading"
+      },
+      {
+        "level": 1,
+        "section": 61,
+        "number": "15",
+        "anchor": "External_links",
+        "html": "External links"
+      }
+    ]
+  },
+  "language_links": [
+    {
+      "lang": "af",
+      "summary_url": "https://af.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "als",
+      "summary_url": "https://als.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "am",
+      "summary_url": "https://am.wikipedia.org/api/rest_v1/page/summary/ፕዌርቶ_ሪኮ",
+      "titles": {
+        "canonical": "ፕዌርቶ_ሪኮ",
+        "normalized": "ፕዌርቶ ሪኮ"
+      }
+    },
+    {
+      "lang": "an",
+      "summary_url": "https://an.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "ang",
+      "summary_url": "https://ang.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "ar",
+      "summary_url": "https://ar.wikipedia.org/api/rest_v1/page/summary/بورتوريكو",
+      "titles": {
+        "canonical": "بورتوريكو",
+        "normalized": "بورتوريكو"
+      }
+    },
+    {
+      "lang": "arz",
+      "summary_url": "https://arz.wikipedia.org/api/rest_v1/page/summary/بويرتو_ريكو",
+      "titles": {
+        "canonical": "بويرتو_ريكو",
+        "normalized": "بويرتو ريكو"
+      }
+    },
+    {
+      "lang": "ast",
+      "summary_url": "https://ast.wikipedia.org/api/rest_v1/page/summary/Puertu_Ricu",
+      "titles": {
+        "canonical": "Puertu_Ricu",
+        "normalized": "Puertu Ricu"
+      }
+    },
+    {
+      "lang": "ay",
+      "summary_url": "https://ay.wikipedia.org/api/rest_v1/page/summary/Burinkin",
+      "titles": {
+        "canonical": "Burinkin",
+        "normalized": "Burinkin"
+      }
+    },
+    {
+      "lang": "az",
+      "summary_url": "https://az.wikipedia.org/api/rest_v1/page/summary/Puerto-Riko",
+      "titles": {
+        "canonical": "Puerto-Riko",
+        "normalized": "Puerto-Riko"
+      }
+    },
+    {
+      "lang": "azb",
+      "summary_url": "https://azb.wikipedia.org/api/rest_v1/page/summary/پورتو_ریکو",
+      "titles": {
+        "canonical": "پورتو_ریکو",
+        "normalized": "پورتو ریکو"
+      }
+    },
+    {
+      "lang": "ba",
+      "summary_url": "https://ba.wikipedia.org/api/rest_v1/page/summary/Пуэрто-Рико",
+      "titles": {
+        "canonical": "Пуэрто-Рико",
+        "normalized": "Пуэрто-Рико"
+      }
+    },
+    {
+      "lang": "bar",
+      "summary_url": "https://bar.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "bat-smg",
+      "summary_url": "https://bat-smg.wikipedia.org/api/rest_v1/page/summary/Puerta_Rėks",
+      "titles": {
+        "canonical": "Puerta_Rėks",
+        "normalized": "Puerta Rėks"
+      }
+    },
+    {
+      "lang": "bcl",
+      "summary_url": "https://bcl.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "be",
+      "summary_url": "https://be.wikipedia.org/api/rest_v1/page/summary/Пуэрта-Рыка",
+      "titles": {
+        "canonical": "Пуэрта-Рыка",
+        "normalized": "Пуэрта-Рыка"
+      }
+    },
+    {
+      "lang": "be-x-old",
+      "summary_url": "https://be-x-old.wikipedia.org/api/rest_v1/page/summary/Пуэрта-Рыка",
+      "titles": {
+        "canonical": "Пуэрта-Рыка",
+        "normalized": "Пуэрта-Рыка"
+      }
+    },
+    {
+      "lang": "bg",
+      "summary_url": "https://bg.wikipedia.org/api/rest_v1/page/summary/Пуерто_Рико",
+      "titles": {
+        "canonical": "Пуерто_Рико",
+        "normalized": "Пуерто Рико"
+      }
+    },
+    {
+      "lang": "bh",
+      "summary_url": "https://bh.wikipedia.org/api/rest_v1/page/summary/पोर्तो_रिको",
+      "titles": {
+        "canonical": "पोर्तो_रिको",
+        "normalized": "पोर्तो रिको"
+      }
+    },
+    {
+      "lang": "bn",
+      "summary_url": "https://bn.wikipedia.org/api/rest_v1/page/summary/পুয়ের্তো_রিকো",
+      "titles": {
+        "canonical": "পুয়ের্তো_রিকো",
+        "normalized": "পুয়ের্তো রিকো"
+      }
+    },
+    {
+      "lang": "bpy",
+      "summary_url": "https://bpy.wikipedia.org/api/rest_v1/page/summary/পুয়ের্তো_রিকো",
+      "titles": {
+        "canonical": "পুয়ের্তো_রিকো",
+        "normalized": "পুয়ের্তো রিকো"
+      }
+    },
+    {
+      "lang": "br",
+      "summary_url": "https://br.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "bs",
+      "summary_url": "https://bs.wikipedia.org/api/rest_v1/page/summary/Portoriko",
+      "titles": {
+        "canonical": "Portoriko",
+        "normalized": "Portoriko"
+      }
+    },
+    {
+      "lang": "ca",
+      "summary_url": "https://ca.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "cbk-zam",
+      "summary_url": "https://cbk-zam.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "cdo",
+      "summary_url": "https://cdo.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "ce",
+      "summary_url": "https://ce.wikipedia.org/api/rest_v1/page/summary/Пуэрто-Рико",
+      "titles": {
+        "canonical": "Пуэрто-Рико",
+        "normalized": "Пуэрто-Рико"
+      }
+    },
+    {
+      "lang": "ceb",
+      "summary_url": "https://ceb.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "ckb",
+      "summary_url": "https://ckb.wikipedia.org/api/rest_v1/page/summary/پۆرتۆ_ڕیکۆ",
+      "titles": {
+        "canonical": "پۆرتۆ_ڕیکۆ",
+        "normalized": "پۆرتۆ ڕیکۆ"
+      }
+    },
+    {
+      "lang": "cs",
+      "summary_url": "https://cs.wikipedia.org/api/rest_v1/page/summary/Portoriko",
+      "titles": {
+        "canonical": "Portoriko",
+        "normalized": "Portoriko"
+      }
+    },
+    {
+      "lang": "cv",
+      "summary_url": "https://cv.wikipedia.org/api/rest_v1/page/summary/Пуэрто-Рико",
+      "titles": {
+        "canonical": "Пуэрто-Рико",
+        "normalized": "Пуэрто-Рико"
+      }
+    },
+    {
+      "lang": "cy",
+      "summary_url": "https://cy.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "da",
+      "summary_url": "https://da.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "de",
+      "summary_url": "https://de.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "diq",
+      "summary_url": "https://diq.wikipedia.org/api/rest_v1/page/summary/Porto_Riko",
+      "titles": {
+        "canonical": "Porto_Riko",
+        "normalized": "Porto Riko"
+      }
+    },
+    {
+      "lang": "dsb",
+      "summary_url": "https://dsb.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "dv",
+      "summary_url": "https://dv.wikipedia.org/api/rest_v1/page/summary/ޕުއެރްތޮ_ރީކޯ",
+      "titles": {
+        "canonical": "ޕުއެރްތޮ_ރީކޯ",
+        "normalized": "ޕުއެރްތޮ ރީކޯ"
+      }
+    },
+    {
+      "lang": "el",
+      "summary_url": "https://el.wikipedia.org/api/rest_v1/page/summary/Πουέρτο_Ρίκο",
+      "titles": {
+        "canonical": "Πουέρτο_Ρίκο",
+        "normalized": "Πουέρτο Ρίκο"
+      }
+    },
+    {
+      "lang": "eo",
+      "summary_url": "https://eo.wikipedia.org/api/rest_v1/page/summary/Porto-Riko",
+      "titles": {
+        "canonical": "Porto-Riko",
+        "normalized": "Porto-Riko"
+      }
+    },
+    {
+      "lang": "es",
+      "summary_url": "https://es.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "et",
+      "summary_url": "https://et.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "eu",
+      "summary_url": "https://eu.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "ext",
+      "summary_url": "https://ext.wikipedia.org/api/rest_v1/page/summary/Puertu_Ricu",
+      "titles": {
+        "canonical": "Puertu_Ricu",
+        "normalized": "Puertu Ricu"
+      }
+    },
+    {
+      "lang": "fa",
+      "summary_url": "https://fa.wikipedia.org/api/rest_v1/page/summary/پورتوریکو",
+      "titles": {
+        "canonical": "پورتوریکو",
+        "normalized": "پورتوریکو"
+      }
+    },
+    {
+      "lang": "fi",
+      "summary_url": "https://fi.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "fo",
+      "summary_url": "https://fo.wikipedia.org/api/rest_v1/page/summary/Puerto_Riko",
+      "titles": {
+        "canonical": "Puerto_Riko",
+        "normalized": "Puerto Riko"
+      }
+    },
+    {
+      "lang": "fr",
+      "summary_url": "https://fr.wikipedia.org/api/rest_v1/page/summary/Porto_Rico",
+      "titles": {
+        "canonical": "Porto_Rico",
+        "normalized": "Porto Rico"
+      }
+    },
+    {
+      "lang": "frp",
+      "summary_url": "https://frp.wikipedia.org/api/rest_v1/page/summary/Pôrto_Rico",
+      "titles": {
+        "canonical": "Pôrto_Rico",
+        "normalized": "Pôrto Rico"
+      }
+    },
+    {
+      "lang": "frr",
+      "summary_url": "https://frr.wikipedia.org/api/rest_v1/page/summary/Puerto_Riko",
+      "titles": {
+        "canonical": "Puerto_Riko",
+        "normalized": "Puerto Riko"
+      }
+    },
+    {
+      "lang": "fy",
+      "summary_url": "https://fy.wikipedia.org/api/rest_v1/page/summary/Porto_Riko",
+      "titles": {
+        "canonical": "Porto_Riko",
+        "normalized": "Porto Riko"
+      }
+    },
+    {
+      "lang": "ga",
+      "summary_url": "https://ga.wikipedia.org/api/rest_v1/page/summary/Pórtó_Ríce",
+      "titles": {
+        "canonical": "Pórtó_Ríce",
+        "normalized": "Pórtó Ríce"
+      }
+    },
+    {
+      "lang": "gag",
+      "summary_url": "https://gag.wikipedia.org/api/rest_v1/page/summary/Puerto_Riko",
+      "titles": {
+        "canonical": "Puerto_Riko",
+        "normalized": "Puerto Riko"
+      }
+    },
+    {
+      "lang": "gd",
+      "summary_url": "https://gd.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "gl",
+      "summary_url": "https://gl.wikipedia.org/api/rest_v1/page/summary/Porto_Rico",
+      "titles": {
+        "canonical": "Porto_Rico",
+        "normalized": "Porto Rico"
+      }
+    },
+    {
+      "lang": "gv",
+      "summary_url": "https://gv.wikipedia.org/api/rest_v1/page/summary/Yn_Phurt_Verçhagh",
+      "titles": {
+        "canonical": "Yn_Phurt_Verçhagh",
+        "normalized": "Yn Phurt Verçhagh"
+      }
+    },
+    {
+      "lang": "hak",
+      "summary_url": "https://hak.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "he",
+      "summary_url": "https://he.wikipedia.org/api/rest_v1/page/summary/פוארטו_ריקו",
+      "titles": {
+        "canonical": "פוארטו_ריקו",
+        "normalized": "פוארטו ריקו"
+      }
+    },
+    {
+      "lang": "hi",
+      "summary_url": "https://hi.wikipedia.org/api/rest_v1/page/summary/पोर्टो_रीको",
+      "titles": {
+        "canonical": "पोर्टो_रीको",
+        "normalized": "पोर्टो रीको"
+      }
+    },
+    {
+      "lang": "hr",
+      "summary_url": "https://hr.wikipedia.org/api/rest_v1/page/summary/Portoriko",
+      "titles": {
+        "canonical": "Portoriko",
+        "normalized": "Portoriko"
+      }
+    },
+    {
+      "lang": "hsb",
+      "summary_url": "https://hsb.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "ht",
+      "summary_url": "https://ht.wikipedia.org/api/rest_v1/page/summary/Pòtoriko",
+      "titles": {
+        "canonical": "Pòtoriko",
+        "normalized": "Pòtoriko"
+      }
+    },
+    {
+      "lang": "hu",
+      "summary_url": "https://hu.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "hy",
+      "summary_url": "https://hy.wikipedia.org/api/rest_v1/page/summary/Պուերտո_Ռիկո",
+      "titles": {
+        "canonical": "Պուերտո_Ռիկո",
+        "normalized": "Պուերտո Ռիկո"
+      }
+    },
+    {
+      "lang": "ia",
+      "summary_url": "https://ia.wikipedia.org/api/rest_v1/page/summary/Porto_Rico",
+      "titles": {
+        "canonical": "Porto_Rico",
+        "normalized": "Porto Rico"
+      }
+    },
+    {
+      "lang": "id",
+      "summary_url": "https://id.wikipedia.org/api/rest_v1/page/summary/Puerto_Riko",
+      "titles": {
+        "canonical": "Puerto_Riko",
+        "normalized": "Puerto Riko"
+      }
+    },
+    {
+      "lang": "ilo",
+      "summary_url": "https://ilo.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "io",
+      "summary_url": "https://io.wikipedia.org/api/rest_v1/page/summary/Porto-Riko",
+      "titles": {
+        "canonical": "Porto-Riko",
+        "normalized": "Porto-Riko"
+      }
+    },
+    {
+      "lang": "is",
+      "summary_url": "https://is.wikipedia.org/api/rest_v1/page/summary/Púertó_Ríkó",
+      "titles": {
+        "canonical": "Púertó_Ríkó",
+        "normalized": "Púertó Ríkó"
+      }
+    },
+    {
+      "lang": "it",
+      "summary_url": "https://it.wikipedia.org/api/rest_v1/page/summary/Porto_Rico",
+      "titles": {
+        "canonical": "Porto_Rico",
+        "normalized": "Porto Rico"
+      }
+    },
+    {
+      "lang": "ja",
+      "summary_url": "https://ja.wikipedia.org/api/rest_v1/page/summary/プエルトリコ",
+      "titles": {
+        "canonical": "プエルトリコ",
+        "normalized": "プエルトリコ"
+      }
+    },
+    {
+      "lang": "jam",
+      "summary_url": "https://jam.wikipedia.org/api/rest_v1/page/summary/Puoto_Riiko",
+      "titles": {
+        "canonical": "Puoto_Riiko",
+        "normalized": "Puoto Riiko"
+      }
+    },
+    {
+      "lang": "jv",
+      "summary_url": "https://jv.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "ka",
+      "summary_url": "https://ka.wikipedia.org/api/rest_v1/page/summary/პუერტო-რიკო",
+      "titles": {
+        "canonical": "პუერტო-რიკო",
+        "normalized": "პუერტო-რიკო"
+      }
+    },
+    {
+      "lang": "kk",
+      "summary_url": "https://kk.wikipedia.org/api/rest_v1/page/summary/Пуэрто-Рико",
+      "titles": {
+        "canonical": "Пуэрто-Рико",
+        "normalized": "Пуэрто-Рико"
+      }
+    },
+    {
+      "lang": "ko",
+      "summary_url": "https://ko.wikipedia.org/api/rest_v1/page/summary/푸에르토리코",
+      "titles": {
+        "canonical": "푸에르토리코",
+        "normalized": "푸에르토리코"
+      }
+    },
+    {
+      "lang": "ku",
+      "summary_url": "https://ku.wikipedia.org/api/rest_v1/page/summary/Porto_Rîko",
+      "titles": {
+        "canonical": "Porto_Rîko",
+        "normalized": "Porto Rîko"
+      }
+    },
+    {
+      "lang": "kw",
+      "summary_url": "https://kw.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "ky",
+      "summary_url": "https://ky.wikipedia.org/api/rest_v1/page/summary/Пуэрто-Рико",
+      "titles": {
+        "canonical": "Пуэрто-Рико",
+        "normalized": "Пуэрто-Рико"
+      }
+    },
+    {
+      "lang": "la",
+      "summary_url": "https://la.wikipedia.org/api/rest_v1/page/summary/Portus_Dives",
+      "titles": {
+        "canonical": "Portus_Dives",
+        "normalized": "Portus Dives"
+      }
+    },
+    {
+      "lang": "lad",
+      "summary_url": "https://lad.wikipedia.org/api/rest_v1/page/summary/Puerto_Riko",
+      "titles": {
+        "canonical": "Puerto_Riko",
+        "normalized": "Puerto Riko"
+      }
+    },
+    {
+      "lang": "lb",
+      "summary_url": "https://lb.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "lfn",
+      "summary_url": "https://lfn.wikipedia.org/api/rest_v1/page/summary/Porto_Rica",
+      "titles": {
+        "canonical": "Porto_Rica",
+        "normalized": "Porto Rica"
+      }
+    },
+    {
+      "lang": "li",
+      "summary_url": "https://li.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "lij",
+      "summary_url": "https://lij.wikipedia.org/api/rest_v1/page/summary/Pòrto_Ricco",
+      "titles": {
+        "canonical": "Pòrto_Ricco",
+        "normalized": "Pòrto Ricco"
+      }
+    },
+    {
+      "lang": "lmo",
+      "summary_url": "https://lmo.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "ln",
+      "summary_url": "https://ln.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "lrc",
+      "summary_url": "https://lrc.wikipedia.org/api/rest_v1/page/summary/پورتوریکو",
+      "titles": {
+        "canonical": "پورتوریکو",
+        "normalized": "پورتوریکو"
+      }
+    },
+    {
+      "lang": "lt",
+      "summary_url": "https://lt.wikipedia.org/api/rest_v1/page/summary/Puerto_Rikas",
+      "titles": {
+        "canonical": "Puerto_Rikas",
+        "normalized": "Puerto Rikas"
+      }
+    },
+    {
+      "lang": "lv",
+      "summary_url": "https://lv.wikipedia.org/api/rest_v1/page/summary/Puertoriko",
+      "titles": {
+        "canonical": "Puertoriko",
+        "normalized": "Puertoriko"
+      }
+    },
+    {
+      "lang": "mg",
+      "summary_url": "https://mg.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "mk",
+      "summary_url": "https://mk.wikipedia.org/api/rest_v1/page/summary/Порторико",
+      "titles": {
+        "canonical": "Порторико",
+        "normalized": "Порторико"
+      }
+    },
+    {
+      "lang": "ml",
+      "summary_url": "https://ml.wikipedia.org/api/rest_v1/page/summary/പോർട്ടോ_റിക്കോ",
+      "titles": {
+        "canonical": "പോർട്ടോ_റിക്കോ",
+        "normalized": "പോർട്ടോ റിക്കോ"
+      }
+    },
+    {
+      "lang": "mr",
+      "summary_url": "https://mr.wikipedia.org/api/rest_v1/page/summary/पोर्तो_रिको",
+      "titles": {
+        "canonical": "पोर्तो_रिको",
+        "normalized": "पोर्तो रिको"
+      }
+    },
+    {
+      "lang": "ms",
+      "summary_url": "https://ms.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "myv",
+      "summary_url": "https://myv.wikipedia.org/api/rest_v1/page/summary/Пуэрто-Рико",
+      "titles": {
+        "canonical": "Пуэрто-Рико",
+        "normalized": "Пуэрто-Рико"
+      }
+    },
+    {
+      "lang": "nah",
+      "summary_url": "https://nah.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "nds",
+      "summary_url": "https://nds.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "ne",
+      "summary_url": "https://ne.wikipedia.org/api/rest_v1/page/summary/पोर्टो_रिको",
+      "titles": {
+        "canonical": "पोर्टो_रिको",
+        "normalized": "पोर्टो रिको"
+      }
+    },
+    {
+      "lang": "nl",
+      "summary_url": "https://nl.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "nn",
+      "summary_url": "https://nn.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "no",
+      "summary_url": "https://no.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "nov",
+      "summary_url": "https://nov.wikipedia.org/api/rest_v1/page/summary/Puerto_Riko",
+      "titles": {
+        "canonical": "Puerto_Riko",
+        "normalized": "Puerto Riko"
+      }
+    },
+    {
+      "lang": "oc",
+      "summary_url": "https://oc.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "os",
+      "summary_url": "https://os.wikipedia.org/api/rest_v1/page/summary/Пуэрто-Рико",
+      "titles": {
+        "canonical": "Пуэрто-Рико",
+        "normalized": "Пуэрто-Рико"
+      }
+    },
+    {
+      "lang": "pa",
+      "summary_url": "https://pa.wikipedia.org/api/rest_v1/page/summary/ਪੁਇਰਤੋ_ਰੀਕੋ",
+      "titles": {
+        "canonical": "ਪੁਇਰਤੋ_ਰੀਕੋ",
+        "normalized": "ਪੁਇਰਤੋ ਰੀਕੋ"
+      }
+    },
+    {
+      "lang": "pap",
+      "summary_url": "https://pap.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "pl",
+      "summary_url": "https://pl.wikipedia.org/api/rest_v1/page/summary/Portoryko",
+      "titles": {
+        "canonical": "Portoryko",
+        "normalized": "Portoryko"
+      }
+    },
+    {
+      "lang": "pnb",
+      "summary_url": "https://pnb.wikipedia.org/api/rest_v1/page/summary/پورٹو_ریکو",
+      "titles": {
+        "canonical": "پورٹو_ریکو",
+        "normalized": "پورٹو ریکو"
+      }
+    },
+    {
+      "lang": "pt",
+      "summary_url": "https://pt.wikipedia.org/api/rest_v1/page/summary/Porto_Rico",
+      "titles": {
+        "canonical": "Porto_Rico",
+        "normalized": "Porto Rico"
+      }
+    },
+    {
+      "lang": "qu",
+      "summary_url": "https://qu.wikipedia.org/api/rest_v1/page/summary/Burinkin",
+      "titles": {
+        "canonical": "Burinkin",
+        "normalized": "Burinkin"
+      }
+    },
+    {
+      "lang": "ro",
+      "summary_url": "https://ro.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "ru",
+      "summary_url": "https://ru.wikipedia.org/api/rest_v1/page/summary/Пуэрто-Рико",
+      "titles": {
+        "canonical": "Пуэрто-Рико",
+        "normalized": "Пуэрто-Рико"
+      }
+    },
+    {
+      "lang": "rw",
+      "summary_url": "https://rw.wikipedia.org/api/rest_v1/page/summary/Puwerito_Riko",
+      "titles": {
+        "canonical": "Puwerito_Riko",
+        "normalized": "Puwerito Riko"
+      }
+    },
+    {
+      "lang": "sc",
+      "summary_url": "https://sc.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "scn",
+      "summary_url": "https://scn.wikipedia.org/api/rest_v1/page/summary/Portu_Ricu",
+      "titles": {
+        "canonical": "Portu_Ricu",
+        "normalized": "Portu Ricu"
+      }
+    },
+    {
+      "lang": "sco",
+      "summary_url": "https://sco.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "sh",
+      "summary_url": "https://sh.wikipedia.org/api/rest_v1/page/summary/Portoriko",
+      "titles": {
+        "canonical": "Portoriko",
+        "normalized": "Portoriko"
+      }
+    },
+    {
+      "lang": "si",
+      "summary_url": "https://si.wikipedia.org/api/rest_v1/page/summary/පුවටෝ_රිකෝ",
+      "titles": {
+        "canonical": "පුවටෝ_රිකෝ",
+        "normalized": "පුවටෝ රිකෝ"
+      }
+    },
+    {
+      "lang": "simple",
+      "summary_url": "https://simple.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "sk",
+      "summary_url": "https://sk.wikipedia.org/api/rest_v1/page/summary/Portoriko",
+      "titles": {
+        "canonical": "Portoriko",
+        "normalized": "Portoriko"
+      }
+    },
+    {
+      "lang": "sl",
+      "summary_url": "https://sl.wikipedia.org/api/rest_v1/page/summary/Portoriko",
+      "titles": {
+        "canonical": "Portoriko",
+        "normalized": "Portoriko"
+      }
+    },
+    {
+      "lang": "so",
+      "summary_url": "https://so.wikipedia.org/api/rest_v1/page/summary/Buerto_Riko",
+      "titles": {
+        "canonical": "Buerto_Riko",
+        "normalized": "Buerto Riko"
+      }
+    },
+    {
+      "lang": "sq",
+      "summary_url": "https://sq.wikipedia.org/api/rest_v1/page/summary/Portorikoja",
+      "titles": {
+        "canonical": "Portorikoja",
+        "normalized": "Portorikoja"
+      }
+    },
+    {
+      "lang": "sr",
+      "summary_url": "https://sr.wikipedia.org/api/rest_v1/page/summary/Порторико",
+      "titles": {
+        "canonical": "Порторико",
+        "normalized": "Порторико"
+      }
+    },
+    {
+      "lang": "su",
+      "summary_url": "https://su.wikipedia.org/api/rest_v1/page/summary/Puérto_Riko",
+      "titles": {
+        "canonical": "Puérto_Riko",
+        "normalized": "Puérto Riko"
+      }
+    },
+    {
+      "lang": "sv",
+      "summary_url": "https://sv.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "sw",
+      "summary_url": "https://sw.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "szl",
+      "summary_url": "https://szl.wikipedia.org/api/rest_v1/page/summary/Portoryko",
+      "titles": {
+        "canonical": "Portoryko",
+        "normalized": "Portoryko"
+      }
+    },
+    {
+      "lang": "ta",
+      "summary_url": "https://ta.wikipedia.org/api/rest_v1/page/summary/புவேர்ட்டோ_ரிக்கோ",
+      "titles": {
+        "canonical": "புவேர்ட்டோ_ரிக்கோ",
+        "normalized": "புவேர்ட்டோ ரிக்கோ"
+      }
+    },
+    {
+      "lang": "te",
+      "summary_url": "https://te.wikipedia.org/api/rest_v1/page/summary/ఫ్యూర్టో_రికో",
+      "titles": {
+        "canonical": "ఫ్యూర్టో_రికో",
+        "normalized": "ఫ్యూర్టో రికో"
+      }
+    },
+    {
+      "lang": "tg",
+      "summary_url": "https://tg.wikipedia.org/api/rest_v1/page/summary/Пуэрто_Рико",
+      "titles": {
+        "canonical": "Пуэрто_Рико",
+        "normalized": "Пуэрто Рико"
+      }
+    },
+    {
+      "lang": "th",
+      "summary_url": "https://th.wikipedia.org/api/rest_v1/page/summary/ปวยร์โตรีโก",
+      "titles": {
+        "canonical": "ปวยร์โตรีโก",
+        "normalized": "ปวยร์โตรีโก"
+      }
+    },
+    {
+      "lang": "tk",
+      "summary_url": "https://tk.wikipedia.org/api/rest_v1/page/summary/Puerto-riko",
+      "titles": {
+        "canonical": "Puerto-riko",
+        "normalized": "Puerto-riko"
+      }
+    },
+    {
+      "lang": "tl",
+      "summary_url": "https://tl.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "tr",
+      "summary_url": "https://tr.wikipedia.org/api/rest_v1/page/summary/Porto_Riko",
+      "titles": {
+        "canonical": "Porto_Riko",
+        "normalized": "Porto Riko"
+      }
+    },
+    {
+      "lang": "tt",
+      "summary_url": "https://tt.wikipedia.org/api/rest_v1/page/summary/Пуэрто-Рико",
+      "titles": {
+        "canonical": "Пуэрто-Рико",
+        "normalized": "Пуэрто-Рико"
+      }
+    },
+    {
+      "lang": "ug",
+      "summary_url": "https://ug.wikipedia.org/api/rest_v1/page/summary/پوئېرتو_رىكو",
+      "titles": {
+        "canonical": "پوئېرتو_رىكو",
+        "normalized": "پوئېرتو رىكو"
+      }
+    },
+    {
+      "lang": "uk",
+      "summary_url": "https://uk.wikipedia.org/api/rest_v1/page/summary/Пуерто-Рико",
+      "titles": {
+        "canonical": "Пуерто-Рико",
+        "normalized": "Пуерто-Рико"
+      }
+    },
+    {
+      "lang": "ur",
+      "summary_url": "https://ur.wikipedia.org/api/rest_v1/page/summary/پورٹو_ریکو",
+      "titles": {
+        "canonical": "پورٹو_ریکو",
+        "normalized": "پورٹو ریکو"
+      }
+    },
+    {
+      "lang": "uz",
+      "summary_url": "https://uz.wikipedia.org/api/rest_v1/page/summary/Puerto-Riko",
+      "titles": {
+        "canonical": "Puerto-Riko",
+        "normalized": "Puerto-Riko"
+      }
+    },
+    {
+      "lang": "vi",
+      "summary_url": "https://vi.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "vo",
+      "summary_url": "https://vo.wikipedia.org/api/rest_v1/page/summary/Puertorikeäns",
+      "titles": {
+        "canonical": "Puertorikeäns",
+        "normalized": "Puertorikeäns"
+      }
+    },
+    {
+      "lang": "wa",
+      "summary_url": "https://wa.wikipedia.org/api/rest_v1/page/summary/Porto_Rico",
+      "titles": {
+        "canonical": "Porto_Rico",
+        "normalized": "Porto Rico"
+      }
+    },
+    {
+      "lang": "war",
+      "summary_url": "https://war.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "wo",
+      "summary_url": "https://wo.wikipedia.org/api/rest_v1/page/summary/Poortorikoo",
+      "titles": {
+        "canonical": "Poortorikoo",
+        "normalized": "Poortorikoo"
+      }
+    },
+    {
+      "lang": "wuu",
+      "summary_url": "https://wuu.wikipedia.org/api/rest_v1/page/summary/波多黎各",
+      "titles": {
+        "canonical": "波多黎各",
+        "normalized": "波多黎各"
+      }
+    },
+    {
+      "lang": "xmf",
+      "summary_url": "https://xmf.wikipedia.org/api/rest_v1/page/summary/პუერტო-რიკო",
+      "titles": {
+        "canonical": "პუერტო-რიკო",
+        "normalized": "პუერტო-რიკო"
+      }
+    },
+    {
+      "lang": "yo",
+      "summary_url": "https://yo.wikipedia.org/api/rest_v1/page/summary/Púẹ́rtò_Ríkò",
+      "titles": {
+        "canonical": "Púẹ́rtò_Ríkò",
+        "normalized": "Púẹ́rtò Ríkò"
+      }
+    },
+    {
+      "lang": "zea",
+      "summary_url": "https://zea.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "zh",
+      "summary_url": "https://zh.wikipedia.org/api/rest_v1/page/summary/波多黎各",
+      "titles": {
+        "canonical": "波多黎各",
+        "normalized": "波多黎各"
+      }
+    },
+    {
+      "lang": "zh-min-nan",
+      "summary_url": "https://zh-min-nan.wikipedia.org/api/rest_v1/page/summary/Puerto_Rico",
+      "titles": {
+        "canonical": "Puerto_Rico",
+        "normalized": "Puerto Rico"
+      }
+    },
+    {
+      "lang": "zh-yue",
+      "summary_url": "https://zh-yue.wikipedia.org/api/rest_v1/page/summary/波多黎各",
+      "titles": {
+        "canonical": "波多黎各",
+        "normalized": "波多黎各"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:1493_establishments_in_the_Spanish_West_Indies",
+      "titles": {
+        "canonical": "Category:1493_establishments_in_the_Spanish_West_Indies",
+        "normalized": "Category:1493 establishments in the Spanish West Indies",
+        "display": "1493 establishments in the Spanish West Indies"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:1898_disestablishments_in_the_Spanish_West_Indies",
+      "titles": {
+        "canonical": "Category:1898_disestablishments_in_the_Spanish_West_Indies",
+        "normalized": "Category:1898 disestablishments in the Spanish West Indies",
+        "display": "1898 disestablishments in the Spanish West Indies"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:All_Wikipedia_articles_in_need_of_updating",
+      "titles": {
+        "canonical": "Category:All_Wikipedia_articles_in_need_of_updating",
+        "normalized": "Category:All Wikipedia articles in need of updating",
+        "display": "All Wikipedia articles in need of updating"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:All_articles_containing_potentially_dated_statements",
+      "titles": {
+        "canonical": "Category:All_articles_containing_potentially_dated_statements",
+        "normalized": "Category:All articles containing potentially dated statements",
+        "display": "All articles containing potentially dated statements"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:All_articles_needing_additional_references",
+      "titles": {
+        "canonical": "Category:All_articles_needing_additional_references",
+        "normalized": "Category:All articles needing additional references",
+        "display": "All articles needing additional references"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:All_articles_with_dead_external_links",
+      "titles": {
+        "canonical": "Category:All_articles_with_dead_external_links",
+        "normalized": "Category:All articles with dead external links",
+        "display": "All articles with dead external links"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:All_articles_with_failed_verification",
+      "titles": {
+        "canonical": "Category:All_articles_with_failed_verification",
+        "normalized": "Category:All articles with failed verification",
+        "display": "All articles with failed verification"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:All_articles_with_self-published_sources",
+      "titles": {
+        "canonical": "Category:All_articles_with_self-published_sources",
+        "normalized": "Category:All articles with self-published sources",
+        "display": "All articles with self-published sources"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:All_articles_with_unsourced_statements",
+      "titles": {
+        "canonical": "Category:All_articles_with_unsourced_statements",
+        "normalized": "Category:All articles with unsourced statements",
+        "display": "All articles with unsourced statements"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:All_articles_with_vague_or_ambiguous_time",
+      "titles": {
+        "canonical": "Category:All_articles_with_vague_or_ambiguous_time",
+        "normalized": "Category:All articles with vague or ambiguous time",
+        "display": "All articles with vague or ambiguous time"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_containing_Latin-language_text",
+      "titles": {
+        "canonical": "Category:Articles_containing_Latin-language_text",
+        "normalized": "Category:Articles containing Latin-language text",
+        "display": "Articles containing Latin-language text"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_containing_Spanish-language_text",
+      "titles": {
+        "canonical": "Category:Articles_containing_Spanish-language_text",
+        "normalized": "Category:Articles containing Spanish-language text",
+        "display": "Articles containing Spanish-language text"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_containing_Taino-language_text",
+      "titles": {
+        "canonical": "Category:Articles_containing_Taino-language_text",
+        "normalized": "Category:Articles containing Taino-language text",
+        "display": "Articles containing Taino-language text"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_containing_potentially_dated_statements_from_2007",
+      "titles": {
+        "canonical": "Category:Articles_containing_potentially_dated_statements_from_2007",
+        "normalized": "Category:Articles containing potentially dated statements from 2007",
+        "display": "Articles containing potentially dated statements from 2007"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_containing_potentially_dated_statements_from_2010",
+      "titles": {
+        "canonical": "Category:Articles_containing_potentially_dated_statements_from_2010",
+        "normalized": "Category:Articles containing potentially dated statements from 2010",
+        "display": "Articles containing potentially dated statements from 2010"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_containing_potentially_dated_statements_from_2015",
+      "titles": {
+        "canonical": "Category:Articles_containing_potentially_dated_statements_from_2015",
+        "normalized": "Category:Articles containing potentially dated statements from 2015",
+        "display": "Articles containing potentially dated statements from 2015"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_containing_video_clips",
+      "titles": {
+        "canonical": "Category:Articles_containing_video_clips",
+        "normalized": "Category:Articles containing video clips",
+        "display": "Articles containing video clips"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_incorporating_a_citation_from_the_1913_Catholic_Encyclopedia_with_Wikisource_reference",
+      "titles": {
+        "canonical": "Category:Articles_incorporating_a_citation_from_the_1913_Catholic_Encyclopedia_with_Wikisource_reference",
+        "normalized": "Category:Articles incorporating a citation from the 1913 Catholic Encyclopedia with Wikisource reference",
+        "display": "Articles incorporating a citation from the 1913 Catholic Encyclopedia with Wikisource reference"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_needing_additional_references_from_November_2017",
+      "titles": {
+        "canonical": "Category:Articles_needing_additional_references_from_November_2017",
+        "normalized": "Category:Articles needing additional references from November 2017",
+        "display": "Articles needing additional references from November 2017"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_with_Curlie_links",
+      "titles": {
+        "canonical": "Category:Articles_with_Curlie_links",
+        "normalized": "Category:Articles with Curlie links",
+        "display": "Articles with Curlie links"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_with_Spanish-language_external_links",
+      "titles": {
+        "canonical": "Category:Articles_with_Spanish-language_external_links",
+        "normalized": "Category:Articles with Spanish-language external links",
+        "display": "Articles with Spanish-language external links"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_with_dead_external_links_from_June_2016",
+      "titles": {
+        "canonical": "Category:Articles_with_dead_external_links_from_June_2016",
+        "normalized": "Category:Articles with dead external links from June 2016",
+        "display": "Articles with dead external links from June 2016"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_with_dead_external_links_from_May_2017",
+      "titles": {
+        "canonical": "Category:Articles_with_dead_external_links_from_May_2017",
+        "normalized": "Category:Articles with dead external links from May 2017",
+        "display": "Articles with dead external links from May 2017"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_with_failed_verification_from_February_2013",
+      "titles": {
+        "canonical": "Category:Articles_with_failed_verification_from_February_2013",
+        "normalized": "Category:Articles with failed verification from February 2013",
+        "display": "Articles with failed verification from February 2013"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_with_permanently_dead_external_links",
+      "titles": {
+        "canonical": "Category:Articles_with_permanently_dead_external_links",
+        "normalized": "Category:Articles with permanently dead external links",
+        "display": "Articles with permanently dead external links"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_with_self-published_sources_from_December_2017",
+      "titles": {
+        "canonical": "Category:Articles_with_self-published_sources_from_December_2017",
+        "normalized": "Category:Articles with self-published sources from December 2017",
+        "display": "Articles with self-published sources from December 2017"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_with_unsourced_statements_from_November_2016",
+      "titles": {
+        "canonical": "Category:Articles_with_unsourced_statements_from_November_2016",
+        "normalized": "Category:Articles with unsourced statements from November 2016",
+        "display": "Articles with unsourced statements from November 2016"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_with_unsourced_statements_from_October_2015",
+      "titles": {
+        "canonical": "Category:Articles_with_unsourced_statements_from_October_2015",
+        "normalized": "Category:Articles with unsourced statements from October 2015",
+        "display": "Articles with unsourced statements from October 2015"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Associated_states",
+      "titles": {
+        "canonical": "Category:Associated_states",
+        "normalized": "Category:Associated states",
+        "display": "Associated states"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:CS1:_Julian–Gregorian_uncertainty",
+      "titles": {
+        "canonical": "Category:CS1:_Julian–Gregorian_uncertainty",
+        "normalized": "Category:CS1: Julian–Gregorian uncertainty",
+        "display": "CS1: Julian–Gregorian uncertainty"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:CS1_Spanish-language_sources_(es)",
+      "titles": {
+        "canonical": "Category:CS1_Spanish-language_sources_(es)",
+        "normalized": "Category:CS1 Spanish-language sources (es)",
+        "display": "CS1 Spanish-language sources (es)"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:CS1_maint:_Archived_copy_as_title",
+      "titles": {
+        "canonical": "Category:CS1_maint:_Archived_copy_as_title",
+        "normalized": "Category:CS1 maint: Archived copy as title",
+        "display": "CS1 maint: Archived copy as title"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:CS1_maint:_BOT:_original-url_status_unknown",
+      "titles": {
+        "canonical": "Category:CS1_maint:_BOT:_original-url_status_unknown",
+        "normalized": "Category:CS1 maint: BOT: original-url status unknown",
+        "display": "CS1 maint: BOT: original-url status unknown"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:CS1_maint:_Explicit_use_of_et_al.",
+      "titles": {
+        "canonical": "Category:CS1_maint:_Explicit_use_of_et_al.",
+        "normalized": "Category:CS1 maint: Explicit use of et al.",
+        "display": "CS1 maint: Explicit use of et al."
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:CS1_maint:_Multiple_names:_authors_list",
+      "titles": {
+        "canonical": "Category:CS1_maint:_Multiple_names:_authors_list",
+        "normalized": "Category:CS1 maint: Multiple names: authors list",
+        "display": "CS1 maint: Multiple names: authors list"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Caribbean_islands_of_the_United_States",
+      "titles": {
+        "canonical": "Category:Caribbean_islands_of_the_United_States",
+        "normalized": "Category:Caribbean islands of the United States",
+        "display": "Caribbean islands of the United States"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Coordinates_on_Wikidata",
+      "titles": {
+        "canonical": "Category:Coordinates_on_Wikidata",
+        "normalized": "Category:Coordinates on Wikidata",
+        "display": "Coordinates on Wikidata"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Dependent_territories_in_North_America",
+      "titles": {
+        "canonical": "Category:Dependent_territories_in_North_America",
+        "normalized": "Category:Dependent territories in North America",
+        "display": "Dependent territories in North America"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Dependent_territories_in_the_Caribbean",
+      "titles": {
+        "canonical": "Category:Dependent_territories_in_the_Caribbean",
+        "normalized": "Category:Dependent territories in the Caribbean",
+        "display": "Dependent territories in the Caribbean"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:English-speaking_countries_and_territories",
+      "titles": {
+        "canonical": "Category:English-speaking_countries_and_territories",
+        "normalized": "Category:English-speaking countries and territories",
+        "display": "English-speaking countries and territories"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Former_Spanish_colonies",
+      "titles": {
+        "canonical": "Category:Former_Spanish_colonies",
+        "normalized": "Category:Former Spanish colonies",
+        "display": "Former Spanish colonies"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Former_colonies_in_North_America",
+      "titles": {
+        "canonical": "Category:Former_colonies_in_North_America",
+        "normalized": "Category:Former colonies in North America",
+        "display": "Former colonies in North America"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Greater_Antilles",
+      "titles": {
+        "canonical": "Category:Greater_Antilles",
+        "normalized": "Category:Greater Antilles",
+        "display": "Greater Antilles"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Insular_areas_of_the_United_States",
+      "titles": {
+        "canonical": "Category:Insular_areas_of_the_United_States",
+        "normalized": "Category:Insular areas of the United States",
+        "display": "Insular areas of the United States"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Islands_of_Puerto_Rico",
+      "titles": {
+        "canonical": "Category:Islands_of_Puerto_Rico",
+        "normalized": "Category:Islands of Puerto Rico",
+        "display": "Islands of Puerto Rico"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:New_Spain",
+      "titles": {
+        "canonical": "Category:New_Spain",
+        "normalized": "Category:New Spain",
+        "display": "New Spain"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Official_website_different_in_Wikidata_and_Wikipedia",
+      "titles": {
+        "canonical": "Category:Official_website_different_in_Wikidata_and_Wikipedia",
+        "normalized": "Category:Official website different in Wikidata and Wikipedia",
+        "display": "Official website different in Wikidata and Wikipedia"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Pages_using_bar_box_without_float_left_or_float_right",
+      "titles": {
+        "canonical": "Category:Pages_using_bar_box_without_float_left_or_float_right",
+        "normalized": "Category:Pages using bar box without float left or float right",
+        "display": "Pages using bar box without float left or float right"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Pages_using_deprecated_image_syntax",
+      "titles": {
+        "canonical": "Category:Pages_using_deprecated_image_syntax",
+        "normalized": "Category:Pages using deprecated image syntax",
+        "display": "Pages using deprecated image syntax"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Pages_using_infobox_country_or_infobox_former_country_with_the_symbol_caption_or_type_parameters",
+      "titles": {
+        "canonical": "Category:Pages_using_infobox_country_or_infobox_former_country_with_the_symbol_caption_or_type_parameters",
+        "normalized": "Category:Pages using infobox country or infobox former country with the symbol caption or type parameters",
+        "display": "Pages using infobox country or infobox former country with the symbol caption or type parameters"
+      }
+    }
+  ],
+  "protection": {
+    "edit": [
+      "autoconfirmed"
+    ],
+    "move": [
+      "sysop"
+    ]
+  },
+  "description_source": "central"
+}

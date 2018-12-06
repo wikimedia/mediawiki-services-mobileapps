@@ -244,6 +244,8 @@ const TEST_SPECS = [
     new TestPageSpec('en.wikipedia.org', 'page/references', 'Neutronium', '857150438'),
 
     new TestPageSpec('en.wiktionary.org', 'page/definition', 'cat', '50657469'),
+
+    new TestPageSpec('en.wikipedia.org', 'page/metadata', 'Puerto_Rico', '872108133')
 ];
 /* eslint-enable max-len */
 
