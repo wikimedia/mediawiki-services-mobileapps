@@ -240,7 +240,7 @@ function _collectRawPageData(app, req) {
     return mwapi.getSiteInfo(app, req)
     .then(si => BBPromise.props({
         page: parsoid.pageJsonPromise(app, req),
-        meta: mwapi.getMetadata(app, req),
+        meta: mwapi.getMetadataForMobileSections(app, req, mwapi.LEAD_IMAGE_XL),
         title: mwapi.getTitleObj(req.params.title, si)
     })).then((interimState) => {
         return _handleNamespaceAndSpecialCases(req, interimState);
