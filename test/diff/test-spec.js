@@ -168,7 +168,11 @@ class TestPageSpec extends TestSpec {
     postProcessing(rsp) {
         let input = rsp.body;
 
-        input = JSON.parse(JSON.stringify(input).replace(/#mwt\d+/g, '#mwt_present'));
+        input = JSON.parse(
+            JSON.stringify(input)
+            .replace(/#mwt\d+/g, '#mwt_present')
+            .replace(/id=\\"mw[\w-]{2,3}\\"/g, 'id=\\"mw_id\\"')
+        );
 
         if (input.lead) {
             // value does not come from wikitext but from Wikidata links
