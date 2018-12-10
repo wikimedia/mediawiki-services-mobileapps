@@ -445,6 +445,7 @@ paths:
             body:
               title: /.+/
               description:
+                html: /.+/
                 text: /.+/
                 lang: /.+/
               image:
@@ -1593,15 +1594,18 @@ definitions:
 
   image_description:
     properties:
+      html:
+        type: string
+        description: HTML of the description
       text:
         type: string
-        description: Text of the description
+        description: Plain text of the description
       lang:
         type: string
-        description: Language code of the description
+        description: Language code of the description (if available)
     required:
+      - html
       - text
-      - lang
 
   image:
     type: object
@@ -2190,19 +2194,7 @@ definitions:
         type: string
         description: URL for the pertinent license
       description:
-        type: object
-        description: description of the image from Wikimedia Commons
-        properties:
-          html:
-            type: string
-            description: html image description
-          text:
-            type: string
-            description: plain text image description
-          lang:
-            type: string
-            description: wiki language code of the description (if available)
-        required: [ html, text ]
+        $ref: '#/definitions/image_description'
     required:
       - titles
       - file_page
