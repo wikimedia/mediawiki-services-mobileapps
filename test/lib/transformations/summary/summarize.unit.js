@@ -7,7 +7,9 @@ const lib = require('../../../../lib/transforms').summarize;
 
 describe('lib:summarize follows spec', () => {
     function tst(input, expected, message) {
-        assert.equal(lib.summarize(input).extract_html, expected, message);
+        lib.summarize(input).then((result) => {
+            assert.equal(result.extract_html, expected, message);
+        });
     }
 
     it('keeps spaces before closing spans', () => {

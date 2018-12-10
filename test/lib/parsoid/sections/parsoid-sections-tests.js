@@ -195,8 +195,10 @@ describe('lib:parsoid-sections (section elements)', function() {
             const doc = domino.createDocument(
                 '<section data-mw-section-id="0"><p>text0</p></section>' +
                 '<section data-mw-section-id="1"><h2 id="foo">foo</h2>text1</section>');
-            const leadSectionDoc = parsoidSections.justLeadSection(doc);
-            assert.deepEqual(leadSectionDoc.body.innerHTML, '<p>text0</p>');
+            return parsoidSections.justLeadSection(doc)
+            .then((result) => {
+                assert.deepEqual(result.body.innerHTML, '<p>text0</p>');
+            });
         });
     });
 });
