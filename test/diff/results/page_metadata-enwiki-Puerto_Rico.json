@@ -24,7 +24,7 @@
     },
     {
       "section": 17,
-      "html": "Further information: <a rel=\"mw:WikiLink\" href=\"./Proposed_political_status_for_Puerto_Rico\" title=\"Proposed political status for Puerto Rico\">Proposed political status for Puerto Rico</a>; <a rel=\"mw:WikiLink\" href=\"./Puerto_Rican_status_referendum,_2012\" title=\"Puerto Rican status referendum, 2012\">Puerto Rican status referendum, 2012</a>; and <a rel=\"mw:WikiLink\" href=\"./President's_Task_Force_on_Puerto_Rico's_Status\" title=\"President's Task Force on Puerto Rico's Status\">President's Task Force on Puerto Rico's Status</a>"
+      "html": "Further information: <a rel=\"mw:WikiLink\" href=\"./Proposed_political_status_for_Puerto_Rico\" title=\"Proposed political status for Puerto Rico\">Proposed political status for Puerto Rico</a>; <a rel=\"mw:WikiLink\" href=\"./Puerto_Rican_status_referendum,_2012\" title=\"Puerto Rican status referendum, 2012\" class=\"mw-redirect\">Puerto Rican status referendum, 2012</a>; and <a rel=\"mw:WikiLink\" href=\"./President's_Task_Force_on_Puerto_Rico's_Status\" title=\"President's Task Force on Puerto Rico's Status\">President's Task Force on Puerto Rico's Status</a>"
     },
     {
       "section": 22,
