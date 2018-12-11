@@ -20,8 +20,7 @@ describe('lib:summary', () => {
         });
 
         function test(inputString, expected, message) {
-            const doc = domino.createDocument(inputString);
-            return unit.buildExtracts(doc, { ns: 0, contentmodel: 'wikitext' }, [ script ])
+            return unit.buildExtracts(inputString, { ns: 0, contentmodel: 'wikitext' }, [ script ])
             .then((result) => {
                 assert.deepEqual(result.extract_html, expected, message);
             });

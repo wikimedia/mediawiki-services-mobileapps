@@ -191,14 +191,49 @@ describe('lib:parsoid-sections (section elements)', function() {
     });
 
     describe('justLeadSection', () => {
-        it('should just return the first section', () => {
-            const doc = domino.createDocument(
-                '<section data-mw-section-id="0"><p>text0</p></section>' +
-                '<section data-mw-section-id="1"><h2 id="foo">foo</h2>text1</section>');
-            return parsoidSections.justLeadSection(doc)
+
+        function test(html, expected) {
+            return parsoidSections.createDocumentFromLeadSection(html)
             .then((result) => {
-                assert.deepEqual(result.body.innerHTML, '<p>text0</p>');
+                assert.deepEqual(result.body.innerHTML, expected);
             });
+        }
+
+        it('should just return the first section', () => {
+            test(
+                '<section data-mw-section-id="0"><p>section 0</p></section>' +
+                '<section data-mw-section-id="1"><h2 id="foo">foo</h2>section 1</section>',
+                '<p>section 0</p>'
+            );
+        });
+
+        it('should skip non-editable section', () => {
+            test(
+                '<section data-mw-section-id="-1"><p>section -1</p></section>' +
+                '<section data-mw-section-id="0"><p>section 0</p></section>' +
+                '<section data-mw-section-id="1"><h2 id="foo">section 1</h2>section 1</section>',
+                '<p>section 0</p>'
+            );
+        });
+
+        it('should return empty string if no lead section exists', () => {
+            test('<section data-mw-section-id="-1"><p>section -1</p></section>', '');
+        });
+
+        it('should skip malformed section tag with no data-mw-section-id', () => {
+            test(
+                '<section><p>data-mw-section-id foo 0</p></section>' +
+                '<section data-mw-section-id="0"><p>section 0</p></section>',
+                '<p>section 0</p>'
+            );
+        });
+
+        it('should ignore data-mw-section-id multiples of 10', () => {
+            test(
+                '<section data-mw-section-id="-1"><p>section -1</p></section>' +
+                '<section data-mw-section-id="10"><p>section 10</p></section>',
+                ''
+            );
         });
     });
 });
