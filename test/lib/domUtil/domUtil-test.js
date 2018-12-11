@@ -40,12 +40,21 @@ describe('lib:domUtil', () => {
         });
     });
 
-    describe('getBaseUri', () => {
-        it('getBaseUri()', () => {
+    describe('getBaseUri()', () => {
+        it('returns URL without protocol', () => {
             const doc = domino.createDocument(headHtml1);
             assert.deepEqual(lib.getBaseUri(doc), '//en.wikipedia.org/wiki/');
         });
+    });
 
+    describe('getHttpsBaseUri()', () => {
+        it('returns URL with https protocol', () => {
+            const doc = domino.createDocument(headHtml1);
+            assert.deepEqual(lib.getHttpsBaseUri(doc), 'https://en.wikipedia.org/wiki/');
+        });
+    });
+
+    describe('getParsoidLinkTitle', () => {
         it('getParsoidLinkTitle should return DB title', () => {
             const doc = domino.createDocument(headHtml1);
             assert.deepEqual(lib.getParsoidLinkTitle(doc), 'Hope_(painting)');
