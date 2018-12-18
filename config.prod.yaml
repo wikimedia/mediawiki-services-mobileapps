@@ -76,5 +76,6 @@ services:
         query: '{{ default(request.query, {}) }}'
         headers: '{{request.headers}}'
         body: '{{request.body}}'
+        timeout: 60000 # 60 * 1000
       # whether to print extra debug info
       debug: false
