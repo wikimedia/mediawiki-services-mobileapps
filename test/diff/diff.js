@@ -12,17 +12,24 @@ describe('diff', function() {
 
     before(() => server.start());
 
-    const buildUri = (path) => {
-        return `${server.config.uri}${path}`;
-    };
+    // If true, request Parsoid HTML directly from https://parsoid-beta.wmflabs.org
+    const useParsoid = process.env.USE_PARSOID;
+
+    function buildUri(path) {
+        return `${server.config.uri}${path}${useParsoid ? '?useparsoid=true' : ''}`;
+    }
 
     /**
      * @param {!Object} rsp response object
      * @return {!string} pretty-printed JSON with some properties removed
      */
-    const formatOutput = (rsp) => {
+    function formatOutput(rsp) {
         return JSON.stringify(rsp.body, null, 2);
-    };
+    }
+
+    function deleteRevAndTidForParsoid(expected) {
+        return expected.replace(/"revision": "\d*",\n\s*/g, '').replace(/"tid": "present",\n\s*/g, '');
+    }
 
     if (testSpec.UPDATE_EXPECTED_RESULTS) {
         for (const spec of testSpec.TEST_SPECS) {
@@ -48,13 +55,19 @@ describe('diff', function() {
     } else {
         // Verify step:
         for (const spec of testSpec.TEST_SPECS) {
+            if (useParsoid && !spec.parsoid) {
+                continue;
+            }
             it(`${spec.testName()}`, () => {
                 return preq.get({ uri: buildUri(spec.uriPath()),
                     headers: 'cache-control: no-cache' })
                            .then((rsp) => {
-                               const content = fs.readFileSync(spec.filePath(), 'utf8');
+                               let expected = fs.readFileSync(spec.filePath(), 'utf8');
                                spec.postProcessing(rsp);
-                               assert.equal(formatOutput(rsp), content);
+                               if (useParsoid) {
+                                   expected = deleteRevAndTidForParsoid(expected);
+                               }
+                               assert.equal(formatOutput(rsp), expected);
                            });
             });
         }
