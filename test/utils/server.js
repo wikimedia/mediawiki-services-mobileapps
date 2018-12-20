@@ -11,7 +11,7 @@ const sepia = require('sepia');
 
 // set up the configuration
 let config = {
-    conf: yaml.safeLoad(fs.readFileSync(`${__dirname}/../../config.test.yaml`))
+    conf: yaml.safeLoad(fs.readFileSync(`${__dirname}/../../config.yaml`))
 };
 // build the API endpoint URI by supposing the actual service
 // is the last one in the 'services' list in the config file
