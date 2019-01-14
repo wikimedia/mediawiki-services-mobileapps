@@ -1391,7 +1391,7 @@ definitions:
       displaytitle:
         type: string
         description: The page title how it should be shown to the user
-      namespace:_id:
+      namespace:
         type: object
         properties:
           id:
