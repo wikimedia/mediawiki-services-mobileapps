@@ -25,9 +25,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Trinidad_and_Tobago_hummingbirds_composite.jpg",
       "artist": {
-        "html": "<bdi>Charles J Sharp\n</bdi>"
+        "html": "<bdi>Charles J Sharp\n</bdi>",
+        "text": "Charles J Sharp"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 4.0",
         "code": "cc-by-sa-4.0",
@@ -66,9 +70,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Purple-throated_carib_hummingbird_feeding.jpg",
       "artist": {
-        "html": "<bdi>Charles J Sharp\n</bdi>"
+        "html": "<bdi>Charles J Sharp\n</bdi>",
+        "text": "Charles J Sharp"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"http://www.sharpphotography.co.uk/\">Sharp Photography, sharpphotography</a>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, from <a rel=\"nofollow\" class=\"external text\" href=\"http://www.sharpphotography.co.uk/\">Sharp Photography, sharpphotography</a>",
+        "text": "Own work, from Sharp Photography, sharpphotography"
+      },
       "license": {
         "type": "CC BY 3.0",
         "code": "cc-by-3.0",
@@ -107,16 +115,20 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Haeckel_Trochilidae.jpg",
       "artist": {
-        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Ernst_Haeckel\" class=\"extiw\" title=\"w:en:Ernst Haeckel\">Ernst Haeckel</a>\n</bdi>"
+        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Ernst_Haeckel\" class=\"extiw\" title=\"w:en:Ernst Haeckel\">Ernst Haeckel</a>\n</bdi>",
+        "text": "Ernst Haeckel"
       },
-      "credit": "<i><a href=\"//commons.wikimedia.org/wiki/Kunstformen_der_Natur\" title=\"Kunstformen der Natur\">Kunstformen der Natur</a></i> (1904), plate 99: Trochilidae (see <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_300.html\">here</a>, <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_text_1_200.html\">here</a> and <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_text_2_200.html\">here</a>)",
+      "credit": {
+        "html": "<i><a href=\"//commons.wikimedia.org/wiki/Kunstformen_der_Natur\" title=\"Kunstformen der Natur\">Kunstformen der Natur</a></i> (1904), plate 99: Trochilidae (see <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_300.html\">here</a>, <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_text_1_200.html\">here</a> and <a rel=\"nofollow\" class=\"external text\" href=\"http://caliban.mpiz-koeln.mpg.de/haeckel/kunstformen/high/Tafel_099_text_2_200.html\">here</a>)",
+        "text": "Kunstformen der Natur (1904), plate 99: Trochilidae (see here, here and here)"
+      },
       "license": {
         "type": "Public domain",
         "code": "pd"
       },
       "description": {
         "html": "<span class=\"langlabel-en\" lang=\"en\" style=\"font-weight:bold;\">English: </span> Hummingbirds (drawn from millinery specimens, body positions are not natural)<br><li>Male <a href=\"https://en.wikipedia.org/wiki/Ruby-throated_Hummingbird\" class=\"extiw\" title=\"en:Ruby-throated Hummingbird\">Ruby-throated Hummingbird</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Horned_Sungem\" class=\"extiw\" title=\"en:Horned Sungem\">Horned Sungem</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Crimson_Topaz\" class=\"extiw\" title=\"en:Crimson Topaz\">Crimson Topaz</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Red-tailed_Comet\" class=\"extiw\" title=\"en:Red-tailed Comet\">Red-tailed Comet</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Tufted_Coquette\" class=\"extiw\" title=\"en:Tufted Coquette\">Tufted Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Sword-billed_Hummingbird\" class=\"extiw\" title=\"en:Sword-billed Hummingbird\">Sword-billed Hummingbird</a>\n</li>\n<li><a href=\"https://en.wikipedia.org/wiki/Buff-tailed_Sicklebill\" class=\"extiw\" title=\"en:Buff-tailed Sicklebill\">Buff-tailed Sicklebill</a></li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Dot-eared_Coquette\" class=\"extiw\" title=\"en:Dot-eared Coquette\">Dot-eared Coquette</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/White-vented_Violetear\" class=\"extiw\" title=\"en:White-vented Violetear\">White-vented Violetear</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Hooded_Visorbearer\" class=\"extiw\" title=\"en:Hooded Visorbearer\">Hooded Visorbearer</a>\n</li>\n<li>Female <a href=\"https://en.wikipedia.org/wiki/Juan_Fern%C3%A1ndez_Firecrown\" class=\"extiw\" title=\"en:Juan Fernández Firecrown\">Juan Fernández Firecrown</a>\n</li>\n<li>Male <a href=\"https://en.wikipedia.org/wiki/Booted_Racket-tail\" class=\"extiw\" title=\"en:Booted Racket-tail\">Booted Racket-tail</a>\n</li>",
-        "text": "English:  Hummingbirds (drawn from millinery specimens, body positions are not natural)Male Ruby-throated Hummingbird\n\nMale Horned Sungem\n\nMale Crimson Topaz\n\nMale Red-tailed Comet\n\nMale Tufted Coquette\n\nMale Sword-billed Hummingbird\n\nBuff-tailed Sicklebill\nMale Dot-eared Coquette\n\nMale White-vented Violetear\n\nMale Hooded Visorbearer\n\nFemale Juan Fernández Firecrown\n\nMale Booted Racket-tail\n",
+        "text": "English:  Hummingbirds (drawn from millinery specimens, body positions are not natural)Male Ruby-throated Hummingbird\n\nMale Horned Sungem\n\nMale Crimson Topaz\n\nMale Red-tailed Comet\n\nMale Tufted Coquette\n\nMale Sword-billed Hummingbird\n\nBuff-tailed Sicklebill\nMale Dot-eared Coquette\n\nMale White-vented Violetear\n\nMale Hooded Visorbearer\n\nFemale Juan Fernández Firecrown\n\nMale Booted Racket-tail",
         "lang": "en"
       }
     },
@@ -144,9 +156,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Hummingbird_Incubating3.jpg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rishiraj&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rishiraj (page does not exist)\">Rishiraj</a>"
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Rishiraj&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Rishiraj (page does not exist)\">Rishiraj</a>",
+        "text": "Rishiraj"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 3.0",
         "code": "cc-by-sa-3.0",
@@ -183,16 +199,20 @@
       "file_page": "https://commons.wikimedia.org/wiki/File:Hummingbird_nest_with_two_chicks_in_Santa_Monica,_CA._Photo_taken_June_26,_2006.jpg",
       "artist": {
         "html": "Miksmith",
+        "text": "Miksmith",
         "name": "Miksmith"
       },
-      "credit": "<a class=\"external free\" href=\"http://en.wikipedia.org/wiki/Image:IMG_2377.JPG\">http://en.wikipedia.org/wiki/Image:IMG_2377.JPG</a>",
+      "credit": {
+        "html": "<a class=\"external free\" href=\"http://en.wikipedia.org/wiki/Image:IMG_2377.JPG\">http://en.wikipedia.org/wiki/Image:IMG_2377.JPG</a>",
+        "text": "http://en.wikipedia.org/wiki/Image:IMG_2377.JPG"
+      },
       "license": {
         "type": "Public domain",
         "code": "pd"
       },
       "description": {
         "html": "<p>Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006.\n</p>",
-        "text": "Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006.\n"
+        "text": "Hummingbird nest with two chicks in Santa Monica, CA. Photo taken June 26, 2006."
       }
     },
     {
@@ -219,9 +239,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Calliope-nest_edit.jpg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Wwcsig\" title=\"User:Wwcsig\">Wolfgang Wander</a>, <a href=\"//commons.wikimedia.org/w/index.php?title=User:Papa_Lima_Whiskey&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Papa Lima Whiskey (page does not exist)\">Papa Lima Whiskey</a> (edit)"
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Wwcsig\" title=\"User:Wwcsig\">Wolfgang Wander</a>, <a href=\"//commons.wikimedia.org/w/index.php?title=User:Papa_Lima_Whiskey&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Papa Lima Whiskey (page does not exist)\">Papa Lima Whiskey</a> (edit)",
+        "text": "Wolfgang Wander, Papa Lima Whiskey (edit)"
       },
-      "credit": "self-made / <a rel=\"nofollow\" class=\"external free\" href=\"http://www.pbase.com/wwcsig/image/86468128\">http://www.pbase.com/wwcsig/image/86468128</a>",
+      "credit": {
+        "html": "self-made / <a rel=\"nofollow\" class=\"external free\" href=\"http://www.pbase.com/wwcsig/image/86468128\">http://www.pbase.com/wwcsig/image/86468128</a>",
+        "text": "self-made / http://www.pbase.com/wwcsig/image/86468128"
+      },
       "license": {
         "type": "CC-BY-SA-3.0",
         "code": "cc-by-sa-3.0",
@@ -229,7 +253,7 @@
       },
       "description": {
         "html": "<p>Calliope Hummingbird / Stellula calliope - female feeding two chicks\n</p>",
-        "text": "Calliope Hummingbird / Stellula calliope - female feeding two chicks\n"
+        "text": "Calliope Hummingbird / Stellula calliope - female feeding two chicks"
       }
     },
     {
@@ -256,9 +280,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:AnnasHummingbird-NestCollage.png",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:CaliCoastReplay&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:CaliCoastReplay (page does not exist)\">FA Seidman</a>"
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:CaliCoastReplay&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:CaliCoastReplay (page does not exist)\">FA Seidman</a>",
+        "text": "FA Seidman"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC0",
         "code": "cc0",
@@ -297,9 +325,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:AnnasHummingbirdPaloAltoNorvig.jpg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Norvig&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Norvig (page does not exist)\">Norvig</a>"
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Norvig&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Norvig (page does not exist)\">Norvig</a>",
+        "text": "Norvig"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 3.0",
         "code": "cc-by-sa-3.0",
@@ -338,9 +370,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Hummingbird_Aerodynamics_of_flight.jpg",
       "artist": {
-        "html": "<a rel=\"nofollow\" class=\"external text\" href=\"https://flickr.com/people/10017367@N03\">Dan Pancamo</a>"
+        "html": "<a rel=\"nofollow\" class=\"external text\" href=\"https://flickr.com/people/10017367@N03\">Dan Pancamo</a>",
+        "text": "Dan Pancamo"
       },
-      "credit": "originally posted to <b><a href=\"//commons.wikimedia.org/wiki/Flickr\" class=\"mw-redirect\" title=\"Flickr\">Flickr</a></b> as <a rel=\"nofollow\" class=\"external text\" href=\"https://flickr.com/photos/10017367@N03/5015889795\">Hummingbird aerodynamics</a>",
+      "credit": {
+        "html": "originally posted to <b><a href=\"//commons.wikimedia.org/wiki/Flickr\" class=\"mw-redirect\" title=\"Flickr\">Flickr</a></b> as <a rel=\"nofollow\" class=\"external text\" href=\"https://flickr.com/photos/10017367@N03/5015889795\">Hummingbird aerodynamics</a>",
+        "text": "originally posted to Flickr as Hummingbird aerodynamics"
+      },
       "license": {
         "type": "CC BY-SA 2.0",
         "code": "cc-by-sa-2.0",
@@ -377,9 +413,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Hummingbird_wake_Pengo.svg",
       "artist": {
-        "html": "Peter Halasz (<a href=\"https://en.wikipedia.org/wiki/User:Pengo\" class=\"extiw\" title=\"wikipedia:User:Pengo\">Pengo</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>="
+        "html": "Peter Halasz (<a href=\"https://en.wikipedia.org/wiki/User:Pengo\" class=\"extiw\" title=\"wikipedia:User:Pengo\">Pengo</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>=",
+        "text": "Peter Halasz (Pengo at English Wikipedia="
       },
-      "credit": "<ul>\n<li>Based on diagram seen in: <i>Analysis of Vertebrate Structure</i>, 5th Ed. (textbook) Milton Hildebrand, George Goslow. 2001. Figure 28.15. p537.</li>\n<li>Torus created in <a href=\"//commons.wikimedia.org/wiki/File:Aoi_icon64.png\" class=\"image\"><img alt=\"Aoi icon64.png\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/20px-Aoi_icon64.png\" width=\"20\" height=\"20\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/30px-Aoi_icon64.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/40px-Aoi_icon64.png 2x\" data-file-width=\"64\" data-file-height=\"64\"></a> <a href=\"https://en.wikipedia.org/wiki/Art_of_Illusion\" class=\"extiw\" title=\"w:Art of Illusion\">Art of Illusion</a> and re-vectorised in Inkscape (via PoTrace).</li>\n</ul>\n<div class=\"mw-content-ltr\">\n<table cellspacing=\"0\" style=\"color:#000;background:#DDD;border:1px solid #BBB;margin:.1em;width:;\" class=\"createdwithtemplate layouttemplate\"><tbody><tr>\n<td style=\"width:1.2em;height:1.2em;padding:.2em;\">\n<div class=\"center\"><div class=\"floatnone\"><a href=\"//commons.wikimedia.org/wiki/File:Inkscape-un.svg\" title=\"File:Inkscape-un.svg\"><img alt=\"Inkscape-un.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/20px-Inkscape-un.svg.png\" width=\"20\" height=\"17\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/30px-Inkscape-un.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/40px-Inkscape-un.svg.png 2x\" data-file-width=\"500\" data-file-height=\"420\"></a></div></div>\n</td>\n<td style=\"font-size:.85em;padding:.2em;vertical-align:middle;\">This <i>W3C-<b>unspecified</b></i> <a href=\"https://en.wikipedia.org/wiki/Vector_images\" class=\"extiw\" title=\"w:Vector images\">vector image</a> was created with <a href=\"https://en.wikipedia.org/wiki/Inkscape\" class=\"extiw\" title=\"w:Inkscape\">Inkscape</a>.\n</td>\n</tr></tbody></table>\n</div>",
+      "credit": {
+        "html": "<ul>\n<li>Based on diagram seen in: <i>Analysis of Vertebrate Structure</i>, 5th Ed. (textbook) Milton Hildebrand, George Goslow. 2001. Figure 28.15. p537.</li>\n<li>Torus created in <a href=\"//commons.wikimedia.org/wiki/File:Aoi_icon64.png\" class=\"image\"><img alt=\"Aoi icon64.png\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/20px-Aoi_icon64.png\" width=\"20\" height=\"20\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/30px-Aoi_icon64.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aoi_icon64.png/40px-Aoi_icon64.png 2x\" data-file-width=\"64\" data-file-height=\"64\"></a> <a href=\"https://en.wikipedia.org/wiki/Art_of_Illusion\" class=\"extiw\" title=\"w:Art of Illusion\">Art of Illusion</a> and re-vectorised in Inkscape (via PoTrace).</li>\n</ul>\n<div class=\"mw-content-ltr\">\n<table cellspacing=\"0\" style=\"color:#000;background:#DDD;border:1px solid #BBB;margin:.1em;width:;\" class=\"createdwithtemplate layouttemplate\"><tbody><tr>\n<td style=\"width:1.2em;height:1.2em;padding:.2em;\">\n<div class=\"center\"><div class=\"floatnone\"><a href=\"//commons.wikimedia.org/wiki/File:Inkscape-un.svg\" title=\"File:Inkscape-un.svg\"><img alt=\"Inkscape-un.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/20px-Inkscape-un.svg.png\" width=\"20\" height=\"17\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/30px-Inkscape-un.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inkscape-un.svg/40px-Inkscape-un.svg.png 2x\" data-file-width=\"500\" data-file-height=\"420\"></a></div></div>\n</td>\n<td style=\"font-size:.85em;padding:.2em;vertical-align:middle;\">This <i>W3C-<b>unspecified</b></i> <a href=\"https://en.wikipedia.org/wiki/Vector_images\" class=\"extiw\" title=\"w:Vector images\">vector image</a> was created with <a href=\"https://en.wikipedia.org/wiki/Inkscape\" class=\"extiw\" title=\"w:Inkscape\">Inkscape</a>.\n</td>\n</tr></tbody></table>\n</div>",
+        "text": "Based on diagram seen in: Analysis of Vertebrate Structure, 5th Ed. (textbook) Milton Hildebrand, George Goslow. 2001. Figure 28.15. p537.\nTorus created in  Art of Illusion and re-vectorised in Inkscape (via PoTrace).\n\n\n\n\n\n\nThis W3C-unspecified vector image was created with Inkscape."
+      },
       "license": {
         "type": "CC BY-SA 3.0",
         "code": "cc-by-sa-3.0",
@@ -567,9 +607,13 @@
       "page_count": 1,
       "file_page": "https://commons.wikimedia.org/wiki/File:Velvet-purple_coronets_sequence.tif",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Unherdable&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Unherdable (page does not exist)\">Unherdable</a>"
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Unherdable&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Unherdable (page does not exist)\">Unherdable</a>",
+        "text": "Unherdable"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 4.0",
         "code": "cc-by-sa-4.0",
@@ -608,9 +652,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Colibri-thalassinus-001-edit.jpg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Mdf\" title=\"User:Mdf\">Mdf</a>, Edited by <a href=\"//commons.wikimedia.org/wiki/User:Laitche\" title=\"User:Laitche\">Laitche</a>"
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Mdf\" title=\"User:Mdf\">Mdf</a>, Edited by <a href=\"//commons.wikimedia.org/wiki/User:Laitche\" title=\"User:Laitche\">Laitche</a>",
+        "text": "Mdf, Edited by Laitche"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC-BY-SA-3.0",
         "code": "cc-by-sa-3.0",
@@ -767,9 +815,13 @@
       "duration": 20.754066666667,
       "artist": {
         "html": "Rishiraj Sahoo",
+        "text": "Rishiraj Sahoo",
         "name": "Rishiraj Sahoo"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 3.0",
         "code": "cc-by-sa-3.0",
@@ -808,9 +860,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Hummingbirds_at_feeder.jpg",
       "artist": {
-        "html": "<a href=\"https://en.wikipedia.org/wiki/User:Centpacrr\" class=\"extiw\" title=\"wikipedia:User:Centpacrr\">Centpacrr</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>"
+        "html": "<a href=\"https://en.wikipedia.org/wiki/User:Centpacrr\" class=\"extiw\" title=\"wikipedia:User:Centpacrr\">Centpacrr</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+        "text": "Centpacrr at English Wikipedia"
       },
-      "credit": "Transferred from <span class=\"plainlinks\"><a class=\"external text\" href=\"//en.wikipedia.org\">en.wikipedia</a></span> to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Innotata\" title=\"User:Innotata\">Innotata</a> using <a rel=\"nofollow\" class=\"external text\" href=\"//tools.wikimedia.de/~magnus/commonshelper.php\">CommonsHelper</a>.",
+      "credit": {
+        "html": "Transferred from <span class=\"plainlinks\"><a class=\"external text\" href=\"//en.wikipedia.org\">en.wikipedia</a></span> to Commons by <a href=\"//commons.wikimedia.org/wiki/User:Innotata\" title=\"User:Innotata\">Innotata</a> using <a rel=\"nofollow\" class=\"external text\" href=\"//tools.wikimedia.de/~magnus/commonshelper.php\">CommonsHelper</a>.",
+        "text": "Transferred from en.wikipedia to Commons by Innotata using CommonsHelper."
+      },
       "license": {
         "type": "CC BY-SA 3.0",
         "code": "cc-by-sa-3.0",
@@ -850,10 +906,14 @@
       "file_page": "https://commons.wikimedia.org/wiki/File:Huitzilopochtli,_the_Principal_Aztec_God_WDL6725.png",
       "artist": {
         "html": "Tovar, Juan de, circa 1546-circa 1626",
+        "text": "Tovar, Juan de, circa 1546-circa 1626",
         "lang": "en",
         "name": "Tovar, Juan de, circa 1546-circa 1626"
       },
-      "credit": "<p><a rel=\"nofollow\" class=\"external free\" href=\"http://dl.wdl.org/6725.png\">http://dl.wdl.org/6725.png</a>\n</p>\n<ul><li>Gallery: <a rel=\"nofollow\" class=\"external free\" href=\"http://www.wdl.org/en/item/6725/\">http://www.wdl.org/en/item/6725/</a>\n</li></ul>",
+      "credit": {
+        "html": "<p><a rel=\"nofollow\" class=\"external free\" href=\"http://dl.wdl.org/6725.png\">http://dl.wdl.org/6725.png</a>\n</p>\n<ul><li>Gallery: <a rel=\"nofollow\" class=\"external free\" href=\"http://www.wdl.org/en/item/6725/\">http://www.wdl.org/en/item/6725/</a>\n</li></ul>",
+        "text": "http://dl.wdl.org/6725.png\n\nGallery: http://www.wdl.org/en/item/6725/"
+      },
       "license": {
         "type": "Public domain",
         "code": "pd"
@@ -922,14 +982,17 @@
         "mime": "image/png"
       },
       "file_page": "https://en.wikipedia.org/wiki/File:Caribbean_Airlines_logo-600x270.png",
-      "credit": "<p>The logo is from the <a rel=\"nofollow\" class=\"external free\" href=\"http://www.caribbean-airlines.com\">http://www.caribbean-airlines.com</a> website. The logo may be obtained from Caribbean Airlines Limited\n</p>",
+      "credit": {
+        "html": "<p>The logo is from the <a rel=\"nofollow\" class=\"external free\" href=\"http://www.caribbean-airlines.com\">http://www.caribbean-airlines.com</a> website. The logo may be obtained from Caribbean Airlines Limited\n</p>",
+        "text": "The logo is from the http://www.caribbean-airlines.com website. The logo may be obtained from Caribbean Airlines Limited"
+      },
       "license": {
         "type": "Fair use",
         "url": "//en.wikipedia.org/wiki/File:Caribbean_Airlines_logo-600x270.png"
       },
       "description": {
         "html": "<p>This is a logo owned by Caribbean Airlines Limited for The image is placed in the infobox at the top of the article discussing Caribbean Airlines, a subject of public interest. The significance of the logo is to help the reader identify the organization, assure the readers that they have reached the right article containing critical commentary about the organization, and illustrate the organization's intended branding message in a way that words alone could not convey..  Further details: This is a logo for Caribbean Airlines\n</p>",
-        "text": "This is a logo owned by Caribbean Airlines Limited for The image is placed in the infobox at the top of the article discussing Caribbean Airlines, a subject of public interest. The significance of the logo is to help the reader identify the organization, assure the readers that they have reached the right article containing critical commentary about the organization, and illustrate the organization's intended branding message in a way that words alone could not convey..  Further details: This is a logo for Caribbean Airlines\n"
+        "text": "This is a logo owned by Caribbean Airlines Limited for The image is placed in the infobox at the top of the article discussing Caribbean Airlines, a subject of public interest. The significance of the logo is to help the reader identify the organization, assure the readers that they have reached the right article containing critical commentary about the organization, and illustrate the organization's intended branding message in a way that words alone could not convey..  Further details: This is a logo for Caribbean Airlines"
       }
     },
     {
@@ -1073,9 +1136,13 @@
       "file_page": "https://commons.wikimedia.org/wiki/File:Humming_birds_feeding_at_1500fps.webm",
       "duration": 105.569,
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:HopefullyUsefulContribution&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:HopefullyUsefulContribution (page does not exist)\">HopefullyUsefulContribution</a>"
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:HopefullyUsefulContribution&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:HopefullyUsefulContribution (page does not exist)\">HopefullyUsefulContribution</a>",
+        "text": "HopefullyUsefulContribution"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 4.0",
         "code": "cc-by-sa-4.0",
@@ -1111,9 +1178,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Hummingbird_feeding.jpg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Kpts44&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Kpts44 (page does not exist)\">Kpts44</a>"
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Kpts44&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Kpts44 (page does not exist)\">Kpts44</a>",
+        "text": "Kpts44"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 3.0",
         "code": "cc-by-sa-3.0",
@@ -1149,9 +1220,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Hummingbird_headshot.jpg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Kpts44&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Kpts44 (page does not exist)\">Kpts44</a>"
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Kpts44&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Kpts44 (page does not exist)\">Kpts44</a>",
+        "text": "Kpts44"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 3.0",
         "code": "cc-by-sa-3.0",
@@ -1188,10 +1263,14 @@
       "file_page": "https://commons.wikimedia.org/wiki/File:Eugenes-fulgens-001.jpg",
       "artist": {
         "html": "<a href=\"//commons.wikimedia.org/wiki/User:Mdf\" title=\"User:Mdf\">Mdf</a>",
+        "text": "Mdf",
         "name": "Mdf",
         "user_page": "https://commons.wikimedia.org/wiki/User:Mdf"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC-BY-SA-3.0",
         "code": "cc-by-sa-3.0",
@@ -1228,9 +1307,13 @@
       "file_page": "https://commons.wikimedia.org/wiki/File:Hummingbird.jpg",
       "artist": {
         "html": "<a href=\"https://en.wikipedia.org/wiki/San_Diego_Zoo\" class=\"extiw\" title=\"en:San Diego Zoo\">San Diego Zoo</a>",
+        "text": "San Diego Zoo",
         "lang": "en"
       },
-      "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.pdphoto.org/PictureDetail.php?mat=pdef&amp;pg=7917\">PD Photo.org</a>",
+      "credit": {
+        "html": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.pdphoto.org/PictureDetail.php?mat=pdef&amp;pg=7917\">PD Photo.org</a>",
+        "text": "PD Photo.org"
+      },
       "license": {
         "type": "Public domain",
         "code": "pd"
@@ -1265,9 +1348,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/wiki/User:SarahStierch\" title=\"User:SarahStierch\">Sarah Stierch</a>"
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:SarahStierch\" title=\"User:SarahStierch\">Sarah Stierch</a>",
+        "text": "Sarah Stierch"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY 4.0",
         "code": "cc-by-4.0",
@@ -1303,9 +1390,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Hummingbird_Calypte_anna_in_ggp_15n.jpg",
       "artist": {
-        "html": "<a rel=\"nofollow\" class=\"external text\" href=\"https://sites.google.com/site/thebrockeninglory/\">Brocken Inaglory</a>"
+        "html": "<a rel=\"nofollow\" class=\"external text\" href=\"https://sites.google.com/site/thebrockeninglory/\">Brocken Inaglory</a>",
+        "text": "Brocken Inaglory"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 3.0",
         "code": "cc-by-sa-3.0",
@@ -1313,7 +1404,7 @@
       },
       "description": {
         "html": "<p>The colors of <a href=\"https://en.wikipedia.org/wiki/en:Hummingbird\" class=\"extiw\" title=\"w:en:Hummingbird\">hummingbird</a>. Species: <i><a href=\"https://en.wikipedia.org/wiki/Calypte_anna\" class=\"extiw\" title=\"en:Calypte anna\">Calypte anna</a></i>.\n</p>",
-        "text": "The colors of hummingbird. Species: Calypte anna.\n"
+        "text": "The colors of hummingbird. Species: Calypte anna."
       }
     },
     {
@@ -1340,9 +1431,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Nano_Hummingbird.jpg",
       "artist": {
-        "html": "<a href=\"https://en.wikipedia.org/wiki/DARPA\" class=\"extiw\" title=\"en:DARPA\">DARPA</a>"
+        "html": "<a href=\"https://en.wikipedia.org/wiki/DARPA\" class=\"extiw\" title=\"en:DARPA\">DARPA</a>",
+        "text": "DARPA"
       },
-      "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://lh4.googleusercontent.com/_kIWY2DV0KnE/TV3-KlLEsOI/AAAAAAAAIro/osutcDWDqJ4/Nano%20Hummingbird.jpg\">https://lh4.googleusercontent.com/_kIWY2DV0KnE/TV3-KlLEsOI/AAAAAAAAIro/osutcDWDqJ4/Nano%20Hummingbird.jpg</a>",
+      "credit": {
+        "html": "<a rel=\"nofollow\" class=\"external free\" href=\"https://lh4.googleusercontent.com/_kIWY2DV0KnE/TV3-KlLEsOI/AAAAAAAAIro/osutcDWDqJ4/Nano%20Hummingbird.jpg\">https://lh4.googleusercontent.com/_kIWY2DV0KnE/TV3-KlLEsOI/AAAAAAAAIro/osutcDWDqJ4/Nano%20Hummingbird.jpg</a>",
+        "text": "https://lh4.googleusercontent.com/_kIWY2DV0KnE/TV3-KlLEsOI/AAAAAAAAIro/osutcDWDqJ4/Nano%20Hummingbird.jpg"
+      },
       "license": {
         "type": "Public domain",
         "code": "pd"
@@ -1377,9 +1472,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Polisciasu\" title=\"User:Polisciasu\">Kevin Bondelli</a>"
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Polisciasu\" title=\"User:Polisciasu\">Kevin Bondelli</a>",
+        "text": "Kevin Bondelli"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 3.0",
         "code": "cc-by-sa-3.0",
@@ -1415,9 +1514,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Polisciasu\" title=\"User:Polisciasu\">Kevin Bondelli</a>"
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Polisciasu\" title=\"User:Polisciasu\">Kevin Bondelli</a>",
+        "text": "Kevin Bondelli"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 3.0",
         "code": "cc-by-sa-3.0",
@@ -1454,10 +1557,14 @@
       "file_page": "https://commons.wikimedia.org/wiki/File:Female_Anna%27s_Hummingbird.JPG",
       "artist": {
         "html": "<a href=\"//commons.wikimedia.org/wiki/User:Victoras101\" title=\"User:Victoras101\">Victoras101</a>",
+        "text": "Victoras101",
         "name": "Victoras101",
         "user_page": "https://commons.wikimedia.org/wiki/User:Victoras101"
       },
-      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
       "license": {
         "type": "CC BY-SA 4.0",
         "code": "cc-by-sa-4.0",

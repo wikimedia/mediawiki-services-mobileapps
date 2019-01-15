@@ -129,11 +129,10 @@ describe('lib:media metadata is correctly parsed from HTML', () => {
 });
 
 describe('lib:media parse structured artist info', () => {
-    const req = (domain = 'en.wikipedia.org') => ({ params: { domain } });
 
     it('all info is parsed from common HTML structure', () => {
         const html = '<a href="//commons.wikimedia.org/wiki/User:Foo" title="User:Foo">Foo</a>';
-        const result = getStructuredArtistInfo(req(), html);
+        const result = getStructuredArtistInfo(html, 'en');
         assert.deepEqual(result.html, html);
         assert.deepEqual(result.name, 'Foo');
         assert.deepEqual(result.user_page, 'https://commons.wikimedia.org/wiki/User:Foo');
@@ -141,7 +140,7 @@ describe('lib:media parse structured artist info', () => {
 
     it("'html' and 'name' fields are returned from plain text input", () => {
         const html = 'Foo';
-        const result = getStructuredArtistInfo(req(), html);
+        const result = getStructuredArtistInfo(html, 'en');
         assert.deepEqual(result.html, html);
         assert.deepEqual(result.name, html);
         assert.deepEqual(result.user_page, undefined);
@@ -149,7 +148,7 @@ describe('lib:media parse structured artist info', () => {
 
     it('only html returned for site other than Commons', () => {
         const html = '<a href="//example.com/wiki/User:Foo" title="User:Foo">Foo</a>';
-        const result = getStructuredArtistInfo(req(), html);
+        const result = getStructuredArtistInfo(html, 'en');
         assert.deepEqual(result.html, html);
         assert.deepEqual(result.name, undefined);
         assert.deepEqual(result.user_page, undefined);
@@ -158,7 +157,7 @@ describe('lib:media parse structured artist info', () => {
     it('only html returned if additional text is present', () => {
         const html = '<a href="//commons.wikimedia.org/wiki/User:Foo" title="User:Foo">Foo</a>, ' +
             'Jimbo Wales';
-        const result = getStructuredArtistInfo(req(), html);
+        const result = getStructuredArtistInfo(html, 'en');
         assert.deepEqual(result.html, html);
         assert.deepEqual(result.name, undefined);
         assert.deepEqual(result.user_page, undefined);
@@ -166,7 +165,7 @@ describe('lib:media parse structured artist info', () => {
 
     it('only html returned if non-namespace portion of the title !== html.textContent', () => {
         const html = '<a href="//commons.wikimedia.org/wiki/User:Foo" title="User:Foo">Bar</a>';
-        const result = getStructuredArtistInfo(req(), html);
+        const result = getStructuredArtistInfo(html, 'en');
         assert.deepEqual(result.html, html);
         assert.deepEqual(result.name, undefined);
         assert.deepEqual(result.user_page, undefined);
@@ -174,7 +173,7 @@ describe('lib:media parse structured artist info', () => {
 
     it('parses html with lang from metadata object', () => {
         const obj = { en: 'Foo', de: 'Bar' };
-        const result = getStructuredArtistInfo(req(), obj);
+        const result = getStructuredArtistInfo(obj, 'en');
         assert.deepEqual(result.html, obj.en);
         assert.deepEqual(result.name, 'Foo');
         assert.deepEqual(result.lang, 'en');
@@ -183,7 +182,7 @@ describe('lib:media parse structured artist info', () => {
 
     it('parses html with lang (non-English) from metadata object', () => {
         const obj = { en: 'Foo', de: 'Bar' };
-        const result = getStructuredArtistInfo(req('de.wikipedia.org'), obj);
+        const result = getStructuredArtistInfo(obj, 'de');
         assert.deepEqual(result.html, obj.de);
         assert.deepEqual(result.name, 'Bar');
         assert.deepEqual(result.lang, 'de');
@@ -191,7 +190,7 @@ describe('lib:media parse structured artist info', () => {
     });
 
     it('undefined result if input is an empty string', () => {
-        const result = getStructuredArtistInfo(req(), '');
+        const result = getStructuredArtistInfo('', 'en');
         assert.deepEqual(result, undefined);
     });
 });
