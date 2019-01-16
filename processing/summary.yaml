@@ -2,7 +2,8 @@
 
 - rmElements:
   - span:empty
-  - stripGermanIPA
+- stripGermanIPA
+- rmElements:
   - span[data-mw*="target":{"wt":"IPA"]
   - figure-inline[data-mw*="target":{"wt":"IPA"]
   - span[style="display:none"]
