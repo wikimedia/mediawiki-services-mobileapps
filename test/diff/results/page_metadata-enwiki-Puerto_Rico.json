@@ -1152,9 +1152,9 @@
     },
     {
       "lang": "ka",
-      "summary_url": "https://ka.wikipedia.org/api/rest_v1/page/summary/Პუერტო-რიკო",
+      "summary_url": "https://ka.wikipedia.org/api/rest_v1/page/summary/პუერტო-რიკო",
       "titles": {
-        "canonical": "Პუერტო-რიკო",
+        "canonical": "პუერტო-რიკო",
         "normalized": "პუერტო-რიკო"
       }
     },
@@ -1744,9 +1744,9 @@
     },
     {
       "lang": "xmf",
-      "summary_url": "https://xmf.wikipedia.org/api/rest_v1/page/summary/Პუერტო-რიკო",
+      "summary_url": "https://xmf.wikipedia.org/api/rest_v1/page/summary/პუერტო-რიკო",
       "titles": {
-        "canonical": "Პუერტო-რიკო",
+        "canonical": "პუერტო-რიკო",
         "normalized": "პუერტო-რიკო"
       }
     },
