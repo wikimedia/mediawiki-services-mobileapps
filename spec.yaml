@@ -452,13 +452,16 @@ paths:
                 source: /.+/
                 width: /.+/
                 height: /.+/
-              credit: /.+/
+              credit:
+                html: /.+/
+                text: /.+/
               license:
                 type: /.+/
                 code: /.+/
                 url: /.+/
               artist:
                 html: /.+/
+                text: /.+/
               file_page: /.+/
               thumbnail:
                 source: /.+/
@@ -674,7 +677,7 @@ paths:
         Gets the media items (images, audio, and video) in the order in which they appear on a
         given wiki page.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.0"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.1"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
@@ -699,7 +702,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.0"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.1"
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
@@ -1594,7 +1597,7 @@ definitions:
     required:
       - items
 
-  image_description:
+  extmetadata_property:
     properties:
       html:
         type: string
@@ -1620,7 +1623,7 @@ definitions:
       image:
         $ref: '#/definitions/image_props'
       description:
-        $ref: '#/definitions/image_description'
+        $ref: '#/definitions/extmetadata_property'
       file_page:
         type: string
         description: Full URL to the file page for the item on Wikimedia Commons
@@ -1640,8 +1643,7 @@ definitions:
         required:
           - html
       credit:
-        type: string
-        description: source of the media item
+        $ref: '#/definitions/extmetadata_property'
       license:
         type: object
         description: license under which the media item is available on Wikimedia Commons
@@ -2178,8 +2180,7 @@ definitions:
         required:
           - html
       credit:
-        type: string
-        description: source of the media item
+        $ref: '#/definitions/extmetadata_property'
       license:
         type: object
         description: license under which the media item is available on Wikimedia Commons
@@ -2196,7 +2197,7 @@ definitions:
         type: string
         description: URL for the pertinent license
       description:
-        $ref: '#/definitions/image_description'
+        $ref: '#/definitions/extmetadata_property'
     required:
       - titles
       - file_page
