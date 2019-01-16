@@ -1382,6 +1382,8 @@ definitions:
         enum:
           - standard
           - disambiguation
+          - no-extract
+          - mainpage
       title:
         type: string
         description: The page title
