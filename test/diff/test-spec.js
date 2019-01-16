@@ -115,7 +115,7 @@ class TestSpec {
 }
 
 /**
- * A TestSpec which covers a specific page which has optional revision and time id parameters
+ * A TestSpec which covers a specific page which has an optional revision parameter
  * (powered by Parsoid).
  *
  * @protected {!string} _domain
@@ -240,8 +240,6 @@ const TEST_SPECS = [
     new TestSpec('en.wikipedia.org', 'page/featured', ['2016', '04', '29']),
     new TestSpec('en.wikipedia.org', 'media/image/featured', ['2016', '04', '29']),
     new TestSpec('en.wikipedia.org', 'page/most-read', ['2016', '01', '01']),
-
-    /* Note: to add a time uuid uncomment a line in parsoid-access.js getRevisionFromEtag() */
 
     new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'),
     new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'),
