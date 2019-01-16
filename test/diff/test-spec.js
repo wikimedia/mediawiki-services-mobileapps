@@ -14,17 +14,21 @@ const ENABLE_HTML_DEBUG = false;
  * @protected {!string} _domain
  * @protected {!string} _route
  * @protected {?Array<string>} _parameters
+ * @protected {?object} _options
  */
 class TestSpec {
     /**
      * @param {!string} domain project domain (e.g. 'en.wikipedia.org')
      * @param {!string} route endpoint specifier
      * @param {?Array<string>} parameters parameter values
+     * @param {?object} options an optional object for additional settings:
+     * @param {?string} options.suffix file suffix, default = 'json'
      */
-    constructor(domain, route, parameters) {
+    constructor(domain, route, parameters, options) {
         this._domain = domain;
         this._route = route;
         this._parameters = parameters;
+        this._options = options || { suffix: 'json' };
     }
 
     /**
@@ -73,7 +77,7 @@ class TestSpec {
      * @return {!string} file path to store expected result in
      */
     filePath() {
-        return `${this.dir()}${this.fileName()}.json`;
+        return `${this.dir()}${this.fileName()}.${this._options.suffix}`;
     }
 
     /**
@@ -237,6 +241,11 @@ class TestPageSpec extends TestSpec {
 
 /* eslint-disable max-len */
 const TEST_SPECS = [
+    new TestSpec('meta.wikimedia.org', 'data/javascript/mobile', ['pagelib'], { suffix: 'js' }),
+    new TestSpec('meta.wikimedia.org', 'data/css/mobile', ['pagelib'], { suffix: 'css' }),
+    new TestSpec('meta.wikimedia.org', 'data/css/mobile', ['base'], { suffix: 'css' }),
+    new TestSpec('en.wikipedia.org', 'data/css/mobile', ['site'], { suffix: 'css' }),
+
     new TestSpec('en.wikipedia.org', 'page/featured', ['2016', '04', '29']),
     new TestSpec('en.wikipedia.org', 'media/image/featured', ['2016', '04', '29']),
     new TestSpec('en.wikipedia.org', 'page/most-read', ['2016', '01', '01']),
