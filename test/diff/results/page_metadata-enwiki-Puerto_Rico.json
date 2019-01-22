@@ -2165,16 +2165,6 @@
     {
       "ns": 14,
       "hidden": false,
-      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Dependent_territories_in_North_America",
-      "titles": {
-        "canonical": "Category:Dependent_territories_in_North_America",
-        "normalized": "Category:Dependent territories in North America",
-        "display": "Dependent territories in North America"
-      }
-    },
-    {
-      "ns": 14,
-      "hidden": false,
       "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Dependent_territories_in_the_Caribbean",
       "titles": {
         "canonical": "Category:Dependent_territories_in_the_Caribbean",
@@ -2290,6 +2280,16 @@
         "canonical": "Category:Pages_using_infobox_country_or_infobox_former_country_with_the_symbol_caption_or_type_parameters",
         "normalized": "Category:Pages using infobox country or infobox former country with the symbol caption or type parameters",
         "display": "Pages using infobox country or infobox former country with the symbol caption or type parameters"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": false,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Puerto_Rico",
+      "titles": {
+        "canonical": "Category:Puerto_Rico",
+        "normalized": "Category:Puerto Rico",
+        "display": "Puerto Rico"
       }
     }
   ],
