@@ -111,6 +111,12 @@ Swagger spec:
 Info:
 * `http://localhost:6927/_info`
 
+#### Quick prototyping using static files
+You can quickly prototype some static responses by adding the wanted files to the `static` folder.
+
+Example: `static/proto/example1.json` is available as 
+http://localhost:6927/static/proto/example1.json.
+
 ### Tests
 
 There is also a set of executable tests. To fire them up, simply run:
