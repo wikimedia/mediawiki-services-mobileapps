@@ -5,7 +5,7 @@ const htmlDebug = require('./html-debug');
 // To update the expected test results temporarily set the constant UPDATE_EXPECTED_RESULTS to true.
 // After the run consider updating the TestSpec constructors later in this file to paste in the
 // revisions and time ids (if any were left out or need to be updated).
-const UPDATE_EXPECTED_RESULTS = false;
+const UPDATE_EXPECTED_RESULTS = process.env.DIFF_UPDATE;
 
 // If enabled creates HTML files, one for each section covered by the diff tests.
 const ENABLE_HTML_DEBUG = false;
