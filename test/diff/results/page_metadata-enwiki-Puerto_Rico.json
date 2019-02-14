@@ -2055,6 +2055,16 @@
     {
       "ns": 14,
       "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_with_short_description",
+      "titles": {
+        "canonical": "Category:Articles_with_short_description",
+        "normalized": "Category:Articles with short description",
+        "display": "Articles with short description"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
       "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Articles_with_unsourced_statements_from_November_2016",
       "titles": {
         "canonical": "Category:Articles_with_unsourced_statements_from_November_2016",
@@ -2281,16 +2291,6 @@
         "normalized": "Category:Pages using infobox country or infobox former country with the symbol caption or type parameters",
         "display": "Pages using infobox country or infobox former country with the symbol caption or type parameters"
       }
-    },
-    {
-      "ns": 14,
-      "hidden": false,
-      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Puerto_Rico",
-      "titles": {
-        "canonical": "Category:Puerto_Rico",
-        "normalized": "Category:Puerto Rico",
-        "display": "Puerto Rico"
-      }
     }
   ],
   "protection": {
@@ -2301,5 +2301,5 @@
       "sysop"
     ]
   },
-  "description_source": "central"
+  "description_source": "local"
 }
