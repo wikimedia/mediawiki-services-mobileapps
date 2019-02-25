@@ -9,3 +9,4 @@ npm-debug.log
 tmp/
 /fixtures/
 /private/compare-sections/
+.nyc_output/
