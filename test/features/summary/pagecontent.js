@@ -155,4 +155,13 @@ describe('summary', function() {
             assert.deepEqual(summary.description, 'funny description, haha');
         });
     });
+
+    it('Summary URLs do not contain un-encoded special characters (T216739)', () => {
+        const uri = localUri(encodeURIComponent('January–February_2019_North_American_cold_wave'));
+        return preq.get({ uri })
+        .then((res) => {
+            const summary = res.body;
+            assert.notContains(JSON.stringify(summary), '—');
+        });
+    });
 });
