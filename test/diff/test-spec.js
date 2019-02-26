@@ -261,7 +261,7 @@ const TEST_SPECS = [
 
     new TestPageSpec('en.wiktionary.org', 'page/definition', 'cat', '50657469'),
 
-    new TestPageSpec('en.wikipedia.org', 'page/metadata', 'Puerto_Rico', '872108133'),
+    new TestPageSpec('en.wikipedia.org', 'page/metadata', 'Red_Wing,_Minnesota', '876662662'),
 
     new TestPageSpec('en.wikipedia.org', 'page/summary', 'Tokyo', '871928272')
 ];
