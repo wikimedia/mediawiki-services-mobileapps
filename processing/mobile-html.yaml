@@ -13,6 +13,7 @@
   - .hide-when-compact
   - div.infobox
   - div.magnify
+  - div.navbox
 - rmBracketSpans
 - rmComments
 - rmAttributes:

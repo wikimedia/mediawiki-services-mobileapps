@@ -46,4 +46,13 @@ describe('mobile-html', function() {
         });
     });
 
+    it('mobile-html should not have navboxes', () => {
+        const uri = localUri('Cat/884971700');
+        return preq.get({ uri })
+        .then((res) => {
+            const document = domino.createDocument(res.body);
+            assert.selectorDoesNotExist(document, 'div.navbox', 'Document contain navboxes');
+        });
+    });
+
 });
