@@ -151,6 +151,15 @@ function selectorContainsValue(doc, selector, expected, message) {
 
 }
 
+function attributeNotContainsValue(doc, selector, attribute, expected, message) {
+
+    if (!message) {
+        message = `querySelector('${selector}').getAttribute('${attribute}') value contains ${expected}`;
+    }
+    assert.ok(!doc.querySelector(selector).getAttribute(attribute).includes(expected), message);
+
+}
+
 module.exports.ok             = assert.ok;
 module.exports.equal          = assert.equal;
 module.exports.throws         = assert.throws;
@@ -171,4 +180,5 @@ module.exports.selectorExistsOnce = selectorExistsOnce;
 module.exports.selectorDoesNotExist = selectorDoesNotExist;
 module.exports.selectorHasValue = selectorHasValue;
 module.exports.selectorContainsValue = selectorContainsValue;
+module.exports.attributeNotContainsValue = attributeNotContainsValue;
 module.exports.AssertionError = assert.AssertionError;
