@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euo pipefail
+
+cd $(dirname $0)/.. \
+	&& git reset --hard origin/master \
+	&& git pull \
+	&& rm -rf node_modules \
+	&& npm install \
+	&& export DIFF_UPDATE=true \
+	&& npm run test:diff \
+	&& git commit -a -m "Hygiene: Update diff fixtures" \
+	&& git review -Ry
