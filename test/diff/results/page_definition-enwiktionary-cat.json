@@ -144,7 +144,7 @@
       "language": "English",
       "definitions": [
         {
-          "definition": "<span class=\"use-with-mention\" about=\"#mwt_present\" typeof=\"mw:Transclusion\">Abbreviation of <i class=\"Latn mention\" lang=\"en\"><a rel=\"mw:WikiLink\" href=\"/wiki/category#English\" title=\"category\">category</a></i></span><span about=\"#mwt_present\">.</span><link rel=\"mw:PageProp/Category\" href=\"./Category:English_abbreviations#CAT\" about=\"#mwt_present\">"
+          "definition": "<span class=\"use-with-mention\" about=\"#mwt_present\" typeof=\"mw:Transclusion\">Abbreviation of <i class=\"Latn mention\" lang=\"en\"><a rel=\"mw:WikiLink\" href=\"/wiki/category#English\" title=\"category\">category</a></i></span><link rel=\"mw:PageProp/Category\" href=\"./Category:English_abbreviations#CAT\" about=\"#mwt_present\"><span about=\"#mwt_present\">.</span>"
         }
       ]
     },
