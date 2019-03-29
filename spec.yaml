@@ -677,7 +677,7 @@ paths:
         Gets the media items (images, audio, and video) in the order in which they appear on a
         given wiki page.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.1"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.2"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
@@ -702,7 +702,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.1"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.2"
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
@@ -1660,6 +1660,9 @@ definitions:
             description: URL describing the terms and conditions of the license, if any
         required:
           - type
+      wb_entity_id:
+        type: string
+        description: Commons Wikibase ID, if the file is on Wikimedia Commons
     required:
       - title
       - thumbnail
