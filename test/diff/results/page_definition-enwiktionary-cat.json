@@ -218,7 +218,7 @@
       "language": "Old French",
       "definitions": [
         {
-          "definition": "<span class=\"form-of-definition\" about=\"#mwt_present\" typeof=\"mw:Transclusion\">Alternative form of <span class=\"form-of-definition-link\"><i class=\"Latn mention\" lang=\"fro\"><a rel=\"mw:WikiLink\" href=\"/wiki/chat#Old_French\" title=\"chat\">chat</a></i></span></span>"
+          "definition": "<span class=\"form-of-definition use-with-mention\" about=\"#mwt_present\" typeof=\"mw:Transclusion\">Alternative form of <span class=\"form-of-definition-link\"><i class=\"Latn mention\" lang=\"fro\"><a rel=\"mw:WikiLink\" href=\"/wiki/chat#Old_French\" title=\"chat\">chat</a></i></span></span>"
         }
       ]
     }
