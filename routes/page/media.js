@@ -11,6 +11,10 @@ const imageinfo = require('../../lib/imageinfo');
 const router = sUtil.router();
 let app;
 
+function getDeduplicatedTitles(list) {
+    return mUtil.deduplicate(list.filter(i => i.title).map(i => i.title));
+}
+
 /**
  * GET {domain}/v1/page/media/{title}{/revision}{/tid}
  * Gets the media items associated with the given page.
@@ -22,12 +26,14 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
         (html, siteinfo) => {
             const revTid = parsoid.getRevAndTidFromEtag(html.headers);
             const pageMediaList = lib.getMediaItemInfoFromPage(html.body);
-            if (!pageMediaList.length) {
+            if (!pageMediaList.length && !pageMediaList.length) {
                 res.send({ items: [] });
                 return;
             }
-            const titles = mUtil.deduplicate(pageMediaList.filter(i => i.title).map(i => i.title));
-            return imageinfo.getMetadataFromApi(app, req, titles, siteinfo)
+            return imageinfo.getMetadataFromApi(app, req,
+                getDeduplicatedTitles(pageMediaList.filter(i => i.repository === 'commons')),
+                getDeduplicatedTitles(pageMediaList.filter(i => i.repository === 'local')),
+                siteinfo)
             .then((apiResponse) => {
                 const result = lib.combineResponses(apiResponse, pageMediaList);
                 mUtil.setETag(res, revTid.revision, revTid.tid);
