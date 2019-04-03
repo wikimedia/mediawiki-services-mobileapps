@@ -1,0 +1,126 @@
+// mediawiki/skins/MinervaNeue/minerva.less/minerva.variables.less@e052e43
+
+@import '../mediawiki/variables';
+
+@z-indexBase: 0;
+@z-indexOverOverlay: 2;
+
+/**
+ * System font stack for sans-serif fonts
+ *
+ * `-apple-system` ('San Francisco') – Support: Safari 9+ macOS and iOS, Firefox macOS
+ * `BlinkMacSystemFont` ('San Francisco') – Chrome 48+ macOS and iOS
+ * `Segoe UI` – Windows Vista & newer
+ * `Roboto` – Android 4.0
+ * `Lato` – Wikimedia Design choice, OFL licensed
+ * `Helvetica, Arial, sans-serif` – (Generic) Web fallback
+ * Note that CSS Fonts Module Level 4's `system-ui` value has resulted in unresolved
+ * side-effects in certain OS/language combinations and is therefore not included as of now.
+ */
+@fontFamilySans: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Lato', 'Helvetica', 'Arial', sans-serif;
+@fontFamilyBase: @fontFamilySans;
+@tocFontSize: 0.8em;
+
+@indicatorFontSize: 0.4em;
+
+// colors
+@grayMediumLight: @colorGray10;
+@grayMediumDark: @colorGray5;
+@grayMedium: @colorGray7;
+@grayLight: @colorGray12;
+@grayLightest: @colorGray14;
+
+@skinContentBgColor: #fff;
+
+// Navigation Drawers
+@menuWidth: 75%;
+@menuWidthTablet: 600px;
+@rightDrawerWidth: 60%;
+@primaryNavBackgroundColor: @colorGray14;
+
+// Headings
+@firstHeadingFontSize: 2.6525em; // 42px
+@pageActionFontSize: 1.1em; // Icons are 24px square.
+@fontSizeH1: 1.7em;
+@fontSizeH2: 1.5em;
+@fontSizeH3: 1.2em;
+
+// Content
+@contentPadding: 16px;
+@contentMargin: 16px;
+
+// Header
+@headerHeight: 3.35em;
+@headerMarginTop: -1px;  // used to hide the header border top when a banner is not present
+@searchBoxWidth: 375/16em;
+@iconSizeTotal: @iconSize + @iconGutterWidth + @iconGutterWidth;
+@deviceWidthTabletEms: unit( @width-breakpoint-tablet/16, em );
+@brandingBoxWidth: @deviceWidthTabletEms - ( @iconSizeTotal * 3 ) - @searchBoxWidth;
+
+@titleSectionSpacingTop: 20px;
+@titleSectionSpacingBottom: 25px;
+
+// Page actions
+@taglineFontSize: 0.85em;
+@pageActionBorder: 1px;
+
+// colors
+@chromeColor: @grayLightest;
+@semiTransparent: rgba( 0, 0, 0, 0.8 );
+
+@linkColor: @colorProgressive;
+@redLinkColor: @colorErrorText;
+@lastModifiedBarActiveBackgroundColor: #00af89;
+@toastNotificationColor: @colorGray2;
+
+// Use when an element is selected. FIXME: This should be in mediawiki ui.
+@selectedBackgroundColor: #e6eeff;
+
+// messages
+@colorWarningBackground: #feb;
+@colorWarningBorder: #fde29b;
+@colorWarningText: #850;
+@colorSuccessBorder: #b7fdb5;
+@colorErrorBackground: #fae3e3;
+@colorErrorBorder: #fac5c5;
+
+// typography
+@fontFamilyHeading: 'Linux Libertine', 'Georgia', 'Times', serif;
+@fontFamilyMonospace: monospace, monospace;
+@fontScalingFactor: 1;
+@contentLineHeight: 1.65;
+
+@headingMargin: 0.5em;
+@sectionIconWidth: 30px;
+
+// blockquote
+@blockquotePaddingRight: 25px;
+@blockquotePaddingLeft: 30px;
+
+// custom tablet styling
+@contentPaddingTablet: 3.35em;
+
+// note since content does not use view border box we have to include padding.
+@contentMaxWidthTablet: @width-breakpoint-desktop - ( 2 * @contentPaddingTablet );
+@contentTopPadding: 1.6em;
+
+// Wiki specific variables
+@infoboxWidth: 320px;
+
+@lastModifiedBarBgColor: @chromeColor;
+@lastModifiedBarActiveBgColor: @lastModifiedBarActiveBackgroundColor;
+@lastModifiedBarTextColor: @colorTextLight;
+
+@footerBorderColor: @grayLight;
+
+@notificationBackgroundRead: @colorGray14;
+@notificationColorRead: @colorGray5;
+@notificationBackgroundUnread: @colorDestructive;
+@notificationColorUnread: #fff;
+
+// z-index:
+@z-indexOverlay: 1;
+
+// Print specific
+@colorPrintSubtle: #999;
+@borderColorPrint: #999;

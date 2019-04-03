@@ -1,0 +1,7 @@
+/* mediawiki/extensions/Mobileapp/styles/imageOverflow.less@bc752e5 */
+
+/* Styles to prevent wide images from causing unwanted horizontal page scrolling. */
+.image_overflow_x_container {
+    max-width: 100%;
+    overflow: auto;
+}
