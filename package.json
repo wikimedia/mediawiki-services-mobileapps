@@ -17,7 +17,8 @@
     "docker-test": "service-runner docker-test",
     "test-build": "service-runner docker-test && service-runner build --deploy-repo --force",
     "swagger": "./node_modules/swagger-tools/bin/swagger-tools validate spec.yaml",
-    "coverage": "nyc --reporter=lcov _mocha"
+    "coverage": "nyc --reporter=lcov _mocha",
+    "build:css": "lessc private/styles/main.less private/base.css --clean-css"
   },
   "pre-commit": [
     "lint"
@@ -78,6 +79,8 @@
     "eslint-config-wikimedia": "0.9.0",
     "extend": "^3.0.1",
     "js-beautify": "^1.7.4",
+    "less": "^3.9.0",
+    "less-plugin-clean-css": "^1.5.1",
     "mkdirp": "^0.5.1",
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",

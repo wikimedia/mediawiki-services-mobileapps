@@ -243,7 +243,6 @@ class TestPageSpec extends TestSpec {
 const TEST_SPECS = [
     new TestSpec('meta.wikimedia.org', 'data/javascript/mobile', ['pagelib'], { suffix: 'js' }),
     new TestSpec('meta.wikimedia.org', 'data/css/mobile', ['pagelib'], { suffix: 'css' }),
-    new TestSpec('test.wikipedia.org', 'data/css/mobile', ['base'], { suffix: 'css' }),
     new TestSpec('en.wikipedia.org', 'data/css/mobile', ['site'], { suffix: 'css' }),
 
     new TestSpec('en.wikipedia.org', 'page/featured', ['2016', '04', '29']),
