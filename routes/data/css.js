@@ -2,9 +2,9 @@
 
 const sUtil = require('../../lib/util');
 const lib = require('../../lib/css');
-const pageLib = require('../../lib/pagelibServer');
 const fetchBaseCss = lib.fetchBaseCss;
 const fetchMobileSiteCss = lib.fetchMobileSiteCss;
+const fetchPageLibCss = lib.fetchPageLibCss;
 
 const router = sUtil.router();
 
@@ -18,10 +18,7 @@ router.get('/base', (req, res) => fetchBaseCss(res));
 /**
  * Gets the pagelib CSS for the mobile apps
  */
-router.get('/pagelib', (req, res) => {
-    return pageLib.loadCss()
-    .then(css => lib.respond(res, css));
-});
+router.get('/pagelib', (req, res) => fetchPageLibCss(res));
 
 /**
  * Gets the site-specific mobile styles defined in MediaWiki:Mobile.css

@@ -11,7 +11,7 @@ describe('css', function() {
     before(() => server.start());
 
     it('default RL request wiki uses canonical domain (request should not redirect)', () => {
-        return css.load(css.BASE_MODULES).then(res => assert.ok(!res.headers['content-location']));
+        return css.load(css.SITE_MODULES).then(res => assert.ok(!res.headers['content-location']));
     });
 
 });
