@@ -1,0 +1,88 @@
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/text.less@cc727b9
+
+@import 'variables';
+
+.content {
+  p {
+    margin: 0.5em 0 1em 0;
+  }
+
+  // Code
+  //
+  // Use this solely for blocks of computer code.
+  //
+  // Markup:
+  // <code>
+  // body {
+  //   color:red;
+  // }
+  // </code>
+  //
+  // Styleguide 1.6.
+
+  // Preformatted text
+  //
+  // Use on text where whitespace is significant and the content should not be formatted.
+  //
+  // Markup:
+  // <pre>
+  // body {
+  //   color:red;
+  // }
+  // </pre>
+  //
+  // Note .mw-code is not added here as it is assumed that will be used with a suitable tag
+  // tt is a non-standard element so is not included in the selector.
+  // Styleguide 1.7.
+  kbd,
+  samp,
+  code,
+  pre {
+    font-family: @fontFamilyMonospace;
+    border: solid 1px @colorGray12;
+    white-space: pre-wrap;
+  }
+
+  code {
+    padding: 0.2em 0.5em;
+  }
+
+  pre {
+    padding: 1em;
+  }
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+blockquote {
+  border-left: 3px solid @colorGray12;
+  font-family: @fontFamilyHeading;
+  font-size: 1.1em;
+  padding: 1em @blockquotePaddingRight 1em @blockquotePaddingLeft;
+  position: relative;
+  overflow: hidden;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+sup {
+  vertical-align: super;
+}
+
+sub {
+  vertical-align: sub;
+}
+
+sub,
+sup,
+.content .mw-ref {
+  font-size: 0.75em;
+  // Avoid line-height issues caused by sup and sub
+  line-height: 1;
+}
