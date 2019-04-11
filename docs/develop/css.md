@@ -17,8 +17,11 @@ In general we're trying to get content styles but not UI styles.
 
 * Reset: `reset.css`
 * MinervaNeue: `minerva/*`
+  * **Uses `.pre-content`, `.content`, `.mw-content-ltr`, `.mw-content-rtl`, `.post-content`, 
+  `.header`, `.page-header-bar`**
 * Mediawiki Core: `mediawiki/externallinks`, `mediawiki/pagegallery.css`
 * Mediawiki Parsoid: `mediawiki/parsoid`
+  * **Uses `.mw-parser-output`** 
 * Mediawiki Extensions:
   * [Extension:Cite](https://www.mediawiki.org/wiki/Extension:Cite): `cite/style.css`
   * [Extension:Math](https://www.mediawiki.org/wiki/Extension:Math) : `math/style.css`
