@@ -983,7 +983,7 @@ paths:
                   talk: /.+/
               api_urls:
                 summary: /.+/
-#                mobile_html: /.+/
+               # mobile_html: /.+/
                 metadata: /.+/
                 references: /.+/
                 media: /.+/
@@ -1164,6 +1164,44 @@ paths:
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+
+  /{domain}/v1/page/mobile-html-offline-resources/{title}{/revision}{/tid}:
+    get:
+      tags:
+        - Page content
+      summary: Get the List of the CSS and JS schemeless URLs
+      description: |
+        List of the CSS and JS schemeless URLs for offline resourcing for mobile consumption
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML-Offline-Resources/1.0.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - $ref: '#/parameters/revision'
+        - $ref: '#/parameters/tid'
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get the List of the CSS and JS schemeless URLs
+          request:
+            params:
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML-Offline-Resources/1.0.0"
+              vary: /.+/
               access-control-allow-origin: '*'
               access-control-allow-headers: accept, x-requested-with, content-type
               content-security-policy: default-src
@@ -2280,12 +2318,12 @@ definitions:
       summary:
         type: string
         description: the REST API summary URL for the page
-#      read_html:
-#        type: string
-#        description: the REST API URL for the PCS read HTML for the page (not yet active)
-#      content_html:
-#        type: string
-#        description: the REST API URL for the PCS content HTML for the page (not yet active)
+     # read_html:
+     #   type: string
+     #   description: the REST API URL for the PCS read HTML for the page (not yet active)
+     # content_html:
+     #   type: string
+     #   description: the REST API URL for the PCS content HTML for the page (not yet active)
       metadata:
         type: string
         description: the REST API URL for the page metadata (not yet active)
@@ -2303,8 +2341,8 @@ definitions:
         description: the REST API URL for the raw Parsoid HTML for the talk page for this page (if applicable)
     required:
       - summary
-#      - read_html
-#      - content_html
+     # - read_html
+     # - content_html
       - metadata
       - references
       - media

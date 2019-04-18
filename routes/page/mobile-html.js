@@ -4,6 +4,7 @@ const BBPromise = require('bluebird');
 const domUtil = require('../../lib/domUtil');
 const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
+const apiUtil = require('../../lib/api-util');
 const parsoidApi = require('../../lib/parsoid-access');
 const preprocessParsoidHtml = require('../../lib/processing');
 const sUtil = require('../../lib/util');
@@ -67,6 +68,27 @@ router.get('/mobile-html/:title/:revision?/:tid?', (req, res) => {
 
         res.send(response.processedParsoidResponse.outerHTML).end();
     });
+});
+
+router.get('/mobile-html-offline-resources/:title/:revision?/:tid?', (req, res) => {
+    res.status(200);
+    mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtmlOfflineResources);
+    mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
+
+    // Get external API URI
+    let externalApiUri = apiUtil.getExternalRestApiUri(req.params.domain);
+    // make it  schemeless
+    externalApiUri = externalApiUri.replace(new RegExp('https://'), '//');
+    let metawikiApiUri = app.conf.mobile_html_rest_api_base_uri
+        .replace(new RegExp('(https|http)://'), '//');
+    const offlineResources = [
+        `${metawikiApiUri}data/css/mobile/base`,
+        `${metawikiApiUri}data/css/mobile/pagelib`,
+        `${metawikiApiUri}data/javascript/mobile/pagelib`,
+        `${externalApiUri}data/css/mobile/site`,
+    ];
+
+    res.send(offlineResources).end();
 });
 
 module.exports = function(appObj) {

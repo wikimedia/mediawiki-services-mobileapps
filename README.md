@@ -67,6 +67,7 @@ Next generation routes for page content. See [Page_Content_Service](https://www.
 * `http://localhost:6927/{domain}/v1/page/mobile-compat-html/{title}` (no plans to be exposed
 publicly)
 * `http://localhost:6927/{domain}/v1/page/mobile-html/{title}`
+* `http://localhost:6927/{domain}/v1/page/mobile-html-offline-resources/{title}`
 * `http://localhost:6927/{domain}/v1/data/css/mobile/base`
 * `http://localhost:6927/{domain}/v1/data/css/mobile/pagelib`
 * `http://localhost:6927/{domain}/v1/data/css/mobile/site`
