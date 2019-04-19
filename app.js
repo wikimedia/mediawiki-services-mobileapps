@@ -50,6 +50,22 @@ function initApp(options) {
         app.conf.csp = "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'";
     }
 
+   /**
+    * script-src:
+    *   The pagelib JavaScript bundle is served on meta.wikimedia.org.
+    *   We also add a small piece of inline JS to the end of the body to trigger lazy-loading.
+    * style-src:
+    *   The site CSS bundle is served from the current domain (TODO: currently assumes WP).
+    *   The base CSS bundle is served on meta.wikimedia.org.
+    *   The pages also have some inline styles.
+    * img-src:
+    *   We need to specifically allow data: URIs for the buttons from the wikimedia-page-library.
+    */
+    if (app.conf.mobile_html_csp === undefined) {
+        // eslint-disable-next-line max-len
+        app.conf.mobile_html_csp = "default-src 'none'; media-src *; img-src * data:; script-src app://meta.wikimedia.org https://meta.wikimedia.org 'unsafe-inline'; style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'";
+    }
+
     // set outgoing proxy
     if (app.conf.proxy) {
         process.env.HTTP_PROXY = app.conf.proxy;
