@@ -50,7 +50,7 @@
         }
       ],
       "content": {
-        "html": "<cite class=\"citation book\">Zhuravleva, Valentina (2005). <a rel=\"mw:ExtLink\" href=\"https://books.google.de/books?id=HpttCzNiB6wC&amp;pg=PA75&amp;dq=neutrite#v=onepage&amp;q=neutrite&amp;f=false\" class=\"external text\"><i>Ballad of the Stars: Stories of Science Fiction, Ultraimagination, and TRIZ</i></a>. Technical Innovation Center, Inc. <a href=\"./International_Standard_Book_Number\" title=\"International Standard Book Number\">ISBN</a><span>&nbsp;</span><a href=\"./Special:BookSources/9780964074064\" title=\"Special:BookSources/9780964074064\">9780964074064</a>.</cite><link rel=\"mw-deduplicated-inline-style\" href=\"mw-data:TemplateStyles:r886058088\" about=\"#mwt_present\">",
+        "html": "<cite class=\"citation book\">Zhuravleva, Valentina (2005). <a rel=\"mw:ExtLink\" href=\"https://books.google.de/books?id=HpttCzNiB6wC&amp;pg=PA75&amp;dq=neutrite#v=onepage&amp;q=neutrite&amp;f=false\" class=\"external text\"><i>Ballad of the Stars: Stories of Science Fiction, Ultraimagination, and TRIZ</i></a>. Technical Innovation Center, Inc. <a href=\"./International_Standard_Book_Number\" title=\"International Standard Book Number\">ISBN</a><span>&nbsp;</span><a href=\"./Special:BookSources/9780964074064\" title=\"Special:BookSources/9780964074064\"><bdi>9780964074064</bdi></a>.</cite><link rel=\"mw-deduplicated-inline-style\" href=\"mw-data:TemplateStyles:r886058088\" about=\"#mwt_present\">",
         "type": "book"
       }
     },
@@ -62,7 +62,7 @@
         }
       ],
       "content": {
-        "html": "<cite class=\"citation book\">Angelo, J. A. (2006). <a rel=\"mw:ExtLink\" href=\"https://books.google.com/books?id=VUWno1sOwnUC&amp;pg=PA178\" class=\"external text\"><i>Encyclopedia of Space and Astronomy</i></a>. <a href=\"./Infobase_Publishing\" title=\"Infobase Publishing\">Infobase Publishing</a>. p.<span>&nbsp;</span>178. <a href=\"./International_Standard_Book_Number\" title=\"International Standard Book Number\">ISBN</a><span>&nbsp;</span><a href=\"./Special:BookSources/978-0-8160-5330-8\" title=\"Special:BookSources/978-0-8160-5330-8\">978-0-8160-5330-8</a>.</cite><link rel=\"mw-deduplicated-inline-style\" href=\"mw-data:TemplateStyles:r886058088\" about=\"#mwt_present\">",
+        "html": "<cite class=\"citation book\">Angelo, J. A. (2006). <a rel=\"mw:ExtLink\" href=\"https://books.google.com/books?id=VUWno1sOwnUC&amp;pg=PA178\" class=\"external text\"><i>Encyclopedia of Space and Astronomy</i></a>. <a href=\"./Infobase_Publishing\" title=\"Infobase Publishing\">Infobase Publishing</a>. p.<span>&nbsp;</span>178. <a href=\"./International_Standard_Book_Number\" title=\"International Standard Book Number\">ISBN</a><span>&nbsp;</span><a href=\"./Special:BookSources/978-0-8160-5330-8\" title=\"Special:BookSources/978-0-8160-5330-8\"><bdi>978-0-8160-5330-8</bdi></a>.</cite><link rel=\"mw-deduplicated-inline-style\" href=\"mw-data:TemplateStyles:r886058088\" about=\"#mwt_present\">",
         "type": "book"
       }
     },
