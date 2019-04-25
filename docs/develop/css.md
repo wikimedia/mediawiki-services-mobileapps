@@ -49,3 +49,14 @@ See the [wikimedia-page-library repo](https://github.com/wikimedia/wikimedia-pag
 
 ## Site CSS
 Site specific CSS. This is the only CSS endpoint that still uses live ResourceLoader requests.
+
+## Update process
+
+TBD. Compare files that have changed in the original locations since the previous update up to
+the most recent released version and pull the needed changes in.
+
+The most recent update or check was:
+* MinervaNeue: 23a0f5f
+
+### Build
+npm run build:css
