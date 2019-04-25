@@ -143,7 +143,7 @@ describe('lib:sanitizeSummary', () => {
         it('keeps figure-inline.style border', () => {
             assert.deepEqual(
                 sanitize('<figure-inline style="border: thin dashed red">foo</figure-inline>'),
-                '<figure-inline style="border:thin dashed red;">foo</figure-inline>',
+                '<figure-inline style="border:thin dashed red">foo</figure-inline>',
                 'almost as-is but an extra space gets removed');
         });
         it('removes audio tags', () => {
