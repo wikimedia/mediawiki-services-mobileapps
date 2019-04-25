@@ -66,6 +66,11 @@ function initApp(options) {
         app.conf.mobile_html_csp = "default-src 'none'; media-src *; img-src * data:; script-src app://meta.wikimedia.org https://meta.wikimedia.org 'unsafe-inline'; style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'";
     }
 
+    if (app.conf.mobile_html_rest_api_base_uri === undefined) {
+        // eslint-disable-next-line max-len
+        app.conf.mobile_html_rest_api_base_uri = 'https://meta.wikimedia.org/api/rest_v1/';
+    }
+
     // set outgoing proxy
     if (app.conf.proxy) {
         process.env.HTTP_PROXY = app.conf.proxy;
