@@ -18,7 +18,7 @@
     "test-build": "service-runner docker-test && service-runner build --deploy-repo --force",
     "swagger": "./node_modules/swagger-tools/bin/swagger-tools validate spec.yaml",
     "coverage": "nyc --reporter=lcov _mocha",
-    "build:css": "lessc private/styles/main.less private/base.css --clean-css"
+    "build:css": "lessc private/styles/styles.less private/base.css --clean-css"
   },
   "pre-commit": [
     "lint"
