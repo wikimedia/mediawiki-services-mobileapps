@@ -109,6 +109,9 @@ Feed endpoint availability by language:
 Swagger spec:
 * `http://localhost:6927/?spec`
 
+Swagger UI:
+* `http://localhost:6927/?doc`
+
 Info:
 * `http://localhost:6927/_info`
 
