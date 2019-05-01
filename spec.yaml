@@ -698,7 +698,6 @@ paths:
           request:
             params:
               title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
-              revision: 803891963
           response:
             status: 200
             headers:
@@ -827,7 +826,6 @@ paths:
           request:
             params:
               title: Video
-              revision: 830543386
           response:
             status: 200
             headers:
@@ -1023,7 +1021,6 @@ paths:
           request:
             params:
               title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
-              revision: 803891963
           response:
             status: 200
             headers:
