@@ -60,8 +60,8 @@ services:
       #   - user-agent
       #   - x-request-id
       # the user agent to use when issuing requests
-      mobile_html_csp: "default-src 'none'; media-src *; img-src * data:; script-src app://meta.wikimedia.org http://meta.wikimedia.org 'self' 'unsafe-inline'; style-src app://meta.wikimedia.org http://meta.wikimedia.org app://*.wikipedia.org http://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'"
-      mobile_html_rest_api_base_uri: "http://localhost:6927/api/v1/"
+      mobile_html_rest_api_base_uri: "//localhost:6927/api/v1/"
+      mobile_html_csp: "default-src 'none'; media-src *; img-src * data:; script-src app://localhost:6927 http://localhost:6927 'self' 'unsafe-inline'; style-src app://localhost http://localhost app://*.wikipedia.org http://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'"
       user_agent: WMF Mobile Content Service dev
       # the template used for contacting the MW API
       mwapi_req:
