@@ -138,11 +138,6 @@ class TestPageSpec extends TestSpec {
         super(domain, route, [title, revision]);
         this._title = title;
         this._revision = revision;
-        // The config for parsoid-beta.wmflabs.org does not permit all Wikimedia project domains
-        // to be specified as the {{domain}} parameter, but only certain project domains. Since we
-        // are mostly concerned with Wikipedia, and all Wikipedia domains seem to be permitted,
-        // let's restict this to Wikipedia domains.
-        this.parsoid = domain.endsWith('wikipedia.org');
     }
 
     /**

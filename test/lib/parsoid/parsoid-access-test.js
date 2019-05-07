@@ -41,10 +41,8 @@ describe('lib:parsoid-access etag handling', () => {
         });
 
         it('getRevAndTidFromEtag handles undefined input', () => {
-            /* eslint-disable max-len */
-            assert.deepEqual(parsoid.getRevAndTidFromEtag(), { revision: undefined, tid: undefined });
-            assert.deepEqual(parsoid.getRevAndTidFromEtag({}), { revision: undefined, tid: undefined });
-            /* eslint-enable max-len */
+            assert.deepEqual(parsoid.getRevAndTidFromEtag(), undefined);
+            assert.deepEqual(parsoid.getRevAndTidFromEtag({}), undefined);
         });
 
     });
