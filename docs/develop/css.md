@@ -56,7 +56,7 @@ TBD. Compare files that have changed in the original locations since the previou
 the most recent released version and pull the needed changes in.
 
 The most recent update or check was:
-* MinervaNeue: 23a0f5f
+* MinervaNeue: b308c33 (last check on 2019-05-01)
 
 ### Build
 npm run build:css

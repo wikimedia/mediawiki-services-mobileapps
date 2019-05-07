@@ -70,4 +70,12 @@ h3, h4, h5, h6 {
   h2, h3, h4, h5, h6 {
     padding: @headingMargin 0;
   }
+
+  // PCS note:
+  // Skipped in PCS since Parsoid wraps sections and their headings, so we won't get a `p + h3`.
+  //
+  // // `h3`s need extra `margin-top` after paragraphs, see T219572.
+  //p + h3 {
+  //  margin-top: @headingMargin * 3;
+  //}
 }
