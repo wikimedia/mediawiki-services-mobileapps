@@ -33,18 +33,6 @@ parameters:
     type: string
     description: |
       Page title. Use underscores instead of spaces. Example: `Main_Page`
-  revision:
-    in: path
-    name: revision
-    required: false
-    type: integer
-    description: Revision ID
-  tid:
-    in: path
-    name: tid
-    required: false
-    type: integer
-    description: Time UUID of the rendering (used for rerenders when non-revision content changes)
   year:
     in: path
     name: year
@@ -668,7 +656,7 @@ paths:
             body: ''
 
   # from routes/page/media.js
-  /{domain}/v1/page/media/{title}{/revision}{/tid}:
+  /{domain}/v1/page/media/{title}:
     get:
       tags:
         - Page content
@@ -682,8 +670,6 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
-        - $ref: '#/parameters/revision'
-        - $ref: '#/parameters/tid'
       responses:
         200:
           description: Gets media items from a wiki page
@@ -698,6 +684,116 @@ paths:
           request:
             params:
               title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+              revision: 803891963
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.2"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              revision: /.+/
+              tid: /.+/
+              items:
+                - section_id: /.+/
+                  type: /.+/
+  /{domain}/v1/page/media/{title}/{revision}:
+    get:
+      tags:
+        - Page content
+      summary: Get information on media files used on a page.
+      description: |
+        Gets the media items (images, audio, and video) in the order in which they appear on a
+        given wiki page.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.2"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: Gets media items from a wiki page
+          schema:
+            $ref: '#/definitions/media_list'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get media in test page
+          request:
+            params:
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+              revision: 803891963
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.2"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              revision: /.+/
+              tid: /.+/
+              items:
+                - section_id: /.+/
+                  type: /.+/
+  /{domain}/v1/page/media/{title}/{revision}/{tid}:
+    get:
+      tags:
+        - Page content
+      summary: Get information on media files used on a page.
+      description: |
+        Gets the media items (images, audio, and video) in the order in which they appear on a
+        given wiki page.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.2"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+        - in: path
+          name: tid
+          required: true
+          type: integer
+          description: Time UUID of the rendering (used for rerenders when non-revision content changes)
+      responses:
+        200:
+          description: Gets media items from a wiki page
+          schema:
+            $ref: '#/definitions/media_list'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get media in test page
+          request:
+            params:
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+              revision: 803891963
           response:
             status: 200
             headers:
@@ -718,7 +814,7 @@ paths:
                   type: /.+/
 
   # from routes/page/metadata.js
-  /{domain}/v1/page/metadata/{title}{/revision}{/tid}:
+  /{domain}/v1/page/metadata/{title}:
     get:
       tags:
         - Page content
@@ -731,8 +827,169 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
-        - $ref: '#/parameters/revision'
-        - $ref: '#/parameters/tid'
+      responses:
+        200:
+          description: Extended article metadata
+          schema:
+            $ref: '#/definitions/metadata'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve extended metadata for Video article on English Wikipedia
+          request:
+            params:
+              title: Video
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.2.0"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              revision: /.+/
+              tid: /.+/
+              hatnotes:
+                - section: /.+/
+                  html: /.+/
+              issues:
+                - section: /.+/
+                  html: /.+/
+              toc:
+                title: /.+/
+                entries:
+                  - level: /.+/
+                    section: /.+/
+                    number: /.+/
+                    anchor: /.+/
+                    html: /.+/
+              language_links:
+                - lang: /.+/
+                  titles:
+                    canonical: /.+/
+                    normalized: /.+/
+                  summary_url: /.+/
+              categories:
+                - titles:
+                    canonical: /.+/
+                    normalized: /.+/
+                    display: /.+/
+                  hidden: /.+/
+                  ns: /.+/
+                  summary_url: /.+/
+              protection:
+                edit: [ /.+/ ]
+                move: [ /.+/ ]
+              description_source: /.+/
+  /{domain}/v1/page/metadata/{title}/{revision}:
+    get:
+      tags:
+        - Page content
+      summary: Get extended metadata about a page.
+      description: |
+        Gets additional metadata about a page, primarily from the MediaWiki API.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.2.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: Extended article metadata
+          schema:
+            $ref: '#/definitions/metadata'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve extended metadata for Video article on English Wikipedia
+          request:
+            params:
+              title: Video
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.2.0"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              revision: /.+/
+              tid: /.+/
+              hatnotes:
+                - section: /.+/
+                  html: /.+/
+              issues:
+                - section: /.+/
+                  html: /.+/
+              toc:
+                title: /.+/
+                entries:
+                  - level: /.+/
+                    section: /.+/
+                    number: /.+/
+                    anchor: /.+/
+                    html: /.+/
+              language_links:
+                - lang: /.+/
+                  titles:
+                    canonical: /.+/
+                    normalized: /.+/
+                  summary_url: /.+/
+              categories:
+                - titles:
+                    canonical: /.+/
+                    normalized: /.+/
+                    display: /.+/
+                  hidden: /.+/
+                  ns: /.+/
+                  summary_url: /.+/
+              protection:
+                edit: [ /.+/ ]
+                move: [ /.+/ ]
+              description_source: /.+/
+  /{domain}/v1/page/metadata/{title}/{revision}/{tid}:
+    get:
+      tags:
+        - Page content
+      summary: Get extended metadata about a page.
+      description: |
+        Gets additional metadata about a page, primarily from the MediaWiki API.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.2.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+        - in: path
+          name: tid
+          required: true
+          type: integer
+          description: Time UUID of the rendering (used for rerenders when non-revision content changes)
       responses:
         200:
           description: Extended article metadata
@@ -796,7 +1053,7 @@ paths:
               description_source: /.+/
 
   # from routes/page/references.js
-  /{domain}/v1/page/references/{title}{/revision}{/tid}:
+  /{domain}/v1/page/references/{title}:
     get:
       tags:
         - Page content
@@ -810,8 +1067,6 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
-        - $ref: '#/parameters/revision'
-        - $ref: '#/parameters/tid'
       responses:
         '200':
           description: Reference lists and reference details
@@ -826,6 +1081,122 @@ paths:
           request:
             params:
               title: Video
+              revision: 830543386
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/1.0.1"
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              revision: /.+/
+              tid: /.+/
+              reference_lists:
+                - id: /.*/
+                  section_heading:
+                    id: /.+/
+                    html: /.+/
+                  order: [ /.*/ ]
+              references_by_id: /.+/
+  /{domain}/v1/page/references/{title}/{revision}:
+    get:
+      tags:
+        - Page content
+      summary: Get reference lists and reference details.
+      description: |
+        Gets a list of reference lists and a map of reference ids to details for all references
+        appearing on the equivalent page. This content is parsed from Parsoid output.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/1.0.1"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        '200':
+          description: Reference lists and reference details
+          schema:
+            $ref: '#/definitions/references_response'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get references of a test page
+          request:
+            params:
+              title: Video
+              revision: 830543386
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/1.0.1"
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              revision: /.+/
+              tid: /.+/
+              reference_lists:
+                - id: /.*/
+                  section_heading:
+                    id: /.+/
+                    html: /.+/
+                  order: [ /.*/ ]
+              references_by_id: /.+/
+  /{domain}/v1/page/references/{title}/{revision}/{tid}:
+    get:
+      tags:
+        - Page content
+      summary: Get reference lists and reference details.
+      description: |
+        Gets a list of reference lists and a map of reference ids to details for all references
+        appearing on the equivalent page. This content is parsed from Parsoid output.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/1.0.1"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+        - in: path
+          name: tid
+          required: true
+          type: integer
+          description: Time UUID of the rendering (used for rerenders when non-revision content changes)
+      responses:
+        '200':
+          description: Reference lists and reference details
+          schema:
+            $ref: '#/definitions/references_response'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get references of a test page
+          request:
+            params:
+              title: Video
+              revision: 830543386
           response:
             status: 200
             headers:
@@ -849,7 +1220,7 @@ paths:
               references_by_id: /.+/
 
   # from routes/page/definition.js
-  /{domain}/v1/page/definition/{title}{/revision}{/tid}:
+  /{domain}/v1/page/definition/{title}:
     get:
       tags:
         - Word definitions (English Wiktionary only)
@@ -861,8 +1232,97 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
-        - $ref: '#/parameters/revision'
-        - $ref: '#/parameters/tid'
+      responses:
+        200:
+          description: Structured definition for the term
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve en-wiktionary definitions for 'cat'
+          request:
+            params:
+              domain: en.wiktionary.org
+              title: cat
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body: /.+/
+  /{domain}/v1/page/definition/{title}/{revision}:
+    get:
+      tags:
+        - Word definitions (English Wiktionary only)
+      summary: Get Wiktionary definitions for a word.
+      description: Gets definitions for a word parsed from an article in Wiktionary.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: Structured definition for the term
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve en-wiktionary definitions for 'cat'
+          request:
+            params:
+              domain: en.wiktionary.org
+              title: cat
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body: /.+/
+  /{domain}/v1/page/definition/{title}/{revision}/{tid}:
+    get:
+      tags:
+        - Word definitions (English Wiktionary only)
+      summary: Get Wiktionary definitions for a word.
+      description: Gets definitions for a word parsed from an article in Wiktionary.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+        - in: path
+          name: tid
+          required: true
+          type: integer
+          description: Time UUID of the rendering (used for rerenders when non-revision content changes)
       responses:
         200:
           description: Structured definition for the term
@@ -891,7 +1351,7 @@ paths:
             body: /.+/
 
   # from routes/page/summary.js
-  /{domain}/v1/page/summary/{title}{/revision}{/tid}:
+  /{domain}/v1/page/summary/{title}:
     get:
       tags:
         - Page content
@@ -908,8 +1368,217 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
-        - $ref: '#/parameters/revision'
-        - $ref: '#/parameters/tid'
+      responses:
+        200:
+          description: The summary for the given page
+          schema:
+            $ref: '#/definitions/summary'
+        404:
+          description: Unknown page title or revision
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get summary for test page
+          request:
+            params:
+              title: San_Francisco
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.0"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              type: standard
+              title: /.+/
+              displaytitle: /.+/
+              namespace:
+                id: /.+/
+                text: /.*/
+              wikibase_item: /.+/
+              titles:
+                canonical: /.+/
+                normalized: /.+/
+                display: /.+/
+              pageid: /.+/
+              thumbnail:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              originalimage:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              lang: /.+/
+              dir: /.+/
+              revision: /.+/
+              tid: /.+/
+              timestamp: /.+/
+              coordinates:
+                lat: /.+/
+                lon: /.+/
+              description: /.+/
+              content_urls:
+                desktop:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
+                mobile:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
+              api_urls:
+                summary: /.+/
+               # mobile_html: /.+/
+                metadata: /.+/
+                references: /.+/
+                media: /.+/
+                edit_html: /.+/
+                talk_page_html: /.+/
+              extract: /.+/
+              extract_html: /.+/
+  /{domain}/v1/page/summary/{title}/{revision}:
+    get:
+      tags:
+        - Page content
+      summary: Get basic metadata and simplified article introduction.
+      description: |
+        The summary response includes an extract of the first paragraph of the page in plain text
+        and HTML as well as the type of page. This is useful for page previews (fka. Hovercards,
+        aka. Popups) on the web and link previews in the apps.
+
+        Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: The summary for the given page
+          schema:
+            $ref: '#/definitions/summary'
+        404:
+          description: Unknown page title or revision
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get summary for test page
+          request:
+            params:
+              title: San_Francisco
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.0"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              type: standard
+              title: /.+/
+              displaytitle: /.+/
+              namespace:
+                id: /.+/
+                text: /.*/
+              wikibase_item: /.+/
+              titles:
+                canonical: /.+/
+                normalized: /.+/
+                display: /.+/
+              pageid: /.+/
+              thumbnail:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              originalimage:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              lang: /.+/
+              dir: /.+/
+              revision: /.+/
+              tid: /.+/
+              timestamp: /.+/
+              coordinates:
+                lat: /.+/
+                lon: /.+/
+              description: /.+/
+              content_urls:
+                desktop:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
+                mobile:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
+              api_urls:
+                summary: /.+/
+               # mobile_html: /.+/
+                metadata: /.+/
+                references: /.+/
+                media: /.+/
+                edit_html: /.+/
+                talk_page_html: /.+/
+              extract: /.+/
+              extract_html: /.+/
+  /{domain}/v1/page/summary/{title}/{revision}/{tid}:
+    get:
+      tags:
+        - Page content
+      summary: Get basic metadata and simplified article introduction.
+      description: |
+        The summary response includes an extract of the first paragraph of the page in plain text
+        and HTML as well as the type of page. This is useful for page previews (fka. Hovercards,
+        aka. Popups) on the web and link previews in the apps.
+
+        Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+        - in: path
+          name: tid
+          required: true
+          type: integer
+          description: Time UUID of the rendering (used for rerenders when non-revision content changes)
       responses:
         200:
           description: The summary for the given page
@@ -993,7 +1662,7 @@ paths:
               extract_html: /.+/
 
   # from routes/page/mobile-sections.js
-  /{domain}/v1/page/mobile-sections/{title}{/revision}{/tid}:
+  /{domain}/v1/page/mobile-sections/{title}:
     get:
       tags:
         - Page content
@@ -1007,8 +1676,6 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
-        - $ref: '#/parameters/revision'
-        - $ref: '#/parameters/tid'
       responses:
         200:
           description: Structured info about a page and its sections
@@ -1021,6 +1688,142 @@ paths:
           request:
             params:
               title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+              revision: 803891963
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              lead:
+                id: /.+/
+                revision: /.+/
+                lastmodified: /.+/
+                lastmodifier: /.+/
+                displaytitle: /.+/
+                normalizedtitle: /.+/
+                protection: /.+/
+                editable: /.+/
+                languagecount: /.+/
+                ns: /.+/
+                sections:
+                  - id: /.+/
+              remaining:
+                sections:
+                  - id: /.+/
+                    text: /.*/
+                    toclevel: /.+/
+                    line: /.+/
+                    anchor: /.+/
+  /{domain}/v1/page/mobile-sections/{title}/{revision}:
+    get:
+      tags:
+        - Page content
+      summary: Get metadata and all sections of a page.
+      description: |
+        Gets the full page content of a given wiki page for the Android app.
+        For a faster page load experience the Android app uses the following two endpoints instead.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: Structured info about a page and its sections
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve test page via mobile-sections
+          request:
+            params:
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+              revision: 803891963
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              lead:
+                id: /.+/
+                revision: /.+/
+                lastmodified: /.+/
+                lastmodifier: /.+/
+                displaytitle: /.+/
+                normalizedtitle: /.+/
+                protection: /.+/
+                editable: /.+/
+                languagecount: /.+/
+                ns: /.+/
+                sections:
+                  - id: /.+/
+              remaining:
+                sections:
+                  - id: /.+/
+                    text: /.*/
+                    toclevel: /.+/
+                    line: /.+/
+                    anchor: /.+/
+  /{domain}/v1/page/mobile-sections/{title}/{revision}/{tid}:
+    get:
+      tags:
+        - Page content
+      summary: Get metadata and all sections of a page.
+      description: |
+        Gets the full page content of a given wiki page for the Android app.
+        For a faster page load experience the Android app uses the following two endpoints instead.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+        - in: path
+          name: tid
+          required: true
+          type: integer
+          description: Time UUID of the rendering (used for rerenders when non-revision content changes)
+      responses:
+        200:
+          description: Structured info about a page and its sections
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve test page via mobile-sections
+          request:
+            params:
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+              revision: 803891963
           response:
             status: 200
             headers:
@@ -1055,7 +1858,7 @@ paths:
                     line: /.+/
                     anchor: /.+/
 
-  /{domain}/v1/page/mobile-sections-lead/{title}{/revision}{/tid}:
+  /{domain}/v1/page/mobile-sections-lead/{title}:
     get:
       tags:
         - Page content
@@ -1068,8 +1871,63 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
-        - $ref: '#/parameters/revision'
-        - $ref: '#/parameters/tid'
+      responses:
+        200:
+          description: Structured info a page and its lead section
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false
+  /{domain}/v1/page/mobile-sections-lead/{title}/{revision}:
+    get:
+      tags:
+        - Page content
+      summary: Get lead section and metadata for a page.
+      description: |
+        Gets the lead section and general metadata of a given wiki page for the Android app.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: Structured info a page and its lead section
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false
+  /{domain}/v1/page/mobile-sections-lead/{title}/{revision}/{tid}:
+    get:
+      tags:
+        - Page content
+      summary: Get lead section and metadata for a page.
+      description: |
+        Gets the lead section and general metadata of a given wiki page for the Android app.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+        - in: path
+          name: tid
+          required: true
+          type: integer
+          description: Time UUID of the rendering (used for rerenders when non-revision content changes)
       responses:
         200:
           description: Structured info a page and its lead section
@@ -1079,7 +1937,7 @@ paths:
             $ref: '#/definitions/problem'
       x-monitor: false
 
-  /{domain}/v1/page/mobile-sections-remaining/{title}{/revision}{/tid}:
+  /{domain}/v1/page/mobile-sections-remaining/{title}:
     get:
       tags:
         - Page content
@@ -1091,8 +1949,61 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
-        - $ref: '#/parameters/revision'
-        - $ref: '#/parameters/tid'
+      responses:
+        200:
+          description: Structured info on non-lead sections for a page
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false
+  /{domain}/v1/page/mobile-sections-remaining/{title}/{revision}:
+    get:
+      tags:
+        - Page content
+      summary: Get non-lead sections of a page.
+      description: Gets the remaining sections of a given wiki page for the Android app.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: Structured info on non-lead sections for a page
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false
+  /{domain}/v1/page/mobile-sections-remaining/{title}/{revision}/{tid}:
+    get:
+      tags:
+        - Page content
+      summary: Get non-lead sections of a page.
+      description: Gets the remaining sections of a given wiki page for the Android app.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+        - in: path
+          name: tid
+          required: true
+          type: integer
+          description: Time UUID of the rendering (used for rerenders when non-revision content changes)
       responses:
         200:
           description: Structured info on non-lead sections for a page
@@ -1102,7 +2013,7 @@ paths:
             $ref: '#/definitions/problem'
       x-monitor: false
 
-  /{domain}/v1/page/mobile-html/{title}{/revision}{/tid}:
+  /{domain}/v1/page/mobile-html/{title}:
     get:
       tags:
         - Page content
@@ -1143,8 +2054,6 @@ paths:
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
-        - $ref: '#/parameters/revision'
-        - $ref: '#/parameters/tid'
       responses:
         200:
           description: Success
@@ -1169,22 +2078,52 @@ paths:
               content-security-policy: default-src
               x-content-security-policy: default-src
               x-frame-options: SAMEORIGIN
-
-  /{domain}/v1/page/mobile-html-offline-resources/{title}{/revision}{/tid}:
+  /{domain}/v1/page/mobile-html/{title}/{revision}:
     get:
       tags:
         - Page content
-      summary: Get the List of the CSS and JS schemeless URLs
+      summary: Get page content HTML optimized for mobile consumption
       description: |
-        List of the CSS and JS schemeless URLs for offline resourcing for mobile consumption
+        Gets the content HTML optimized for mobile consumption for the given page. This content
+        is derived from Parsoid HTML (see `/page/html/{title}` endpoint).
+        The difference to Parsoid HTML is roughly:
+        * Some elements and attributes not needed for the reading case are removed.
+        * LeadIntroductionTransform: The introductory paragraph is moved before an infobox.
+        * RedLinks: Red links are flattened (=turned into span elements).
+        * WidenImage: images that should be displayed in gallery are widened.
+        * Section headings are slightly changed by wrapping the headings inside a div and adding
+          a span element inside the new div for the edit buttons.
+        * Additional classes are added to img elements to fix issues with non-white backgrounds.
+          See Theme support below for instructions on how to enable that.
+        * Pagelib CSS files needed to display the content are referenced.
+        * LazyLoadTransform: server-side portion/prep for lazy loading of images.
+
+        What's not included? What parts of the PageLibrary does a client still have to do?
+        * Theme support: Themes can be turned on by adding a theme class to the root <html> tag.
+          Possible class names are:
+          * `pagelib_theme_default`
+          * `pagelib_theme_dark`
+          * `pagelib_theme_black`
+          * `pagelib_theme_sepia`
+
+          The pagelib JS has functionality to do that: ThemeTransform.setTheme(document, theme).
+        * Dim images: DimImagesTransform.dim(window, enable)
+        * PlatformTransform.classify(window) to trigger Android and iOS app specific CSS rules
+        * LazyLoadTransformer: client side companion of LazyLoadTransform (note the extra *er*
+        here)
+        * CollapseTable: server-side portion/prep for collapsing tables.
+        * FooterTransformer: seems to be more UI than content, requires I18N, too
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML-Offline-Resources/1.0.0"
+        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
-        - $ref: '#/parameters/revision'
-        - $ref: '#/parameters/tid'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
       responses:
         200:
           description: Success
@@ -1193,15 +2132,92 @@ paths:
           schema:
             $ref: '#/definitions/problem'
       x-amples:
-        - title: Get the List of the CSS and JS schemeless URLs
+        - title: Get page content HTML for test page
           request:
             params:
               title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML-Offline-Resources/1.0.0"
+              content-type: text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+              content-language: en
               vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+  /{domain}/v1/page/mobile-html/{title}/{revision}/{tid}:
+    get:
+      tags:
+        - Page content
+      summary: Get page content HTML optimized for mobile consumption
+      description: |
+        Gets the content HTML optimized for mobile consumption for the given page. This content
+        is derived from Parsoid HTML (see `/page/html/{title}` endpoint).
+        The difference to Parsoid HTML is roughly:
+        * Some elements and attributes not needed for the reading case are removed.
+        * LeadIntroductionTransform: The introductory paragraph is moved before an infobox.
+        * RedLinks: Red links are flattened (=turned into span elements).
+        * WidenImage: images that should be displayed in gallery are widened.
+        * Section headings are slightly changed by wrapping the headings inside a div and adding
+          a span element inside the new div for the edit buttons.
+        * Additional classes are added to img elements to fix issues with non-white backgrounds.
+          See Theme support below for instructions on how to enable that.
+        * Pagelib CSS files needed to display the content are referenced.
+        * LazyLoadTransform: server-side portion/prep for lazy loading of images.
+
+        What's not included? What parts of the PageLibrary does a client still have to do?
+        * Theme support: Themes can be turned on by adding a theme class to the root <html> tag.
+          Possible class names are:
+          * `pagelib_theme_default`
+          * `pagelib_theme_dark`
+          * `pagelib_theme_black`
+          * `pagelib_theme_sepia`
+
+          The pagelib JS has functionality to do that: ThemeTransform.setTheme(document, theme).
+        * Dim images: DimImagesTransform.dim(window, enable)
+        * PlatformTransform.classify(window) to trigger Android and iOS app specific CSS rules
+        * LazyLoadTransformer: client side companion of LazyLoadTransform (note the extra *er*
+        here)
+        * CollapseTable: server-side portion/prep for collapsing tables.
+        * FooterTransformer: seems to be more UI than content, requires I18N, too
+      produces:
+        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+        - in: path
+          name: tid
+          required: true
+          type: integer
+          description: Time UUID of the rendering (used for rerenders when non-revision content changes)
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get page content HTML for test page
+          request:
+            params:
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+          response:
+            status: 200
+            headers:
+              content-type: text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
               access-control-allow-origin: '*'
               access-control-allow-headers: accept, x-requested-with, content-type
               content-security-policy: default-src
@@ -1585,9 +2601,9 @@ definitions:
           description: List of pages related to the event
           items:
             $ref: '#/definitions/article_summary_merge_link'
-    required:
-      - text
-      - pages
+      required:
+        - text
+        - pages
 
   onthisdayResponse:
     type: object

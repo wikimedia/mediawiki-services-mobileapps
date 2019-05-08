@@ -5,7 +5,7 @@
   "main": "./app.js",
   "scripts": {
     "start": "service-runner",
-    "test": "PREQ_CONNECT_TIMEOUT=15 mocha 'test/{,!(diff)/**}/*.js' && npm run lint",
+    "test": "PREQ_CONNECT_TIMEOUT=15 mocha 'test/{,!(diff)/**}/*.js' && npm run lint && npm run swagger",
     "test:unit": "mocha test/lib",
     "test:diff": "mocha --exit test/diff",
     "test:spec": "mocha test/features/app/spec.js",
@@ -15,7 +15,7 @@
     "docker-start": "service-runner docker-start",
     "docker-test": "service-runner docker-test",
     "test-build": "service-runner docker-test && service-runner build --deploy-repo --force",
-    "swagger": "./node_modules/swagger-tools/bin/swagger-tools validate spec.yaml",
+    "swagger": "./node_modules/swagger-cli/bin/swagger-cli.js validate spec.yaml",
     "coverage": "nyc --reporter=lcov _mocha",
     "build:css": "lessc private/styles/styles.less private/base.css --clean-css"
   },
@@ -68,7 +68,7 @@
     "service-runner": "^2.6.17",
     "striptags": "^3.1.1",
     "swagger-router": "^0.7.2",
-    "swagger-ui": "git+https://github.com/wikimedia/swagger-ui#master",
+    "swagger-ui-dist": "^3.22.1",
     "underscore": "^1.9.1",
     "wikimedia-page-library": "^6.4.0"
   },
@@ -89,7 +89,7 @@
     "rss-parser": "^3.7.0",
     "sepia": "^2.0.2",
     "sinon": "^7.3.1",
-    "swagger-tools": "^0.10.4"
+    "swagger-cli": "^2.2.1"
   },
   "deploy": {
     "target": "debian",
