@@ -451,6 +451,8 @@ paths:
                 html: /.+/
                 text: /.+/
               file_page: /.+/
+              structured:
+                captions: /.+/
               thumbnail:
                 source: /.+/
                 width: /.+/
@@ -665,7 +667,7 @@ paths:
         Gets the media items (images, audio, and video) in the order in which they appear on a
         given wiki page.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.3"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.4"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
@@ -687,7 +689,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.3"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.4"
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
@@ -711,7 +713,7 @@ paths:
         Gets the media items (images, audio, and video) in the order in which they appear on a
         given wiki page.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.3"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.4"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
