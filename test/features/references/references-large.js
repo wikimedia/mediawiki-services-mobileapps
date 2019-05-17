@@ -91,7 +91,10 @@ describe('references-large', function() {
             } else {
                 console.log(`== heading(${title}/${rev}) = !!Not found!!`);
             }
-            assert.deepEqual(refList.id, parsoidRefList.getAttribute('about'), 'list id');
+
+            // FIXME: skipped due to https://phabricator.wikimedia.org/T223637
+            // assert.deepEqual(refList.id, parsoidRefList.getAttribute('about'), 'list id');
+
             const parsoidRefsInList = parsoidRefList.children;
             assert.deepEqual(refList.order.length, parsoidRefsInList.length, 'list length');
 
