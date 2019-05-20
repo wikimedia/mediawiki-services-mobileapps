@@ -26,22 +26,22 @@ describe('references-large', function() {
         return server.start();
     });
 
-    function uriSuffix(title, rev) {
-        return `${encodeURIComponent(title)}/${rev}`;
+    function uriSuffix(title) {
+        return `${encodeURIComponent(title)}`;
     }
 
-    function prodParsoid(title, rev, lang = 'en') {
+    function prodParsoid(title, lang = 'en') {
         return {
-            uri: `https://${lang}.wikipedia.org/api/rest_v1/page/html/${uriSuffix(title, rev)}`,
+            uri: `https://${lang}.wikipedia.org/api/rest_v1/page/html/${uriSuffix(title)}`,
             headers: {
                 accept: mUtil.getContentTypeString(mUtil.CONTENT_TYPES.html),
             }
         };
     }
 
-    function uriForEndpointName(title, rev, lang = 'en') {
+    function uriForEndpointName(title, lang = 'en') {
         const baseUri = `${server.config.uri}${lang}.wikipedia.org/v1/page/references`;
-        return `${baseUri}/${uriSuffix(title, rev)}`;
+        return `${baseUri}/${uriSuffix(title)}`;
     }
 
     function verifyNonEmptyResults(response, uri) {
@@ -70,7 +70,7 @@ describe('references-large', function() {
         assert.ok(details[refId].content.type !== undefined, `no content.type in ${refId}`);
     }
 
-    function verifyWithOriginalParsoidResponse(referencesResponse, parsoidResponse, title, rev) {
+    function verifyWithOriginalParsoidResponse(referencesResponse, parsoidResponse, title) {
         const document = domino.createDocument(parsoidResponse.body);
         const parsoidRefLists = document.querySelectorAll('ol.mw-references');
         assert.ok(referencesResponse.body.reference_lists.length === parsoidRefLists.length
@@ -86,15 +86,13 @@ describe('references-large', function() {
             const sectionHeading = sectionHeadingElement && sectionHeadingElement.innerHTML.trim();
             if (sectionHeading) {
                 if (!knownSectionHeadings.includes(sectionHeading)) {
-                    console.log(`== heading(${title}/${rev}) = ${sectionHeading}`);
+                    console.log(`== heading(${title}) = ${sectionHeading}`);
                 }
             } else {
-                console.log(`== heading(${title}/${rev}) = !!Not found!!`);
+                console.log(`== heading(${title}) = !!Not found!!`);
             }
-
-            // FIXME: skipped due to https://phabricator.wikimedia.org/T223637
-            // assert.deepEqual(refList.id, parsoidRefList.getAttribute('about'), 'list id');
-
+            const parsoidListId = parsoidRefList.closest('[about]').getAttribute('about');
+            assert.deepEqual(refList.id, parsoidListId, 'list id');
             const parsoidRefsInList = parsoidRefList.children;
             assert.deepEqual(refList.order.length, parsoidRefsInList.length, 'list length');
 
@@ -107,9 +105,9 @@ describe('references-large', function() {
         }
     }
 
-    function fetchAndVerify(title, rev) {
+    function fetchAndVerify(title) {
         let referencesResponse;
-        const uri = uriForEndpointName(title, rev);
+        const uri = uriForEndpointName(title);
         console.log(uri);
         return preq.get({
             uri,
@@ -119,17 +117,16 @@ describe('references-large', function() {
         }).then((response) => {
             referencesResponse = response;
             verifyNonEmptyResults(response, uri);
-            console.log(prodParsoid(title, rev));
-            return preq.get(prodParsoid(title, rev));
+            console.log(prodParsoid(title));
+            return preq.get(prodParsoid(title));
         }).then((parsoidResponse) => {
             return verifyWithOriginalParsoidResponse(referencesResponse, parsoidResponse,
-                title, rev);
+                title);
         });
     }
 
     function runTest(page) {
-        const rev = page.rev.split('/')[0];
-        return fetchAndVerify(page.title, rev);
+        return fetchAndVerify(page.title);
     }
 
     if (process.env.LARGE_TESTS) {
@@ -140,8 +137,7 @@ describe('references-large', function() {
         }
     } else {
         it('references-large: single page', () => {
-            return runTest({ title: 'List_of_highest-grossing_Indian_films',
-                rev: '822986388' });
+            return runTest({ title: 'List_of_highest-grossing_Indian_films' });
         });
     }
 });
