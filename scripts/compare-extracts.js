@@ -88,20 +88,20 @@ function getLanguageLinks() {
     ].map(lang => `<a href="./${lang}.html">${lang}</a>`).join(' ');
 }
 
-const uriForWikiLink = (domain, title, revTid) => {
-    return `https://${domain}/wiki/${title}?oldid=${revTid.split('/')[0]}`; // no tid
+const uriForWikiLink = (domain, title, rev) => {
+    return `https://${domain}/wiki/${title}?oldid=${rev}`;
 };
 
-const uriForParsoidLink = (domain, title, revTid) => {
-    return `https://${domain}/api/rest_v1/page/html/${title}/${revTid}`;
+const uriForParsoidLink = (domain, title, rev) => {
+    return `https://${domain}/api/rest_v1/page/html/${title}/${rev}`;
 };
 
 const uriForProd = (domain, title) => {
     return `https://${domain}/api/rest_v1/${ENDPOINT}/${encodeURIComponent(title)}`;
 };
 
-const uriForLocal = (domain, title, revTid, port = NEW_PORT) => {
-    const suffix = revTid ? `/${revTid}` : '';
+const uriForLocal = (domain, title, rev, port = NEW_PORT) => {
+    const suffix = rev ? `/${rev}` : '';
     return `http://localhost:${port}/${domain}/v1/${ENDPOINT}/${encodeURIComponent(title)}${suffix}`;
 };
 
@@ -157,17 +157,17 @@ const outputEndTxtFiles = () => {
 };
 
 const compareExtractsHTML = (file, oldExtractValue, newExtractValue,
-    counter, domain, title, revTid) => {
+    counter, domain, title, rev) => {
 
     const displayTitle = title.replace(/_/g, ' ');
     const same = (oldExtractValue === newExtractValue) ? ' class="same"' : '';
     const positionLink = `<a id="${counter}" href="#${counter}">${counter}</a>`;
     file.write(`<tr${same}><td class="titleColumn">${positionLink}\n`);
-    file.write(`<a href="${uriForWikiLink(domain, title, revTid)}">${displayTitle}</a>\n`);
-    file.write(`[<a href="${uriForParsoidLink(domain, title, revTid)}">parsoid</a>]\n`);
+    file.write(`<a href="${uriForWikiLink(domain, title, rev)}">${displayTitle}</a>\n`);
+    file.write(`[<a href="${uriForParsoidLink(domain, title, rev)}">parsoid</a>]\n`);
     file.write(`<br/>[${ENDPOINT}:\n`);
     file.write(`<a href="${uriForProd(domain, title)}">prod</a>\n`);
-    file.write(`<a href="${uriForLocal(domain, title, revTid)}">local</a>]\n`);
+    file.write(`<a href="${uriForLocal(domain, title, rev)}">local</a>]\n`);
     file.write('</td>\n');
     file.write(`<td class="valueColumn" dir="auto">${oldExtractValue}</td>\n`);
     file.write(`<td class="valueColumn" dir="auto">${newExtractValue}</td>\n`);
@@ -194,8 +194,8 @@ const getExtract = (response) => {
     return response.body;
 };
 
-const writeFile = (file, title, revTid, value) => {
-    file.write(`== ${title}/${revTid}\n`);
+const writeFile = (file, title, rev, value) => {
+    file.write(`== ${title}/${rev}\n`);
     file.write(`${value}\n`);
 };
 
@@ -211,21 +211,21 @@ const buildOtherPropString = (input) => {
 };
 
 const compareExtractsSingleType = (type, oldExtractString, newExtractString,
-    counter, domain, title, revTid) => {
+    counter, domain, title, rev) => {
 
     compareExtractsHTML(type.overviewFile, oldExtractString, newExtractString, counter,
-        domain, title, revTid);
-    writeFile(type.oldFile, title, revTid, oldExtractString);
-    writeFile(type.newFile, title, revTid, newExtractString);
+        domain, title, rev);
+    writeFile(type.oldFile, title, rev, oldExtractString);
+    writeFile(type.newFile, title, rev, newExtractString);
 };
 
-const compareExtracts = (oldExtract, newExtract, counter, domain, title, revTid) => {
+const compareExtracts = (oldExtract, newExtract, counter, domain, title, rev) => {
     compareExtractsSingleType(html, oldExtract.extract_html, newExtract.extract_html, counter,
-        domain, title, revTid);
+        domain, title, rev);
     compareExtractsSingleType(plain, oldExtract.extract, newExtract.extract, counter,
-        domain, title, revTid);
+        domain, title, rev);
     compareExtractsSingleType(other, buildOtherPropString(oldExtract),
-        buildOtherPropString(newExtract), counter, domain, title, revTid);
+        buildOtherPropString(newExtract), counter, domain, title, rev);
 };
 
 const fetchExtract = (uri) => {
@@ -240,19 +240,19 @@ const fetchExtract = (uri) => {
 const fetchAndVerify = (page, counter) => {
     const domain = page.domain;
     const title = page.title;
-    const revTid = page.rev;
+    const rev = page.rev;
     process.stdout.write('.');
     let newExtract;
-    return fetchExtract(uriForLocal(domain, title, revTid))
+    return fetchExtract(uriForLocal(domain, title, rev))
     .then((response) => {
         newExtract = response;
         if (OLD_PORT) {
-            return fetchExtract(uriForLocal(domain, title, revTid, OLD_PORT));
+            return fetchExtract(uriForLocal(domain, title, rev, OLD_PORT));
         } else {
             return fetchExtract(uriForProd(domain, title));
         }
     }).then((oldExtract) => {
-        compareExtracts(oldExtract, newExtract, counter, domain, title, revTid);
+        compareExtracts(oldExtract, newExtract, counter, domain, title, rev);
     });
 };
 
