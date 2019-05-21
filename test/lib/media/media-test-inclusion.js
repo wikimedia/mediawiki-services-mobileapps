@@ -41,6 +41,8 @@ const noTypeFigureInline = '<figure-inline><video resource="./File:R"/></figure-
 const imageNoViewer = '<figure typeof="mw:Image" class="noviewer"><img resource="./File:S" width="100" height="100"/></figure>';
 const imageMetadata = '<span class="metadata"><figure typeof="mw:Image"><img resource="./File:T" width="100" height="100"/></figure></span>';
 
+const falsePositive = '<figure typeof="mw:Image" class="noviewer"><img resource="./File:S"/></figure>';
+
 const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline, mathImage];
 const videos = [videoFigure, videoSpan, videoFigureInline, videoThumbFigure, videoThumbSpan, videoThumbFigureInline];
 const audios = [audioFigure, audioSpan, audioFigureInline,
@@ -66,6 +68,11 @@ describe('lib:media expected items are included or excluded', () => {
     it('items should not be found for other selectors', () => {
         const page = invalidItems.join('');
         const result = media.getMediaItemInfoFromPage(page);
+        assert.deepEqual(result.length, 0);
+    });
+
+    it('false positives should be filtered', () => {
+        const result = media.getMediaItemInfoFromPage(falsePositive);
         assert.deepEqual(result.length, 0);
     });
 
