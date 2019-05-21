@@ -3,7 +3,9 @@
 const assert = require('../../utils/assert');
 const media = require('../../../lib/media');
 const getCodecs = media.testing.getCodecs;
-const getStructuredArtistInfo = require('../../../lib/imageinfo').getStructuredArtistInfo;
+const imageInfo = require('../../../lib/imageinfo');
+const getStructuredArtistInfo = imageInfo.getStructuredArtistInfo;
+const makeResults = imageInfo.testing.makeResults;
 
 const imageWithCaption =
     '<figure typeof="mw:Image">' +
@@ -147,6 +149,10 @@ describe('lib:media metadata is correctly parsed from HTML', () => {
         const result = media.getMediaItemInfoFromPage(pronunciationWithPercentEncodedTitle)[0];
         // eslint-disable-next-line max-len
         assert.deepEqual(result.title, 'File:En-us-A.p.j. Abdul Kalam from India pronunciation (Voice of America).ogg');
+    });
+
+    it('items without imageinfo properties (e.g., deleted items) are filtered', () => {
+        assert.deepEqual(makeResults([1], [ { id: 1 } ]), []);
     });
 });
 
