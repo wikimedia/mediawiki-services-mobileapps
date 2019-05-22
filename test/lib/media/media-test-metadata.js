@@ -2,6 +2,7 @@
 
 const assert = require('../../utils/assert');
 const media = require('../../../lib/media');
+const getCodecs = media.testing.getCodecs;
 const getStructuredArtistInfo = require('../../../lib/imageinfo').getStructuredArtistInfo;
 
 const imageWithCaption =
@@ -19,11 +20,18 @@ const videoWithDerivative =
     '<figure typeof="mw:Video">' +
         '<video resource="./File:Foo">' +
             '<source src="https://example.com/Foo.ogv"' +
-                   ' type=\'video/ogg; codecs="theora, vorbis"\'' +
-                   ' data-title="Foo"' +
-                   ' data-shorttitle="Foo"' +
-                   ' data-file-width="120"' +
-                   ' data-file-height="120"' +
+                ' type=\'video/ogg; codecs="theora, vorbis"\'' +
+                ' data-title="Foo"' +
+                ' data-shorttitle="Foo"' +
+                ' data-file-width="120"' +
+                ' data-file-height="120"' +
+            '/>' +
+            '<source src="https://example.com/Foo.ogv"' +
+                ' type=\'video/ogg\'' +
+                ' data-title="Bar"' +
+                ' data-shorttitle="Bar"' +
+                ' data-file-width="120"' +
+                ' data-file-height="120"' +
             '/>' +
         '</video>' +
     '</figure>';
@@ -90,6 +98,18 @@ describe('lib:media metadata is correctly parsed from HTML', () => {
         assert.deepEqual(derivative.codecs, [ 'theora', 'vorbis' ]);
         assert.deepEqual(derivative.name, 'Foo');
         assert.deepEqual(derivative.short_name, 'Foo');
+        assert.deepEqual(derivative.width, 120);
+        assert.deepEqual(derivative.height, 120);
+    });
+
+    it('media file derivative with no codecs in type attribute is parsed correctly', () => {
+        const result = media.getMediaItemInfoFromPage(videoWithDerivative)[0];
+        const derivative = result.sources[1];
+        assert.deepEqual(derivative.url, 'https://example.com/Foo.ogv');
+        assert.deepEqual(derivative.mime, 'video/ogg');
+        assert.deepEqual(derivative.codecs, undefined);
+        assert.deepEqual(derivative.name, 'Bar');
+        assert.deepEqual(derivative.short_name, 'Bar');
         assert.deepEqual(derivative.width, 120);
         assert.deepEqual(derivative.height, 120);
     });
@@ -194,5 +214,15 @@ describe('lib:media parse structured artist info', () => {
     it('undefined result if input is an empty string', () => {
         const result = getStructuredArtistInfo('', 'en');
         assert.deepEqual(result, undefined);
+    });
+});
+
+describe('lib:media:getCodecs', () => {
+    it('codecs are parsed from type attributes without errors', () => {
+        assert.deepEqual(getCodecs('video/webm; codecs="vp8, vorbis"'), [ 'vp8', 'vorbis' ]);
+        assert.deepEqual(getCodecs('video/webm'), undefined);
+        assert.deepEqual(getCodecs(undefined), undefined);
+        assert.deepEqual(getCodecs(';;;;111;;!1lksjdfd:'), undefined);
+        assert.deepEqual(getCodecs('¯\\_(ツ)_/¯'), undefined);
     });
 });
