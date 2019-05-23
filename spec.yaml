@@ -684,7 +684,6 @@ paths:
           request:
             params:
               title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
-              revision: 803891963
           response:
             status: 200
             headers:
@@ -731,30 +730,7 @@ paths:
           description: Error
           schema:
             $ref: '#/definitions/problem'
-      x-amples:
-        - title: Get media in test page
-          request:
-            params:
-              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
-              revision: 803891963
-          response:
-            status: 200
-            headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.3"
-              content-language: en
-              vary: /.+/
-              etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
-              access-control-allow-headers: accept, x-requested-with, content-type
-              content-security-policy: default-src
-              x-content-security-policy: default-src
-              x-frame-options: SAMEORIGIN
-            body:
-              revision: /.+/
-              tid: /.+/
-              items:
-                - section_id: /.+/
-                  type: /.+/
+      x-monitor: false
 
   # from routes/page/metadata.js
   /{domain}/v1/page/metadata/{title}:
@@ -858,58 +834,7 @@ paths:
           description: Error
           schema:
             $ref: '#/definitions/problem'
-      x-amples:
-        - title: retrieve extended metadata for Video article on English Wikipedia
-          request:
-            params:
-              title: Video
-          response:
-            status: 200
-            headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.2.0"
-              content-language: en
-              vary: /.+/
-              etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
-              access-control-allow-headers: accept, x-requested-with, content-type
-              content-security-policy: default-src
-              x-content-security-policy: default-src
-              x-frame-options: SAMEORIGIN
-            body:
-              revision: /.+/
-              tid: /.+/
-              hatnotes:
-                - section: /.+/
-                  html: /.+/
-              issues:
-                - section: /.+/
-                  html: /.+/
-              toc:
-                title: /.+/
-                entries:
-                  - level: /.+/
-                    section: /.+/
-                    number: /.+/
-                    anchor: /.+/
-                    html: /.+/
-              language_links:
-                - lang: /.+/
-                  titles:
-                    canonical: /.+/
-                    normalized: /.+/
-                  summary_url: /.+/
-              categories:
-                - titles:
-                    canonical: /.+/
-                    normalized: /.+/
-                    display: /.+/
-                  hidden: /.+/
-                  ns: /.+/
-                  summary_url: /.+/
-              protection:
-                edit: [ /.+/ ]
-                move: [ /.+/ ]
-              description_source: /.+/
+      x-monitor: false
 
   # from routes/page/references.js
   /{domain}/v1/page/references/{title}:
@@ -940,7 +865,6 @@ paths:
           request:
             params:
               title: Video
-              revision: 830543386
           response:
             status: 200
             headers:
@@ -990,33 +914,7 @@ paths:
           description: Error
           schema:
             $ref: '#/definitions/problem'
-      x-amples:
-        - title: Get references of a test page
-          request:
-            params:
-              title: Video
-              revision: 830543386
-          response:
-            status: 200
-            headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/1.0.1"
-              vary: /.+/
-              etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
-              access-control-allow-headers: accept, x-requested-with, content-type
-              content-security-policy: default-src
-              x-content-security-policy: default-src
-              x-frame-options: SAMEORIGIN
-            body:
-              revision: /.+/
-              tid: /.+/
-              reference_lists:
-                - id: /.*/
-                  section_heading:
-                    id: /.+/
-                    html: /.+/
-                  order: [ /.*/ ]
-              references_by_id: /.+/
+      x-monitor: false
 
   # from routes/page/definition.js
   /{domain}/v1/page/definition/{title}:
@@ -1081,25 +979,7 @@ paths:
           description: Error
           schema:
             $ref: '#/definitions/problem'
-      x-amples:
-        - title: retrieve en-wiktionary definitions for 'cat'
-          request:
-            params:
-              domain: en.wiktionary.org
-              title: cat
-          response:
-            status: 200
-            headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
-              content-language: en
-              vary: /.+/
-              etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
-              access-control-allow-headers: accept, x-requested-with, content-type
-              content-security-policy: default-src
-              x-content-security-policy: default-src
-              x-frame-options: SAMEORIGIN
-            body: /.+/
+      x-monitor: false
 
   # from routes/page/summary.js
   /{domain}/v1/page/summary/{title}:
@@ -1235,74 +1115,7 @@ paths:
           description: Error
           schema:
             $ref: '#/definitions/problem'
-      x-amples:
-        - title: Get summary for test page
-          request:
-            params:
-              title: San_Francisco
-          response:
-            status: 200
-            headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.0"
-              content-language: en
-              vary: /.+/
-              etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
-              access-control-allow-headers: accept, x-requested-with, content-type
-              content-security-policy: default-src
-              x-content-security-policy: default-src
-              x-frame-options: SAMEORIGIN
-            body:
-              type: standard
-              title: /.+/
-              displaytitle: /.+/
-              namespace:
-                id: /.+/
-                text: /.*/
-              wikibase_item: /.+/
-              titles:
-                canonical: /.+/
-                normalized: /.+/
-                display: /.+/
-              pageid: /.+/
-              thumbnail:
-                source: /.+/
-                width: /.+/
-                height: /.+/
-              originalimage:
-                source: /.+/
-                width: /.+/
-                height: /.+/
-              lang: /.+/
-              dir: /.+/
-              revision: /.+/
-              tid: /.+/
-              timestamp: /.+/
-              coordinates:
-                lat: /.+/
-                lon: /.+/
-              description: /.+/
-              content_urls:
-                desktop:
-                  page: /.+/
-                  revisions: /.+/
-                  edit: /.+/
-                  talk: /.+/
-                mobile:
-                  page: /.+/
-                  revisions: /.+/
-                  edit: /.+/
-                  talk: /.+/
-              api_urls:
-                summary: /.+/
-               # mobile_html: /.+/
-                metadata: /.+/
-                references: /.+/
-                media: /.+/
-                edit_html: /.+/
-                talk_page_html: /.+/
-              extract: /.+/
-              extract_html: /.+/
+      x-monitor: false
 
   # from routes/page/mobile-sections.js
   /{domain}/v1/page/mobile-sections/{title}:
@@ -1331,7 +1144,6 @@ paths:
           request:
             params:
               title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
-              revision: 803891963
           response:
             status: 200
             headers:
@@ -1391,45 +1203,7 @@ paths:
           description: Error
           schema:
             $ref: '#/definitions/problem'
-      x-amples:
-        - title: retrieve test page via mobile-sections
-          request:
-            params:
-              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
-              revision: 803891963
-          response:
-            status: 200
-            headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
-              content-language: en
-              vary: /.+/
-              etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
-              access-control-allow-headers: accept, x-requested-with, content-type
-              content-security-policy: default-src
-              x-content-security-policy: default-src
-              x-frame-options: SAMEORIGIN
-            body:
-              lead:
-                id: /.+/
-                revision: /.+/
-                lastmodified: /.+/
-                lastmodifier: /.+/
-                displaytitle: /.+/
-                normalizedtitle: /.+/
-                protection: /.+/
-                editable: /.+/
-                languagecount: /.+/
-                ns: /.+/
-                sections:
-                  - id: /.+/
-              remaining:
-                sections:
-                  - id: /.+/
-                    text: /.*/
-                    toclevel: /.+/
-                    line: /.+/
-                    anchor: /.+/
+      x-monitor: false
 
   /{domain}/v1/page/mobile-sections-lead/{title}:
     get:
@@ -1643,23 +1417,7 @@ paths:
           description: Error
           schema:
             $ref: '#/definitions/problem'
-      x-amples:
-        - title: Get page content HTML for test page
-          request:
-            params:
-              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
-          response:
-            status: 200
-            headers:
-              content-type: text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
-              content-language: en
-              vary: /.+/
-              etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
-              access-control-allow-headers: accept, x-requested-with, content-type
-              content-security-policy: default-src
-              x-content-security-policy: default-src
-              x-frame-options: SAMEORIGIN
+      x-monitor: false
 
   /{domain}/v1/data/css/mobile/base:
     get:
