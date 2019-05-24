@@ -63,11 +63,11 @@
     "js-yaml": "^3.13.1",
     "mediawiki-title": "^0.6.5",
     "microformat-node": "^2.0.1",
-    "preq": "^0.5.7",
+    "preq": "^0.5.8",
     "sanitize-html": "^1.20.0",
     "service-runner": "^2.6.17",
     "striptags": "^3.1.1",
-    "swagger-router": "0.7.2",
+    "swagger-router": "^0.7.3",
     "swagger-ui-dist": "^3.22.1",
     "underscore": "^1.9.1",
     "wikimedia-page-library": "^6.4.0"
