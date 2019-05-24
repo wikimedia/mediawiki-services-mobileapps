@@ -163,7 +163,7 @@ function handleUserPagePromise(req, res) {
         formatversion: '2',
         meta: 'globaluserinfo',
         guiuser: req.params.title.split(':')[1]
-    })
+    }, req.headers)
     .then((resp) => {
         const body = resp.body;
         if (body.query && body.query.globaluserinfo) {
@@ -190,7 +190,7 @@ function handleFilePagePromise(req, res) {
         iiprop: 'url',
         iiurlwidth: mwapi.LEAD_IMAGE_L,
         iirurlheight: mwapi.LEAD_IMAGE_L * 0.75
-    })
+    }, req.headers)
     .then((resp) => {
         const body = resp.body;
         if (body.query && body.query.pages && body.query.pages.length) {

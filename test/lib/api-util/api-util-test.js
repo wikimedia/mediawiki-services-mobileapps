@@ -1,9 +1,12 @@
 'use strict';
 
 const BBPromise = require('bluebird');
+const fs = require('fs');
+const yaml = require('js-yaml');
 const assert = require('../../utils/assert');
 const mwapi = require('../../../lib/mwapi');
 const api = require('../../../lib/api-util').test;
+const Template = require('swagger-router').Template;
 
 const logger = require('bunyan').createLogger({
     name: 'test-logger',
@@ -45,5 +48,21 @@ describe('lib:apiUtil', () => {
             assert.deepEqual(result[3], 3);
             assert.deepEqual(result[4], 4);
         });
+    });
+
+    it('MW API request expanded from template includes Accept-Language header', () => {
+        const config = yaml.safeLoad(fs.readFileSync(`${__dirname}/../../../config.yaml`));
+        const template = new Template(config.services[0].conf.mwapi_req);
+        const req = template.expand({
+            request: {
+                params: { domain: 'zh.wikipedia.org' },
+                query: { action: 'query', titles: 'Foobar' },
+                headers: {
+                    'accept-language': 'zh-hant',
+                    'x-request-id': 'foo'
+                }
+            }
+        });
+        assert.deepEqual(req.headers['accept-language'], 'zh-hant');
     });
 });
