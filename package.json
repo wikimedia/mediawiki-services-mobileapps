@@ -70,7 +70,7 @@
     "swagger-router": "^0.7.3",
     "swagger-ui-dist": "^3.22.1",
     "underscore": "^1.9.1",
-    "wikimedia-page-library": "^6.4.0"
+    "wikimedia-page-library": "^7.0.0"
   },
   "devDependencies": {
     "ajv": "^6.10.0",
