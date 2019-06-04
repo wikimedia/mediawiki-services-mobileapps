@@ -1,5 +1,4 @@
 Dockerfile
-.eslintcache
 .idea/
 coverage
 /config.yaml
