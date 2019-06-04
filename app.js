@@ -7,6 +7,7 @@ const compression = require('compression');
 const bodyParser = require('body-parser');
 const fs = BBPromise.promisifyAll(require('fs'));
 const sUtil = require('./lib/util');
+const specLib = require('./lib/spec');
 const apiUtil = require('./lib/api-util');
 const mUtil = require('./lib/mobile-util');
 const packageInfo = require('./package.json');
@@ -101,7 +102,7 @@ function initApp(options) {
 
     // set up the spec
     if (!app.conf.spec) {
-        app.conf.spec = `${__dirname}/spec.yaml`;
+        app.conf.spec = specLib.load(`${__dirname}/spec`, {});
     }
     if (app.conf.spec.constructor !== Object) {
         try {

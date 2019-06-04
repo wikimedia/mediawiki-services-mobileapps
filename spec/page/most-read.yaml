@@ -1,0 +1,96 @@
+paths:
+  # from routes/feed/most-read.js
+  /{domain}/v1/page/most-read/{year}/{month}/{day}:
+    get:
+      tags:
+        - Feed
+      summary: Get most viewed pages for a date.
+      description: |
+        Gets the most read articles for the date provided.
+        The date is in UTC, as other endpoints, too.
+        Only days prior to today's date are accepted.
+      produces:
+        - application/json
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/year'
+        - $ref: '#/parameters/month'
+        - $ref: '#/parameters/day'
+      responses:
+        200:
+          description: Most read article titles for this wiki for the requested date
+          schema:
+            $ref: '#/definitions/mostread'
+        204:
+          description: Empty response (for feed content aggregation requests from RESTBase)
+          schema:
+            $ref: '#/definitions/empty'
+        404:
+          description: No data found for the requested date
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve the most read articles for January 1, 2016
+          request:
+            params:
+              year: 2016
+              month: '01'
+              day: '01'
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              date: '2016-01-01Z'
+              articles:
+                - views: /.+/
+                  rank: /.+/
+                  $merge: [ /.+/ ]
+        - title: retrieve the most-read articles for January 1, 2016 (with aggregated=true)
+          request:
+            params:
+              year: 2016
+              month: '01'
+              day: '01'
+            query:
+              aggregated: true
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              date: '2015-12-31Z'
+              articles:
+                - views: /.+/
+                  rank: /.+/
+                  $merge: [ /.+/ ]
+        - title: retrieve most-read articles for date with no data (with aggregated=true)
+          request:
+            params:
+              year: 2015
+              month: '01'
+              day: '01'
+            query:
+              aggregated: true
+          response:
+            status: 204
+            body: ''

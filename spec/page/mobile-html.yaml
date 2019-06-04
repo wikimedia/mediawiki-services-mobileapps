@@ -1,0 +1,121 @@
+paths:
+  /{domain}/v1/page/mobile-html/{title}:
+    get:
+      tags:
+        - Page content
+      summary: Get page content HTML optimized for mobile consumption
+      description: |
+        Gets the content HTML optimized for mobile consumption for the given page. This content
+        is derived from Parsoid HTML (see `/page/html/{title}` endpoint).
+        The difference to Parsoid HTML is roughly:
+        * Some elements and attributes not needed for the reading case are removed.
+        * LeadIntroductionTransform: The introductory paragraph is moved before an infobox.
+        * RedLinks: Red links are flattened (=turned into span elements).
+        * WidenImage: images that should be displayed in gallery are widened.
+        * Section headings are slightly changed by wrapping the headings inside a div and adding
+          a span element inside the new div for the edit buttons.
+        * Additional classes are added to img elements to fix issues with non-white backgrounds.
+          See Theme support below for instructions on how to enable that.
+        * Pagelib CSS files needed to display the content are referenced.
+        * LazyLoadTransform: server-side portion/prep for lazy loading of images.
+
+        What's not included? What parts of the PageLibrary does a client still have to do?
+        * Theme support: Themes can be turned on by adding a theme class to the root <html> tag.
+          Possible class names are:
+          * `pagelib_theme_default`
+          * `pagelib_theme_dark`
+          * `pagelib_theme_black`
+          * `pagelib_theme_sepia`
+
+          The pagelib JS has functionality to do that: ThemeTransform.setTheme(document, theme).
+        * Dim images: DimImagesTransform.dim(window, enable)
+        * PlatformTransform.classify(window) to trigger Android and iOS app specific CSS rules
+        * LazyLoadTransformer: client side companion of LazyLoadTransform (note the extra *er*
+        here)
+        * CollapseTable: server-side portion/prep for collapsing tables.
+        * FooterTransformer: seems to be more UI than content, requires I18N, too
+      produces:
+        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get page content HTML for test page
+          request:
+            params:
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+          response:
+            status: 200
+            headers:
+              content-type: text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+  /{domain}/v1/page/mobile-html/{title}/{revision}:
+    get:
+      tags:
+        - Page content
+      summary: Get page content HTML optimized for mobile consumption
+      description: |
+        Gets the content HTML optimized for mobile consumption for the given page. This content
+        is derived from Parsoid HTML (see `/page/html/{title}` endpoint).
+        The difference to Parsoid HTML is roughly:
+        * Some elements and attributes not needed for the reading case are removed.
+        * LeadIntroductionTransform: The introductory paragraph is moved before an infobox.
+        * RedLinks: Red links are flattened (=turned into span elements).
+        * WidenImage: images that should be displayed in gallery are widened.
+        * Section headings are slightly changed by wrapping the headings inside a div and adding
+          a span element inside the new div for the edit buttons.
+        * Additional classes are added to img elements to fix issues with non-white backgrounds.
+          See Theme support below for instructions on how to enable that.
+        * Pagelib CSS files needed to display the content are referenced.
+        * LazyLoadTransform: server-side portion/prep for lazy loading of images.
+
+        What's not included? What parts of the PageLibrary does a client still have to do?
+        * Theme support: Themes can be turned on by adding a theme class to the root <html> tag.
+          Possible class names are:
+          * `pagelib_theme_default`
+          * `pagelib_theme_dark`
+          * `pagelib_theme_black`
+          * `pagelib_theme_sepia`
+
+          The pagelib JS has functionality to do that: ThemeTransform.setTheme(document, theme).
+        * Dim images: DimImagesTransform.dim(window, enable)
+        * PlatformTransform.classify(window) to trigger Android and iOS app specific CSS rules
+        * LazyLoadTransformer: client side companion of LazyLoadTransform (note the extra *er*
+        here)
+        * CollapseTable: server-side portion/prep for collapsing tables.
+        * FooterTransformer: seems to be more UI than content, requires I18N, too
+      produces:
+        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false
+

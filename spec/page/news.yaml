@@ -1,0 +1,58 @@
+paths:
+  # from routes/feed/news.js
+  /{domain}/v1/page/news:
+    get:
+      tags:
+        - Feed
+      summary: Get current news headlines.
+      description: |
+        Gets content related to the current "In the News" template
+        (for some wikis for now).
+      produces:
+        - application/json
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+      responses:
+        200:
+          description: News content from the a Wikipedia main page
+          schema:
+            $ref: '#/definitions/news'
+        204:
+          description: Empty response (for feed content aggregation requests from RESTBase)
+          schema:
+            $ref: '#/definitions/empty'
+        501:
+          description: Unsupported language
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: get 'In the News' content
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              - story: /.+/
+                links:
+                  - $merge: [ /.+/ ]
+        - title: get "In the News" content for unsupported language (with aggregated=true)
+          request:
+            params:
+              domain: is.wikipedia.org
+            query:
+              aggregated: true
+          response:
+            status: 204
+            body: ''

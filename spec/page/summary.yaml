@@ -1,0 +1,136 @@
+paths:
+  # from routes/page/summary.js
+  /{domain}/v1/page/summary/{title}:
+    get:
+      tags:
+        - Page content
+      summary: Get basic metadata and simplified article introduction.
+      description: |
+        The summary response includes an extract of the first paragraph of the page in plain text
+        and HTML as well as the type of page. This is useful for page previews (fka. Hovercards,
+        aka. Popups) on the web and link previews in the apps.
+
+        Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.1"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+      responses:
+        200:
+          description: The summary for the given page
+          schema:
+            $ref: '#/definitions/summary'
+        404:
+          description: Unknown page title or revision
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get summary for test page
+          request:
+            params:
+              title: San_Francisco
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.1"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              type: standard
+              title: /.+/
+              displaytitle: /.+/
+              namespace:
+                id: /.+/
+                text: /.*/
+              wikibase_item: /.+/
+              titles:
+                canonical: /.+/
+                normalized: /.+/
+                display: /.+/
+              pageid: /.+/
+              thumbnail:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              originalimage:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              lang: /.+/
+              dir: /.+/
+              revision: /.+/
+              tid: /.+/
+              timestamp: /.+/
+              coordinates:
+                lat: /.+/
+                lon: /.+/
+              description: /.+/
+              content_urls:
+                desktop:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
+                mobile:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
+              api_urls:
+                summary: /.+/
+               # mobile_html: /.+/
+                metadata: /.+/
+                references: /.+/
+                media: /.+/
+                edit_html: /.+/
+                talk_page_html: /.+/
+              extract: /.+/
+              extract_html: /.+/
+  /{domain}/v1/page/summary/{title}/{revision}:
+    get:
+      tags:
+        - Page content
+      summary: Get basic metadata and simplified article introduction.
+      description: |
+        The summary response includes an extract of the first paragraph of the page in plain text
+        and HTML as well as the type of page. This is useful for page previews (fka. Hovercards,
+        aka. Popups) on the web and link previews in the apps.
+
+        Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.1"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: The summary for the given page
+          schema:
+            $ref: '#/definitions/summary'
+        404:
+          description: Unknown page title or revision
+          schema:
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false

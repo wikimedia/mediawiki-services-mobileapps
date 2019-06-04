@@ -1,0 +1,77 @@
+paths:
+  # from routes/page/media.js
+  /{domain}/v1/page/media/{title}:
+    get:
+      tags:
+        - Page content
+      summary: Get information on media files used on a page.
+      description: |
+        Gets the media items (images, audio, and video) in the order in which they appear on a
+        given wiki page.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.4"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+      responses:
+        200:
+          description: Gets media items from a wiki page
+          schema:
+            $ref: '#/definitions/media_list'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get media in test page
+          request:
+            params:
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.4"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              revision: /.+/
+              tid: /.+/
+              items:
+                - section_id: /.+/
+                  type: /.+/
+  /{domain}/v1/page/media/{title}/{revision}:
+    get:
+      tags:
+        - Page content
+      summary: Get information on media files used on a page.
+      description: |
+        Gets the media items (images, audio, and video) in the order in which they appear on a
+        given wiki page.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.4"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: Gets media items from a wiki page
+          schema:
+            $ref: '#/definitions/media_list'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false

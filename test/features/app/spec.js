@@ -2,13 +2,17 @@
 
 'use strict';
 
-const preq   = require('preq');
-const assert = require('../../utils/assert.js');
-const server = require('../../utils/server.js');
-const URI    = require('swagger-router').URI;
-const yaml   = require('js-yaml');
-const fs     = require('fs');
+const preq                   = require('preq');
+const refParser              = require('json-schema-ref-parser-sync');
+const assert                 = require('../../utils/assert.js');
+const server                 = require('../../utils/server.js');
+const URI                    = require('swagger-router').URI;
+const yaml                   = require('js-yaml');
+const fs                     = require('fs');
+const specLib                  = require('../../../lib/spec.js');
+const OpenAPISchemaValidator = require('openapi-schema-validator').default;
 
+const validator = new OpenAPISchemaValidator({ version: 2 });
 const dateUtil = require('../../../lib/dateUtil');
 const pad = dateUtil.pad;
 const Ajv    = require('ajv');
@@ -29,16 +33,16 @@ function staticSpecLoad() {
 
     let spec;
     const myService = server.config.conf.services[server.config.conf.services.length - 1].conf;
-    const specPath = `${__dirname}/../../../${myService.spec ? myService.spec : 'spec.yaml'}`;
+    const specPath = `${__dirname}/../../../${myService.spec ? myService.spec : 'spec'}`;
 
-    try {
-        spec = yaml.safeLoad(fs.readFileSync(specPath));
-    } catch (e) {
-        // this error will be detected later, so ignore it
-        spec = { paths: {}, 'x-default-params': {} };
-    }
-
-    return spec;
+    return refParser.dereference(specLib.load(specPath, {}), function (err, schema) {
+        if (err) {
+            // this error will be detected later, so ignore it
+            return { paths: {}, 'x-default-params': {} };
+        } else {
+            return schema;
+        }
+    });
 
 }
 
@@ -253,7 +257,7 @@ describe('Swagger spec', function() {
             assert.status(200);
             assert.contentType(res, 'application/json');
             assert.notDeepEqual(res.body, undefined, 'No body received!');
-            spec = res.body;
+            assert.deepEqual({ errors: [] }, validator.validate(res.body), 'Spec must have no validation errors');
         });
     });
 

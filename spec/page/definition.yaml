@@ -1,0 +1,65 @@
+paths:
+  # from routes/page/definition.js
+  /{domain}/v1/page/definition/{title}:
+    get:
+      tags:
+        - Word definitions (English Wiktionary only)
+      summary: Get Wiktionary definitions for a word.
+      description: Gets definitions for a word parsed from an article in Wiktionary.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+      responses:
+        200:
+          description: Structured definition for the term
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve en-wiktionary definitions for 'cat'
+          request:
+            params:
+              domain: en.wiktionary.org
+              title: cat
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body: /.+/
+  /{domain}/v1/page/definition/{title}/{revision}:
+    get:
+      tags:
+        - Word definitions (English Wiktionary only)
+      summary: Get Wiktionary definitions for a word.
+      description: Gets definitions for a word parsed from an article in Wiktionary.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: Structured definition for the term
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false

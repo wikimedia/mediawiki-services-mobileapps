@@ -1,0 +1,38 @@
+paths:
+  # from routes/feed/announcements.js
+  /{domain}/v1/feed/announcements:
+    get:
+      tags:
+        - Feed
+      summary: Get announcements for the Explore feed in the mobile apps.
+      description: |
+        Gets announcements for display in the official Wikipedia iOS and Android apps.
+        This is usually used to show announcements for surveys or fundraising.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Announcements/0.3.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+      responses:
+        200:
+          description: Announcements for the given Wiki
+          schema:
+            $ref: '#/definitions/announcements'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Retrieve announcements
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Announcements/0.3.0"
+              cache-control: public, max-age=7200, s-maxage=14400
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN

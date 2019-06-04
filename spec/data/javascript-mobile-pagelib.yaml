@@ -1,0 +1,39 @@
+paths:
+  /{domain}/v1/data/javascript/mobile/pagelib:
+    get:
+      tags:
+        - Scripts
+      summary: Get javascript bundle for page library
+      description: |
+        Gets the javascript bundle from the wikimedia-page-library so that clients can have
+        convenient access to that for consuming the mobile-html HTML.
+        Amongst other things,
+        * it allows to detect the platform and through that enable platform specific CSS rules,
+        * has code to lazy load images on the page,
+        * code for collapsing and expanding tables.
+      produces:
+        - text/javascript; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/JavaScript/1.0.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get javascript bundle for page library
+          response:
+            status: 200
+            headers:
+              content-type: text/javascript; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/JavaScript/1.0.0"
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body: /.+/

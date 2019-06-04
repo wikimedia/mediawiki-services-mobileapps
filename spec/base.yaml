@@ -1,0 +1,127 @@
+swagger: '2.0'
+
+info:
+  version: 0.3.0
+  title: WMF MobileApps service
+  description: |
+    (aka Mobile Content Service and Page Content Service).
+    A collection of REST API services supporting Wikimedia Foundation (WMF) Readers products.
+    https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/RESTBase_services_for_apps
+  termsOfService: https://wikimediafoundation.org/wiki/Terms_of_Use
+  contact:
+    name: the Wikimedia Foundation Reading Infrastructure team.
+    url: https://www.mediawiki.org/wiki/Wikimedia_Reading_Infrastructure_team
+  license:
+    name: Apache2
+    url: http://www.apache.org/licenses/LICENSE-2.0
+
+x-default-params:
+  domain: en.wikipedia.org
+
+parameters:
+  domain:
+    in: path
+    name: domain
+    required: true
+    type: string
+    description: |
+      Project domain for the requested data.
+  title:
+    in: path
+    name: title
+    required: true
+    type: string
+    description: |
+      Page title. Use underscores instead of spaces. Example: `Main_Page`
+  year:
+    in: path
+    name: year
+    required: true
+    type: integer
+    description: Four digit year (2016 and later)
+    minimum: 2016
+    maximum: 2999
+  month:
+    in: path
+    name: month
+    required: true
+    type: integer
+    description: Two digit month, 0-padded if necessary (01 - 12)
+    minimum: 01
+    maximum: 31
+  day:
+    in: path
+    name: day
+    required: true
+    type: integer
+    description: Two digit day of the month, 0-padded if necessary (01 - 31)
+    minimum: 01
+    maximum: 31
+
+paths:
+  # from routes/root.js
+  /robots.txt:
+    get:
+      tags:
+        - Root
+      description: Gets robots.txt
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false
+
+  /:
+    get:
+      tags:
+        - Root
+      description: The root service end-point
+      produces:
+        - application/json
+        - application/problem+json
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: spec from root
+          request:
+            query:
+              spec: true
+          response:
+            status: 200
+
+  # from routes/info.js
+  /_info:
+    get:
+      tags:
+        - Root
+      description: Gets information about the service.
+      produces:
+        - application/json
+        - application/problem+json
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve service info
+          request: {}
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              name: /.+/
+              description: /.+/
+              version: /.+/
+              home: /.+/
