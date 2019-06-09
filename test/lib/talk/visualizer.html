@@ -1,0 +1,47 @@
+<html>
+
+<!--
+Allows quick visualization of Talk output:
+  - Topics are outlined in blue
+  - Replies within a Topic are outlined in red
+  - Topic and Reply depths are used to set a left margin
+      (Reminder: Talk endpoint Topic depth corresponds to Wikitext section 'H' tag's number - i.e.
+      'H3' becomes a topic of depth 3, and Reply depth corresponds to nesting depth of the reply.)
+// -->
+
+<script>
+fetch('http://localhost:6927/en.wikipedia.org/v1/page/talk/User_talk:Brion_VIBBER/895522398').then(response => {
+// fetch('http://localhost:6927/en.wikipedia.org/v1/page/talk/User_talk:Montehurd/899425787').then(response => {
+// fetch('http://localhost:6927/fr.wikipedia.org/v1/page/talk/User_talk:Brion_VIBBER/51609364').then(response => {
+  response.json().then(json => {
+    json.topics.forEach(topic => {
+      const topicDiv = document.createElement('div')
+      topicDiv.style.margin = `35px 0px 20px ${30 * (topic.depth - 1)}px`
+      topicDiv.style.padding = '10px'
+      topicDiv.style.border = '3px solid blue'
+      topicDiv.style.backgroundColor = '#ccc'
+      topicDiv.style.borderRadius = '8px'
+
+      const h = document.createElement(`h${topic.depth}`)
+      h.innerHTML = `${topic.html} [${topic.id}]`
+      topicDiv.appendChild(h)
+
+      topic.replies.forEach(item => {
+        const replyDiv = document.createElement('div')
+        replyDiv.style.border = '3px solid red'
+        replyDiv.style.margin = `0px 0px 8px ${30 * item.depth}px`
+        replyDiv.style.padding = '5px'
+        replyDiv.style.borderRadius = '8px'
+        replyDiv.style.backgroundColor = '#fff'
+        replyDiv.innerHTML = item.html
+        topicDiv.appendChild(replyDiv)
+      })
+
+      document.body.appendChild(topicDiv)
+    })
+  })
+})
+</script>
+<body>
+</body>
+</html>

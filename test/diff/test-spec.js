@@ -257,7 +257,11 @@ const TEST_SPECS = [
 
     new TestPageSpec('en.wikipedia.org', 'page/metadata', 'Red_Wing,_Minnesota', '876662662'),
 
-    new TestPageSpec('en.wikipedia.org', 'page/summary', 'Tokyo', '871928272')
+    new TestPageSpec('en.wikipedia.org', 'page/summary', 'Tokyo', '871928272'),
+
+    new TestPageSpec('en.wikipedia.org', 'page/talk', 'User_talk:Brion_VIBBER', '895522398'),
+    new TestPageSpec('en.wikipedia.org', 'page/talk', 'User_talk:Montehurd', '899425787'),
+    new TestPageSpec('fr.wikipedia.org', 'page/talk', 'User_talk:Brion_VIBBER', '51609364')
 ];
 /* eslint-enable max-len */
 

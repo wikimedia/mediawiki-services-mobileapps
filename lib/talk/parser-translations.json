@@ -1,0 +1,4549 @@
+{
+  "languages": [
+    {
+      "code": "aa",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ab",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Алахәыла",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Алахәыла ахцәажәара",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ace",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Ureuëng Ngui",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Marit Ureuëng Ngui",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ady",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "af",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Gebruiker",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Gebruikerbespreking",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ak",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Odwumanyɛni",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Odwumanyɛni nkɔmmɔbea",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "als",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Benutzer",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Benutzer Diskussion",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "am",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "አባል",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "አባል ውይይት",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "an",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usuario",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Descusión usuario",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ang",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Brūcend",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Brūcendmōtung",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ar",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "مستخدم",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "نقاش المستخدم",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "arc",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ܡܦܠܚܢܐ",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ܡܡܠܠܐ ܕܡܦܠܚܢܐ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "arz",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "مستخدم",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "نقاش المستخدم",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "as",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "সদস্য",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "সদস্য বাৰ্তা",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ast",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usuariu",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Usuariu alderique",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "atj",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Ka notcitatc",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Ke ici aimihitonaniwok notcita iriniw",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "av",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Участник",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Обсуждение участника",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ay",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usuario",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Usuario discusión",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "az",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "İstifadəçi",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "İstifadəçi müzakirəsi",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "azb",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ایشلدن",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ایشلدن دانیشیغی",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ba",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Ҡатнашыусы",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Ҡатнашыусы менән һөйләшеү",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bar",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Nutza",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Nutza Dischkrian",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bat-smg",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Nauduotuos",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Nauduotuojė aptarėms",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bcl",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Paragamit",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Olay kan paragamit",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "be",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Удзельнік",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Размовы з удзельнікам",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bg",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Потребител",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Потребител беседа",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bh",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "प्रयोगकर्ता",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "प्रयोगकर्ता वार्ता",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bi",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bjn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Pamakai",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Pamandiran Pamakai",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bm",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilisateur",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utilisateur",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ব্যবহারকারী",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ব্যবহারকারী আলাপ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bpy",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "আতাকুরা",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "আতাকুরার য়্যারী",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "br",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Implijer",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Kaozeadenn Implijer",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bs",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Korisnik",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Razgovor s korisnikom",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bug",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Pengguna",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Pembicaraan Pengguna",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "bxr",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Хэрэглэгшэ",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Хэрэглэгшые хэлэлсэхэ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ca",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usuari",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Usuari Discussió",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "cbk-zam",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usuario",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Usuario discusión",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "cdo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "用戶",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "用戶討論",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ce",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Декъашхо",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Декъашхочун дийцаре",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ceb",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Gumagamit",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Hisgot sa Gumagamit",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ch",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Muna'sesetbi",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Kombetsasion ni muna'sesetbi",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "cho",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "chr",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "chy",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ckb",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "بەکارھێنەر",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "لێدوانی بەکارھێنەر",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "co",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utente",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussioni utente",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "cr",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "crh",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Qullanıcı",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Qullanıcı muzakeresi",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "cs",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Wikipedista",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Diskuse s wikipedistou",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "csb",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Brëkòwnik",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Diskùsëjô brëkòwnika",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "cu",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Польꙃєватєл҄ь",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Польꙃєватєлꙗ бєсѣда",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "cv",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Хутшăнакан",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Хутшăнаканăн канашлу страници",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "cy",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Defnyddiwr",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Sgwrs Defnyddiwr",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "da",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Bruger",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Brugerdiskussion",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "de",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Benutzer",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Benutzer Diskussion",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "din",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Dulooi",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Jam kekë dulooi",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "diq",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Karber",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Karber vaten",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "dsb",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Wužywaŕ",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Diskusija wužywarja",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "dty",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "प्रयोगकर्ता",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "प्रयोगकर्ता कुरणि",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "dv",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "މެމްބަރު",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "މެމްބަރުގެ ވާހަކަ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "dz",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ee",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "el",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Χρήστης",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Συζήτηση χρήστη",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "eml",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utente",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussioni utente",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "en",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "eo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Uzanto",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Uzanto-Diskuto",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "es",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usuario",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Usuario discusión",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "et",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Kasutaja",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Kasutaja arutelu",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "eu",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Lankide",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Lankide eztabaida",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ext",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usuario",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Usuario caraba",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "fa",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "کاربر",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "بحث کاربر",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ff",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilisateur",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utilisateur",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "fi",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Käyttäjä",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Keskustelu käyttäjästä",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "fiu-vro",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Pruukja",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Pruukja arotus",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "fj",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "fo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Brúkari",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Brúkarakjak",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "fr",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilisateur",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utilisateur",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "frp",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilisator",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utilisator",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "frr",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Benutzer",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Benutzer Diskussion",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "fur",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utent",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utent",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "fy",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Meidogger",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Meidogger oerlis",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ga",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Úsáideoir",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Plé úsáideora",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "gag",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Kullanıcı",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Kullanıcı dartışma",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "gan",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "用戶",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "用戶・談詑",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "gd",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Cleachdaiche",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Deasbaireachd a' chleachdaiche",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "gl",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usuario",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Conversa usuario",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "glk",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "کارگير",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "کارگيرˇ گب",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "gn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Puruhára",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Puruhára myangekõi",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "gom",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "वापरपी",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "वापरपी चर्चा",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "gor",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Ta ohu'uwo",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Lo'iya ta ohu'owo",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "got",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "𐌽𐌹𐌿𐍄𐌰𐌽𐌳𐍃",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "𐌽𐌹𐌿𐍄𐌰𐌽𐌳𐌹𐍃 𐌲𐌰𐍅𐌰𐌿𐍂𐌳𐌾𐌰",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "gu",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "સભ્ય",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "સભ્યની ચર્ચા",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "gv",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Ymmydeyr",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Resooney ymmydeyr",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ha",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "hak",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "用戶",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "用戶討論",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "haw",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Mea hoʻohana",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Kūkākūkā o mea hoʻohana",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "he",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "משתמש",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "שיחת משתמש",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "hi",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "सदस्य",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "सदस्य वार्ता",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "hif",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "sadasya",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "sadasya ke baat",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ho",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "hr",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Suradnik",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Razgovor sa suradnikom",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "hsb",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Wužiwar",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Diskusija z wužiwarjom",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ht",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Itilizatè",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Diskisyon Itilizatè",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "hu",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Szerkesztő",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Szerkesztővita",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "hy",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Մասնակից",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Մասնակցի քննարկում",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "hyw",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Մասնակից",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Մասնակցի քննարկում",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "hz",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ia",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usator",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion Usator",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "id",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Pengguna",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Pembicaraan Pengguna",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ie",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usator",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Usator Discussion",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ig",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Ọbanife",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Okwu ọbanife",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ii",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "用户",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "用户讨论",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ik",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ilo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Agar-aramat",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Agar-aramat tungtungan",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "inh",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Доакъашхо",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Доакъашхочун дувцар",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "io",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Uzanto",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Uzanto Debato",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "is",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Notandi",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Notandaspjall",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "it",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utente",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussioni utente",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "iu",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ja",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "利用者",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "利用者‐会話",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "jam",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "jbo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "pilno",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "casnu lo pilno",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "jv",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Panganggo",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Parembugan Panganggo",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ka",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "მომხმარებელი",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "მომხმარებლის განხილვა",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kaa",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Paydalanıwshı",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Paydalanıwshı sa'wbeti",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kab",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Amseqdac",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Amyannan umsqedac",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kbd",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ЦӀыхухэт",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ЦӀыхухэт тепсэлъэхьыгъуэ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kbp",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilisateur",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utilisateur",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kg",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Kisadi",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Disolo kisadi",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ki",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kj",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kk",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Қатысушы",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Қатысушы талқылауы",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kl",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Atuisoq",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Atuisup oqalliffia",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "km",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "អ្នកប្រើប្រាស់",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ការពិភាក្សារបស់អ្នកប្រើប្រាស់",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ಸದಸ್ಯ",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ಸದಸ್ಯರ ಚರ್ಚೆಪುಟ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ko",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "사용자",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "사용자토론",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "koi",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Участник",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Обсуждение участника",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kr",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "krc",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Къошулуучу",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Къошулуучуну сюзюу",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ks",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "رُکُن",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "رُکُن بَحَژ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ksh",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Metmaacher",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Metmaacher Klaaf",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ku",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Bikarhêner",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Gotûbêja bikarhêner",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kv",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Пырысь",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Пырыськӧд сёрнитанiн",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "kw",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Devnydhyer",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Keskows Devnydhyer",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ky",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Колдонуучу",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Колдонуучунун баарлашуулары",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "la",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usor",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Disputatio Usoris",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lad",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usador",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Messaje de Usador",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lb",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Benotzer",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Benotzer Diskussioun",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lbe",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Гьуртту хьума",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Гьуртту хьуминнал ихтилат",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lez",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Уртах",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Уртахдин веревирд авун",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lfn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usor",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Usor Discute",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lg",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "li",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Gebroeker",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Euverlèk gebroeker",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lij",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utente",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discûscioîn ûtente",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lmo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Druvadur",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Ciciarada Druvadur",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ln",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilisateur",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utilisateur",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ຜູ້ໃຊ້",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ສົນທະນາຂອງຜູ້ໃຊ້",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lrc",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "کاریار",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "چأک چئنە کاریار",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lt",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Naudotojas",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Naudotojo aptarimas",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ltg",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Lītuotuojs",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Sprīža ap lītuotuoju",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "lv",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Dalībnieks",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Dalībnieka diskusija",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mai",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "प्रयोगकर्ता",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "प्रयोगकर्ता वार्ता",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "map-bms",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Panganggo",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Parembugan Panganggo",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mdf",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Тиись",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Тиись корхнема",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mg",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Mpikambana",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Dinika amin'ny mpikambana",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mh",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mhr",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Пайдаланыше",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Пайдаланышын каҥашымашыже",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mi",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "min",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Pangguno",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Rundiang Pangguno",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mk",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Корисник",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Разговор со корисник",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ml",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ഉപയോക്താവ്",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ഉപയോക്താവിന്റെ സംവാദം",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Хэрэглэгч",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Хэрэглэгчийн яриа",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mr",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "सदस्य",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "सदस्य चर्चा",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mrj",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Сирӹшӹ",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Сирӹшӹм кӓнгӓшӹмӓш",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ms",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Pengguna",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Perbincangan pengguna",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mt",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utent",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Diskussjoni utent",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mus",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mwl",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Outelizador(a)",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Cumbersa outelizador(a)",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "my",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "myv",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Теиця",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Теицянь кортамось",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "mzn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "کارور",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "کارور گپ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "na",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "nah",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Tlatequitiltilīlli",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Tlatequitiltilīlli tēixnāmiquiliztli",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "nap",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utente",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Utente chiàcchiera",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "nds",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Bruker",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Bruker Diskuschoon",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "nds-nl",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Gebruker",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Overleg gebruker",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ne",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "प्रयोगकर्ता",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "प्रयोगकर्ता वार्ता",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "new",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "छ्येलेमि",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "छ्येलेमि खँलाबँला",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ng",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "nl",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Gebruiker",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Overleg gebruiker",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "nn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Brukar",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Brukardiskusjon",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "no",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Bruker",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Brukerdiskusjon",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "nov",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "nrm",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilisateur",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utilisateur",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "nso",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Mošomi",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Boledišana le Mošomi",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "nv",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Choyoołʼįįhí",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Choyoołʼįįhí bichʼįʼ yáshtiʼ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ny",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "oc",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilizaire",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion Utilizaire",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "olo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Käyttäi",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Käyttäi pagin",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "om",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "or",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ବ୍ୟବହାରକାରୀ",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ବ୍ୟବହାରକାରୀଙ୍କ ଆଲୋଚନା",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "os",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Архайæг",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Архайæджы ныхас",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pa",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ਵਰਤੋਂਕਾਰ",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ਵਰਤੋਂਕਾਰ ਗੱਲ-ਬਾਤ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pag",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pam",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pap",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pcd",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilisateur",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utilisateur",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pdc",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Yuuser",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Yuuser Dischbedutt",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pfl",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Middawaida",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Middawaida Dischbediere",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pi",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "अवयव",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "अवयव सम्भासित",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pih",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pl",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Wikipedysta",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Dyskusja wikipedysty",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pms",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utent",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Ciaciarade",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pnb",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ورتنوالا",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ورتن گل بات",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pnt",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Χρήστες",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Καλάτσεμαν χρήστε",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ps",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "کارن",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "د کارن خبرې اترې",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "pt",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usuário(a)",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Usuário(a) Discussão",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "qu",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Ruraq",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Ruraq rimanakuy",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "rm",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilisader",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Utilisader discussiun",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "rmy",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Jeno",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Jeno vakyarimata",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "rn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ro",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilizator",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discuție Utilizator",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "roa-rup",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilizator",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discuție Utilizator",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "roa-tara",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utente",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussioni utente",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ru",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Участник",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Обсуждение участника",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "rue",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Хоснователь",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Діскузія з хоснователём",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "rw",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sa",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "सदस्यः",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "सदस्यसम्भाषणम्",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sah",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Кыттааччы",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Кыттааччы ырытыыта",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sat",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ᱵᱮᱵᱷᱟᱨᱤᱭᱟᱹ",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ᱵᱮᱵᱷᱟᱨᱤᱭᱟᱹ ᱜᱟᱞᱢᱟᱨᱟᱣ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sc",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Usuàriu",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Cuntierra usuàriu",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "scn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utenti",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussioni utenti",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sco",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Uiser",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Uiser collogue",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sd",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "واپرائيندڙ",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "واپرائيندڙ بحث",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "se",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Geavaheaddji",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Geavaheaddjeságastallan",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sg",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilisateur",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utilisateur",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sh",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Korisnik",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Razgovor sa korisnikom",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "shn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ၽူႈၸႂ်ႉတိုဝ်း",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ဢုပ်ႇၵုမ် ၽူႈၸႂ်ႉတိုဝ်း",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "si",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "පරිශීලක",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "පරිශීලක සාකච්ඡාව",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "simple",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sk",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Redaktor",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Diskusia s redaktorom",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sl",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Uporabnik",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Uporabniški pogovor",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sm",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "so",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sq",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Përdoruesi",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Përdoruesi diskutim",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sr",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Корисник",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Разговор са корисником",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "srn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Masyin",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Taki fu masyin",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ss",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "st",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "stq",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Benutser",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Benutser Diskussion",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "su",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Pamaké",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Obrolan pamaké",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sv",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Användare",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Användardiskussion",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "sw",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Mtumiaji",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Majadiliano ya mtumiaji",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "szl",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Używacz",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Dyskusyjo używacza",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ta",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "பயனர்",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "பயனர் பேச்சு",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tcy",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ಬಳಕೆದಾರೆ",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ಬಳಕೆದಾರೆ ಪಾತೆರ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "te",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "వాడుకరి",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "వాడుకరి చర్చ",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tet",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Uza-na'in",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Diskusaun Uza-na'in",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tg",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Корбар",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Баҳси корбар",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "th",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ผู้ใช้",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "คุยกับผู้ใช้",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ti",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tk",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Ulanyjy",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Ulanyjy çekişme",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tl",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Tagagamit",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Usapang tagagamit",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tn",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "to",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tpi",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Yusa",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Toktok bilong yusa",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tr",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Kullanıcı",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Kullanıcı mesaj",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ts",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tt",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Кулланучы",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Кулланучы бәхәсе",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tum",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tw",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ty",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utilisateur",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utilisateur",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "tyv",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Aжыглакчы",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Aжыглакчы чугаа",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "udm",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Викиавтор",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Викиавтор сярысь вераськон",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ug",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "ئىشلەتكۈچى",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "ئىشلەتكۈچى مۇنازىرىسى",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "uk",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Користувач",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Обговорення користувача",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ur",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "صارف",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "تبادلۂ خیال صارف",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "uz",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Foydalanuvchi",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Foydalanuvchi munozarasi",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "ve",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "vec",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Utente",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discussion utente",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "vep",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Kävutai",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Lodu kävutajas",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "vi",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Thành viên",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Thảo luận Thành viên",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "vls",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Gebruker",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Discuusje gebruker",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "vo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Geban",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Gebanibespik",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "wa",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Uzeu",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Uzeu copene",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "war",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Gumaramit",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Hiruhimangaw hiton gumaramit",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "wo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Jëfandikukat",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Waxtaani jëfandikukat",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "wuu",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "xal",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Демнч",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Демнчна туск меткән",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "xh",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "xmf",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "მომხმარებელი",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "მომხმარებლის განხილვა",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "yi",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "באַניצער",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "באַניצער רעדן",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "yo",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Oníṣe",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Ọ̀rọ̀ oníṣe",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "za",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "用户",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "用户讨论",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "zea",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Gebruker",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Overleg gebruker",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "zh",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "zh-classical",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "用戶",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "用戶討論",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "zh-min-nan",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "Iōng-chiá",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "Iōng-chiá thó-lūn",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "zh-yue",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    },
+    {
+      "code": "zu",
+      "translations": [
+        {
+          "namespace": 2,
+          "name": "User",
+          "canonical": "User"
+        },
+        {
+          "namespace": 3,
+          "name": "User talk",
+          "canonical": "User talk"
+        }
+      ]
+    }
+  ]
+}
