@@ -17,6 +17,8 @@
   - .hide-when-compact
   - div.infobox
   - div.magnify
+  - sup.mw-ref
+  - .noprint
 - rmBracketSpans
 - rmComments
 - rmAttributes:

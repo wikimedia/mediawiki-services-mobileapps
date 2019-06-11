@@ -164,4 +164,13 @@ describe('summary', function() {
             assert.notContains(JSON.stringify(summary), '—');
         });
     });
+
+    it('Stray leading citation and template are stripped before parsing intro (T225474)', () => {
+        const uri = localUri('Financial_statement/891354485');
+        return preq.get(uri)
+        .then((res) => {
+            assert.ok(res.body.extract.length);
+            assert.ok(res.body.extract_html.length);
+        });
+    });
 });

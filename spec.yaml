@@ -996,7 +996,7 @@ paths:
 
         Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.0"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.1"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
@@ -1022,7 +1022,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.0"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.1"
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
@@ -1094,7 +1094,7 @@ paths:
 
         Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.0"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.1"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
