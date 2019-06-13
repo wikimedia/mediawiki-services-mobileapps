@@ -2453,12 +2453,24 @@ definitions:
         description: URL for the pertinent license
       description:
         $ref: '#/definitions/extmetadata_property'
+      wb_entity_id:
+        type: string
+        description: Commons Wikibase ID, if the file is on Wikimedia Commons
+      structured:
+        type: object
+        description: structured image metadata from SDC
+        properties:
+          captions:
+            type: object
+            description: caption (label) values by language
+        required: [captions]
     required:
       - titles
       - file_page
       - type
       - thumbnail
       - license
+      - structured
 
   action:
     type: object
