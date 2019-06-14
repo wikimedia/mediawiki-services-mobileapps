@@ -451,6 +451,7 @@ paths:
                 html: /.+/
                 text: /.+/
               file_page: /.+/
+              wb_entity_id: /.+/
               structured:
                 captions: /.+/
               thumbnail:
@@ -1985,11 +1986,20 @@ definitions:
       wb_entity_id:
         type: string
         description: Commons Wikibase ID, if the file is on Wikimedia Commons
+      structured:
+        type: object
+        description: structured image metadata from Structured Data on Commons (SDC)
+        properties:
+          captions:
+            type: object
+            description: caption (label) values by language
+        required: [captions]
     required:
       - title
       - thumbnail
       - image
       - license
+      - structured
 
   announcements:
     type: object
