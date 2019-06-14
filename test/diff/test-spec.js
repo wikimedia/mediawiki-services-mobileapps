@@ -248,6 +248,7 @@ const TEST_SPECS = [
     new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'),
 
     new TestPageSpec('en.wikipedia.org', 'page/media', 'Hummingbird', '810247947'),
+    new TestPageSpec('en.wikipedia.org', 'page/media-list', 'Hummingbird', '810247947'),
 
     new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/SimpleReference', '2640831'),
     new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/MultipleReflists', '2640615'),

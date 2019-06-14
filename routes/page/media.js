@@ -12,8 +12,27 @@ const router = sUtil.router();
 let app;
 
 /**
+ * GET {domain}/v1/page/media-list/{title}{/revision}{/tid}
+ * Returns the non-UI media files used on the given page.
+ */
+router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
+    return parsoid.getParsoidHtml(app, req).then((html) => {
+        const revTid = parsoid.getRevAndTidFromEtag(html.headers);
+        const pageMediaList = lib.getMediaItemInfoFromPage(html.body);
+        mUtil.setETag(res, revTid.revision, revTid.tid);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mediaList);
+        mUtil.setLanguageHeaders(res, html.headers);
+        res.send({
+            revision: revTid.revision,
+            tid: revTid.tid,
+            items: pageMediaList
+        });
+    });
+});
+
+/**
  * GET {domain}/v1/page/media/{title}{/revision}{/tid}
- * Gets the media items associated with the given page.
+ * Gets extended metadata on the media files associated with the given page.
  */
 router.get('/media/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.join(

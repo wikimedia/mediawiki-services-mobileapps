@@ -1,6 +1,6 @@
 paths:
   # from routes/page/media.js
-  /{domain}/v1/page/media/{title}:
+  /{domain}/v1/page/media-list/{title}:
     get:
       tags:
         - Page content
@@ -9,29 +9,29 @@ paths:
         Gets the media items (images, audio, and video) in the order in which they appear on a
         given wiki page.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.4"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/MediaList/1.0.0"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
         - $ref: '#/parameters/title'
       responses:
         200:
-          description: Gets media items from a wiki page
+          description: Gets media list from a wiki page
           schema:
-            $ref: '#/definitions/media_list_with_metadata'
+            $ref: '#/definitions/media_list'
         default:
           description: Error
           schema:
             $ref: '#/definitions/problem'
       x-amples:
-        - title: Get media in test page
+        - title: Get media list from test page
           request:
             params:
               title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.4"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/MediaList/1.0.0"
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
@@ -46,7 +46,8 @@ paths:
               items:
                 - section_id: /.+/
                   type: /.+/
-  /{domain}/v1/page/media/{title}/{revision}:
+                  showInGallery: /.+/
+  /{domain}/v1/page/media-list/{title}/{revision}:
     get:
       tags:
         - Page content
@@ -55,7 +56,7 @@ paths:
         Gets the media items (images, audio, and video) in the order in which they appear on a
         given wiki page.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.4"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/MediaList/1.0.0"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
@@ -67,9 +68,9 @@ paths:
           description: Revision ID
       responses:
         200:
-          description: Gets media items from a wiki page
+          description: Gets media list from a wiki page
           schema:
-            $ref: '#/definitions/media_list_with_metadata'
+            $ref: '#/definitions/media_list'
         default:
           description: Error
           schema:
