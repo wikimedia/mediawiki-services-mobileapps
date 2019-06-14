@@ -1562,6 +1562,80 @@ paths:
               x-frame-options: SAMEORIGIN
             body: /.+/
 
+  /{domain}/v1/page/talk/{title}:
+    get:
+      tags:
+        - Talk pages
+      summary: Get structured talk page contents
+      description: Gets structured talk page contents for the provided title.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get structured talk page for enwiki Salt article
+          request:
+            params:
+              title: Salt
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.0"
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              topics:
+                - id: /.+/
+                  replies:
+                    - sha: /.+/
+                      depth: /.+/
+                      html: /.*/
+                  depth: /.+/
+                  html: /.*/
+                  shas:
+                    html: /.+/
+                    indicator: /.+/
+
+  /{domain}/v1/page/talk/{title}/{revision}:
+    get:
+      tags:
+        - Talk pages
+      summary: Get structured talk page contents
+      description: Gets structured talk page contents for the provided title.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false
+
 definitions:
   # A https://tools.ietf.org/html/draft-nottingham-http-problem
   problem:
@@ -2572,4 +2646,49 @@ definitions:
       - references
       - media
       - edit_html
+    additionalProperties: false
+
+  talk_reply:
+    type: object
+    properties:
+      sha:
+        type: string
+        description: SHA digest of reply HTML
+      depth:
+        type: integer
+        description: depth level of reply
+      html:
+        type: string
+        description: the reply HTML
+    required: [sha, depth, html]
+    additionalProperties: false
+
+  talk_topic:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: topic ID
+      replies:
+        type: array
+        description: replies to the topic
+        items:
+          $ref: '#/definitions/talk_reply'
+      depth:
+        type: integer
+        description: depth level of topic
+      html:
+        type: string
+        description: topic HTML
+      shas:
+        type: object
+        properties:
+          html:
+            type: string
+            description: SHA digest of topic HTML
+          indicator:
+            type: string
+        required: [html, indicator]
+        additionalProperties: false
+    required: [id, replies, depth, html, shas]
     additionalProperties: false
