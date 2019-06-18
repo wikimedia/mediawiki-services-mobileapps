@@ -411,4 +411,174 @@ describe('lib:talk', () => {
         assert.equal(doc.innerHTML, '<html><head></head><body><br><div><br><br><span><br><b><br><img></b></span></div></body></html>');
       });
     });
+    describe('parseUserTalkPageDocIntoTopicsWithReplies', () => {
+      it('two h2 topics return first topic ID 1', () => {
+        const doc = domino.createDocument(`
+          <section data-mw-section-id="0" id="mwAQ"></section>
+          <section data-mw-section-id="1" id="mwAg">
+            <h2 id="new_topic">new topic</h2>
+            <p id="mwAw">
+              Test <a rel="mw:WikiLink" href="./User:TSevener_(WMF)" title="User:TSevener (WMF)" id="mwBA">TSevener (WMF)</a> (<a rel="mw:WikiLink" href="./User_talk:TSevener_(WMF)" title="User talk:TSevener (WMF)" id="mwBQ">talk</a>) 16:09, 17 June 2019 (UTC)
+            </p>
+          </section>
+          <section data-mw-section-id="2" id="mwBg">
+            <h2 id="new_topic_2">new topic 2</h2>
+              <p id="mwBw">
+                Test <a rel="mw:WikiLink" href="./User:TSevener_(WMF)" title="User:TSevener (WMF)" id="mwCA">TSevener (WMF)</a> (<a rel="mw:WikiLink" href="./User_talk:TSevener_(WMF)" title="User talk:TSevener (WMF)" id="mwCQ">talk</a>) 16:09, 17 June 2019 (UTC)
+              </p>
+            </section>
+        `);
+        const topics = talk.parseUserTalkPageDocIntoTopicsWithReplies(doc, 'en').topics;
+        assert.equal(topics.length, 2);
+        assert.equal(topics[0].id, 1);
+        assert.equal(topics[0].html, 'new topic');
+        assert.equal(topics[0].replies.length, 1);
+        assert.equal(topics[1].id, 2);
+        assert.equal(topics[1].html, 'new topic 2');
+        assert.equal(topics[1].replies.length, 1);
+      });
+      it('text before first h2 returns separate topic ID 0', () => {
+        const doc = domino.createDocument(`
+          <section data-mw-section-id="0" id="mwAQ">
+            <p id="mwAg">Hello</p>
+          </section>
+          <section data-mw-section-id="1" id="mwAg">
+            <h2 id="new_topic">new topic</h2>
+            <p id="mwAw">
+              Test <a rel="mw:WikiLink" href="./User:TSevener_(WMF)" title="User:TSevener (WMF)" id="mwBA">TSevener (WMF)</a> (<a rel="mw:WikiLink" href="./User_talk:TSevener_(WMF)" title="User talk:TSevener (WMF)" id="mwBQ">talk</a>) 16:09, 17 June 2019 (UTC)
+            </p>
+          </section>
+          <section data-mw-section-id="2" id="mwBg">
+            <h2 id="new_topic_2">new topic 2</h2>
+            <p id="mwBw">
+              Test <a rel="mw:WikiLink" href="./User:TSevener_(WMF)" title="User:TSevener (WMF)" id="mwCA">TSevener (WMF)</a> (<a rel="mw:WikiLink" href="./User_talk:TSevener_(WMF)" title="User talk:TSevener (WMF)" id="mwCQ">talk</a>) 16:09, 17 June 2019 (UTC)
+            </p>
+          </section>
+        `);
+        const topics = talk.parseUserTalkPageDocIntoTopicsWithReplies(doc, 'en').topics;
+        assert.equal(topics.length, 3);
+        assert.equal(topics[0].id, 0);
+        assert.equal(topics[0].html, '');
+        assert.equal(topics[0].replies.length, 1);
+        assert.equal(topics[0].replies[0].html, 'Hello');
+        assert.equal(topics[1].id, 1);
+        assert.equal(topics[1].html, 'new topic');
+        assert.equal(topics[1].replies.length, 1);
+        assert.equal(topics[2].id, 2);
+        assert.equal(topics[2].html, 'new topic 2');
+        assert.equal(topics[2].replies.length, 1);
+      });
+      it('h3 section is given it\'s own topic', () => {
+        const doc = domino.createDocument(`
+          <section data-mw-section-id="0" id="mwAQ">
+            <p id="mwAg">Hello</p>
+          </section>
+          <section data-mw-section-id="1" id="mwAg">
+            <h2 id="new_topic">new topic</h2>
+            <p id="mwAw">
+              Test <a rel="mw:WikiLink" href="./User:TSevener_(WMF)" title="User:TSevener (WMF)" id="mwBA">TSevener (WMF)</a> (<a rel="mw:WikiLink" href="./User_talk:TSevener_(WMF)" title="User talk:TSevener (WMF)" id="mwBQ">talk</a>) 16:09, 17 June 2019 (UTC)
+            </p>
+            <section data-mw-section-id="2" id="mwBw">
+              <h3 id="Subtopic_test">Subtopic test</h3>
+              <p id="mwCA">
+                Testing subtopic here
+                <a rel="mw:WikiLink" href="./User:TSevener_(WMF)" title="User:TSevener (WMF)" id="mwCQ">TSevener (WMF)</a> (<a rel="mw:WikiLink" href="./User_talk:TSevener_(WMF)" title="User talk:TSevener (WMF)" id="mwCg">talk</a>) 16:09, 17 June 2019 (UTC)
+              </p>
+              </section>
+          </section>
+          <section data-mw-section-id="3" id="mwBg">
+            <h2 id="new_topic_2">new topic 2</h2>
+            <p id="mwBw">
+              Test <a rel="mw:WikiLink" href="./User:TSevener_(WMF)" title="User:TSevener (WMF)" id="mwCA">TSevener (WMF)</a> (<a rel="mw:WikiLink" href="./User_talk:TSevener_(WMF)" title="User talk:TSevener (WMF)" id="mwCQ">talk</a>) 16:09, 17 June 2019 (UTC)
+            </p>
+          </section>
+        `);
+        const topics = talk.parseUserTalkPageDocIntoTopicsWithReplies(doc, 'en').topics;
+        assert.equal(topics.length, 4);
+        assert.equal(topics[0].id, 0);
+        assert.equal(topics[0].html, '');
+        assert.equal(topics[0].replies.length, 1);
+        assert.equal(topics[0].replies[0].html, 'Hello');
+        assert.equal(topics[1].id, 1);
+        assert.equal(topics[1].html, 'new topic');
+        assert.equal(topics[1].replies.length, 1);
+        assert.equal(topics[2].id, 2);
+        assert.equal(topics[2].html, 'Subtopic test');
+        assert.equal(topics[2].replies.length, 1);
+        assert.equal(topics[3].id, 3);
+        assert.equal(topics[3].html, 'new topic 2');
+        assert.equal(topics[3].replies.length, 1);
+      });
+      it('empty h2 with title returns separate topic', () => {
+        const doc = domino.createDocument(`
+          <section data-mw-section-id="0" id="mwAQ">
+            <p id="mwAg">Hello</p>
+          </section>
+          <section data-mw-section-id="1" id="mwAw">
+            <h2 id="new_topic">new topic</h2>
+            <p id="mwBA">
+              Test <a rel="mw:WikiLink" href="./User:TSevener_(WMF)" title="User:TSevener (WMF)" id="mwBQ">TSevener (WMF)</a> (<a rel="mw:WikiLink" href="./User_talk:TSevener_(WMF)" title="User talk:TSevener (WMF)" id="mwBg">talk</a>) 16:09, 17 June 2019 (UTC)
+            </p>
+          </section>
+          <section data-mw-section-id="2" id="mwBw">
+            <h2 id="No_replies_topic">No replies topic</h2>
+          </section>
+          <section data-mw-section-id="3" id="mwCg">
+            <h2 id="new_topic_2">new topic 2</h2>
+            <p id="mwCw">
+              Test <a rel="mw:WikiLink" href="./User:TSevener_(WMF)" title="User:TSevener (WMF)" id="mwDA">TSevener (WMF)</a> (<a rel="mw:WikiLink" href="./User_talk:TSevener_(WMF)" title="User talk:TSevener (WMF)" id="mwDQ">talk</a>) 16:09, 17 June 2019 (UTC)
+            </p>
+          </section>
+        `);
+        const topics = talk.parseUserTalkPageDocIntoTopicsWithReplies(doc, 'en').topics;
+        assert.equal(topics.length, 4);
+        assert.equal(topics[0].id, 0);
+        assert.equal(topics[0].html, '');
+        assert.equal(topics[0].replies.length, 1);
+        assert.equal(topics[0].replies[0].html, 'Hello');
+        assert.equal(topics[1].id, 1);
+        assert.equal(topics[1].html, 'new topic');
+        assert.equal(topics[1].replies.length, 1);
+        assert.equal(topics[2].id, 2);
+        assert.equal(topics[2].html, 'No replies topic');
+        assert.equal(topics[2].replies.length, 0);
+        assert.equal(topics[3].id, 3);
+        assert.equal(topics[3].html, 'new topic 2');
+        assert.equal(topics[3].replies.length, 1);
+      });
+      it('empty h2 without title is filtered out', () => {
+        const doc = domino.createDocument(`
+          <section data-mw-section-id="0" id="mwAQ">
+            <p id="mwAg">Hello</p>
+          </section>
+          <section data-mw-section-id="1" id="mwAw">
+            <h2 id="new_topic">new topic</h2>
+            <p id="mwBA">
+              Test <a rel="mw:WikiLink" href="./User:TSevener_(WMF)" title="User:TSevener (WMF)" id="mwBQ">TSevener (WMF)</a> (<a rel="mw:WikiLink" href="./User_talk:TSevener_(WMF)" title="User talk:TSevener (WMF)" id="mwBg">talk</a>) 16:09, 17 June 2019 (UTC)
+            </p>
+          </section>
+          <section data-mw-section-id="2" id="mwBw">
+            <h2 id="mwCA"></h2>
+          </section>
+          <section data-mw-section-id="3" id="mwCQ">
+            <h2 id="new_topic_2">new topic 2</h2>
+            <p id="mwCg">
+              Test <a rel="mw:WikiLink" href="./User:TSevener_(WMF)" title="User:TSevener (WMF)" id="mwCw">TSevener (WMF)</a> (<a rel="mw:WikiLink" href="./User_talk:TSevener_(WMF)" title="User talk:TSevener (WMF)" id="mwDA">talk</a>) 16:09, 17 June 2019 (UTC)
+            </p>
+          </section>
+        `);
+        const topics = talk.parseUserTalkPageDocIntoTopicsWithReplies(doc, 'en').topics;
+        assert.equal(topics.length, 3);
+        assert.equal(topics[0].id, 0);
+        assert.equal(topics[0].html, '');
+        assert.equal(topics[0].replies.length, 1);
+        assert.equal(topics[0].replies[0].html, 'Hello');
+        assert.equal(topics[1].id, 1);
+        assert.equal(topics[1].html, 'new topic');
+        assert.equal(topics[1].replies.length, 1);
+        assert.equal(topics[2].id, 3);
+        assert.equal(topics[2].html, 'new topic 2');
+        assert.equal(topics[2].replies.length, 1);
+      });
+    });
 });
