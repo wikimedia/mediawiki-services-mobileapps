@@ -94,6 +94,128 @@
         "html": "Slow motion video of hummingbirds feeding",
         "text": "Slow motion video of hummingbirds feeding"
       },
+      "sources": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Hummingbird_feeding_closeup_2000fps.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "Original WebM file, 864 × 480 (955 kbps)",
+          "short_name": "WebM source",
+          "width": "864",
+          "height": "480"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.120p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "Lowest bandwidth VP9 (120P)",
+          "short_name": "VP9 120P",
+          "width": "214",
+          "height": "118"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.160p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "Low bandwidth WebM (160P)",
+          "short_name": "WebM 160P",
+          "width": "288",
+          "height": "160"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.180p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "Low bandwidth VP9 (180P)",
+          "short_name": "VP9 180P",
+          "width": "320",
+          "height": "178"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "Small VP9 (240P)",
+          "short_name": "VP9 240P",
+          "width": "426",
+          "height": "236"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "Small WebM (240P)",
+          "short_name": "WebM 240P",
+          "width": "426",
+          "height": "236"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "VP9 (360P)",
+          "short_name": "VP9 360P",
+          "width": "640",
+          "height": "356"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "WebM (360P)",
+          "short_name": "WebM 360P",
+          "width": "640",
+          "height": "356"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "SD VP9 (480P)",
+          "short_name": "VP9 480P",
+          "width": "854",
+          "height": "474"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "SD WebM (480P)",
+          "short_name": "WebM 480P",
+          "width": "854",
+          "height": "474"
+        }
+      ],
       "showInGallery": true
     },
     {
@@ -124,6 +246,128 @@
         "html": "Hummingbird in <a rel=\"mw:WikiLink\" href=\"./Copiapó,_Chile\" title=\"Copiapó, Chile\" id=\"mw_id\" class=\"mw-redirect\">Copiapó, Chile</a>: The apparent slow movement of its wings is a result of the <a rel=\"mw:WikiLink\" href=\"./Stroboscopic_effect\" title=\"Stroboscopic effect\" id=\"mw_id\">stroboscopic effect</a>.",
         "text": "Hummingbird in Copiapó, Chile: The apparent slow movement of its wings is a result of the stroboscopic effect."
       },
+      "sources": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Hummingbird.ogv",
+          "mime": "video/ogg",
+          "codecs": [
+            "theora",
+            "vorbis"
+          ],
+          "name": "Original Ogg file, 854 × 480 (2.55 Mbps)",
+          "short_name": "Ogg source",
+          "width": "854",
+          "height": "480"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.120p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "Lowest bandwidth VP9 (120P)",
+          "short_name": "VP9 120P",
+          "width": "214",
+          "height": "120"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.160p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "Low bandwidth WebM (160P)",
+          "short_name": "WebM 160P",
+          "width": "284",
+          "height": "160"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.180p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "Low bandwidth VP9 (180P)",
+          "short_name": "VP9 180P",
+          "width": "320",
+          "height": "180"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "Small VP9 (240P)",
+          "short_name": "VP9 240P",
+          "width": "426",
+          "height": "240"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "Small WebM (240P)",
+          "short_name": "WebM 240P",
+          "width": "426",
+          "height": "240"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "VP9 (360P)",
+          "short_name": "VP9 360P",
+          "width": "640",
+          "height": "360"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "WebM (360P)",
+          "short_name": "WebM 360P",
+          "width": "640",
+          "height": "360"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "SD VP9 (480P)",
+          "short_name": "VP9 480P",
+          "width": "854",
+          "height": "480"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "SD WebM (480P)",
+          "short_name": "WebM 480P",
+          "width": "854",
+          "height": "480"
+        }
+      ],
       "showInGallery": true
     },
     {
@@ -171,6 +415,128 @@
       "section_id": 30,
       "type": "video",
       "gallery_id": "mwAlY",
+      "sources": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Humming_birds_feeding_at_1500fps.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "Original WebM file, 864 × 480 (1.03 Mbps)",
+          "short_name": "WebM source",
+          "width": "864",
+          "height": "480"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.120p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "Lowest bandwidth VP9 (120P)",
+          "short_name": "VP9 120P",
+          "width": "214",
+          "height": "118"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.160p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "Low bandwidth WebM (160P)",
+          "short_name": "WebM 160P",
+          "width": "288",
+          "height": "160"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.180p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "Low bandwidth VP9 (180P)",
+          "short_name": "VP9 180P",
+          "width": "320",
+          "height": "178"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "Small VP9 (240P)",
+          "short_name": "VP9 240P",
+          "width": "426",
+          "height": "236"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "Small WebM (240P)",
+          "short_name": "WebM 240P",
+          "width": "426",
+          "height": "236"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "VP9 (360P)",
+          "short_name": "VP9 360P",
+          "width": "640",
+          "height": "356"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "WebM (360P)",
+          "short_name": "WebM 360P",
+          "width": "640",
+          "height": "356"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.vp9.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp9",
+            "opus"
+          ],
+          "name": "SD VP9 (480P)",
+          "short_name": "VP9 480P",
+          "width": "854",
+          "height": "474"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.webm",
+          "mime": "video/webm",
+          "codecs": [
+            "vp8",
+            "vorbis"
+          ],
+          "name": "SD WebM (480P)",
+          "short_name": "WebM 480P",
+          "width": "854",
+          "height": "474"
+        }
+      ],
       "showInGallery": true
     },
     {
