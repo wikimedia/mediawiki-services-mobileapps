@@ -28,7 +28,8 @@ git pull;
 if echo -e "${flist}" | grep -i package.json > /dev/null; then
     # package.json has been changed, need to rebuild the modules
     rm -rf node_modules;
-    npm install;
+    #npm install;
+    /home/ppchelko/.nvm/versions/node/v6.17.1/bin/npm install;
 fi
 
 # now, restart the service
