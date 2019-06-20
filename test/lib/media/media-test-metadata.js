@@ -152,7 +152,7 @@ describe('lib:media metadata is correctly parsed from HTML', () => {
     });
 
     it('items without imageinfo properties (e.g., deleted items) are filtered', () => {
-        assert.deepEqual(makeResults([1], undefined, [ { id: 1 } ]), []);
+        assert.deepEqual(makeResults([1], undefined, [ { id: 1 } ]), {});
     });
 });
 
