@@ -30,7 +30,7 @@ let app;
  * seems to consistently produce a really "good" result.
  */
 router.get('/random/title', (req, res) => {
-    return randomPage.promise(app, req)
+    return randomPage.promise(req)
     .then((result) => {
         res.status(200);
         mUtil.setETag(res, result.meta.etag);

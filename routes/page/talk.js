@@ -13,7 +13,7 @@ let app;
  * Gets talk page info.
  */
 router.get('/talk/:title/:revision?/:tid?', (req, res) => {
-    return parsoidApi.getParsoidHtml(app, req)
+    return parsoidApi.getParsoidHtml(req)
     .then(parsoidRsp => mUtil.createDocument(parsoidRsp.body)
     .then((doc) => {
         const lang = req.params.domain.split('.')[0];

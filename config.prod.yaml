@@ -62,6 +62,9 @@ services:
       # the user agent to use when issuing requests
       user_agent: WMF Mobile Content Service
       # the template used for contacting the MW API
+      #
+      # Max JSON POST body size limit.
+      # max_body_size: 100kb
       mwapi_req:
         method: post
         uri: http://api.svc.eqiad.wmnet/w/api.php
@@ -78,5 +81,3 @@ services:
         headers: '{{request.headers}}'
         body: '{{request.body}}'
         timeout: 60000 # 60 * 1000
-      # whether to print extra debug info
-      debug: false

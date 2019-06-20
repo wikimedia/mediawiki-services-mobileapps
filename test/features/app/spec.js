@@ -1,4 +1,4 @@
-/* global describe, it, before, after */
+/* eslint-disable no-multiple-empty-lines */
 
 'use strict';
 
@@ -31,7 +31,6 @@ if (!server.stopHookAdded) {
 
 function staticSpecLoad() {
 
-    let spec;
     const myService = server.config.conf.services[server.config.conf.services.length - 1].conf;
     const specPath = `${__dirname}/../../../${myService.spec ? myService.spec : 'spec'}`;
 
@@ -81,6 +80,7 @@ function validateExamples(pathStr, defParams, mSpec) {
 
 }
 
+
 function constructTestCase(title, path, method, request, response) {
 
     return {
@@ -101,6 +101,7 @@ function constructTestCase(title, path, method, request, response) {
     };
 
 }
+
 
 function constructTests(paths, defParams) {
 
@@ -139,6 +140,7 @@ function constructTests(paths, defParams) {
     return ret;
 
 }
+
 
 function cmp(result, expected, errMsg) {
 
@@ -196,6 +198,7 @@ function cmp(result, expected, errMsg) {
 
 }
 
+
 function validateTestResponse(testCase, res) {
 
     const expRes = testCase.response;
@@ -238,6 +241,7 @@ function validateTestResponse(testCase, res) {
 
 }
 
+
 describe('Swagger spec', function() {
 
     // the variable holding the spec
@@ -258,6 +262,7 @@ describe('Swagger spec', function() {
             assert.contentType(res, 'application/json');
             assert.notDeepEqual(res.body, undefined, 'No body received!');
             assert.deepEqual({ errors: [] }, validator.validate(res.body), 'Spec must have no validation errors');
+            spec = res.body;
         });
     });
 
@@ -442,5 +447,4 @@ describe('Swagger spec', function() {
         });
 
     });
-
 });

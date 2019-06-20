@@ -1,4 +1,7 @@
+/* eslint-disable no-multiple-empty-lines */
+
 'use strict';
+
 
 const BBPromise = require('bluebird');
 const ServiceRunner = require('service-runner');
@@ -8,6 +11,7 @@ const assert = require('./assert');
 const yaml = require('js-yaml');
 const extend = require('extend');
 const sepia = require('sepia');
+
 
 // set up the configuration
 let config = {
@@ -36,9 +40,7 @@ sepia.filter({
     forceLive: true
 });
 
-module.exports.stop = () => {
-    return BBPromise.resolve();
-};
+module.exports.stop = () => { return BBPromise.resolve(); };
 let options = null;
 const runner = new ServiceRunner();
 

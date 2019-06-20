@@ -16,7 +16,7 @@ let app;
  * Returns the non-UI media files used on the given page.
  */
 router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
-    return parsoid.getParsoidHtml(app, req).then((html) => {
+    return parsoid.getParsoidHtml(req).then((html) => {
         const revTid = parsoid.getRevAndTidFromEtag(html.headers);
         const pageMediaList = lib.getMediaItemInfoFromPage(html.body);
         mUtil.setETag(res, revTid.revision, revTid.tid);
@@ -36,8 +36,8 @@ router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
  */
 router.get('/media/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.join(
-        parsoid.getParsoidHtml(app, req),
-        mwapi.getSiteInfo(app, req),
+        parsoid.getParsoidHtml(req),
+        mwapi.getSiteInfo(req),
         (html, siteinfo) => {
             const revTid = parsoid.getRevAndTidFromEtag(html.headers);
             const pageMediaList = lib.getMediaItemInfoFromPage(html.body);
@@ -46,7 +46,7 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
                 return;
             }
             const titles = mUtil.deduplicate(pageMediaList.filter(i => i.title).map(i => i.title));
-            return imageinfo.getMetadataFromApi(app, req, titles, siteinfo)
+            return imageinfo.getMetadataFromApi(req, titles, siteinfo)
             .then((apiResponse) => {
                 const result = lib.combineResponses(apiResponse, pageMediaList);
                 mUtil.setETag(res, revTid.revision, revTid.tid);

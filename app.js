@@ -154,7 +154,7 @@ function initApp(options) {
     // enable compression
     app.use(compression({ level: app.conf.compression_level }));
     // use the JSON body parser
-    app.use(bodyParser.json());
+    app.use(bodyParser.json({ limit: app.conf.max_body_size || '100kb' }));
     // use the application/x-www-form-urlencoded parser
     app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -165,6 +165,7 @@ function initApp(options) {
 /**
  * Loads all routes declared in routes/ into the app
  * @param {Application} app the application object to load routes into
+ * @param {string} dir routes folder
  * @return {bluebird} a promise resolving to the app object
  */
 function loadRoutes(app, dir) {
@@ -186,8 +187,8 @@ function loadRoutes(app, dir) {
                 return undefined;
             }
             // check that the route exports the object we need
-            if (route.constructor !== Object || !route.path || !route.router
-                || !(route.api_version || route.skip_domain)) {
+            if (route.constructor !== Object || !route.path || !route.router ||
+                !(route.api_version || route.skip_domain)) {
                 throw new TypeError(`routes/${fname} does not export the correct object!`);
             }
             // normalise the path to be used as the mount point
@@ -301,8 +302,10 @@ function createServer(app) {
  * options and the logger- and metrics-reporting objects from
  * service-runner and starts an HTTP server, attaching the application
  * object to it.
+ * @param {Object} options the options to initialise the app with
+ * @return {bluebird} HTTP server
  */
-module.exports = function(options) {
+module.exports = (options) => {
 
     return initApp(options)
     .then(app => loadRoutes(app, `${__dirname}/routes`))

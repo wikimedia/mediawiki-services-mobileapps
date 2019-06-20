@@ -66,8 +66,8 @@ router.get('/all/:mm/:dd', (req, res) => {
     lib.assertLanguage(lang);
 
     return BBPromise.all([
-        lib.fetchDocAndRevision(app, req, lib.dayTitleForRequest),
-        lib.fetchDocAndRevision(app, req, lib.selectedTitleForRequest)
+        lib.fetchDocAndRevision(req, lib.dayTitleForRequest),
+        lib.fetchDocAndRevision(req, lib.selectedTitleForRequest)
     ])
     .then((docsAndRevisions) => {
         const dayDocAndRevision = docsAndRevisions[0];

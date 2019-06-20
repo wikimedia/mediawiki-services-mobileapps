@@ -23,7 +23,7 @@ router.get('/pagelib', (req, res) => fetchPageLibCss(res));
 /**
  * Gets the site-specific mobile styles defined in MediaWiki:Mobile.css
  */
-router.get('/site', (req, res) => fetchMobileSiteCss(app, req, res));
+router.get('/site', (req, res) => fetchMobileSiteCss(req, res));
 
 module.exports = function(appObj) {
     app = appObj;

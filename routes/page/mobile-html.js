@@ -47,7 +47,7 @@ router.get('/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
 router.get('/mobile-html/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.props({
         parsoid: parsoidApi.pageDocumentPromise(app, req, true),
-        mw: mwapi.getMetadataForMobileHtml(app, req)
+        mw: mwapi.getMetadataForMobileHtml(req)
     }).then((response) => {
         return BBPromise.props({
             // run another processing script after we've retrieved the metadata response from MW API

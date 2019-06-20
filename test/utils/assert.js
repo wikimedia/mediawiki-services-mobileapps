@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console,no-multiple-empty-lines */
 
 'use strict';
 
@@ -48,6 +48,7 @@ function isDeepEqual(result, expected, message) {
     }
 
 }
+
 
 function notDeepEqual(result, expected, message) {
 

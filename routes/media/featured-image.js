@@ -25,8 +25,8 @@ let app;
  * ETag is set to the pageid and the revision.
  */
 router.get('/image/featured/:yyyy/:mm/:dd', (req, res) => {
-    return mwapi.getSiteInfo(app, req)
-    .then(si => featured.promise(app, req, si)
+    return mwapi.getSiteInfo(req)
+    .then(si => featured.promise(req, si)
     .then((response) => {
         res.status(!response.payload ? 204 : 200);
         mUtil.setETag(res, response.meta.revision, response.meta.tid);

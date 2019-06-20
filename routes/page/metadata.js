@@ -23,9 +23,9 @@ let app;
  */
 router.get('/metadata/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.join(
-        parsoid.getParsoidHtml(app, req),
-        mwapi.getMetadataForMetadata(app, req),
-        mwapi.getSiteInfo(app, req),
+        parsoid.getParsoidHtml(req),
+        mwapi.getMetadataForMetadata(req),
+        mwapi.getSiteInfo(req),
         (html, meta, siteinfo) => {
             const revTid = parsoid.getRevAndTidFromEtag(html.headers);
             return lib.buildMetadata(req, html, meta, siteinfo,

@@ -1,4 +1,5 @@
-/* global describe, it, before, after */
+/* eslint-disable no-multiple-empty-lines */
+
 
 'use strict';
 

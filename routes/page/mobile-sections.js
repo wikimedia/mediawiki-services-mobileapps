@@ -157,13 +157,13 @@ function mainPageFixPromise(req, response) {
  * @return {!Promise}
  */
 function handleUserPagePromise(req, res) {
-    return apiUtil.mwApiGet(app, req.params.domain, {
+    return apiUtil.mwApiGet(req, {
         action: 'query',
         format: 'json',
         formatversion: '2',
         meta: 'globaluserinfo',
         guiuser: req.params.title.split(':')[1]
-    }, req.headers)
+    })
     .then((resp) => {
         const body = resp.body;
         if (body.query && body.query.globaluserinfo) {
@@ -181,7 +181,7 @@ function handleUserPagePromise(req, res) {
  * @return {!Promise}
  */
 function handleFilePagePromise(req, res) {
-    return apiUtil.mwApiGet(app, req.params.domain, {
+    return apiUtil.mwApiGet(req, {
         action: 'query',
         format: 'json',
         formatversion: '2',
@@ -190,7 +190,7 @@ function handleFilePagePromise(req, res) {
         iiprop: 'url',
         iiurlwidth: mwapi.LEAD_IMAGE_L,
         iirurlheight: mwapi.LEAD_IMAGE_L * 0.75
-    }, req.headers)
+    })
     .then((resp) => {
         const body = resp.body;
         if (body.query && body.query.pages && body.query.pages.length) {
@@ -232,10 +232,10 @@ function _handleNamespaceAndSpecialCases(req, res) {
  * @return {!BBPromise}
  */
 function _collectRawPageData(app, req) {
-    return mwapi.getSiteInfo(app, req)
+    return mwapi.getSiteInfo(req)
     .then(si => BBPromise.props({
         page: parsoid.pageJsonPromise(app, req),
-        meta: mwapi.getMetadataForMobileSections(app, req, mwapi.LEAD_IMAGE_XL),
+        meta: mwapi.getMetadataForMobileSections(req, mwapi.LEAD_IMAGE_XL),
         title: mwapi.getTitleObj(req.params.title, si)
     })).then((interimState) => {
         return _handleNamespaceAndSpecialCases(req, interimState);
