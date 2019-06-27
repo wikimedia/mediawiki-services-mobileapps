@@ -5,39 +5,37 @@ paths:
       tags:
         - Feed
       summary: Get availability of featured feed content by wiki domain.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Availability/1.0.1"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
+        - $ref: '#/components/parameters/domainParam'
       responses:
         200:
           description: Availability of the feed content by wiki domain
-          schema:
-            $ref: '#/definitions/availability'
+          content:
+            'application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Metadata/1.2.0"':
+              schema:
+                $ref: '#/components/schemas/availability'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
-        - title: Retrieve feed content availability from \'wikipedia.org\'
-          request:
-            params:
-              domain: wikimedia.org
-          response:
-            status: 200
-            headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Availability/1.0.1"
-              vary: /.+/
-              etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
-              access-control-allow-headers: accept, x-requested-with, content-type
-              content-security-policy: default-src
-              x-content-security-policy: default-src
-              x-frame-options: SAMEORIGIN
-            body:
-              todays_featured_article: [ /.+/ ]
-              most_read: [ '*' ]
-              picture_of_the_day: [ '*' ]
-              in_the_news: [ /.+/ ]
-              on_this_day: [ /.+/ ]
+        - summary: Retrieve feed content availability from \'wikipedia.org\'
+          value:
+            request:
+              params:
+                domain: wikimedia.org
+            response:
+              status: 200
+              headers:
+                content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Availability/1.0.1"
+                vary: /.+/
+                etag: /^"[^/"]+/[^/"]+"$/
+                access-control-allow-origin: '*'
+                access-control-allow-headers: accept, x-requested-with, content-type
+                content-security-policy: default-src
+                x-content-security-policy: default-src
+                x-frame-options: SAMEORIGIN
+              body:
+                todays_featured_article: [ /.+/ ]
+                most_read: [ '*' ]
+                picture_of_the_day: [ '*' ]
+                in_the_news: [ /.+/ ]
+                on_this_day: [ /.+/ ]

@@ -5,19 +5,14 @@ paths:
         - Page content
       summary: Get non-lead sections of a page.
       description: Gets the remaining sections of a given wiki page for the Android app.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/title'
       responses:
         200:
-          description: Structured info on non-lead sections for a page
+          $ref: '#/components/responses/mobile-sections'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-monitor: false
   /{domain}/v1/page/mobile-sections-remaining/{title}/{revision}:
     get:
@@ -25,22 +20,13 @@ paths:
         - Page content
       summary: Get non-lead sections of a page.
       description: Gets the remaining sections of a given wiki page for the Android app.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
-        - in: path
-          name: revision
-          required: true
-          type: integer
-          description: Revision ID
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/title'
+        - $ref: '#/components/parameters/revision'
       responses:
         200:
-          description: Structured info on non-lead sections for a page
+          $ref: '#/components/responses/mobile-sections'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-monitor: false

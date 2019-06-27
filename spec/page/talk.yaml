@@ -1,74 +1,59 @@
 paths:
   /{domain}/v1/page/talk/{title}:
-    get:
+    get: &talk_title_revision_get_spec
       tags:
         - Talk pages
       summary: Get structured talk page contents
       description: Gets structured talk page contents for the provided title.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.0"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
+        - $ref: '#/components/parameters/title'
       responses:
         200:
-          description: Success
+          description: structured talk page JSON.
+          content:
+            application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.0":
+              schema:
+                type: string
         default:
           description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/problem'
       x-amples:
-        - title: Get structured talk page for enwiki Salt article
-          request:
-            params:
-              title: Salt
-          response:
-            status: 200
-            headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.0"
-              vary: /.+/
-              etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
-              access-control-allow-headers: accept, x-requested-with, content-type
-              content-security-policy: default-src
-              x-content-security-policy: default-src
-              x-frame-options: SAMEORIGIN
-            body:
-              topics:
-                - id: /.+/
-                  replies:
-                    - sha: /.+/
-                      depth: /.+/
-                      html: /.*/
-                  depth: /.+/
-                  html: /.*/
-                  shas:
-                    html: /.+/
-                    indicator: /.+/
+        - summary: Get structured talk page for enwiki Salt article
+          value:
+            request:
+              params:
+                title: Salt
+            response:
+              status: 200
+              headers:
+                content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.0"
+                vary: /.+/
+                etag: /^"[^/"]+/[^/"]+"$/
+                access-control-allow-origin: '*'
+                access-control-allow-headers: accept, x-requested-with, content-type
+                content-security-policy: default-src
+                x-content-security-policy: default-src
+                x-frame-options: SAMEORIGIN
+              body:
+                topics:
+                  - id: /.+/
+                    replies:
+                      - sha: /.+/
+                        depth: /.+/
+                        html: /.*/
+                    depth: /.+/
+                    html: /.*/
+                    shas:
+                      html: /.+/
+                      indicator: /.+/
 
   /{domain}/v1/page/talk/{title}/{revision}:
     get:
-      tags:
-        - Talk pages
-      summary: Get structured talk page contents
-      description: Gets structured talk page contents for the provided title.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.0"
-        - application/problem+json
+      <<: *talk_title_revision_get_spec
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
-        - in: path
-          name: revision
-          required: true
-          type: integer
-          description: Revision ID
-      responses:
-        200:
-          description: Success
-        default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
-      x-monitor: false
+      
+        - $ref: '#/components/parameters/title'
+        - $ref: '#/components/parameters/revision'
