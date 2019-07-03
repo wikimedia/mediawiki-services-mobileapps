@@ -11,22 +11,93 @@ paths:
         aka. Popups) on the web and link previews in the apps.
 
         Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.1"
+        - application/problem+json
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
       responses:
         200:
-          $ref: '#/components/responses/summary'
+          description: The summary for the given page
+          schema:
+            $ref: '#/definitions/summary'
         404:
           description: Unknown page title or revision
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/problem'
+          schema:
+            $ref: '#/definitions/problem'
         default:
-          $ref: "#/components/responses/problem"
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
-        - $ref: '#/components/examples/summary'
+        - title: Get summary for test page
+          request:
+            params:
+              title: San_Francisco
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.1"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              type: standard
+              title: /.+/
+              displaytitle: /.+/
+              namespace:
+                id: /.+/
+                text: /.*/
+              wikibase_item: /.+/
+              titles:
+                canonical: /.+/
+                normalized: /.+/
+                display: /.+/
+              pageid: /.+/
+              thumbnail:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              originalimage:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              lang: /.+/
+              dir: /.+/
+              revision: /.+/
+              tid: /.+/
+              timestamp: /.+/
+              coordinates:
+                lat: /.+/
+                lon: /.+/
+              description: /.+/
+              content_urls:
+                desktop:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
+                mobile:
+                  page: /.+/
+                  revisions: /.+/
+                  edit: /.+/
+                  talk: /.+/
+              api_urls:
+                summary: /.+/
+               # mobile_html: /.+/
+                metadata: /.+/
+                references: /.+/
+                media: /.+/
+                edit_html: /.+/
+                talk_page_html: /.+/
+              extract: /.+/
+              extract_html: /.+/
   /{domain}/v1/page/summary/{title}/{revision}:
     get:
       tags:
@@ -38,254 +109,28 @@ paths:
         aka. Popups) on the web and link previews in the apps.
 
         Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.1"
+        - application/problem+json
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
-        - $ref: '#/components/parameters/revision'
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
       responses:
         200:
-          $ref: '#/components/responses/summary'
+          description: The summary for the given page
+          schema:
+            $ref: '#/definitions/summary'
         404:
           description: Unknown page title or revision
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/problem'
-        default:
-          $ref: "#/components/responses/problem"
-      x-amples:
-        - $ref: '#/components/examples/summary'
-components:
-  responses:
-    summary:
-      description: The summary for the given page
-      content:
-        'application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.1"':
           schema:
-            $ref: '#/components/schemas/summary'
-  schemas:
-    # see also RB v1/common_schemas.yaml
-    summary:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Type of page summary
-          enum:
-            - standard
-            - disambiguation
-            - no-extract
-            - mainpage
-        title:
-          type: string
-          description: The page title
-        displaytitle:
-          type: string
-          description: The page title how it should be shown to the user
-        namespace:
-          type: object
-          properties:
-            id:
-              type: integer
-              description: the numeric ID for the page's namespace (https://www.mediawiki.org/wiki/Manual:Namespace)
-            text:
-              type: string
-              description: localized text name for the MediaWiki namespace
-          required: [ id, text ]
-          additionalProperties: false
-        wikibase_item:
-          type: string
-          description: the Wikibase item ID for the associated Wikidata entity (if any)
-        titles:
-          $ref: '#/components/schemas/titles_set'
-        pageid:
-          type: integer
-          description: The page ID
-        revision:
-          type: string
-          description: The revision of the page when the summary was produced
-        tid:
-          type: string
-          description: The timeuuid associated with the underlying HTML content
-        extract:
-          type: string
-          description: First several sentences of an article in plain text
-        extract_html:
-          type: string
-          description: First several sentences of an article in simple HTML format
-        thumbnail:
-          $ref: '#/components/schemas/image_props'
-        originalimage:
-          $ref: '#/components/schemas/image_props'
-        lang:
-          type: string
-          description: The page language code
-          example: en
-        dir:
-          type: string
-          description: The page language direction code
-          enum:
-            - ltr
-            - rtl
-        timestamp:
-          type: string
-          format: date-time
-          description: The time when the page was last editted in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
-          example: '1970-01-01T00:00:00.000Z'
-        description:
-          type: string
-          description: short description for the page
-          example: American poet
-        content_urls:
-          type: object
-          properties:
-            desktop:
-              $ref: '#/components/schemas/content_urls'
-            mobile:
-              $ref: '#/components/schemas/content_urls'
-        api_urls:
-          $ref: '#/components/schemas/api_urls'
-        coordinates:
-          type: object
-          description: The coordinates of the item
-          properties:
-            lat:
-              type: number
-              description: The latitude
-            lon:
-              type: number
-              description: The longitude
-          required: [ 'lat', 'lon' ]
-      required:
-        - type
-        - title
-        - displaytitle
-        - pageid
-        - lang
-        - dir
-        - revision
-        - timestamp
-        - content_urls
-        - api_urls
-        - extract
-        - extract_html
-
-    content_urls:
-      type: object
-      properties:
-        page:
-          type: string
-          description: the canonical page URL
-        revisions:
-          type: string
-          description: the revision history page URL
-        edit:
-          type: string
-          description: the (desktop) URL for editing the page
-        talk:
-          type: string
-          description: the talk page URL, if applicable
-      required:
-        - page
-        - revisions
-        - edit
-      additionalProperties: false
-
-    api_urls:
-      type: object
-      properties:
-        summary:
-          type: string
-          description: the REST API summary URL for the page
-        metadata:
-          type: string
-          description: the REST API URL for the page metadata (not yet active)
-        references:
-          type: string
-          description: the REST API URL for the references on the page (not yet active)
-        media:
-          type: string
-          description: the REST API URL for the media included in the page (not yet active)
-        edit_html:
-          type: string
-          description: the REST API URL for the raw Parsoid HTML for the page
-        talk_page_html:
-          type: string
-          description: the REST API URL for the raw Parsoid HTML for the talk page for this page (if applicable)
-      required:
-        - summary
-        - metadata
-        - references
-        - media
-        - edit_html
-      additionalProperties: false
-  examples:    
-    summary:
-      summary: Get summary for test page
-      value:
-        request:
-          params:
-            title: San_Francisco
-        response:
-          status: 200
-          headers:
-            content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.1"
-            content-language: en
-            vary: /.+/
-            etag: /^"[^/"]+/[^/"]+"$/
-            access-control-allow-origin: '*'
-            access-control-allow-headers: accept, x-requested-with, content-type
-            content-security-policy: default-src
-            x-content-security-policy: default-src
-            x-frame-options: SAMEORIGIN
-          body:
-            type: standard
-            title: /.+/
-            displaytitle: /.+/
-            namespace:
-              id: /.+/
-              text: /.*/
-            wikibase_item: /.+/
-            titles:
-              canonical: /.+/
-              normalized: /.+/
-              display: /.+/
-            pageid: /.+/
-            thumbnail:
-              source: /.+/
-              width: /.+/
-              height: /.+/
-            originalimage:
-              source: /.+/
-              width: /.+/
-              height: /.+/
-            lang: /.+/
-            dir: /.+/
-            revision: /.+/
-            tid: /.+/
-            timestamp: /.+/
-            coordinates:
-              lat: /.+/
-              lon: /.+/
-            description: /.+/
-            content_urls:
-              desktop:
-                page: /.+/
-                revisions: /.+/
-                edit: /.+/
-                talk: /.+/
-              mobile:
-                page: /.+/
-                revisions: /.+/
-                edit: /.+/
-                talk: /.+/
-            api_urls:
-              summary: /.+/
-             # mobile_html: /.+/
-              metadata: /.+/
-              references: /.+/
-              media: /.+/
-              edit_html: /.+/
-              talk_page_html: /.+/
-            extract: /.+/
-            extract_html: /.+/
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false

@@ -8,16 +8,57 @@ paths:
       description: |
         Gets the full page content of a given wiki page for the Android app.
         For a faster page load experience the Android app uses the following two endpoints instead.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+        - application/problem+json
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
       responses:
         200:
-          $ref: "#/components/responses/mobile-sections"
+          description: Structured info about a page and its sections
         default:
-          $ref: "#/components/responses/problem"
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
-        - $ref: '#/components/examples/mobile-sections'
+        - title: retrieve test page via mobile-sections
+          request:
+            params:
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              lead:
+                id: /.+/
+                revision: /.+/
+                lastmodified: /.+/
+                lastmodifier: /.+/
+                displaytitle: /.+/
+                normalizedtitle: /.+/
+                protection: /.+/
+                editable: /.+/
+                languagecount: /.+/
+                ns: /.+/
+                sections:
+                  - id: /.+/
+              remaining:
+                sections:
+                  - id: /.+/
+                    text: /.*/
+                    toclevel: /.+/
+                    line: /.+/
+                    anchor: /.+/
   /{domain}/v1/page/mobile-sections/{title}/{revision}:
     get:
       tags:
@@ -26,62 +67,22 @@ paths:
       description: |
         Gets the full page content of a given wiki page for the Android app.
         For a faster page load experience the Android app uses the following two endpoints instead.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+        - application/problem+json
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
-        - $ref: '#/components/parameters/revision'
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
       responses:
         200:
-          $ref: "#/components/responses/mobile-sections"
+          description: Structured info about a page and its sections
         default:
-          $ref: "#/components/responses/problem"
-      x-amples:
-        - $ref: '#/components/examples/mobile-sections'
-components:
-  responses:
-    mobile-sections:
-      description: The HTML for the given page title.
-      content:
-        application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5":
+          description: Error
           schema:
-            type: object
-  examples:
-    mobile-sections:
-      summary: retrieve test page via mobile-sections
-      value:
-        request:
-          params:
-            title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
-        response:
-          status: 200
-          headers:
-            content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
-            content-language: en
-            vary: /.+/
-            etag: /^"[^/"]+/[^/"]+"$/
-            access-control-allow-origin: '*'
-            access-control-allow-headers: accept, x-requested-with, content-type
-            content-security-policy: default-src
-            x-content-security-policy: default-src
-            x-frame-options: SAMEORIGIN
-          body:
-            lead:
-              id: /.+/
-              revision: /.+/
-              lastmodified: /.+/
-              lastmodifier: /.+/
-              displaytitle: /.+/
-              normalizedtitle: /.+/
-              protection: /.+/
-              editable: /.+/
-              languagecount: /.+/
-              ns: /.+/
-              sections:
-                - id: /.+/
-            remaining:
-              sections:
-                - id: /.+/
-                  text: /.*/
-                  toclevel: /.+/
-                  line: /.+/
-                  anchor: /.+/
+            $ref: '#/definitions/problem'
+      x-monitor: false

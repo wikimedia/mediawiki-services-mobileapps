@@ -1,4 +1,4 @@
-openapi: 3.0.0
+swagger: '2.0'
 
 info:
   version: 0.3.0
@@ -18,6 +18,46 @@ info:
 x-default-params:
   domain: en.wikipedia.org
 
+parameters:
+  domain:
+    in: path
+    name: domain
+    required: true
+    type: string
+    description: |
+      Project domain for the requested data.
+  title:
+    in: path
+    name: title
+    required: true
+    type: string
+    description: |
+      Page title. Use underscores instead of spaces. Example: `Main_Page`
+  year:
+    in: path
+    name: year
+    required: true
+    type: integer
+    description: Four digit year (2016 and later)
+    minimum: 2016
+    maximum: 2999
+  month:
+    in: path
+    name: month
+    required: true
+    type: integer
+    description: Two digit month, 0-padded if necessary (01 - 12)
+    minimum: 01
+    maximum: 31
+  day:
+    in: path
+    name: day
+    required: true
+    type: integer
+    description: Two digit day of the month, 0-padded if necessary (01 - 31)
+    minimum: 01
+    maximum: 31
+
 paths:
   # from routes/root.js
   /robots.txt:
@@ -27,9 +67,11 @@ paths:
       description: Gets robots.txt
       responses:
         200:
-          $ref: '#/components/responses/success'
+          description: Success
         default:
-          $ref: "#/components/responses/problem"
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-monitor: false
 
   /:
@@ -37,19 +79,23 @@ paths:
       tags:
         - Root
       description: The root service end-point
+      produces:
+        - application/json
+        - application/problem+json
       responses:
         200:
-          $ref: '#/components/responses/success'
+          description: Success
         default:
-          $ref: "#/components/responses/problem"
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
-        - summary: spec from root
-          value:
-            request:
-              query:
-                spec: true
-            response:
-              status: 200
+        - title: spec from root
+          request:
+            query:
+              spec: true
+          response:
+            status: 200
 
   # from routes/info.js
   /_info:
@@ -57,21 +103,25 @@ paths:
       tags:
         - Root
       description: Gets information about the service.
+      produces:
+        - application/json
+        - application/problem+json
       responses:
         200:
-          $ref: '#/components/responses/success'
+          description: Success
         default:
-          $ref: "#/components/responses/problem"
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
-        - summary: retrieve service info
-          value:
-            request: {}
-            response:
-              status: 200
-              headers:
-                content-type: application/json
-              body:
-                name: /.+/
-                description: /.+/
-                version: /.+/
-                home: /.+/
+        - title: retrieve service info
+          request: {}
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+            body:
+              name: /.+/
+              description: /.+/
+              version: /.+/
+              home: /.+/

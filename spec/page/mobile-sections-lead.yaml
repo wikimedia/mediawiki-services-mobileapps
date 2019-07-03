@@ -6,18 +6,19 @@ paths:
       summary: Get lead section and metadata for a page.
       description: |
         Gets the lead section and general metadata of a given wiki page for the Android app.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+        - application/problem+json
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
       responses:
         200:
-          $ref: '#/components/responses/mobile-sections'
+          description: Structured info a page and its lead section
         default:
           description: Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/problem'
+          schema:
+            $ref: '#/definitions/problem'
       x-monitor: false
   /{domain}/v1/page/mobile-sections-lead/{title}/{revision}:
     get:
@@ -26,17 +27,22 @@ paths:
       summary: Get lead section and metadata for a page.
       description: |
         Gets the lead section and general metadata of a given wiki page for the Android app.
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/mobile-sections/0.14.5"
+        - application/problem+json
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
-        - $ref: '#/components/parameters/revision'
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
       responses:
         200:
-          $ref: '#/components/responses/mobile-sections'
+          description: Structured info a page and its lead section
         default:
           description: Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/problem'
+          schema:
+            $ref: '#/definitions/problem'
       x-monitor: false

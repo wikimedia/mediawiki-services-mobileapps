@@ -9,127 +9,74 @@ paths:
         Featured image for a given date (aka Picture of the day).
         Provides thumbnail and full res image URLs and a localized description based
         on the domain used.
+      produces:
+        - application/json
+        - application/problem+json
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/year'
-        - $ref: '#/components/parameters/month'
-        - $ref: '#/components/parameters/day'
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/year'
+        - $ref: '#/parameters/month'
+        - $ref: '#/parameters/day'
       responses:
         200:
           description: Info on the Commons Featured Image of the Day for the requested date
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/image'
+          schema:
+            $ref: '#/definitions/image'
         204:
           description: Empty response (for feed content aggregation requests from RESTBase)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/empty'
+          schema:
+            $ref: '#/definitions/empty'
         404:
           description: Not found (no featured image for the requested date)
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/problem'
+          schema:
+            $ref: '#/definitions/problem'
         default:
-          $ref: "#/components/responses/problem"
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
-        - summary: retrieve featured image data for April 29, 2016
-          value:
-            request:
-              params:
-                year: 2016
-                month: '04'
-                day: 29
-            response:
-              status: 200
-              headers:
-                content-type: application/json; charset=utf-8
-                vary: /.+/
-                etag: /^"[^/"]+/[^/"]+"$/
-                access-control-allow-origin: '*'
-                access-control-allow-headers: accept, x-requested-with, content-type
-                content-security-policy: default-src
-                x-content-security-policy: default-src
-                x-frame-options: SAMEORIGIN
-              body:
-                title: /.+/
-                description:
-                  html: /.+/
-                  text: /.+/
-                  lang: /.+/
-                image:
-                  source: /.+/
-                  width: /.+/
-                  height: /.+/
-                credit:
-                  html: /.+/
-                  text: /.+/
-                license:
-                  type: /.+/
-                  code: /.+/
-                  url: /.+/
-                artist:
-                  html: /.+/
-                  text: /.+/
-                file_page: /.+/
-                thumbnail:
-                  source: /.+/
-                  width: /.+/
-                  height: /.+/
-components:
-  schemas:
-    image:
-      type: object
-      properties:
-        title:
-          type: string
-          description: Image title
-        thumbnail:
-          $ref: '#/components/schemas/image_props'
-        image:
-          $ref: '#/components/schemas/image_props'
-        description:
-          $ref: '#/components/schemas/extmetadata_property'
-        file_page:
-          type: string
-          description: Full URL to the file page for the item on Wikimedia Commons
-        artist:
-          type: object
-          description: structured info about the author of the media item
-          properties:
-            html:
-              type: string
-              description: HTML string describing the artist
-            name:
-              type: string
-              description: the plain text artist name, if available
-            user_page:
-              type: string
-              description: Wikimedia Commons user page for the artist, if available
-          required:
-            - html
-        credit:
-          $ref: '#/components/schemas/extmetadata_property'
-        license:
-          type: object
-          description: license under which the media item is available on Wikimedia Commons
-          properties:
-            type:
-              type: string
-              description: license type
-            url:
-              type: string
-              description: URL describing the terms and conditions of the license, if any
-          required:
-            - type
-        wb_entity_id:
-          type: string
-          description: Commons Wikibase ID, if the file is on Wikimedia Commons
-      required:
-        - title
-        - thumbnail
-        - image
-        - license
+        - title: retrieve featured image data for April 29, 2016
+          request:
+            params:
+              year: 2016
+              month: '04'
+              day: 29
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              title: /.+/
+              description:
+                html: /.+/
+                text: /.+/
+                lang: /.+/
+              image:
+                source: /.+/
+                width: /.+/
+                height: /.+/
+              credit:
+                html: /.+/
+                text: /.+/
+              license:
+                type: /.+/
+                code: /.+/
+                url: /.+/
+              artist:
+                html: /.+/
+                text: /.+/
+              file_page: /.+/
+              wb_entity_id: /.+/
+              structured:
+                captions: /.+/
+              thumbnail:
+                source: /.+/
+                width: /.+/
+                height: /.+/

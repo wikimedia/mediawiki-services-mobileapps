@@ -34,16 +34,36 @@ paths:
         here)
         * CollapseTable: server-side portion/prep for collapsing tables.
         * FooterTransformer: seems to be more UI than content, requires I18N, too
+      produces:
+        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+        - application/problem+json
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
       responses:
         200:
-          $ref: '#/components/responses/success'
+          description: Success
         default:
-          $ref: "#/components/responses/problem"
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
-        - $ref: '#/components/examples/mobile-html'
+        - title: Get page content HTML for test page
+          request:
+            params:
+              title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
+          response:
+            status: 200
+            headers:
+              content-type: text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+              content-language: en
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
   /{domain}/v1/page/mobile-html/{title}/{revision}:
     get:
       tags:
@@ -79,34 +99,23 @@ paths:
         here)
         * CollapseTable: server-side portion/prep for collapsing tables.
         * FooterTransformer: seems to be more UI than content, requires I18N, too
+      produces:
+        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+        - application/problem+json
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
-        - $ref: '#/components/parameters/revision'
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: path
+          name: revision
+          required: true
+          type: integer
+          description: Revision ID
       responses:
         200:
-          $ref: '#/components/responses/success'
+          description: Success
         default:
-          $ref: "#/components/responses/problem"
-      x-amples:
-        - $ref: '#/components/examples/mobile-html'
-components:
-  examples:
-    mobile-html:
-      summary: Get page content HTML for test page
-      value:
-        request:
-          params:
-            title: User:BSitzmann_(WMF)/MCS/Test/Frankenstein
-        response:
-          status: 200
-          headers:
-            content-type: text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
-            content-language: en
-            vary: /.+/
-            etag: /^"[^/"]+/[^/"]+"$/
-            access-control-allow-origin: '*'
-            access-control-allow-headers: accept, x-requested-with, content-type
-            content-security-policy: default-src
-            x-content-security-policy: default-src
-            x-frame-options: SAMEORIGIN
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-monitor: false
+

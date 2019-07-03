@@ -5,25 +5,29 @@ paths:
         - Page styles
       summary: Get base page styles
       description: Gets the base styles used for viewing all pages in the mobile apps
+      produces:
+        - text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/2.0.0"
+        - application/problem+json
       parameters:
-        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/parameters/domain'
       responses:
         200:
-          $ref: '#/components/responses/success'
+          description: Success
         default:
-          $ref: "#/components/responses/problem"
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
       x-amples:
-        - summary: Get base CSS
-          value:
-            response:
-              status: 200
-              headers:
-                content-type: text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/2.0.0"
-                vary: /.+/
-                etag: /^"[^/"]+/[^/"]+"$/
-                access-control-allow-origin: '*'
-                access-control-allow-headers: accept, x-requested-with, content-type
-                content-security-policy: default-src
-                x-content-security-policy: default-src
-                x-frame-options: SAMEORIGIN
-              body: /.+/
+        - title: Get base CSS
+          response:
+            status: 200
+            headers:
+              content-type: text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/2.0.0"
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body: /.+/

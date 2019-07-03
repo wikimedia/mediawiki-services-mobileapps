@@ -14,129 +14,83 @@ paths:
          - Holidays: a list of fixed holidays celebrated on the provided day and month
          - Events: a list of significant events which happened on the provided day and month and which are not covered by the other types yet
          - All: all of the above
+      produces:
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/OnThisDay/0.3.3"
+        - application/problem+json
       parameters:
-        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/parameters/domain'
         - name: type
           in: path
           description: Type of events
-          schema:
-            type: string
-            enum:
+          type: string
+          required: true
+          enum:
             - selected
             - births
             - deaths
             - holidays
             - events
             - all
-          required: true
-        - $ref: '#/components/parameters/month'
-        - $ref: '#/components/parameters/day'
+        - $ref: '#/parameters/month'
+        - $ref: '#/parameters/day'
 
       responses:
         200:
-          $ref: '#/components/responses/onthisday'
+          description: Annual events listed on this wiki for the requested month and day
+          schema:
+            $ref: '#/definitions/onthisdayResponse'
         404:
           description: No data found for the requested date
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/problem'
+          schema:
+            $ref: '#/definitions/problem'
         501:
           description: Unsupported language
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/problem'
-        default:
-          $ref: "#/components/responses/problem"
-      x-amples:
-        - $ref: "#/components/examples/onthisday"
-components:
-  responses:
-    onthisday:
-      description: Annual events listed on this wiki for the requested month and day
-      content:
-        'application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/OnThisDay/0.3.3"':
           schema:
-            $ref: '#/components/schemas/onthisdayResponse'
-  examples:
-    onthisday:
-      summary: retrieve all events on January 15
-      value:
-        request:
-          params:
-            type: all
-            month: 01
-            day: 15
-        response:
-          status: 200
-          headers:
-            content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/OnThisDay/0.3.3"
-            vary: /.+/
-            etag: /^"[^/"]+/[^/"]+"$/
-            access-control-allow-origin: '*'
-            access-control-allow-headers: accept, x-requested-with, content-type
-            content-security-policy: default-src
-            x-content-security-policy: default-src
-            x-frame-options: SAMEORIGIN
-          body:
-            selected:
-              - text: /.+/
-                year: /.+/
-                pages:
-                  - $merge: [ /.+/ ]
-            events:
-              - text: /.+/
-                year: /.+/
-                pages:
-                  - $merge: [ /.+/ ]
-            births:
-              - text: /.+/
-                year: /.+/
-                pages:
-                  - $merge: [ /.+/ ]
-            deaths:
-              - text: /.+/
-                year: /.+/
-                pages:
-                  - $merge: [ /.+/ ]
-            holidays:
-              - text: /.+/
-                pages:
-                  - $merge: [ /.+/ ]
-  schemas:
-    onthisdayList:
-      type: array
-      items:
-        type: object
-        properties:
-          text:
-            type: string
-            description: Short description of the event
-          year:
-            type: integer
-            description: The year this event occurred
-          pages:
-            type: array
-            description: List of pages related to the event
-            items:
-              $ref: '#/components/schemas/article_summary_merge_link'
-        required:
-          - text
-          - pages
-
-    onthisdayResponse:
-      type: object
-      description: Lists of events which happened on the provided day and month
-      properties:
-        births:
-          $ref: '#/components/schemas/onthisdayList'
-        deaths:
-          $ref: '#/components/schemas/onthisdayList'
-        events:
-          $ref: '#/components/schemas/onthisdayList'
-        holidays:
-          $ref: '#/components/schemas/onthisdayList'
-        selected:
-          $ref: '#/components/schemas/onthisdayList'
-      additionalProperties: false
+            $ref: '#/definitions/problem'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: retrieve all events on January 15
+          request:
+            params:
+              type: all
+              month: 01
+              day: 15
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/OnThisDay/0.3.3"
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              selected:
+                - text: /.+/
+                  year: /.+/
+                  pages:
+                    - $merge: [ /.+/ ]
+              events:
+                - text: /.+/
+                  year: /.+/
+                  pages:
+                    - $merge: [ /.+/ ]
+              births:
+                - text: /.+/
+                  year: /.+/
+                  pages:
+                    - $merge: [ /.+/ ]
+              deaths:
+                - text: /.+/
+                  year: /.+/
+                  pages:
+                    - $merge: [ /.+/ ]
+              holidays:
+                - text: /.+/
+                  pages:
+                    - $merge: [ /.+/ ]
