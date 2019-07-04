@@ -9,24 +9,23 @@ paths:
         Gets the title of a randomly picked article from main namespace.
         Preference is given to articles with a thumbnail, long extract,
         and an associated Wikidata description.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Random/0.6.0"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
+        - $ref: '#/components/parameters/domainParam'
       responses:
         200:
           description: A random (good) article title
-          schema:
-            $ref: '#/definitions/random'
+          content:
+            'application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Random/0.6.0"':
+              schema:
+                $ref: '#/components/schemas/random'
         400:
           description: Bad request
-          schema:
-            $ref: '#/definitions/problem'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/problem'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
         - title: retrieve a random article title
           response:
@@ -43,3 +42,15 @@ paths:
             body:
               items:
                 - title: /.+/
+components:
+  schemas:
+    random:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/article_title'
+      required:
+        - items
+

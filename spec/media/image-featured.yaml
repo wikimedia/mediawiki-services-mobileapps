@@ -9,31 +9,32 @@ paths:
         Featured image for a given date (aka Picture of the day).
         Provides thumbnail and full res image URLs and a localized description based
         on the domain used.
-      produces:
-        - application/json
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/year'
-        - $ref: '#/parameters/month'
-        - $ref: '#/parameters/day'
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/year'
+        - $ref: '#/components/parameters/month'
+        - $ref: '#/components/parameters/day'
       responses:
         200:
           description: Info on the Commons Featured Image of the Day for the requested date
-          schema:
-            $ref: '#/definitions/image'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/image'
         204:
           description: Empty response (for feed content aggregation requests from RESTBase)
-          schema:
-            $ref: '#/definitions/empty'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/empty'
         404:
           description: Not found (no featured image for the requested date)
-          schema:
-            $ref: '#/definitions/problem'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/problem'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
         - title: retrieve featured image data for April 29, 2016
           request:
@@ -73,10 +74,61 @@ paths:
                 html: /.+/
                 text: /.+/
               file_page: /.+/
-              wb_entity_id: /.+/
-              structured:
-                captions: /.+/
               thumbnail:
                 source: /.+/
                 width: /.+/
                 height: /.+/
+components:
+  schemas:
+    image:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Image title
+        thumbnail:
+          $ref: '#/components/schemas/image_props'
+        image:
+          $ref: '#/components/schemas/image_props'
+        description:
+          $ref: '#/components/schemas/extmetadata_property'
+        file_page:
+          type: string
+          description: Full URL to the file page for the item on Wikimedia Commons
+        artist:
+          type: object
+          description: structured info about the author of the media item
+          properties:
+            html:
+              type: string
+              description: HTML string describing the artist
+            name:
+              type: string
+              description: the plain text artist name, if available
+            user_page:
+              type: string
+              description: Wikimedia Commons user page for the artist, if available
+          required:
+            - html
+        credit:
+          $ref: '#/components/schemas/extmetadata_property'
+        license:
+          type: object
+          description: license under which the media item is available on Wikimedia Commons
+          properties:
+            type:
+              type: string
+              description: license type
+            url:
+              type: string
+              description: URL describing the terms and conditions of the license, if any
+          required:
+            - type
+        wb_entity_id:
+          type: string
+          description: Commons Wikibase ID, if the file is on Wikimedia Commons
+      required:
+        - title
+        - thumbnail
+        - image
+        - license

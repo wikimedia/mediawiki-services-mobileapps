@@ -8,21 +8,14 @@ paths:
       description: |
         Gets a list of reference lists and a map of reference ids to details for all references
         appearing on the equivalent page. This content is parsed from Parsoid output.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/2.0.0"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/title'
       responses:
         '200':
-          description: Reference lists and reference details
-          schema:
-            $ref: '#/definitions/references_response'
+          $ref: '#/components/responses/references'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
         - title: Get references of a test page
           request:
@@ -49,6 +42,7 @@ paths:
                     html: /.+/
                   order: [ /.*/ ]
               references_by_id: /.+/
+
   /{domain}/v1/page/references/{title}/{revision}:
     get:
       tags:
@@ -57,24 +51,128 @@ paths:
       description: |
         Gets a list of reference lists and a map of reference ids to details for all references
         appearing on the equivalent page. This content is parsed from Parsoid output.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/2.0.0"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
-        - in: path
-          name: revision
-          required: true
-          type: integer
-          description: Revision ID
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/title'
+        - $ref: '#/components/parameters/revision'
       responses:
         '200':
-          description: Reference lists and reference details
-          schema:
-            $ref: '#/definitions/references_response'
+          $ref: '#/components/responses/references'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-monitor: false
+components:
+  responses:
+    references:
+      description: Reference lists and reference details
+      content:
+        'application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/2.0.0"':
+          schema:
+            $ref: '#/components/schemas/references_response'
+  schemas:
+    references_response:
+      type: object
+      description: Reference lists and references
+      properties:
+        revision:
+          type: string
+          description: revision ID for the page
+        tid:
+          type: string
+          description: time UUID for the page/revision
+        reference_lists:
+          $ref: '#/components/schemas/reference_lists'
+        references_by_id:
+          $ref: '#/components/schemas/references_by_id'
+      additionalProperties: false
+      required:
+        - revision
+        - tid
+        - reference_lists
+        - references_by_id
+    reference_lists:
+      type: array
+      description: A list of reference lists
+      items:
+        $ref: '#/components/schemas/reference_list'
+
+    reference_list:
+      type: object
+      description: A single reference list
+      properties:
+        id:
+          type: 'string'
+          description: Identifier for the whole reference list. May be null.
+        section_heading:
+          type: object
+          description: |
+            Object containing information about the section heading this reference list
+            is shown in.
+          properties:
+            id:
+              type: string
+              description: Identifier for the section, which can be used to link to it
+            html:
+              type: string
+              description: HTML content of section heading
+        order:
+          type: array
+          description: |
+            List of identifiers for individual references, which can be used to lookup
+            the reference details in references_by_id.
+          items:
+            type: string
+      additionalProperties: false
+      required:
+        - id
+        - order
+
+    references_by_id:
+      type: object
+      description: A map of reference ids to reference details
+      properties:
+        default:
+          $ref: '#/components/schemas/reference_detail_item'
+
+    reference_detail_item:
+      type: object
+      description: Information about one reference
+      properties:
+        back_links:
+          type: array
+          description: A list of back links, can be empty in rare cases
+          items:
+            $ref: '#/components/schemas/reference_detail_item_back_link'
+        content:
+          type: object
+          properties:
+            html:
+              type: string
+              description: HTML representation of the reference content
+            type:
+              type: string
+              enum:
+                - generic
+                - book
+                - journal
+                - news
+                - web
+              description: Known citation type if there is exactly one cite tag, else 'generic'
+      additionalProperties: false
+    reference_detail_item_back_link:
+      type: object
+      description: Information about one link back to where on the page a given reference was used
+      properties:
+        href:
+          type: string
+          description: Relative URL pointing to anchor on same page
+        text:
+          type: string
+          description: |
+            Either an arrow for a single back link or another (usually single) chararacter
+            to distinguish multiple back links.
+      additionalProperties: false
+      required:
+        - href
+        - text
+      

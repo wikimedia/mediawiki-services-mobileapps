@@ -11,18 +11,13 @@ paths:
         * it allows to detect the platform and through that enable platform specific CSS rules,
         * has code to lazy load images on the page,
         * code for collapsing and expanding tables.
-      produces:
-        - text/javascript; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/JavaScript/1.0.0"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
+        - $ref: '#/components/parameters/domainParam'
       responses:
         200:
-          description: Success
+          $ref: '#/components/responses/success'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
         - title: Get javascript bundle for page library
           response:

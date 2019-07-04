@@ -7,18 +7,13 @@ paths:
       description: |
         Gets the styles needed for proper display of page content after the
         transforms from the wikimedia-page-library are applied.
-      produces:
-        - text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/2.0.0"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
+        - $ref: '#/components/parameters/domainParam'
       responses:
         200:
-          description: Success
+          $ref: '#/components/responses/success'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
         - title: Get CSS bundle from wikimedia-page-library
           response:

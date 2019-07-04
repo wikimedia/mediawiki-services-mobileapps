@@ -6,19 +6,14 @@ paths:
         - Word definitions (English Wiktionary only)
       summary: Get Wiktionary definitions for a word.
       description: Gets definitions for a word parsed from an article in Wiktionary.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/title'
       responses:
         200:
           description: Structured definition for the term
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
         - title: retrieve en-wiktionary definitions for 'cat'
           request:
@@ -38,28 +33,21 @@ paths:
               x-content-security-policy: default-src
               x-frame-options: SAMEORIGIN
             body: /.+/
+  
   /{domain}/v1/page/definition/{title}/{revision}:
     get:
       tags:
         - Word definitions (English Wiktionary only)
       summary: Get Wiktionary definitions for a word.
       description: Gets definitions for a word parsed from an article in Wiktionary.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/definition/0.8.1"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
-        - in: path
-          name: revision
-          required: true
-          type: integer
-          description: Revision ID
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/title'
+        - $ref: '#/components/parameters/revision'
       responses:
         200:
           description: Structured definition for the term
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-monitor: false
+      

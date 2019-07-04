@@ -1,5 +1,4 @@
 paths:
-
   # from routes/feed/featured.js
   /{domain}/v1/page/featured/{year}/{month}/{day}:
     get:
@@ -8,39 +7,44 @@ paths:
       summary: Get featured article of the day for the Explore feed.
       description: |
         Page title of "Today's featured article" (only works on select wikis for now).
-      produces:
-        - application/json
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/year'
-        - $ref: '#/parameters/month'
-        - $ref: '#/parameters/day'
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/year'
+        - $ref: '#/components/parameters/month'
+        - $ref: '#/components/parameters/day'
       responses:
         200:
           description: The title of a Wikipedia's Featured Article of the Day
-          schema:
-            $ref: '#/definitions/article_summary_merge_link'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/article_summary_merge_link'
         204:
           description: Empty response (for feed content aggregation requests from RESTBase)
-          schema:
-            $ref: '#/definitions/empty'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/empty'
         404:
           description: Not found
-          schema:
-            $ref: '#/definitions/problem'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/problem'
         500:
           description: API Error
-          schema:
-            $ref: '#/definitions/problem'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/problem'
         501:
           description: Unsupported language
-          schema:
-            $ref: '#/definitions/problem'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/problem'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
         - title: retrieve title of the featured article for April 29, 2016
           request:

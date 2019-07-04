@@ -5,18 +5,13 @@ paths:
         - Page styles
       summary: Get site-wide mobile styles
       description: Gets the site-wide mobile styles for the site, as defined in MediaWiki\:Mobile.css
-      produces:
-        - text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/2.0.0"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
+        - $ref: '#/components/parameters/domainParam'
       responses:
         200:
-          description: Success
+          $ref: '#/components/responses/success'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
         - title: Get site-specific CSS
           response:

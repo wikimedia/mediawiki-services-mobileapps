@@ -8,21 +8,14 @@ paths:
       description: |
         Gets the media items (images, audio, and video) in the order in which they appear on a
         given wiki page.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.5"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/title'
       responses:
         200:
-          description: Gets media items from a wiki page
-          schema:
-            $ref: '#/definitions/media_list_with_metadata'
+          $ref: "#/components/responses/media"
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
         - title: Get media in test page
           request:
@@ -46,6 +39,7 @@ paths:
               items:
                 - section_id: /.+/
                   type: /.+/
+
   /{domain}/v1/page/media/{title}/{revision}:
     get:
       tags:
@@ -54,24 +48,22 @@ paths:
       description: |
         Gets the media items (images, audio, and video) in the order in which they appear on a
         given wiki page.
-      produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.5"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
-        - in: path
-          name: revision
-          required: true
-          type: integer
-          description: Revision ID
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/title'
+        - $ref: '#/components/parameters/revision'
       responses:
         200:
-          description: Gets media items from a wiki page
-          schema:
-            $ref: '#/definitions/media_list_with_metadata'
+          $ref: "#/components/responses/media"
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-monitor: false
+components:
+  responses:
+    media:
+      description: Gets media items from a wiki page
+      content:
+        'application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Media/1.4.5"':
+          schema:
+            $ref: '#/components/schemas/media_list'
+      

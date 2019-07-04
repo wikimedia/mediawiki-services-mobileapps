@@ -21,19 +21,14 @@ paths:
 
         What's not included? What parts of the PageLibrary does a client still have to do?
         Details for this can be found at https://github.com/wikimedia/wikimedia-page-library/blob/master/docs/pcs/pcs.md#interface
-      produces:
-        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.1.0"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/title'
       responses:
         200:
-          description: Success
+          $ref: '#/components/responses/success'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
         - title: Get page content HTML for test page
           request:
@@ -73,23 +68,14 @@ paths:
 
         What's not included? What parts of the PageLibrary does a client still have to do?
         Details for this can be found at https://github.com/wikimedia/wikimedia-page-library/blob/master/docs/pcs/pcs.md#interface
-      produces:
-        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.1.0"
-        - application/problem+json
       parameters:
-        - $ref: '#/parameters/domain'
-        - $ref: '#/parameters/title'
-        - in: path
-          name: revision
-          required: true
-          type: integer
-          description: Revision ID
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/title'
+        - $ref: '#/components/parameters/revision'
       responses:
         200:
-          description: Success
+          $ref: '#/components/responses/success'
         default:
-          description: Error
-          schema:
-            $ref: '#/definitions/problem'
+          $ref: "#/components/responses/problem"
       x-monitor: false
-
+      

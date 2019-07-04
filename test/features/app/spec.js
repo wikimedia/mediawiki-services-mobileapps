@@ -9,10 +9,10 @@ const server                 = require('../../utils/server.js');
 const URI                    = require('swagger-router').URI;
 const yaml                   = require('js-yaml');
 const fs                     = require('fs');
-const specLib                  = require('../../../lib/spec.js');
+const specLib                = require('../../../lib/spec.js');
 const OpenAPISchemaValidator = require('openapi-schema-validator').default;
 
-const validator = new OpenAPISchemaValidator({ version: 2 });
+const validator = new OpenAPISchemaValidator({ version: 3 });
 const dateUtil = require('../../../lib/dateUtil');
 const pad = dateUtil.pad;
 const Ajv    = require('ajv');
@@ -42,7 +42,6 @@ function staticSpecLoad() {
             return schema;
         }
     });
-
 }
 
 function validateExamples(pathStr, defParams, mSpec) {
@@ -79,7 +78,6 @@ function validateExamples(pathStr, defParams, mSpec) {
     return true;
 
 }
-
 
 function constructTestCase(title, path, method, request, response) {
 
@@ -128,7 +126,11 @@ function constructTests(paths, defParams) {
                 ex.request = ex.request || {};
                 ret.push(constructTestCase(
                     ex.title,
-                    uri.toString({ params: Object.assign({}, defParams, ex.request.params || {}) }),
+                    uri.toString({
+                        params: Object.assign({},
+                        defParams,
+                        ex.request.params || {})
+                    }),
                     method,
                     ex.request,
                     ex.response || {}
@@ -262,7 +264,6 @@ describe('Swagger spec', function() {
             assert.contentType(res, 'application/json');
             assert.notDeepEqual(res.body, undefined, 'No body received!');
             assert.deepEqual({ errors: [] }, validator.validate(res.body), 'Spec must have no validation errors');
-            spec = res.body;
         });
     });
 
@@ -271,7 +272,7 @@ describe('Swagger spec', function() {
             defParams = spec['x-default-params'];
         }
         // check the high-level attributes
-        ['info', 'swagger', 'paths'].forEach((prop) => {
+        ['info', 'openapi', 'paths'].forEach((prop) => {
             assert.deepEqual(!!spec[prop], true, `No ${prop} field present!`);
         });
         // no paths - no love
@@ -318,76 +319,76 @@ describe('Swagger spec', function() {
                 assert.fail('This request should fail!');
             })
             .catch((err) => {
-                if (!ajv.validate('#/definitions/problem', err.body.internalErr)) {
+                if (!ajv.validate('#/components/schemas/problem', err.body.internalErr)) {
                     throw new assert.AssertionError({ message: ajv.errorsText() });
                 }
             });
         };
 
-        Object.keys(spec.definitions).forEach((defName) => {
-            ajv.addSchema(spec.definitions[defName], `#/definitions/${defName}`);
+        Object.keys(spec.components.schemas).forEach((defName) => {
+            ajv.addSchema(spec.components.schemas[defName], `#/components/schemas/${defName}`);
         });
 
         // Valid non-aggregated requests
 
         it('featured article response should conform to schema', () => {
             const uri = `${baseUri}page/featured/${dateStr1}`;
-            return assertValidSchema(uri, '#/definitions/article_summary_merge_link');
+            return assertValidSchema(uri, '#/components/schemas/article_summary_merge_link');
         });
 
         it('featured image response should conform to schema', () => {
             const uri = `${baseUri}media/image/featured/${dateStr1}`;
-            return assertValidSchema(uri, '#/definitions/image');
+            return assertValidSchema(uri, '#/components/schemas/image');
         });
 
         it('most-read response should conform to schema', () => {
             const uri = `${baseUri}page/most-read/${dateStr2}`;
-            return assertValidSchema(uri, '#/definitions/mostread');
+            return assertValidSchema(uri, '#/components/schemas/mostread');
         });
 
         it('news response should conform to schema', () => {
             const uri = `${baseUri}page/news`;
-            return assertValidSchema(uri, '#/definitions/news');
+            return assertValidSchema(uri, '#/components/schemas/news');
         });
 
         it('random response should conform to schema', () => {
             const uri = `${baseUri}page/random/title`;
-            return assertValidSchema(uri, '#/definitions/random');
+            return assertValidSchema(uri, '#/components/schemas/random');
         });
 
         it('announcements should conform to schema', () => {
             const uri = `${baseUri}feed/announcements`;
-            return assertValidSchema(uri, '#/definitions/announcements');
+            return assertValidSchema(uri, '#/components/schemas/announcements');
         });
 
         it('onthisday response should conform to schema', () => {
             const uri = `${baseUri}feed/onthisday/all/${monthDayStr1}`;
-            return assertValidSchema(uri, '#/definitions/onthisdayResponse');
+            return assertValidSchema(uri, '#/components/schemas/onthisdayResponse');
         });
 
         it('summary response should conform to schema', () => {
             const uri = `${baseUri}page/summary/Dubai/808803658`;
-            return assertValidSchema(uri, '#/definitions/summary');
+            return assertValidSchema(uri, '#/components/schemas/summary');
         });
 
         it('metadata response should conform to schema', () => {
             const uri = `${baseUri}page/metadata/Hummingbird`;
-            return assertValidSchema(uri, '#/definitions/metadata');
+            return assertValidSchema(uri, '#/components/schemas/metadata');
         });
 
         it('media response should conform to schema', () => {
             const uri = `${baseUri}page/media/Hummingbird`;
-            return assertValidSchema(uri, '#/definitions/media_list_with_metadata');
+            return assertValidSchema(uri, '#/components/schemas/media_list_with_metadata');
         });
 
         it('media-list response should conform to schema', () => {
             const uri = `${baseUri}page/media-list/Hummingbird`;
-            return assertValidSchema(uri, '#/definitions/media_list');
+            return assertValidSchema(uri, '#/components/schemas/media_list');
         });
 
         it('references response should conform to schema', () => {
             const uri = `${baseUri}page/references/List_of_highest-grossing_Indian_films`;
-            return assertValidSchema(uri, '#/definitions/references_response');
+            return assertValidSchema(uri, '#/components/schemas/references_response');
         });
 
         // Bad requests return empty response for aggregated=true

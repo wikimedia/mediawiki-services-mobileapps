@@ -1,0 +1,59 @@
+components:
+  parameters:
+    domainParam:
+      in: path
+      name: domain
+      required: true
+      schema:
+        type: string
+      description: |
+        Project domain for the requested data.
+    title:
+      in: path
+      name: title
+      required: true
+      schema:
+        type: string
+      description: |
+        Page title. Use underscores instead of spaces. Example: `Main_Page`
+    year:
+      in: path
+      name: year
+      required: true
+      schema:
+        type: integer
+        minimum: 2016
+        maximum: 2999
+      description: Four digit year (2016 and later)
+    month:
+      in: path
+      name: month
+      required: true
+      schema:
+        type: integer
+        minimum: 01
+        maximum: 31
+      description: Two digit month, 0-padded if necessary (01 - 12)
+    day:
+      in: path
+      name: day
+      required: true
+      schema:
+        type: integer
+        minimum: 01
+        maximum: 31
+      description: Two digit day of the month, 0-padded if necessary (01 - 31)
+    tid:
+      in: path
+      name: tid
+      required: true
+      schema:
+        type: integer
+      description: Time UUID of the rendering (used for rerenders when non-revision content changes)
+    revision:
+      in: path
+      name: revision
+      required: true
+      schema:
+        type: integer
+      description: Revision ID
