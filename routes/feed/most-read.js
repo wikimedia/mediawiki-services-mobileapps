@@ -24,10 +24,13 @@ let app;
 router.get('/most-read/:yyyy/:mm/:dd', (req, res) => {
     return mostRead.promise(app, req)
     .then((response) => {
-        res.status(!response.payload ? 204 : 200);
-        mUtil.setETag(res, response.meta.revision);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
-        res.json(response.payload || null).end();
+        if (response.payload) {
+            mUtil.setETag(res, response.meta && response.meta.revision);
+            mUtil.setContentType(res, mUtil.CONTENT_TYPES.unpublished);
+            res.status(200).json(response.payload);
+        } else {
+            res.status(204).end();
+        }
     });
 });
 
