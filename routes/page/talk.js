@@ -20,7 +20,8 @@ router.get('/talk/:title/:revision?/:tid?', (req, res) => {
         const topicsWithReplies = talkParser.parseUserTalkPageDocIntoTopicsWithReplies(doc, lang);
 
         res.status(200);
-        mUtil.setETag(res, parsoidApi.getRevAndTidFromEtag(parsoidRsp.headers));
+        const revTid = parsoidApi.getRevAndTidFromEtag(parsoidRsp.headers);
+        mUtil.setETag(res, revTid.revision, revTid.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.talk);
         mUtil.setLanguageHeaders(res, parsoidRsp.headers);
         res.json(topicsWithReplies).end();
