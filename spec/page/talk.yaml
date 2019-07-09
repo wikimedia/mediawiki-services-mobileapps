@@ -26,7 +26,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.0"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.1"
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
               access-control-allow-origin: '*'
@@ -54,7 +54,7 @@ paths:
       summary: Get structured talk page contents
       description: Gets structured talk page contents for the provided title.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.0"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Talk/0.1.1"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
