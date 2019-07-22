@@ -3,17 +3,17 @@
 # strip unneeded markup
 
 - rmElements:
+  - '[class*=nomobile]'
+  - '[class*=navbox]'
   - span.Z3988
   - span:empty
   - link:not([rel="dc:isVersionOf"])
   - '#coordinates'
-  - table.navbox
   - .geo-nondefault
   - .geo-multi-punct
   - .hide-when-compact
   - div.infobox
   - div.magnify
-  - div.navbox
 - rmBracketSpans
 - rmComments
 - rmAttributes:
