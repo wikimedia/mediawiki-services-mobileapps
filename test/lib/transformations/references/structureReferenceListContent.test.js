@@ -235,7 +235,7 @@ describe('lib:structureReferenceListContent', () => {
                         html: 'some HTML',
                         type: 'generic'
                     },
-                    id: '101'
+                    id: 'cite_note-101'
                 });
                 assert.ok(logger.log.notCalled);
             });
@@ -257,7 +257,7 @@ describe('lib:structureReferenceListContent', () => {
                         html: '<cite class="citation journal">cite 1</cite><span>more HTML</span>',
                         type: 'journal'
                     },
-                    id: 'perri2016-13'
+                    id: 'cite_note-perri2016-13'
                 });
                 assert.ok(logger.log.notCalled);
             });
@@ -277,7 +277,7 @@ describe('lib:structureReferenceListContent', () => {
                         html: '<a rel="nofollow" class="external text" href="https://web.archive.org/web/20130816032924/http://timesofindia.indiatimes.com/business/india-business/Journey-of-Indian-rupee-since-independence/articleshow/21844179.cms">Journey of Indian rupee since independence</a>, <i><a href="/wiki/The_Times_of_India" title="The Times of India">The Times of India</a></i>. Retrieved on 2013-12-01.',
                         type: 'generic'
                     },
-                    id: 'toirupee-6'
+                    id: 'cite_note-toirupee-6'
                 });
                 assert.ok(logger.log.notCalled);
             });
@@ -295,7 +295,7 @@ describe('lib:structureReferenceListContent', () => {
                         html: '',
                         type: 'generic'
                     },
-                    id: 'toirupee-6'
+                    id: 'cite_note-toirupee-6'
                 });
                 assert.ok(logger.log.notCalled);
             });
@@ -311,7 +311,7 @@ describe('lib:structureReferenceListContent', () => {
                         html: 'Foo',
                         type: 'generic'
                     },
-                    id: 'S8renewal-120'
+                    id: 'cite_note-S8renewal-120'
                 });
                 assert.ok(logger.log.calledOnce);
             });
@@ -324,7 +324,7 @@ describe('lib:structureReferenceListContent', () => {
             .then((doc) => {
                 const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
                 assert.deepEqual(result.references_by_id, {
-                    101: {
+                    'cite_note-101': {
                         back_links: [{
                             href: './Dog#cite_ref-101',
                             text: '↑'
@@ -335,7 +335,7 @@ describe('lib:structureReferenceListContent', () => {
                         }
                     }
                 });
-                assert.deepEqual(result.order, [ '101' ]);
+                assert.deepEqual(result.order, [ 'cite_note-101' ]);
                 assert.ok(logger.log.notCalled);
             });
         });
@@ -345,7 +345,7 @@ describe('lib:structureReferenceListContent', () => {
             .then((doc) => {
                 const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
                 assert.deepEqual(result.references_by_id, {
-                    101: {
+                    'cite_note-101': {
                         back_links: [{
                             href: './Dog#cite_ref-101',
                             text: '↑'
@@ -356,7 +356,7 @@ describe('lib:structureReferenceListContent', () => {
                         }
                     }
                 });
-                assert.deepEqual(result.order, [ '101' ]);
+                assert.deepEqual(result.order, [ 'cite_note-101' ]);
                 assert.ok(logger.log.notCalled);
             });
         });
@@ -366,7 +366,7 @@ describe('lib:structureReferenceListContent', () => {
             .then((doc) => {
                 const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
                 assert.deepEqual(result.references_by_id, {
-                    4: {
+                    'cite_note-4': {
                         back_links: [{
                             href: './List_of_most_viewed_YouTube_videos#cite_ref-4',
                             text: '↑'
@@ -377,7 +377,7 @@ describe('lib:structureReferenceListContent', () => {
                         }
                     }
                 });
-                assert.deepEqual(result.order, [ '4' ]);
+                assert.deepEqual(result.order, [ 'cite_note-4' ]);
                 assert.ok(logger.log.notCalled);
             });
         });
@@ -387,7 +387,7 @@ describe('lib:structureReferenceListContent', () => {
             .then((doc) => {
                 const result = mut.buildReferenceList(doc.querySelector('ol.mw-references'), logger);
                 assert.deepEqual(result.references_by_id, {
-                    4: {
+                    'cite_note-4': {
                         back_links: [{
                             href: './List_of_most_viewed_YouTube_videos#cite_ref-4',
                             text: '↑'
@@ -398,7 +398,7 @@ describe('lib:structureReferenceListContent', () => {
                         }
                     }
                 });
-                assert.deepEqual(result.order, [ '4' ]);
+                assert.deepEqual(result.order, [ 'cite_note-4' ]);
                 assert.ok(logger.log.notCalled);
             });
         });

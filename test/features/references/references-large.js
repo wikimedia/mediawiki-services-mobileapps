@@ -58,7 +58,7 @@ describe('references-large', function() {
     }
 
     function verifyReference(parsoidRef, refId, details) {
-        assert.deepEqual(parsoidRef.id, `cite_note-${refId}`, 'ref id');
+        assert.deepEqual(parsoidRef.id, refId, 'ref id');
         if (!knownRefIdsWithoutBackLinks.includes(parsoidRef.id)) {
             assert.ok(details[refId].back_links, `no back_links in ref ${parsoidRef.id}`);
         }

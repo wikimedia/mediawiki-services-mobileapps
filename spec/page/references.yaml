@@ -9,7 +9,7 @@ paths:
         Gets a list of reference lists and a map of reference ids to details for all references
         appearing on the equivalent page. This content is parsed from Parsoid output.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/1.0.1"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/2.0.0"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
@@ -31,7 +31,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/1.0.1"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/2.0.0"
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
               access-control-allow-origin: '*'
@@ -58,7 +58,7 @@ paths:
         Gets a list of reference lists and a map of reference ids to details for all references
         appearing on the equivalent page. This content is parsed from Parsoid output.
       produces:
-        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/1.0.1"
+        - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/References/2.0.0"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'

@@ -9,7 +9,7 @@
         "html": "Notes"
       },
       "order": [
-        "ref1-1"
+        "cite_note-ref1-1"
       ]
     },
     {
@@ -19,12 +19,12 @@
         "html": "References"
       },
       "order": [
-        "ref2-2"
+        "cite_note-ref2-2"
       ]
     }
   ],
   "references_by_id": {
-    "ref1-1": {
+    "cite_note-ref1-1": {
       "back_links": [
         {
           "href": "./Page_Content_Service/References/MultipleReflists#cite_ref-ref1_1-0",
@@ -40,7 +40,7 @@
         "type": "generic"
       }
     },
-    "ref2-2": {
+    "cite_note-ref2-2": {
       "back_links": [
         {
           "href": "./Page_Content_Service/References/MultipleReflists#cite_ref-ref2_2-0",
