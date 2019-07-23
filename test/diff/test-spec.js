@@ -69,7 +69,7 @@ class TestSpec {
      * @return {!string} file name to store expected result in (without file extension)
      */
     fileName() {
-        return `${encodeURIComponent(this.testName())}`;
+        return encodeURIComponent(this.testName());
     }
 
     /**
@@ -85,12 +85,14 @@ class TestSpec {
     uriPath() {
         let path = `${this._domain}/v1/${this._route}`;
         if (this._parameters) {
-            path += `/${this._parameters.join('/')}`;
+            for (let param of this._parameters) {
+                path += `/${encodeURIComponent(param)}`;
+            }
         }
         return path;
     }
 
-    introduceFixedValues(input) {
+    introduceFixedValuesForJSON(input) {
         input = JSON.parse(
             JSON.stringify(input)
             .replace(/#mwt\d+/g, '#mwt_present')
@@ -135,11 +137,42 @@ class TestSpec {
         return input;
     }
 
+    introduceFixedValuesForHTML(input) {
+        input = input
+            .replace(/#mwt\d+/g, '#mwt_present')
+            .replace(/id=\\"mw[\w-]{2,3}\\"/g, 'id=\\"mw_id\\"');
+
+        input = input
+            // Simplify the numbers in:
+            // usemap=\"#ImageMap_1_922168371\"></a>
+            // <map name=\"ImageMap_1_922168371\" id=\"ImageMap_1_922168371\">
+            .replace(/ImageMap_\d+_\d+/g, 'ImageMap_')
+            // Simplify the revision numbers in:
+            // data-mw-deduplicate=\"TemplateStyles:r856303569\"
+            .replace(
+                /(data-mw-deduplicate="TemplateStyles:r)\d+(")/g,
+                '$1_REV_$2'
+            );
+
+        // Simplify <meta property="mw:TimeUuid" content="34d12950-ada6-11e9-84ef-7ddcc0b63515">
+        input = input
+            .replace(
+                /<meta property="mw:TimeUuid" content="[-0-9a-f]+"/,
+                '<meta property="mw:TimeUuid" content="FIXED_TIME_UUID"'
+            );
+
+        return input;
+    }
+
     postProcessing(rsp) {
         if (this._options.suffix === 'json') {
             let input = rsp.body;
-            input = this.introduceFixedValues(input);
+            input = this.introduceFixedValuesForJSON(input);
             rsp.body = JSON.stringify(input, null, 2);
+        } else if (this._options.suffix === 'html') {
+            let input = rsp.body;
+            input = this.introduceFixedValuesForHTML(input);
+            rsp.body = input;
         }
         return rsp;
     }
@@ -179,6 +212,9 @@ const TEST_SPECS = [
 
     new TestSpec('en.wikipedia.org', 'page/mobile-sections', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682']),
     new TestSpec('en.wikipedia.org', 'page/mobile-sections', ['User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613']),
+
+    new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'], { suffix: 'html' }),
+    new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'], { suffix: 'html' }),
 
     new TestSpec('en.wikipedia.org', 'page/media', ['Hummingbird', '810247947']),
     new TestSpec('en.wikipedia.org', 'page/media-list', ['Hummingbird', '810247947']),
