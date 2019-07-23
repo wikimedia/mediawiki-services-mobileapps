@@ -92,6 +92,9 @@ class TestSpec {
     }
 
     postProcessing(rsp) {
+        if (this._options.suffix === 'json') {
+            rsp.body = JSON.stringify(rsp.body, null, 2);
+        }
         return rsp;
     }
 
@@ -213,7 +216,7 @@ class TestPageSpec extends TestSpec {
             input.tid = 'present';
         }
 
-        rsp.body = input;
+        rsp.body = JSON.stringify(input, null, 2);
         return rsp;
     }
 

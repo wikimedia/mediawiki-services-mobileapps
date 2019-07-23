@@ -21,7 +21,7 @@ describe('diff', function() {
      * @return {!string} pretty-printed JSON with some properties removed
      */
     const formatOutput = (rsp) => {
-        return JSON.stringify(rsp.body, null, 2);
+        return rsp.body;
     };
 
     if (testSpec.UPDATE_EXPECTED_RESULTS) {
