@@ -218,6 +218,7 @@ const TEST_SPECS = [
 
     new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'], { suffix: 'html' }),
     new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'], { suffix: 'html' }),
+    new TestSpec('zh.wikipedia.org', 'page/mobile-html', ['A', '55070510'], { suffix: 'html' }),
 
     new TestSpec('en.wikipedia.org', 'page/media', ['Hummingbird', '810247947']),
     new TestSpec('en.wikipedia.org', 'page/media-list', ['Hummingbird', '810247947']),
