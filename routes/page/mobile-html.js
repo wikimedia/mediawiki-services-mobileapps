@@ -4,6 +4,7 @@ const BBPromise = require('bluebird');
 const domUtil = require('../../lib/domUtil');
 const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
+const processMobileviewHtml = require('../../lib/mobileview-html').buildPage;
 const apiUtil = require('../../lib/api-util');
 const parsoidApi = require('../../lib/parsoid-access');
 const preprocessParsoidHtml = require('../../lib/processing');
@@ -39,12 +40,11 @@ router.get('/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
     });
 });
 
-/**
- * GET {domain}/v1/page/mobile-html/{title}{/revision}{/tid}
- * Gets page content in HTML. This is a more optimized for direct consumption by reading
- * clients.
- */
-router.get('/mobile-html/:title/:revision?/:tid?', (req, res) => {
+function parsoidSupportsLanguageVariants(req) {
+    return req.params.domain !== 'zh.wikipedia.org';
+}
+
+function getMobileHtmlFromParsoid(req, res) {
     return BBPromise.props({
         parsoid: parsoidApi.pageDocumentPromise(app, req, true),
         mw: mwapi.getMetadataForMobileHtml(req)
@@ -68,6 +68,40 @@ router.get('/mobile-html/:title/:revision?/:tid?', (req, res) => {
 
         res.send(response.processedParsoidResponse.outerHTML).end();
     });
+}
+
+function getMobileHtmlFromMobileview(req, res) {
+    return mwapi.getMainPageData(app, req)
+    .then((mwResponse) => {
+        return processMobileviewHtml(mwResponse,
+            app.conf.processing_scripts['mobile-html'], {
+                baseURI: app.conf.mobile_html_rest_api_base_uri,
+                domain: req.params.domain,
+                mobileview: mwResponse.body.mobileview
+            }
+        );
+    }).then((document) => {
+        res.status(200);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
+        // mUtil.setETag(res, response.parsoid.meta.revision);
+        // mUtil.setLanguageHeaders(res, response.parsoid.meta._headers);
+        mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
+
+        res.send(document.outerHTML).end();
+    });
+}
+
+/**
+ * GET {domain}/v1/page/mobile-html/{title}{/revision}{/tid}
+ * Gets page content in HTML. This is a more optimized for direct consumption by reading
+ * clients.
+ */
+router.get('/mobile-html/:title/:revision?/:tid?', (req, res) => {
+    if (parsoidSupportsLanguageVariants(req)) {
+        return getMobileHtmlFromParsoid(req, res);
+    } else {
+        return getMobileHtmlFromMobileview(req, res);
+    }
 });
 
 router.get('/mobile-html-offline-resources/:title/:revision?/:tid?', (req, res) => {
