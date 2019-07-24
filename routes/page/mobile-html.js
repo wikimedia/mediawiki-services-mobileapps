@@ -71,7 +71,7 @@ function getMobileHtmlFromParsoid(req, res) {
 }
 
 function getMobileHtmlFromMobileview(req, res) {
-    return mwapi.getMainPageData(app, req)
+    return mwapi.getPageFromMobileview(app, req)
     .then((mwResponse) => {
         return processMobileviewHtml(mwResponse,
             app.conf.processing_scripts['mobile-html'], {
