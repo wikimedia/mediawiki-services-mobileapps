@@ -80,14 +80,14 @@ function getMobileHtmlFromMobileview(req, res) {
                 mobileview: mwResponse.body.mobileview
             }
         );
-    }).then((document) => {
+    }).then((result) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
-        // mUtil.setETag(res, response.parsoid.meta.revision);
+        mUtil.setETag(res, result.meta.revision);
         // mUtil.setLanguageHeaders(res, response.parsoid.meta._headers);
         mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
 
-        res.send(document.outerHTML).end();
+        res.send(result.document.outerHTML).end();
     });
 }
 
