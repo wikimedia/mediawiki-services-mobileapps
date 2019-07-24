@@ -55,8 +55,7 @@ class TestSpec {
      * @return {!string} name of this test to print to the console
      */
     testName() {
-        // eslint-disable-next-line max-len
-        return `${TestSpec.fsName(this._route)}-${TestSpec.fsName(this.project())}-${this._parameters.join('-')}`;
+        return TestSpec.fsName(`${this._route}-${this.project()}-${this._parameters.join('-')}`);
     }
 
     /**
@@ -91,90 +90,7 @@ class TestSpec {
         return path;
     }
 
-    postProcessing(rsp) {
-        if (this._options.suffix === 'json') {
-            rsp.body = JSON.stringify(rsp.body, null, 2);
-        }
-        return rsp;
-    }
-
-    /**
-     * @private
-     * @param {!string} array input array
-     * @return {!string} a string of JS code to make a array of strings
-     */
-    static toStringArrayCode(array) {
-        return `['${array.join("', '")}']`;
-    }
-
-    /**
-     * Prints the constructor for updating scripts
-     * @return {string}
-     */
-    generator() {
-        if (this._parameters) {
-            // eslint-disable-next-line max-len
-            return `    new TestSpec('${this._domain}', '${this._route}', ${TestSpec.toStringArrayCode(this._parameters)}),`;
-        } else {
-            return `    new TestSpec('${this._domain}', '${this._route}'),`;
-        }
-    }
-}
-
-/**
- * A TestSpec which covers a specific page which has an optional revision parameter
- * (powered by Parsoid).
- *
- * @protected {!string} _domain
- * @protected {!string} _route
- * @protected {!string} _title
- * @protected {?string} _revision
- */
-class TestPageSpec extends TestSpec {
-    /**
-     * @param {!string} domain project domain (e.g. 'en.wikipedia.org')
-     * @param {!string} route endpoint specifier
-     * @param {!string} title human readable page title (unencoded)
-     * @param {?string} revision revision of the page when the expectation was saved
-     */
-    constructor(domain, route, title, revision) {
-        super(domain, route, [title, revision]);
-        this._title = title;
-        this._revision = revision;
-    }
-
-    /**
-     * @override
-     * @return {!string} name of this test to print to the console
-     */
-    testName() {
-        // eslint-disable-next-line max-len
-        return `${TestSpec.fsName(this._route)}-${TestSpec.fsName(this.project())}-${TestSpec.fsName(this._title)}`;
-    }
-
-    /**
-     * @private
-     * @return {!string} percent-encoded version of the title string
-     */
-    encodedTitle() {
-        return encodeURIComponent(this._title);
-    }
-
-    /**
-     * @override
-     * @return {!string} path portion of the request URI
-     */
-    uriPath() {
-        let path = `${this._domain}/v1/${this._route}/${this.encodedTitle()}`;
-        if (this._revision) {
-            path += `/${this._revision}`; // prefer revisions for more stability
-        }
-        return path;
-    }
-
-    postProcessing(rsp) {
-        let input = rsp.body;
-
+    introduceFixedValues(input) {
         input = JSON.parse(
             JSON.stringify(input)
             .replace(/#mwt\d+/g, '#mwt_present')
@@ -216,24 +132,38 @@ class TestPageSpec extends TestSpec {
             input.tid = 'present';
         }
 
-        rsp.body = JSON.stringify(input, null, 2);
+        return input;
+    }
+
+    postProcessing(rsp) {
+        if (this._options.suffix === 'json') {
+            let input = rsp.body;
+            input = this.introduceFixedValues(input);
+            rsp.body = JSON.stringify(input, null, 2);
+        }
         return rsp;
     }
 
     /**
-     * @override
+     * @private
+     * @param {!string} array input array
+     * @return {!string} a string of JS code to make a array of strings
+     */
+    static toStringArrayCode(array) {
+        return `['${array.join("', '")}']`;
+    }
+
+    /**
      * Prints the constructor for updating scripts
      * @return {string}
      */
     generator() {
-        const requiredParams = `'${this._domain}', '${this._route}', '${this._title}'`;
-        let optionalParams = '';
-
-        if (this._revision) {
-            optionalParams = `, '${this._revision}'`;
+        if (this._parameters) {
+            // eslint-disable-next-line max-len
+            return `    new TestSpec('${this._domain}', '${this._route}', ${TestSpec.toStringArrayCode(this._parameters)}),`;
+        } else {
+            return `    new TestSpec('${this._domain}', '${this._route}'),`;
         }
-
-        return `    new TestPageSpec(${requiredParams}${optionalParams}),`;
     }
 }
 
@@ -247,25 +177,25 @@ const TEST_SPECS = [
     new TestSpec('en.wikipedia.org', 'media/image/featured', ['2019', '06', '11']),
     new TestSpec('en.wikipedia.org', 'page/most-read', ['2016', '01', '01']),
 
-    new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'),
-    new TestPageSpec('en.wikipedia.org', 'page/mobile-sections', 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'),
+    new TestSpec('en.wikipedia.org', 'page/mobile-sections', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682']),
+    new TestSpec('en.wikipedia.org', 'page/mobile-sections', ['User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613']),
 
-    new TestPageSpec('en.wikipedia.org', 'page/media', 'Hummingbird', '810247947'),
-    new TestPageSpec('en.wikipedia.org', 'page/media-list', 'Hummingbird', '810247947'),
+    new TestSpec('en.wikipedia.org', 'page/media', ['Hummingbird', '810247947']),
+    new TestSpec('en.wikipedia.org', 'page/media-list', ['Hummingbird', '810247947']),
 
-    new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/SimpleReference', '2640831'),
-    new TestPageSpec('www.mediawiki.org', 'page/references', 'Page_Content_Service/References/MultipleReflists', '2640615'),
-    new TestPageSpec('en.wikipedia.org', 'page/references', 'Neutronium', '857150438'),
+    new TestSpec('www.mediawiki.org', 'page/references', ['Page_Content_Service/References/SimpleReference', '2640831']),
+    new TestSpec('www.mediawiki.org', 'page/references', ['Page_Content_Service/References/MultipleReflists', '2640615']),
+    new TestSpec('en.wikipedia.org', 'page/references', ['Neutronium', '857150438']),
 
-    new TestPageSpec('en.wiktionary.org', 'page/definition', 'cat', '50657469'),
+    new TestSpec('en.wiktionary.org', 'page/definition', ['cat', '50657469']),
 
-    new TestPageSpec('en.wikipedia.org', 'page/metadata', 'Red_Wing,_Minnesota', '876662662'),
+    new TestSpec('en.wikipedia.org', 'page/metadata', ['Red_Wing,_Minnesota', '876662662']),
 
-    new TestPageSpec('en.wikipedia.org', 'page/summary', 'Tokyo', '871928272'),
+    new TestSpec('en.wikipedia.org', 'page/summary', ['Tokyo', '871928272']),
 
-    new TestPageSpec('en.wikipedia.org', 'page/talk', 'User_talk:Brion_VIBBER', '895522398'),
-    new TestPageSpec('en.wikipedia.org', 'page/talk', 'User_talk:Montehurd', '899425787'),
-    new TestPageSpec('fr.wikipedia.org', 'page/talk', 'User_talk:Brion_VIBBER', '51609364')
+    new TestSpec('en.wikipedia.org', 'page/talk', ['User_talk:Brion_VIBBER', '895522398']),
+    new TestSpec('en.wikipedia.org', 'page/talk', ['User_talk:Montehurd', '899425787']),
+    new TestSpec('fr.wikipedia.org', 'page/talk', ['User_talk:Brion_VIBBER', '51609364'])
 ];
 /* eslint-enable max-len */
 
