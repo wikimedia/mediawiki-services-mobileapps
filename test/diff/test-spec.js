@@ -1,6 +1,7 @@
 'use strict';
 
 const htmlDebug = require('./html-debug');
+const beautifyHtml = require('js-beautify').html;
 
 // To update the expected test results temporarily set the constant UPDATE_EXPECTED_RESULTS to true.
 // After the run consider updating the TestSpec constructors later in this file to paste in the
@@ -160,6 +161,8 @@ class TestSpec {
                 /<meta property="mw:TimeUuid" content="[-0-9a-f]+"/,
                 '<meta property="mw:TimeUuid" content="FIXED_TIME_UUID"'
             );
+
+        input = beautifyHtml(input, { indent_size: 2, html: { end_with_newline: true } });
 
         return input;
     }
