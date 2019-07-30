@@ -4,7 +4,9 @@ const BBPromise = require('bluebird');
 const domUtil = require('../../lib/domUtil');
 const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
-const processMobileviewHtml = require('../../lib/mobileview-html').buildPage;
+const mobileviewHtml = require('../../lib/mobileview-html');
+const processMobileviewHtml = mobileviewHtml.buildPage;
+const shouldUseMobileview = mobileviewHtml.shouldUseMobileview;
 const apiUtil = require('../../lib/api-util');
 const parsoidApi = require('../../lib/parsoid-access');
 const preprocessParsoidHtml = require('../../lib/processing');
@@ -39,10 +41,6 @@ router.get('/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
         res.send(response.document.outerHTML).end();
     });
 });
-
-function parsoidSupportsLanguageVariants(req) {
-    return req.params.domain !== 'zh.wikipedia.org';
-}
 
 function getMobileHtmlFromParsoid(req, res) {
     return BBPromise.props({
@@ -97,7 +95,7 @@ function getMobileHtmlFromMobileview(req, res) {
  * clients.
  */
 router.get('/mobile-html/:title/:revision?/:tid?', (req, res) => {
-    if (parsoidSupportsLanguageVariants(req)) {
+    if (!shouldUseMobileview(req)) {
         return getMobileHtmlFromParsoid(req, res);
     } else {
         return getMobileHtmlFromMobileview(req, res);
