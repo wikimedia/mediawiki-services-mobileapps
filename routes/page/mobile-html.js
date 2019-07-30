@@ -85,7 +85,7 @@ function getMobileHtmlFromMobileview(req, res) {
         // mUtil.setLanguageHeaders(res, response.parsoid.meta._headers);
         mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
 
-        res.send(result.document.outerHTML).end();
+        res.send(result.doc.outerHTML).end();
     });
 }
 

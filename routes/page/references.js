@@ -1,9 +1,13 @@
 'use strict';
 
+const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
 const parsoid = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
 const transforms = require('../../lib/transforms');
+const mobileviewHtml = require('../../lib/mobileview-html');
+const processMobileviewHtmlReferences = mobileviewHtml.buildPage;
+const shouldUseMobileview = mobileviewHtml.shouldUseMobileview;
 
 /**
  * The main router object
@@ -26,16 +30,35 @@ function buildReferences(meta, document, logger) {
     return Object.assign(meta, transforms.extractReferenceLists(document, logger));
 }
 
+function commonEnd(res, result, req) {
+    res.status(200);
+    mUtil.setContentType(res, mUtil.CONTENT_TYPES.references);
+    mUtil.setETag(res, result.meta.revision);
+    mUtil.setLanguageHeaders(res, result.meta._headers);
+    // Don't poison the client response with the internal _headers object
+    delete result.meta._headers;
+    res.json(buildReferences(result.meta, result.doc, req.logger)).end();
+}
+
 function getReferencesFromParsoid(req, res) {
     return parsoid.pageHtmlPromiseForReferences(app, req)
-    .then((response) => {
-        res.status(200);
-        mUtil.setETag(res, response.meta.revision);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.references);
-        mUtil.setLanguageHeaders(res, response.meta._headers);
-        // Don't poison the client response with the internal _headers object
-        delete response.meta._headers;
-        res.json(buildReferences(response.meta, response.doc, req.logger)).end();
+    .then((result) => {
+        commonEnd(res, result, req);
+    });
+}
+
+function getReferencesFromMobileview(req, res) {
+    return mwapi.getPageFromMobileview(app, req)
+    .then((mwResponse) => {
+        return processMobileviewHtmlReferences(mwResponse,
+            app.conf.processing_scripts.references, {
+                baseURI: app.conf.mobile_html_rest_api_base_uri,
+                domain: req.params.domain,
+                mobileview: mwResponse.body.mobileview
+            }
+        );
+    }).then((result) => {
+        commonEnd(res, result, req);
     });
 }
 
@@ -44,7 +67,12 @@ function getReferencesFromParsoid(req, res) {
  * Gets any sections which are part of a reference sections for a given wiki page.
  */
 router.get('/references/:title/:revision?/:tid?', (req, res) => {
-    return getReferencesFromParsoid(req, res);
+    if (!shouldUseMobileview(req)) {
+        return getReferencesFromParsoid(req, res);
+    } else {
+        return getReferencesFromMobileview(req, res);
+    }
+
 });
 
 module.exports = function(appObj) {
