@@ -26,11 +26,7 @@ function buildReferences(meta, document, logger) {
     return Object.assign(meta, transforms.extractReferenceLists(document, logger));
 }
 
-/**
- * GET {domain}/v1/page/references/{title}{/revision}{/tid}
- * Gets any sections which are part of a reference sections for a given wiki page.
- */
-router.get('/references/:title/:revision?/:tid?', (req, res) => {
+function getReferencesFromParsoid(req, res) {
     return parsoid.pageHtmlPromiseForReferences(app, req)
     .then((response) => {
         res.status(200);
@@ -41,6 +37,14 @@ router.get('/references/:title/:revision?/:tid?', (req, res) => {
         delete response.meta._headers;
         res.json(buildReferences(response.meta, response.doc, req.logger)).end();
     });
+}
+
+/**
+ * GET {domain}/v1/page/references/{title}{/revision}{/tid}
+ * Gets any sections which are part of a reference sections for a given wiki page.
+ */
+router.get('/references/:title/:revision?/:tid?', (req, res) => {
+    return getReferencesFromParsoid(req, res);
 });
 
 module.exports = function(appObj) {
