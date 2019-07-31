@@ -94,13 +94,16 @@ function getMobileHtmlFromParsoid(req, res) {
 }
 
 function getMobileHtmlFromMobileview(req, res) {
-    return mwapi.getPageFromMobileview(app, req)
-    .then((mwResponse) => {
-        return processMobileviewHtml(mwResponse,
+    return BBPromise.props({
+        mobileview: mwapi.getPageFromMobileview(app, req),
+        mw: mwapi.getMetadataForMobileHtml(req)
+    })
+    .then((response) => {
+        return processMobileviewHtml(response.mobileview, response.mw,
             app.conf.processing_scripts['mobile-html'], {
                 baseURI: app.conf.mobile_html_rest_api_base_uri,
                 domain: req.params.domain,
-                mobileview: mwResponse.body.mobileview
+                mobileview: response.mobileview.body.mobileview
             }
         );
     }).then((result) => {
