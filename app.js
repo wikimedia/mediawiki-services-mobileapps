@@ -158,8 +158,6 @@ function initApp(options) {
     app.use(bodyParser.json({ limit: app.conf.max_body_size || '100kb' }));
     // use the application/x-www-form-urlencoded parser
     app.use(bodyParser.urlencoded({ extended: true }));
-    // use text for text/html
-    app.use(bodyParser.text({ type: 'text/html', limit: '10MB' }));
 
     return BBPromise.resolve(app);
 
