@@ -1,0 +1,40 @@
+paths:
+  /{domain}/v1/transform/html/to/mobile-html/{title}:
+    post:
+      tags:
+        - Page content
+      summary: Create HTML optimized for mobile consumption based on POSTed Parsoid HTML
+      consumes:
+        - text/html
+      description: |
+        Creates HTML optimized for mobile consumption for the given page based on the POSTed
+        Parsoid HTML in the request body.
+      produces:
+        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.1.0"
+        - application/problem+json
+      parameters:
+        - $ref: '#/parameters/domain'
+        - $ref: '#/parameters/title'
+        - in: body
+          name: html
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/problem'
+      x-amples:
+        - title: Get preview mobile HTML for test page
+          request:
+            params:
+              title: Dog
+            body:
+              html: <section>test</section>
+          response:
+            status: 200
+            headers:
+              content-type: text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.1.0"

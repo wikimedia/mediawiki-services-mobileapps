@@ -28,7 +28,7 @@ let app;
  * Gets in HTML. This is based on Parsoid with some minor modifications more
  * suitable for the reading use cases.
  */
-router.get('/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
+router.get('/page/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
     return parsoidApi.pageDocumentPromise(app, req, false)
     .then((response) => {
         res.status(200);
@@ -41,6 +41,32 @@ router.get('/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
         res.send(response.document.outerHTML).end();
     });
 });
+
+function getMobileHtmlFromPOST(req, res) {
+    const html = req.body && req.body.html || req.body;
+    return BBPromise.props({
+        parsoid: parsoidApi.preprocessedDocumentPromise(app, req, html, true),
+        mw: mwapi.getMetadataForMobileHtml(req)
+    }).then((response) => {
+        return BBPromise.props({
+            // run another processing script after we've retrieved the metadata response from MW API
+            processedParsoidResponse: preprocessParsoidHtml(response.parsoid.document,
+                app.conf.processing_scripts['mobile-html-post-meta'],
+                { mw: response.mw, parsoid: response.parsoid }),
+            parsoid: BBPromise.resolve(response.parsoid),
+            mw: BBPromise.resolve(response.mw)
+        });
+    }).then((response) => {
+        res.status(200);
+        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
+        mUtil.setLanguageHeaders(res, response.parsoid.meta._headers);
+        mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
+        // Don't poison the client response with the internal _headers object
+        delete response.parsoid.meta._headers;
+
+        res.send(response.processedParsoidResponse.outerHTML).end();
+    });
+}
 
 function getMobileHtmlFromParsoid(req, res) {
     return BBPromise.props({
@@ -97,7 +123,7 @@ function getMobileHtmlFromMobileview(req, res) {
  * Gets page content in HTML. This is a more optimized for direct consumption by reading
  * clients.
  */
-router.get('/mobile-html/:title/:revision?/:tid?', (req, res) => {
+router.get('/page/mobile-html/:title/:revision?/:tid?', (req, res) => {
     if (!shouldUseMobileview(req)) {
         return getMobileHtmlFromParsoid(req, res);
     } else {
@@ -105,7 +131,15 @@ router.get('/mobile-html/:title/:revision?/:tid?', (req, res) => {
     }
 });
 
-router.get('/mobile-html-offline-resources/:title/:revision?/:tid?', (req, res) => {
+/**
+ * POST {domain}/v1/transform/html/to/mobile-html/{title}
+ * Previews page content in HTML. POST body should be Parsoid HTML
+ */
+router.post('/transform/html/to/mobile-html/:title', (req, res) => {
+    return getMobileHtmlFromPOST(req, res);
+});
+
+router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, res) => {
     res.status(200);
     mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtmlOfflineResources);
     mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
@@ -129,7 +163,7 @@ router.get('/mobile-html-offline-resources/:title/:revision?/:tid?', (req, res) 
 module.exports = function(appObj) {
     app = appObj;
     return {
-        path: '/page',
+        path: '/',
         api_version: 1,
         router
     };
