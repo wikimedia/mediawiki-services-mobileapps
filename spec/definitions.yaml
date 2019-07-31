@@ -581,8 +581,6 @@ definitions:
           - central
           - local
         description: Whether the description is defined locally or comes from Wikidata.  May be 'central' or 'local'.
-      variants:
-        type: object
     required: [ revision, tid, protection ]
     additionalProperties: false
 
