@@ -20,22 +20,9 @@ paths:
         * LazyLoadTransform: server-side portion/prep for lazy loading of images.
 
         What's not included? What parts of the PageLibrary does a client still have to do?
-        * Theme support: Themes can be turned on by adding a theme class to the root <html> tag.
-          Possible class names are:
-          * `pagelib_theme_default`
-          * `pagelib_theme_dark`
-          * `pagelib_theme_black`
-          * `pagelib_theme_sepia`
-
-          The pagelib JS has functionality to do that: ThemeTransform.setTheme(document, theme).
-        * Dim images: DimImagesTransform.dim(window, enable)
-        * PlatformTransform.classify(window) to trigger Android and iOS app specific CSS rules
-        * LazyLoadTransformer: client side companion of LazyLoadTransform (note the extra *er*
-        here)
-        * CollapseTable: server-side portion/prep for collapsing tables.
-        * FooterTransformer: seems to be more UI than content, requires I18N, too
+        Details for this can be found at https://github.com/wikimedia/wikimedia-page-library/blob/master/docs/pcs/pcs.md#interface
       produces:
-        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.1.0"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
@@ -55,7 +42,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+              content-type: text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.1.0"
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
@@ -85,22 +72,9 @@ paths:
         * LazyLoadTransform: server-side portion/prep for lazy loading of images.
 
         What's not included? What parts of the PageLibrary does a client still have to do?
-        * Theme support: Themes can be turned on by adding a theme class to the root <html> tag.
-          Possible class names are:
-          * `pagelib_theme_default`
-          * `pagelib_theme_dark`
-          * `pagelib_theme_black`
-          * `pagelib_theme_sepia`
-
-          The pagelib JS has functionality to do that: ThemeTransform.setTheme(document, theme).
-        * Dim images: DimImagesTransform.dim(window, enable)
-        * PlatformTransform.classify(window) to trigger Android and iOS app specific CSS rules
-        * LazyLoadTransformer: client side companion of LazyLoadTransform (note the extra *er*
-        here)
-        * CollapseTable: server-side portion/prep for collapsing tables.
-        * FooterTransformer: seems to be more UI than content, requires I18N, too
+        Details for this can be found at https://github.com/wikimedia/wikimedia-page-library/blob/master/docs/pcs/pcs.md#interface
       produces:
-        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.0.0"
+        - text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.1.0"
         - application/problem+json
       parameters:
         - $ref: '#/parameters/domain'
