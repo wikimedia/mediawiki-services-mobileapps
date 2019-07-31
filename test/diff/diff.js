@@ -24,47 +24,15 @@ describe('diff', function() {
         return rsp.body;
     };
 
-    function buildRequestParams(buildUri, spec) {
-        const requestParams = {
-            uri: buildUri(spec.uriPath()),
-            headers: spec.getHeaders()
-        };
-        if (spec.getPayloadFile()) {
-            requestParams.body = fs.readFileSync(spec.getPayloadFile(), 'utf8');
-        }
-        return requestParams;
-    }
-
-    function writeExpectedResultsToFile(spec, rsp, formatOutput) {
-        // console.log(`mcs headers.etag: ${rsp.headers.etag}`);
-        const processedResponse = spec.postProcessing(rsp);
-        fs.writeFileSync(spec.filePath(), formatOutput(processedResponse), 'utf8');
-    }
-
-    function verifyResult(spec, rsp) {
-        const content = fs.readFileSync(spec.filePath(), 'utf8');
-        spec.postProcessing(rsp);
-        assert.equal(formatOutput(rsp), content);
-    }
-
     if (testSpec.UPDATE_EXPECTED_RESULTS) {
         for (const spec of testSpec.TEST_SPECS) {
             it(`Update expected result for ${spec.testName()}`, () => {
-                const requestParams = buildRequestParams(buildUri, spec);
-                switch (spec.getHttpMethod()) {
-                case 'GET':
-                    return preq.get(requestParams)
-                    .then((rsp) => {
-                        return writeExpectedResultsToFile(spec, rsp, formatOutput);
-                    });
-                case 'POST':
-                    return preq.post(requestParams)
-                    .then((rsp) => {
-                        return writeExpectedResultsToFile(spec, rsp, formatOutput);
-                    });
-                default:
-                    assert.fail(`http method ${spec.getHttpMethod()} not implemented`);
-                }
+                return preq.get({ uri: buildUri(spec.uriPath()) })
+                .then((rsp) => {
+                    // console.log(`mcs headers.etag: ${rsp.headers.etag}`);
+                    const processedResponse = spec.postProcessing(rsp);
+                    fs.writeFileSync(spec.filePath(), formatOutput(processedResponse), 'utf8');
+                });
             });
         }
 
@@ -81,21 +49,13 @@ describe('diff', function() {
         // Verify step:
         for (const spec of testSpec.TEST_SPECS) {
             it(`${spec.testName()}`, () => {
-                const requestParams = buildRequestParams(buildUri, spec);
-                switch (spec.getHttpMethod()) {
-                    case 'GET':
-                        return preq.get(requestParams)
-                        .then((rsp) => {
-                            return verifyResult(spec, rsp);
-                        });
-                    case 'POST':
-                        return preq.post(requestParams)
-                        .then((rsp) => {
-                            return verifyResult(spec, rsp);
-                        });
-                    default:
-                        assert.fail(`http method ${spec.getHttpMethod()} not implemented`);
-                }
+                return preq.get({ uri: buildUri(spec.uriPath()),
+                    headers: 'cache-control: no-cache' })
+                           .then((rsp) => {
+                               const content = fs.readFileSync(spec.filePath(), 'utf8');
+                               spec.postProcessing(rsp);
+                               assert.equal(formatOutput(rsp), content);
+                           });
             });
         }
     }

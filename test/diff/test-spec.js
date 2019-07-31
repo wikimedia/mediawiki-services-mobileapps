@@ -24,21 +24,12 @@ class TestSpec {
      * @param {?Array<string>} parameters parameter values
      * @param {?object} options an optional object for additional settings:
      * @param {?string} options.suffix file suffix, default = 'json'
-     * @param {?string} options.method HTTP method, default = 'GET'
-     * @param {?string} options.payloadFile file path to load a fixture for a POST request body
-     * @param {?object} options.headers map of HTTP headers
      */
     constructor(domain, route, parameters, options) {
         this._domain = domain;
         this._route = route;
         this._parameters = parameters;
-        this._options = options || {};
-        this._options.suffix = this._options.suffix || 'json';
-        this._options.method = this._options.method || 'GET';
-        this._options.headers = this._options.headers || { 'cache-control': 'no-cache' };
-        if (!this._options.headers['cache-control']) {
-            this._options.headers['cache-control'] = 'no-cache';
-        }
+        this._options = options || { suffix: 'json' };
     }
 
     /**
@@ -87,27 +78,6 @@ class TestSpec {
      */
     filePath() {
         return `${this.dir()}${this.fileName()}.${this._options.suffix}`;
-    }
-
-    /**
-     * @return {!string} HTTP method ('GET' or 'POST')
-     */
-    getHttpMethod() {
-        return this._options.method;
-    }
-
-    /**
-     * @return {!object} map of header key value pairs
-     */
-    getHeaders() {
-        return this._options.headers;
-    }
-
-    /**
-     * @return {!string} file to load to use as body for POST requests
-     */
-    getPayloadFile() {
-        return this._options.payloadFile;
     }
 
     /**
@@ -248,7 +218,6 @@ const TEST_SPECS = [
 
     new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'], { suffix: 'html' }),
     new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'], { suffix: 'html' }),
-    new TestSpec('en.wikipedia.org', 'transform/html/to/mobile-html', ['Dog'], { suffix: 'html', method: 'POST', headers: { 'Content-Type': 'text/html' }, payloadFile: 'test/fixtures/Dog.html' }),
     new TestSpec('zh.wikipedia.org', 'page/mobile-html', ['A', '55070510'], { suffix: 'html' }),
 
     new TestSpec('en.wikipedia.org', 'page/media', ['Hummingbird', '810247947']),
