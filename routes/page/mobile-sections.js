@@ -22,7 +22,7 @@ let app;
 
 /** Returns a promise to retrieve the page content from MW API mobileview */
 function pageContentForMainPagePromise(req) {
-    return mwapi.getPageFromMobileview(app, req)
+    return mwapi.getPageFromMobileview(req)
     .then((response) => {
         const page = response.body.mobileview;
         return BBPromise.each(page.sections, (section) => {

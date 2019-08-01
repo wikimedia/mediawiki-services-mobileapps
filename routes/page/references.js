@@ -6,8 +6,6 @@ const parsoid = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
 const transforms = require('../../lib/transforms');
 const mobileviewHtml = require('../../lib/mobileview-html');
-const processMobileviewHtmlReferences = mobileviewHtml.buildPage;
-const shouldUseMobileview = mobileviewHtml.shouldUseMobileview;
 
 /**
  * The main router object
@@ -48,16 +46,10 @@ function getReferencesFromParsoid(req, res) {
 }
 
 function getReferencesFromMobileview(req, res) {
-    return mwapi.getPageFromMobileview(app, req)
-    .then((mwResponse) => {
-        return processMobileviewHtmlReferences(mwResponse,
-            app.conf.processing_scripts.references, {
-                baseURI: app.conf.mobile_html_rest_api_base_uri,
-                domain: req.params.domain,
-                mobileview: mwResponse.body.mobileview
-            }
-        );
-    }).then((result) => {
+    const scripts = app.conf.processing_scripts.references;
+    const baseURI = app.conf.mobile_html_rest_api_base_uri;
+    return mobileviewHtml.requestAndProcessPage(req, scripts, baseURI)
+    .then((result) => {
         commonEnd(res, result, req);
     });
 }
@@ -67,7 +59,7 @@ function getReferencesFromMobileview(req, res) {
  * Gets any sections which are part of a reference sections for a given wiki page.
  */
 router.get('/references/:title/:revision?/:tid?', (req, res) => {
-    if (!shouldUseMobileview(req)) {
+    if (!mobileviewHtml.shouldUseMobileview(req)) {
         return getReferencesFromParsoid(req, res);
     } else {
         return getReferencesFromMobileview(req, res);

@@ -5,8 +5,6 @@ const domUtil = require('../../lib/domUtil');
 const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
 const mobileviewHtml = require('../../lib/mobileview-html');
-const processMobileviewHtml = mobileviewHtml.buildPage;
-const shouldUseMobileview = mobileviewHtml.shouldUseMobileview;
 const apiUtil = require('../../lib/api-util');
 const parsoidApi = require('../../lib/parsoid-access');
 const preprocessParsoidHtml = require('../../lib/processing');
@@ -95,19 +93,9 @@ function getMobileHtmlFromParsoid(req, res) {
 }
 
 function getMobileHtmlFromMobileview(req, res) {
-    return BBPromise.props({
-        mobileview: mwapi.getPageFromMobileview(app, req),
-        mw: mwapi.getMetadataForMobileHtml(req)
-    })
-    .then((response) => {
-        return processMobileviewHtml(response.mobileview, response.mw,
-            app.conf.processing_scripts['mobile-html'], {
-                baseURI: app.conf.mobile_html_rest_api_base_uri,
-                domain: req.params.domain,
-                mobileview: response.mobileview.body.mobileview
-            }
-        );
-    }).then((result) => {
+    const scripts = app.conf.processing_scripts['mobile-html'];
+    const baseURI = app.conf.mobile_html_rest_api_base_uri;
+    mobileviewHtml.requestAndProcessPage(req, scripts, baseURI).then((result) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
         mUtil.setETag(res, result.meta.revision);
@@ -124,7 +112,7 @@ function getMobileHtmlFromMobileview(req, res) {
  * clients.
  */
 router.get('/page/mobile-html/:title/:revision?/:tid?', (req, res) => {
-    if (!shouldUseMobileview(req)) {
+    if (!mobileviewHtml.shouldUseMobileview(req)) {
         return getMobileHtmlFromParsoid(req, res);
     } else {
         return getMobileHtmlFromMobileview(req, res);
