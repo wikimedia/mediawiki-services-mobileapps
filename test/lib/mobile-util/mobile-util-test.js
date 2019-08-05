@@ -46,6 +46,11 @@ describe('lib:mobile-util', () => {
         assert.deepEqual(mUtil.domainForLangCode('mediawiki.org', 'es'), 'mediawiki.org');
     });
 
+    it('createDocument should accept an empty string', () => {
+        const expected = '<html><head></head><body></body></html>';
+        mUtil.createDocument('').then(doc => assert.deepEqual(doc.outerHTML, expected));
+    });
+
     describe('setLanguageHeaders', () => {
 
         it('passes through headers (lower-case names in original)', () => {
