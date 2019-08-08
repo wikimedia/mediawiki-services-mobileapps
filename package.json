@@ -62,7 +62,7 @@
     "js-yaml": "^3.13.1",
     "mediawiki-title": "^0.6.5",
     "microformat-node": "^2.0.1",
-    "preq": "^0.5.9",
+    "preq": "^0.5.10",
     "sanitize-html": "^1.20.0",
     "service-runner": "^2.7.2",
     "striptags": "^3.1.1",

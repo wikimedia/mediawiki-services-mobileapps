@@ -318,7 +318,7 @@ describe('Swagger spec', function() {
                 assert.fail('This request should fail!');
             })
             .catch((err) => {
-                if (!ajv.validate('#/definitions/problem', err.body)) {
+                if (!ajv.validate('#/definitions/problem', err.body.internalErr)) {
                     throw new assert.AssertionError({ message: ajv.errorsText() });
                 }
             });
