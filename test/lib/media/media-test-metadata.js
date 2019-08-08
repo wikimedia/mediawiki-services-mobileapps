@@ -3,6 +3,7 @@
 const assert = require('../../utils/assert');
 const media = require('../../../lib/media');
 const getCodecs = media.testing.getCodecs;
+const getStructuredSrcSet = media.testing.getStructuredSrcSet;
 const imageInfo = require('../../../lib/imageinfo');
 const getStructuredArtistInfo = imageInfo.getStructuredArtistInfo;
 const makeResults = imageInfo.testing.makeResults;
@@ -230,5 +231,21 @@ describe('lib:media:getCodecs', () => {
         assert.deepEqual(getCodecs(undefined), undefined);
         assert.deepEqual(getCodecs(';;;;111;;!1lksjdfd:'), undefined);
         assert.deepEqual(getCodecs('¯\\_(ツ)_/¯'), undefined);
+    });
+});
+
+describe('lib:media:getStructuredSrcSet', () => {
+    it('should return structured srcset', () => {
+        let srcset = '//image1 2x, //image2 1.5x';
+        let expected = [ { src: '//image1', scale: '2x' }, { src: '//image2', scale: '1.5x' } ];
+        assert.deepEqual(getStructuredSrcSet(srcset), expected);
+    });
+    it('should return 1x if no scale is present in the srcset', () => {
+        let srcset = '//image1';
+        assert.deepEqual(getStructuredSrcSet(srcset)[0].scale, '1x');
+    });
+    it('should return undefined if srcset is empty', () => {
+        let srcset = '';
+        assert.deepEqual(getStructuredSrcSet(srcset), undefined);
     });
 });
