@@ -251,7 +251,7 @@ const TEST_SPECS = [
     new TestSpec('en.wikipedia.org', 'transform/html/to/mobile-html', ['Dog'], { suffix: 'html', method: 'POST', headers: { 'Content-Type': 'text/html' }, payloadFile: 'test/fixtures/Dog.html' }),
     new TestSpec('zh.wikipedia.org', 'page/mobile-html', ['A', '55070510'], { suffix: 'html' }),
 
-    new TestSpec('en.wikipedia.org', 'page/media', ['Hummingbird', '810247947']),
+    new TestSpec('en.wikipedia.org', 'page/media', ['Baghdad_Pact', '906825411']),
     new TestSpec('en.wikipedia.org', 'page/media-list', ['Hummingbird', '810247947']),
 
     new TestSpec('www.mediawiki.org', 'page/references', ['Page_Content_Service/References/SimpleReference', '2640831']),
