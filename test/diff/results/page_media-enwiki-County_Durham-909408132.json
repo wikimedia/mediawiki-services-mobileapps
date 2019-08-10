@@ -1,0 +1,645 @@
+{
+  "revision": "909408132",
+  "tid": "present",
+  "items": [
+    {
+      "section_id": 0,
+      "type": "image",
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:County_Durham_Flag.svg",
+        "normalized": "File:County Durham Flag.svg",
+        "display": "File:County Durham Flag.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/County_Durham_Flag.svg/320px-County_Durham_Flag.svg.png",
+        "width": 320,
+        "height": 192,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/b/b9/County_Durham_Flag.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:County_Durham_Flag.svg",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Martin23230&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Martin23230 (page does not exist)\">Martin23230</a>",
+        "text": "Martin23230"
+      },
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "code": "cc-by-sa-3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "description": {
+        "html": "New flag of County Durham, created in 2013 <a rel=\"nofollow\" class=\"external autonumber\" href=\"https://www.bbc.co.uk/news/uk-england-tees-2503967\">[1]</a>",
+        "text": "New flag of County Durham, created in 2013 [1]",
+        "lang": "en"
+      },
+      "wb_entity_id": "M29759200",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 0,
+      "type": "image",
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:County_Durham_UK_locator_map_2010.svg",
+        "normalized": "File:County Durham UK locator map 2010.svg",
+        "display": "File:County Durham UK locator map 2010.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/County_Durham_UK_locator_map_2010.svg/320px-County_Durham_UK_locator_map_2010.svg.png",
+        "width": 320,
+        "height": 388,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/7/75/County_Durham_UK_locator_map_2010.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:County_Durham_UK_locator_map_2010.svg",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Nilfanion\" title=\"User:Nilfanion\">Nilfanion</a>",
+        "text": "Nilfanion",
+        "name": "Nilfanion",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Nilfanion"
+      },
+      "credit": {
+        "html": "<a href=\"https://en.wikipedia.org/wiki/Ordnance_Survey\" class=\"extiw\" title=\"w:Ordnance Survey\">Ordnance Survey</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ordnancesurvey.co.uk/opendatadownload/products.html\">OpenData</a>:\n<ul><li>County boundaries and GB coastline</li></ul>\n<p><a href=\"https://en.wikipedia.org/wiki/National_Geospatial-Intelligence_Agency\" class=\"extiw\" title=\"w:National Geospatial-Intelligence Agency\">National Geospatial-Intelligence Agency</a>\n</p>\n<ul><li>Irish, French and Isle of Man coastlines, Lough Neagh and Irish border</li></ul>",
+        "text": "Ordnance Survey OpenData:\nCounty boundaries and GB coastline\nNational Geospatial-Intelligence Agency\n\nIrish, French and Isle of Man coastlines, Lough Neagh and Irish border"
+      },
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "code": "cc-by-sa-3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "description": {
+        "html": "<p>Location of the ceremonial county of <a href=\"https://en.wikipedia.org/wiki/County_Durham\" class=\"extiw\" title=\"w:County Durham\">County Durham</a> within England.\n</p>",
+        "text": "Location of the ceremonial county of County Durham within England."
+      },
+      "wb_entity_id": "M12131836",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 0,
+      "type": "image",
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:Durham_Ceremonial_Numbered_2009.png",
+        "normalized": "File:Durham Ceremonial Numbered 2009.png",
+        "display": "File:Durham Ceremonial Numbered 2009.png"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/8/80/Durham_Ceremonial_Numbered_2009.png",
+        "width": 200,
+        "height": 133,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/8/80/Durham_Ceremonial_Numbered_2009.png",
+        "width": 200,
+        "height": 133,
+        "mime": "image/png"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Durham_Ceremonial_Numbered_2009.png",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Keith_Edkins\" title=\"User:Keith Edkins\">Keith Edkins</a>",
+        "text": "Keith Edkins"
+      },
+      "credit": {
+        "html": "Own work, derived from <a href=\"//commons.wikimedia.org/wiki/File:Durham_Ceremonial_Numbered.png\" title=\"File:Durham Ceremonial Numbered.png\">File:Durham Ceremonial Numbered.png</a>",
+        "text": "Own work, derived from File:Durham Ceremonial Numbered.png"
+      },
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "code": "cc-by-sa-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      "description": {
+        "html": "<p>Unitary Authorities in the Ceremonial County of Durham, effective 1st April 2009.\n</p>\n<ul>\n<li>1. County Durham Council</li>\n<li>2. Hartlepool</li>\n<li>3. Darlington</li>\n<li>4. Stockton-on-Tees (north of the River Tees)</li>\n</ul>",
+        "text": "Unitary Authorities in the Ceremonial County of Durham, effective 1st April 2009.\n\n\n1. County Durham Council\n2. Hartlepool\n3. Darlington\n4. Stockton-on-Tees (north of the River Tees)"
+      },
+      "wb_entity_id": "M6222495",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 3,
+      "type": "image",
+      "caption": {
+        "html": "Flag of Durham County Council since 1974, <a rel=\"mw:WikiLink\" href=\"./Banner_of_arms\" title=\"Banner of arms\" id=\"mw_id\">based on the council's coat of arms</a>. This flag was used as an unofficial flag of County Durham until 2013.",
+        "text": "Flag of Durham County Council since 1974, based on the council's coat of arms. This flag was used as an unofficial flag of County Durham until 2013."
+      },
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:Flag_of_Durham_County_Council.svg",
+        "normalized": "File:Flag of Durham County Council.svg",
+        "display": "File:Flag of Durham County Council.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Flag_of_Durham_County_Council.svg/320px-Flag_of_Durham_County_Council.svg.png",
+        "width": 320,
+        "height": 192,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Flag_of_Durham_County_Council.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Durham_County_Council.svg",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Ch1902\" title=\"User:Ch1902\">Ch1902</a>",
+        "text": "Ch1902",
+        "name": "Ch1902",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Ch1902"
+      },
+      "credit": {
+        "html": "<ul>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Flag_of_County_Durham.png\" class=\"mw-redirect\" title=\"File:Flag of County Durham.png\">File:Flag_of_County_Durham.png</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Flag_of_Essex.svg\" title=\"File:Flag of Essex.svg\">File:Flag_of_Essex.svg</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Lippische_Rose.svg\" title=\"File:Lippische Rose.svg\">File:Lippische_Rose.svg</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Arms_of_the_Greater_London_Council.svg\" title=\"File:Arms of the Greater London Council.svg\">File:Arms_of_the_Greater_London_Council.svg</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Heraldic_Lion_02.svg\" title=\"File:Heraldic Lion 02.svg\">File:Heraldic_Lion_02.svg</a></li>\n</ul>",
+        "text": "File:Flag_of_County_Durham.png\nFile:Flag_of_Essex.svg\nFile:Lippische_Rose.svg\nFile:Arms_of_the_Greater_London_Council.svg\nFile:Heraldic_Lion_02.svg"
+      },
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "code": "cc-by-sa-3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "description": {
+        "html": "Banner of the arms of <a href=\"https://en.wikipedia.org/wiki/Durham_County_Council\" class=\"extiw\" title=\"w:Durham County Council\">Durham County Council</a>",
+        "text": "Banner of the arms of Durham County Council",
+        "lang": "en"
+      },
+      "wb_entity_id": "M14930880",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 10,
+      "type": "image",
+      "caption": {
+        "html": "Durham palatinate plaque.",
+        "text": "Durham palatinate plaque."
+      },
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:Durham_Palatinate.JPG",
+        "normalized": "File:Durham Palatinate.JPG",
+        "display": "File:Durham Palatinate.JPG"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Durham_Palatinate.JPG/320px-Durham_Palatinate.JPG",
+        "width": 320,
+        "height": 240,
+        "mime": "image/jpeg"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/1/18/Durham_Palatinate.JPG",
+        "width": 3072,
+        "height": 2304,
+        "mime": "image/jpeg"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Durham_Palatinate.JPG",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Kaihsu\" title=\"User:Kaihsu\">Kaihsu Tai</a>",
+        "text": "Kaihsu Tai"
+      },
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "code": "cc-by-sa-3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "description": {
+        "html": "Durham palatinate plaque",
+        "text": "Durham palatinate plaque",
+        "lang": "en"
+      },
+      "wb_entity_id": "M5590179",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 12,
+      "type": "image",
+      "caption": {
+        "html": "The <a rel=\"mw:WikiLink\" href=\"./Historic_counties_of_England\" title=\"Historic counties of England\" id=\"mw_id\">historic boundaries</a> of the county shown in <a rel=\"mw:WikiLink\" href=\"./John_Speed\" title=\"John Speed\" id=\"mw_id\">John Speed</a>'s map of the county in his <i id=\"mw_id\">Theatre of the Empire of Great Britaine</i>, <abbr title=\"circa\" about=\"#mwt_present\" typeof=\"mw:Transclusion mw:ExpandedAttrs\" data-mw=\"{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;circa&quot;,&quot;href&quot;:&quot;./Template:Circa&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}\" id=\"mw_id\">c.</abbr> 1611. These boundaries remained in use for administrative purposes until the local government reforms starting in the 1960s. A depiction of the city of Durham is inset in the top right.",
+        "text": "The historic boundaries of the county shown in John Speed's map of the county in his Theatre of the Empire of Great Britaine, c. 1611. These boundaries remained in use for administrative purposes until the local government reforms starting in the 1960s. A depiction of the city of Durham is inset in the top right."
+      },
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:Durham_-_John_Speed_Map.jpg",
+        "normalized": "File:Durham - John Speed Map.jpg",
+        "display": "File:Durham - John Speed Map.jpg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Durham_-_John_Speed_Map.jpg/320px-Durham_-_John_Speed_Map.jpg",
+        "width": 320,
+        "height": 247,
+        "mime": "image/jpeg"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/0/08/Durham_-_John_Speed_Map.jpg",
+        "width": 6497,
+        "height": 5015,
+        "mime": "image/jpeg"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Durham_-_John_Speed_Map.jpg",
+      "artist": {
+        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:John_Speed\" class=\"extiw\" title=\"w:en:John Speed\">John Speed</a>\n</bdi>",
+        "text": "John Speed"
+      },
+      "credit": {
+        "html": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.lib.cam.ac.uk/deptserv/maps/unfolding/speed06.html\">http://www.lib.cam.ac.uk/deptserv/maps/unfolding/speed06.html</a> <br> (complete collection : <a rel=\"nofollow\" class=\"external free\" href=\"http://www.lib.cam.ac.uk/deptserv/maps/speed.html\">http://www.lib.cam.ac.uk/deptserv/maps/speed.html</a>)",
+        "text": "http://www.lib.cam.ac.uk/deptserv/maps/unfolding/speed06.html  (complete collection : http://www.lib.cam.ac.uk/deptserv/maps/speed.html)"
+      },
+      "license": {
+        "type": "Public domain",
+        "code": "pd"
+      },
+      "wb_entity_id": "M31600179",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 16,
+      "type": "image",
+      "caption": {
+        "html": "<a rel=\"mw:WikiLink\" href=\"./High_Force\" title=\"High Force\" id=\"mw_id\">High Force</a> waterfall on the <a rel=\"mw:WikiLink\" href=\"./River_Tees\" title=\"River Tees\" id=\"mw_id\">River Tees</a>",
+        "text": "High Force waterfall on the River Tees"
+      },
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:High_Force_waterfall.JPG",
+        "normalized": "File:High Force waterfall.JPG",
+        "display": "File:High Force waterfall.JPG"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/High_Force_waterfall.JPG/320px-High_Force_waterfall.JPG",
+        "width": 320,
+        "height": 240,
+        "mime": "image/jpeg"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/a/a0/High_Force_waterfall.JPG",
+        "width": 704,
+        "height": 528,
+        "mime": "image/jpeg"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:High_Force_waterfall.JPG",
+      "artist": {
+        "html": "<a href=\"https://en.wikipedia.org/wiki/User:Peanut4\" class=\"extiw\" title=\"en:User:Peanut4\">User:Peanut4</a>",
+        "text": "User:Peanut4"
+      },
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span> (<span lang=\"en\">Original text:  <i>self-made</i></span>)",
+        "text": "Own work (Original text:  self-made)"
+      },
+      "license": {
+        "type": "Public domain",
+        "code": "pd"
+      },
+      "description": {
+        "html": "High Force waterfall",
+        "text": "High Force waterfall",
+        "lang": "en"
+      },
+      "wb_entity_id": "M48983903",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 26,
+      "type": "image",
+      "caption": {
+        "html": "Population over time of the current remit of Durham County Council between 1801 and 2001",
+        "text": "Population over time of the current remit of Durham County Council between 1801 and 2001"
+      },
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:County_Durham_Population.png",
+        "normalized": "File:County Durham Population.png",
+        "display": "File:County Durham Population.png"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/County_Durham_Population.png/320px-County_Durham_Population.png",
+        "width": 320,
+        "height": 152,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/2/2a/County_Durham_Population.png",
+        "width": 604,
+        "height": 287,
+        "mime": "image/png"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:County_Durham_Population.png",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Pit-yacker\" title=\"User:Pit-yacker\">Pit-yacker</a>",
+        "text": "Pit-yacker",
+        "name": "Pit-yacker",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Pit-yacker"
+      },
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
+      "license": {
+        "type": "Public domain",
+        "code": "pd"
+      },
+      "description": {
+        "html": "<p>Population of County Durham 1801 -2001 source <a rel=\"nofollow\" class=\"external autonumber\" href=\"http://www.visionofbritain.org.uk/data_cube_table_page.jsp?data_theme=T_POP&amp;data_cube=N_TPop&amp;u_id=10032933&amp;c_id=10001043&amp;add=N\">[1]</a>\n</p>",
+        "text": "Population of County Durham 1801 -2001 source [1]"
+      },
+      "wb_entity_id": "M3171970",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 30,
+      "type": "image",
+      "caption": {
+        "html": "Graph showing unadjusted <a rel=\"mw:WikiLink\" href=\"./Gross_value_added\" title=\"Gross value added\" id=\"mw_id\">gross value added</a> (GVA) in County Durham across 3 industries at current basic prices from 1995 to 2004.<br id=\"mw_id\"><b id=\"mw_id\">Legend</b>\n<div class=\"legend\" style=\"-webkit-column-break-inside: avoid;page-break-inside: avoid;break-inside: avoid-column\" about=\"#mwt_present\" typeof=\"mw:Transclusion\" data-mw=\"{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;legend&quot;,&quot;href&quot;:&quot;./Template:Legend&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;#ffff00&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Agriculture, hunting and forestry&quot;}},&quot;i&quot;:0}}]}\" id=\"mw_id\"><span class=\"legend-color\" style=\"display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px solid black; background-color:\n#ffff00; color:black; font-size:100%; text-align:center;\"><span typeof=\"mw:Entity\">&nbsp;</span></span><span typeof=\"mw:Entity\">&nbsp;</span>Agriculture, hunting and forestry</div>\n<div class=\"legend\" style=\"-webkit-column-break-inside: avoid;page-break-inside: avoid;break-inside: avoid-column\" about=\"#mwt_present\" typeof=\"mw:Transclusion\" data-mw=\"{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;legend&quot;,&quot;href&quot;:&quot;./Template:Legend&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;#9c3100&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Industry, including energy and construction&quot;}},&quot;i&quot;:0}}]}\" id=\"mw_id\"><span class=\"legend-color\" style=\"display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px solid black; background-color:\n#9c3100; color:black; font-size:100%; text-align:center;\"><span typeof=\"mw:Entity\">&nbsp;</span></span><span typeof=\"mw:Entity\">&nbsp;</span>Industry, including energy and construction</div>\n<div class=\"legend\" style=\"-webkit-column-break-inside: avoid;page-break-inside: avoid;break-inside: avoid-column\" about=\"#mwt_present\" typeof=\"mw:Transclusion\" data-mw=\"{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;legend&quot;,&quot;href&quot;:&quot;./Template:Legend&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;#000084&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Service activities&quot;}},&quot;i&quot;:0}}]}\" id=\"mw_id\"><span class=\"legend-color\" style=\"display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px solid black; background-color:\n#000084; color:black; font-size:100%; text-align:center;\"><span typeof=\"mw:Entity\">&nbsp;</span></span><span typeof=\"mw:Entity\">&nbsp;</span>Service activities</div>\n<div class=\"legend\" style=\"-webkit-column-break-inside: avoid;page-break-inside: avoid;break-inside: avoid-column\" about=\"#mwt_present\" typeof=\"mw:Transclusion\" data-mw=\"{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;legend&quot;,&quot;href&quot;:&quot;./Template:Legend&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;#000000&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Total&quot;}},&quot;i&quot;:0}}]}\" id=\"mw_id\"><span class=\"legend-color\" style=\"display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px solid black; background-color:\n#000000; color:black; font-size:100%; text-align:center;\"><span typeof=\"mw:Entity\">&nbsp;</span></span><span typeof=\"mw:Entity\">&nbsp;</span>Total</div>Source:<sup about=\"#mwt_present\" class=\"mw-ref\" id=\"cite_ref-61\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-61&quot;}}\"><a href=\"./County_Durham#cite_note-61\" style=\"counter-reset: mw-Ref 59;\" id=\"mw_id\"><span class=\"mw-reflink-text\" id=\"mw_id\">[59]</span></a></sup>\n",
+        "text": "Graph showing unadjusted gross value added (GVA) in County Durham across 3 industries at current basic prices from 1995 to 2004.Legend\n  Agriculture, hunting and forestry\n  Industry, including energy and construction\n  Service activities\n  TotalSource:[59]\n"
+      },
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:County_Durham_GVA.png",
+        "normalized": "File:County Durham GVA.png",
+        "display": "File:County Durham GVA.png"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/8/8c/County_Durham_GVA.png",
+        "width": 305,
+        "height": 285,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/8/8c/County_Durham_GVA.png",
+        "width": 305,
+        "height": 285,
+        "mime": "image/png"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:County_Durham_GVA.png",
+      "artist": {
+        "html": "<a href=\"https://en.wikipedia.org/wiki/User:Pit-yacker\" class=\"extiw\" title=\"wikipedia:User:Pit-yacker\">Pit-yacker</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+        "text": "Pit-yacker at English Wikipedia"
+      },
+      "credit": {
+        "html": "Transferred from <span class=\"plainlinks\"><a class=\"external text\" href=\"https://en.wikipedia.org\">en.wikipedia</a></span> to Commons.",
+        "text": "Transferred from en.wikipedia to Commons."
+      },
+      "license": {
+        "type": "Public domain",
+        "code": "pd"
+      },
+      "description": {
+        "html": "Gross Added Value for County Durham across 3 industries\n<p>Created by myself\nsource: <a rel=\"nofollow\" class=\"external free\" href=\"http://www.statistics.gov.uk/downloads/theme_economy/NUTS3_Tables_1-12.xls\">http://www.statistics.gov.uk/downloads/theme_economy/NUTS3_Tables_1-12.xls</a>\n</p>\nDate: <a href=\"https://en.wikipedia.org/wiki/2007-08-31\" class=\"extiw\" title=\"en:2007-08-31\">en:2007-08-31</a>",
+        "text": "Gross Added Value for County Durham across 3 industries\nCreated by myself\nsource: http://www.statistics.gov.uk/downloads/theme_economy/NUTS3_Tables_1-12.xls\n\nDate: en:2007-08-31",
+        "lang": "en"
+      },
+      "wb_entity_id": "M3017639",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 34,
+      "type": "image",
+      "caption": {
+        "html": "John Wilson Carmichael <i id=\"mw_id\">A View of Murton Colliery near Seaham, County Durham</i>, 1843",
+        "text": "John Wilson Carmichael A View of Murton Colliery near Seaham, County Durham, 1843"
+      },
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham,_County_Durham_-_Google_Art_Project.jpg",
+        "normalized": "File:John Wilson Carmichael - A View of Murton Colliery near Seaham, County Durham - Google Art Project.jpg",
+        "display": "File:John Wilson Carmichael - A View of Murton Colliery near Seaham, County Durham - Google Art Project.jpg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham%2C_County_Durham_-_Google_Art_Project.jpg/320px-John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham%2C_County_Durham_-_Google_Art_Project.jpg",
+        "width": 320,
+        "height": 215,
+        "mime": "image/jpeg"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/1/11/John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham%2C_County_Durham_-_Google_Art_Project.jpg",
+        "width": 4876,
+        "height": 3271,
+        "mime": "image/jpeg"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham,_County_Durham_-_Google_Art_Project.jpg",
+      "artist": {
+        "html": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:James_Wilson_Carmichael\" class=\"extiw\" title=\"w:en:James Wilson Carmichael\">James Wilson Carmichael</a>\n</bdi>",
+        "text": "James Wilson Carmichael"
+      },
+      "credit": {
+        "html": "<a rel=\"nofollow\" class=\"external text\" href=\"//www.google.com/culturalinstitute/asset-viewer/IwHNaXuVNALIMg\">IwHNaXuVNALIMg at Google Cultural Institute</a> maximum zoom level",
+        "text": "IwHNaXuVNALIMg at Google Cultural Institute maximum zoom level"
+      },
+      "license": {
+        "type": "Public domain",
+        "code": "pd"
+      },
+      "wb_entity_id": "M22122326",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 34,
+      "type": "image",
+      "caption": {
+        "html": "Durham Miners' Gala 2008",
+        "text": "Durham Miners' Gala 2008"
+      },
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg",
+        "normalized": "File:Durham Miners Gala 2008 Old Elvet Bridge.jpg",
+        "display": "File:Durham Miners Gala 2008 Old Elvet Bridge.jpg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg/320px-Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg",
+        "width": 320,
+        "height": 240,
+        "mime": "image/jpeg"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/5/56/Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg",
+        "width": 3072,
+        "height": 2304,
+        "mime": "image/jpeg"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg",
+      "artist": {
+        "html": "paul-simpson.org",
+        "text": "paul-simpson.org",
+        "name": "paul-simpson.org"
+      },
+      "credit": {
+        "html": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/paulsimpson1976/2669552570/\">https://www.flickr.com/photos/paulsimpson1976/2669552570/</a>",
+        "text": "https://www.flickr.com/photos/paulsimpson1976/2669552570/"
+      },
+      "license": {
+        "type": "CC BY 2.0",
+        "code": "cc-by-2.0",
+        "url": "https://creativecommons.org/licenses/by/2.0"
+      },
+      "description": {
+        "html": "The banners and bands coming down Old Elvet Bridge.",
+        "text": "The banners and bands coming down Old Elvet Bridge.",
+        "lang": "en"
+      },
+      "wb_entity_id": "M25795621",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 38,
+      "type": "image",
+      "caption": {
+        "html": "Queen Elizabeth Sixth Form College, Darlington",
+        "text": "Queen Elizabeth Sixth Form College, Darlington"
+      },
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:QESFC.jpg",
+        "normalized": "File:QESFC.jpg",
+        "display": "File:QESFC.jpg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/QESFC.jpg/320px-QESFC.jpg",
+        "width": 320,
+        "height": 427,
+        "mime": "image/jpeg"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/6/6a/QESFC.jpg",
+        "width": 450,
+        "height": 600,
+        "mime": "image/jpeg"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:QESFC.jpg",
+      "credit": {
+        "html": "I took this photo myself <a href=\"//commons.wikimedia.org/w/index.php?title=User:Squigglet&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Squigglet (page does not exist)\">Squigglet</a> 19:09, 2 March 2006 (UTC)",
+        "text": "I took this photo myself Squigglet 19:09, 2 March 2006 (UTC)"
+      },
+      "license": {
+        "type": "CC-BY-SA-3.0",
+        "code": "cc-by-sa-3.0",
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      "description": {
+        "html": "<p>Main entrance to Queen Elizabeth sixth form college, Darlington\n</p>",
+        "text": "Main entrance to Queen Elizabeth sixth form college, Darlington"
+      },
+      "wb_entity_id": "M608532",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 46,
+      "type": "image",
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:North_East_England_districts_2011_map.svg",
+        "normalized": "File:North East England districts 2011 map.svg",
+        "display": "File:North East England districts 2011 map.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/North_East_England_districts_2011_map.svg/320px-North_East_England_districts_2011_map.svg.png",
+        "width": 320,
+        "height": 398,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/1/1d/North_East_England_districts_2011_map.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:North_East_England_districts_2011_map.svg",
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Nilfanion\" title=\"User:Nilfanion\">Nilfanion</a>, created using Ordnance Survey data",
+        "text": "Nilfanion, created using Ordnance Survey data"
+      },
+      "credit": {
+        "html": "<a href=\"https://en.wikipedia.org/wiki/Ordnance_Survey\" class=\"extiw\" title=\"w:Ordnance Survey\">Ordnance Survey</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ordnancesurvey.co.uk/opendatadownload/products.html\">OpenData</a>:\n<ul>\n<li>County boundaries (from Boundary-Line product)</li>\n<li>Coastline data for Great Britain (from Boundary-Line product)</li>\n</ul>",
+        "text": "Ordnance Survey OpenData:\n\nCounty boundaries (from Boundary-Line product)\nCoastline data for Great Britain (from Boundary-Line product)"
+      },
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "code": "cc-by-sa-3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "description": {
+        "html": "<p>Map of the <a href=\"https://en.wikipedia.org/wiki/North_East_England\" class=\"extiw\" title=\"w:North East England\">North East England</a> region showing the administrative districts.\n</p>\n<p>Equirectangular map projection on WGS 84 datum, with N/S stretched 170%\n</p>\n<p>Geographic limits:\n</p>\n<ul>\n<li>West: 2.75W</li>\n<li>East: 0.7W</li>\n<li>North: 55.9N</li>\n<li>South: 54.4N</li>\n</ul>",
+        "text": "Map of the North East England region showing the administrative districts.\n\nEquirectangular map projection on WGS 84 datum, with N/S stretched 170%\n\nGeographic limits:\n\n\nWest: 2.75W\nEast: 0.7W\nNorth: 55.9N\nSouth: 54.4N"
+      },
+      "wb_entity_id": "M15084458",
+      "structured": {
+        "captions": {}
+      }
+    },
+    {
+      "section_id": 46,
+      "type": "image",
+      "showInGallery": true,
+      "titles": {
+        "canonical": "File:English_unitary_authorities_2009.svg",
+        "normalized": "File:English unitary authorities 2009.svg",
+        "display": "File:English unitary authorities 2009.svg"
+      },
+      "thumbnail": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/English_unitary_authorities_2009.svg/320px-English_unitary_authorities_2009.svg.png",
+        "width": 320,
+        "height": 388,
+        "mime": "image/png"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/f/fa/English_unitary_authorities_2009.svg",
+        "mime": "image/svg+xml"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:English_unitary_authorities_2009.svg",
+      "artist": {
+        "html": "<ul>\n<li>\n<a href=\"//commons.wikimedia.org/wiki/File:English_administrative_divisions_2010.svg\" title=\"File:English administrative divisions 2010.svg\">English_administrative_divisions_2010.svg</a>: <a href=\"//commons.wikimedia.org/wiki/User:Nilfanion\" title=\"User:Nilfanion\">Nilfanion</a>\n</li>\n<li>derivative work: <a href=\"//commons.wikimedia.org/wiki/User:Dr_Greg\" title=\"User:Dr Greg\">Dr Greg</a>\n</li>\n</ul>",
+        "text": "English_administrative_divisions_2010.svg: Nilfanion\n\nderivative work: Dr Greg"
+      },
+      "credit": {
+        "html": "This file was derived from: <a href=\"//commons.wikimedia.org/wiki/File:English_administrative_divisions_2010.svg\" title=\"File:English administrative divisions 2010.svg\">English administrative divisions 2010.svg</a>: <a href=\"//commons.wikimedia.org/wiki/File:English_administrative_divisions_2010.svg\" class=\"image\"><img alt=\"English administrative divisions 2010.svg\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/English_administrative_divisions_2010.svg/50px-English_administrative_divisions_2010.svg.png\" decoding=\"async\" width=\"50\" height=\"61\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/English_administrative_divisions_2010.svg/75px-English_administrative_divisions_2010.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/English_administrative_divisions_2010.svg/100px-English_administrative_divisions_2010.svg.png 2x\" data-file-width=\"1108\" data-file-height=\"1345\"></a><br>",
+        "text": "This file was derived from: English administrative divisions 2010.svg:"
+      },
+      "license": {
+        "type": "CC BY-SA 3.0",
+        "code": "cc-by-sa-3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "description": {
+        "html": "Map showing the <a href=\"https://en.wikipedia.org/wiki/unitary_authorities_of_England\" class=\"extiw\" title=\"en:unitary authorities of England\">unitary authorities of England</a> highlighted, together with the all the other top-tier administrative subdivisions (shire counties, metropolitan counties, and London boroughs) from 2009 (still valid in 2012).\n<ul><li>\n<span style=\"background:#f07568;color:red;\" title=\"#f07568\"><span style=\"visibility:hidden; color:transparent;\">00</span></span> unitary authority</li></ul>\n<p>Equirectangular map projection on WGS 84 datum, with N/S stretched 170%  \n</p>\n<p>Geographic limits: \n</p>\n<ul>\n<li>West: 6.75W</li>\n<li>East: 2.0E</li>\n<li>North: 56.0N</li>\n<li>South: 49.75N</li>\n</ul>",
+        "text": "Map showing the unitary authorities of England highlighted, together with the all the other top-tier administrative subdivisions (shire counties, metropolitan counties, and London boroughs) from 2009 (still valid in 2012).\n\n00 unitary authority\nEquirectangular map projection on WGS 84 datum, with N/S stretched 170%  \n\nGeographic limits: \n\n\nWest: 6.75W\nEast: 2.0E\nNorth: 56.0N\nSouth: 49.75N",
+        "lang": "en"
+      },
+      "wb_entity_id": "M18771428",
+      "structured": {
+        "captions": {}
+      }
+    }
+  ]
+}
