@@ -32,7 +32,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/MediaList/1.0.1"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/MediaList/1.1.0"
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/

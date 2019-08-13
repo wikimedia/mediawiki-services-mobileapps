@@ -6,6 +6,12 @@
       "section_id": 0,
       "type": "image",
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/b9/County_Durham_Flag.svg/960px-County_Durham_Flag.svg.png",
+          "scale": "1.5x"
+        }
+      ],
       "titles": {
         "canonical": "File:County_Durham_Flag.svg",
         "normalized": "File:County Durham Flag.svg",
@@ -49,6 +55,12 @@
       "section_id": 0,
       "type": "image",
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/7/75/County_Durham_UK_locator_map_2010.svg/960px-County_Durham_UK_locator_map_2010.svg.png",
+          "scale": "1.5x"
+        }
+      ],
       "titles": {
         "canonical": "File:County_Durham_UK_locator_map_2010.svg",
         "normalized": "File:County Durham UK locator map 2010.svg",
@@ -93,6 +105,16 @@
       "section_id": 0,
       "type": "image",
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/8/80/Durham_Ceremonial_Numbered_2009.png",
+          "scale": "2x"
+        },
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/8/80/Durham_Ceremonial_Numbered_2009.png",
+          "scale": "1.5x"
+        }
+      ],
       "titles": {
         "canonical": "File:Durham_Ceremonial_Numbered_2009.png",
         "normalized": "File:Durham Ceremonial Numbered 2009.png",
@@ -141,6 +163,16 @@
         "text": "Flag of Durham County Council since 1974, based on the council's coat of arms. This flag was used as an unofficial flag of County Durham until 2013."
       },
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Flag_of_Durham_County_Council.svg/1280px-Flag_of_Durham_County_Council.svg.png",
+          "scale": "2x"
+        },
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Flag_of_Durham_County_Council.svg/960px-Flag_of_Durham_County_Council.svg.png",
+          "scale": "1.5x"
+        }
+      ],
       "titles": {
         "canonical": "File:Flag_of_Durham_County_Council.svg",
         "normalized": "File:Flag of Durham County Council.svg",
@@ -190,6 +222,16 @@
         "text": "Durham palatinate plaque."
       },
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/1/18/Durham_Palatinate.JPG/1280px-Durham_Palatinate.JPG",
+          "scale": "2x"
+        },
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/1/18/Durham_Palatinate.JPG/960px-Durham_Palatinate.JPG",
+          "scale": "1.5x"
+        }
+      ],
       "titles": {
         "canonical": "File:Durham_Palatinate.JPG",
         "normalized": "File:Durham Palatinate.JPG",
@@ -239,6 +281,16 @@
         "text": "The historic boundaries of the county shown in John Speed's map of the county in his Theatre of the Empire of Great Britaine, c. 1611. These boundaries remained in use for administrative purposes until the local government reforms starting in the 1960s. A depiction of the city of Durham is inset in the top right."
       },
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/0/08/Durham_-_John_Speed_Map.jpg/1280px-Durham_-_John_Speed_Map.jpg",
+          "scale": "2x"
+        },
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/0/08/Durham_-_John_Speed_Map.jpg/960px-Durham_-_John_Speed_Map.jpg",
+          "scale": "1.5x"
+        }
+      ],
       "titles": {
         "canonical": "File:Durham_-_John_Speed_Map.jpg",
         "normalized": "File:Durham - John Speed Map.jpg",
@@ -427,6 +479,16 @@
         "text": "John Wilson Carmichael A View of Murton Colliery near Seaham, County Durham, 1843"
       },
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/1/11/John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham%2C_County_Durham_-_Google_Art_Project.jpg/1280px-John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham%2C_County_Durham_-_Google_Art_Project.jpg",
+          "scale": "2x"
+        },
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/1/11/John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham%2C_County_Durham_-_Google_Art_Project.jpg/960px-John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham%2C_County_Durham_-_Google_Art_Project.jpg",
+          "scale": "1.5x"
+        }
+      ],
       "titles": {
         "canonical": "File:John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham,_County_Durham_-_Google_Art_Project.jpg",
         "normalized": "File:John Wilson Carmichael - A View of Murton Colliery near Seaham, County Durham - Google Art Project.jpg",
@@ -470,6 +532,16 @@
         "text": "Durham Miners' Gala 2008"
       },
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg/1280px-Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg",
+          "scale": "2x"
+        },
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg/960px-Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg",
+          "scale": "1.5x"
+        }
+      ],
       "titles": {
         "canonical": "File:Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg",
         "normalized": "File:Durham Miners Gala 2008 Old Elvet Bridge.jpg",
@@ -560,6 +632,12 @@
       "section_id": 46,
       "type": "image",
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/1/1d/North_East_England_districts_2011_map.svg/960px-North_East_England_districts_2011_map.svg.png",
+          "scale": "1.5x"
+        }
+      ],
       "titles": {
         "canonical": "File:North_East_England_districts_2011_map.svg",
         "normalized": "File:North East England districts 2011 map.svg",
@@ -602,6 +680,12 @@
       "section_id": 46,
       "type": "image",
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/English_unitary_authorities_2009.svg/960px-English_unitary_authorities_2009.svg.png",
+          "scale": "1.5x"
+        }
+      ],
       "titles": {
         "canonical": "File:English_unitary_authorities_2009.svg",
         "normalized": "File:English unitary authorities 2009.svg",
