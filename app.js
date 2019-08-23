@@ -66,6 +66,7 @@ function initApp(options) {
         // eslint-disable-next-line max-len
         app.conf.mobile_html_csp = "default-src 'none'; connect-src https://*.wikipedia.org; media-src *; img-src * data:; " +
             "script-src app://meta.wikimedia.org https://meta.wikimedia.org 'unsafe-inline'; " +
+            "object-src 'none'; " +
             "style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org 'self' 'unsafe-inline'; " +
             "frame-ancestors 'self'";
     }
