@@ -64,8 +64,10 @@ function initApp(options) {
     */
     if (app.conf.mobile_html_csp === undefined) {
         // eslint-disable-next-line max-len
-        app.conf.mobile_html_csp = "default-src 'none'; connect-src https://*.wikipedia.org; media-src *; img-src * data:; script-src app://meta.wikimedia.org https://meta.wikimedia.org" +
-            " 'unsafe-inline'; style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'";
+        app.conf.mobile_html_csp = "default-src 'none'; connect-src https://*.wikipedia.org; media-src *; img-src * data:; " +
+            "script-src app://meta.wikimedia.org https://meta.wikimedia.org 'unsafe-inline'; " +
+            "style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org 'self' 'unsafe-inline'; " +
+            "frame-ancestors 'self'";
     }
 
     if (app.conf.mobile_html_rest_api_base_uri === undefined) {
