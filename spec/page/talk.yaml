@@ -24,7 +24,7 @@ paths:
         - title: Get structured talk page for enwiki Salt article
           request:
             params:
-              title: Salt
+              title: Talk:Salt
           response:
             status: 200
             headers:
