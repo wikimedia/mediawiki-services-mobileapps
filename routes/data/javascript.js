@@ -9,6 +9,7 @@ const router = sUtil.router();
  * Gets the JavaScript from the wikimedia-page-library
  */
 router.get('/pagelib', (req, res) => js.fetchPageLibJs(res));
+router.get('/pagelibpost', (req, res) => js.fetchPageLibPostJs(res));
 
 module.exports = function(appObj) {
     return {
