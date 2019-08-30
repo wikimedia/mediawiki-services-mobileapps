@@ -8,6 +8,10 @@
       "showInGallery": true,
       "srcset": [
         {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/b9/County_Durham_Flag.svg/640px-County_Durham_Flag.svg.png",
+          "scale": "1x"
+        },
+        {
           "src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/b9/County_Durham_Flag.svg/960px-County_Durham_Flag.svg.png",
           "scale": "1.5x"
         }
@@ -56,6 +60,10 @@
       "type": "image",
       "showInGallery": true,
       "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/7/75/County_Durham_UK_locator_map_2010.svg/640px-County_Durham_UK_locator_map_2010.svg.png",
+          "scale": "1x"
+        },
         {
           "src": "//upload.wikimedia.org/wikipedia/commons/thumb/7/75/County_Durham_UK_locator_map_2010.svg/960px-County_Durham_UK_locator_map_2010.svg.png",
           "scale": "1.5x"
@@ -106,6 +114,10 @@
       "type": "image",
       "showInGallery": true,
       "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/80/Durham_Ceremonial_Numbered_2009.png/150px-Durham_Ceremonial_Numbered_2009.png",
+          "scale": "1x"
+        },
         {
           "src": "//upload.wikimedia.org/wikipedia/commons/8/80/Durham_Ceremonial_Numbered_2009.png",
           "scale": "2x"
@@ -164,6 +176,10 @@
       },
       "showInGallery": true,
       "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Flag_of_Durham_County_Council.svg/640px-Flag_of_Durham_County_Council.svg.png",
+          "scale": "1x"
+        },
         {
           "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Flag_of_Durham_County_Council.svg/1280px-Flag_of_Durham_County_Council.svg.png",
           "scale": "2x"
@@ -224,6 +240,10 @@
       "showInGallery": true,
       "srcset": [
         {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/1/18/Durham_Palatinate.JPG/640px-Durham_Palatinate.JPG",
+          "scale": "1x"
+        },
+        {
           "src": "//upload.wikimedia.org/wikipedia/commons/thumb/1/18/Durham_Palatinate.JPG/1280px-Durham_Palatinate.JPG",
           "scale": "2x"
         },
@@ -283,6 +303,10 @@
       "showInGallery": true,
       "srcset": [
         {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/0/08/Durham_-_John_Speed_Map.jpg/640px-Durham_-_John_Speed_Map.jpg",
+          "scale": "1x"
+        },
+        {
           "src": "//upload.wikimedia.org/wikipedia/commons/thumb/0/08/Durham_-_John_Speed_Map.jpg/1280px-Durham_-_John_Speed_Map.jpg",
           "scale": "2x"
         },
@@ -334,6 +358,12 @@
         "text": "High Force waterfall on the River Tees"
       },
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/a/a0/High_Force_waterfall.JPG/640px-High_Force_waterfall.JPG",
+          "scale": "1x"
+        }
+      ],
       "titles": {
         "canonical": "File:High_Force_waterfall.JPG",
         "normalized": "File:High Force waterfall.JPG",
@@ -382,6 +412,12 @@
         "text": "Population over time of the current remit of Durham County Council between 1801 and 2001"
       },
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2a/County_Durham_Population.png/320px-County_Durham_Population.png",
+          "scale": "1x"
+        }
+      ],
       "titles": {
         "canonical": "File:County_Durham_Population.png",
         "normalized": "File:County Durham Population.png",
@@ -431,6 +467,12 @@
         "text": "Graph showing unadjusted gross value added (GVA) in County Durham across 3 industries at current basic prices from 1995 to 2004.Legend\n  Agriculture, hunting and forestry\n  Industry, including energy and construction\n  Service activities\n  TotalSource:[59]\n"
       },
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/8/8c/County_Durham_GVA.png",
+          "scale": "1x"
+        }
+      ],
       "titles": {
         "canonical": "File:County_Durham_GVA.png",
         "normalized": "File:County Durham GVA.png",
@@ -480,6 +522,10 @@
       },
       "showInGallery": true,
       "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/1/11/John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham%2C_County_Durham_-_Google_Art_Project.jpg/640px-John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham%2C_County_Durham_-_Google_Art_Project.jpg",
+          "scale": "1x"
+        },
         {
           "src": "//upload.wikimedia.org/wikipedia/commons/thumb/1/11/John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham%2C_County_Durham_-_Google_Art_Project.jpg/1280px-John_Wilson_Carmichael_-_A_View_of_Murton_Colliery_near_Seaham%2C_County_Durham_-_Google_Art_Project.jpg",
           "scale": "2x"
@@ -533,6 +579,10 @@
       },
       "showInGallery": true,
       "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg/640px-Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg",
+          "scale": "1x"
+        },
         {
           "src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg/1280px-Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg",
           "scale": "2x"
@@ -592,6 +642,12 @@
         "text": "Queen Elizabeth Sixth Form College, Darlington"
       },
       "showInGallery": true,
+      "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/QESFC.jpg/320px-QESFC.jpg",
+          "scale": "1x"
+        }
+      ],
       "titles": {
         "canonical": "File:QESFC.jpg",
         "normalized": "File:QESFC.jpg",
@@ -633,6 +689,10 @@
       "type": "image",
       "showInGallery": true,
       "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/1/1d/North_East_England_districts_2011_map.svg/640px-North_East_England_districts_2011_map.svg.png",
+          "scale": "1x"
+        },
         {
           "src": "//upload.wikimedia.org/wikipedia/commons/thumb/1/1d/North_East_England_districts_2011_map.svg/960px-North_East_England_districts_2011_map.svg.png",
           "scale": "1.5x"
@@ -681,6 +741,10 @@
       "type": "image",
       "showInGallery": true,
       "srcset": [
+        {
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/English_unitary_authorities_2009.svg/640px-English_unitary_authorities_2009.svg.png",
+          "scale": "1x"
+        },
         {
           "src": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/English_unitary_authorities_2009.svg/960px-English_unitary_authorities_2009.svg.png",
           "scale": "1.5x"
