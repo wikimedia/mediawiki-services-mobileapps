@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('../../utils/assert');
+const domino = require('domino');
 const media = require('../../../lib/media');
 const getCodecs = media.testing.getCodecs;
 const getStructuredSrcSet = media.testing.getStructuredSrcSet;
@@ -235,17 +236,30 @@ describe('lib:media:getCodecs', () => {
 });
 
 describe('lib:media:getStructuredSrcSet', () => {
-    it('should return structured srcset', () => {
-        let srcset = '//image1 2x, //image2 1.5x';
-        let expected = [ { src: '//image1', scale: '2x' }, { src: '//image2', scale: '1.5x' } ];
-        assert.deepEqual(getStructuredSrcSet(srcset), expected);
+    it('should return structured srcset values', () => {
+        const doc = domino.createDocument('<img srcset="//image1 1.5x, //image2 2x">');
+        const img = doc.querySelector('img');
+        let expected = [ { src: '//image1', scale: '1.5x' }, { src: '//image2', scale: '2x' } ];
+        assert.deepEqual(getStructuredSrcSet(img), expected);
     });
-    it('should return 1x if no scale is present in the srcset', () => {
-        let srcset = '//image1';
-        assert.deepEqual(getStructuredSrcSet(srcset)[0].scale, '1x');
+    it('should return structured srcset and src values', () => {
+        const doc = domino.createDocument('<img src="//image" srcset="//image1 1.5x, //image2 2x">');
+        const img = doc.querySelector('img');
+        let expected = [
+            { src: '//image', scale: '1x' },
+            { src: '//image1', scale: '1.5x' },
+            { src: '//image2', scale: '2x' }
+        ];
+        assert.deepEqual(getStructuredSrcSet(img), expected);
     });
-    it('should return undefined if srcset is empty', () => {
-        let srcset = '';
-        assert.deepEqual(getStructuredSrcSet(srcset), undefined);
+    it('should return 1x if no scale is present in the srcset values', () => {
+        const doc = domino.createDocument('<img srcset="//image1"></img>');
+        const img = doc.querySelector('img');
+        assert.deepEqual(getStructuredSrcSet(img)[0].scale, '1x');
+    });
+    it('should return empty array if srcset is empty', () => {
+        const doc = domino.createDocument('<img></img>');
+        const img = doc.querySelector('img');
+        assert.deepEqual(getStructuredSrcSet(img), []);
     });
 });
