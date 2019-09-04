@@ -465,6 +465,26 @@
     },
     {
       "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:CS1_errors:_deprecated_parameters",
+      "titles": {
+        "canonical": "Category:CS1_errors:_deprecated_parameters",
+        "normalized": "Category:CS1 errors: deprecated parameters",
+        "display": "CS1 errors: deprecated parameters"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:CS1_errors:_missing_periodical",
+      "titles": {
+        "canonical": "Category:CS1_errors:_missing_periodical",
+        "normalized": "Category:CS1 errors: missing periodical",
+        "display": "CS1 errors: missing periodical"
+      }
+    },
+    {
+      "ns": 14,
       "hidden": false,
       "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Cities_in_Goodhue_County,_Minnesota",
       "titles": {
