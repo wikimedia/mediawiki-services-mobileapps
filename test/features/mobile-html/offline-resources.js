@@ -26,6 +26,8 @@ describe('mobile-html-offline-resources', function() {
             `${metawikiApiUri}data/css/mobile/base`,
             `${metawikiApiUri}data/css/mobile/pagelib`,
             `${metawikiApiUri}data/javascript/mobile/pagelib`,
+            `${metawikiApiUri}data/javascript/mobile/pagelib_body_start`,
+            `${metawikiApiUri}data/javascript/mobile/pagelib_body_end`,
             `//${domain}/api/rest_v1/data/css/mobile/site`,
         ];
 

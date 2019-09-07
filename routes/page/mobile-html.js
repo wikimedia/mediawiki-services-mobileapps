@@ -142,6 +142,8 @@ router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, 
         `${metawikiApiUri}data/css/mobile/base`,
         `${metawikiApiUri}data/css/mobile/pagelib`,
         `${metawikiApiUri}data/javascript/mobile/pagelib`,
+        `${metawikiApiUri}data/javascript/mobile/pagelib_body_start`,
+        `${metawikiApiUri}data/javascript/mobile/pagelib_body_end`,
         `${externalApiUri}data/css/mobile/site`,
     ];
 
