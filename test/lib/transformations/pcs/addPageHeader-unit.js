@@ -1,5 +1,6 @@
 'use strict';
 
+const domino = require('domino');
 const assert = require('../../../utils/assert.js');
 const addPageHeader = require('../../../../lib/transformations/pcs/addPageHeader');
 const testUtil = require('../../../utils/testUtil');
@@ -31,5 +32,16 @@ describe('lib:addPageHeader', () => {
         assert.deepEqual(header.querySelector('#pagelib_edit_section_title_description').innerHTML,
             'short desc');
         assert.ok(header.querySelector('#pagelib_edit_section_divider'));
+    });
+
+    it('addPageHeader handles documents with no section elements', () => {
+        const doc = domino.createDocument();
+        const meta = { mw: {}, parsoid: { meta: {} } };
+        try {
+            addPageHeader(doc, meta);
+            assert.ok(true);
+        } catch (e) {
+            assert.fail(e);
+        }
     });
 });
