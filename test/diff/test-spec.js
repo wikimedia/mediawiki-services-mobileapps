@@ -249,7 +249,7 @@ const TEST_SPECS = [
     new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'], { suffix: 'html' }),
     new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'], { suffix: 'html' }),
     new TestSpec('en.wikipedia.org', 'transform/html/to/mobile-html', ['Dog'], { suffix: 'html', method: 'POST', headers: { 'Content-Type': 'text/html' }, payloadFile: 'test/fixtures/Dog.html' }),
-    new TestSpec('zh.wikipedia.org', 'page/mobile-html', ['A', '55070510'], { suffix: 'html' }),
+    new TestSpec('zh.wikipedia.org', 'page/mobile-html', ['天囷增十五', '44944947'], { suffix: 'html' }),
 
     new TestSpec('en.wikipedia.org', 'page/media', ['County_Durham', '909408132']),
     new TestSpec('en.wikipedia.org', 'page/media-list', ['Hummingbird', '810247947']),
