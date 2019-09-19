@@ -50,10 +50,10 @@ paths:
         default:
           $ref: "#/components/responses/problem"
       x-amples:
-        - title: retrieve all events on January 15
+        - title: retrieve selected events on January 15
           request:
             params:
-              type: all
+              type: selected
               month: 01
               day: 15
           response:
@@ -73,25 +73,7 @@ paths:
                   year: /.+/
                   pages:
                     - $merge: [ /.+/ ]
-              events:
-                - text: /.+/
-                  year: /.+/
-                  pages:
-                    - $merge: [ /.+/ ]
-              births:
-                - text: /.+/
-                  year: /.+/
-                  pages:
-                    - $merge: [ /.+/ ]
-              deaths:
-                - text: /.+/
-                  year: /.+/
-                  pages:
-                    - $merge: [ /.+/ ]
-              holidays:
-                - text: /.+/
-                  pages:
-                    - $merge: [ /.+/ ]
+
 components:
   responses:
     onthisday:
