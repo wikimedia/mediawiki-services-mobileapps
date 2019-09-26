@@ -47,8 +47,7 @@ function getReferencesFromParsoid(req, res) {
 
 function getReferencesFromMobileview(req, res) {
     const scripts = app.conf.processing_scripts.references;
-    const baseURI = app.conf.mobile_html_rest_api_base_uri;
-    return mobileviewHtml.requestAndProcessPage(req, scripts, baseURI)
+    return mobileviewHtml.requestAndProcessPage(req, scripts)
     .then((result) => {
         commonEnd(res, result, req);
     });
