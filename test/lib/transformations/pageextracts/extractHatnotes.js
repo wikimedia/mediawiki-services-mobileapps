@@ -31,18 +31,12 @@ function testMobileSectionsResult(doc, lang, expected) {
     }
 }
 
-function testMobileSectionsNoRemoveAfterHtml(doc, lang, expected) {
-    extractHatnotesForMobileSections(doc, lang, false);
-    assert.deepEqual(doc.outerHTML, expected);
-}
-
 describe('extractHatnotes', () => {
     it('.hatnote element', () => {
         const html = '<html><head></head><body><section data-mw-section-id="0"><div class="hatnote">Here is a <b>hatnote</b></div></section></body></html>';
         const doc = domino.createDocument(html);
         testMetadataResult(doc, 'en', [ { section: 0, html: 'Here is a <b>hatnote</b>' } ]);
         testMobileSectionsResult(doc, 'en', [ 'Here is a <b>hatnote</b>' ]);
-        testMobileSectionsNoRemoveAfterHtml(doc, 'en', html);
     });
 
     it('.dablink element', () => {
@@ -50,7 +44,6 @@ describe('extractHatnotes', () => {
         const doc = domino.createDocument(html);
         testMetadataResult(doc, 'en', [ { section: 0, html: 'Here is a <b>disambiguation hatnote</b>' } ]);
         testMobileSectionsResult(doc, 'en', [ 'Here is a <b>disambiguation hatnote</b>' ]);
-        testMobileSectionsNoRemoveAfterHtml(doc, 'en', html);
     });
 
     it('hatnote not in lead section', () => {
@@ -58,7 +51,6 @@ describe('extractHatnotes', () => {
         const doc = domino.createDocument(html);
         testMetadataResult(doc, 'en', [ { section: 1, html: 'Hatnote in <b>section 1</b>' } ]);
         testMobileSectionsResult(doc, 'en', undefined);
-        testMobileSectionsNoRemoveAfterHtml(doc, 'en', html);
     });
 
     it('multiple hatnotes', () => {
@@ -69,7 +61,6 @@ describe('extractHatnotes', () => {
             { section: 3, html: 'Hatnote in <b>section 3</b>' }
         ]);
         testMobileSectionsResult(doc, 'en', [ 'Hatnote in <b>section 0</b>' ]);
-        testMobileSectionsNoRemoveAfterHtml(doc, 'en', html);
     });
 
     it('no hatnotes', () => {
@@ -77,7 +68,6 @@ describe('extractHatnotes', () => {
         const doc = domino.createDocument(html);
         testMetadataResult(doc, 'en', undefined);
         testMobileSectionsResult(doc, 'en', undefined);
-        testMobileSectionsNoRemoveAfterHtml(doc, 'en', html);
     });
 
     it('dewiki hatnotes', () => {
@@ -85,6 +75,5 @@ describe('extractHatnotes', () => {
         const doc = domino.createDocument(html);
         testMetadataResult(doc, 'de', { section: 0, html: '<i>Foo</i>' });
         testMobileSectionsResult(doc, 'de', [ '<i>Foo</i>' ]);
-        testMobileSectionsNoRemoveAfterHtml(doc, 'de', html);
     });
 });

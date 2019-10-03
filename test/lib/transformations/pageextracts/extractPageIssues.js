@@ -30,11 +30,6 @@ function testMobileSectionsResult(doc, expected) {
     }
 }
 
-function testMobileSectionsNoRemoveAfterHtml(doc, expected) {
-    extractPageIssuesForMobileSections(doc, false);
-    assert.deepEqual(doc.outerHTML, expected);
-}
-
 describe('extractPageIssues', () => {
     it('single issue', () => {
         const html = '<html><head></head><body><section data-mw-section-id="0">' +
@@ -49,7 +44,6 @@ describe('extractPageIssues', () => {
         const doc = domino.createDocument(html);
         testMetadataResult(doc, [ { section: 0, html: '<b>Issue!</b>' } ]);
         testMobileSectionsResult(doc, [ { html: '<b>Issue!</b>', text: 'Issue!' } ]);
-        testMobileSectionsNoRemoveAfterHtml(doc, html);
     });
 
     it('multiple issues', () => {
@@ -88,7 +82,6 @@ describe('extractPageIssues', () => {
             { html: '<b>First issue!</b>', text: 'First issue!' },
             { html: '<b>Second issue!</b>', text: 'Second issue!' }
         ]);
-        testMobileSectionsNoRemoveAfterHtml(doc, html);
     });
 
     it('issue in non-lead section', () => {
@@ -105,7 +98,6 @@ describe('extractPageIssues', () => {
         const doc = domino.createDocument(html);
         testMetadataResult(doc, [ { section: 1, html: '<b>Issue!</b>' } ]);
         testMobileSectionsResult(doc, undefined);
-        testMobileSectionsNoRemoveAfterHtml(doc, html);
     });
 
     it('no issues', () => {
@@ -113,6 +105,5 @@ describe('extractPageIssues', () => {
         const doc = domino.createDocument(html);
         testMetadataResult(doc, undefined);
         testMobileSectionsResult(doc, undefined);
-        testMobileSectionsNoRemoveAfterHtml(doc, html);
     });
 });
