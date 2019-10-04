@@ -55,4 +55,24 @@ describe('mobile-html', function() {
         });
     });
 
+    it('mobile-html should have meta tags indicating page protection', () => {
+        const uri = localUri('Elmo/916610952', 'en.wikipedia.org');
+        return preq.get(uri).then((res) => {
+            const document = domino.createDocument(res.body);
+            const edit = document.querySelector('meta[property=mw:pageProtection:edit]');
+            assert.deepEqual(edit.getAttribute('content'), 'autoconfirmed');
+            const move = document.querySelector('meta[property=mw:pageProtection:move]');
+            assert.deepEqual(move.getAttribute('content'), 'sysop');
+        });
+    });
+
+    it('mobile-html from mobileview should have meta tags indicating page protection', () => {
+        const uri = localUri('%E9%97%87%E5%BD%B1%E4%B9%8B%E5%BF%83/54664518', 'zh.wikipedia.org');
+        return preq.get(uri).then((res) => {
+            const document = domino.createDocument(res.body);
+            const meta = document.querySelector('meta[property=mw:pageProtection:edit]');
+            assert.deepEqual(meta.getAttribute('content'), 'autoconfirmed');
+        });
+    });
+
 });
