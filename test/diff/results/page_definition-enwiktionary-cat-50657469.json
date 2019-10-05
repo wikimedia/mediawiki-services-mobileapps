@@ -144,7 +144,7 @@
       "language": "English",
       "definitions": [
         {
-          "definition": "<span class=\"form-of-definition use-with-mention\" about=\"#mwt_present\" typeof=\"mw:Transclusion\">Abbreviation of <span class=\"form-of-definition-link\"><i class=\"Latn mention\" lang=\"en\"><a rel=\"mw:WikiLink\" href=\"/wiki/category#English\" title=\"category\">category</a></i></span></span><span about=\"#mwt_present\">.</span><link rel=\"mw:PageProp/Category\" href=\"./Category:English_abbreviations#CAT\" about=\"#mwt_present\">"
+          "definition": "<div class=\"deprecated\" title=\"This template call uses the deprecated 'lang' parameter. Use '1' instead.\" about=\"#mwt_present\" typeof=\"mw:Transclusion\"><i>(<a rel=\"mw:WikiLink\" href=\"/wiki/Category:Successfully_deprecated_templates\" title=\"Category:Successfully deprecated templates\">deprecated use of <code><span typeof=\"mw:Entity\">|</span>lang=</code> parameter</a>)</i> <span class=\"form-of-definition use-with-mention\">Abbreviation of <span class=\"form-of-definition-link\"><i class=\"Latn mention\" lang=\"en\"><a rel=\"mw:WikiLink\" href=\"/wiki/category#English\" title=\"category\">category</a></i></span></span>.<link rel=\"mw:PageProp/Category\" href=\"./Category:English_abbreviations#CAT\"></div><link rel=\"mw:PageProp/Category\" href=\"./Category:Pages_using_deprecated_templates#CAT\" about=\"#mwt_present\">"
         }
       ]
     },
