@@ -107,8 +107,10 @@ describe('lib:wikiLanguage', () => {
         assert.equal(wikiLanguage.getLanguageCode('sr.wikipedia.org'), 'sr');
         assert.equal(wikiLanguage.getLanguageCode('sr.m.wikipedia.org'), 'sr');
         assert.equal(wikiLanguage.getLanguageCode('SR.wikipedia.org'), 'sr');
-        assert.equal(wikiLanguage.getLanguageCode('zh.example.com'), undefined);
-        assert.equal(wikiLanguage.getLanguageCode('example.com'), undefined);
+        assert.equal(wikiLanguage.getLanguageCode('zh.wiktionary.org'), 'zh');
+        assert.equal(wikiLanguage.getLanguageCode('es.wikipedia.beta.wmflabs.org'), 'es');
+        assert.equal(wikiLanguage.getLanguageCode('www.mediawiki.org'), undefined);
+        assert.equal(wikiLanguage.getLanguageCode('wikidata.org'), undefined);
         assert.equal(wikiLanguage.getLanguageCode(''), undefined);
         assert.equal(wikiLanguage.getLanguageCode(undefined), undefined);
     });
