@@ -69,7 +69,7 @@
     "swagger-router": "^0.7.4",
     "swagger-ui-dist": "^3.22.3",
     "underscore": "^1.9.1",
-    "wikimedia-page-library": "9.3.0"
+    "wikimedia-page-library": "9.3.1"
   },
   "devDependencies": {
     "ajv": "^6.10.0",
