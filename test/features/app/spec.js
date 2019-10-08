@@ -336,8 +336,7 @@ describe('Swagger spec', function() {
             return assertValidSchema(uri, '#/components/schemas/article_summary_merge_link');
         });
 
-        // Skip for 2019-10-07 due to broken POTD template on-wiki
-        it.skip('featured image response should conform to schema', () => {
+        it('featured image response should conform to schema', () => {
             const uri = `${baseUri}media/image/featured/${dateStr1}`;
             return assertValidSchema(uri, '#/components/schemas/image');
         });
