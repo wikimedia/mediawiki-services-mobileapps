@@ -17,15 +17,17 @@ let app;
  */
 router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
     return parsoid.getParsoidHtml(req).then((html) => {
-        const revTid = parsoid.getRevAndTidFromEtag(html.headers);
-        const pageMediaList = lib.getMediaItemInfoFromPage(html.body);
-        mUtil.setETag(res, revTid.revision, revTid.tid);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mediaList);
-        mUtil.setLanguageHeaders(res, html.headers);
-        res.send({
-            revision: revTid.revision,
-            tid: revTid.tid,
-            items: pageMediaList
+        lib.resolveTitleRedirects(req, lib.getMediaItemInfoFromPage(html.body))
+        .then(pageMediaList => {
+            const revTid = parsoid.getRevAndTidFromEtag(html.headers);
+            mUtil.setETag(res, revTid.revision, revTid.tid);
+            mUtil.setContentType(res, mUtil.CONTENT_TYPES.mediaList);
+            mUtil.setLanguageHeaders(res, html.headers);
+            res.send({
+                revision: revTid.revision,
+                tid: revTid.tid,
+                items: pageMediaList
+            });
         });
     });
 });
