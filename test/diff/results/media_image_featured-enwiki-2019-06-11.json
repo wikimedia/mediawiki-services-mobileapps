@@ -1,0 +1,41 @@
+{
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Stade%2C_Hansehafen_--_2018_--_2961.jpg/640px-Stade%2C_Hansehafen_--_2018_--_2961.jpg",
+    "width": 640,
+    "height": 427
+  },
+  "file_page": "https://commons.wikimedia.org/wiki/File:Stade,_Hansehafen_--_2018_--_2961.jpg",
+  "artist": {
+    "html": "<bdi><a href=\"https://www.wikidata.org/wiki/Q34788025\" class=\"extiw\" title=\"d:Q34788025\">Dietmar Rabich</a>\n</bdi>",
+    "text": "Dietmar Rabich"
+  },
+  "credit": {
+    "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "text": "Own work"
+  },
+  "license": {
+    "type": "CC BY-SA 4.0",
+    "code": "cc-by-sa-4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "description": {
+    "html": "<a rel=\"mw:WikiLink\" href=\"./Category:Hansehafen_(Stade)\" title=\"Category:Hansehafen (Stade)\">Hanse harbour</a> at blue hour, Stade, Lower Saxony, Germany",
+    "text": "Hanse harbour at blue hour, Stade, Lower Saxony, Germany",
+    "lang": "en"
+  },
+  "wb_entity_id": "M72216055",
+  "structured": {
+    "captions": {
+      "de": "Hansehafen, Stade, Niedersachsen, Deutschland (2018)",
+      "en": "Hanse harbour, Stade, Lower Saxony, Germany (2018)",
+      "pl": "Port rzeczny Hansehafen w Stade, w Dolnej Saksonii, w Niemczech (2018)",
+      "ru": "Ганзейская гавань в Штаде в Нижней Саксонии в Германии (2018)"
+    }
+  },
+  "title": "File:Stade, Hansehafen -- 2018 -- 2961.jpg",
+  "image": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Stade%2C_Hansehafen_--_2018_--_2961.jpg",
+    "width": 6720,
+    "height": 4480
+  }
+}

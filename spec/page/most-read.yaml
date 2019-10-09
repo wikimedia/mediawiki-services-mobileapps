@@ -1,0 +1,150 @@
+paths:
+  # from routes/feed/most-read.js
+  /{domain}/v1/page/most-read/{year}/{month}/{day}:
+    get:
+      tags:
+        - Feed
+      summary: Get most viewed pages for a date.
+      description: |
+        Gets the most read articles for the date provided.
+        The date is in UTC, as other endpoints, too.
+        Only days prior to today's date are accepted.
+      parameters:
+        - $ref: '#/components/parameters/domainParam'
+        - $ref: '#/components/parameters/year'
+        - $ref: '#/components/parameters/month'
+        - $ref: '#/components/parameters/day'
+      responses:
+        200:
+          description: Most read article titles for this wiki for the requested date
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mostread'
+        204:
+          description: Empty response (for feed content aggregation requests from RESTBase)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/empty'
+        404:
+          description: No data found for the requested date
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/problem'
+        default:
+          $ref: "#/components/responses/problem"
+      x-amples:
+        - title: retrieve the most read articles for January 1, 2016
+          request:
+            params:
+              year: 2016
+              month: '01'
+              day: '01'
+          response:
+            status: 200
+            headers:
+              content-type: application/json
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              date: '2016-01-01Z'
+              articles:
+                - views: /.+/
+                  rank: /.+/
+                  $merge: [ /.+/ ]
+        - title: retrieve the most-read articles for January 1, 2016 (with aggregated=true)
+          request:
+            params:
+              year: 2016
+              month: '01'
+              day: '01'
+            query:
+              aggregated: true
+          response:
+            status: 200
+            headers:
+              content-type: application/json; charset=utf-8
+              vary: /.+/
+              etag: /^"[^/"]+/[^/"]+"$/
+              access-control-allow-origin: '*'
+              access-control-allow-headers: accept, x-requested-with, content-type
+              content-security-policy: default-src
+              x-content-security-policy: default-src
+              x-frame-options: SAMEORIGIN
+            body:
+              date: '2015-12-31Z'
+              articles:
+                - views: /.+/
+                  rank: /.+/
+                  $merge: [ /.+/ ]
+        - title: retrieve most-read articles for date with no data (with aggregated=true)
+          request:
+            params:
+              year: 2015
+              month: '01'
+              day: '01'
+            query:
+              aggregated: true
+          response:
+            status: 204
+            body: ''
+components:
+  schemas:
+    dated_pageview:
+      type: object
+      properties:
+        date:
+          type: string
+          description: ISO 8601 timestamp of pageviews recorded
+        views:
+          type: integer
+          description: Number of views on date
+      required:
+        - date
+        - views
+      additionalProperties: false
+
+    mostread_article:
+      type: object
+      properties:
+        $merge:
+          type: array
+          description: One-element array containing the link to the RESTBase summary for the article
+          items:
+            type: string
+        views:
+          type: integer
+          description: Number of views on the requested day
+        view_history:
+          type: array
+          items:
+            $ref: '#/components/schemas/dated_pageview'
+        rank:
+          type: integer
+          description: Position in the list of most viewed articles
+      required:
+        - $merge
+        - views
+        - rank
+
+    mostread:
+      type: object
+      properties:
+        date:
+          type: string
+          description: The date which the data correspond to
+        articles:
+          type: array
+          description: Array of most popular articles
+          items:
+            $ref: '#/components/schemas/mostread_article'
+      required:
+        - date
+        - articles

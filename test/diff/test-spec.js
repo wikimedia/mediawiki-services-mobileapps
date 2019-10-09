@@ -239,6 +239,10 @@ const TEST_SPECS = [
     new TestSpec('meta.wikimedia.org', 'data/css/mobile', ['pagelib'], { suffix: 'css' }),
     new TestSpec('en.wikipedia.org', 'data/css/mobile', ['site'], { suffix: 'css' }),
 
+    new TestSpec('en.wikipedia.org', 'page/featured', ['2016', '04', '29']),
+    new TestSpec('en.wikipedia.org', 'media/image/featured', ['2019', '06', '11']),
+    new TestSpec('en.wikipedia.org', 'page/most-read', ['2016', '01', '01']),
+
     new TestSpec('en.wikipedia.org', 'page/mobile-sections', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682']),
     new TestSpec('en.wikipedia.org', 'page/mobile-sections', ['User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613']),
 

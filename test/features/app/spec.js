@@ -7,13 +7,22 @@ const refParser              = require('json-schema-ref-parser-sync');
 const assert                 = require('../../utils/assert.js');
 const server                 = require('../../utils/server.js');
 const URI                    = require('swagger-router').URI;
+const yaml                   = require('js-yaml');
+const fs                     = require('fs');
 const specLib                = require('../../../lib/spec.js');
 const OpenAPISchemaValidator = require('openapi-schema-validator').default;
 
 const validator = new OpenAPISchemaValidator({ version: 3 });
+const dateUtil = require('../../../lib/dateUtil');
+const pad = dateUtil.pad;
 const Ajv    = require('ajv');
 
 const baseUri = `${server.config.uri}en.wikipedia.org/v1/`;
+const d1 = new Date();
+const d2 = new Date(Date.now() - 2 * dateUtil.ONE_DAY);
+const dateStr1 = `${d1.getUTCFullYear()}/${pad(d1.getUTCMonth() + 1)}/${pad(d1.getUTCDate())}`;
+const monthDayStr1 = `${pad(d1.getUTCMonth() + 1)}/${pad(d1.getUTCDate())}`;
+const dateStr2 = `${d2.getUTCFullYear()}/${pad(d2.getUTCMonth() + 1)}/${pad(d2.getUTCDate())}`;
 
 if (!server.stopHookAdded) {
     server.stopHookAdded = true;
@@ -295,13 +304,66 @@ describe('Swagger spec', function() {
             });
         };
 
+        const assertValidSchemaAggregated = (uri) => {
+            return preq.get({ uri, query: { aggregated: true } })
+            .then((res) => {
+                if (res.body) {
+                    throw new assert.AssertionError({ message: 'Response should be empty!' });
+                }
+            });
+        };
+
+        const assertBadRequest = (uri) => {
+            return preq.get({ uri })
+            .then((res) => {
+                assert.fail('This request should fail!');
+            })
+            .catch((err) => {
+                if (!ajv.validate('#/components/schemas/problem', err.body.internalErr)) {
+                    throw new assert.AssertionError({ message: ajv.errorsText() });
+                }
+            });
+        };
+
         Object.keys(spec.components.schemas).forEach((defName) => {
             ajv.addSchema(spec.components.schemas[defName], `#/components/schemas/${defName}`);
+        });
+
+        // Valid non-aggregated requests
+
+        it('featured article response should conform to schema', () => {
+            const uri = `${baseUri}page/featured/${dateStr1}`;
+            return assertValidSchema(uri, '#/components/schemas/article_summary_merge_link');
+        });
+
+        it('featured image response should conform to schema', () => {
+            const uri = `${baseUri}media/image/featured/${dateStr1}`;
+            return assertValidSchema(uri, '#/components/schemas/image');
+        });
+
+        it('most-read response should conform to schema', () => {
+            const uri = `${baseUri}page/most-read/${dateStr2}`;
+            return assertValidSchema(uri, '#/components/schemas/mostread');
+        });
+
+        it('news response should conform to schema', () => {
+            const uri = `${baseUri}page/news`;
+            return assertValidSchema(uri, '#/components/schemas/news');
         });
 
         it('random response should conform to schema', () => {
             const uri = `${baseUri}page/random/title`;
             return assertValidSchema(uri, '#/components/schemas/random');
+        });
+
+        it('announcements should conform to schema', () => {
+            const uri = `${baseUri}feed/announcements`;
+            return assertValidSchema(uri, '#/components/schemas/announcements');
+        });
+
+        it('onthisday response should conform to schema', () => {
+            const uri = `${baseUri}feed/onthisday/all/${monthDayStr1}`;
+            return assertValidSchema(uri, '#/components/schemas/onthisdayResponse');
         });
 
         it('summary response should conform to schema', () => {
@@ -329,6 +391,47 @@ describe('Swagger spec', function() {
             return assertValidSchema(uri, '#/components/schemas/references_response');
         });
 
+        // Bad requests return empty response for aggregated=true
+
+        it('featured article response should conform to schema (invalid lang, agg=true)', () => {
+            const uri = `${server.config.uri}is.wikipedia.org/v1/page/featured/${dateStr1}`;
+            return assertValidSchemaAggregated(uri);
+        });
+
+        it('featured image response should conform to schema (invalid date, agg=true)', () => {
+            const uri = `${baseUri}media/image/featured/2004/01/01`;
+            return assertValidSchemaAggregated(uri);
+        });
+
+        it('most-read response should conform to schema (invalid date, agg=true)', () => {
+            const uri = `${baseUri}page/most-read/2004/01/01`;
+            return assertValidSchemaAggregated(uri);
+        });
+
+        it('news response (invalid language, agg=true) should be empty', () => {
+            return assertValidSchemaAggregated(`${server.config.uri}is.wikipedia.org/v1/page/news`);
+        });
+
+        // Bad requests fail without aggregated=true
+
+        it('featured article request should fail for invalid language when !agg=true', () => {
+            const uri = `${server.config.uri}is.wikipedia.org/v1/page/featured/${dateStr1}`;
+            return assertBadRequest(uri);
+        });
+
+        it('featured image request should fail for invalid date when !agg=true', () => {
+            const uri = `${baseUri}media/image/featured/2004/01/01`;
+            return assertBadRequest(uri);
+        });
+
+        it('most-read request should fail for invalid date when !agg=true', () => {
+            const uri = `${baseUri}page/most-read/2004/01/01`;
+            return assertBadRequest(uri);
+        });
+
+        it('news request should fail for invalid language when !agg=true', () => {
+            return assertBadRequest(`${server.config.uri}is.wikipedia.org/v1/page/news`);
+        });
     });
 
     describe('validate spec examples', () => {
