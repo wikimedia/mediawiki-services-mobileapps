@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('../../utils/assert');
-const random = require('../../../lib/feed/random');
+const random = require('../../../lib/random');
 const sample =  require('./sample-results');
 
 describe('random/title', () => {
