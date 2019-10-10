@@ -16,8 +16,6 @@ Furthermore this can also speed up development by
 
 More improvements and more endpoints are possible. We could also consider using streaming on the service side. But I'll leave that as a later exercise.
 
-Note: This is currently in early development and things are going to change without notice.
-
 More information can be found on the [wiki](https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/RESTBase_services_for_apps).
 
 ## Getting Started
@@ -87,26 +85,7 @@ Example: `http://localhost:6927/en.wiktionary.org/v1/page/definition/present`
 
 A list of language codes can be found [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix).
 
-#### Feed routes
-* `http://localhost:6927/en.wikipedia.org/v1/page/featured/2016/05/30`
-* `http://localhost:6927/en.wikipedia.org/v1/media/image/featured/2016/05/30`
-* `http://localhost:6927/en.wikipedia.org/v1/page/news`
-* `http://localhost:6927/en.wikipedia.org/v1/page/most-read/2016/05/30`
-* `http://localhost:6927/en.wikipedia.org/v1/page/random/title`
-* `http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/births/05/30`
-* `http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/deaths/05/30`
-* `http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/events/05/30`
-* `http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/selected/05/30`
-* `http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/holidays/05/30`
-* `http://localhost:6927/en.wikipedia.org/v1/feed/onthisday/all/05/30`
-* `http://localhost:6927/en.wikipedia.org/v1/feed/announcements`
-
-Note that day and month need to be 2 digits to be accepted. 0-pad them if necessary.
-
 #### Generic routes
-Feed endpoint availability by language:
-* `http://localhost:6927/wikimedia.org/v1/feed/availability`
-
 Swagger spec:
 * `http://localhost:6927/?spec`
 
