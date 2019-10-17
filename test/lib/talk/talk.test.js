@@ -197,44 +197,6 @@ describe('lib:talk', () => {
             );
         });
     });
-    describe('pruneUnwantedAttributes', () => {
-      const el = domino.createDocument(`
-        <html>
-          <body>
-            <div style='a' id='b' class='c' rel='d' about='e' data-mw='f' typeof='g' bleep='h' bloop='i'>Hi</div>
-          </body>
-        </html>`).querySelector('div');
-
-        removal.pruneUnwantedAttributes(el);
-
-        it('removes style', () => {
-            assert.equal(el.hasAttribute('style'), false);
-        });
-        it('removes id', () => {
-            assert.equal(el.hasAttribute('id'), false);
-        });
-        it('removes class', () => {
-            assert.equal(el.hasAttribute('class'), false);
-        });
-        it('removes rel', () => {
-            assert.equal(el.hasAttribute('rel'), false);
-        });
-        it('removes about', () => {
-            assert.equal(el.hasAttribute('about'), false);
-        });
-        it('removes data-mw', () => {
-            assert.equal(el.hasAttribute('data-mw'), false);
-        });
-        it('removes typeof', () => {
-            assert.equal(el.hasAttribute('typeof'), false);
-        });
-        it('leaves bleep', () => {
-            assert.equal(el.hasAttribute('bleep'), true);
-        });
-        it('leaves bloop', () => {
-            assert.equal(el.hasAttribute('bloop'), true);
-        });
-    });
     describe('textFromTextNode', () => {
       const doc = domino.createDocument('');
       it('gets text', () => {
