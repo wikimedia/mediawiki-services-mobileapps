@@ -6,6 +6,7 @@
   "scripts": {
     "start": "service-runner",
     "test": "PREQ_CONNECT_TIMEOUT=15 mocha 'test/{,!(diff)/**}/*.js' && npm run lint",
+    "test:talk": "PREQ_CONNECT_TIMEOUT=15 mocha 'test/{,!(diff)/**}/talk.test.js'",
     "test:unit": "mocha test/lib",
     "test:diff": "mocha --exit test/diff",
     "test:spec": "mocha test/features/app/spec.js",

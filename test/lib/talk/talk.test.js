@@ -1,378 +1,13 @@
 'use strict';
 
 const assert = require('../../utils/assert.js');
-const talk = require('../../../lib/talk/parser');
+const TalkPage = require('../../../lib/talk/TalkPage');
 const domino = require('domino');
-const reply = require('../../../lib/talk/TalkReply');
-const topic = require('../../../lib/talk/TalkTopic');
-const relationships = require('../../../lib/talk/parser-relationships');
-const removal = require('../../../lib/talk/parser-removal');
+const fixtures = require('../../utils/fixtures');
+const perf = require('../../utils/performance');
+const P = require('bluebird');
 
 describe('lib:talk', () => {
-    describe('createSha256', () => {
-        it('generates expected sha for string', () => {
-            assert.equal(
-                topic.createSha256('Some string'),
-                '2beaf0548e770c4c392196e0ec8e7d6d81cc9280ac9c7f3323e4c6abc231e95a'
-            );
-        });
-    });
-    describe('getFamilyTree', () => {
-        it('gets expected family tree', () => {
-          const LI = domino.createDocument(`
-            <html>
-              <body>
-                <div>
-                  <ul>
-                    <li id='yo'>Hi
-                  </ul>
-                </div>
-              </body>
-            </html>`).querySelector('#yo');
-          const tree = relationships.getFamilyTree(LI);
-          assert.deepEqual(
-              tree.map(e => e.tagName), ['LI', 'UL', 'DIV', 'BODY', 'HTML']
-          );
-        });
-    });
-    describe('getReplyDepth', () => {
-        it('expected depth in list', () => {
-          const el = domino.createDocument(`
-            <html>
-              <body>
-                <div>
-                  <ul>
-                    <li><div id='sought'>Hi</div>
-                  </ul>
-                </div>
-              </body>
-            </html>`).querySelector('#sought');
-          const depth = reply.getReplyDepth(el);
-          assert.equal(
-              depth, 1
-          );
-        });
-        it('expected depth in list nested in list', () => {
-          const el = domino.createDocument(`
-            <html>
-              <body>
-                <div>
-                  <ol>
-                    <li>
-                      <ul>
-                        <li><div id='sought'>Hi</div>
-                      </ul>
-                  </ol>
-                </div>
-              </body>
-            </html>`).querySelector('#sought');
-          const depth = reply.getReplyDepth(el);
-          assert.equal(
-              depth, 2
-          );
-        });
-        it('expected depth in div', () => {
-          const el = domino.createDocument(`
-            <html>
-              <body>
-                <div id='sought'>Hi</div>
-              </body>
-            </html>`).querySelector('#sought');
-          const depth = reply.getReplyDepth(el);
-          assert.equal(
-              depth, 0
-          );
-        });
-        it('expected depth in dl', () => {
-          const el = domino.createDocument(`
-            <html>
-              <body>
-                <div>
-                  <dl>
-                    <dt>Coffee</dt>
-                    <dd id='sought'>Black</dd>
-                    <dt>Milk</dt>
-                    <dd>White</dd>
-                  </dl>
-                </div>
-              </body>
-            </html>`).querySelector('#sought');
-          const depth = reply.getReplyDepth(el);
-          assert.equal(
-              depth, 1
-          );
-        });
-        it('expected depth in list nested in list nested in dl', () => {
-          const el = domino.createDocument(`
-            <html>
-              <body>
-                <div>
-                  <dl>
-                    <dt>Coffee</dt>
-                    <dd>
-                      <ol>
-                        <li>
-                          <ul>
-                            <li><div id='sought'>Hi</div>
-                          </ul>
-                      </ol>
-                    </dd>
-                    <dt>Milk</dt>
-                    <dd>White</dd>
-                  </dl>
-                </div>
-              </body>
-            </html>`).querySelector('#sought');
-          const depth = reply.getReplyDepth(el);
-          assert.equal(
-              depth, 3
-          );
-        });
-    });
-
-    describe('timestampRegex', () => {
-      describe('ends in year followed by time zone code', () => {
-        it('succeeds if string ends in year followed by time zone code', () => {
-          assert.ok(reply.timestampRegex.test('02:13, 4 July 2009 (UTC)'));
-        });
-        it('fails if string time zone code not valid because too short', () => {
-          assert.ok(!reply.timestampRegex.test('02:13, 4 July 2009 (U)'));
-        });
-        it('fails if string time zone code not valid because too long', () => {
-          assert.ok(!reply.timestampRegex.test('02:13, 4 July 2009 (UTCUTC)'));
-        });
-        it('fails for non capitalized time zone code', () => {
-          assert.ok(!reply.timestampRegex.test('oh hi 2009 (utc)'));
-        });
-        it('fails if year too short', () => {
-          assert.ok(!reply.timestampRegex.test('02:13, 4 July 200 (UTC)'));
-        });
-        it('fails if year too long', () => {
-          assert.ok(!reply.timestampRegex.test('02:13, 4 July 20000 (UTC)'));
-        });
-        it('fails if year before 2000 - Wikipedia did not exist yet :)', () => {
-          assert.ok(!reply.timestampRegex.test('02:13, 4 July 1999 (UTC)'));
-        });
-      });
-      describe('ends in "dd:dd" formatted time followed by time zone code', () => {
-        it('succeeds if string ends in time followed by time zone code', () => {
-          assert.ok(reply.timestampRegex.test('15 août 2007 à 17:24 (CEST)'));
-        });
-        it('fails if string time is not valid because not "dd:dd" format', () => {
-          assert.ok(!reply.timestampRegex.test('15 août 2007 à 17:2 (CEST)'));
-          assert.ok(!reply.timestampRegex.test('15 août 2007 à 1724 (CEST)'));
-        });
-        it('fails if string time zone code not valid because too short', () => {
-          assert.ok(!reply.timestampRegex.test('15 août 2007 à 17:24 (C)'));
-        });
-        it('fails if string time zone code not valid because too long', () => {
-          assert.ok(!reply.timestampRegex.test('15 août 2007 à 17:24 (UTCUTC)'));
-        });
-        it('fails if string time zone code not valid because hour too high', () => {
-          assert.ok(!reply.timestampRegex.test('15 août 2007 à 37:24 (UTC)'));
-        });
-      });
-    });
-
-    describe('escapeLessThanGreaterThanAndAmpersand', () => {
-        it('escapes tags', () => {
-            const sha = 'This <i>is</i> fine.';
-            assert.equal(
-                removal.escapeLessThanGreaterThanAndAmpersand(sha),
-                'This &lt;i&gt;is&lt;/i&gt; fine.'
-            );
-        });
-        it('escapes ampersands', () => {
-            const sha = 'This&nbsp;is&nbsp;fine.';
-            assert.equal(
-                removal.escapeLessThanGreaterThanAndAmpersand(sha),
-                'This&amp;nbsp;is&amp;nbsp;fine.'
-            );
-        });
-        it('does not escape apostrophes or quotes', () => {
-            const sha = 'I\'ve got "quotes"';
-            assert.equal(
-                removal.escapeLessThanGreaterThanAndAmpersand(sha),
-                'I\'ve got "quotes"'
-            );
-        });
-    });
-    describe('textFromTextNode', () => {
-      const doc = domino.createDocument('');
-      it('gets text', () => {
-        const node = doc.createTextNode('Hi there');
-        assert.equal(
-            removal.textFromTextNode(node),
-            'Hi there'
-        );
-      });
-      it('escapes tags and ampersands', () => {
-        const node = doc.createTextNode('Some <i>tags</i> and&nbsp;ampersands.');
-        assert.equal(
-            removal.textFromTextNode(node),
-            'Some &lt;i&gt;tags&lt;/i&gt; and&amp;nbsp;ampersands.'
-        );
-      });
-    });
-    describe('textFromPreservedElementNode', () => {
-      it('preserve nested bold, italic and anchor', () => {
-        const elementHTML = '' +
-        '<b>' + // bold is a preserved element
-          'keep nested <b>bold</b> and <i>italic</i> and <a href="test">anchor</a> tags' +
-        '</b>';
-        const el = domino.createDocument(elementHTML).querySelector('b');
-
-        const expectedOutput = '' +
-        '<b>' +
-          'keep nested <b>bold</b> and <i>italic</i> and <a href="test">anchor</a> tags' +
-        '</b>';
-
-        assert.equal(removal.textFromPreservedElementNode(el), expectedOutput);
-      });
-      it('removes img and other tags', () => {
-        const elementHTML = '' +
-        '<b>' +
-          'do not keep image tags <img src="">' +
-          '<other>do not keep other tags, but keep their text content</other>' +
-        '</b>';
-        const el = domino.createDocument(elementHTML).querySelector('b');
-        const expectedOutput = '' +
-        '<b>' +
-          'do not keep image tags ' +
-          'do not keep other tags, but keep their text content' +
-        '</b>';
-        assert.equal(removal.textFromPreservedElementNode(el), expectedOutput);
-      });
-      it('handle deep nesting', () => {
-        const elementHTML = '' +
-        '<b>' +
-          'handle deep nesting' +
-          '<i>italic' +
-            '<a href="test">anchor' +
-              '<other>' +
-                'other' +
-                '<b>' +
-                  'bold' +
-                '</b>' +
-              '</other>' +
-              '<img src="">' +
-              'bla' +
-            '</a>' +
-          '</i>' +
-        '</b>';
-        const el = domino.createDocument(elementHTML).querySelector('b');
-        const expectedOutput = '' +
-        '<b>' +
-          'handle deep nesting' +
-          '<i>italic' +
-            '<a href="test">anchor' +
-                'other' +
-                '<b>' +
-                  'bold' +
-                '</b>' +
-              'bla' +
-            '</a>' +
-          '</i>' +
-        '</b>';
-        assert.equal(removal.textFromPreservedElementNode(el), expectedOutput);
-      });
-      it('shows file name from href in brackets if anchor has no text', () => {
-        const elementHTML = '' +
-        '<a href="test/someFileName">' +
-        '</a>';
-        const el = domino.createDocument(elementHTML).querySelector('a');
-        const expectedOutput = '' +
-        '<a href="test/someFileName">' +
-        '[someFileName]' +
-        '</a>';
-        assert.equal(removal.textFromPreservedElementNode(el), expectedOutput);
-      });
-    });
-    describe('remove elements non-destructively', () => {
-      it('remove element preserving nested text', () => {
-        const doc = domino.createDocument(
-          '<html><head></head><body><b>hi</b></body></html>'
-        );
-        removal.removeElementsNonDestructively([doc.querySelector('b')]);
-        assert.equal(doc.innerHTML, '<html><head></head><body>hi</body></html>');
-      });
-      it('remove element preserving nested text and tag', () => {
-        const doc = domino.createDocument(
-          '<html><head></head><body><b>hi <i>there</i></b></body></html>'
-        );
-        removal.removeElementsNonDestructively([doc.querySelector('b')]);
-        assert.equal(doc.innerHTML, '<html><head></head><body>hi <i>there</i></body></html>');
-      });
-      it('remove element preserving nested texts and tags', () => {
-        const doc = domino.createDocument(
-          '<html><head></head><body><b>hi <i>how <b>are</b></i></b> you</body></html>'
-        );
-        removal.removeElementsNonDestructively([doc.querySelector('b')]);
-        assert.equal(doc.innerHTML, '<html><head></head><body>hi <i>how <b>are</b></i> you</body></html>');
-      });
-      it('remove multiple elements preserving nested texts and tags', () => {
-        const doc = domino.createDocument(
-          '<html><head></head><body><b>hi <i>how <b>are</b></i></b> you</body></html>'
-        );
-        removal.removeElementsNonDestructively([doc.querySelector('b'), doc.querySelector('i')]);
-        assert.equal(doc.innerHTML, '<html><head></head><body>hi how <b>are</b> you</body></html>');
-      });
-      it('remove multiple elements (in reverse order of occurence) preserving nested texts and tags', () => {
-        const doc = domino.createDocument(
-          '<html><head></head><body><b>hi <i>how <b>are</b></i></b> you</body></html>'
-        );
-        removal.removeElementsNonDestructively([doc.querySelector('i'), doc.querySelector('b')]);
-        assert.equal(doc.innerHTML, '<html><head></head><body>hi how <b>are</b> you</body></html>');
-      });
-    });
-    describe('get clone with non-anchor elements removed non-destructively', () => {
-      it('remove non-anchors from complex element', () => {
-        const doc = domino.createDocument(
-          '<html><head></head><body><b>hi there <i>how</i> <sub><a href="a"><b>are</b></a> <a href="a">you</a></sub> <sup>doing</sup></b></body></html>'
-        );
-        const anchorsOnlyBodyClone = removal.getCloneWithAnchorsAndTextNodesOnly(doc.querySelector('body'));
-        assert.equal(anchorsOnlyBodyClone.innerHTML, 'hi there how <a href="a">are</a> <a href="a">you</a> doing');
-      });
-    });
-    describe('customTextContent', () => {
-      it('preserves expected tags only: ["A", "B", "I", "SUP", "SUB"]', () => {
-        const doc = domino.createDocument(
-          '<html><head></head><body><b>hi <h1>there</h1> <i><h2>how</h2></i> <img src="someimg.png"><sub><a href="a"><b>are</b></a> <a href="a">you</a></sub> <sup>doing</sup></b></body></html>'
-        );
-        const text = removal.customTextContent(doc.querySelector('body'), doc);
-        assert.equal(text, '<b>hi there <i>how</i> <sub><a href="a"><b>are</b></a> <a href="a">you</a></sub> <sup>doing</sup></b>');
-      });
-      it('replaces expected tags with bold: ["CODE", "BIG", "DT"]', () => {
-        const doc = domino.createDocument(
-          '<html><head></head><body>Here is <code>code</code>, <big>big</big> and <dt>dt</dt>.</body></html>'
-        );
-        const text = removal.customTextContent(doc.querySelector('body'), doc);
-        assert.equal(text, 'Here is <b>code</b>, <b>big</b> and <b>dt</b>.');
-      });
-    });
-    describe('replaceElementsContainingOnlyOneBreakWithBreak', () => {
-      it('removes element containing only a break', () => {
-        const doc = domino.createDocument(
-          '<html><head></head><body><b><br></b></body></html>'
-        );
-        removal.replaceElementsContainingOnlyOneBreakWithBreak(doc);
-        assert.equal(doc.innerHTML, '<html><head></head><body><br></body></html>');
-      });
-      it('removes nothing if element contains something other than a break', () => {
-        const doc = domino.createDocument(
-          '<html><head></head><body><b>hi<br></b></body></html>'
-        );
-        removal.replaceElementsContainingOnlyOneBreakWithBreak(doc);
-        assert.equal(doc.innerHTML, '<html><head></head><body><b>hi<br></b></body></html>');
-      });
-      it('removes all elements containing only a break regardless of nesting', () => {
-        const doc = domino.createDocument(
-          '<html><head></head><body><b><br></b><div><i><br></i><i><br></i><span><b><br></b><b><br><img></b></span></div></body></html>'
-        );
-        removal.replaceElementsContainingOnlyOneBreakWithBreak(doc);
-        assert.equal(doc.innerHTML, '<html><head></head><body><br><div><br><br><span><br><b><br><img></b></span></div></body></html>');
-      });
-    });
     describe('parseUserTalkPageDocIntoTopicsWithReplies', () => {
       it('two h2 topics return first topic ID 1', () => {
         const doc = domino.createDocument(`
@@ -390,7 +25,7 @@ describe('lib:talk', () => {
               </p>
             </section>
         `);
-        const topics = talk.parseUserTalkPageDocIntoTopicsWithReplies(doc, 'en').topics;
+        const topics = new TalkPage(doc, 'en').topics;
         assert.equal(topics.length, 2);
         assert.equal(topics[0].id, 1);
         assert.equal(topics[0].html, 'new topic');
@@ -417,7 +52,7 @@ describe('lib:talk', () => {
             </p>
           </section>
         `);
-        const topics = talk.parseUserTalkPageDocIntoTopicsWithReplies(doc, 'en').topics;
+        const topics = new TalkPage(doc, 'en').topics;
         assert.equal(topics.length, 3);
         assert.equal(topics[0].id, 0);
         assert.equal(topics[0].html, '');
@@ -455,7 +90,7 @@ describe('lib:talk', () => {
             </p>
           </section>
         `);
-        const topics = talk.parseUserTalkPageDocIntoTopicsWithReplies(doc, 'en').topics;
+        const topics = new TalkPage(doc, 'en').topics;
         assert.equal(topics.length, 4);
         assert.equal(topics[0].id, 0);
         assert.equal(topics[0].html, '');
@@ -492,7 +127,7 @@ describe('lib:talk', () => {
             </p>
           </section>
         `);
-        const topics = talk.parseUserTalkPageDocIntoTopicsWithReplies(doc, 'en').topics;
+        const topics = new TalkPage(doc, 'en').topics;
         assert.equal(topics.length, 4);
         assert.equal(topics[0].id, 0);
         assert.equal(topics[0].html, '');
@@ -509,7 +144,7 @@ describe('lib:talk', () => {
         assert.equal(topics[3].replies.length, 1);
       });
       it('empty h2 without title is filtered out', () => {
-        const doc = domino.createDocument(`
+        const doc =  domino.createDocument(`
           <section data-mw-section-id="0" id="mwAQ">
             <p id="mwAg">Hello</p>
           </section>
@@ -529,7 +164,7 @@ describe('lib:talk', () => {
             </p>
           </section>
         `);
-        const topics = talk.parseUserTalkPageDocIntoTopicsWithReplies(doc, 'en').topics;
+        const topics = new TalkPage(doc, 'en').topics;
         assert.equal(topics.length, 3);
         assert.equal(topics[0].id, 0);
         assert.equal(topics[0].html, '');
@@ -541,6 +176,49 @@ describe('lib:talk', () => {
         assert.equal(topics[2].id, 3);
         assert.equal(topics[2].html, 'new topic 2');
         assert.equal(topics[2].replies.length, 1);
+      });
+      it('handles empty links', () => {
+        const doc = domino.createDocument(`
+        <section data-mw-section-id="0" id="mwAQ">
+          <a href="./File:Information.svg" id="mwjQ"><img resource="./File:Information.svg" src="//upload.wikimedia.org/wikipedia/en/thumb/2/28/Information.svg/25px-Information.svg.png" data-file-width="256" data-file-height="256" data-file-type="drawing" height="25" width="25" srcset="//upload.wikimedia.org/wikipedia/en/thumb/2/28/Information.svg/50px-Information.svg.png 2x, //upload.wikimedia.org/wikipedia/en/thumb/2/28/Information.svg/38px-Information.svg.png 1.5x" id="mwjg"></a>
+        </section>
+        `);
+        const topics = new TalkPage(doc, 'en').topics;
+        assert.equal(topics[0].replies[0].html, '<a href="./File:Information.svg">[File:Information.svg]</a>');
+      });
+      it('removes figures', () => {
+        const doc = domino.createDocument(`
+<section data-mw-section-id="282" id="mwB44"><h2 id="Bay_Area_WikiSalon_February_reminder">Bay Area WikiSalon February reminder</h2>
+
+<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r888971367" about="#mwt224" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"letterhead start","href":"./Template:Letterhead_start"},"params":{},"i":0}},"\n&lt;center>&lt;big>Please join us in downtown San Francisco!&lt;/big>&lt;/center>\n\n[[File:Panel fields questions on Journalism and Wikipedia (cropped).jpg|right|frameless|upright=1|alt=A Wikipedia panel discussion about journalism]]\nWednesday, February 22, 2017 at 6 p.m.\n&lt;hr>\nFor details and to RSVP: &apos;&apos;&apos;[[w:en:Wikipedia:Bay Area WikiSalon February 2017|Wikipedia:Bay Area WikiSalon, February 2017]]&apos;&apos;&apos;\n&lt;hr>\nSee you soon! ",{"template":{"target":{"wt":"u","href":"./Template:U"},"params":{"1":{"wt":"Ben Creasy"}},"i":1}}," and ",{"template":{"target":{"wt":"u","href":"./Template:U"},"params":{"1":{"wt":"Checkingfax"},"2":{"wt":"Wayne"}},"i":2}}," (co-coordinators) | &lt;small>([[Wikipedia:Meetup/San Francisco/Invite|Subscribe/Unsubscribe to this talk page notice here]])&lt;/small> | [[User:MediaWiki message delivery|MediaWiki message delivery]] ([[User talk:MediaWiki message delivery|talk]]) 02:58, 21 February 2017 (UTC)\n",{"template":{"target":{"wt":"letterhead end","href":"./Template:Letterhead_end"},"params":{},"i":3}}]}' id="mwB48"/><div class="letterhead " style="" about="#mwt224" id="mwB5A">
+<center><big>Please join us in downtown San Francisco!</big></center>
+
+<figure class="mw-default-size mw-halign-right" typeof="mw:Image/Frameless"><a href="./File:Panel_fields_questions_on_Journalism_and_Wikipedia_(cropped).jpg"><img alt="A Wikipedia panel discussion about journalism" resource="./File:Panel_fields_questions_on_Journalism_and_Wikipedia_(cropped).jpg" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Panel_fields_questions_on_Journalism_and_Wikipedia_%28cropped%29.jpg/220px-Panel_fields_questions_on_Journalism_and_Wikipedia_%28cropped%29.jpg" data-file-width="2089" data-file-height="1214" data-file-type="bitmap" height="128" width="220" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Panel_fields_questions_on_Journalism_and_Wikipedia_%28cropped%29.jpg/440px-Panel_fields_questions_on_Journalism_and_Wikipedia_%28cropped%29.jpg 2x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Panel_fields_questions_on_Journalism_and_Wikipedia_%28cropped%29.jpg/330px-Panel_fields_questions_on_Journalism_and_Wikipedia_%28cropped%29.jpg 1.5x"/></a><figcaption></figcaption></figure>
+<p>Wednesday, February 22, 2017 at 6 p.m.</p>
+<hr/>
+<p>For details and to RSVP: <b><a rel="mw:WikiLink" href="./Wikipedia:Bay_Area_WikiSalon_February_2017" title="Wikipedia:Bay Area WikiSalon February 2017">Wikipedia:Bay Area WikiSalon, February 2017</a></b></p>
+<hr/>
+<p>See you soon! <a rel="mw:WikiLink" href="./User:Ben_Creasy" title="User:Ben Creasy">Ben Creasy</a> and <a rel="mw:WikiLink" href="./User:Checkingfax" title="User:Checkingfax">Wayne</a> (co-coordinators) | <small>(<a rel="mw:WikiLink" href="./Wikipedia:Meetup/San_Francisco/Invite" title="Wikipedia:Meetup/San Francisco/Invite">Subscribe/Unsubscribe to this talk page notice here</a>)</small> | <a rel="mw:WikiLink" href="./User:MediaWiki_message_delivery" title="User:MediaWiki message delivery">MediaWiki message delivery</a> (<a rel="mw:WikiLink" href="./User_talk:MediaWiki_message_delivery" title="User talk:MediaWiki message delivery">talk</a>) 02:58, 21 February 2017 (UTC)</p>
+</div>
+<!-- Message sent by User:Checkingfax@enwiki using the list at https://en.wikipedia.org/w/index.php?title=Wikipedia:Meetup/San_Francisco/Invite&#x26;oldid=760281342 -->
+
+</section>
+        `);
+        const topics = new TalkPage(doc, 'en').topics;
+        assert.equal(topics[0].replies[0].html, '<b>Please join us in downtown San Francisco!</b><br><br><a href="./File:Panel_fields_questions_on_Journalism_and_Wikipedia_(cropped).jpg">[File:Panel_fields_questions_on_Journalism_and_Wikipedia_(cropped).jpg]</a><br><br>Wednesday, February 22, 2017 at 6 p.m.<br><br>For details and to RSVP: <b><a href="./Wikipedia:Bay_Area_WikiSalon_February_2017" title="Wikipedia:Bay Area WikiSalon February 2017">Wikipedia:Bay Area WikiSalon, February 2017</a></b><br><br>See you soon! <a href="./User:Ben_Creasy" title="User:Ben Creasy">Ben Creasy</a> and <a href="./User:Checkingfax" title="User:Checkingfax">Wayne</a> (co-coordinators) | (<a href="./Wikipedia:Meetup/San_Francisco/Invite" title="Wikipedia:Meetup/San Francisco/Invite">Subscribe/Unsubscribe to this talk page notice here</a>) | <a href="./User:MediaWiki_message_delivery" title="User:MediaWiki message delivery">MediaWiki message delivery</a> (<a href="./User_talk:MediaWiki_message_delivery" title="User talk:MediaWiki message delivery">talk</a>) 02:58, 21 February 2017 (UTC)');
+      });
+      it('does not block the event loop', () => {
+        const doc = fixtures.readIntoDocument('User_talk-Koavf.html');
+        const talkPagePromise = TalkPage.promise(doc, 'en');
+        const perfPromise = perf.measure(talkPagePromise, 150, 50);
+        return P.join(talkPagePromise, perfPromise).then(results => {
+          const talkPage = results[0];
+          const topic = talkPage.topics[2];
+          assert.equal(topic.html, '<i>The Midnight Snack</i>');
+          const reply = topic.replies[10];
+          assert.equal(reply.depth, 10);
+          assert.equal(reply.html, '<a href="./User:Rosguill" title="User:Rosguill">Rosguill</a>, There already <i>is</i> a consensus for <a href="./Wikipedia:OR" title="Wikipedia:OR">WP:OR</a>, <a href="./Wikipedia:V" title="Wikipedia:V">WP:V</a>, and <a href="./Wikipedia:SOURCE" title="Wikipedia:SOURCE">WP:SOURCE</a> for the entire encyclopedia project. If we get a consensus at <a href="./Wikipedia:AFD" title="Wikipedia:AFD">WP:AFD</a> or <a href="./Wikipedia_talk:ANIMATION" title="Wikipedia talk:ANIMATION">WT:ANIMATION</a> or any other page, why would they be more likely to listen to that? Why is the onus on me to expend more overhead for these non-articles that we should never have had instead of someone just saying, "Don\'t do this again or you\'ll be blocked"? ―<a href="./User:Koavf" title="User:Koavf">Justin (ko<b>a</b>vf)</a>❤<a href="./User_talk:Koavf" title="User talk:Koavf">T</a>☮<a href="./Special:Contributions/Koavf" title="Special:Contributions/Koavf">C</a>☺<a href="./Special:EmailUser/Koavf" title="Special:EmailUser/Koavf">M</a>☯ 00:08, 25 September 2019 (UTC)');
+        });
       });
     });
 });

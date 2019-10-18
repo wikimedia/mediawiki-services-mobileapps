@@ -4,9 +4,9 @@
       "id": 0,
       "replies": [
         {
-          "sha": "66e862077947375b5d7c5e6e7d3241bd1930b99d66d684d6295482a71b5ed719",
+          "sha": "87542e26865c7034e46b20ac1f61c9362219ea89e3118ffc38d84e39b9445353",
           "depth": 0,
-          "html": "Je me demandais juste une chose : si je copie-colle un texte Wikipedia en anglais, et que je le traduis... y a-t-il copyvio?<br><br> Je ne suis pas avocat. :P --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a>"
+          "html": "Je me demandais juste une chose : si je copie-colle un texte Wikipedia en anglais, et que je le traduis... y a-t-il copyvio?<br><br>Je ne suis pas avocat. :P --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a>"
         },
         {
           "sha": "2db2355bbadc398ae9c8d2b0c985465b72a9ddaea74fb4984a5cfc5badcc1485",
@@ -14,24 +14,24 @@
           "html": "Je lui est répondu <a href=\"./Discussion_utilisateur:Wiolshit\" title=\"Discussion utilisateur:Wiolshit\">sur sa page de discussion</a>. <a href=\"./Utilisateur:Manu1400\" title=\"Utilisateur:Manu1400\">Manu1400</a> 15 août 2007 à 17:24 (CEST)"
         },
         {
-          "sha": "1174298175536705da78cd3abb21dde6142e13ae945b148bc996e2f39c2c6ff7",
+          "sha": "dc80b4c3aa517871df5ed42500e9a5716607c900f0270ff5edd0d2b7d705ab85",
           "depth": 0,
-          "html": "<b>C'est mieux si on mets des requêtes à propos le logiciel wiki sur ma <a href=\"https://meta.wikimedia.org/wiki/User:Brion%20VIBBER/Todo%20list\" title=\"m:User:Brion VIBBER/Todo list\">liste des devoirs</a> sur meta-wikipedia. Je n'ai pas le temps pour lire regulierement toutes mes pages de discussion.&nbsp;:(</b><br><br>Hello Brion,<br><br>Merci pour les infos.<br><br>La version anglaise de Wikipedia est deja en anglais PHP, ou toujours en CGI ?<br><br>Si la version PHP anglaise est pas fini, peut-etre vaut t'il mieu attendre qu'elle soit fini avant de la traduire et eventuellement de la modifier.<br><br> Oui, le wikipedia anglais est deja en PHP. Les messages sont (jusqu'ici) traduits aussi en espéranto et polonais; les autres langues manquent, et c'était beaucoup bienvenu si on les traduise ! Il y a des petites problèmes pour que nous ne les avons déjà convertés (avec le cherche), mais on est en les réparant (vois les mailing lists).<br><br>Physiquement, la base de donnee se trouve ou ?<br><br> Les instructions de anonymous CVS sont à: <a href=\"http://sourceforge.net/cvs/?group_id=34373\">http://sourceforge.net/cvs/?group_id=34373</a> Le nom de la module est \"phpwiki\". (Ne le confusez avec <a href=\"http://phpwiki.sourceforge.net/\">PhpWiki</a>, un autre projet !)<br><br>On peut la manipuler avec des requettes SQL ?<br><br>Si oui, c'est vraiment tres cool !<br><br> Ouais, au moins internellement. (Il y a un methode pour les utilisants administrateurs d'accesser l'SQL directement, mais generalment il s'agit des modules de la programme. Si il y a un manque d'une function très necessaire, ou simplement très cool, écrivez le!) -BV<br><br>J'aime beaucoup le PHP mais je connais pas encore le Perl.<br><br>Personnelement je preferai donc travailler sur la version PHP.<br><br>A bientot.<br><br>MERCI BEAUCOUP POUR LES INFOS !<br><br><a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a>"
+          "html": "<b>C'est mieux si on mets des requêtes à propos le logiciel wiki sur ma <a href=\"https://meta.wikimedia.org/wiki/User:Brion%20VIBBER/Todo%20list\" title=\"m:User:Brion VIBBER/Todo list\">liste des devoirs</a> sur meta-wikipedia. Je n'ai pas le temps pour lire regulierement toutes mes pages de discussion. :(</b><br><br>Hello Brion,<br><br>Merci pour les infos.<br><br>La version anglaise de Wikipedia est deja en anglais PHP, ou toujours en CGI ?<br><br>Si la version PHP anglaise est pas fini, peut-etre vaut t'il mieu attendre qu'elle soit fini avant de la traduire et eventuellement de la modifier.<ul><li>Oui, le wikipedia anglais est deja en PHP. Les messages sont (jusqu'ici) traduits aussi en espéranto et polonais; les autres langues manquent, et c'était beaucoup bienvenu si on les traduise ! Il y a des petites problèmes pour que nous ne les avons déjà convertés (avec le cherche), mais on est en les réparant (vois les mailing lists).</li></ul>Physiquement, la base de donnee se trouve ou ?<ul><li>Les instructions de anonymous CVS sont à: <a href=\"http://sourceforge.net/cvs/?group_id=34373\">http://sourceforge.net/cvs/?group_id=34373</a> Le nom de la module est \"phpwiki\". (Ne le confusez avec <a href=\"http://phpwiki.sourceforge.net/\">PhpWiki</a>, un autre projet !)</li></ul>On peut la manipuler avec des requettes SQL ?<br><br>Si oui, c'est vraiment tres cool !<ul><li>Ouais, au moins internellement. (Il y a un methode pour les utilisants administrateurs d'accesser l'SQL directement, mais generalment il s'agit des modules de la programme. Si il y a un manque d'une function très necessaire, ou simplement très cool, écrivez le!) -BV</li></ul>J'aime beaucoup le PHP mais je connais pas encore le Perl.<br><br>Personnelement je preferai donc travailler sur la version PHP.<br><br>A bientot.<br><br>MERCI BEAUCOUP POUR LES INFOS !<br><br><a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a>"
         },
         {
-          "sha": "2ac9f2ed6a18253eec73d20087fe356de7e7757bb84a8c6db67490675d3bb0c3",
+          "sha": "00c2e9746d8684d1345643aa1049af3ce1653a7b1520e3955e35842b225debe8",
           "depth": 0,
-          "html": "salut!<br><br>elle vien d'ou ta carte de l'europe ?? <a href=\"http://fr.wikipedia.com/wiki.cgi?Union_Européenne\">http://fr.wikipedia.com/wiki.cgi?Union_Européenne</a><br><br> Je l'a modifiée de ça que j'avais utilisée pour le continent aux wikipedia eo <a href=\"http://eo.wikipedia.com/wiki/Euxropo\">[Euxropo]</a>. Quelques de cettes cartes j'ai mets sans noms en format Photoshop aux <a href=\"http://leuksman.com/misc/maps.php\">http://leuksman.com/misc/maps.php</a> --BV<br><br>  elle est tres bien!! tu peut marquer d'ou elle vien en dessous de la carte ??<br><br>   Ah oui, je le ferai. --BV<br><br>marci <a href=\"./Utilisateur:Rinaldum\" title=\"Utilisateur:Rinaldum\">Rinaldum</a>"
+          "html": "salut!<br><br>elle vien d'ou ta carte de l'europe ?? <a href=\"http://fr.wikipedia.com/wiki.cgi?Union_Européenne\">http://fr.wikipedia.com/wiki.cgi?Union_Européenne</a><ul><li>Je l'a modifiée de ça que j'avais utilisée pour le continent aux wikipedia eo <a href=\"http://eo.wikipedia.com/wiki/Euxropo\">[Euxropo]</a>. Quelques de cettes cartes j'ai mets sans noms en format Photoshop aux <a href=\"http://leuksman.com/misc/maps.php\">http://leuksman.com/misc/maps.php</a> --BV<ul><li>elle est tres bien!! tu peut marquer d'ou elle vien en dessous de la carte ??<ul><li>Ah oui, je le ferai. --BV</li></ul></li></ul></li></ul>marci <a href=\"./Utilisateur:Rinaldum\" title=\"Utilisateur:Rinaldum\">Rinaldum</a>"
         },
         {
-          "sha": "67cc1135cee82736c30db0b484589186907ca5617ed472be5c39ef9c968c9789",
+          "sha": "09e84ce19d196eb5e2e656c5c6fb967e4bba1c91e7d21c525f75b43b13130f47",
           "depth": 1,
-          "html": "Une idée interessante ! (Je t'averte, que mon japonais est meme plus mal que mon français... mais PHP, je le sais assez bien.) Je me souviens quelque chose sur dico ja-fr... Ah oui: <a href=\"http://dico.fj.free.fr/index.php3\">http://dico.fj.free.fr/index.php3</a> C'est un projet de traduire l'<a href=\"http://etext.lib.virginia.edu/wwwjdic/\">EDICT</a> de Jim Breen en français. Il est incomplet, mais peut être servisse comme un commencement. Hmm... en theorie, il peut être un dictionnaire multilingual (和全辞典?), avec traductions des mots japonais en français, anglais, et des autres langues aussi. (Ou non, c'est ça trop ambitieux...?) En tous cas, les trois versions (stable, beta, alpha), c'est assez simple de faire.<br><br> On peut me contacter à brion à pobox.com, et de temps à temps j'utilise AOL Instant Messenger comme BrionV. --BV<br><br>ps : I can send my messages in English, if it is more easy for you.<br><br> Pas de problème, je lis français plus bien que je l'écris. --BV<ul><li>Salut Brion &amp; Youssefsan.</li><li>Je trouve l'idee de Youssefsan excelente.</li><li>Pourquoi aussi ne pas l'adapter pour Wikipedia.</li><li>Ca serrai super d'avoir 2 versions de la base de donnee,</li><li>une version protege, ou le contenu aurrai ete verifier (avec access limite).</li><li>Et une autre entierement libre ou on pourrai meme executer des requettes (de lecture seul?) a partir de n'importe ou.</li><li>Les donnees ajoute a la base \"Stable\" serrai automatiquement ajoute a la basse \"alpha\".</li><li>Et les donnees de la \"alpha\" pourrai être ajoute a la base \"stable\" sous certaines conditions.</li><li>Ca permetrai que tout le monde soit content, ce qui aime le stable &amp; verifie, et ceux qui aime la liberte total.</li><li>A+</li></ul><a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a>"
+          "html": "Une idée interessante ! (Je t'averte, que mon japonais est meme plus mal que mon français... mais PHP, je le sais assez bien.) Je me souviens quelque chose sur dico ja-fr... Ah oui: <a href=\"http://dico.fj.free.fr/index.php3\">http://dico.fj.free.fr/index.php3</a> C'est un projet de traduire l'<a href=\"http://etext.lib.virginia.edu/wwwjdic/\">EDICT</a> de Jim Breen en français. Il est incomplet, mais peut être servisse comme un commencement. Hmm... en theorie, il peut être un dictionnaire multilingual (和全辞典?), avec traductions des mots japonais en français, anglais, et des autres langues aussi. (Ou non, c'est ça trop ambitieux...?) En tous cas, les trois versions (stable, beta, alpha), c'est assez simple de faire.<ul><li>On peut me contacter à brion à pobox.com, et de temps à temps j'utilise AOL Instant Messenger comme BrionV. --BV</li></ul>ps : I can send my messages in English, if it is more easy for you.<ul><li>Pas de problème, je lis français plus bien que je l'écris. --BV</li></ul><ul><li><ul><li>Salut Brion & Youssefsan.</li><li>Je trouve l'idee de Youssefsan excelente.</li><li>Pourquoi aussi ne pas l'adapter pour Wikipedia.</li><li>Ca serrai super d'avoir 2 versions de la base de donnee,</li><li>une version protege, ou le contenu aurrai ete verifier (avec access limite).</li><li>Et une autre entierement libre ou on pourrai meme executer des requettes (de lecture seul?) a partir de n'importe ou.</li><li>Les donnees ajoute a la base \"Stable\" serrai automatiquement ajoute a la basse \"alpha\".</li><li>Et les donnees de la \"alpha\" pourrai être ajoute a la base \"stable\" sous certaines conditions.</li><li>Ca permetrai que tout le monde soit content, ce qui aime le stable & verifie, et ceux qui aime la liberte total.</li><li>A+</li></ul></li></ul><ul><li><a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a></li></ul>"
         },
         {
-          "sha": "cce2e16930e16c1ac7e6233325be6c7cdf004cbea3ff22ba3ac2b9c232b92949",
-          "depth": 3,
-          "html": "l'esprit de wiki (qui fonctionne bien) c'est la liberté totale.. quant ont aurra 100.<br><br>000 article (la prevision) ont poura reflechir a l'amelioration des articles mais pour le moment mieux vaux faire des article en pagaille sans la moindre limitation , c'est ca qui a permi a wiki.com de fonctionner.. alors il ne faut pas tuer la poule au oeuf d'or en voulant changer le systeme. sela dit, a long terme c'est une solution envisageable ou aussi un acces libre pour tout le monde et des modif pour les gens enregistrée... <a href=\"./Utilisateur:Rinaldum\" title=\"Utilisateur:Rinaldum\">Rinaldum</a>"
+          "sha": "6b56327aad4a802f99b0e930d3894d02a34eb4931e0645995464a80b9ca77960",
+          "depth": 1,
+          "html": "<ul><li><ul><li><ul><li>l'esprit de wiki (qui fonctionne bien) c'est la liberté totale.. quant ont aurra 100.</li></ul></li></ul></li></ul>000 article (la prevision) ont poura reflechir a l'amelioration des articles mais pour le moment mieux vaux faire des article en pagaille sans la moindre limitation , c'est ca qui a permi a wiki.com de fonctionner.. alors il ne faut pas tuer la poule au oeuf d'or en voulant changer le systeme. sela dit, a long terme c'est une solution envisageable ou aussi un acces libre pour tout le monde et des modif pour les gens enregistrée... <a href=\"./Utilisateur:Rinaldum\" title=\"Utilisateur:Rinaldum\">Rinaldum</a>"
         },
         {
           "sha": "9e424afb41dcff4f913376e58680a58d4761eefee1c8f56881af41a31435a0cd",
@@ -39,19 +39,19 @@
           "html": "Hello Brion,<br><br>Est-ce que dans la version PHP de Wikipedia, les pages personnelles son inclu dans le resultat des recherches ?<br><br>Parce que moi, sur ma page, j'ai mis la liste des articles que j'ai ecris, du coup, si tu fait une recherche sur <a href=\"./Nintendo\" title=\"Nintendo\">Nintendo</a>, tu obtiens <a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a> en premier resultat... c'est pas tres serieu ca   ;o)<br><br>Sinon, j'aimerai bien vous aider pour de la programmation PHP, mais je sais pas trop quoi faire...?<br><br><a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a>"
         },
         {
-          "sha": "db21285d2d001090654faabfddf1d01db462ee64653b18721cd27e0707b7c330",
+          "sha": "647a7b365a0accc57e5acd408db6ccc43492ff8e43032cedd307dbced99ae578",
           "depth": 1,
-          "html": "<ul><li>Non, les pages personnelles (et discussions) ne sont pas inclus. (Hmm, mais peut être quelquetemps c'était utile comme option...)</li><li>Pour la programmation; ce dont nous avons besoin surtout est traduction des messages; beaucoup a changé, et pour ça les messages de la versions presente ne suffissent pas... Il y a maintenent l'<a href=\"http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/*checkout*/wikipedia/phpwiki/fpw/wikiTextEn.php?rev=HEAD&amp;content-type=text/plain\">anglais original</a>, <a href=\"http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/*checkout*/wikipedia/phpwiki/fpw/wikiTextEo.php?rev=HEAD&amp;content-type=text/plain\">espéranto</a> (plus ou moins complèt) et <a href=\"http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/*checkout*/wikipedia/phpwiki/fpw/wikiTextPl.php?rev=HEAD&amp;content-type=text/plain\">polonais</a> (en peu plus vieux). Une version française serait très bienvenue! (Ça, et fixer les bouges... ça va sans dire!) Pour discusser ça et autres choses de le wikiprogrammation, vous pouvez m'e-mailer ou vous abonner à le mailing lists <a href=\"http://www.nupedia.com/mailman/listinfo/intlwiki-l\">intlwiki-l</a> (pour discussion de les wikipedias internationals) et <a href=\"http://www.nupedia.com/mailman/listinfo/wikitech-l\">wikitech-l</a> (pour programmation). (Ils sont en anglais.) --BV</li></ul>Je suis deja abonne a la mailing list.<br><br>J'ai poste un message, mais sans reponse... je vais ressayer !<br><br>Pas de probleme pour traduire wikiTexEn.php en wikiTexfr.php, mais apres, qui va s'occuper de mettre la version sur le site français ? Il n'y a pas de probleme de passer de la version CGI a celle en PHP ? Toute les langues utiliserons la meme version du Wiki PHP ? Il n'y a que le texte qui change ? Par exemple, en francais, j'aimerai bien ajouter au moteur de recherche la posibilite trouver un mot avec ou sans accents. Je peux downloader le source et le modifier, mais comment le tester ensuite ? Il faut que je me fasse une base de donnee personnelle pour le teste ? Je peux pas utiliser celle du Wiki Francais ?<br><br>Bon, je vais remettre un message sur la mailing list... a bientot.<br><br><a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a>"
+          "html": "<ul><li>Non, les pages personnelles (et discussions) ne sont pas inclus. (Hmm, mais peut être quelquetemps c'était utile comme option...)</li><li>Pour la programmation; ce dont nous avons besoin surtout est traduction des messages; beaucoup a changé, et pour ça les messages de la versions presente ne suffissent pas... Il y a maintenent l'<a href=\"http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/*checkout*/wikipedia/phpwiki/fpw/wikiTextEn.php?rev=HEAD&content-type=text/plain\">anglais original</a>, <a href=\"http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/*checkout*/wikipedia/phpwiki/fpw/wikiTextEo.php?rev=HEAD&content-type=text/plain\">espéranto</a> (plus ou moins complèt) et <a href=\"http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/*checkout*/wikipedia/phpwiki/fpw/wikiTextPl.php?rev=HEAD&content-type=text/plain\">polonais</a> (en peu plus vieux). Une version française serait très bienvenue! (Ça, et fixer les bouges... ça va sans dire!) Pour discusser ça et autres choses de le wikiprogrammation, vous pouvez m'e-mailer ou vous abonner à le mailing lists <a href=\"http://www.nupedia.com/mailman/listinfo/intlwiki-l\">intlwiki-l</a> (pour discussion de les wikipedias internationals) et <a href=\"http://www.nupedia.com/mailman/listinfo/wikitech-l\">wikitech-l</a> (pour programmation). (Ils sont en anglais.) --BV</li></ul>Je suis deja abonne a la mailing list.<br><br>J'ai poste un message, mais sans reponse... je vais ressayer !<br><br>Pas de probleme pour traduire wikiTexEn.php en wikiTexfr.php, mais apres, qui va s'occuper de mettre la version sur le site français ? Il n'y a pas de probleme de passer de la version CGI a celle en PHP ? Toute les langues utiliserons la meme version du Wiki PHP ? Il n'y a que le texte qui change ? Par exemple, en francais, j'aimerai bien ajouter au moteur de recherche la posibilite trouver un mot avec ou sans accents. Je peux downloader le source et le modifier, mais comment le tester ensuite ? Il faut que je me fasse une base de donnee personnelle pour le teste ? Je peux pas utiliser celle du Wiki Francais ?<br><br>Bon, je vais remettre un message sur la mailing list... a bientot.<br><br><a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a>"
         },
         {
-          "sha": "18bafdd13a54451a4777f6aec11d43115128845724512c79625109d03c3f52cf",
+          "sha": "0059429c517d7592c0535347385e444c4c65f49bfbd801d9b2d109f0a0b89303",
           "depth": 1,
-          "html": "C'est possible; de temps à temps on disparis dans les autres messages... desolé! Reessayez, svp, je serai certains que nous ne vous oblions, cette fois! Ameliorisations au moteur de recherche, ces sont aussi très <b>très</b> bienvenues... Pour tester le sites, il faut qu'on crée ou importe le database à MySQL; il y a un scripte \"convertWiki2SQL.php\" pour ça, je pense que le fichier README dit quelquechose au sujet... j'espere, au moins! --BV<br><br> Oui, nous changerons tous les wikis à UTF-8. (Peut-être, que on dois attender un peu avant le changement au wiki anglais, mais les autres nous converterons avec le change `a PHP.) L'euro, l'o dans le e, des kanji, tous alleront bien. En theorie, au moins. :) Les traductions... helas, c'est un peu confusant a temps, oui. \"Editing history\", c'est l'histoire des redactions a la page; comme \"Voir les autres revisions\". L'anglais, c'est une langue tres claire, n'est-ce pas... --BV<br><br>Bonjour Brion,<br><br>Comment fait on pour supprimer des pages qui n'ont pas de raison d'être, soit à  cause d'une erreur d'orthographe lors de leur création, soit à cause de vandales (<a href=\"./La_liberté,_l'anarchisme\" title=\"La liberté, l'anarchisme\">La liberté, l'anarchisme</a> :-)) ?<br>Youssefsan me dit qu'aucun français n'a le droit de le faire. Pourquoi ? Et si c'est vraiment le cas, qui peut faire le ménage pour nous régulièrement ?<br><br><a href=\"./Utilisateur:Anthere\" title=\"Utilisateur:Anthere\">anthere</a>"
+          "html": "<ul><li>C'est possible; de temps à temps on disparis dans les autres messages... desolé! Reessayez, svp, je serai certains que nous ne vous oblions, cette fois! Ameliorisations au moteur de recherche, ces sont aussi très <b>très</b> bienvenues... Pour tester le sites, il faut qu'on crée ou importe le database à MySQL; il y a un scripte \"convertWiki2SQL.php\" pour ça, je pense que le fichier README dit quelquechose au sujet... j'espere, au moins! --BV</li></ul><ul><li>Oui, nous changerons tous les wikis à UTF-8. (Peut-être, que on dois attender un peu avant le changement au wiki anglais, mais les autres nous converterons avec le change `a PHP.) L'euro, l'o dans le e, des kanji, tous alleront bien. En theorie, au moins. :) Les traductions... helas, c'est un peu confusant a temps, oui. \"Editing history\", c'est l'histoire des redactions a la page; comme \"Voir les autres revisions\". L'anglais, c'est une langue tres claire, n'est-ce pas... --BV</li></ul>Bonjour Brion,<br><br>Comment fait on pour supprimer des pages qui n'ont pas de raison d'être, soit à  cause d'une erreur d'orthographe lors de leur création, soit à cause de vandales (<a href=\"./La_liberté,_l'anarchisme\" title=\"La liberté, l'anarchisme\">La liberté, l'anarchisme</a> :-)) ?<br>Youssefsan me dit qu'aucun français n'a le droit de le faire. Pourquoi ? Et si c'est vraiment le cas, qui peut faire le ménage pour nous régulièrement ?<br><br><a href=\"./Utilisateur:Anthere\" title=\"Utilisateur:Anthere\">anthere</a>"
         },
         {
-          "sha": "a8849bc90e9a771f66abe2f480814a5f42f298aeac3e9208c00060f27878c689",
+          "sha": "4cc4e659cdab10949620e77460038cde805bdeefb6f5986044cb8a2306ae862a",
           "depth": 1,
-          "html": "Pour ça, qu'aucun n'a demandé au proprieteur le password administrative pour le wiki français? Si vous le voulez, demandez à Jimmy Wales chez bomis (jwales (à) bomis.com). Or, je crois que je sais comment l'acquirer... hmm, bien, mais je ne suis pas sûr comment on supprime un page, je n'avais encore succes le faire. Je suis plus intimat avec le nouveau software, je ne trop connais le vieux! --Brion<br><br>Merci pour les précisions sur l'<a href=\"./Langue_Hindi\" title=\"Langue Hindi\">Hindi</a>. J'ai commencé à mettre en place la structure pour parler des langues mais... mauvaise nouvelle, je ne vais plus avoir d'accès Internet dès ce soir et pour deux semaines.<br><br>Donc bien... ne pas hésiter à compléter les langues en mon absence. Je reviendrai sur le sujet lorsque je reviendrai de toute façon.<br><br><a href=\"./Utilisateur:Mokona\" title=\"Utilisateur:Mokona\">Mokona</a>"
+          "html": "<ul><li>Pour ça, qu'aucun n'a demandé au proprieteur le password administrative pour le wiki français? Si vous le voulez, demandez à Jimmy Wales chez bomis (jwales (à) bomis.com). Or, je crois que je sais comment l'acquirer... hmm, bien, mais je ne suis pas sûr comment on supprime un page, je n'avais encore succes le faire. Je suis plus intimat avec le nouveau software, je ne trop connais le vieux! --Brion</li></ul>Merci pour les précisions sur l'<a href=\"./Langue_Hindi\" title=\"Langue Hindi\">Hindi</a>. J'ai commencé à mettre en place la structure pour parler des langues mais... mauvaise nouvelle, je ne vais plus avoir d'accès Internet dès ce soir et pour deux semaines.<br><br>Donc bien... ne pas hésiter à compléter les langues en mon absence. Je reviendrai sur le sujet lorsque je reviendrai de toute façon.<br><br><a href=\"./Utilisateur:Mokona\" title=\"Utilisateur:Mokona\">Mokona</a>"
         },
         {
           "sha": "47a6151a0fed11bd4aa5268bd96919582856e542fd6c30f9d0e60c1580dee016",
@@ -59,19 +59,19 @@
           "html": "oups, j'ai deplace le contenu de <a href=\"./Brion_VIBBER\" title=\"Brion VIBBER\">Brion VIBBER</a> dans <a href=\"./Brion_Vibber\" title=\"Brion Vibber\">Brion Vibber</a>...<br><br>Mais Brion ce log avec le pseudo Brion VIBBER... comment faire ?<br><br>Brion, tu prefere quoi <a href=\"./Brion_VIBBER\" title=\"Brion VIBBER\">Brion VIBBER</a> ou <a href=\"./Brion_Vibber\" title=\"Brion Vibber\">Brion Vibber</a> ?<br><br><a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a>"
         },
         {
-          "sha": "3689ed8175d57eb2b1e54ee1c3fb8cc611605d7222ac89de38954931e326df99",
+          "sha": "b8d0c2560c8bc25f1cedf84ab00fbb38d77e7072e0b5feadfdec1c483bba191e",
           "depth": 0,
-          "html": "Brion--I just remembered the admin password and logged in here with it, but I don't see any way to ban an IP (nor do I know which IP should be banned).  If knowing the admin pwd would be any help (if you don't know it already!), then email me at koyaanisqatsi at nupedia .dot. com.  Or post at <a href=\"http://www.wikipedia.org/wiki/User:Koyaanis_Qatsi\">http://www.wikipedia.org/wiki/User:Koyaanis_Qatsi</a> -- I don't speak French &amp; won't be watching this wikipedia, as I have essentially no way to contribute to it.  Cheers, <a href=\"./Utilisateur:Meszigues\" title=\"Utilisateur:Meszigues\">Meszigues</a> 13:43 Nov 1, 2002 (CET)"
+          "html": "Brion--I just remembered the admin password and logged in here with it, but I don't see any way to ban an IP (nor do I know which IP should be banned).  If knowing the admin pwd would be any help (if you don't know it already!), then email me at koyaanisqatsi at nupedia .dot. com.  Or post at <a href=\"http://www.wikipedia.org/wiki/User:Koyaanis_Qatsi\">http://www.wikipedia.org/wiki/User:Koyaanis_Qatsi</a> -- I don't speak French & won't be watching this wikipedia, as I have essentially no way to contribute to it.  Cheers, <a href=\"./Utilisateur:Meszigues\" title=\"Utilisateur:Meszigues\">Meszigues</a> 13:43 Nov 1, 2002 (CET)"
         },
         {
-          "sha": "40f80ee072c863a0000c2a8510bd08851763dfa17bad3f8aa78f3a5a0b054f02",
+          "sha": "a2562772f5e8f23476044e598a5f816ab2be7d470141c7879e88dae79eaa887a",
           "depth": 1,
-          "html": "I've answered on your talk page. --BV<br><br>  I've put the question to Tarquin at the English wikipedia--in a google search for \"UseModWiki IP ban\" I found he's an admin at another wiki which uses UseModWiki.  See <a href=\"http://www.wikipedia.org/w/wiki.phtml?title=User_talk:Tarquin&amp;redirect=no\">http://www.wikipedia.org/w/wiki.phtml?title=User_talk:Tarquin&amp;redirect=no</a>  Cheers,  KQ<br><br>Brion<br><br>I have change \"timezonetext\" and correct one orthograph error in LanguageFr.php could you install these changes ?<br><br>Thank you<br><br><a href=\"./Utilisateur:Meszigues\" title=\"Utilisateur:Meszigues\">meszigues</a>"
+          "html": "<ul><li>I've answered on your talk page. --BV<ul><li>I've put the question to Tarquin at the English wikipedia--in a google search for \"UseModWiki IP ban\" I found he's an admin at another wiki which uses UseModWiki.  See <a href=\"http://www.wikipedia.org/w/wiki.phtml?title=User_talk:Tarquin&redirect=no\">http://www.wikipedia.org/w/wiki.phtml?title=User_talk:Tarquin&redirect=no</a>  Cheers,  KQ</li></ul></li></ul>Brion<br><br>I have change \"timezonetext\" and correct one orthograph error in LanguageFr.php could you install these changes ?<br><br>Thank you<br><br><a href=\"./Utilisateur:Meszigues\" title=\"Utilisateur:Meszigues\">meszigues</a>"
         },
         {
-          "sha": "778399af23720135bd369f24a8b8caf00c75e6341b4a36853d353b4196e26b51",
+          "sha": "25e78dfac65b23f46ab58ee2ca32241f75f935d01c82f78276191152fc9f77e1",
           "depth": 0,
-          "html": "mais quel nouveau titre donner ????<br><br>Si l ancien est<br><br><a href=\"./Wikipédia-test\" title=\"Wikipédia-test\">Wikipédia-test</a><br><br>je le move vers <a href=\"./Wikipédia:Test\" title=\"Wikipédia:Test\">Wikipédia:test</a><br><br>Quel doit être le move de <a href=\"./Discussion:Wikipédia-test\" title=\"Discussion:Wikipédia-test\">Discuter:Wikipédia-test</a> ???<br><br>Brion, please don't leave us...I am supposed to go NOW :-(((<br><br> I'll stick my head in and keep an eye on things... --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 20:59 déc 1, 2002 (CET)"
+          "html": "mais quel nouveau titre donner ????<br><br>Si l ancien est<br><br><a href=\"./Wikipédia-test\" title=\"Wikipédia-test\">Wikipédia-test</a><br><br>je le move vers <a href=\"./Wikipédia:Test\" title=\"Wikipédia:Test\">Wikipédia:test</a><br><br>Quel doit être le move de <a href=\"./Discussion:Wikipédia-test\" title=\"Discussion:Wikipédia-test\">Discuter:Wikipédia-test</a> ???<br><br>Brion, please don't leave us...I am supposed to go NOW :-(((<ul><li>I'll stick my head in and keep an eye on things... --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 20:59 déc 1, 2002 (CET)</li></ul>"
         },
         {
           "sha": "3873f3ba7a1344fe854a959ac2d06894e6f153cc458a8ee41e2aba45cf48aa08",
@@ -99,14 +99,14 @@
           "html": "The vandal could give <i>themselves</i> an edit conflict that way, which would be pretty silly. The only way they can give <i>you</i> an edit conflict is by actually making an update between your clicking \"edit\" and your clicking \"save\". --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 19:11 déc 2, 2002 (CET)"
         },
         {
-          "sha": "0a32c59fcb59503bd29ec582cdc4b140c8eed8a0b0a6b0e6b58eb5f89e36f63a",
+          "sha": "047e6875d458d4b90bb6395dd5424776392d7861858ba8124ece77ed22e78f96",
           "depth": 2,
-          "html": "Could they give us an edit conflit by increasing this value (I had this problem with my tests of Wapbot, its posting method was fine, but I got an edit conflict when I was tring to edit an article posted by it) ?<br><br>   The most they could do is bypass the edit conflict box on their updates. The value is simply compared against the timestamp of the current revision on submit to see if it's older than the current revision (inference: current revision was saved after the user clicked \"edit\"), then thrown away. --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 20:22 déc 2, 2002 (CET)"
+          "html": "Could they give us an edit conflit by increasing this value (I had this problem with my tests of Wapbot, its posting method was fine, but I got an edit conflict when I was tring to edit an article posted by it) ?<ul><li>The most they could do is bypass the edit conflict box on their updates. The value is simply compared against the timestamp of the current revision on submit to see if it's older than the current revision (inference: current revision was saved after the user clicked \"edit\"), then thrown away. --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 20:22 déc 2, 2002 (CET)</li></ul>"
         },
         {
-          "sha": "7fb8a183fdb1c3063296262fb8e8f1eda2a7aefb022fdd8048d3f123df23948e",
-          "depth": 4,
-          "html": "OK. Thank you for your explanations, tim<br><br>I have a problem with my bots : I always get an edit conflict when I am trying to post an article with them...<br><br>Did you modified the software to disallow posting when the timestamp is not good ?<br><br> Oui, maintenent il faut que le timestamp soit exact.<br><br>Could you please remove this restriction when a specific U-A is used (this would be like a password) ?<br><br>I hope Iala'29899 will not find a solution earlier than me ;-)<br><br>Thanks, <a href=\"./Utilisateur:Athymik\" title=\"Utilisateur:Athymik\">Utilisateur:Athymik</a>"
+          "sha": "27f2e4a70d2e312d708993d7672a00fd5811224eba2040e43b597cfbea23fc05",
+          "depth": 1,
+          "html": "<ul><li><ul><li><ul><li><ul><li>OK. Thank you for your explanations, tim</li></ul></li></ul></li></ul></li></ul>I have a problem with my bots : I always get an edit conflict when I am trying to post an article with them...<br><br>Did you modified the software to disallow posting when the timestamp is not good ?<ul><li>Oui, maintenent il faut que le timestamp soit exact.</li></ul>Could you please remove this restriction when a specific U-A is used (this would be like a password) ?<br><br>I hope Iala'29899 will not find a solution earlier than me ;-)<br><br>Thanks, <a href=\"./Utilisateur:Athymik\" title=\"Utilisateur:Athymik\">Utilisateur:Athymik</a>"
         },
         {
           "sha": "13516a81d775002311f58d694873a8a1908fd9591ae16853941419affa074a38",
@@ -114,117 +114,132 @@
           "html": "Hmm, I'd prefer not to. A bot should not overwrite existing text without being very sure what it's doing. --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 18:42 déc 4, 2002 (CET)"
         },
         {
-          "sha": "640067276e7513897390de927fcca77aab6c34f68a0077b8edac532e70c74ca1",
+          "sha": "5e3dc50c2dee0d721c9182f5dc9bf5087f8e68a5528e8cadd34d1e0b35f4bd84",
           "depth": 2,
-          "html": "It's a shame... But a bot is stupid, it never knows what it's doing... It has a goal, defined by his developper but not an intelligence ;-)<ul><li>Now, most of the utility of a bot has disappeared ;-( What about a User-Agent blocking ? A bot should use a specific U-A and sysops could block it...</li><li>(Is there a discussion about this on Wikitech-l) ? <a href=\"./Utilisateur:Athymik\" title=\"Utilisateur:Athymik\">Utilisateur:Athymik</a></li></ul>User-agent blocking is useless, since it's so trivial to change for a bot. I haven't set the system to refuse edits that consist only of ([a-z0-9']+ rulez[!.,;?]*) for the same reason, they have only to change from \"rulez\" to \"rockz\" to get around it, so it wouldn't be a <i>functional</i> block, just an arms race. In my view requiring the last-edit time is the Right Thing; if you're overwriting existing pages you should ensure that you're aware of and integrating the existing content appropriately. --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 19:35 déc 4, 2002 (CET)"
+          "html": "It's a shame... But a bot is stupid, it never knows what it's doing... It has a goal, defined by his developper but not an intelligence ;-)<br><br>Now, most of the utility of a bot has disappeared ;-( What about a User-Agent blocking ? A bot should use a specific U-A and sysops could block it...<br>(Is there a discussion about this on Wikitech-l) ? <a href=\"./Utilisateur:Athymik\" title=\"Utilisateur:Athymik\">Utilisateur:Athymik</a>"
         },
         {
-          "sha": "f14e62988bd665f040cf7d14b455324e9ed4f1cd8cd6011f218ec6244140a531",
+          "sha": "287db75771e60b16b3538dff33549bf77c01c1eac378f059b3f9b6ded3dca60f",
+          "depth": 3,
+          "html": "User-agent blocking is useless, since it's so trivial to change for a bot. I haven't set the system to refuse edits that consist only of ([a-z0-9']+ rulez[!.,;?]*) for the same reason, they have only to change from \"rulez\" to \"rockz\" to get around it, so it wouldn't be a <i>functional</i> block, just an arms race. In my view requiring the last-edit time is the Right Thing; if you're overwriting existing pages you should ensure that you're aware of and integrating the existing content appropriately. --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 19:35 déc 4, 2002 (CET)"
+        },
+        {
+          "sha": "bd0a00f12db237925c9e23f16a0467cf04e6f46500713342acadb74681c3f135",
           "depth": 4,
           "html": "<ul><li>the Right Thing seems to be so unuseful... take a look at RC.</li><li>I \"mis-explained\" my idea (my english is too bad)...</li><li>For example : you, or a developper, or a sysop would give me a password, then I put it in the User-Agent of my bot and my bot is not blocked even though the timestamp is wrong...</li></ul>Okay, I see what you mean now. Not a bad idea in general, though I still think that <i>any</i> legitimate bot needs to confirm that it's not going to overwrite new versions of pages that it (or its author/controller) hasn't taken into account. Requiring the exact timestamp shows that it's checked the page. --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 10:47 déc 5, 2002 (CET)"
         },
         {
-          "sha": "ef4ce06b831768dc971fad813c5f62f1ce2ccf5e278cdf580631aa278babcda9",
+          "sha": "1decf5dab24d4e7469469d4900f0c31a4440f84a1bef6123f4f1a539d9328719",
           "depth": 4,
-          "html": "<ul><li>We would set up a \"Registered bot\" page... There would be the list of all the registered bots (how suprising). To register a bot, we would ask to get a \"password\". Then, the bot author would put it in the \"User-Agent\" field (or a custom field) and the bot would not need to provide the exact timestamp (but a correct one) and the bot would not be limited about its number of edits per hour...</li><li>What do you think about all this ? <a href=\"./Utilisateur:Athymik\" title=\"Utilisateur:Athymik\">Utilisateur:Athymik</a></li></ul>In all case, I think limit page update rate for \"good\" and \"bad\" bots may be a good idea. <a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a> 00:40 déc 6, 2002 (CET)"
+          "html": "We would set up a \"Registered bot\" page... There would be the list of all the registered bots (how suprising). To register a bot, we would ask to get a \"password\". Then, the bot author would put it in the \"User-Agent\" field (or a custom field) and the bot would not need to provide the exact timestamp (but a correct one) and the bot would not be limited about its number of edits per hour...<br>What do you think about all this ? <a href=\"./Utilisateur:Athymik\" title=\"Utilisateur:Athymik\">Utilisateur:Athymik</a>"
         },
         {
-          "sha": "80af69a747506e7dce4dac7bd80d5c741cc5dc63c3ba353db232509163ac4718",
+          "sha": "8d957a46a9d5e4977ada846d77543576f8afab50cc5745f9164ba970c2d53b17",
+          "depth": 5,
+          "html": "In all case, I think limit page update rate for \"good\" and \"bad\" bots may be a good idea. <a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a> 00:40 déc 6, 2002 (CET)"
+        },
+        {
+          "sha": "1b9ffc725be45ae5e8b0656eb596108d246881d4fcf9d1cbb7aa2044a54a6f7b",
           "depth": 0,
           "html": "Hello. I need to learn esperanto ;-) I suppose that it was esperanto in the summary. Have a nice weekend.-- <a href=\"./Utilisateur:Youssefsan\" title=\"Utilisateur:Youssefsan\">Youssefsan</a>"
         },
         {
-          "sha": "01f72758d20d72121306eb768888f9c166c393fbc6e245ec275e7a9661c68acf",
+          "sha": "7de3c2c8a8cc9a96037634880a25ba3c2f02d454b387f1b0c4122bda0ec21a12",
           "depth": 1,
           "html": "Sorry, force of habit. ;)  \"Garbage again\" --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 21:54 déc 7, 2002 (CET)"
         },
         {
-          "sha": "432be80d0aa5bf67263ba9ee7ec7e9dafa625a39d153a6219ea826a3cbb517a1",
+          "sha": "559881c2fdbd03cebd8790988ca0d6a66f83bae6d3ae4eeb38c9f637ff27afab",
           "depth": 2,
           "html": "It is OK. I like other languages, but unfortunately I know less than 1% of the <i>available</i> languages :-( <a href=\"./Utilisateur:Youssefsan\" title=\"Utilisateur:Youssefsan\">Youssefsan</a>"
         },
         {
-          "sha": "4ff4a7330bd2ec24098273c4ba6503f45cb0dc163801a1118cd040a253059087",
+          "sha": "73d54899b08cc2e78ba13b6eea5bf58e9e30e956035d2a2ce42268f991851859",
           "depth": 0,
           "html": "Brion, where is the correct place to give you translations for the software?<ul><li>\"Watch new and modified articles\" -- I'm assuming this means that any article I touch is automagically put on my watch list? In which case: \"Suivre les articles que je crée  ou modifie\"</li><li>\"Reverted to last edit by X\" -- \"restitution de la dernière modification de X\"</li></ul>-- <a href=\"./Utilisateur:Tarquin\" title=\"Utilisateur:Tarquin\">Tarquin</a> 17:01 déc 16, 2002 (CET)"
         },
         {
-          "sha": "e7c644f5380e2d9054b99ba8ae7c0d344c66746deb460f0f87eb77357ec5c24a",
+          "sha": "01a961751c83c8c5be8d441abba0df5caaab14bd5e9bfee1a92b57880bbb66f6",
           "depth": 0,
           "html": "See <a href=\"./Discussion_utilisateur:Tarquin\" title=\"Discussion utilisateur:Tarquin\">Discussion Utilisateur:Tarquin</a>. -- <a href=\"./Utilisateur:Tarquin\" title=\"Utilisateur:Tarquin\">Tarquin</a> 20:50 déc 16, 2002 (CET)"
         },
         {
-          "sha": "2fdda9e21f45dbcd6741dcd1c57e0dc1cb4c9c7b0781d31e48142b1bfc6a49d4",
+          "sha": "9af138144ca876307fdea3b6692073cd96213d696f47d1b7787b1b5e7965bc65",
           "depth": 0,
           "html": "Brion, I 've translated the last batch you left on my talk page. It's ben pointed out to me that <a href=\"./Spécial:Maintenance\" title=\"Spécial:Maintenance\">Special:Maintenance</a> no logner workd here because our \"links to disamb pages\" is called <a href=\"./Wikipédia:Liens_aux_pages_d'homonymie\" title=\"Wikipédia:Liens aux pages d'homonymie\">Wikipédia:Liens aux pages d'homonymie</a>. -- <a href=\"./Utilisateur:Tarquin\" title=\"Utilisateur:Tarquin\">Tarquin</a>"
         },
         {
-          "sha": "78875b387858defb217803701c71647cea79cfa45548485bb316a69337985f61",
+          "sha": "2eb7b0cd36d053d3cb3ec5a38c78af355291954e397bbb5a9d69753456578b77",
           "depth": 1,
           "html": "BTW -- I take it the code is in a CVS? I don't know PHP, but I know enough other languages to muddle my way through without breaking anything. I can try and translate directly if you want to give me code access. -- <a href=\"./Utilisateur:Tarquin\" title=\"Utilisateur:Tarquin\">Tarquin</a> 19:24 jan 4, 2003 (CET)"
         },
         {
-          "sha": "cc57010ed25f1b8810d96bb38bccbc463779780866f6e8e879dc12b9e1c3de27",
+          "sha": "460301fbfadbd957168bf48f5b6a716a4c02ca6bca7800d0b8583d17e57b1fe3",
           "depth": 2,
           "html": "J'ai répondu sur ta page au wiki anglophone. --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 08:15 jan 5, 2003 (CET)"
         },
         {
-          "sha": "75fd2201a1450eca5918f7e9250de49eecd98c4c981eadace72b4d4554ef15a8",
+          "sha": "473f6d60458b6aa0cfbb8e32210027007b2efe79ecf140b65395d3ecd1b76fcb",
           "depth": 0,
           "html": "Hi,<br><br>I have a question about statistiques. I created a hundred pages for years and decenies, but they are not counted in the total. Which pages are excluded from statistiques? It is not important, but I am curious.<br>And I hope that my English is as good as your French. <a href=\"./Utilisateur:Yann\" title=\"Utilisateur:Yann\">Yann</a> 23:30 jan 25, 2003 (CET)"
         },
         {
-          "sha": "0c1d8c77cc74624ea8953c578ca8f443f365832af6e2e6ae9e9842dbc6466eb3",
+          "sha": "7c64728ce7366a28c26c404026c559a649ef2248d04c99521e9bfbcdc42c71aa",
           "depth": 1,
           "html": "Il y a un algorithme qui decide si une page est un article ou pas. Autrefois, ca se faisait avec la detection d'une virgule, mais je crois que maintenant c'est un peu plus complique que ca. <a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a>"
         },
         {
-          "sha": "6c27ddecbc50913b02ec2ab7cca6528b12348c2058fcde27ac8f00893347c375",
+          "sha": "bde79917e4ebc5ebd60c8a904dfdebd73886321e3f8245f4fadd3844c2077457",
           "depth": 2,
           "html": "Au fait, c'est exact. Seulement une petite addition : les pages dans espaces de nommage (Discussion:, Wikipédia:, Utilisateur: etc) sont excluses du compte. On a parlé qqf d'un algorithme amélioré (par example, ignorer des pages sans liens, ou moins grandes que X octets, etc), mais jusqu'ici rien est decidé. (Je pense pour ça, que le compteur actuel est si fameux -- peut-être on devienne mécontent si demain nous se levons à \"10,000 articles demi-bons\" en lieu de \"100,000 articles\". ;)  --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a> 07:15 jan 26, 2003 (CET)"
         },
         {
-          "sha": "4e1cc919424f6ba3bcf928c60d7aed1bab284ab5ab50480a5bbb4841d3f84194",
+          "sha": "30e6cef0b77bf149f3b0d7dbe113f9e0e831d38c1d08b40386a7b2f56a411af8",
           "depth": 3,
           "html": "Oui, mais sur quels critères les pages années et décénies sont exclues ? <a href=\"./Utilisateur:Yann\" title=\"Utilisateur:Yann\">Yann</a>"
         },
         {
-          "sha": "c4291b9ff76a4e737e5443200a33031937eac2d4e1ff04f64134440c4473f9c8",
+          "sha": "1eb9ecfe5f3c9eb08ad72bec60182e79428663045d3708c86724d0f1af42fd4e",
           "depth": 4,
           "html": "Pour la manque de virgules. --<a href=\"./Utilisateur:Brion_VIBBER\" title=\"Utilisateur:Brion VIBBER\">Brion</a>"
         },
         {
-          "sha": "a3b6bda2eaef7f7650161526eba6439b14c25ea734b931c173d55153871b4107",
+          "sha": "55ae6f1806c9b98b89467b2b8b9718f6d6e199dee976fe8373da0d24b9e52a27",
           "depth": 5,
-          "html": "<ul><li>Non, il a pas encore etait change cet algo !?</li><li>Bon, tu sait se qu'il te reste a ajouter a tes articles ;o) <a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a></li></ul>C'est pas sérieux, cet algo. Et si je mets deux virgules, la page compte deux fois ? %op <a href=\"./Utilisateur:Yann\" title=\"Utilisateur:Yann\">Yann</a>"
+          "html": "Non, il a pas encore etait change cet algo !?<br>Bon, tu sait se qu'il te reste a ajouter a tes articles ;o) <a href=\"./Utilisateur:Aoineko\" title=\"Utilisateur:Aoineko\">Aoineko</a>"
         },
         {
-          "sha": "f79a4bc099ee27741b8faa8e32731f25aa45a05e10c2224ec0731dcdb591f262",
+          "sha": "48535cfdcbfe03e182dce143b97d974fb5e3cac343366ce9b5d1484ec4eba1ab",
+          "depth": 6,
+          "html": "C'est pas sérieux, cet algo. Et si je mets deux virgules, la page compte deux fois ? %op <a href=\"./Utilisateur:Yann\" title=\"Utilisateur:Yann\">Yann</a>"
+        },
+        {
+          "sha": "17924d7768ebe7707c619ad81b019d3b56cc87698fcc28fbc1baf9380cf67f42",
           "depth": 7,
           "html": "Pleure pas <a href=\"./Utilisateur:Yann\" title=\"Utilisateur:Yann\">Yann</a>, il suffit de mettre du contenu pour chaque date ! <a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a>"
         },
         {
-          "sha": "5e50d19046b1acd609d1681949fd8cc9245b895e17a61d322990d3b15e8ceca3",
+          "sha": "8293f219a8639d4062befbf0f3f234b52627210a9d6e8891f823d5f80e753198",
           "depth": 0,
           "html": "Bonjour, Brion. J'ai apporté une ou deux modifs à ta page. Dans ta phrase \"Je suis californien; j'étudie le cinéma et m'amuse par les langues.\", \"m'amuse par les langues\" m'a beaucoup plus ; ce n'est pas \"du français\", mais on comprend de suite de quoi il retourne. \"M'amuse par des langues\", ça ne va pas, je ne sais pas purquoi. Il y aurait bien \"m'amuse des langues\" mais ça ne dirait rien à personne. Bon, je m'arrête ici. À bientôt <a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a>"
         },
         {
-          "sha": "8566e89ecb5e4f86106dcc9f94f56a340360442093bd6983b76e6730c646fdcf",
+          "sha": "daa709805dec3084f72f5d4cdd0197ee1dfad76816b0ca54612a417186950ac2",
           "depth": 1,
-          "html": "moi, j'aime bcp les expressions françaises de Brion; y compris le \"m'amuse des langues\" :-) C'est très parlant, c'est sympa<br><br><a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a> : moi aussi, ”{\"m'amuse par les langues\" m'a beaucoup plu”} (cf ci-dessus) (avec un \"s\" en trop dans la vo ;(<br><br>French version :<br><br>Salut Brion, je te remercie pour tes explications sur les adresses IP. Je crois que mon mauvais anglais a fait que mon message initial n'a pas bien été compris. Ce n'est pas grave, j'ai l'information, maintenant. <a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a> 23 mai 2003 ・01:39 (CEST)"
+          "html": "<ul><li>moi, j'aime bcp les expressions françaises de Brion; y compris le \"m'amuse des langues\" :-) C'est très parlant, c'est sympa</li></ul><a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a> : moi aussi, ”{\"m'amuse par les langues\" m'a beaucoup plu”} (cf ci-dessus) (avec un \"s\" en trop dans la vo ;(<br><br>French version :<br><br>Salut Brion, je te remercie pour tes explications sur les adresses IP. Je crois que mon mauvais anglais a fait que mon message initial n'a pas bien été compris. Ce n'est pas grave, j'ai l'information, maintenant. <a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a> 23 mai 2003 ・01:39 (CEST)"
         },
         {
-          "sha": "f35364d87a83201a22d488ba823d6cadda6de3242e6160814e707648d6af9731",
+          "sha": "93ebec4601d5e431371b4ec0f89829a663d3bf52a21434e8d28fa2eb3c358ca0",
           "depth": 0,
           "html": "Version anglaise (?) :<br><br>Hello Brion, I thank you for your explanations on IP addresses. I think my english is so bad that my initial message was misunderstood. No worry, I have the information, now. <a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a> 23 mai 2003 ・01:39 (CEST)"
         },
         {
-          "sha": "21d79af0ddfa15d15f09efec9f0f12f7c1656020ee487f0eead0f55b99e91371",
+          "sha": "e35e8da32281dd649b5589f1e96402fc8d34217f74b1ce993993ada4f3ec41c8",
           "depth": 0,
           "html": "Bonjour Brion,<br><br>je viens d'arriver ici, et j'ai un petit problème avec mon compte.  youssef m'a dit que tu étais la bonne personne pour le résoudre, je me permets donc de te consulter. J'ai crée mon compte (Romain). Mais je ne suis pas le seul : manifestement il existe déjà un autre utilisateur Romain, qui a rempli la page de présentation de ce compte. La, je viens juste de recevoir un mail disant que quelqu'un m'a changé mon mot de passe...je ne comprends pas tout, on m'a dit que c'était peut-être un problème avec le script de conversion (je ne sais même pas ce que c'est :). Me suis-je adressé à la bonne personne? Je te remercie d'avance! (hum, it would be hard for me to say that in English, sorry :)<br><a href=\"./Utilisateur:Romain\" title=\"Utilisateur:Romain\">Romain</a>"
         },
         {
-          "sha": "f693d7b778b55c55c3eb07405e52eeaf2fe943f73743785ab521bc137ec2f5f4",
+          "sha": "940af9e92989d962feb3358ef8ea69ba290b1ed8404f9f8a9ab24063529e8cd6",
           "depth": 0,
           "html": "Merci pour ta réponse rapide! Personnellement, je préfèrerais<br>garder mon compte Romain (puisque c'est comme ça que je m'appelle :)...donc si<br>tu pouvais passer les contributions de l'ancien Romain en Romain-ancien, ou<br>qqch du genre, je t'en serais très reconnaissant! Évidemment, si toi tu penses<br>qu'il serait mieux que je me crée un autre compte, ce ne serait pas un drame<br>pour moi...<br><br><a href=\"./Utilisateur:Romain\" title=\"Utilisateur:Romain\">Romain</a>"
         }
@@ -233,7 +248,7 @@
       "html": "",
       "shas": {
         "html": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
-        "indicator": "0bac1caa4cf80a500c630966bd217dd1024984e3ee0f49cf673c67942e3514df"
+        "indicator": "76405f83ced0c59f5c2b0f4e7b9a6cac55faf4d087196b80080d42c34d4e8f91"
       }
     },
     {
@@ -325,16 +340,16 @@
       "id": 6,
       "replies": [
         {
-          "sha": "f1b3c0ec408ee644865c0e738af224ee9161fcdc70e5cc36ab885ae4620a1e07",
+          "sha": "6199a8a2ebaa12b6e095c52f56a9c6ff650476c92b58ee98bbbaf516630a420b",
           "depth": 0,
-          "html": "Bonjour ou bonsoir,<br><br>Je t’informe qu’un atelier de toponymie est ouvert, depuis juillet, aux fins notamment de déterminer si dans le titrage de certains articles concernant des villes, Etats ou régions non francophones, il faut privilégier l'appellation « française »  traditionnelle (<a href=\"./Birmanie\" title=\"Birmanie\">Birmanie</a>, Biélorussie, Tokyo, Kyoto... ) ou bien au contraire lui  préférer une version réputée étrangère (<a href=\"./Myanmar\" title=\"Myanmar\">Myanmar</a>, Belarus... ), une translittération diacritiquée (Rīga, İstanbul... ) voire  une transcription à l’aide de diacritiques (<a href=\"./Islâmâbâd\" title=\"Islâmâbâd\">Islâmâbâd</a>… ) ou de « macrons » (Tōkyō, Kyōtō…)<br><br>Faut-il titrer Mumbai en place de Bombay ? Biel plutôt que  Bienne ? Ou à l’inverse Calcutta et non point Kolkata ?<br><br>D'autres questions relatives à la toponymie y sont discutées.<br><br>Tu as contribué à l’un des articles concernés.<br><br>Ton avis ou tes remarques seront précieux au développement de l’encyclopédie collaborative à laquelle nous travaillons tous ensemble.<br><br>Tu peux nous rejoindre sur la page consacrée à ce débat : <a href=\"./Discussion_Wikipédia:Atelier_de_toponymie\" title=\"Discussion Wikipédia:Atelier de toponymie\">Discussion Wikipédia :Atelier de toponymie</a>. Tu peux aussi y inviter tout wikipédien que tu penses intéressé.<br><br>Les discussions s’y poursuivent avant un éventuel vote.<br>Ceci est un message circulaire adressé aux contributeurs ayant participé à des articles en cause, prioritairement recensés au début de cette initiative. <br>Cordialement, <br><a href=\"./Utilisateur:Sroulik\" title=\"Utilisateur:Sroulik\">Sroulik</a>  25 août  2007"
+          "html": "Bonjour ou bonsoir,<br><br>Je t’informe qu’un atelier de toponymie est ouvert, depuis juillet, aux fins notamment de déterminer si dans le titrage de certains articles concernant des villes, Etats ou régions non francophones, il faut privilégier l'appellation « française »  traditionnelle (<a href=\"./Birmanie\" title=\"Birmanie\">Birmanie</a>, Biélorussie, Tokyo, Kyoto... ) ou bien au contraire lui  préférer une version réputée étrangère (<a href=\"./Myanmar\" title=\"Myanmar\">Myanmar</a>, Belarus... ), une translittération diacritiquée (Rīga, İstanbul... ) voire  une transcription à l’aide de diacritiques (<a href=\"./Islâmâbâd\" title=\"Islâmâbâd\">Islâmâbâd</a>… ) ou de « macrons » (Tōkyō, Kyōtō…)<br><br>Faut-il titrer Mumbai en place de Bombay ? Biel plutôt que  Bienne ? Ou à l’inverse Calcutta et non point Kolkata ?<br><br>D'autres questions relatives à la toponymie y sont discutées.<br><br>Tu as contribué à l’un des articles concernés.<br><br>Ton avis ou tes remarques seront précieux au développement de l’encyclopédie collaborative à laquelle nous travaillons tous ensemble.<br><br>Tu peux nous rejoindre sur la page consacrée à ce débat : <a href=\"./Discussion_Wikipédia:Atelier_de_toponymie\" title=\"Discussion Wikipédia:Atelier de toponymie\">Discussion Wikipédia :Atelier de toponymie</a>. Tu peux aussi y inviter tout wikipédien que tu penses intéressé.<br><br>Les discussions s’y poursuivent avant un éventuel vote.<br>Ceci est un message circulaire adressé aux contributeurs ayant participé à des articles en cause, prioritairement recensés au début de cette initiative.<br>Cordialement,<br><a href=\"./Utilisateur:Sroulik\" title=\"Utilisateur:Sroulik\">Sroulik</a>  25 août  2007"
         }
       ],
       "depth": 2,
       "html": "Atelier de toponymie",
       "shas": {
         "html": "ce7e79cd239ab5f4d3cb85e135894b79abfcb6d693b8b03af036a324aa12169a",
-        "indicator": "05652d50e2778145194dcd642b2f810637239d9b13d13a389d8614b59c67fd46"
+        "indicator": "a9c29d4155dfbc46f2b36c225a2b3f497db4e3aeae37c4d362cc447021a0685c"
       }
     },
     {
@@ -357,32 +372,32 @@
       "id": 8,
       "replies": [
         {
-          "sha": "ac5e6049081396386d2b036bb31c512d431360ad1a9e3291b78d0c1a2d254ab2",
+          "sha": "8cc9f81e4ec0cb243173a1ec5d4ee350859300a19d8874737e5d663162204733",
           "depth": 0,
-          "html": "Copié/collé de mon mail :<br><br>Hi Brion,<br>It's Aoineko from the French Wikipedia.<br>I wanted to comment a bug report [1] about WikiHiero on Bugzilla, but I'm unable to login.<br>I didn't use my account during a very long time (2 years?) and I can't remember my password<br>and if I try get a new one from mail, I get an error message [2].<br>Can you please send me a new password?<br>Regards<br>Aoineko / Guillaume Blanchard<br>PS: I'll copy/paste this message on your talk page [3] for identification.<br>[1] http://bugzilla.wikimedia.org/show_bug.cgi?id=7406<br>[2] http://bugzilla.wikimedia.org/token.cgi?a=reqpw&amp;loginname=aoineko<br>[3] http://fr.wikipedia.org/wiki/Discussion_Utilisateur:Brion_VIBBER"
+          "html": "Copié/collé de mon mail :<br><br>Hi Brion,<br>It's Aoineko from the French Wikipedia.<br>I wanted to comment a bug report [1] about WikiHiero on Bugzilla, but I'm unable to login.<br>I didn't use my account during a very long time (2 years?) and I can't remember my password<br>and if I try get a new one from mail, I get an error message [2].<br>Can you please send me a new password?<br>Regards<br><br>Aoineko / Guillaume Blanchard<br><br>PS: I'll copy/paste this message on your talk page [3] for identification.<br><br>[1] http://bugzilla.wikimedia.org/show_bug.cgi?id=7406<br>[2] http://bugzilla.wikimedia.org/token.cgi?a=reqpw&loginname=aoineko<br>[3] http://fr.wikipedia.org/wiki/Discussion_Utilisateur:Brion_VIBBER"
         }
       ],
       "depth": 2,
       "html": "Bugzilla",
       "shas": {
         "html": "2098d5b2d3ebcdc44d89c0dbe19deaeb2c331965f6fcbf5d89d0d6b272f350f1",
-        "indicator": "3f7aac200111ba8dd713d838b79f50a4c4c16f1f79ca88845862c009460debf2"
+        "indicator": "91e0ee0cc836873b62a8c15b2759af6cdf8b97d975f527e61f2c5369e8ce924c"
       }
     },
     {
       "id": 9,
       "replies": [
         {
-          "sha": "20d842f0d02817f1c5109eb55ef6f2d10d4cc3bf0d1a59ae9f75b174a4826003",
+          "sha": "0b63146e5b9c5437c6d2e41ce45a9359077c31e1c5ea9dd2d4a9aad6f7c1c64f",
           "depth": 0,
-          "html": "Bonjour après avoir parcouru la liste de tous les extensions de wikimedia je n'ai pas trouver trois extensions que je recherche<br><br>les voici :<ol><li>l'extension des portails, comme ici sur Wikipedia</li><li>l'extension du cadre sur la droite \"l'infobox'</li><li>et pour finir, réaliser une page d'accueil dans le même style que celle de Wikipedia</li></ol>enfaite c'est pas mal d'extension touchant a wikipedia, ces extension seront utiliser <br>dans le cadre du Wiki de la DEV team d'un jeu par navigateur style ogame<br><br>merci de votre aide<br><br><a href=\"./Discussion_utilisateur:TalusBlecryo\" title=\"Discussion utilisateur:TalusBlecryo\">TalusBlecryo</a>"
+          "html": "Bonjour après avoir parcouru la liste de tous les extensions de wikimedia je n'ai pas trouver trois extensions que je recherche<br><br>les voici :<ol><li>l'extension des portails, comme ici sur Wikipedia</li><li>l'extension du cadre sur la droite \"l'infobox'</li><li>et pour finir, réaliser une page d'accueil dans le même style que celle de Wikipedia</li></ol>enfaite c'est pas mal d'extension touchant a wikipedia, ces extension seront utiliser<br>dans le cadre du Wiki de la DEV team d'un jeu par navigateur style ogame<br><br>merci de votre aide<br><br><a href=\"./Discussion_utilisateur:TalusBlecryo\" title=\"Discussion utilisateur:TalusBlecryo\">TalusBlecryo</a>"
         }
       ],
       "depth": 2,
       "html": "Module ^^",
       "shas": {
         "html": "97cdf0f64c91e217d18073c6efc018aa954d1acb8c2593766f87966388001c64",
-        "indicator": "570a84b78c0676521c21406ac95ea59a9c84a232d76f52bccec5aa828e0153be"
+        "indicator": "f4e690c7f8c2bfc7bebcc2415fd167951a7860154bb0886d4a46ca885bf4535e"
       }
     },
     {
