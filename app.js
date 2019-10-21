@@ -15,8 +15,6 @@ const yaml = require('js-yaml');
 const addShutdown = require('http-shutdown');
 const path = require('path');
 
-const MAX_STEPS_PER_TICK = 5;
-
 /**
  * Creates an express app and initialises it
  * @param {!Object} options the options to initialise the app with
@@ -60,7 +58,7 @@ function initApp(options) {
     *   The base CSS bundle is served on meta.wikimedia.org.
     *   The pages also have some inline styles.
     * img-src:
-    *   We need to specifically allow data: URIs for the buttons from the wikimedia-page-library.
+    *   We need to specifically allow data: URIs for the buttons from pagelib.
     */
     if (app.conf.mobile_html_csp === undefined) {
         // eslint-disable-next-line max-len
@@ -229,22 +227,6 @@ function loadRoutes(app, dir) {
 function loadPreProcessingScripts(app, dir) {
 
     /**
-     * Break down array into chunks of the specified size
-     * @param {!Array} arr array
-     * @param {!integer} size chunk size
-     */
-    function _chunk(arr, size) {
-        return arr.reduce((acc, cur, idx) => {
-            const i = Math.floor(idx / size);
-            if (!acc[i]) {
-                acc[i] = [];
-            }
-            acc[i].push(cur);
-            return acc;
-        }, []);
-    }
-
-    /**
      * Validate the script format
      * @param {!Array} script processing script
      * @throws error if script format is invalid
@@ -262,7 +244,6 @@ function loadPreProcessingScripts(app, dir) {
         const name = filename.split('.')[0];
         let script = yaml.safeLoad(fs.readFileSync(`${dir}/${filename}`));
         _validate(script);
-        script = _chunk(script, MAX_STEPS_PER_TICK);
         app.conf.processing_scripts[name] = script;
     })
     .catch(e => app.logger.log('warn/loading', `Error loading processing scripts: ${e}`)))

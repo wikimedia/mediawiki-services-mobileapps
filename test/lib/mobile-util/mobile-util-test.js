@@ -4,6 +4,8 @@ const assert = require('../../utils/assert');
 const mUtil = require('../../../lib/mobile-util');
 const domino = require('domino');
 const MockResponse = require('mock-express-response');
+const fixtures = require('../../utils/fixtures');
+const perf = require('../../utils/performance');
 
 describe('lib:mobile-util', () => {
 
@@ -49,6 +51,14 @@ describe('lib:mobile-util', () => {
     it('createDocument should accept an empty string', () => {
         const expected = '<html><head></head><body></body></html>';
         mUtil.createDocument('').then(doc => assert.deepEqual(doc.outerHTML, expected));
+    });
+
+    it('createDocument should not block the event loop', () => {
+        const html = fixtures.readFileSync('United_States.html');
+        const docPromise = mUtil.createDocument(html);
+        return perf.measure(docPromise, 1000).then(doc => {
+          assert.equal(doc.querySelector('section[data-mw-section-id="20"]').firstChild.outerHTML, '<h3 id="Health">Health</h3>');
+        });
     });
 
     describe('setLanguageHeaders', () => {

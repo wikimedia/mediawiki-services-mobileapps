@@ -24,8 +24,8 @@ describe('mobile-html-offline-resources', function() {
 
         const expected = [
             `${metawikiApiUri}data/css/mobile/base`,
-            `${metawikiApiUri}data/css/mobile/pagelib`,
-            `${metawikiApiUri}data/javascript/mobile/pagelib`,
+            `${metawikiApiUri}data/css/mobile/pcs`,
+            `${metawikiApiUri}data/javascript/mobile/pcs`,
             `//${domain}/api/rest_v1/data/css/mobile/site`,
         ];
 
