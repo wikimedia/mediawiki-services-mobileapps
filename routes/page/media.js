@@ -16,17 +16,19 @@ let app;
  * Returns the non-UI media files used on the given page.
  */
 router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
-    return parsoid.getParsoidHtml(req).then((html) => {
-        lib.resolveTitleRedirects(req, lib.getMediaItemInfoFromPage(html.body))
-        .then(pageMediaList => {
-            const revTid = parsoid.getRevAndTidFromEtag(html.headers);
-            mUtil.setETag(res, revTid.revision, revTid.tid);
-            mUtil.setContentType(res, mUtil.CONTENT_TYPES.mediaList);
-            mUtil.setLanguageHeaders(res, html.headers);
-            res.send({
-                revision: revTid.revision,
-                tid: revTid.tid,
-                items: pageMediaList
+    return parsoid.getParsoidHtml(req).then(parsoidRsp => {
+        return mUtil.createDocument(parsoidRsp.body).then(doc => {
+            return lib.resolveTitleRedirects(req, lib.getMediaItemInfoFromDoc(doc))
+                .then(pageMediaList => {
+                    const revTid = parsoid.getRevAndTidFromEtag(parsoidRsp.headers);
+                    mUtil.setETag(res, revTid.revision, revTid.tid);
+                    mUtil.setContentType(res, mUtil.CONTENT_TYPES.mediaList);
+                    mUtil.setLanguageHeaders(res, parsoidRsp.headers);
+                    res.send({
+                        revision: revTid.revision,
+                        tid: revTid.tid,
+                        items: pageMediaList
+                });
             });
         });
     });
@@ -41,23 +43,26 @@ router.get('/media/:title/:revision?/:tid?', (req, res) => {
         parsoid.getParsoidHtml(req),
         mwapi.getSiteInfo(req),
         (html, siteinfo) => {
-            const revTid = parsoid.getRevAndTidFromEtag(html.headers);
-            const pageMediaList = lib.getMediaItemInfoFromPage(html.body);
-            if (!pageMediaList.length) {
-                res.send({ items: [] });
-                return;
-            }
-            const titles = mUtil.deduplicate(pageMediaList.filter(i => i.title).map(i => i.title));
-            return imageinfo.getMetadataFromApi(req, titles, siteinfo)
-            .then((apiResponse) => {
-                const result = lib.combineResponses(apiResponse, pageMediaList);
-                mUtil.setETag(res, revTid.revision, revTid.tid);
-                mUtil.setContentType(res, mUtil.CONTENT_TYPES.media);
-                mUtil.setLanguageHeaders(res, html.headers);
-                res.send({
-                    revision: revTid.revision,
-                    tid: revTid.tid,
-                    items: result
+            mUtil.createDocument(html.body).then(doc => {
+                const revTid = parsoid.getRevAndTidFromEtag(html.headers);
+                const pageMediaList = lib.getMediaItemInfoFromDoc(doc);
+                if (!pageMediaList.length) {
+                    res.send({ items: [] });
+                    return;
+                }
+                const titles = mUtil.deduplicate(pageMediaList.filter(i => i.title)
+                    .map(i => i.title));
+                return imageinfo.getMetadataFromApi(req, titles, siteinfo)
+                .then((apiResponse) => {
+                    const result = lib.combineResponses(apiResponse, pageMediaList);
+                    mUtil.setETag(res, revTid.revision, revTid.tid);
+                    mUtil.setContentType(res, mUtil.CONTENT_TYPES.media);
+                    mUtil.setLanguageHeaders(res, html.headers);
+                    res.send({
+                        revision: revTid.revision,
+                        tid: revTid.tid,
+                        items: result
+                    });
                 });
             });
         });
