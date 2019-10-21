@@ -168,6 +168,55 @@
       }
     },
     {
+      "section_id": 0,
+      "type": "audio",
+      "audio_type": "pronunciation",
+      "showInGallery": false,
+      "titles": {
+        "canonical": "File:Durham_England-local-pronunciation.ogg",
+        "normalized": "File:Durham England-local-pronunciation.ogg",
+        "display": "File:Durham England-local-pronunciation.ogg"
+      },
+      "thumbnail": {
+        "source": "https://en.wikipedia.org/w/resources/assets/file-type-icons/fileicon-ogg.png",
+        "width": 320,
+        "height": 320,
+        "mime": "image/jpeg"
+      },
+      "original": {
+        "source": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Durham_England-local-pronunciation.ogg",
+        "width": 0,
+        "height": 0,
+        "mime": "application/ogg"
+      },
+      "file_page": "https://commons.wikimedia.org/wiki/File:Durham_England-local-pronunciation.ogg",
+      "duration": 1.0216780045351475,
+      "artist": {
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Bungaroosh-2&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Bungaroosh-2 (page does not exist)\">Bungaroosh-2</a>",
+        "text": "Bungaroosh-2"
+      },
+      "credit": {
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "text": "Own work"
+      },
+      "license": {
+        "type": "CC BY-SA 4.0",
+        "code": "cc-by-sa-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "description": {
+        "html": "Local pronunciation of Durham, England, by person from that area. Note the first vowel is a shorter form of the first vowel in \"furry\"",
+        "text": "Local pronunciation of Durham, England, by person from that area. Note the first vowel is a shorter form of the first vowel in \"furry\"",
+        "lang": "en"
+      },
+      "wb_entity_id": "M80943966",
+      "structured": {
+        "captions": {
+          "en": "Local pronunciation of Durham, England"
+        }
+      }
+    },
+    {
       "section_id": 3,
       "type": "image",
       "caption": {
