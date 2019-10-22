@@ -20,10 +20,11 @@ router.get('/talk/:title/:revision?/:tid?', (req, res) => {
     .then(talkPage => {
       res.status(200);
       const revTid = parsoidApi.getRevAndTidFromEtag(parsoidRsp.headers);
+      const result = Object.assign({ revision: parseInt(revTid.revision) }, talkPage);
       mUtil.setETag(res, revTid.revision, revTid.tid);
       mUtil.setContentType(res, mUtil.CONTENT_TYPES.talk);
       mUtil.setLanguageHeaders(res, parsoidRsp.headers);
-      res.json(talkPage).end();
+      res.json(result).end();
     })));
 });
 
