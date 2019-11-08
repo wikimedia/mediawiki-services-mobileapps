@@ -1,0 +1,71 @@
+.pcs-widen-image-override {
+  /* Center images. */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* Ensure widening can take effect with proportional height change */
+  height: auto !important;
+}
+
+@media (orientation: portrait) {
+  img.pcs-widen-image-override {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .pcs-widen-image-override.pcs-lazy-load-placeholder {
+    /* This is necessary to avoid collapsed flexbox behavior on .thumbinner on Android KitKat 4.4.2
+       (API 19), e.g. Verizon Samsung Galaxy Note II (SCH-I605).
+       https://stackoverflow.com/a/23754080/970346
+       https://stackoverflow.com/a/33503864/970346 */
+      min-width: 100%;
+  }
+
+  /* Tablet override */
+  @media (min-device-width: 768px) {
+    img.pcs-widen-image-override {
+      width: 60% !important;
+      max-width: 60% !important;
+    }
+    .pcs-widen-image-override.pcs-lazy-load-placeholder {
+      min-width: 60%;
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  img.pcs-widen-image-override {
+    width: 50% !important;
+    max-width: 50% !important;
+  }
+  .pcs-widen-image-override.pcs-lazy-load-placeholder {
+    min-width: 50%;
+  }
+}
+
+/* Center text beneath images now that images are centered. */
+.thumbinner, .gallerytext {
+  text-align: center;
+}
+.content .thumb.tright,
+.content .thumb.tleft,
+.content figure.mw-default-size {
+  float: none;
+}
+
+/* Parsoid: center text beneath images now that images are centered. */
+figcaption {
+  text-align: center;
+}
+
+/* Add a little breathing room beneath thumb captions - see enwiki "Vincent van Gogh > Paris (1886-1888)" */
+.thumbcaption {
+  margin-bottom: 1.5em !important;
+}
+
+/* Wrangle extra margin - see enwiki "Claude Monet > Impressionism" */
+li.gallerybox div.thumb > div {
+  margin: 0px !important;
+}
+div.gallerytext > p {
+  margin-top: 0px !important;
+}

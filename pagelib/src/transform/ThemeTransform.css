@@ -1,0 +1,177 @@
+/*
+The styles referred to as 'baseline' in the comments below are critical because they ensure
+a theme colors are more universally applied even by elements colored via inline styles. These are
+particularly difficult to theme otherwise. We can build on top of, so to speak, these baseline
+styles with only the things which need tweaking.
+*/
+
+/* baseline */
+.pcs-theme-dark {
+  color: #f8f9fa;
+  background: #2e3136;
+}
+.pcs-theme-sepia {
+  color: #222;
+  background: #f8f1e3;
+}
+.pcs-theme-black {
+  color: #f8f9fa;
+  background: #000;
+}
+
+.notheme {
+  color: #000;
+}
+
+a.notheme {
+  color: #36c;
+}
+
+/* baseline anchor */
+.pcs-theme-dark a:not(.notheme), 
+.pcs-theme-black a:not(.notheme) {
+  color: #69f;
+}
+.pcs-theme-sepia a:not(.notheme) {
+  color: #36c;
+}
+
+/* external anchor */
+.pcs-theme-dark a.external,
+.pcs-theme-sepia a.external,
+.pcs-theme-black a.external {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAGJJREFUKFN1jdENgCAMBYmJn47Bak7DZrhTpc/XIm34OAjXA4qIgHI/dSBbLGTcOKjBryFlinGmjDQGiOF0MQkxI3v5wq6L38qR7SnsAx8ul37igPjAd+o5Oz2MRA+xY4ZSXuaW6wYouOLpAAAAAElFTkSuQmCC);
+}
+
+/* baseline mid background */
+.pcs-theme-dark table:not(.notheme),
+.pcs-theme-dark td:not(.notheme),
+.pcs-theme-dark tr:not(.notheme),
+.pcs-theme-dark th:not(.notheme),
+.pcs-theme-dark li.gallerybox div.thumb,
+.content.pcs-theme-dark td:not(.notheme),
+.content.pcs-theme-dark th:not(.notheme) {
+  background: #27292d;
+  color: #f8f9fa;
+  border-color: #43464a;
+}
+.pcs-theme-sepia table:not(.notheme),
+.pcs-theme-sepia td:not(.notheme),
+.pcs-theme-sepia tr:not(.notheme),
+.pcs-theme-sepia th:not(.notheme),
+.pcs-theme-sepia li.gallerybox div.thumb  {
+  background: #f0e6d6;
+  color: #222;
+  border-color: #cbc8c1;
+}
+.pcs-theme-black table:not(.notheme),
+.pcs-theme-black td:not(.notheme),
+.pcs-theme-black tr:not(.notheme),
+.pcs-theme-black th:not(.notheme),
+.pcs-theme-black li.gallerybox div.thumb  {
+  background: #222;
+  color: #f8f9fa;
+  border-color: #43464a;
+}
+
+/* baseline div, span, ul, li */
+.pcs-theme-dark div:not(.notheme),
+.pcs-theme-dark span:not(.notheme),
+.pcs-theme-dark ul:not(.notheme),
+.pcs-theme-dark ol:not(.notheme),
+.pcs-theme-dark li:not(.notheme) {
+  background-color: inherit;
+  color: #f8f9fa;
+  border-color: #43464a;
+}
+.pcs-theme-sepia div:not(.notheme),
+.pcs-theme-sepia span:not(.notheme),
+.pcs-theme-sepia ul:not(.notheme),
+.pcs-theme-sepia ol:not(.notheme),
+.pcs-theme-sepia li:not(.notheme) {
+  background-color: inherit;
+  color: #222;
+  border-color: #cbc8c1;
+}
+.pcs-theme-black div:not(.notheme),
+.pcs-theme-black span:not(.notheme),
+.pcs-theme-black ul:not(.notheme),
+.pcs-theme-black ol:not(.notheme),
+.pcs-theme-black li:not(.notheme) {
+  background-color: inherit;
+  color: #f8f9fa;
+  border-color: #43464a;
+}
+
+/* quotebox and blockquote */
+/* en > Audioslave > 793042679 */
+/* es > Arte > 100819823 */
+.pcs-theme-dark blockquote:not(.notheme),
+.pcs-theme-dark div.quotebox :not(.notheme){
+  background: #27292d;
+}
+.pcs-theme-sepia blockquote:not(.notheme),
+.pcs-theme-sepia div.quotebox :not(.notheme){
+  background: #f0e6d6;
+}
+.pcs-theme-black blockquote:not(.notheme),
+.pcs-theme-black div.quotebox :not(.notheme){
+  background: #000;
+}
+
+/* horizontal rule */
+/* en > Audioslave > 793042679 */
+/* en > Chris Cornell > 793305307 */
+.pcs-theme-dark hr:not(.notheme),
+.pcs-theme-black hr:not(.notheme) {
+  border-style: solid;
+}
+.pcs-theme-sepia hr:not(.notheme) {
+  border-style: solid;
+}
+
+.pcs-theme-dark hr.pcs-footer-legal-divider,
+.pcs-theme-black hr.pcs-footer-legal-divider,
+.pcs-theme-sepia hr.pcs-footer-legal-divider {
+  border-style: none;
+}
+
+/* figcaption color */
+.pcs-theme-default figcaption:not(.notheme) {
+  color: #72777d;
+}
+.pcs-theme-dark figcaption:not(.notheme) {
+  color: #c8ccd1;
+}
+.pcs-theme-sepia figcaption:not(.notheme) {
+  color: #646059;
+}
+.pcs-theme-black figcaption:not(.notheme) {
+  color: #c8ccd1;
+}
+
+/* caption background */
+.pcs-theme-dark caption:not(.notheme) {
+  background: #43464a;
+}
+.pcs-theme-sepia caption:not(.notheme) {
+  background: #cbc8c1;
+}
+.pcs-theme-black caption:not(.notheme) {
+  background: #2e3136;
+}
+
+/* images */
+/* compatibility transform */
+.pcs-theme-dark.pcs-compatibility-filter img.mwe-math-fallback-image-inline,
+.pcs-theme-black.pcs-compatibility-filter img.mwe-math-fallback-image-inline {
+  background: #ccc;
+  padding: 2px;
+}
+
+/* en > Quadratic equation > 793685454 */
+.pcs-theme-dark img.mwe-math-fallback-image-inline,
+.pcs-theme-black img.mwe-math-fallback-image-inline {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}

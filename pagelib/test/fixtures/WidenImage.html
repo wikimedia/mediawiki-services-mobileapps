@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<body>
+  <section>
+    <img class='imageWhichShouldNotWiden' id='imageWithUsemap' usemap=''>
+    <div class='noresize'>
+      <img class='imageWhichShouldNotWiden' id='imageInNoResizeDiv'>
+    </div>
+    <div class='tsingle'>
+      <img class='imageWhichShouldNotWiden' id='imageInTSingleDiv'>
+    </div>
+    <table>
+      <tr>
+        <td>
+          <img class='imageWhichShouldNotWiden' id='imageInTable'>
+        </td>
+      </tr>
+    </table>
+    <img class='imageWhichShouldWiden' id='imageWithWidthAndHeight' width='100' height='100'>
+    <div class='widthConstrainedAncestor' id=widthConstrainedAncestor3>
+      <div class='widthConstrainedAncestor' id=widthConstrainedAncestor2>
+        <div class='widthConstrainedAncestor' id=widthConstrainedAncestor1>
+          <img class='imageWhichShouldWiden' id='imageInWidthConstrainedAncestors'>
+        </div>
+      </div>
+    </div>
+    <div style='position: absolute'>
+      <div>
+        <img class='imageWhichShouldNotWiden' id='imageNestedInAbsoluteDiv'>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{
+  "name": "wikimedia-page-library",
+  "version": "9.4.2",
+  "description": "Cross-platform JavaScript and CSS library for Wikimedia apps",
+  "keywords": [
+    "Wikipedia",
+    "Wikimedia",
+    "wiki",
+    "MediaWiki",
+    "Content Service",
+    "RESTBase",
+    "WMF",
+    "Android",
+    "iOS",
+    "JavaScript",
+    "CSS"
+  ],
+  "homepage": "https://github.com/wikimedia/wikimedia-page-library",
+  "repository": "github:wikimedia/wikimedia-page-library",
+  "bugs": "https://github.com/wikimedia/wikimedia-page-library/issues",
+  "main": "build/wikimedia-page-library-transform.js",
+  "scripts": {
+    "lint": "eslint --cache --max-warnings 0 --ext .js --ext .json --ext .html --fix",
+    "lint:all": "npm run -s lint .",
+    "build": "NODE_ENV=production webpack -p",
+    "build:debug": "NODE_ENV=development webpack --debug --output-pathinfo --mode=development",
+    "build:watch": "webpack -dw --devtool source-map",
+    "serve:watch": "webpack-dev-server -dw",
+    "test:size": "bundlesize",
+    "pretest": "npm run -s build",
+    "test": "mocha --recursive test && bundlesize",
+    "serve:demo": "browser-sync start -c .browsersync.config.js",
+    "start": "run-p -s serve:watch serve:demo",
+    "preversion": "[ -z \"$(git status -z)\" ]",
+    "postversion": "git push --follow-tags origin HEAD && npm publish",
+    "prepublish": "npm run -s lint:all && npm -s t",
+    "upgrade": "ncu -au"
+  },
+  "pre-commit": [
+    "lint:all"
+  ],
+  "files": [
+    "build"
+  ],
+  "devDependencies": {
+    "@types/node": "10.12.12",
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.5",
+    "babel-preset-env": "1.7.0",
+    "babel-register": "6.26.0",
+    "browser-sync": "2.26.7",
+    "bundlesize": "0.17.2",
+    "clean-webpack-plugin": "1.0.0",
+    "css-loader": "1.0.1",
+    "domino": "2.1.1",
+    "eslint": "5.14.1",
+    "eslint-config-node-services": "2.2.5",
+    "eslint-config-wikimedia": "github:wikimedia/eslint-config-wikimedia#292cf3c",
+    "eslint-plugin-html": "5.0.3",
+    "eslint-plugin-jsdoc": "3.14.0",
+    "eslint-plugin-json": "1.3.2",
+    "mini-css-extract-plugin": "0.5.0",
+    "mocha": "5.2.0",
+    "npm-run-all": "4.1.5",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "postcss-loader": "3.0.0",
+    "pre-commit": "1.2.2",
+    "request": "2.88.0",
+    "style-loader": "0.23.1",
+    "terser-webpack-plugin": "1.4.1",
+    "ts-loader": "5.3.1",
+    "ts-node": "7.0.1",
+    "typescript": "3.2.2",
+    "webpack": "4.39.2",
+    "webpack-cli": "3.3.7",
+    "webpack-dev-server": "3.8.0"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.4.1"
+  },
+  "bundlesize": [
+    {
+      "path": "build/wikimedia-page-library-override.css",
+      "maxSize": "0.2KB"
+    },
+    {
+      "path": "build/wikimedia-page-library-transform.css",
+      "maxSize": "27.5KB"
+    },
+    {
+      "path": "build/wikimedia-page-library-transform.js",
+      "maxSize": "13.83KB"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+/*
+Fix for upstream change: https://gerrit.wikimedia.org/r/#/c/mediawiki/skins/MinervaNeue/+/494374/3/resources/skins.minerva.content.styles/lists.less
+Which caused this clipping: https://phabricator.wikimedia.org/T150377#5019102
+*/
+ol {
+  list-style: decimal inside;
+  padding: 0;
+}

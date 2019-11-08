@@ -10,3 +10,4 @@ tmp/
 /private/compare-sections/
 .nyc_output/
 /.node-version
+.vscode/

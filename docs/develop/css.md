@@ -44,8 +44,7 @@ In general we're trying to get content styles but not UI styles.
 * `mobile.app.parsoid`
 
 ## Pagelib CSS
-Additional styles developed by the apps teams, usually specific to certain DOM transformations.
-See the [wikimedia-page-library repo](https://github.com/wikimedia/wikimedia-page-library).
+Additional styles developed by the apps teams, usually specific to certain DOM transformations. Located in pagelib/.
 
 ## Site CSS
 Site specific CSS. This is the only CSS endpoint that still uses live ResourceLoader requests.

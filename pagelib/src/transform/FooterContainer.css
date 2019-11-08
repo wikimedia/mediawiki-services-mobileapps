@@ -1,0 +1,62 @@
+.pcs-footer-section a:hover {
+  text-decoration: none;
+}
+
+h2#pcs-footer-container-readmore-heading,
+h2#pcs-footer-container-menu-heading {
+  text-transform: uppercase;
+  font-size: 15pt;
+  color: #72777d;
+  border-top: 0.5px solid #c8ccd1;
+  border-bottom: 0.5px solid #c8ccd1;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Lato,Helvetica,Arial,sans-serif;
+  background-color: #f8f9fa;
+  margin: 0 calc(50% - 50vw);
+  padding: 1.5em calc(50vw - 50%) 0.5em calc(50vw - 50%);
+}
+
+.pcs-theme-sepia h2#pcs-footer-container-readmore-heading,
+.pcs-theme-sepia h2#pcs-footer-container-menu-heading {
+  background-color: #f0e6d6;
+  border-top: 0.5px solid #cbc8c1;
+  border-bottom: 0.5px solid #cbc8c1;
+}
+.pcs-theme-dark h2#pcs-footer-container-readmore-heading,
+.pcs-theme-dark h2#pcs-footer-container-menu-heading {
+  background-color: #27292d;
+}
+.pcs-theme-black h2#pcs-footer-container-readmore-heading,
+.pcs-theme-black h2#pcs-footer-container-menu-heading {
+  background-color: #222222;
+}
+
+.pcs-theme-dark h2#pcs-footer-container-readmore-heading,
+.pcs-theme-black h2#pcs-footer-container-readmore-heading,
+.pcs-theme-dark h2#pcs-footer-container-menu-heading,
+.pcs-theme-black h2#pcs-footer-container-menu-heading {
+  color: #f8f9fa;
+  border-top: 0.5px solid #43464a;
+  border-bottom: 0.5px solid #43464a;
+}
+
+section#pcs-footer-container-legal {
+  background-color: #f8f9fa;
+  border-top: 0.5px solid #c8ccd1;
+  margin: 0 calc(50% - 50vw);
+  padding: .5em calc(50vw - 50%);
+}
+
+.pcs-theme-sepia section#pcs-footer-container-legal {
+  border-top: 0.5px solid #cbc8c1;
+  background-color: #f0e6d6;
+}
+
+.pcs-theme-dark section#pcs-footer-container-legal {
+  border-top: 0.5px solid #43464a;
+  background-color: #27292d;
+}
+
+.pcs-theme-black section#pcs-footer-container-legal {
+  border-top: 0.5px solid #43464a;
+  background-color: #222222;
+}

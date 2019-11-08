@@ -1,0 +1,94 @@
+.pcs-footer-readmore-page {
+  background-color: white;
+  padding: 11px 10px;
+  display: block;
+  min-height: 50px;
+}
+
+.pcs-theme-dark .pcs-footer-readmore-page {
+  background-color: #2e3136;
+}
+
+.pcs-theme-sepia .pcs-footer-readmore-page {
+  background-color: #f8f1e3;
+}
+
+.pcs-theme-black .pcs-footer-readmore-page {
+  background-color: #000;
+}
+
+.pcs-footer-readmore-page-title {
+  color: #222;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-height: 1.38em;
+}
+
+.pcs-theme-dark .pcs-footer-readmore-page-title,
+.pcs-theme-black .pcs-footer-readmore-page-title {
+  color: #f8f9fa;
+}
+
+.pcs-footer-readmore-page-description {
+  color: #a2a9b1;
+  display: block;
+  font-size: 0.9em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pcs-theme-sepia .pcs-footer-readmore-page-description {
+  color: #7c776e;
+}
+
+.pcs-footer-readmore-page-description::first-letter {
+  text-transform: uppercase;
+}
+
+.pcs-footer-readmore-bookmark-filled {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAiBAMAAAC3uAQAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAACdQTFRFAAAAQID/PGnSNmvQNWnONWfMM2fNNGbNNGbMM2fNNGfMM2bM////H6I4qQAAAAt0Uk5TAAQRJkRqlbvZ7vu+JdyCAAAAAWJLR0QMgbNRYwAAAEhJREFUGNNj3M2AAEwMoxySOK/mIzj/Zq96AOecOvBnLowDYp06AOWA1PybDeFAdINIJogYRJ4JohqikwliDsRMZrYDMM7/mwClEx4uyFBI7QAAAABJRU5ErkJggg==');
+}
+
+.pcs-footer-readmore-bookmark-unfilled {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAiCAMAAABySOkBAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAHtQTFRFAAAAQID/RnTRPGnSOXHVNmvXPW3ONmzRNmvQNGnROGrNNGjQNWnONGfPNWfNM2bMNWfMM2bMM2fOM2fNNGbNM2fNNGbNNGbNM2fNNGfMNGbNNGbMM2fNNGfMNGfMM2fNM2bNM2bMNGbMM2bNNGfMNGbMM2bNM2bM////8r6QcgAAACd0Uk5TAAQLERITFSEmJykxREVIWmpucpWYn7a7vcnK2drd5+7v8PL5+/z+WW5CCAAAAAFiS0dEKL2wtbIAAACQSURBVCjP7dLbEsEwFEbhP+pQBKEoijiE9f5v6CJTTUe9gLFuv5nsvWciviQ4dAQCdfSH34KB64bJiY3pgPkV2PY+YPkIzgX2wzaYNd5K1nMcpdDfUeWSlFecpw2Mj5RZfDErudkaZheKeh2ZgvsiggvBpce58FyBAG/bZ1sff3scm5ZXoPfYtKxEzdg0U7wA3ssgdYezF58AAAAASUVORK5CYII=');
+}
+
+.pcs-theme-dark .pcs-footer-readmore-bookmark-filled,
+.pcs-theme-black .pcs-footer-readmore-bookmark-filled {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAiBAMAAAC3uAQAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAACdQTFRFAAAAgL//aaX/a5r/aZr/Z5r/Z5r/Zpr/Zpr/Z5n/Z5n/Zpn/////4bALDwAAAAt0Uk5TAAQRJkRqlbvZ7vu+JdyCAAAAAWJLR0QMgbNRYwAAAEhJREFUGNNj3M2AAEwMoxySOK/mIzj/Zq96AOecOvBnLowDYp06AOWA1PybDeFAdINIJogYRJ4JohqikwliDsRMZrYDMM7/mwClEx4uyFBI7QAAAABJRU5ErkJggg==');
+}
+
+.pcs-theme-dark .pcs-footer-readmore-bookmark-unfilled,
+.pcs-theme-black .pcs-footer-readmore-bookmark-unfilled {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAiCAMAAABySOkBAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAHtQTFRFAAAAgL//dKL/aaX/cZz/a6H/bZ7/bJv/a5r/aZ3/apv/aJz/aZr/Z5v/Z5z/Zpn/Z5r/Zpn/Z5r/Z5r/Zpr/Z5r/Zpr/Zpr/Z5r/Z5r/Zpr/Zpr/Z5n/Z5n/Z5n/Z5n/Zpr/Zpn/Zpr/Zpr/Z5n/Zpr/Zpr/Zpn/////i03Y4gAAACd0Uk5TAAQLERITFSEmJykxREVIWmpucpWYn7a7vcnK2drd5+7v8PL5+/z+WW5CCAAAAAFiS0dEKL2wtbIAAACQSURBVCjP7dLbEsEwFEbhP+pQBKEoijiE9f5v6CJTTUe9gLFuv5nsvWciviQ4dAQCdfSH34KB64bJiY3pgPkV2PY+YPkIzgX2wzaYNd5K1nMcpdDfUeWSlFecpw2Mj5RZfDErudkaZheKeh2ZgvsiggvBpce58FyBAG/bZ1sff3scm5ZXoPfYtKxEzdg0U7wA3ssgdYezF58AAAAASUVORK5CYII=');
+}
+
+.pcs-footer-readmore-page-image {
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 2px;
+}
+
+.pcs-footer-readmore-page-image {
+  float: right;
+  margin-left: 8px;
+  margin-right: 0px;
+}
+
+html[dir='rtl'] .pcs-footer-readmore-page-image,
+body[dir='rtl'] .pcs-footer-readmore-page-image
+.mw-content-rtl .pcs-footer-readmore-page-image {
+  float: left;
+  margin-right: 8px;
+  margin-left: 0px;
+}
+
+#pcs-footer-container-readmore-pages {
+  margin: 0 calc(50% - 50vw);
+  padding: .5px calc(50vw - 50%);
+}
