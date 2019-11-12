@@ -220,7 +220,7 @@
       },
       "sources": [
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Hummingbird_feeding_closeup_2000fps.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/2/21/Hummingbird_feeding_closeup_2000fps.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -232,7 +232,7 @@
           "height": "480"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.120p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.120p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -244,7 +244,7 @@
           "height": "118"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.160p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.160p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -256,7 +256,7 @@
           "height": "160"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.180p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.180p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -268,7 +268,7 @@
           "height": "178"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -280,7 +280,7 @@
           "height": "236"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -292,7 +292,7 @@
           "height": "236"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -304,7 +304,7 @@
           "height": "356"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -316,7 +316,7 @@
           "height": "356"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -328,7 +328,7 @@
           "height": "474"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -400,7 +400,7 @@
       },
       "sources": [
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Hummingbird.ogv",
+          "url": "//upload.wikimedia.org/wikipedia/commons/d/db/Hummingbird.ogv",
           "mime": "video/ogg",
           "codecs": [
             "theora",
@@ -412,7 +412,7 @@
           "height": "480"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.120p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.120p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -424,7 +424,7 @@
           "height": "120"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.160p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.160p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -436,7 +436,7 @@
           "height": "160"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.180p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.180p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -448,7 +448,7 @@
           "height": "180"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -460,7 +460,7 @@
           "height": "240"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -472,7 +472,7 @@
           "height": "240"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -484,7 +484,7 @@
           "height": "360"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -496,7 +496,7 @@
           "height": "360"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -508,7 +508,7 @@
           "height": "480"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -613,7 +613,7 @@
       "gallery_id": "mwBDc",
       "sources": [
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Humming_birds_feeding_at_1500fps.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/f/fe/Humming_birds_feeding_at_1500fps.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -625,7 +625,7 @@
           "height": "480"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.120p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.120p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -637,7 +637,7 @@
           "height": "118"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.160p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.160p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -649,7 +649,7 @@
           "height": "160"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.180p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.180p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -661,7 +661,7 @@
           "height": "178"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -673,7 +673,7 @@
           "height": "236"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -685,7 +685,7 @@
           "height": "236"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -697,7 +697,7 @@
           "height": "356"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
@@ -709,7 +709,7 @@
           "height": "356"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.vp9.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.vp9.webm",
           "mime": "video/webm",
           "codecs": [
             "vp9",
@@ -721,7 +721,7 @@
           "height": "474"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.webm",
+          "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.webm",
           "mime": "video/webm",
           "codecs": [
             "vp8",
