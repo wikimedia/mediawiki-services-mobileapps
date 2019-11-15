@@ -764,12 +764,12 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:North_East_England_districts_2011_map.svg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Nilfanion\" title=\"User:Nilfanion\">Nilfanion</a>, created using Ordnance Survey data",
+        "html": "<p><a href=\"//commons.wikimedia.org/wiki/User:Nilfanion\" title=\"User:Nilfanion\">Nilfanion</a>, created using Ordnance Survey data\n</p>",
         "text": "Nilfanion, created using Ordnance Survey data"
       },
       "credit": {
-        "html": "<a href=\"https://en.wikipedia.org/wiki/Ordnance_Survey\" class=\"extiw\" title=\"w:Ordnance Survey\">Ordnance Survey</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ordnancesurvey.co.uk/opendatadownload/products.html\">OpenData</a>:\n<ul>\n<li>County boundaries (from Boundary-Line product)</li>\n<li>Coastline data for Great Britain (from Boundary-Line product)</li>\n</ul>",
-        "text": "Ordnance Survey OpenData:\n\nCounty boundaries (from Boundary-Line product)\nCoastline data for Great Britain (from Boundary-Line product)"
+        "html": "<p><a href=\"https://en.wikipedia.org/wiki/Ordnance_Survey\" class=\"extiw\" title=\"w:Ordnance Survey\">Ordnance Survey</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ordnancesurvey.co.uk/opendatadownload/products.html\">OpenData</a>:\n</p>\n<ul>\n<li>County boundaries (from Boundary-Line product)</li>\n<li>Coastline data for Great Britain (from Boundary-Line product)</li>\n</ul>",
+        "text": "Ordnance Survey OpenData:\n\n\nCounty boundaries (from Boundary-Line product)\nCoastline data for Great Britain (from Boundary-Line product)"
       },
       "license": {
         "type": "CC BY-SA 3.0",
