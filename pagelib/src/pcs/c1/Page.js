@@ -264,10 +264,12 @@ const onBodyStart = () => {
   }
   if (document.pcsSetupSettings) {
     const preSettings = {
-      theme: document.pcsSetupSettings.theme,
       margins: document.pcsSetupSettings.margins,
       loadImages: false,
       setupTableEventHandling: false
+    }
+    if (document.pcsSetupSettings.theme) {
+      preSettings.theme = 'pcs-theme-' + document.pcsSetupSettings.theme
     }
     setup(preSettings, initialSetupCompletion)
     return
