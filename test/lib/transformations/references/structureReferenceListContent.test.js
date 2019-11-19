@@ -102,7 +102,7 @@ describe('lib:structureReferenceListContent', () => {
     });
 
     const createDocument = (html) => {
-        return preprocessParsoidHtml(domino.createDocument(html), script);
+        return preprocessParsoidHtml(domino.createDocument(html), [ script ]);
     };
 
     describe('.structureBackLinks', () => {

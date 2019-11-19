@@ -42,8 +42,7 @@ describe('mobile-html', function() {
         .then((res) => {
             const document = domino.createDocument(res.body);
             const section0 = document.querySelector('section[data-mw-section-id=0]');
-            // children[1] because [0] should be the pcs-edit-section-link-container span
-            assert.ok(section0.children[1].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
+            assert.ok(section0.children[0].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
         });
     });
 

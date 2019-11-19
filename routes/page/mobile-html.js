@@ -27,7 +27,7 @@ let app;
  * suitable for the reading use cases.
  */
 router.get('/page/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
-    return parsoidApi.mobileHTMLDocumentPromise(app, req, false)
+    return parsoidApi.pageDocumentPromise(app, req, false)
     .then((response) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
@@ -43,7 +43,7 @@ router.get('/page/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
 function getMobileHtmlFromPOST(req, res) {
     const html = req.body && req.body.html || req.body;
     return BBPromise.props({
-        parsoid: parsoidApi.preprocessedMobileHTMLDocumentPromise(app, req, html, true),
+        parsoid: parsoidApi.preprocessedDocumentPromise(app, req, html, true),
         mw: mwapi.getMetadataForMobileHtml(req)
     }).then((response) => {
         return BBPromise.props({
@@ -68,7 +68,7 @@ function getMobileHtmlFromPOST(req, res) {
 
 function getMobileHtmlFromParsoid(req, res) {
     return BBPromise.props({
-        parsoid: parsoidApi.mobileHTMLDocumentPromise(app, req, true),
+        parsoid: parsoidApi.pageDocumentPromise(app, req, true),
         mw: mwapi.getMetadataForMobileHtml(req)
     }).then((response) => {
         return BBPromise.props({
@@ -140,8 +140,8 @@ router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, 
         .replace(new RegExp('(https|http)://'), '//');
     const offlineResources = [
         `${metawikiApiUri}data/css/mobile/base`,
-        `${metawikiApiUri}data/css/mobile/pcs`,
-        `${metawikiApiUri}data/javascript/mobile/pcs`,
+        `${metawikiApiUri}data/css/mobile/pagelib`,
+        `${metawikiApiUri}data/javascript/mobile/pagelib`,
         `${externalApiUri}data/css/mobile/site`,
     ];
 

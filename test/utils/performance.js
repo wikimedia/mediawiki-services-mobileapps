@@ -1,10 +1,7 @@
 const P = require('bluebird');
 const assert = require('../utils/assert.js');
-const constants = require('../../lib/constants');
 
 const MS_PER_NS = 1000000;
-
-const DEFAULT_MAX_BLOCK = constants.MAX_MS_PER_TICK * 2;
 
 class Performance {
 
@@ -23,17 +20,16 @@ class Performance {
     });
   }
 
-  static measure(promise, max = -1, maxblock = DEFAULT_MAX_BLOCK) {
-    const perfPromise = new P(res => {
+  static measure(promise, max = -1, maxblock = -1) {
+    return new P(res => {
       const start = process.hrtime();
       Performance.checkEventLoopBlockingTime(promise, 0, start, (ns, blockns) => {
         assert.ok(ns < max * MS_PER_NS, `Should take less than ${max}ms. It took ${Math.round(ns / MS_PER_NS)}ms`);
-        assert.ok(blockns < maxblock * MS_PER_NS, `Shouldn't block the event loop for more than ${maxblock}ms. 
+        assert.ok(blockns < maxblock * MS_PER_NS, `Shouldn't block the run loop for more than ${maxblock}ms. 
           It was blocked for ${Math.round(blockns / MS_PER_NS)}ms`);
         res();
       });
     });
-    return P.join(promise, perfPromise).then(results => { return results[0]; });
   }
 
 }

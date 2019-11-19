@@ -11,7 +11,7 @@ describe('lib:mobileview-html', () => {
             const result = lib.testing.buildSection(document,
                 { id: 0, text: 'lead' });
             assert.deepEqual(result.outerHTML,
-                '<section data-mw-section-id="0" id="content-block-0">lead</section>');
+                '<section data-mw-section-id="0" id="content_block_0">lead</section>');
         });
         it('section 1', () => {
             const document = domino.createDocument('');

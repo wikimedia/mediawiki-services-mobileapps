@@ -22,16 +22,16 @@ describe('lib:addPageHeader', () => {
 
         const header = document.body.querySelector('header');
         assert.ok(header);
-        const pronunciationLink = header.querySelector('#pcs-edit-section-title-pronunciation');
+        const pronunciationLink = header.querySelector('#pagelib_edit_section_title_pronunciation');
         assert.ok(pronunciationLink);
         assert.ok(pronunciationLink.getAttribute('data-action', 'title_pronunciation'));
-        const editLink = header.querySelector('a.pcs-edit-section-link');
+        const editLink = header.querySelector('a.pagelib_edit_section_link');
         assert.deepEqual(editLink.href, '/w/index.php?title=Dog&action=edit&section=0');
         assert.deepEqual(editLink.getAttribute('data-action'), 'edit_section');
         assert.deepEqual(editLink.getAttribute('data-id'), '0');
-        assert.deepEqual(header.querySelector('#pcs-edit-section-title-description').innerHTML,
+        assert.deepEqual(header.querySelector('#pagelib_edit_section_title_description').innerHTML,
             'short desc');
-        assert.ok(header.querySelector('#pcs-edit-section-divider'));
+        assert.ok(header.querySelector('#pagelib_edit_section_divider'));
     });
 
     it('addPageHeader handles documents with no section elements', () => {
