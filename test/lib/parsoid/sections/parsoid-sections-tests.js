@@ -11,11 +11,10 @@ const validatePreviousSection = parsoidSections.testing.validatePreviousSection;
 
 describe('lib:parsoid-sections (section elements)', function() {
 
-    this.timeout(20000); // eslint-disable-line no-invalid-this
+    this.timeout(20000);
 
     function assertSection0(sections, extraText = '') {
         assert.deepEqual(sections[0].id, 0);
-        // eslint-disable-next-line max-len
         assert.deepEqual(sections[0].text, `text0${extraText}`, JSON.stringify(sections[0], null, 2));
     }
 

@@ -20,7 +20,7 @@ describe('references-large', function() {
         'cite_note-S8renewal-120' // no backlinks in https://en.wikipedia.org/api/rest_v1/page/html/Shameless_(U.S._TV_series)/823068141#cite_note-S8renewal-120
     ];
 
-    this.timeout(20000); // eslint-disable-line no-invalid-this
+    this.timeout(20000);
 
     before(() => {
         return server.start();

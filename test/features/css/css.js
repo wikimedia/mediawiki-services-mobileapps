@@ -6,7 +6,7 @@ const css = require('../../../lib/css').testing;
 
 describe('css', function() {
 
-    this.timeout(20000); // eslint-disable-line no-invalid-this
+    this.timeout(20000);
 
     before(() => server.start());
 

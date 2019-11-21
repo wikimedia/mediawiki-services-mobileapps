@@ -6,7 +6,7 @@ const server = require('../../utils/server.js');
 
 describe('mobile-sections', function() {
 
-    this.timeout(20000); // eslint-disable-line no-invalid-this
+    this.timeout(20000);
 
     before(() => server.start());
 

@@ -8,7 +8,7 @@ const wikiSectionsLead = 'en.wikipedia.org/v1/page/mobile-sections-lead/';
 
 describe('mobile-sections-lead', function() {
 
-    this.timeout(20000); // eslint-disable-line no-invalid-this
+    this.timeout(20000);
 
     before(() => server.start());
 
@@ -68,7 +68,6 @@ describe('mobile-sections-lead', function() {
             });
     });
     it('Mare Tranquillitatis (lunar sea) should not have a geo property', () => {
-        // eslint-disable-next-line max-len
         const uri = `${server.config.uri}es.wikipedia.org/v1/page/mobile-sections-lead/Mare Tranquillitatis`;
         return preq.get({ uri })
             .then((res) => {

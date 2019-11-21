@@ -29,7 +29,7 @@ function assertHasAllRequiredProperties(body) {
 
 describe('summary', function() {
 
-    this.timeout(20000); // eslint-disable-line no-invalid-this
+    this.timeout(20000);
 
     before(() => server.start());
 
@@ -107,7 +107,6 @@ describe('summary', function() {
     }
 
     it('Empty extracts should be returned for a file page', () => {
-        // eslint-disable-next-line max-len
         shouldReturnEmptyExtracts(localUri('File:En-Alliterative_verse-article.ogg', 'commons.wikimedia.org'));
     });
 

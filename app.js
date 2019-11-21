@@ -45,7 +45,6 @@ function initApp(options) {
         app.conf.cors = '*';
     }
     if (app.conf.csp === undefined) {
-        // eslint-disable-next-line max-len
         app.conf.csp = "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'";
     }
 
@@ -61,7 +60,6 @@ function initApp(options) {
     *   We need to specifically allow data: URIs for the buttons from pagelib.
     */
     if (app.conf.mobile_html_csp === undefined) {
-        // eslint-disable-next-line max-len
         app.conf.mobile_html_csp = "default-src 'none'; connect-src https://*.wikipedia.org; media-src *; img-src * data:; " +
             "script-src app://meta.wikimedia.org https://meta.wikimedia.org 'unsafe-inline'; " +
             "object-src 'none'; " +
@@ -70,7 +68,6 @@ function initApp(options) {
     }
 
     if (app.conf.mobile_html_rest_api_base_uri === undefined) {
-        // eslint-disable-next-line max-len
         app.conf.mobile_html_rest_api_base_uri = 'https://meta.wikimedia.org/api/rest_v1/';
     }
 
@@ -242,7 +239,7 @@ function loadPreProcessingScripts(app, dir) {
     app.conf.processing_scripts = {};
     return fs.readdirAsync(dir).map(filename => BBPromise.try(() => {
         const name = filename.split('.')[0];
-        let script = yaml.safeLoad(fs.readFileSync(`${dir}/${filename}`));
+        const script = yaml.safeLoad(fs.readFileSync(`${dir}/${filename}`));
         _validate(script);
         app.conf.processing_scripts[name] = script;
     })

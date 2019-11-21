@@ -28,7 +28,7 @@ const readIntoDocument = (fileName) => {
  * @return {!Document}
  */
 const readProcessingScript = (fileName) => {
-    const yamlFile = fs.readFileSync(path.resolve(PROCESSING, fileName + '.yaml'));
+    const yamlFile = fs.readFileSync(path.resolve(PROCESSING, `${fileName}.yaml`));
     return yaml.safeLoad(yamlFile);
 };
 

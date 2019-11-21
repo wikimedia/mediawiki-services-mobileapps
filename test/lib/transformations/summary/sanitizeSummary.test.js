@@ -152,7 +152,6 @@ describe('lib:sanitizeSummary', () => {
         it('removes video tags', () => {
             assert.deepEqual(sanitize('<video><source><track></video>'), '');
         });
-        /* eslint-disable max-len */
         it('keeps img.src, .srcset, .width and .height attributes', () => {
             assertKeepsAsIs('<img src="//upload.wikimedia.org/wikipedia/commons/3/39/Fluorescence_in_calcite.jpg" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/39/Fluorescence_in_calcite.jpg/720px-Fluorescence_in_calcite.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/39/Fluorescence_in_calcite.jpg/960px-Fluorescence_in_calcite.jpg 2x" width="971" height="110" />');
         });

@@ -10,7 +10,6 @@ const mut = transforms.structureReferenceListContent;
 const domino = require('domino');
 const sinon = require('sinon');
 
-/* eslint-disable max-len */
 // Examples adopted from https://en.wikipedia.org/api/rest_v1/page/html/Dog/793160878
 const simpleDogRef = `<li about="#cite_note-101" id="cite_note-101">
   <a href="./Dog#cite_ref-101" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a>

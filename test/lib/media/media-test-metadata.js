@@ -149,7 +149,6 @@ describe('lib:media metadata is correctly parsed from HTML', () => {
     // Skip until a long term solution for https://phabricator.wikimedia.org/T214338 is found
     it.skip('pronunciation titles are decoded after parsing from HTML', () => {
         const result = media.getMediaItemInfoFromPage(pronunciationWithPercentEncodedTitle)[0];
-        // eslint-disable-next-line max-len
         assert.deepEqual(result.title, 'File:En-us-A.p.j. Abdul Kalam from India pronunciation (Voice of America).ogg');
     });
 
@@ -239,13 +238,13 @@ describe('lib:media:getStructuredSrcSet', () => {
     it('should return structured srcset values', () => {
         const doc = domino.createDocument('<img srcset="//image1 1.5x, //image2 2x">');
         const img = doc.querySelector('img');
-        let expected = [ { src: '//image1', scale: '1.5x' }, { src: '//image2', scale: '2x' } ];
+        const expected = [ { src: '//image1', scale: '1.5x' }, { src: '//image2', scale: '2x' } ];
         assert.deepEqual(getStructuredSrcSet(img), expected);
     });
     it('should return structured srcset and src values', () => {
         const doc = domino.createDocument('<img src="//image" srcset="//image1 1.5x, //image2 2x">');
         const img = doc.querySelector('img');
-        let expected = [
+        const expected = [
             { src: '//image', scale: '1x' },
             { src: '//image1', scale: '1.5x' },
             { src: '//image2', scale: '2x' }

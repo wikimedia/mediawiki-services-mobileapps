@@ -14,7 +14,7 @@ if (!server.stopHookAdded) {
 
 describe('service information', function() {
 
-    this.timeout(20000); // eslint-disable-line no-invalid-this
+    this.timeout(20000);
 
     before(() => server.start());
 

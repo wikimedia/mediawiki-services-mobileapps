@@ -238,11 +238,11 @@ function validateTestResponse(testCase, res) {
 describe('Swagger spec', function() {
 
     // the variable holding the spec
-    let spec = staticSpecLoad();
+    const spec = staticSpecLoad();
     // default params, if given
     let defParams = spec['x-default-params'] || {};
 
-    this.timeout(20000); // eslint-disable-line no-invalid-this
+    this.timeout(20000);
 
     before(() => {
         return server.start();

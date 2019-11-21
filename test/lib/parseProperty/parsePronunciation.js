@@ -16,7 +16,6 @@ function test(html, expected) {
 
 describe('lib:parsePronunciation', () => {
     it('has pronunciation file v1', () => {
-        // eslint-disable-next-line max-len
         const html = '<span class="IPA"></span><small><a rel="mw:MediaLink" href="A.ogg"></a></small>';
         test(html, { url: 'A.ogg' });
     });

@@ -5,7 +5,7 @@ const assert = require('../../utils/assert');
 
 describe('lib:wikiLanguage', () => {
     it('parses accept language headers', () => {
-        let parsedTags = wikiLanguage.parseAcceptLanguageHeaderIntoLanguageTags('en-US, sr-Latn;q=0.8, zh-Hans-CN;q=0.9');
+        const parsedTags = wikiLanguage.parseAcceptLanguageHeaderIntoLanguageTags('en-US, sr-Latn;q=0.8, zh-Hans-CN;q=0.9');
         assert.equal(parsedTags[0].tag, 'en-US');
         assert.deepEqual(parsedTags[0].components, ['en', 'US']);
         assert.equal(parsedTags[0].quality, 1.0);
@@ -18,7 +18,7 @@ describe('lib:wikiLanguage', () => {
     });
 
     it('parses accept language headers without spaces', () => {
-        let parsedTags = wikiLanguage.parseAcceptLanguageHeaderIntoLanguageTags('en-US,sr-Latn;q=0.8,zh-Hans-CN;q=0.9');
+        const parsedTags = wikiLanguage.parseAcceptLanguageHeaderIntoLanguageTags('en-US,sr-Latn;q=0.8,zh-Hans-CN;q=0.9');
         assert.equal(parsedTags[0].tag, 'en-US');
         assert.deepEqual(parsedTags[0].components, ['en', 'US']);
         assert.equal(parsedTags[0].quality, 1.0);
@@ -31,7 +31,7 @@ describe('lib:wikiLanguage', () => {
     });
 
     it('parses accept language headers with inconsistent spaces', () => {
-        let parsedTags = wikiLanguage.parseAcceptLanguageHeaderIntoLanguageTags('en-US,    sr-Latn;q  =0.8,zh-Hans-CN; q=  0.9');
+        const parsedTags = wikiLanguage.parseAcceptLanguageHeaderIntoLanguageTags('en-US,    sr-Latn;q  =0.8,zh-Hans-CN; q=  0.9');
         assert.equal(parsedTags[0].tag, 'en-US');
         assert.deepEqual(parsedTags[0].components, ['en', 'US']);
         assert.equal(parsedTags[0].quality, 1.0);
@@ -64,12 +64,12 @@ describe('lib:wikiLanguage', () => {
     });
 
     it('falls back on the provided language code', () => {
-        let relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('en-US,zh-Hans-CN;q=0.9', 'sr');
+        const relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('en-US,zh-Hans-CN;q=0.9', 'sr');
         assert.deepEqual(relevantCodes, ['sr']);
     });
 
     it('removes duplicates', () => {
-        let relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('zh-Hans,zh-Hans;q=0.9', 'zh');
+        const relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('zh-Hans,zh-Hans;q=0.9', 'zh');
         assert.deepEqual(relevantCodes, ['zh-hans', 'zh']);
     });
 

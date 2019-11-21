@@ -43,7 +43,6 @@ describe('lib:mobile-util', () => {
 
     it('domainForLangCode swaps in lang code if domain has >2 levels', () => {
         assert.deepEqual(mUtil.domainForLangCode('en.wikipedia.org', 'de'), 'de.wikipedia.org');
-        // eslint-disable-next-line max-len
         assert.deepEqual(mUtil.domainForLangCode('de.wikipedia.beta.wmflabs.org', 'ja'), 'ja.wikipedia.beta.wmflabs.org');
         assert.deepEqual(mUtil.domainForLangCode('mediawiki.org', 'es'), 'mediawiki.org');
     });

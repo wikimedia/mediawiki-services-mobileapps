@@ -136,7 +136,7 @@ router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, 
     let externalApiUri = apiUtil.getExternalRestApiUri(req.params.domain);
     // make it  schemeless
     externalApiUri = externalApiUri.replace(new RegExp('https://'), '//');
-    let metawikiApiUri = app.conf.mobile_html_rest_api_base_uri
+    const metawikiApiUri = app.conf.mobile_html_rest_api_base_uri
         .replace(new RegExp('(https|http)://'), '//');
     const offlineResources = [
         `${metawikiApiUri}data/css/mobile/base`,

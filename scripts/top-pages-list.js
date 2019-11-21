@@ -129,7 +129,6 @@ const getTopPageViews = () => {
 const arg = process.argv[2];
 if (arg) {
     lang = arg;
-    // eslint-disable-next-line max-len
     topMonthlyPageViews = `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/${lang}.${PROJECT}/all-access/${YEAR}/${MONTH}/all-days`;
     outputFile = path.join(OUTPUT_DIR, `top-pages.${lang}.json`);
     parsoidBaseUri = `https://${lang}.${PROJECT}.org/api/rest_v1/page/html`;

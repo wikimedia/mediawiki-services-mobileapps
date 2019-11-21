@@ -116,7 +116,7 @@ class TestSpec {
     uriPath() {
         let path = `${this._domain}/v1/${this._route}`;
         if (this._parameters) {
-            for (let param of this._parameters) {
+            for (const param of this._parameters) {
                 path += `/${encodeURIComponent(param)}`;
             }
         }
@@ -225,7 +225,6 @@ class TestSpec {
      */
     generator() {
         if (this._parameters) {
-            // eslint-disable-next-line max-len
             return `    new TestSpec('${this._domain}', '${this._route}', ${TestSpec.toStringArrayCode(this._parameters)}),`;
         } else {
             return `    new TestSpec('${this._domain}', '${this._route}'),`;
@@ -233,7 +232,6 @@ class TestSpec {
     }
 }
 
-/* eslint-disable max-len */
 const TEST_SPECS = [
     new TestSpec('meta.wikimedia.org', 'data/javascript/mobile', ['pagelib'], { suffix: 'js' }),
     new TestSpec('meta.wikimedia.org', 'data/css/mobile', ['pagelib'], { suffix: 'css' }),

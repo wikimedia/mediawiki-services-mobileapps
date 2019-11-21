@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 'use strict';
 
 const assert = require('../../utils/assert.js');

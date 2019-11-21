@@ -1,7 +1,5 @@
 'use strict';
 
-/* global document */
-/* eslint-disable no-console */
 /* eslint-env browser */
 
 function toggleShow() {

@@ -1,14 +1,10 @@
-/* eslint-disable max-len */
-
 'use strict';
 
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const assert = require('../../utils/assert.js');
-const parsoidSections = require('../../../lib/sections/parsoidSections');
 const unit = require('../../../lib/summary').testing;
-const domino = require('domino');
 
 describe('lib:summary', () => {
     describe('buildExtracts', () => {

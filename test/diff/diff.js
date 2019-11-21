@@ -8,7 +8,7 @@ const testSpec = require('./test-spec');
 
 describe('diff', function() {
 
-    this.timeout(20000); // eslint-disable-line no-invalid-this
+    this.timeout(20000);
 
     before(() => server.start());
 

@@ -133,7 +133,6 @@ describe('lib:transforms', () => {
         // en.wikipedia.org/api/rest_v1/page/html/London/822677492
         it('removes IPA speaker symbols (en): IPAc-en in span', () => {
             test(
-                // eslint-disable-next-line max-len
                 '<span class="nowrap" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;IPAc-en&quot;,&quot;href&quot;:&quot;./Template:IPAc-en&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;ˈ&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;l&quot;},&quot;3&quot;:{&quot;wt&quot;:&quot;ʌ&quot;},&quot;4&quot;:{&quot;wt&quot;:&quot;n&quot;},&quot;5&quot;:{&quot;wt&quot;:&quot;d&quot;},&quot;6&quot;:{&quot;wt&quot;:&quot;ən&quot;},&quot;audio&quot;:{&quot;wt&quot;:&quot;En-uk-London.ogg&quot;}},&quot;i&quot;:0}}]}" id="mwDQ">[...]</span>',
                 '');
         });

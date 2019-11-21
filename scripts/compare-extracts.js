@@ -107,7 +107,6 @@ const uriForLocal = (domain, title, rev, port = NEW_PORT) => {
 
 const outputStart = (type, lang) => {
     const file = type.overviewFile;
-    /* eslint-disable max-len */
     file.write('<html>\n');
     file.write('<head>\n');
     file.write('<meta charset="UTF-8"/>\n');

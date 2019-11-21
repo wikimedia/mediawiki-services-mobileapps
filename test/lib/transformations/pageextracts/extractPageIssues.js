@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 'use strict';
 
 const domino = require('domino');
