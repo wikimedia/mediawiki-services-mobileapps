@@ -25,9 +25,8 @@ fi
 # there are updates, do them
 git pull;
 
-if echo -e "${flist}" | grep -i package.json > /dev/null; then
-    # package.json has been changed, need to rebuild the modules
-    rm -rf node_modules;
+if echo -e "${flist}" | grep -i package-lock.json > /dev/null; then
+    # package-lock.json has changed, need to rebuild the modules
     npm install;
 fi
 
