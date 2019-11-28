@@ -86,14 +86,12 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:County_Durham_UK_locator_map_2010.svg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Nilfanion\" title=\"User:Nilfanion\">Nilfanion</a>",
-        "text": "Nilfanion",
-        "name": "Nilfanion",
-        "user_page": "https://commons.wikimedia.org/wiki/User:Nilfanion"
+        "html": "<p><a href=\"//commons.wikimedia.org/wiki/User:Nilfanion\" title=\"User:Nilfanion\">Nilfanion</a>\n</p>",
+        "text": "Nilfanion"
       },
       "credit": {
-        "html": "<a href=\"https://en.wikipedia.org/wiki/Ordnance_Survey\" class=\"extiw\" title=\"w:Ordnance Survey\">Ordnance Survey</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ordnancesurvey.co.uk/opendatadownload/products.html\">OpenData</a>:\n<ul><li>County boundaries and GB coastline</li></ul>\n<p><a href=\"https://en.wikipedia.org/wiki/National_Geospatial-Intelligence_Agency\" class=\"extiw\" title=\"w:National Geospatial-Intelligence Agency\">National Geospatial-Intelligence Agency</a>\n</p>\n<ul><li>Irish, French and Isle of Man coastlines, Lough Neagh and Irish border</li></ul>",
-        "text": "Ordnance Survey OpenData:\nCounty boundaries and GB coastline\nNational Geospatial-Intelligence Agency\n\nIrish, French and Isle of Man coastlines, Lough Neagh and Irish border"
+        "html": "<p><a href=\"https://en.wikipedia.org/wiki/Ordnance_Survey\" class=\"extiw\" title=\"w:Ordnance Survey\">Ordnance Survey</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ordnancesurvey.co.uk/opendatadownload/products.html\">OpenData</a>:\n</p>\n<ul><li>County boundaries and GB coastline</li></ul>\n<p><a href=\"https://en.wikipedia.org/wiki/National_Geospatial-Intelligence_Agency\" class=\"extiw\" title=\"w:National Geospatial-Intelligence Agency\">National Geospatial-Intelligence Agency</a>\n</p>\n<ul><li>Irish, French and Isle of Man coastlines, Lough Neagh and Irish border</li></ul>",
+        "text": "Ordnance Survey OpenData:\n\nCounty boundaries and GB coastline\nNational Geospatial-Intelligence Agency\n\nIrish, French and Isle of Man coastlines, Lough Neagh and Irish border"
       },
       "license": {
         "type": "CC BY-SA 3.0",
@@ -255,10 +253,8 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Durham_County_Council.svg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Ch1902\" title=\"User:Ch1902\">Ch1902</a>",
-        "text": "Ch1902",
-        "name": "Ch1902",
-        "user_page": "https://commons.wikimedia.org/wiki/User:Ch1902"
+        "html": "<p><a href=\"//commons.wikimedia.org/wiki/User:Ch1902\" title=\"User:Ch1902\">Ch1902</a>\n</p>",
+        "text": "Ch1902"
       },
       "credit": {
         "html": "<ul>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Flag_of_County_Durham.png\" class=\"mw-redirect\" title=\"File:Flag of County Durham.png\">File:Flag_of_County_Durham.png</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Flag_of_Essex.svg\" title=\"File:Flag of Essex.svg\">File:Flag_of_Essex.svg</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Lippische_Rose.svg\" title=\"File:Lippische Rose.svg\">File:Lippische_Rose.svg</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Arms_of_the_Greater_London_Council.svg\" title=\"File:Arms of the Greater London Council.svg\">File:Arms_of_the_Greater_London_Council.svg</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Heraldic_Lion_02.svg\" title=\"File:Heraldic Lion 02.svg\">File:Heraldic_Lion_02.svg</a></li>\n</ul>",
@@ -486,13 +482,11 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:County_Durham_Population.png",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Pit-yacker\" title=\"User:Pit-yacker\">Pit-yacker</a>",
-        "text": "Pit-yacker",
-        "name": "Pit-yacker",
-        "user_page": "https://commons.wikimedia.org/wiki/User:Pit-yacker"
+        "html": "<p><a href=\"//commons.wikimedia.org/wiki/User:Pit-yacker\" title=\"User:Pit-yacker\">Pit-yacker</a>\n</p>",
+        "text": "Pit-yacker"
       },
       "credit": {
-        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "html": "<p><span class=\"int-own-work\" lang=\"en\">Own work</span>\n</p>",
         "text": "Own work"
       },
       "license": {
