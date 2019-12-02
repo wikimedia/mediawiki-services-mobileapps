@@ -99,7 +99,7 @@ function getMobileHtmlFromMobileview(req, res) {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
         mUtil.setETag(res, result.meta.revision);
-        // mUtil.setLanguageHeaders(res, response.parsoid.meta._headers);
+        mUtil.setLanguageHeaders(res, result.meta._headers);
         mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
 
         res.send(result.doc.outerHTML).end();
