@@ -33,11 +33,11 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:County_Durham_Flag.svg",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Martin23230&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Martin23230 (page does not exist)\">Martin23230</a>",
+        "html": "<p><a href=\"//commons.wikimedia.org/w/index.php?title=User:Martin23230&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Martin23230 (page does not exist)\">Martin23230</a>\n</p>",
         "text": "Martin23230"
       },
       "credit": {
-        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "html": "<p><span class=\"int-own-work\" lang=\"en\">Own work</span>\n</p>",
         "text": "Own work"
       },
       "license": {
@@ -144,11 +144,11 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Durham_Ceremonial_Numbered_2009.png",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Keith_Edkins\" title=\"User:Keith Edkins\">Keith Edkins</a>",
+        "html": "<p><a href=\"//commons.wikimedia.org/wiki/User:Keith_Edkins\" title=\"User:Keith Edkins\">Keith Edkins</a>\n</p>",
         "text": "Keith Edkins"
       },
       "credit": {
-        "html": "Own work, derived from <a href=\"//commons.wikimedia.org/wiki/File:Durham_Ceremonial_Numbered.png\" title=\"File:Durham Ceremonial Numbered.png\">File:Durham Ceremonial Numbered.png</a>",
+        "html": "<p>Own work, derived from <a href=\"//commons.wikimedia.org/wiki/File:Durham_Ceremonial_Numbered.png\" title=\"File:Durham Ceremonial Numbered.png\">File:Durham Ceremonial Numbered.png</a>\n</p>",
         "text": "Own work, derived from File:Durham Ceremonial Numbered.png"
       },
       "license": {
@@ -316,11 +316,11 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Durham_Palatinate.JPG",
       "artist": {
-        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Kaihsu\" title=\"User:Kaihsu\">Kaihsu Tai</a>",
+        "html": "<p><a href=\"//commons.wikimedia.org/wiki/User:Kaihsu\" title=\"User:Kaihsu\">Kaihsu Tai</a>\n</p>",
         "text": "Kaihsu Tai"
       },
       "credit": {
-        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "html": "<p><span class=\"int-own-work\" lang=\"en\">Own work</span>\n</p>",
         "text": "Own work"
       },
       "license": {
@@ -654,12 +654,11 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg",
       "artist": {
-        "html": "paul-simpson.org",
-        "text": "paul-simpson.org",
-        "name": "paul-simpson.org"
+        "html": "<p>paul-simpson.org\n</p>",
+        "text": "paul-simpson.org"
       },
       "credit": {
-        "html": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/paulsimpson1976/2669552570/\">https://www.flickr.com/photos/paulsimpson1976/2669552570/</a>",
+        "html": "<p><a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/paulsimpson1976/2669552570/\">https://www.flickr.com/photos/paulsimpson1976/2669552570/</a>\n</p>",
         "text": "https://www.flickr.com/photos/paulsimpson1976/2669552570/"
       },
       "license": {
@@ -710,7 +709,7 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:QESFC.jpg",
       "credit": {
-        "html": "I took this photo myself <a href=\"//commons.wikimedia.org/w/index.php?title=User:Squigglet&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Squigglet (page does not exist)\">Squigglet</a> 19:09, 2 March 2006 (UTC)",
+        "html": "<p>I took this photo myself <a href=\"//commons.wikimedia.org/w/index.php?title=User:Squigglet&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Squigglet (page does not exist)\">Squigglet</a> 19:09, 2 March 2006 (UTC)\n</p>",
         "text": "I took this photo myself Squigglet 19:09, 2 March 2006 (UTC)"
       },
       "license": {
