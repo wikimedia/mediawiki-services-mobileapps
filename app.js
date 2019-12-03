@@ -45,7 +45,8 @@ function initApp(options) {
         app.conf.cors = '*';
     }
     if (app.conf.csp === undefined) {
-        app.conf.csp = "default-src 'self'; object-src 'none'; media-src *; img-src *; style-src *; frame-ancestors 'self'";
+        app.conf.csp = "default-src 'self'; object-src 'none'; media-src app://upload.wikimedia.org https://upload.wikimedia.org 'self'; " +
+            "img-src app://upload.wikimedia.org https://upload.wikimedia.org 'self' data:; style-src *; frame-ancestors 'self'";
     }
 
    /**
@@ -60,7 +61,8 @@ function initApp(options) {
     *   We need to specifically allow data: URIs for the buttons from pagelib.
     */
     if (app.conf.mobile_html_csp === undefined) {
-        app.conf.mobile_html_csp = "default-src 'none'; connect-src https://*.wikipedia.org; media-src *; img-src * data:; " +
+        app.conf.mobile_html_csp = "default-src 'none'; connect-src https://*.wikipedia.org;" +
+            "media-src app://upload.wikimedia.org https://upload.wikimedia.org 'self'; img-src app://upload.wikimedia.org https://upload.wikimedia.org 'self' data:; " +
             "script-src app://meta.wikimedia.org https://meta.wikimedia.org 'unsafe-inline'; " +
             "object-src 'none'; " +
             "style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org 'self' 'unsafe-inline'; " +
