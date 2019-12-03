@@ -216,8 +216,9 @@ const handleClickEvent = event => {
 
   // Handle edit links.
   if (anchorForTarget.getAttribute('data-action') === 'edit_section') {
-    postMessage(new Interaction(Actions.EditSection,
-      { sectionId: anchorForTarget.getAttribute('data-id') }))
+    const sectionId = anchorForTarget.getAttribute('data-id') || undefined
+    const descriptionSource = anchorForTarget.getAttribute('data-description-source') || undefined
+    postMessage(new Interaction(Actions.EditSection, { sectionId, descriptionSource }))
     return
   }
 

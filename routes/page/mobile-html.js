@@ -1,7 +1,6 @@
 'use strict';
 
 const BBPromise = require('bluebird');
-const domUtil = require('../../lib/domUtil');
 const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
 const mobileviewHtml = require('../../lib/mobileview-html');
@@ -9,7 +8,6 @@ const apiUtil = require('../../lib/api-util');
 const parsoidApi = require('../../lib/parsoid-access');
 const preprocessParsoidHtml = require('../../lib/processing');
 const sUtil = require('../../lib/util');
-const transforms = require('../../lib/transforms');
 
 /**
  * The main router object
