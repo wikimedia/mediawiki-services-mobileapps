@@ -62,8 +62,8 @@ services:
       # the user agent to use when issuing requests
       mobile_html_rest_api_base_uri: "//localhost:6927/api/v1/"
       mobile_html_csp: "default-src 'none'; connect-src http://localhost:7231 http://*.wikipedia.org;
-      media-src app://upload.wikimedia.org https://upload.wikimedia.org 'self';
-      img-src app://upload.wikimedia.org https://upload.wikimedia.org 'self' data:;
+      media-src upload.wikimedia.org 'self';
+      img-src upload.wikimedia.org 'self' data:;
       script-src app://localhost:6927 http://localhost:6927 'self' 'unsafe-inline'; style-src app://localhost http://localhost app://*.wikipedia.org http://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'"
       user_agent: WMF Mobile Content Service dev
       #
