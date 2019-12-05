@@ -2,7 +2,7 @@
 
 const assert = require('../../utils/assert.js');
 const buildUrls = require('../../../lib/mwapi').buildLeadImageUrls;
-const scale = require('../../../lib/mwapi').scaledThumbUrl;
+const scale = require('../../../lib/thumbnail').scaleURL;
 
 const path = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0';
 

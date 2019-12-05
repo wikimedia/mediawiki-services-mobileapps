@@ -15,9 +15,7 @@ describe('lib:addPageHeader', () => {
                 description: 'short desc',
                 description_source: 'central',
             },
-            parsoid: {
-                meta: { pronunciation: { url: 'foo' } }
-            }
+            pronunciation: { url: 'foo' }
         });
 
         const header = document.body.querySelector('header');
@@ -36,7 +34,7 @@ describe('lib:addPageHeader', () => {
 
     it('addPageHeader handles documents with no section elements', () => {
         const doc = domino.createDocument();
-        const meta = { mw: {}, parsoid: { meta: {} } };
+        const meta = { mw: {} };
         try {
             addPageHeader(doc, meta);
             assert.ok(true);

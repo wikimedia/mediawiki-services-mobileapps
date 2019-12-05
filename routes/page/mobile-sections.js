@@ -9,6 +9,7 @@ const parsoid = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
 const transforms = require('../../lib/transforms');
 const preprocessParsoidHtml = require('../../lib/processing');
+const mwapiConstants = require('../../lib/mwapi-constants');
 
 /**
  * The main router object
@@ -235,7 +236,7 @@ function _collectRawPageData(app, req) {
     return mwapi.getSiteInfo(req)
     .then(si => BBPromise.props({
         page: parsoid.pageJsonPromise(app, req),
-        meta: mwapi.getMetadataForMobileSections(req, mwapi.LEAD_IMAGE_XL),
+        meta: mwapi.getMetadataForMobileSections(req, mwapiConstants.LEAD_IMAGE_XL),
         title: mwapi.getTitleObj(req.params.title, si)
     })).then((interimState) => {
         return _handleNamespaceAndSpecialCases(req, interimState);

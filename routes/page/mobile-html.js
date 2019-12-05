@@ -4,7 +4,7 @@ const BBPromise = require('bluebird');
 const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
 const mobileviewHtml = require('../../lib/mobileview-html');
-const apiUtil = require('../../lib/api-util');
+const apiUtilConstants = require('../../lib/api-util-constants');
 const parsoidApi = require('../../lib/parsoid-access');
 const preprocessParsoidHtml = require('../../lib/processing');
 const sUtil = require('../../lib/util');
@@ -19,79 +19,42 @@ const router = sUtil.router();
  */
 let app;
 
-/**
- * GET {domain}/v1/page/mobile-compat-html/{title}{/revision}{/tid}
- * Gets in HTML. This is based on Parsoid with some minor modifications more
- * suitable for the reading use cases.
- */
-router.get('/page/mobile-compat-html/:title/:revision?/:tid?', (req, res) => {
-    return parsoidApi.mobileHTMLDocumentPromise(app, req, false)
-    .then((response) => {
-        res.status(200);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
-        mUtil.setETag(res, response.meta.revision);
-        mUtil.setLanguageHeaders(res, response.meta._headers);
-        mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-        // Don't poison the client response with the internal _headers object
-        delete response.meta._headers;
-        res.send(response.document.outerHTML).end();
-    });
-});
-
 function getMobileHtmlFromPOST(req, res) {
     const html = req.body && req.body.html || req.body;
     return BBPromise.props({
-        parsoid: parsoidApi.preprocessedMobileHTMLDocumentPromise(app, req, html, true),
+        mobileHTML: parsoidApi.mobileHTMLPromiseFromHTML(app, req, html),
         mw: mwapi.getMetadataForMobileHtml(req)
     }).then((response) => {
-        return BBPromise.props({
-            // run another processing script after we've retrieved the metadata response from MW API
-            processedParsoidResponse: preprocessParsoidHtml(response.parsoid.document,
-                app.conf.processing_scripts['mobile-html-post-meta'],
-                { mw: response.mw, parsoid: response.parsoid }),
-            parsoid: BBPromise.resolve(response.parsoid),
-            mw: BBPromise.resolve(response.mw)
-        });
-    }).then((response) => {
+        response.mobileHTML.addMediaWikiMetadata(response.mw);
+        return response.mobileHTML;
+    }).then((mobileHTML) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
-        mUtil.setLanguageHeaders(res, response.parsoid.meta._headers);
+        mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
         mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-        // Don't poison the client response with the internal _headers object
-        delete response.parsoid.meta._headers;
-
-        res.send(response.processedParsoidResponse.outerHTML).end();
+        res.send(mobileHTML.doc.outerHTML).end();
     });
 }
 
 function getMobileHtmlFromParsoid(req, res) {
     return BBPromise.props({
-        parsoid: parsoidApi.mobileHTMLDocumentPromise(app, req, true),
+        mobileHTML: parsoidApi.mobileHTMLPromise(app, req),
         mw: mwapi.getMetadataForMobileHtml(req)
     }).then((response) => {
-        return BBPromise.props({
-            // run another processing script after we've retrieved the metadata response from MW API
-            processedParsoidResponse: preprocessParsoidHtml(response.parsoid.document,
-                app.conf.processing_scripts['mobile-html-post-meta'],
-                { mw: response.mw, parsoid: response.parsoid }),
-            parsoid: BBPromise.resolve(response.parsoid),
-            mw: BBPromise.resolve(response.mw)
-        });
-    }).then((response) => {
+        response.mobileHTML.addMediaWikiMetadata(response.mw);
+        return response.mobileHTML;
+    }).then((mobileHTML) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
-        mUtil.setETag(res, response.parsoid.meta.revision);
-        mUtil.setLanguageHeaders(res, response.parsoid.meta._headers);
+        mUtil.setETag(res, mobileHTML.metadata.revision);
+        mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
         mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-        // Don't poison the client response with the internal _headers object
-        delete response.parsoid.meta._headers;
-
-        res.send(response.processedParsoidResponse.outerHTML).end();
+        res.send(mobileHTML.doc.outerHTML).end();
     });
 }
 
 function getMobileHtmlFromMobileview(req, res) {
-    const scripts = app.conf.processing_scripts['mobile-html'];
+    const scripts = [];
     const baseURI = app.conf.mobile_html_rest_api_base_uri;
     mobileviewHtml.requestAndProcessPage(req, scripts, baseURI).then((result) => {
         res.status(200);
@@ -131,7 +94,7 @@ router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, 
     mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
 
     // Get external API URI
-    let externalApiUri = apiUtil.getExternalRestApiUri(req.params.domain);
+    let externalApiUri = apiUtilConstants.getExternalRestApiUri(req.params.domain);
     // make it  schemeless
     externalApiUri = externalApiUri.replace(new RegExp('https://'), '//');
     const metawikiApiUri = app.conf.mobile_html_rest_api_base_uri

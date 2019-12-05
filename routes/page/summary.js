@@ -3,6 +3,7 @@
 const lib = require('../../lib/summary');
 const BBPromise = require('bluebird');
 const mwapi = require('../../lib/mwapi');
+const mwapiConstants = require('../../lib/mwapi-constants');
 const mUtil = require('../../lib/mobile-util');
 const parsoid = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
@@ -24,7 +25,7 @@ let app;
 router.get('/summary/:title/:revision?/:tid?', (req, res) => {
     return BBPromise.join(
         parsoid.getParsoidHtml(req),
-        mwapi.getMetadataForSummary(req, mwapi.LEAD_IMAGE_S),
+        mwapi.getMetadataForSummary(req, mwapiConstants.LEAD_IMAGE_S),
         mwapi.getSiteInfo(req),
         (html, meta, siteinfo) => {
             const revTid = parsoid.getRevAndTidFromEtag(html.headers);

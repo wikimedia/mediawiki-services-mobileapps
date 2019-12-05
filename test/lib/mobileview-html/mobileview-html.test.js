@@ -2,7 +2,7 @@
 
 const domino = require('domino');
 const assert = require('../../utils/assert');
-const lib = require('../../../lib/mobileview-html');
+const lib = require('../../../lib/mobile/MobileViewHTML');
 
 describe('lib:mobileview-html', () => {
     describe('buildSection', () => {
