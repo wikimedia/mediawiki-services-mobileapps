@@ -226,7 +226,8 @@ pcs.c1.Footer.add({
   clientVersion: '6.2.1',
   title: 'Knight Lore',
   menu: {
-    items: [pcs.c1.Footer.MenuItemType.languages, pcs.c1.Footer.MenuItemType.lastEdited, pcs.c1.Footer.MenuItemType.pageIssues, pcs.c1.Footer.MenuItemType.disambiguation, pcs.c1.Footer.MenuItemType.talkPage, pcs.c1.Footer.MenuItemType.referenceList]
+    items: [pcs.c1.Footer.MenuItemType.languages, pcs.c1.Footer.MenuItemType.lastEdited, pcs.c1.Footer.MenuItemType.pageIssues, pcs.c1.Footer.MenuItemType.disambiguation, pcs.c1.Footer.MenuItemType.talkPage, pcs.c1.Footer.MenuItemType.referenceList],
+    fragment: "pcs-menu"
   },
   l10n: { 
     'readMoreHeading': 'Read more',
@@ -245,7 +246,8 @@ pcs.c1.Footer.add({
   },
   readMore: { 
     itemCount: 3,
-    baseURL: 'https://en.wikipedia.org/api/rest_v1'
+    baseURL: 'https://en.wikipedia.org/api/rest_v1',
+    fragment: "pcs-read-more"
   }
 })
 ```

@@ -313,7 +313,7 @@ const getSelectionInfo = optionalWindow => {
 
 /**
  * Sets the interaction handler function.
- * @param {~Function} myHandlerFunction a platform specific bridge function.
+ * @param {!Function} myHandlerFunction a platform specific bridge function.
  * On iOS consider using something like:
  *   (interaction) => { window.webkit.messageHandlers.interaction.postMessage(interaction) }
  * On Android consider using something like:

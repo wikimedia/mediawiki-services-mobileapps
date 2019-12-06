@@ -20,10 +20,14 @@ const _connectHandlers = newHandlers => {
  * Adds footer to the end of the document
  * @param {!Object.<any>} params parameters as follows
  *   {!string} title article title for related pages
- *   {!array<string>} menuItems menu items to add
+ *   {!map} menu
+ *       {!array<string>} items menu items to add
+ *       {!string} fragment anchor for the menu
+ *   {!map} readMore
+ *       {!number} itemCount number of read more items to add
+ *       {!string} fragment anchor for read more
+ *       {!string} baseURL base url for RESTBase to fetch read more
  *   {!map} l10n localized strings
- *   {!number} readMoreItemCount number of read more items to add
- *   {!string} readMoreBaseURL base url for RESTBase to fetch read more
  * @return {void}
  */
 const add = params => {
