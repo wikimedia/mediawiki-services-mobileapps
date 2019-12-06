@@ -15,7 +15,12 @@ const IDS = {
   PRONUNCIATION: 'pcs-edit-section-title-pronunciation'
 }
 
-const DATA_ATTRIBUTE = { SECTION_INDEX: 'data-id', ACTION: 'data-action' }
+const DATA_ATTRIBUTE = { 
+  SECTION_INDEX: 'data-id',
+  ACTION: 'data-action',
+  PRONUNCIATION_URL: 'data-pronunciation-url',
+  DESCRIPTION_SOURCE: 'data-description-source'
+}
 const ACTION_EDIT_SECTION = 'edit_section'
 const ACTION_TITLE_PRONUNCIATION = 'title_pronunciation'
 const ACTION_ADD_TITLE_DESCRIPTION = 'add_title_description'
@@ -128,11 +133,12 @@ const newEditSectionHeader = (document, index, level, titleHTML, showEditPencil 
  * @param {?boolean} isTitleDescriptionEditable Whether title description is editable.
  * @return {?HTMLElement}
  */
-const titleDescriptionElements = (document, titleDescription, addTitleDescriptionString,
+const titleDescriptionElements = (document, titleDescription, titleDescriptionSource, addTitleDescriptionString,
   isTitleDescriptionEditable) => {
   const descriptionExists = titleDescription !== undefined && titleDescription.length > 0
   if (descriptionExists) {
     const p = document.createElement('p')
+    p.setAttribute(DATA_ATTRIBUTE.DESCRIPTION_SOURCE, titleDescriptionSource)
     p.id = IDS.TITLE_DESCRIPTION
     p.innerHTML = titleDescription
     return p
@@ -157,23 +163,25 @@ const titleDescriptionElements = (document, titleDescription, addTitleDescriptio
  * @param {!Document} document
  * @param {?string} pageDisplayTitle Page display title.
  * @param {?string} titleDescription Page title description.
+ * @param {?string} titleDescriptionSource Page title description source - "central" or "local".
  * @param {?string} addTitleDescriptionString Localized string e.g. 'Add title description'.
  * @param {?boolean} isTitleDescriptionEditable Whether title description is editable.
  * @param {?boolean} showEditPencil Whether to show the "edit" pencil (default is true).
- * @param {?boolean} hasPronunciation Whether to show pronunciation speaker icon (default is false).
+ * @param {?string} pronunciationURL URL for the pronunciation - will show the speaker when provided.
  * @return {!HTMLElement}
  */
-const newEditLeadSectionHeader = (document, pageDisplayTitle, titleDescription,
+const newEditLeadSectionHeader = (document, pageDisplayTitle, titleDescription, titleDescriptionSource,
   addTitleDescriptionString, isTitleDescriptionEditable, showEditPencil = true,
-  hasPronunciation = false) => {
+  pronunciationURL) => {
 
   const container = document.createDocumentFragment()
 
   const header = newEditSectionHeader(document, 0, 1, pageDisplayTitle, showEditPencil)
 
-  if (hasPronunciation) {
+  if (pronunciationURL) {
     const a = document.createElement('a')
     a.setAttribute(DATA_ATTRIBUTE.ACTION, ACTION_TITLE_PRONUNCIATION)
+    a.setAttribute(DATA_ATTRIBUTE.PRONUNCIATION_URL, pronunciationURL)
     a.id = IDS.PRONUNCIATION
     header.querySelector('h1').appendChild(a)
   }
@@ -181,7 +189,7 @@ const newEditLeadSectionHeader = (document, pageDisplayTitle, titleDescription,
   container.appendChild(header)
 
   const descriptionElements = titleDescriptionElements(document, titleDescription,
-    addTitleDescriptionString, isTitleDescriptionEditable)
+    titleDescriptionSource, addTitleDescriptionString, isTitleDescriptionEditable)
 
   if (descriptionElements) {
     container.appendChild(descriptionElements)
@@ -197,7 +205,8 @@ const newEditLeadSectionHeader = (document, pageDisplayTitle, titleDescription,
 export default {
   appendEditSectionHeader,
   CLASS,
-  ADD_TITLE_DESCRIPTION: IDS.ADD_TITLE_DESCRIPTION,
+  IDS,
+  DATA_ATTRIBUTE,
   setEditButtons,
   newEditSectionButton,
   newEditSectionHeader,
