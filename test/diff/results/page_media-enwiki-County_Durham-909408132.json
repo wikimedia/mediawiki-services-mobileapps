@@ -654,11 +654,12 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Durham_Miners_Gala_2008_Old_Elvet_Bridge.jpg",
       "artist": {
-        "html": "<p>paul-simpson.org\n</p>",
-        "text": "paul-simpson.org"
+        "html": "paul-simpson.org",
+        "text": "paul-simpson.org",
+        "name": "paul-simpson.org"
       },
       "credit": {
-        "html": "<p><a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/paulsimpson1976/2669552570/\">https://www.flickr.com/photos/paulsimpson1976/2669552570/</a>\n</p>",
+        "html": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/paulsimpson1976/2669552570/\">https://www.flickr.com/photos/paulsimpson1976/2669552570/</a>",
         "text": "https://www.flickr.com/photos/paulsimpson1976/2669552570/"
       },
       "license": {
