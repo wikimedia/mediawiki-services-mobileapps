@@ -3,7 +3,7 @@ import EditTransform from '../../transform/EditTransform'
 import Polyfill from '../../transform/Polyfill'
 
 const selectors = {
-  addTitleDescription: `#${EditTransform.ADD_TITLE_DESCRIPTION}`,
+  addTitleDescription: `#${EditTransform.IDS.ADD_TITLE_DESCRIPTION}`,
   tableInfobox: `.${CollapseTable.CLASS.TABLE_INFOBOX}`,
   tableOther: `.${CollapseTable.CLASS.TABLE_OTHER}`,
   tableClose: `.${CollapseTable.CLASS.COLLAPSED_BOTTOM}`,

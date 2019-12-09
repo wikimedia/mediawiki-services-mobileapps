@@ -3,7 +3,7 @@ import Footer from './Footer'
 import LazyLoadTransform from '../../transform/LazyLoadTransform'
 import ReferenceCollection from '../../transform/ReferenceCollection'
 import SectionUtilities from '../../transform/SectionUtilities'
-
+import EditTransform from '../../transform/EditTransform'
 /**
  * Type of actions users can click which may need to be handled by the native side.
  * @type {!Object}
@@ -217,8 +217,13 @@ const handleClickEvent = event => {
   // Handle edit links.
   if (anchorForTarget.getAttribute('data-action') === 'edit_section') {
     const sectionId = anchorForTarget.getAttribute('data-id') || undefined
-    const descriptionSource = anchorForTarget.getAttribute('data-description-source') || undefined
-    postMessage(new Interaction(Actions.EditSection, { sectionId, descriptionSource }))
+    const data = { sectionId }
+    if (sectionId && sectionId == 0) {
+      const descriptionElement = document.getElementById(EditTransform.IDS.TITLE_DESCRIPTION)
+      const descriptionSource = descriptionElement && descriptionElement.getAttribute(EditTransform.DATA_ATTRIBUTE.DESCRIPTION_SOURCE) || undefined
+      data.descriptionSource = descriptionSource
+    }
+    postMessage(new Interaction(Actions.EditSection, data))
     return
   }
 
@@ -230,7 +235,8 @@ const handleClickEvent = event => {
 
   // Handle audio pronunciation button.
   if (anchorForTarget.getAttribute('data-action') === 'title_pronunciation') {
-    postMessage(new Interaction(Actions.PronunciationClicked))
+    const url = anchorForTarget.getAttribute(EditTransform.DATA_ATTRIBUTE.PRONUNCIATION_URL) || undefined
+    postMessage(new Interaction(Actions.PronunciationClicked, { url }))
     return
   }
 
