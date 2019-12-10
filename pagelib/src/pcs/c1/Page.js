@@ -10,6 +10,8 @@ import PlatformTransform from '../../transform/PlatformTransform'
 import Scroller from './Scroller'
 import ThemeTransform from '../../transform/ThemeTransform'
 
+const unitsRegex = /[^0-9]+$/
+
 /**
  * @typedef {function} OnSuccess
  * @return {void}
@@ -27,19 +29,56 @@ import ThemeTransform from '../../transform/ThemeTransform'
 const setup = (optionalSettings, onSuccess) => {
   const settings = optionalSettings || {}
   if (settings.platform !== undefined) {
-    PlatformTransform.setPlatform(document, settings.platform)
+    PlatformTransform.setPlatform(document, PlatformTransform.CLASS_PREFIX + settings.platform)
   }
   if (settings.l10n !== undefined) {
     L10N.localizeLabels(settings.l10n)
   }
   if (settings.theme !== undefined) {
-    ThemeTransform.setTheme(document, settings.theme)
+    ThemeTransform.setTheme(document, ThemeTransform.CLASS_PREFIX + settings.theme)
   }
   if (settings.dimImages !== undefined) {
     DimImagesTransform.dimImages(document, settings.dimImages)
   }
-  if (settings.margins !== undefined) {
-    BodySpacingTransform.setMargins(document.body, settings.margins)
+  let metaTags // lazy load these to avoid a double query selector
+  if (settings.margins !== undefined || settings.leadImageHeight !== undefined) {
+    const margins = settings.margins || {}
+    if (settings.leadImageHeight !== undefined) {
+      if (!metaTags) {
+        metaTags = getMetaTags()
+      }
+      const leadImage = getLeadImageFromMetaTags(metaTags)
+      if (leadImage.source) {
+        if (margins.top) {
+          const top = parseFloat(margins.top, 10)
+          const height = parseFloat(settings.leadImageHeight, 10)
+          const units = margins.top.match(unitsRegex) || ""
+          margins.top =  top + height + units
+        } else {
+          margins.top = settings.leadImageHeight
+        }
+      }
+    }
+    BodySpacingTransform.setMargins(document.body, margins)
+  }
+  if (settings.userGroups !== undefined) {
+    if (!metaTags) {
+      metaTags = getMetaTags()
+    }
+    const protection = getProtectionFromMetaTags(metaTags)
+    let isEditable = true
+    let isProtected = false
+    if (protection.edit) {
+      isProtected = true
+      for (let i = 0; i < settings.userGroups.length; i++) {
+        let userGroup = settings.userGroups[i]
+        if (userGroup === protection.edit) {
+          isProtected = false
+          break
+        }
+      }
+    }
+    setEditButtons(isEditable, isProtected)
   }
   if (settings.setupTableEventHandling === undefined || settings.setupTableEventHandling) {
     const isInitiallyCollapsed = settings.areTablesInitiallyExpanded !== true
@@ -62,7 +101,6 @@ const setup = (optionalSettings, onSuccess) => {
     lazyLoader.collectExistingPlaceholders(document.body)
     lazyLoader.loadPlaceholders()
   }
-
   if (onSuccess instanceof Function) {
     if (window && window.requestAnimationFrame) {
       // request animation frame and set timeout before callback to ensure paint occurs
@@ -208,11 +246,12 @@ const getTableOfContents = () => {
 }
 
 /**
- * Get protection information for the page
+ * Get protection information for the page from given meta tags
+ * @private
+ * @param {!array} metaTags
  * @return {!map}
  */
-const getProtection = () => {
-  const metaTags = document.head.querySelectorAll('meta')
+const getProtectionFromMetaTags = (metaTags) => {
   const protection = {}
   const protectionPrefix = 'mw:pageProtection:'
   const protectionPrefixLength = protectionPrefix.length
@@ -223,6 +262,61 @@ const getProtection = () => {
     }
   })
   return protection
+}
+
+/**
+ * Return meta tags for the page
+ * @private
+ * @return {!array}
+ */
+const getMetaTags = () => {
+  return document.head.querySelectorAll('meta')
+}
+
+/**
+ * Get protection information for the page
+ * @return {!map}
+ */
+const getProtection = () => {
+  return getProtectionFromMetaTags(getMetaTags())
+}
+
+
+/**
+ * Gets the lead image for a page
+ * @private
+ * @param {!array} metaTags
+ * @return {!map}
+ */
+const getLeadImageFromMetaTags = (metaTags) => {
+  const image = {}
+  const leadImageProperty = 'mw:leadImage'
+  for (let i = 0; i < metaTags.length; i++) {
+    let metaTag = metaTags[i]
+    const property = metaTag.getAttribute('property')
+    if (!property || property !== leadImageProperty) {
+      continue
+    }
+    image.source =  metaTag.getAttribute('content')
+    const widthString = metaTag.getAttribute('data-file-width')
+    if (widthString) {
+      image.width = parseInt(widthString, 10)
+    }
+    const heightString = metaTag.getAttribute('data-file-height')
+    if (heightString) {
+      image.height = parseInt(heightString, 10)
+    }
+    break
+  }
+  return image
+}
+
+/**
+ * Gets the lead image for a page
+ * @return {!map}
+ */
+const getLeadImage = () => {
+  return getLeadImageFromMetaTags(getMetaTags())
 }
 
 /**
@@ -265,11 +359,12 @@ const onBodyStart = () => {
   if (document.pcsSetupSettings) {
     const preSettings = {
       margins: document.pcsSetupSettings.margins,
+      leadImageHeight: document.pcsSetupSettings.leadImageHeight,
+      userGroups: document.pcsSetupSettings.userGroups,
+      theme: document.pcsSetupSettings.theme,
+      platform: document.pcsSetupSettings.platform,
       loadImages: false,
       setupTableEventHandling: false
-    }
-    if (document.pcsSetupSettings.theme) {
-      preSettings.theme = 'pcs-theme-' + document.pcsSetupSettings.theme
     }
     setup(preSettings, initialSetupCompletion)
     return
@@ -279,32 +374,13 @@ const onBodyStart = () => {
     loadImages: false,
     setupTableEventHandling: false
   }
+
   const href = document.location && document.location.href
-  if (!href) {
-    return
-  }
-
-  const match = href.match(/[?&]t=([dbs])(?:&|$)/)
-  if (!match || match.length < 2) {
-    return
-  }
-
-  const theme = match[1]
-  switch (theme) {
-  case 'd':
-    // eslint-disable-next-line no-undef
-    defaultInitialSettings.theme = pcs.c1.Themes.DARK
-    break
-  case 'b':
-    // eslint-disable-next-line no-undef
-    defaultInitialSettings.theme = pcs.c1.Themes.BLACK
-    break
-  case 's':
-    // eslint-disable-next-line no-undef
-    defaultInitialSettings.theme = pcs.c1.Themes.SEPIA
-    break
-  default:
-    break
+  if (href) {
+    const match = href.match(/[?&]theme=([a-z]+)(?:&|$)/)
+    if (match && match.length > 1) {
+      defaultInitialSettings.theme = match[1]
+    }
   }
 
   setup(defaultInitialSettings, initialSetupCompletion)
@@ -331,6 +407,9 @@ const onBodyEnd = () => {
     const postSettings = document.pcsSetupSettings
     delete postSettings.theme
     delete postSettings.margins
+    delete postSettings.userGroups
+    delete postSettings.leadImageHeight
+    delete postSettings.platform
     postSettings.setupTableEventHandling = true
     setup(postSettings, finalSetupComplete)
     remainingContentTimeout = document.pcsSetupSettings.remainingTimeout || remainingContentTimeout
@@ -356,6 +435,7 @@ export default {
   setScrollTop,
   setTextSizeAdjustmentPercentage,
   setEditButtons,
+  getLeadImage,
   getProtection,
   getRevision,
   getTableOfContents,

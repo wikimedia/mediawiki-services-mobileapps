@@ -1,11 +1,12 @@
 import './ThemeTransform.css'
 
+const CLASS_PREFIX = 'pcs-theme-'
 // Theme to CSS classes.
 const THEME = {
-  DEFAULT: 'pcs-theme-default',
-  DARK: 'pcs-theme-dark',
-  SEPIA: 'pcs-theme-sepia',
-  BLACK: 'pcs-theme-black'
+  DEFAULT: CLASS_PREFIX + 'default',
+  DARK: CLASS_PREFIX + 'dark',
+  SEPIA: CLASS_PREFIX + 'sepia',
+  BLACK: CLASS_PREFIX + 'black'
 }
 
 
@@ -49,5 +50,6 @@ const setTheme = (document, theme) => {
 
 export default {
   THEME,
+  CLASS_PREFIX,
   setTheme
 }

@@ -50,16 +50,18 @@ These should not be called directly by the clients. They will be invoked automat
 Combination of the following calls, changing multiple settings in one single call. The settings are kept in an object. Calling this directly is not required if you set `document.pcsSetupSettings` or a `pcsClient` as defined above.
 
 Setting parameter object fields:
-- platform: possible values in pcs.c1.Platforms: [IOS, ANDROID] 
+- platform: possible values are 'ios' and 'android'
 - clientVersion: string of client version (platform specific)
 - l10n: object of localized user visible strings: { addTitleDescription, tableInfobox, tableOther, tableClose }
 - loadImages: will images be loaded (defaults to true if omitted)
-- theme: possible values in pcs.c1.Themes: [DEFAULT, SEPIA, DARK, BLACK]
+- theme: possible values are 'default', 'sepia', 'dark', and 'black'
 - dimImages: boolean
 - margins: object with { top, right, bottom, left }
+- leadImageHeight: string that is conditionally added to margins.top if there's a lead image on the page. Units should match margins.top if provided
 - areTablesInitiallyExpanded: boolean (Default: tables are collapsed)
 - scrollTop: number of pixel for highest position to scroll to. Use this to adjust for any decor overlaying the viewport.
 (The first four fields don't have any equivalent separate call since those don't make sense to change after the fact.)
+- userGroups: list of strings of user roles to determine which edit pencils to show example: ['autoconfirmed']
 
 Callback parameter: 
 Function called after all settings are applied.
@@ -67,7 +69,7 @@ Function called after all settings are applied.
 Example:
 ```
 pcs.c1.Page.setup({
-  platform: pcs.c1.Platforms.IOS,
+  platform: 'ios',
   clientVersion: '6.2.1',
   l10n: { 
     addTitleDescription: 'Titelbeschreibung bearbeiten',
@@ -75,13 +77,15 @@ pcs.c1.Page.setup({
     tableOther: 'Weitere Informationen',
     tableClose: 'Schließen'
   },
-  theme: pcs.c1.Themes.SEPIA,
+  theme: 'sepia',
   dimImages: true,
   margins: { top: '32px', right: '32px', bottom: '32px', left: '32px' },
+  leadImageHeight: '100px',
   areTablesInitiallyExpanded: true,
   textSizeAdjustmentPercentage: '100%',
   scrollTop: 64,
-  loadImages: true
+  loadImages: true,
+  userGroups: ['autoconfirmed']
 },
 callback) // optional callback function to be called after all settings are applied
 ```
