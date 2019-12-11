@@ -56,14 +56,13 @@ function getMobileHtmlFromParsoid(req, res) {
 function getMobileHtmlFromMobileview(req, res) {
     const scripts = [];
     const baseURI = app.conf.mobile_html_rest_api_base_uri;
-    mobileviewHtml.requestAndProcessPage(req, scripts, baseURI).then((result) => {
+    mobileviewHtml.requestAndProcessPageIntoMobileHTML(req, scripts, baseURI).then((mobileHTML) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
-        mUtil.setETag(res, result.meta.revision);
-        mUtil.setLanguageHeaders(res, result.meta._headers);
+        mUtil.setETag(res, mobileHTML.metadata.revision);
+        mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
         mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-
-        res.send(result.doc.outerHTML).end();
+        res.send(mobileHTML.doc.outerHTML).end();
     });
 }
 
