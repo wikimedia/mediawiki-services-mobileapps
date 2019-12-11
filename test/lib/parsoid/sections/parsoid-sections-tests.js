@@ -6,7 +6,7 @@ const assert = require('../../../utils/assert.js');
 const domino = require('domino');
 const sinon = require('sinon');
 const parsoidSections = require('../../../../lib/sections/parsoidSections');
-const shouldWarn = parsoidSections.testing.shouldLogInvalidSectionWarning;
+const shouldWarn = parsoidSections.testing.shouldLogInvalidSectionNotice;
 const validatePreviousSection = parsoidSections.testing.validatePreviousSection;
 
 describe('lib:parsoid-sections (section elements)', function() {
@@ -172,7 +172,7 @@ describe('lib:parsoid-sections (section elements)', function() {
         validatePreviousSection(logger, allSectionsWarn);
         assert.ok(logger.log.calledOnce);
         assert.deepEqual(logger.log.args,
-            [[ 'warn/sectioning', {
+            [[ 'debug/sectioning', {
                 msg: 'Cannot find heading for section',
                 section_number: 1
             }]]);
