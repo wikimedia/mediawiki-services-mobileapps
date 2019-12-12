@@ -31,11 +31,11 @@ function buildReferences(meta, document, logger) {
 function commonEnd(res, result, req) {
     res.status(200);
     mUtil.setContentType(res, mUtil.CONTENT_TYPES.references);
-    mUtil.setETag(res, result.meta.revision);
-    mUtil.setLanguageHeaders(res, result.meta._headers);
+    mUtil.setETag(res, result.metadata.revision);
+    mUtil.setLanguageHeaders(res, result.metadata._headers);
     // Don't poison the client response with the internal _headers object
-    delete result.meta._headers;
-    res.json(buildReferences(result.meta, result.doc, req.logger)).end();
+    delete result.metadata._headers;
+    res.json(buildReferences(result.metadata, result.doc, req.logger)).end();
 }
 
 function getReferencesFromParsoid(req, res) {
@@ -48,7 +48,7 @@ function getReferencesFromParsoid(req, res) {
 function getReferencesFromMobileview(req, res) {
     const scripts = app.conf.processing_scripts.references;
     const baseURI = app.conf.mobile_html_rest_api_base_uri;
-    return mobileviewHtml.requestAndProcessPage(req, scripts, baseURI)
+    return mobileviewHtml.requestAndProcessPageIntoParsoid(req, scripts, baseURI)
     .then((result) => {
         commonEnd(res, result, req);
     });
