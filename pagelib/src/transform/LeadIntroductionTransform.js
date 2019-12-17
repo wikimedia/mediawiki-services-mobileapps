@@ -53,7 +53,7 @@ const getEligibleParagraph = (document, container) => {
     return
   }
 
-  let el = container.firstElementChild;
+  let el = container.firstElementChild
   while (el) {
     if (el.tagName == 'P' && isParagraphEligible(el)) {
       return el
@@ -61,7 +61,7 @@ const getEligibleParagraph = (document, container) => {
     el = el.nextElementSibling
   }
 }
-  
+
 
 /**
  * Instead of moving the infobox down beneath the first P tag, move the first eligible P tag

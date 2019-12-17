@@ -108,11 +108,6 @@ const add = params => {
   })
 
   if (readMoreItemCount && readMoreItemCount > 0) {
-    FooterReadMore.setHeading(
-      l10n.readMoreHeading,
-      'pcs-footer-container-readmore-heading',
-      document
-    )
 
     /**
      * @param {!list} titles article titles
@@ -124,9 +119,11 @@ const add = params => {
       }
     }
 
-    FooterReadMore.add(
+    FooterReadMore.fetchAndAdd(
       articleTitle,
+      l10n.readMoreHeading,
       readMoreItemCount,
+      'pcs-footer-container-readmore',
       'pcs-footer-container-readmore-pages',
       readMoreBaseURL,
       titlesShownHandler,

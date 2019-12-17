@@ -15,7 +15,7 @@ const IDS = {
   PRONUNCIATION: 'pcs-edit-section-title-pronunciation'
 }
 
-const DATA_ATTRIBUTE = { 
+const DATA_ATTRIBUTE = {
   SECTION_INDEX: 'data-id',
   ACTION: 'data-action',
   PRONUNCIATION_URL: 'data-pronunciation-url',

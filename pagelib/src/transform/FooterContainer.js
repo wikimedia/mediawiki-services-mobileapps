@@ -19,6 +19,7 @@ const containerFragment = (document, fragments) => {
   const readMoreSection = document.createElement('section')
   readMoreSection.id = 'pcs-footer-container-readmore'
   readMoreSection.className = 'pcs-footer-section'
+  readMoreSection.style.display = 'none';
   readMoreSection.innerHTML =
   `<h2 id='pcs-footer-container-readmore-heading'></h2>
    <a name=${fragments && fragments.readmore}></a>

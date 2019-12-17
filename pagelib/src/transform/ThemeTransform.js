@@ -3,10 +3,10 @@ import './ThemeTransform.css'
 const CLASS_PREFIX = 'pcs-theme-'
 // Theme to CSS classes.
 const THEME = {
-  DEFAULT: CLASS_PREFIX + 'default',
-  DARK: CLASS_PREFIX + 'dark',
-  SEPIA: CLASS_PREFIX + 'sepia',
-  BLACK: CLASS_PREFIX + 'black'
+  DEFAULT: `${CLASS_PREFIX}default`,
+  DARK: `${CLASS_PREFIX}dark`,
+  SEPIA: `${CLASS_PREFIX}sepia`,
+  BLACK: `${CLASS_PREFIX}black`
 }
 
 

@@ -52,7 +52,7 @@ const setup = (optionalSettings, onSuccess) => {
         if (margins.top) {
           const top = parseFloat(margins.top, 10)
           const height = parseFloat(settings.leadImageHeight, 10)
-          const units = margins.top.match(unitsRegex) || ""
+          const units = margins.top.match(unitsRegex) || ''
           margins.top =  top + height + units
         } else {
           margins.top = settings.leadImageHeight
@@ -66,12 +66,12 @@ const setup = (optionalSettings, onSuccess) => {
       metaTags = getMetaTags()
     }
     const protection = getProtectionFromMetaTags(metaTags)
-    let isEditable = true
+    const isEditable = true
     let isProtected = false
     if (protection.edit) {
       isProtected = true
       for (let i = 0; i < settings.userGroups.length; i++) {
-        let userGroup = settings.userGroups[i]
+        const userGroup = settings.userGroups[i]
         if (userGroup === protection.edit) {
           isProtected = false
           break
@@ -248,10 +248,10 @@ const getTableOfContents = () => {
 /**
  * Get protection information for the page from given meta tags
  * @private
- * @param {!array} metaTags
+ * @param {!Array} metaTags
  * @return {!map}
  */
-const getProtectionFromMetaTags = (metaTags) => {
+const getProtectionFromMetaTags = metaTags => {
   const protection = {}
   const protectionPrefix = 'mw:pageProtection:'
   const protectionPrefixLength = protectionPrefix.length
@@ -267,32 +267,28 @@ const getProtectionFromMetaTags = (metaTags) => {
 /**
  * Return meta tags for the page
  * @private
- * @return {!array}
+ * @return {!Array}
  */
-const getMetaTags = () => {
-  return document.head.querySelectorAll('meta')
-}
+const getMetaTags = () => document.head.querySelectorAll('meta')
 
 /**
  * Get protection information for the page
  * @return {!map}
  */
-const getProtection = () => {
-  return getProtectionFromMetaTags(getMetaTags())
-}
+const getProtection = () => getProtectionFromMetaTags(getMetaTags())
 
 
 /**
  * Gets the lead image for a page
  * @private
- * @param {!array} metaTags
+ * @param {!Array} metaTags
  * @return {!map}
  */
-const getLeadImageFromMetaTags = (metaTags) => {
+const getLeadImageFromMetaTags = metaTags => {
   const image = {}
   const leadImageProperty = 'mw:leadImage'
   for (let i = 0; i < metaTags.length; i++) {
-    let metaTag = metaTags[i]
+    const metaTag = metaTags[i]
     const property = metaTag.getAttribute('property')
     if (!property || property !== leadImageProperty) {
       continue
@@ -315,9 +311,7 @@ const getLeadImageFromMetaTags = (metaTags) => {
  * Gets the lead image for a page
  * @return {!map}
  */
-const getLeadImage = () => {
-  return getLeadImageFromMetaTags(getMetaTags())
-}
+const getLeadImage = () => getLeadImageFromMetaTags(getMetaTags())
 
 /**
  * Gets the Scroller object. Just for testing!

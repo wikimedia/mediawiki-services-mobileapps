@@ -10,7 +10,9 @@ import './FooterReadMore.css'
  * Display fetched read more pages.
  * @typedef {function} ShowReadMorePagesHandler
  * @param {!Array.<object>} pages
- * @param {!string} containerID
+ * @param {!string} heading
+ * @param {!string} sectionContainerId
+ * @param {!string} pageContainerId
  * @param {!TitlesShownHandler} titlesShownHandler
  * @param {!Document} document
  * @return {void}
@@ -133,20 +135,26 @@ const documentFragmentForReadMorePage = (readMorePage, index, document) => {
 /**
  * @type {ShowReadMorePagesHandler}
  */
-const showReadMorePages = (pages, containerID, titlesShownHandler,
+const showReadMorePages = (pages, heading, sectionContainerId, pageContainerId, titlesShownHandler,
   document) => {
   const shownTitles = []
-  const container = document.getElementById(containerID)
+  const sectionContainer = document.getElementById(sectionContainerId)
+  const pageContainer = document.getElementById(pageContainerId)
+  setHeading(
+    heading,
+    'pcs-footer-container-readmore-heading',
+    document
+  )
   pages.forEach((page, index) => {
     const title = page.titles.normalized
     shownTitles.push(title)
     const pageModel = new ReadMorePage(title, page.titles.display, page.thumbnail,
       page.description, page.extract)
-    const pageFragment =
-      documentFragmentForReadMorePage(pageModel, index, document)
-    container.appendChild(pageFragment)
+    const pageFragment = documentFragmentForReadMorePage(pageModel, index, document)
+    pageContainer.appendChild(pageFragment)
   })
   titlesShownHandler(shownTitles)
+  sectionContainer.style.display = 'block';
 }
 
 /**
@@ -161,82 +169,44 @@ const readMoreQueryURL = (title, count, baseURL) =>
   `${baseURL || ''}/page/related/${title}`
 
 /**
- * Fetch error handler.
- * @param {!string} statusText
- * @return {void}
- */
-const fetchErrorHandler = statusText => {
-  // TODO: figure out if we want to hide the 'Read more' header in cases when fetch fails.
-  console.log(`statusText = ${statusText}`) // eslint-disable-line no-console
-}
-
-/**
- * Fetches 'Read more' pages.
+ * Fetches 'Read more' pages and adds them if found.
  * @param {!string} title
+ * @param {!string} heading
  * @param {!number} count
- * @param {!string} containerID
+ * @param {!string} sectionContainerId
+ * @param {!string} pageContainerId
  * @param {?string} baseURL
  * @param {!ShowReadMorePagesHandler} showReadMorePagesHandler
  * @param {!TitlesShownHandler} titlesShownHandler
  * @param {!Document} document
  * @return {void}
  */
-const fetchReadMore = (title, count, containerID, baseURL, showReadMorePagesHandler,
+const fetchAndAdd = (title, heading, count, sectionContainerId, pageContainerId, baseURL,
   titlesShownHandler, document) => {
   const xhr = new XMLHttpRequest() // eslint-disable-line no-undef
   xhr.open('GET', readMoreQueryURL(title, count, baseURL), true)
   xhr.onload = () => {
-    if (xhr.readyState === XMLHttpRequest.DONE) { // eslint-disable-line no-undef
-      if (xhr.status === 200) {
-        const pages = JSON.parse(xhr.responseText).pages
-        let results
-        if (pages.length > count) {
-          const rand = Math.floor(Math.random() * Math.floor(pages.length - count))
-          results = pages.slice(rand, rand + count)
-        } else {
-          results = pages
-        }
-        showReadMorePagesHandler(
-          results,
-          containerID,
-          titlesShownHandler,
-          document
-        )
-      } else {
-        fetchErrorHandler(xhr.statusText)
-      }
+    const pages = JSON.parse(xhr.responseText).pages
+    if (!(pages && pages.length)) {
+      return
     }
+    let results
+    if (pages.length > count) {
+      const rand = Math.floor(Math.random() * Math.floor(pages.length - count))
+      results = pages.slice(rand, rand + count)
+    } else {
+      results = pages
+    }
+    showReadMorePages(
+      results,
+      heading,
+      sectionContainerId,
+      pageContainerId,
+      titlesShownHandler,
+      document
+    )
   }
-  xhr.onerror = () => fetchErrorHandler(xhr.statusText)
-  try {
-    xhr.send()
-  } catch (error) {
-    fetchErrorHandler(error.toString())
-  }
-}
-
-/**
- * Adds 'Read more' for 'title' to 'containerID' element.
- * Leave 'baseURL' null if you don't need to deal with proxying.
- * @param {!string} title
- * @param {!number} count
- * @param {!string} containerID
- * @param {?string} baseURL
- * @param {!TitlesShownHandler} titlesShownHandler
- * @param {!Document} document
- * @return {void}
- */
-const add = (title, count, containerID, baseURL, titlesShownHandler,
-  document) => {
-  fetchReadMore(
-    title,
-    count,
-    containerID,
-    baseURL,
-    showReadMorePages,
-    titlesShownHandler,
-    document
-  )
+  xhr.send()
 }
 
 /**
@@ -253,7 +223,7 @@ const setHeading = (headingString, headingID, document) => {
 }
 
 export default {
-  add,
+  fetchAndAdd,
   setHeading,
   test: {
     cleanExtract,
