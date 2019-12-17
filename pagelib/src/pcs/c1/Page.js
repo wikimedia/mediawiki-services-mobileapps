@@ -239,6 +239,7 @@ const getTableOfContents = () => {
       id,
       number: levelCounts.slice(0, level).map(n => n.toString()).join('.'),
       anchor: headerEl.getAttribute('id'),
+      /* DOM sink status: safe - content transform with no user interference */
       title: headerEl.innerHTML.trim()
     })
   })

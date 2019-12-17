@@ -27,6 +27,7 @@ const add = (content, licenseString, licenseSubstitutionString, containerID,
   const container = content.querySelector(`#${containerID}`)
   const licenseStringHalves = licenseString.split('$1')
 
+  /* DOM sink status: risk? - content can be changed by clients */
   container.innerHTML =
   `<div class='pcs-footer-legal-contents'>
     <hr class='pcs-footer-legal-divider'>

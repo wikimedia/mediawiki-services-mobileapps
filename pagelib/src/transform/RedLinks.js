@@ -7,6 +7,7 @@ import Polyfill from './Polyfill'
  * @return {void}
  */
 const configureRedLinkTemplate = (span, anchor) => {
+  /* DOM sink status: safe - content from parsoid output */
   span.innerHTML = anchor.innerHTML
   span.setAttribute('class', anchor.getAttribute('class'))
 }
@@ -45,6 +46,7 @@ const hideRedLinks = document => {
     .forEach(redLink => {
       const span = spanTemplate.cloneNode(false)
       configureRedLinkTemplate(span, redLink)
+      /* DOM sink status: safe - content from parsoid output  */
       replaceAnchorWithSpan(redLink, span)
     })
 }

@@ -82,6 +82,7 @@ const moveLeadIntroductionUp = (document, container, afterElement) => {
   // A light-weight fragment to hold everything we want to move up.
   const fragment = document.createDocumentFragment()
   // DocumentFragment's `appendChild` attaches the element to the fragment AND removes it from DOM.
+  /* DOM sink status: safe - content transform with no user interference */
   extractLeadIntroductionNodes(eligibleParagraph).forEach(element => fragment.appendChild(element))
 
   const insertBeforeThisElement = !afterElement ? container.firstChild : afterElement.nextSibling

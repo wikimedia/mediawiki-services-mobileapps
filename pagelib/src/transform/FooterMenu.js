@@ -115,6 +115,7 @@ const documentFragmentForMenuItem = (menuItem, document) => {
   if (menuItem.title) {
     const title = document.createElement('div')
     title.className = 'pcs-footer-menu-item-title'
+    /* DOM sink status: risk? - headingString can be changed by clients */
     title.innerText = menuItem.title
     containerAnchor.title = menuItem.title
     containerAnchor.appendChild(title)
@@ -123,6 +124,7 @@ const documentFragmentForMenuItem = (menuItem, document) => {
   if (menuItem.subtitle) {
     const subtitle = document.createElement('div')
     subtitle.className = 'pcs-footer-menu-item-subtitle'
+    /* DOM sink status: risk? - headingString can be changed by clients */
     subtitle.innerText = menuItem.subtitle
     containerAnchor.appendChild(subtitle)
   }
@@ -182,6 +184,7 @@ const maybeAddItem = (title, subtitle, itemType, containerID, clickHandler, docu
  */
 const setHeading = (headingString, headingID, document) => {
   const headingElement = document.getElementById(headingID)
+  /* DOM sink status: risk? - headingString can be changed by clients */
   headingElement.innerText = headingString
   headingElement.title = headingString
 }

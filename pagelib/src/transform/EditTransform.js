@@ -75,6 +75,7 @@ const newEditSectionButton = (document, index, link) => {
   if (!actualLink) {
     actualLink = newEditSectionLink(document, index)
   }
+  /* DOM sink status: safe - content transform with no user interference */
   container.appendChild(actualLink)
 
   return container
@@ -98,6 +99,7 @@ const newEditSectionWrapper = (document, index) => {
  */
 const appendEditSectionHeader = (wrapper, header) => {
   header.className = CLASS.TITLE
+  /* DOM sink status: safe - content transform with no user interference */
   wrapper.appendChild(header)
 }
 
@@ -114,6 +116,7 @@ const newEditSectionHeader = (document, index, level, titleHTML, showEditPencil 
 
   const element = newEditSectionWrapper(document, index)
   const title = document.createElement(`h${level}`)
+  /* DOM sink status: safe - content is created from mwapi call output */
   title.innerHTML = titleHTML || ''
   title.setAttribute(DATA_ATTRIBUTE.SECTION_INDEX, index)
   appendEditSectionHeader(element, title)

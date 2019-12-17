@@ -25,6 +25,7 @@ const sectionJSON = element => {
   const headerEl = section && section.querySelector('h1,h2,h3,h4,h5,h6')
   return {
     id: section && parseInt(section.getAttribute('data-mw-section-id'), 10),
+    /* DOM sink status: safe - content transform with no user interference */
     title: headerEl && headerEl.innerHTML.trim(),
     anchor: headerEl && headerEl.getAttribute('id')
   }

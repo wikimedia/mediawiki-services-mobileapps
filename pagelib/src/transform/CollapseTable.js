@@ -91,6 +91,7 @@ const isNodeBreakElement = node => node.nodeType === NODE_TYPE.ELEMENT_NODE && n
  * @return {void}
  */
 const replaceNodeWithBreakingSpaceTextNode = (document, node) => {
+  /* DOM sink status: safe - content transform with no user interference */
   node.parentNode.replaceChild(document.createTextNode(BREAKING_SPACE), node)
 }
 
@@ -285,6 +286,7 @@ const newCollapsedHeaderDiv = (document, content) => {
   const div = document.createElement('div')
   div.classList.add(CLASS.COLLAPSED_CONTAINER)
   div.classList.add(CLASS.EXPANDED)
+  /* DOM sink status: risk? - content come from newCaptionFragment which is potentially risky */
   div.appendChild(content)
   return div
 }
@@ -298,6 +300,7 @@ const newCollapsedFooterDiv = (document, content) => {
   const div = document.createElement('div')
   div.classList.add(CLASS.COLLAPSED_BOTTOM)
   div.classList.add(CLASS.ICON)
+  /* DOM sink status: risk? - footer title can be overridden by the client */
   div.innerHTML = content || ''
   return div
 }
@@ -313,6 +316,7 @@ const newCaptionFragment = (document, title, titleClass, headerText) => {
   const fragment = document.createDocumentFragment()
 
   const strong = document.createElement('strong')
+  /* DOM sink status: risk? - title can be overridden by clients */
   strong.innerHTML = title
   strong.classList.add(titleClass)
   fragment.appendChild(strong)
@@ -320,14 +324,18 @@ const newCaptionFragment = (document, title, titleClass, headerText) => {
   const span = document.createElement('span')
   span.classList.add(CLASS.COLLAPSE_TEXT)
   if (headerText.length > 0) {
+    /* DOM sink status: safe - content from parsoid output */
     span.appendChild(document.createTextNode(`: ${headerText[0]}`))
   }
   if (headerText.length > 1) {
+    /* DOM sink status: safe - content from parsoid output */
     span.appendChild(document.createTextNode(`, ${headerText[1]}`))
   }
   if (headerText.length > 0) {
+  /* DOM sink status: safe - content transform with no user interference */
     span.appendChild(document.createTextNode(' …'))
   }
+  /* DOM sink status: safe - content from parsoid output */
   fragment.appendChild(span)
 
   return fragment
@@ -400,8 +408,11 @@ const prepareTable = (table, document, pageTitle, tableTitle,
   collapsedFooterDiv.style.display = 'none'
 
   // add our stuff to the container
+  /* DOM sink status: risk? - collapsedHeaderDiv is potentially risk */
   containerDiv.appendChild(collapsedHeaderDiv)
+  /* DOM sink status: safe - content from parsoid output */
   containerDiv.appendChild(table)
+  /* DOM sink status: risk? - collapsedFooterDiv is potentially risk */
   containerDiv.appendChild(collapsedFooterDiv)
 
   // set initial visibility

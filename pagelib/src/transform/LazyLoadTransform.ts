@@ -96,7 +96,9 @@ const convertImageToPlaceholder = (document: Document, image: HTMLImageElement):
   }
 
   // Append the spacer to the placeholder and replace the image with the placeholder.
+  /* DOM sink status: safe - content transform with no user interference */
   placeholder.appendChild(spacing)
+  /* DOM sink status: safe - content from parsoid output  */
   if (image.parentNode) image.parentNode.replaceChild(placeholder, image)
 
   return placeholder
@@ -153,6 +155,7 @@ const loadPlaceholder = (document: Document, placeholder: HTMLSpanElement): HTML
   // Add the download listener prior to setting the src attribute to avoid missing the load event.
   image.addEventListener('load', () => {
     placeholder.removeEventListener('click', retryListener)
+    /* DOM sink status: safe - content from parsoid output */
     if (placeholder.parentNode) placeholder.parentNode.replaceChild(image, placeholder)
     image.classList.add(IMAGE_LOADED_CLASS)
     image.classList.remove(IMAGE_LOADING_CLASS)

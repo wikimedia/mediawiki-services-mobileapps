@@ -110,6 +110,7 @@ const documentFragmentForReadMorePage = (readMorePage, index, document) => {
     const title = document.createElement('div')
     title.id = index
     title.className = 'pcs-footer-readmore-page-title'
+    /* DOM sink status: safe - content transform with no user interference */
     title.innerHTML = titleToShow.replace(/_/g, ' ')
     outerAnchorContainer.title = readMorePage.title.replace(/_/g, ' ')
     innerDivContainer.appendChild(title)
@@ -126,6 +127,7 @@ const documentFragmentForReadMorePage = (readMorePage, index, document) => {
     const descriptionEl = document.createElement('div')
     descriptionEl.id = index
     descriptionEl.className = 'pcs-footer-readmore-page-description'
+    /* DOM sink status: safe - content from read more query endpoint */
     descriptionEl.innerHTML = description
     innerDivContainer.appendChild(descriptionEl)
   }
@@ -220,6 +222,7 @@ const fetchAndAdd = (title, heading, count, sectionContainerId, pageContainerId,
  */
 const setHeading = (headingString, headingID, document) => {
   const headingElement = document.getElementById(headingID)
+  /* DOM sink status: risk? - headingString can be changed by clients */
   headingElement.innerText = headingString
   headingElement.title = headingString
 }
