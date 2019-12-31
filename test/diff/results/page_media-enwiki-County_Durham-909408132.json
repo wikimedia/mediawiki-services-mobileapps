@@ -316,11 +316,11 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Durham_Palatinate.JPG",
       "artist": {
-        "html": "<p><a href=\"//commons.wikimedia.org/wiki/User:Kaihsu\" title=\"User:Kaihsu\">Kaihsu Tai</a>\n</p>",
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Kaihsu\" title=\"User:Kaihsu\">Kaihsu Tai</a>",
         "text": "Kaihsu Tai"
       },
       "credit": {
-        "html": "<p><span class=\"int-own-work\" lang=\"en\">Own work</span>\n</p>",
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
         "text": "Own work"
       },
       "license": {
