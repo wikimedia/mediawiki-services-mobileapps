@@ -33,11 +33,11 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:County_Durham_Flag.svg",
       "artist": {
-        "html": "<p><a href=\"//commons.wikimedia.org/w/index.php?title=User:Martin23230&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Martin23230 (page does not exist)\">Martin23230</a>\n</p>",
+        "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Martin23230&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Martin23230 (page does not exist)\">Martin23230</a>",
         "text": "Martin23230"
       },
       "credit": {
-        "html": "<p><span class=\"int-own-work\" lang=\"en\">Own work</span>\n</p>",
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
         "text": "Own work"
       },
       "license": {
@@ -86,8 +86,10 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:County_Durham_UK_locator_map_2010.svg",
       "artist": {
-        "html": "<p><a href=\"//commons.wikimedia.org/wiki/User:Nilfanion\" title=\"User:Nilfanion\">Nilfanion</a>\n</p>",
-        "text": "Nilfanion"
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Nilfanion\" title=\"User:Nilfanion\">Nilfanion</a>",
+        "text": "Nilfanion",
+        "name": "Nilfanion",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Nilfanion"
       },
       "credit": {
         "html": "<p><a href=\"https://en.wikipedia.org/wiki/Ordnance_Survey\" class=\"extiw\" title=\"w:Ordnance Survey\">Ordnance Survey</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ordnancesurvey.co.uk/opendatadownload/products.html\">OpenData</a>:\n</p>\n<ul><li>County boundaries and GB coastline</li></ul>\n<p><a href=\"https://en.wikipedia.org/wiki/National_Geospatial-Intelligence_Agency\" class=\"extiw\" title=\"w:National Geospatial-Intelligence Agency\">National Geospatial-Intelligence Agency</a>\n</p>\n<ul><li>Irish, French and Isle of Man coastlines, Lough Neagh and Irish border</li></ul>",
@@ -99,7 +101,7 @@
         "url": "https://creativecommons.org/licenses/by-sa/3.0"
       },
       "description": {
-        "html": "<p>Location of the ceremonial county of <a href=\"https://en.wikipedia.org/wiki/County_Durham\" class=\"extiw\" title=\"w:County Durham\">County Durham</a> within England.\n</p>",
+        "html": "Location of the ceremonial county of <a href=\"https://en.wikipedia.org/wiki/County_Durham\" class=\"extiw\" title=\"w:County Durham\">County Durham</a> within England.",
         "text": "Location of the ceremonial county of County Durham within England."
       },
       "wb_entity_id": "M12131836",
@@ -144,11 +146,11 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Durham_Ceremonial_Numbered_2009.png",
       "artist": {
-        "html": "<p><a href=\"//commons.wikimedia.org/wiki/User:Keith_Edkins\" title=\"User:Keith Edkins\">Keith Edkins</a>\n</p>",
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Keith_Edkins\" title=\"User:Keith Edkins\">Keith Edkins</a>",
         "text": "Keith Edkins"
       },
       "credit": {
-        "html": "<p>Own work, derived from <a href=\"//commons.wikimedia.org/wiki/File:Durham_Ceremonial_Numbered.png\" title=\"File:Durham Ceremonial Numbered.png\">File:Durham Ceremonial Numbered.png</a>\n</p>",
+        "html": "Own work, derived from <a href=\"//commons.wikimedia.org/wiki/File:Durham_Ceremonial_Numbered.png\" title=\"File:Durham Ceremonial Numbered.png\">File:Durham Ceremonial Numbered.png</a>",
         "text": "Own work, derived from File:Durham Ceremonial Numbered.png"
       },
       "license": {
@@ -253,8 +255,10 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_Durham_County_Council.svg",
       "artist": {
-        "html": "<p><a href=\"//commons.wikimedia.org/wiki/User:Ch1902\" title=\"User:Ch1902\">Ch1902</a>\n</p>",
-        "text": "Ch1902"
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Ch1902\" title=\"User:Ch1902\">Ch1902</a>",
+        "text": "Ch1902",
+        "name": "Ch1902",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Ch1902"
       },
       "credit": {
         "html": "<ul>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Flag_of_County_Durham.png\" class=\"mw-redirect\" title=\"File:Flag of County Durham.png\">File:Flag_of_County_Durham.png</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Flag_of_Essex.svg\" title=\"File:Flag of Essex.svg\">File:Flag_of_Essex.svg</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Lippische_Rose.svg\" title=\"File:Lippische Rose.svg\">File:Lippische_Rose.svg</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Arms_of_the_Greater_London_Council.svg\" title=\"File:Arms of the Greater London Council.svg\">File:Arms_of_the_Greater_London_Council.svg</a></li>\n<li><a href=\"//commons.wikimedia.org/wiki/File:Heraldic_Lion_02.svg\" title=\"File:Heraldic Lion 02.svg\">File:Heraldic_Lion_02.svg</a></li>\n</ul>",
@@ -482,11 +486,13 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:County_Durham_Population.png",
       "artist": {
-        "html": "<p><a href=\"//commons.wikimedia.org/wiki/User:Pit-yacker\" title=\"User:Pit-yacker\">Pit-yacker</a>\n</p>",
-        "text": "Pit-yacker"
+        "html": "<a href=\"//commons.wikimedia.org/wiki/User:Pit-yacker\" title=\"User:Pit-yacker\">Pit-yacker</a>",
+        "text": "Pit-yacker",
+        "name": "Pit-yacker",
+        "user_page": "https://commons.wikimedia.org/wiki/User:Pit-yacker"
       },
       "credit": {
-        "html": "<p><span class=\"int-own-work\" lang=\"en\">Own work</span>\n</p>",
+        "html": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
         "text": "Own work"
       },
       "license": {
@@ -494,7 +500,7 @@
         "code": "pd"
       },
       "description": {
-        "html": "<p>Population of County Durham 1801 -2001 source <a rel=\"nofollow\" class=\"external autonumber\" href=\"http://www.visionofbritain.org.uk/data_cube_table_page.jsp?data_theme=T_POP&amp;data_cube=N_TPop&amp;u_id=10032933&amp;c_id=10001043&amp;add=N\">[1]</a>\n</p>",
+        "html": "Population of County Durham 1801 -2001 source <a rel=\"nofollow\" class=\"external autonumber\" href=\"http://www.visionofbritain.org.uk/data_cube_table_page.jsp?data_theme=T_POP&amp;data_cube=N_TPop&amp;u_id=10032933&amp;c_id=10001043&amp;add=N\">[1]</a>",
         "text": "Population of County Durham 1801 -2001 source [1]"
       },
       "wb_entity_id": "M3171970",
@@ -710,7 +716,7 @@
       },
       "file_page": "https://commons.wikimedia.org/wiki/File:QESFC.jpg",
       "credit": {
-        "html": "<p>I took this photo myself <a href=\"//commons.wikimedia.org/w/index.php?title=User:Squigglet&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Squigglet (page does not exist)\">Squigglet</a> 19:09, 2 March 2006 (UTC)\n</p>",
+        "html": "I took this photo myself <a href=\"//commons.wikimedia.org/w/index.php?title=User:Squigglet&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Squigglet (page does not exist)\">Squigglet</a> 19:09, 2 March 2006 (UTC)",
         "text": "I took this photo myself Squigglet 19:09, 2 March 2006 (UTC)"
       },
       "license": {
@@ -719,7 +725,7 @@
         "url": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       "description": {
-        "html": "<p>Main entrance to Queen Elizabeth sixth form college, Darlington\n</p>",
+        "html": "Main entrance to Queen Elizabeth sixth form college, Darlington",
         "text": "Main entrance to Queen Elizabeth sixth form college, Darlington"
       },
       "wb_entity_id": "M608532",
