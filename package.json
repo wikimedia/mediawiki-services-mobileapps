@@ -101,7 +101,8 @@
     "pre-commit": "^1.2.2",
     "rss-parser": "^3.7.3",
     "sepia": "^2.0.2",
-    "sinon": "^7.5.0"
+    "sinon": "^7.5.0",
+    "sinon-express-mock": "^2.2.1"
   },
   "deploy": {
     "target": "debian",
