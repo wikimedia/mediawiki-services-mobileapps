@@ -29,6 +29,7 @@
   "tid": "present",
   "timestamp": "2018-12-04T06:47:20Z",
   "description": "Capital of Japan",
+  "description_source": "local",
   "coordinates": {
     "lat": 35.68972222,
     "lon": 139.69222222
