@@ -1,7 +1,7 @@
 {
-  "name": "service-mobileapp-node",
+  "name": "mobileapps",
   "version": "0.3.0",
-  "description": "Collection of REST API services supporting Wikimedia Foundation Readers products",
+  "description": "Provides the Page Content Service, a set of REST API endpoints that provide structured page content for the Wikimedia projects.",
   "main": "./app.js",
   "scripts": {
     "start": "service-runner",
