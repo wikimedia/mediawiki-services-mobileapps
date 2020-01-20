@@ -10,9 +10,9 @@ Allows quick visualization of Talk output:
 // -->
 
 <script>
-fetch('http://localhost:6927/en.wikipedia.org/v1/page/talk/User_talk:Brion_VIBBER/895522398').then(response => {
-// fetch('http://localhost:6927/en.wikipedia.org/v1/page/talk/User_talk:Montehurd/899425787').then(response => {
-// fetch('http://localhost:6927/fr.wikipedia.org/v1/page/talk/User_talk:Brion_VIBBER/51609364').then(response => {
+fetch('http://localhost:8888/en.wikipedia.org/v1/page/talk/User_talk:Brion_VIBBER/895522398').then(response => {
+// fetch('http://localhost:8888/en.wikipedia.org/v1/page/talk/User_talk:Montehurd/899425787').then(response => {
+// fetch('http://localhost:8888/fr.wikipedia.org/v1/page/talk/User_talk:Brion_VIBBER/51609364').then(response => {
   response.json().then(json => {
     json.topics.forEach(topic => {
       const topicDiv = document.createElement('div')

@@ -30,7 +30,7 @@ services:
     # version: ^0.4.0
     # per-service config
     conf:
-      port: 6927
+      port: 8888
       # interface: localhost # uncomment to only listen on localhost
       # more per-service config settings
       # the location of the spec, defaults to spec.yaml if not specified
@@ -60,11 +60,11 @@ services:
       #   - user-agent
       #   - x-request-id
       # the user agent to use when issuing requests
-      mobile_html_rest_api_base_uri: "//localhost:6927/api/v1/"
+      mobile_html_rest_api_base_uri: "//localhost:8888/api/v1/"
       mobile_html_csp: "default-src 'none'; connect-src http://localhost:7231 http://*.wikipedia.org;
       media-src upload.wikimedia.org 'self';
       img-src upload.wikimedia.org 'self' data:;
-      script-src app://localhost:6927 http://localhost:6927 'self' 'unsafe-inline'; style-src app://localhost http://localhost app://*.wikipedia.org http://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'"
+      script-src app://localhost:8888 http://localhost:8888 'self' 'unsafe-inline'; style-src app://localhost http://localhost app://*.wikipedia.org http://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'"
       user_agent: WMF Mobile Content Service dev
       #
       # Max JSON POST body size limit.

@@ -50,55 +50,55 @@ To start the server hosting the REST API, simply run (inside the repo's director
 npm start
 ```
 
-This starts an HTTP server listening on `localhost:6927`.
+This starts an HTTP server listening on `localhost:8888`.
 
 ### Endpoints
-There are a few routes you may query (with a browser, or `curl` and friends). You can see more documentation at `localhost:6927/?doc`.
+There are a few routes you may query (with a browser, or `curl` and friends). You can see more documentation at `localhost:8888/?doc`.
 
 #### Page Content Service routes
 Next generation routes for page content. See [Page_Content_Service](https://www.mediawiki.org/wiki/Page_Content_Service).
 
-* `http://localhost:6927/{domain}/v1/page/summary/{title}`
-* `http://localhost:6927/{domain}/v1/page/metadata/{title}`
-* `http://localhost:6927/{domain}/v1/page/media/{title}`
-* `http://localhost:6927/{domain}/v1/page/references/{title}`
-* `http://localhost:6927/{domain}/v1/page/mobile-html/{title}`
-* `http://localhost:6927/{domain}/v1/transform/html/to/mobile-html/{title}` (POST to this for edit preview)
-* `http://localhost:6927/{domain}/v1/page/mobile-html-offline-resources/{title}`
-* `http://localhost:6927/{domain}/v1/data/css/mobile/base`
-* `http://localhost:6927/{domain}/v1/data/css/mobile/pcs`
-* `http://localhost:6927/{domain}/v1/data/css/mobile/site`
-* `http://localhost:6927/{domain}/v1/data/javascript/mobile/pcs`
+* `http://localhost:8888/{domain}/v1/page/summary/{title}`
+* `http://localhost:8888/{domain}/v1/page/metadata/{title}`
+* `http://localhost:8888/{domain}/v1/page/media/{title}`
+* `http://localhost:8888/{domain}/v1/page/references/{title}`
+* `http://localhost:8888/{domain}/v1/page/mobile-html/{title}`
+* `http://localhost:8888/{domain}/v1/transform/html/to/mobile-html/{title}` (POST to this for edit preview)
+* `http://localhost:8888/{domain}/v1/page/mobile-html-offline-resources/{title}`
+* `http://localhost:8888/{domain}/v1/data/css/mobile/base`
+* `http://localhost:8888/{domain}/v1/data/css/mobile/pcs`
+* `http://localhost:8888/{domain}/v1/data/css/mobile/site`
+* `http://localhost:8888/{domain}/v1/data/javascript/mobile/pcs`
 
 #### Mobile Content Service routes
 
 The first generation mobile content route (mainly for Android app):
-* `http://localhost:6927/{domain}/v1/page/mobile-sections/{title}`
+* `http://localhost:8888/{domain}/v1/page/mobile-sections/{title}`
 
-* Example: `http://localhost:6927/en.wikipedia.org/v1/page/mobile-sections/Cat`
+* Example: `http://localhost:8888/en.wikipedia.org/v1/page/mobile-sections/Cat`
 
 There is also a endpoint for definitions from Wiktionary the Android app uses:
-* `http://localhost:6927/{language code}.wiktionary.org/v1/page/definition/{title}`
+* `http://localhost:8888/{language code}.wiktionary.org/v1/page/definition/{title}`
 
-Example: `http://localhost:6927/en.wiktionary.org/v1/page/definition/present`
+Example: `http://localhost:8888/en.wiktionary.org/v1/page/definition/present`
 
 A list of language codes can be found [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix).
 
 #### Generic routes
 Swagger spec:
-* `http://localhost:6927/?spec`
+* `http://localhost:8888/?spec`
 
 Swagger UI:
-* `http://localhost:6927/?doc`
+* `http://localhost:8888/?doc`
 
 Info:
-* `http://localhost:6927/_info`
+* `http://localhost:8888/_info`
 
 #### Quick prototyping using static files
 You can quickly prototype some static responses by adding the wanted files to the `static` folder.
 
 Example: `static/proto/example1.json` is available as 
-http://localhost:6927/static/proto/example1.json.
+http://localhost:8888/static/proto/example1.json.
 
 ### Tests
 

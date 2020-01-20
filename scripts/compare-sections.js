@@ -5,10 +5,10 @@
 /*
   Setup notes before running this script:
   * Start two local Parsoid instances on ports 8000 and 8001. The latter would get the new code.
-  * Start two local MCS instances on ports 6927 and 6928.
+  * Start two local MCS instances on ports 8888 and 8898.
   * Change the config.dev.yaml also to hook up with the respective local Parsoid installations, e.g.
-  *     v1) MCS:6927 -> Parsoid:8000
-  *     v2) MCS:6928 -> Parsoid:8001
+  *     v1) MCS:8888 -> Parsoid:8000
+  *     v2) MCS:8898 -> Parsoid:8001
   * and towards the end of the config.dev.yaml also change the restbase_req uri value to
   *     v1) uri: http://0.0.0.0:8000/{{domain}}/v3/{+path}
   *     v2) uri: http://0.0.0.0:8001/{{domain}}/v3/{+path}
@@ -42,11 +42,11 @@ let oldDirName;
 let newDirName;
 
 const uriForOldMobileSections = (title, rev, lang) => {
-    return `http://localhost:6927/${lang}.wikipedia.org/v1/page/mobile-sections/${encodeURIComponent(title)}/${rev}`;
+    return `http://localhost:8888/${lang}.wikipedia.org/v1/page/mobile-sections/${encodeURIComponent(title)}/${rev}`;
 };
 
 const uriForNewSections = (title, rev, lang) => {
-    return `http://localhost:6928/${lang}.wikipedia.org/v1/page/mobile-sections/${encodeURIComponent(title)}/${rev}`;
+    return `http://localhost:8898/${lang}.wikipedia.org/v1/page/mobile-sections/${encodeURIComponent(title)}/${rev}`;
 };
 
 /**
