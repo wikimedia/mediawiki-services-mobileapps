@@ -53,35 +53,27 @@ const add = params => {
   menuItems.forEach(item => {
     let title = ''
     let subtitle = ''
-    let menuItemTypeString = ''
     switch (item) {
     case FooterMenu.MenuItemType.languages:
-      menuItemTypeString = 'languages'
       title = l10n.menuLanguagesTitle
       break
     case FooterMenu.MenuItemType.lastEdited:
-      menuItemTypeString = 'lastEdited'
       title = l10n.menuLastEditedTitle
       subtitle = l10n.menuLastEditedSubtitle
       break
     case FooterMenu.MenuItemType.pageIssues:
-      menuItemTypeString = 'pageIssues'
       title = l10n.menuPageIssuesTitle
       break
     case FooterMenu.MenuItemType.disambiguation:
-      menuItemTypeString = 'disambiguation'
       title = l10n.menuDisambiguationTitle
       break
     case FooterMenu.MenuItemType.coordinate:
-      menuItemTypeString = 'coordinate'
       title = l10n.menuCoordinateTitle
       break
     case FooterMenu.MenuItemType.talkPage:
-      menuItemTypeString = 'talkPage'
       title = l10n.menuTalkPageTitle
       break
     case FooterMenu.MenuItemType.referenceList:
-      menuItemTypeString = 'referenceList'
       title = l10n.menuReferenceListTitle
       break
     default:
@@ -93,7 +85,7 @@ const add = params => {
      */
     const itemSelectionHandler = payload => {
       if (handlers) {
-        handlers.footerItemSelected(menuItemTypeString, payload)
+        handlers.footerItemSelected(item, payload)
       }
     }
 
