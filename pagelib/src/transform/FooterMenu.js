@@ -13,6 +13,8 @@ import CollectionUtilities from './CollectionUtilities'
 
 /**
  * Type representing kinds of menu items.
+ * IMPORTANT: Don't change these values without considering it a breaking change. 
+ * Existing clients rely on using the integer values so that they are serializable.
  * @enum {MenuItemType}
  */
 const MenuItemType = {
