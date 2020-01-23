@@ -11,15 +11,15 @@ import EditTransform from '../../transform/EditTransform'
 const Actions = {
   InitialSetup: 'setup',
   FinalSetup: 'final_setup',
-  LinkClicked: 'link_clicked',
-  ImageClicked: 'image_clicked',
-  ReferenceClicked: 'reference_clicked',
+  LinkClicked: 'link',
+  ImageClicked: 'image',
+  ReferenceClicked: 'reference',
   EditSection: 'edit_section',
   AddTitleDescription: 'add_title_description',
-  PronunciationClicked: 'pronunciation_clicked',
+  PronunciationClicked: 'pronunciation',
 
   /* Footer related actions: */
-  FooterItemSelected: 'footer_item_selected',
+  FooterItemSelected: 'footer_item',
   SaveOtherPage: 'save_other_page',
   ReadMoreTitlesRetrieved: 'read_more_titles_retrieved',
   ViewLicense: 'view_license',
@@ -119,7 +119,8 @@ const postMessageForLink = (target, href) => {
   postMessage(new Interaction(Actions.LinkClicked, {
     href,
     text: target.innerText,
-    title: target.title
+    title: target.title,
+    source: target.getAttribute('data-pcs-source')
   }))
 }
 

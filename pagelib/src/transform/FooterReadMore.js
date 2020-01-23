@@ -95,7 +95,9 @@ const documentFragmentForReadMorePage = (readMorePage, index, document) => {
   const innerDivContainer = document.createElement('div')
   innerDivContainer.classList.add('pcs-footer-readmore-page-container')
   outerAnchorContainer.appendChild(innerDivContainer)
-  outerAnchorContainer.href = `./${encodeURI(readMorePage.title)}?event-logging-label=read-more`
+  outerAnchorContainer.setAttribute('title', readMorePage.title)
+  outerAnchorContainer.setAttribute('data-pcs-source', 'read-more')
+  outerAnchorContainer.href = `./${encodeURI(readMorePage.title)}`
 
   let titleToShow
   if (readMorePage.displayTitle) {
