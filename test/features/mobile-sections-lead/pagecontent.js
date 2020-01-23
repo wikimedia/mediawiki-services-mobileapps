@@ -37,8 +37,8 @@ describe('mobile-sections-lead', function() {
         return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;
-                assert.equal(lead.geo.latitude, 37.78333333);
-                assert.equal(lead.geo.longitude, -122.41666667);
+                assert.equal(lead.geo.latitude, 37.7775);
+                assert.equal(lead.geo.longitude, -122.41638889);
             });
     });
     it('es Savonlinna should have a lead object with a geo property', () => {
