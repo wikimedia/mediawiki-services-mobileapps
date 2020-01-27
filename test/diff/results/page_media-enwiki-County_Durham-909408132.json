@@ -8,11 +8,11 @@
       "showInGallery": true,
       "srcset": [
         {
-          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/b9/County_Durham_Flag.svg/640px-County_Durham_Flag.svg.png",
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_County_Durham.svg/640px-Flag_of_County_Durham.svg.png",
           "scale": "1x"
         },
         {
-          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/b9/County_Durham_Flag.svg/960px-County_Durham_Flag.svg.png",
+          "src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_County_Durham.svg/960px-Flag_of_County_Durham.svg.png",
           "scale": "1.5x"
         }
       ],
@@ -22,16 +22,16 @@
         "display": "File:County Durham Flag.svg"
       },
       "thumbnail": {
-        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/County_Durham_Flag.svg/320px-County_Durham_Flag.svg.png",
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_County_Durham.svg/320px-Flag_of_County_Durham.svg.png",
         "width": 320,
         "height": 192,
         "mime": "image/png"
       },
       "original": {
-        "source": "https://upload.wikimedia.org/wikipedia/commons/b/b9/County_Durham_Flag.svg",
+        "source": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_County_Durham.svg",
         "mime": "image/svg+xml"
       },
-      "file_page": "https://commons.wikimedia.org/wiki/File:County_Durham_Flag.svg",
+      "file_page": "https://commons.wikimedia.org/wiki/File:Flag_of_County_Durham.svg",
       "artist": {
         "html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Martin23230&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Martin23230 (page does not exist)\">Martin23230</a>",
         "text": "Martin23230"
@@ -50,7 +50,7 @@
         "text": "New flag of County Durham, created in 2013 [1]",
         "lang": "en"
       },
-      "wb_entity_id": "M29759200",
+      "wb_entity_id": "M86280422",
       "structured": {
         "captions": {}
       }
