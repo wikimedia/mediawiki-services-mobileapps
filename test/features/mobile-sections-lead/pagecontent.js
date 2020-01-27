@@ -21,7 +21,7 @@ describe('mobile-sections-lead', function() {
                 const lastMod = lead.lastmodified;
                 const prot = lead.protection;
                 assert.equal(res.status, 200);
-                assert.ok(lastMod.startsWith('201'), `${lastMod} should start with 201`); // 2015-
+                assert.ok(lastMod.startsWith('20'), `${lastMod} should start with 20`); // 2015-
                 assert.equal(lead.displaytitle, 'Sections/deep');
                 assert.ok(prot.constructor === Object, 'lead.protection should be an Object');
                 assert.ok(!Object.keys(lead.protection).length, 'Page should not be protected');
