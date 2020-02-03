@@ -299,11 +299,6 @@ describe('Swagger spec', function() {
             ajv.addSchema(spec.components.schemas[defName], `#/components/schemas/${defName}`);
         });
 
-        it('random response should conform to schema', () => {
-            const uri = `${baseUri}page/random/title`;
-            return assertValidSchema(uri, '#/components/schemas/random');
-        });
-
         it('summary response should conform to schema', () => {
             const uri = `${baseUri}page/summary/Dubai/808803658`;
             return assertValidSchema(uri, '#/components/schemas/summary');
