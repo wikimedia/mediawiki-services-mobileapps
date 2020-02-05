@@ -14,17 +14,17 @@ import CollectionUtilities from './CollectionUtilities'
 /**
  * Type representing kinds of menu items.
  * IMPORTANT: Don't change these values without considering it a breaking change. 
- * Existing clients rely on using the integer values so that they are serializable.
+ * Existing clients rely on using the string values so that they are serializable.
  * @enum {MenuItemType}
  */
 const MenuItemType = {
-  languages: 1,
-  lastEdited: 2,
-  pageIssues: 3,
-  disambiguation: 4,
-  coordinate: 5,
-  talkPage: 6,
-  referenceList: 7,
+  languages: 'languages',
+  lastEdited: 'lastEdited',
+  pageIssues: 'pageIssues',
+  disambiguation: 'disambiguation',
+  coordinate: 'coordinate',
+  talkPage: 'talkPage',
+  referenceList: 'referenceList',
 }
 
 /**

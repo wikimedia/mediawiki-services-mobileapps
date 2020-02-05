@@ -182,7 +182,8 @@ const postMessageForReferenceWithTarget = target => {
 const postMessageForClickedItem = item => {
   switch (item.type()) {
   case ItemType.link:
-    postMessageForLink(item.target, item.href)
+    const target = item.target.closest('a')
+    postMessageForLink(target, item.href)
     break
   case ItemType.image:
     postMessageForImage(item.target, item.href)
