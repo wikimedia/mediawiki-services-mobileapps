@@ -49,26 +49,32 @@ a.notheme {
 .pcs-theme-dark tr:not(.notheme),
 .pcs-theme-dark th:not(.notheme),
 .pcs-theme-dark li.gallerybox div.thumb,
-.content.pcs-theme-dark td:not(.notheme),
-.content.pcs-theme-dark th:not(.notheme) {
+.pcs-theme-dark.content td:not(.notheme),
+.pcs-theme-dark.content th:not(.notheme) {
   background: #27292d;
   color: #f8f9fa;
   border-color: #43464a;
 }
+
 .pcs-theme-sepia table:not(.notheme),
 .pcs-theme-sepia td:not(.notheme),
 .pcs-theme-sepia tr:not(.notheme),
 .pcs-theme-sepia th:not(.notheme),
-.pcs-theme-sepia li.gallerybox div.thumb  {
+.pcs-theme-sepia li.gallerybox div.thumb,
+.pcs-theme-sepia.content td:not(.notheme),
+.pcs-theme-sepia.content th:not(.notheme)  {
   background: #f0e6d6;
   color: #222;
   border-color: #cbc8c1;
 }
+
 .pcs-theme-black table:not(.notheme),
 .pcs-theme-black td:not(.notheme),
 .pcs-theme-black tr:not(.notheme),
 .pcs-theme-black th:not(.notheme),
-.pcs-theme-black li.gallerybox div.thumb  {
+.pcs-theme-black li.gallerybox div.thumb,
+.pcs-theme-black.content td:not(.notheme),
+.pcs-theme-black.content th:not(.notheme) {
   background: #222;
   color: #f8f9fa;
   border-color: #43464a;
