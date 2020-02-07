@@ -1,16 +1,48 @@
 import ElementUtilities from './ElementUtilities'
-import NodeUtilities from './NodeUtilities'
 import Polyfill from './Polyfill'
+import NodeUtilities from './NodeUtilities'
 
 const REFERENCE_SELECTOR = '.reference, .mw-ref'
-const CITE_HASH_PREFIX = '#cite_note'
+const CITE_FRAGMENT_PREFIX = '#cite_note-'
+const BACK_LINK_FRAGMENT_PREFIX = '#pcs-reference-back-link-'
+const BACK_LINK_ATTRIBUTE = 'pcs-back-links'
+
+
+/**
+ * Does this have the proper fragment prefix?
+ * @param {!string} href
+ * @param {?string} pageTitle - assumed to be encoded for links
+ * @return {!boolean}
+ */
+const hasFragmentPrefix = (href, fragment, pageTitle) => {
+  const decodedHref = decodeURIComponent(href)
+  const decodedFragment = decodeURIComponent(fragment)
+  if (pageTitle !== undefined) {
+    const decodedPageTitle = decodeURIComponent(pageTitle)
+    const relativePath = `./${decodedPageTitle}`
+    return decodedHref.indexOf(relativePath) === 0 && href.indexOf(decodedFragment) === relativePath.length
+  } else {
+    return decodedHref.indexOf(decodedFragment) > -1
+  }
+}
+  
 
 /**
  * Is Citation.
  * @param {!string} href
+ * @param {!string} pageTitle - assumed to be encoded for links
  * @return {!boolean}
  */
-const isCitation = href => href.indexOf(CITE_HASH_PREFIX) > -1
+const isCitation = (href, pageTitle) => hasFragmentPrefix(href, CITE_FRAGMENT_PREFIX, pageTitle)
+
+/**
+ * Is Back Link.
+ * @param {!string} href
+ * @param {!string} pageTitle - assumed to be encoded for links
+ * @return {!boolean}
+ */
+const isBackLink = (href, pageTitle) => hasFragmentPrefix(href, BACK_LINK_FRAGMENT_PREFIX, pageTitle)
+
 
 /**
  * Determines if node is a text node containing only whitespace.
@@ -37,7 +69,7 @@ const hasCitationLink = element => {
  * @return {?HTMLElement}
  */
 const getRefTextContainer = (document, source) => {
-  const refTextContainerID = source.querySelector('A').getAttribute('href').slice(1)
+  const refTextContainerID = source.querySelector('A').getAttribute('href').split('#')[1]
   const refTextContainer = document.getElementById(refTextContainerID)
     || document.getElementById(decodeURIComponent(refTextContainerID))
 
@@ -55,27 +87,11 @@ const collectRefText = (document, source) => {
   if (!refTextContainer) {
     return ''
   }
-
-  // Clone what we're interested in into a frag so we can easily
-  // remove things without consequence to the 'live' document.
-  const frag = document.createDocumentFragment()
-  const fragDiv = document.createElement('div')
-  frag.appendChild(fragDiv)
-  // eslint-disable-next-line require-jsdoc
-  const cloneNodeIntoFragmentDiv = node => fragDiv.appendChild(node.cloneNode(true))
-  let cur = refTextContainer.firstChild
-  while (cur) {
-    if (NodeUtilities.isNodeTypeElementOrText(cur)) {
-      cloneNodeIntoFragmentDiv(cur)
-    }
-    cur = cur.nextSibling
+  const refTextSpan = refTextContainer.querySelector('span.mw-reference-text')
+  if (!refTextSpan) {
+    return ''
   }
-
-  const removalSelector = 'link, style, sup[id^=cite_ref], .mw-cite-backlink'
-  Polyfill.querySelectorAll(fragDiv, removalSelector)
-    .forEach(node => node.remove())
-
-  return fragDiv.innerHTML.trim()
+  return refTextSpan.innerHTML.trim()
 }
 
 /**
@@ -128,25 +144,6 @@ class ReferenceLinkItem {
 }
 
 /**
- * Get node's bounding rect as a plain object.
- * @param {!Node} node
- * @return {!Object<string, number>}
- */
-const getBoundingClientRectAsPlainObject = node => {
-  const rect = node.getBoundingClientRect()
-  return {
-    top: rect.top,
-    right: rect.right,
-    bottom: rect.bottom,
-    left: rect.left,
-    width: rect.width,
-    height: rect.height,
-    x: rect.x,
-    y: rect.y
-  }
-}
-
-/**
  * Converts node to ReferenceItem.
  * @param {!Document} document
  * @param {!Node} node
@@ -154,7 +151,7 @@ const getBoundingClientRectAsPlainObject = node => {
  */
 const referenceItemForNode = (document, node) => new ReferenceItem(
   closestReferenceClassElement(node).id,
-  getBoundingClientRectAsPlainObject(node),
+  NodeUtilities.getBoundingClientRectAsPlainObject(node),
   node.textContent,
   collectRefText(document, node),
   node.querySelector('A').getAttribute('href')
@@ -264,17 +261,59 @@ const collectNearbyReferenceNodes = sourceNode => {
 }
 
 /**
+ * Collect nearby reference nodes.
+ * @param {!Node} sourceNode
+ * @return {!Object}
+ */
+const collectReferencesForBackLink = (document, target, href) => {
+  const backLinksJSON = target.getAttribute(BACK_LINK_ATTRIBUTE)
+  if (!backLinksJSON) {
+    return {}
+  }
+  const referenceId = href.split(BACK_LINK_FRAGMENT_PREFIX)[1]
+  const backLinkHrefs = JSON.parse(backLinksJSON)
+  if (!backLinkHrefs || backLinkHrefs.length == 0) {
+    return {}
+  }
+  let backLinks = []
+  // Used as fallback. Send the href of the first back link as the event href
+  const firstBackLinkHref = backLinkHrefs[0]
+  for (let i = 0; i < backLinkHrefs.length; i++) {
+    const backLinkHref = backLinkHrefs[i]
+    const id = backLinkHref.split('#')[1]
+    const element = document.getElementById(id)
+    if (!element) {
+      continue
+    }
+    // Use an object with id to allow for adding more properties in the future
+    backLinks.push({id})
+  }
+  return {referenceId, backLinks, href: firstBackLinkHref}
+}
+
+
+/**
+ * Collect nearby references.
+ * @param {!Document} document
+ * @param {!Node} referenceElement
+ * @return {!NearbyReferences}
+ */
+const collectNearbyReferenceForReferenceElement = (document, referenceElement) => {
+  const referenceNodes = collectNearbyReferenceNodes(referenceElement)
+  const selectedIndex = referenceNodes.indexOf(referenceElement)
+  const referencesGroup = referenceNodes.map(node => referenceItemForNode(document, node))
+  return new NearbyReferences(selectedIndex, referencesGroup)
+}
+
+/**
  * Collect nearby references.
  * @param {!Document} document
  * @param {!Node} sourceNode
  * @return {!NearbyReferences}
  */
 const collectNearbyReferences = (document, sourceNode) => {
-  const sourceNodeParent = sourceNode.parentElement
-  const referenceNodes = collectNearbyReferenceNodes(sourceNodeParent)
-  const selectedIndex = referenceNodes.indexOf(sourceNodeParent)
-  const referencesGroup = referenceNodes.map(node => referenceItemForNode(document, node))
-  return new NearbyReferences(selectedIndex, referencesGroup)
+  const sourceNodeParent = sourceNode.parentElement // reference is the parent of the <a> tag
+  return collectNearbyReferenceForReferenceElement(document, sourceNodeParent)
 }
 
 /**
@@ -294,7 +333,11 @@ const collectNearbyReferencesAsText = (document, sourceNode) => {
 export default {
   collectNearbyReferences,
   collectNearbyReferencesAsText,
+  collectReferencesForBackLink,
+  isBackLink,
   isCitation,
+  BACK_LINK_FRAGMENT_PREFIX,
+  BACK_LINK_ATTRIBUTE,
   test: {
     adjacentNonWhitespaceNode,
     closestReferenceClassElement,
