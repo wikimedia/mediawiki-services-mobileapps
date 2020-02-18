@@ -542,6 +542,26 @@
         "normalized": "Category:Red Wing, Minnesota",
         "display": "Red Wing, Minnesota"
       }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Wikipedia_articles_with_MusicBrainz_area_identifiers",
+      "titles": {
+        "canonical": "Category:Wikipedia_articles_with_MusicBrainz_area_identifiers",
+        "normalized": "Category:Wikipedia articles with MusicBrainz area identifiers",
+        "display": "Wikipedia articles with MusicBrainz area identifiers"
+      }
+    },
+    {
+      "ns": 14,
+      "hidden": true,
+      "summary_url": "https://en.wikipedia.org/api/rest_v1/page/summary/Category:Wikipedia_articles_with_NARA_identifiers",
+      "titles": {
+        "canonical": "Category:Wikipedia_articles_with_NARA_identifiers",
+        "normalized": "Category:Wikipedia articles with NARA identifiers",
+        "display": "Wikipedia articles with NARA identifiers"
+      }
     }
   ],
   "protection": {},
