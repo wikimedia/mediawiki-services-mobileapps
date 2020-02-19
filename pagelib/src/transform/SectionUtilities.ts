@@ -56,8 +56,8 @@ const getSectionIDOfElement = (element: Element): string | null => {
  * @return {!string} lead paragraph text
  */
 const getLeadParagraphText = (document: Document): string => {
-    let firstParagaphInASection = <HTMLElement>document.querySelector('#content-block-0>p');
-    return firstParagaphInASection && firstParagaphInASection.innerText || '';
+    let firstParagraphInASection = <HTMLElement>document.querySelector('#content-block-0>p');
+    return firstParagraphInASection && firstParagraphInASection.innerText || '';
 }
 
 
