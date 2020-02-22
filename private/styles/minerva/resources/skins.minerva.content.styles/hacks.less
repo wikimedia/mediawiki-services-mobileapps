@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/hacks.less@644cc45
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/hacks.less@52f37a5f
 
 /*
 A file for css that corrects known rendering issues on known Wikimedia wikis.
@@ -24,6 +24,7 @@ FIXME: Review all of these hacks to see if they still apply.
     display: none;
   }
 
+  // stylelint-disable selector-max-id
   /* Hide cleanup templates by default to non-javascript users as these stop them from reading the article itself
    * Edit page notices */
   .action-edit .fmbox,
@@ -35,6 +36,7 @@ FIXME: Review all of these hacks to see if they still apply.
     // It's important as some of these are tables which become display: table on larger screens
     display: none !important;
   }
+  // stylelint-enable selector-max-id
 
   table {
     // A lot of templates introduce floating and horizontal margins inline styles
@@ -107,7 +109,7 @@ FIXME: Review all of these hacks to see if they still apply.
 }
 
 // FIXME: Remove when filetoc is stripped from file pages a la table of contents (toc)
-#filetoc {
+#filetoc { // stylelint-disable-line selector-max-id
   display: none;
 }
 
@@ -124,7 +126,7 @@ FIXME: Review all of these hacks to see if they still apply.
 
 // When JavaScript is disabled clarify to the user which reference they clicked on
 .references li:target {
-  background-color: #def;
+  background-color: @background-color-primary;
 }
 
 .hatnote,
@@ -132,7 +134,7 @@ FIXME: Review all of these hacks to see if they still apply.
 .rellink {
   padding: 5px 7px;
   color: @colorGray5;
-  font-size: 0.8em;
+  font-size: @font-size-minerva-smallest;
   background-color: @colorGray15;
   margin-bottom: 1px;
   overflow: hidden;

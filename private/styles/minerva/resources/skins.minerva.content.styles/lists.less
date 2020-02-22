@@ -1,21 +1,21 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/lists.less@8398bda
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/lists.less@cd61867f
 
 .content {
+  ol {
+    padding-left: 2.25em;
+  }
+
   ul {
-    list-style: square outside;
+    list-style-type: disc;
     padding-left: 1em;
 
     & > li > ul {
-      list-style-type: disc;
+      list-style-type: circle;
 
       & > li > ul {
-        list-style-type: circle;
+        list-style-type: square;
       }
     }
-  }
-
-  ol {
-    list-style: decimal inside;
   }
 
   /* stylelint-disable no-descending-specificity */
@@ -56,7 +56,7 @@ dl {
 /* the following rule is completely copied from mediawiki.skinning.content[1], as
  * don't want to include this module in mobile/minerva, see T129375.
  * [1] https://github.com/wikimedia/mediawiki/blob/0687f250d6fb4196a7aa60af4fe11c7d21f3c455
- *	/resources/src/mediawiki.skinning/content.css#L260
+ *     /resources/src/mediawiki.skinning/content.css#L260
  */
 /* Hide elements that are marked as "empty" according to legacy Tidy rules,
  * except if a client script removes the mw-hide-empty-elt class from the body

@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/main.less@a738f25
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/main.less@ecf404db
 
 @import '../../minerva.less/minerva.variables.less';
 @import '../../minerva.less/minerva.mixins.less';
@@ -6,20 +6,16 @@
 // Content formatting and typography
 //
 // Our content is predominately text, hence visual hierarchy must be clear.
-//
-// Styleguide 1.
-
-@font-size-body: 100% * @fontScalingFactor;
 
 body {
   font-family: @fontFamilyBase;
-  font-size: @font-size-body;
   line-height: 1.4;
   -webkit-tap-highlight-color: rgba( 0, 0, 0, 0.2 );
+  overflow-y: scroll;
 }
 
 .content {
-  line-height: @contentLineHeight;
+  line-height: @line-height-content;
   // Deal with long links (bug 60387)
   word-wrap: break-word;
 
@@ -36,11 +32,10 @@ body {
   }
 }
 
-@font-size-body-mobile: 0.8 * @font-size-body;
-
+// Feature phones < 320px viewport receive smaller font.
 @media all and ( max-width: @width-breakpoint-mobile - 1 ) {
-  body {
-    font-size: @font-size-body-mobile;
+  html {
+    font-size: @font-size-root--feature-phone;
   }
 
   .content {
@@ -48,29 +43,9 @@ body {
   }
 }
 
-.client-js {
-  .collapsible-block {
-    display: none;
-
-    &.open-block {
-      display: block;
-    }
-  }
-}
-
 .nomobile {
   // No mobile should trump any other class. e.g. .content table { display: table; }
   display: none !important;
-}
-
-@media all and ( min-width: @width-breakpoint-tablet ) {
-  .client-js {
-    // Avoid flash of unstyled content for tablet users while JavaScript is loading
-    // onclick attribute is removed by the toggling code.
-    [ onclick ] + .collapsible-block {
-      display: block;
-    }
-  }
 }
 
 // Support iOS 9+ browsers: Enable Dynamic Type resizing, see
@@ -82,19 +57,19 @@ body {
   }
 
   // Most iOS browsers' default font size is 16px but Dynamic Type's default
-  // font size is 17px. We need to scale down @font-size-body and
-  // @font-size-body-mobile by this ratio in order to make them relative to these
+  // font size is 17px. We need to scale down @font-size-root and
+  // @font-size-root--feature-phone by this ratio in order to make them relative to these
   // browsers' defaults again. By doing this, the default Dynamic Type text size
   // will appear identical to the browser's default text size.
 @dynamicTypeScalingFactor: 16 / 17;
 
   body {
-    font-size: @font-size-body * @dynamicTypeScalingFactor;
+    font-size: @font-size-root * @dynamicTypeScalingFactor;
   }
 
   @media all and ( max-width: @width-breakpoint-mobile - 1 ) {
     body {
-      font-size: @font-size-body-mobile * @dynamicTypeScalingFactor;
+      font-size: @font-size-root--feature-phone * @dynamicTypeScalingFactor;
     }
   }
 }

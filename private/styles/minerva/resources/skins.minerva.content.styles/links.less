@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/links.less@fa5dff8
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/links.less@0a760808
 
 @import '../../minerva.less/minerva.variables.less';
 @import '../../minerva.less/minerva.mixins.less';
@@ -20,6 +20,7 @@ a:not( [ href ] ) {
 a {
   text-decoration: none;
   color: @linkColor;
+  hyphens: none;
 
   &:visited {
     color: #6b4ba1;
@@ -56,7 +57,7 @@ a {
 // Generic class name needed
 .return-link {
   display: block;
-  font-size: 0.9em;
+  font-size: @font-size-minerva-small;
   margin-top: 1.5em;
 }
 

@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/images.less@f0608db
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/images.less@ecf404db
 
 // Full-size images
 //
@@ -15,8 +15,6 @@
 //   <div class="floatleft"><img src="images/arrow-left.png">Left-aligned image</div>
 //   <div class="floatright"><img src="images/arrow-left.png">Right-aligned image</div>
 // </div>
-//
-// Styleguide 1.3.
 @import '../../minerva.less/minerva.variables.less';
 @import '../../minerva.less/minerva.mixins.less';
 
@@ -48,10 +46,9 @@
 
   // Prevent inline styles on images in wikitext
   // Note we restrict to img's to avoid conflicts with VisualEditor shields
-  // See bug T64460
+  // due to lazy loading images we also must consider imgs inside noscript tags (T191893)
   a > img,
   a > .lazy-image-placeholder,
-    // due to lazy loading images we also must consider imgs inside noscript tags (T191893)
   noscript > img {
     // make sure that images in articles don't cause a horizontal scrollbar
     // on small screens

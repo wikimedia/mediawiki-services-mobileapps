@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/text.less@cc727b9
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/text.less@ecf404db
 
 @import '../../minerva.less/minerva.variables.less';
 @import '../../minerva.less/minerva.mixins.less';
@@ -25,8 +25,6 @@
   //   color:red;
   // }
   // </code>
-  //
-  // Styleguide 1.6.
 
   // Preformatted text
   //
@@ -40,13 +38,11 @@
   // </pre>
   //
   // Note .mw-code is not added here as it is assumed that will be used with a suitable tag
-  // tt is a non-standard element so is not included in the selector.
-  // Styleguide 1.7.
   kbd,
   samp,
   code,
   pre {
-    font-family: @fontFamilyMonospace;
+    font-family: @font-family-monospace;
     border: solid 1px @colorGray12;
     white-space: pre-wrap;
   }
@@ -67,7 +63,7 @@ strong {
 
 blockquote {
   border-left: 3px solid @colorGray12;
-  font-family: @fontFamilyHeading;
+  font-family: @font-family-serif;
   font-size: 1.1em;
   padding: 1em @blockquotePaddingRight 1em @blockquotePaddingLeft;
   position: relative;

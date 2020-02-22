@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/tablet/common.less@a738f25
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/tablet/common.less@1e64fc8f
 
 /*
 A file for css that optimises the Minerva skin on larger devices.
@@ -9,10 +9,8 @@ A file for css that optimises the Minerva skin on larger devices.
 @paddingVertical: 1.4em;
 
 @media screen and ( min-width: @width-breakpoint-tablet ) {
-  .client-js {
-    #searchIcon {
-      display: none;
-    }
+  .client-js #searchIcon { // stylelint-disable-line selector-max-id
+    display: none;
   }
 
   .header {
@@ -30,25 +28,7 @@ A file for css that optimises the Minerva skin on larger devices.
     }
   }
 
-  .toc-mobile {
-    // Reset the rule for mobile mode (but not for .client-nojs)
-    display: table;
-    visibility: visible;
-    position: relative;
-    font-size: 1.3em;
-    margin: 1em 0;
-    border: solid 1px transparent;
-
-    > h2 {
-      visibility: hidden;
-      font-family: @fontFamilyBase;
-      font-size: @tocFontSize;
-      font-weight: bold;
-      border-bottom: 0;
-      padding: @paddingVertical / 2 0;
-    }
-  }
-
+  // stylelint-disable selector-max-id
   // FIXME: Have a class that identifies all of these selectors
   .pre-content,
     /* Form only pages e.g. Special:MobileOptions */
@@ -58,6 +38,7 @@ A file for css that optimises the Minerva skin on larger devices.
     max-width: @contentMaxWidthTablet;
     margin: 0 @contentPaddingTablet;
   }
+  // stylelint-enable selector-max-id
 
   .content {
     // Classes added by thumbnails
@@ -110,27 +91,26 @@ A file for css that optimises the Minerva skin on larger devices.
 }
 
 @media screen and ( min-width: @width-breakpoint-desktop ) {
+  // stylelint-disable-next-line selector-max-id
   .banner-container,
-    /* FIXME: Generic header class needed me-thinks! */
+  /* FIXME: Generic header class needed me-thinks! */
   .header,
   .page-header-bar,
   .overlay-header,
-    /* FIXME: Generic content class needed? */
+  /* FIXME: Generic content class needed? */
   .content,
   .overlay-content,
   .content-unstyled,
   .pre-content,
   .post-content,
-    /* Form only pages e.g. Special:MobileOptions */
-  #mw-content-text > form,
-    /* FIXME: remove need for id selector */
-  #mw-mf-page-center .pointer-overlay {
+  /* Form only pages e.g. Special:MobileOptions */
+  #mw-content-text > form {
     margin-left: auto;
     margin-right: auto;
     width: 90%;
     max-width: @contentMaxWidthTablet;
   }
-
+  
   .header {
     // Make sure the main menu and secondary button icon images are aligned
     // with the content.

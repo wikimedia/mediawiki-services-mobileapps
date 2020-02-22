@@ -1,20 +1,26 @@
-// mediawiki/skins/MinervaNeue/minerva.less/minerva.mixins.less@68d1bc6
+// mediawiki/skins/MinervaNeue/minerva.less/minerva.mixins.less@9c1e1abc
 
-@import '../../mediawiki/mixins.less';
-@import 'minerva.variables.less';
+@import "../../mediawiki/mixins.less";
+@import "minerva.variables.less";
 
 .editor-textarea() {
   // stylelint-disable-next-line no-descending-specificity
-  .box-sizing( border-box );
+  .box-sizing(border-box);
   width: 100%;
   // Note if a textarea has a .mw-ui-input class, this may be overridden
   padding: 10px @contentPadding 10px @contentPadding;
   resize: none;
 }
 
+.clearfix() {
+  display: block;
+  content: "";
+  clear: both;
+}
+
 // Generic mixin for applying styles to text that accompanies/adds context to workflows
 .secondary-text() {
-  font-size: 0.9em;
+  font-size: @font-size-minerva-small;
   color: @grayMedium;
   margin-top: 0.5em;
   line-height: 1.4;

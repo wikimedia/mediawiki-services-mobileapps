@@ -1,9 +1,6 @@
-// mediawiki/skins/MinervaNeue/minerva.less/minerva.variables.less@e052e43
+// mediawiki/skins/MinervaNeue/minerva.less/minerva.variables.less@08875526
 
 @import '../../mediawiki/variables.less';
-
-@z-indexBase: 0;
-@z-indexOverOverlay: 2;
 
 /**
  * System font stack for sans-serif fonts
@@ -19,9 +16,13 @@
  */
 @fontFamilySans: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Lato', 'Helvetica', 'Arial', sans-serif;
 @fontFamilyBase: @fontFamilySans;
-@tocFontSize: 0.8em;
 
-@indicatorFontSize: 0.4em;
+@font-size-browser: 16; // Assumed browser default of `16px`.
+@font-size-root: 100%;
+@font-size-root--feature-phone: 0.8 * @font-size-root;
+@font-size-minerva-small: unit( 14 / @font-size-browser, em ); // Equals `14px` at `16px` browser default.
+@font-size-minerva-smallest: unit( 13 / @font-size-browser, em ); // Equals `13px` at `16px` browser default.
+@tocFontSize: @font-size-minerva-small;
 
 // colors
 @grayMediumLight: @colorGray10;
@@ -29,18 +30,42 @@
 @grayMedium: @colorGray7;
 @grayLight: @colorGray12;
 @grayLightest: @colorGray14;
+@background-color-primary: @wmui-color-accent90;
+@grayDrawerShadow: rgba( 0, 0, 0, 0.35 );
+
+/*
+* FIXME: Use these variables directly from wikimedia-ui-base when available.
+*/
+@wmui-color-accent90: #eaf3ff;
+@wmui-color-green30: #14866d;
+@wmui-color-red30: #b32424;
+@wmui-color-grey30: #a2a9b1;
 
 @skinContentBgColor: #fff;
 
+//
+// Icons
+//
+@icon-touch-area-sm: 34;
+@icon-touch-area-md: 44;
+@icon-color: @colorGray5;
+
+// Small icon
+@icon-glyph-size-sm: 16;
+@icon-size-sm: unit( @icon-glyph-size-sm / @font-size-browser, em );
+@icon-padding-sm: unit( ( @icon-touch-area-sm - @icon-glyph-size-sm ) / 2 / @font-size-browser, em );
+
+// Medium icon
+@icon-glyph-size-md: 20;
+@icon-size-md: unit( @icon-glyph-size-md / @font-size-browser, em );
+@icon-padding-md: unit( ( @icon-touch-area-md - @icon-glyph-size-md ) / 2 / @font-size-browser, em );
+
 // Navigation Drawers
-@menuWidth: 75%;
-@menuWidthTablet: 600px;
 @rightDrawerWidth: 60%;
 @primaryNavBackgroundColor: @colorGray14;
+@menuButtonIconSize: 3.5em;
 
 // Headings
-@firstHeadingFontSize: 2.6525em; // 42px
-@pageActionFontSize: 1.1em; // Icons are 24px square.
 @fontSizeH1: 1.7em;
 @fontSizeH2: 1.5em;
 @fontSizeH3: 1.2em;
@@ -50,15 +75,15 @@
 @contentMargin: 16px;
 
 // Header
-@headerHeight: 3.35em;
+@siteHeaderHeight: unit( 54 / @font-size-browser, em );
+@overlayHeaderHeight: unit( 48 / @font-size-browser, em );
+@headerVerticalPadding: 0.15em;
 @headerMarginTop: -1px;  // used to hide the header border top when a banner is not present
 @searchBoxWidth: 375/16em;
-@iconSizeTotal: @iconSize + @iconGutterWidth + @iconGutterWidth;
 @deviceWidthTabletEms: unit( @width-breakpoint-tablet/16, em );
-@brandingBoxWidth: @deviceWidthTabletEms - ( @iconSizeTotal * 3 ) - @searchBoxWidth;
+@brandingBoxWidth: @deviceWidthTabletEms - (3 * @menuButtonIconSize + @iconGutterWidth) - @searchBoxWidth;
 
 @titleSectionSpacingTop: 20px;
-@titleSectionSpacingBottom: 25px;
 
 // Page actions
 @taglineFontSize: 0.85em;
@@ -69,29 +94,25 @@
 @semiTransparent: rgba( 0, 0, 0, 0.8 );
 
 @linkColor: @colorProgressive;
-@redLinkColor: @colorErrorText;
+@redLinkColor: @colorError;
 @lastModifiedBarActiveBackgroundColor: #00af89;
 @toastNotificationColor: @colorGray2;
 
-// Use when an element is selected. FIXME: This should be in mediawiki ui.
-@selectedBackgroundColor: #e6eeff;
+// Typography
+@font-family-serif: 'Linux Libertine', 'Georgia', 'Times', serif;
+/**
+ * System font stack for monospace fonts, see T221043.
+ *
+ * `Menlo` – macOS 10.6+
+ * `Consolas` – Windows Vista & newer
+ * `Liberation Mono` – Fedora, Ubuntu, … OFL licensed
+ * `Courier New` – (Generic) web font fallback
+ */
+@font-family-monospace: 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+@line-height-content: 1.65;
 
-// messages
-@colorWarningBackground: #feb;
-@colorWarningBorder: #fde29b;
-@colorWarningText: #850;
-@colorSuccessBorder: #b7fdb5;
-@colorErrorBackground: #fae3e3;
-@colorErrorBorder: #fac5c5;
-
-// typography
-@fontFamilyHeading: 'Linux Libertine', 'Georgia', 'Times', serif;
-@fontFamilyMonospace: monospace, monospace;
-@fontScalingFactor: 1;
-@contentLineHeight: 1.65;
 
 @headingMargin: 0.5em;
-@sectionIconWidth: 30px;
 
 // blockquote
 @blockquotePaddingRight: 25px;
@@ -102,13 +123,11 @@
 
 // note since content does not use view border box we have to include padding.
 @contentMaxWidthTablet: @width-breakpoint-desktop - ( 2 * @contentPaddingTablet );
-@contentTopPadding: 1.6em;
 
 // Wiki specific variables
 @infoboxWidth: 320px;
 
 @lastModifiedBarBgColor: @chromeColor;
-@lastModifiedBarActiveBgColor: @lastModifiedBarActiveBackgroundColor;
 @lastModifiedBarTextColor: @colorTextLight;
 
 @footerBorderColor: @grayLight;
@@ -119,8 +138,21 @@
 @notificationColorUnread: #fff;
 
 // z-index:
-@z-indexOverlay: 1;
+@z-indexOccluded: -1;
+@z-indexBase: 0;
+@z-indexAboveContent: 1;
+@z-indexDrawer: 2;
+@z-indexOverlay: 3;
+@z-indexOverOverlay: 4;
 
 // Print specific
 @colorPrintSubtle: #999;
 @borderColorPrint: #999;
+
+// Animations & Transitions
+// Transitions
+@transition-base: @transition-duration-base; // `ease` is the initial value.
+// Transitions > Durations
+@transition-duration-base: 100ms;
+@transition-duration-medium: 250ms;
+@transition-timing-function-menu: ease-in-out;

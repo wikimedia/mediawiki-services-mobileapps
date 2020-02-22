@@ -55,9 +55,7 @@ TBD. Compare files that have changed in the original locations since the previou
 the most recent released version and pull the needed changes in.
 
 The most recent update or check was:
-* MinervaNeue: b308c33 (last check on 2019-05-01)
-* MinervaNeue (partial): 2020-02-21 added https://gerrit.wikimedia.org/g/mediawiki/skins/MinervaNeue/+/
-fb0076a52eedcdccd3071ee8e9ec426f93a65c87/skinStyles/mediawiki.hlist/minerva.less
+* 2020-02-21: updated all modules to latest master as of 2020-02-21
 
 ### Build
 npm run build:css

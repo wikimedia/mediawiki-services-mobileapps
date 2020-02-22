@@ -1,8 +1,11 @@
-// mediawiki/resources/src/mediawiki.skinning/content.parsoid.less@d939ca5
+// mediawiki/resources/src/mediawiki.skinning/content.parsoid.less@3fa38ae
+// Removed the `figure` related rules in the middle of this file.
 
 /**
  * Style Parsoid HTML+RDFa output consistent with wikitext from PHP parser.
  */
+
+ /* stylelint-disable selector-class-pattern */
 
 /*
  * Auto-numbered external links
@@ -27,8 +30,6 @@
  * Markup:
  * Cake is good<sup>[2]</sup>
  * The cake is a lie<span class="reference">[1]</span>
- *
- * Styleguide 1.1.
  */
 span.reference {
   font-size: 80%;

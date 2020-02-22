@@ -1,4 +1,4 @@
-// mediawiki/resources/src/mediawiki.less/mediawiki.ui/variables.less@e8a87bc
+// mediawiki/resources/src/mediawiki.less/mediawiki.ui/variables.less@530345a
 
 /**
  * Minimum available screen width at which a device can be considered a mobile device
@@ -61,13 +61,32 @@
 
 // Text colors
 @colorText: @colorGray2;
+@colorTextEmphasized: @colorGray1;
 @colorTextLight: @colorGray5;
 @colorButtonText: @colorGray2;
 @colorButtonTextHighlight: @colorGray4;
 @colorButtonTextActive: @colorGray1;
 @colorDisabledText: @colorGray7;
-@colorErrorText: #d33;
-@colorWarningText: #705000;
+
+// Messages
+// Messages: Error
+@backgroundColorError: #fee7e6;
+// Use only for inlined messages, boxed messages require `@colorTextEmphasized` for
+// minimum contrast ratio.
+@colorError: #d33;
+@borderColorError: @colorError;
+// Messages: Warning
+@backgroundColorWarning: #fef6e7;
+@colorWarning: @colorTextEmphasized;
+@borderColorWarning: #fc3;
+// Messages: Success
+@backgroundColorSuccess: #d5fdf4;
+@colorSuccess: #14866d;
+@borderColorSuccess: @colorSuccess;
+
+// FIXME: Remove after a few weeks, when extensions got updated
+@colorErrorText: @colorError;
+@colorWarningText: @colorWarning;
 
 // UI colors
 @backgroundColorInputBinaryChecked: @colorProgressive;

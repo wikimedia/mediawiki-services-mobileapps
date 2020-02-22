@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/tables.less@994edd7
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/tables.less@7280d255
 
 // Tables
 @import '../../minerva.less/minerva.variables.less';
@@ -14,6 +14,13 @@
     table {
       display: block;
       width: 100% !important;
+
+      &.wikitable {
+        // Remove the outer table border as the table container may be
+        // wider than all the cells (T206762). In most cases the table
+        // border is not visible anyway due to border-collapse.
+        border: 0;
+      }
     }
 
     caption {
