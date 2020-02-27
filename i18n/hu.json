@@ -1,0 +1,18 @@
+{
+  "description-add-link-title" : "Adj meg egy címleírást",
+  "article-read-more-title" : "További információ",
+  "table-title-other" : "További információk",
+  "page-edit-history" : "Teljes laptörténet",
+  "info-box-close-text" : "Bezárás",
+  "page-talk-page" : "Vitalap megtekintése",
+  "info-box-title" : "Gyors adatok",
+  "view-in-browser-footer-link" : "Szócikk olvasása böngészőben",
+  "page-similar-titles" : "Hasonló lapok",
+  "page-location" : "Megtekintés térképen",
+  "page-last-edited" : "Szerkesztve {{PLURAL:$1|0=ma|1=tegnap|$1 napja}}",
+  "article-about-title" : "Erről a szócikkről",
+  "page-issues" : "A lap problémái",
+  "license-footer-name" : "CC BY-SA 3.0",
+  "license-footer-text" : "A tartalom további jelölés hiányában a(z) $1 feltételei szerint használható fel.",
+  "page-read-in-other-languages" : "Elérhető $1 további nyelven"
+}

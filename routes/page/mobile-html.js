@@ -6,7 +6,6 @@ const mUtil = require('../../lib/mobile-util');
 const mobileviewHtml = require('../../lib/mobileview-html');
 const apiUtilConstants = require('../../lib/api-util-constants');
 const parsoidApi = require('../../lib/parsoid-access');
-const preprocessParsoidHtml = require('../../lib/processing');
 const sUtil = require('../../lib/util');
 
 /**
@@ -22,7 +21,7 @@ let app;
 function getMobileHtmlFromPOST(req, res) {
     const html = req.body && req.body.html || req.body;
     return BBPromise.props({
-        mobileHTML: parsoidApi.mobileHTMLPromiseFromHTML(app, req, html),
+        mobileHTML: parsoidApi.mobileHTMLPromiseFromHTML(app, req, res, html),
         mw: mwapi.getMetadataForMobileHtml(req)
     }).then((response) => {
         response.mobileHTML.addMediaWikiMetadata(response.mw);
@@ -87,6 +86,8 @@ router.post('/transform/html/to/mobile-html/:title', (req, res) => {
     return getMobileHtmlFromPOST(req, res);
 });
 
+const schemeRegex = /^[a-z]*:\/\//i;
+
 router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, res) => {
     res.status(200);
     mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtmlOfflineResources);
@@ -95,14 +96,19 @@ router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, 
     // Get external API URI
     let externalApiUri = apiUtilConstants.getExternalRestApiUri(req.params.domain);
     // make it  schemeless
-    externalApiUri = externalApiUri.replace(new RegExp('https://'), '//');
+    externalApiUri = externalApiUri.replace(schemeRegex, '//');
     const metawikiApiUri = app.conf.mobile_html_rest_api_base_uri
-        .replace(new RegExp('(https|http)://'), '//');
+        .replace(schemeRegex, '//');
+    const localApiUri = app.conf.mobile_html_local_rest_api_base_uri_template
+        .replace('{{domain}}', req.params.domain || 'en.wikipedia.org')
+        .replace(schemeRegex, '//');
+
     const offlineResources = [
         `${metawikiApiUri}data/css/mobile/base`,
         `${metawikiApiUri}data/css/mobile/pcs`,
         `${metawikiApiUri}data/javascript/mobile/pcs`,
         `${externalApiUri}data/css/mobile/site`,
+        `${localApiUri}data/i18n/pcs`
     ];
 
     res.send(offlineResources).end();

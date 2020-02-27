@@ -61,7 +61,8 @@ services:
       #   - x-request-id
       # the user agent to use when issuing requests
       mobile_html_rest_api_base_uri: "//localhost:8888/api/v1/"
-      mobile_html_csp: "default-src 'none'; connect-src http://localhost:7231 http://*.wikipedia.org;
+      mobile_html_local_rest_api_base_uri_template: "//localhost:8888/{{domain}}/v1/"
+      mobile_html_csp: "default-src 'none'; connect-src http://localhost:8888 app://localhost:8888 http://localhost:7231 http://*.wikipedia.org;
       media-src upload.wikimedia.org 'self';
       img-src upload.wikimedia.org 'self' data:;
       script-src app://localhost:8888 http://localhost:8888 'self' 'unsafe-inline'; style-src app://localhost http://localhost app://*.wikipedia.org http://*.wikipedia.org 'self' 'unsafe-inline'; frame-ancestors 'self'"

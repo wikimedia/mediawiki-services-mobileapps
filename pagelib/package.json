@@ -93,5 +93,8 @@
       "path": "build/wikimedia-page-library-transform.js",
       "maxSize": "13.83KB"
     }
-  ]
+  ],
+  "dependencies": {
+    "banana-i18n": "^1.2.1"
+  }
 }

@@ -1,0 +1,31 @@
+paths:
+    /{domain}/v1/data/i18n/pcs:
+      get:
+        tags:
+          - Strings
+        summary: Get i18n strings for the Page Content Service
+        description: |
+          Gets the i18n strings for the Page Content Service so that localization can happen on the
+          client side. Provides strings for the locale and any fallback locales.
+        parameters:
+          - $ref: '#/components/parameters/domainParam'
+        responses:
+          200:
+            $ref: '#/components/responses/success'
+          default:
+            $ref: "#/components/responses/problem"
+        x-amples:
+          - title:  Get i18n strings for the Page Content Service
+            response:
+              status: 200
+              headers:
+                content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/i18n/0.0.1"
+                vary: /.+/
+                etag: /^"[^/"]+/[^/"]+"$/
+                access-control-allow-origin: '*'
+                access-control-allow-headers: accept, x-requested-with, content-type
+                content-security-policy: default-src
+                x-content-security-policy: default-src
+                x-frame-options: SAMEORIGIN
+              body: /.+/
+  

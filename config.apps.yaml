@@ -1,0 +1,92 @@
+# Number of worker processes to spawn.
+# Set to 0 to run everything in a single process without clustering.
+# Use 'ncpu' to run as many workers as there are CPU units
+num_workers: 0
+
+# Log error messages and gracefully restart a worker if v8 reports that it
+# uses more heap (note: not RSS) than this many mb.
+worker_heap_limit_mb: 250
+
+# Logger info
+logging:
+  level: trace
+#  streams:
+#  # Use gelf-stream -> logstash
+#  - type: gelf
+#    host: logstash1003.eqiad.wmnet
+#    port: 12201
+
+# Statsd metrics reporter
+metrics:
+  #type: log
+  #host: localhost
+  #port: 8125
+
+services:
+  - name: service-mobileapp-node
+    # a relative path or the name of an npm package, if different from name
+    module: ./app.js
+    # optionally, a version constraint of the npm package
+    # version: ^0.4.0
+    # per-service config
+    conf:
+      port: 8888
+      # interface: localhost # uncomment to only listen on localhost
+      # more per-service config settings
+      # the location of the spec, defaults to spec.yaml if not specified
+      # spec: ./spec.template.yaml
+      # allow cross-domain requests to the API (default '*')
+      cors: '*'
+      # to disable use:
+      # cors: false
+      # to restrict to a particular domain, use:
+      # cors: restricted.domain.org
+      # content for the CSP headers
+      # csp: false  # uncomment this line to disable sending them
+      # URL of the outbound proxy to use (complete with protocol)
+      # proxy: http://my.proxy.org:8080
+      # the list of domains for which not to use the proxy defined above
+      # no_proxy_list:
+      #   - domain1.com
+      #   - domain2.org
+      # the list of incoming request headers that can be logged; if left empty,
+      # the following headers are allowed: cache-control, content-length,
+      # content-type, if-match, user-agent, x-request-id
+      # log_header_whitelist:
+      #   - cache-control
+      #   - content-length
+      #   - content-type
+      #   - if-match
+      #   - user-agent
+      #   - x-request-id
+      # the user agent to use when issuing requests
+      mobile_html_rest_api_base_uri: "//apps.wmflabs.org/api/v1/"
+      mobile_html_local_rest_api_base_uri_template: "//apps.wmflabs.org/{{domain}}/v1/"
+      mobile_html_csp: "default-src 'none';
+        connect-src https://*.wikipedia.org app://apps.wmflabs.org https://apps.wmflabs.org; media-src *;
+        img-src * data:;
+        script-src app://meta.wikimedia.org https://meta.wikimedia.org app://apps.wmflabs.org https://apps.wmflabs.org 'unsafe-inline';
+        object-src 'none';
+        style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org app://apps.wmflabs.org https://apps.wmflabs.org 'self' 'unsafe-inline';"
+      user_agent: WMF Mobile Content Service dev
+      #
+      # Max JSON POST body size limit.
+      # max_body_size: 100kb
+      # the template used for contacting the MW API
+      mwapi_req:
+        method: post
+        uri: https://{{domain}}/w/api.php
+        headers:
+          user-agent: '{{user-agent}}'
+          accept-language: '{{accept-language}}'
+        body: '{{ default(request.query, {}) }}'
+      # the template used for contacting RESTBase
+      restbase_req:
+        method: '{{request.method}}'
+        uri: https://{{domain}}/api/rest_v1/{+path}
+        query: '{{ default(request.query, {}) }}'
+        headers: '{{request.headers}}'
+        body: '{{request.body}}'
+        timeout: 60000 # 60 * 1000
+      # whether to print extra debug info
+      debug: true

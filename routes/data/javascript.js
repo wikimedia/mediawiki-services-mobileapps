@@ -2,7 +2,6 @@
 
 const sUtil = require('../../lib/util');
 const js = require('../../lib/javascript');
-
 const router = sUtil.router();
 
 /**

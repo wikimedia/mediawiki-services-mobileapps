@@ -1,0 +1,18 @@
+{
+  "page-read-in-other-languages" : "Tilgængelig på {{PLURAL:$1|$1 andet sprog|$1 andre sprog}}",
+  "article-read-more-title" : "Læs mere",
+  "table-title-other" : "Flere oplysninger",
+  "page-edit-history" : "Fuld redigeringshistorik",
+  "info-box-close-text" : "Luk",
+  "page-last-edited" : "{{PLURAL:$1|0=Redigeret i dag|1=Redigeret i går|Redigeret for $1 dage siden}}",
+  "info-box-title" : "Hurtige fakta",
+  "view-in-browser-footer-link" : "Vis artikel i browser",
+  "page-similar-titles" : "Lignende sider",
+  "page-location" : "Vis på et kort",
+  "page-talk-page" : "Vis diskussionsside",
+  "article-about-title" : "Om denne artikel",
+  "page-issues" : "Problemer med siden",
+  "license-footer-name" : "CC BY-SA 3.0",
+  "description-add-link-title" : "Tilføj titelbeskrivelse",
+  "license-footer-text" : "Indholdet er udgivet under $1 medmindre andet er angivet."
+}

@@ -1,0 +1,18 @@
+{
+  "license-footer-text" : "المحتوى متاح بموجب رخصة $1 إلا في حالة ذكر خلاف ذلك.",
+  "table-title-other" : "مزيد من المعلومات",
+  "article-read-more-title" : "قراءة المزيد",
+  "page-edit-history" : "تاريخ التعديل الكامل",
+  "info-box-close-text" : "إغلاق",
+  "page-last-edited" : "عُدِّلت {{PLURAL:$1|0=اليوم|1=أمس|قبل $1 أيام}}",
+  "page-talk-page" : "اعرض صفحة النقاش",
+  "view-in-browser-footer-link" : "اعرض المقالة في المتصفح",
+  "page-similar-titles" : "صفحات مشابهة",
+  "page-location" : "شاهده على خريطة",
+  "info-box-title" : "معلومات سريعة",
+  "article-about-title" : "حول المقال",
+  "page-issues" : "مشاكل في الصفحة",
+  "license-footer-name" : "CC BY-SA 3.0",
+  "description-add-link-title" : "إضافة وصف للعنوان",
+  "page-read-in-other-languages" : "متاحة {{PLURAL:$1|بـ$1 لغة أخرى|بـ$1 لغات أخرى}}"
+}

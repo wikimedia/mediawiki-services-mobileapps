@@ -1,0 +1,19 @@
+{
+  "description-add-link-title" : "Додај опис наслова",
+  "table-title-other" : "Више информација",
+  "article-read-more-title" : "Прочитајте више",
+  "page-edit-history" : "Целокупна историја измена",
+  "info-box-close-text" : "Затвори",
+  "page-last-edited-unknown" : "Уређено пре неког времена",
+  "info-box-title" : "Кратке чињенице",
+  "page-last-edited" : "{{PLURAL:$1|0=Уређено данас|1=Уређено јуче|Уређено пре $1 дана}}",
+  "page-location" : "Прикажи на мапи",
+  "page-similar-titles" : "Сличне странице",
+  "page-talk-page" : "Прикажи страницу за разговор",
+  "view-in-browser-footer-link" : "Прикажи чланак у прегледачу",
+  "article-about-title" : "О овом чланку",
+  "license-footer-name" : "CC BY-SA 3.0",
+  "page-issues" : "Проблеми са страницом",
+  "license-footer-text" : "Садржај је доступан под лиценцом $1, осим ако је другачије наведено.",
+  "page-read-in-other-languages" : "Доступно на још $1 језика"
+}

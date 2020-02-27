@@ -13,12 +13,18 @@ describe('mobile-html-offline-resources', function() {
     const metawikiApiUri = server.config.conf.services[0].conf.mobile_html_rest_api_base_uri
         .replace(new RegExp('(https|http)://'), '//');
 
+    const domain = 'en.wikipedia.org';
+
+    const localApiUri = server.config.conf.services[0]
+        .conf.mobile_html_local_rest_api_base_uri_template
+        .replace('{{domain}}', domain)
+        .replace(new RegExp('(https|http)://'), '//');
+
     const localUri = (title, domain = 'en.wikipedia.org') => {
         return `${server.config.uri}${domain}/v1/page/mobile-html-offline-resources/${title}`;
     };
 
     it('Response should be array with JS and CSS resources', () => {
-        const domain = 'en.wikipedia.org';
         const uri = localUri('Foobar/788941783', domain);
 
         const expected = [
@@ -26,6 +32,7 @@ describe('mobile-html-offline-resources', function() {
             `${metawikiApiUri}data/css/mobile/pcs`,
             `${metawikiApiUri}data/javascript/mobile/pcs`,
             `//${domain}/api/rest_v1/data/css/mobile/site`,
+            `${localApiUri}data/i18n/pcs`
         ];
 
         return preq.get({ uri })

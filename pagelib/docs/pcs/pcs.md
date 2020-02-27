@@ -60,7 +60,6 @@ Setting parameter object fields:
 
 - platform: possible values are 'ios' and 'android'
 - clientVersion: string of client version (platform specific)
-- l10n: object of localized user visible strings: { addTitleDescription, tableInfobox, tableOther, tableClose }
 - loadImages: will images be loaded (defaults to true if omitted)
 - theme: possible values are 'default', 'sepia', 'dark', and 'black'
 - dimImages: boolean
@@ -80,12 +79,6 @@ Example:
 pcs.c1.Page.setup({
   platform: 'ios',
   clientVersion: '6.2.1',
-  l10n: {
-    addTitleDescription: 'Titelbeschreibung bearbeiten',
-    tableInfobox: 'Schnelle Fakten',
-    tableOther: 'Weitere Informationen',
-    tableClose: 'Schließen'
-  },
   theme: 'sepia',
   dimImages: true,
   margins: { top: '32px', right: '32px', bottom: '32px', left: '32px' },
@@ -266,21 +259,9 @@ pcs.c1.Footer.add({
   title: 'Knight Lore',
   menu: {
     items: [pcs.c1.Footer.MenuItemType.languages, pcs.c1.Footer.MenuItemType.lastEdited, pcs.c1.Footer.MenuItemType.pageIssues, pcs.c1.Footer.MenuItemType.disambiguation, pcs.c1.Footer.MenuItemType.talkPage],
-    fragment: "pcs-menu"
-  },
-  l10n: {
-    'readMoreHeading': 'Read more',
-    'menuDisambiguationTitle': 'Similar pages',
-    'menuLanguagesTitle': 'Available in 9 other languages',
-    'menuHeading': 'About this article',
-    'menuLastEditedSubtitle': 'Full edit history',
-    'menuLastEditedTitle': 'Edited today',
-    'licenseString': 'Content is available under $1 unless otherwise noted.',
-    'menuTalkPageTitle': 'View talk page',
-    'menuPageIssuesTitle': 'Page issues',
-    'viewInBrowserString': 'View article in browser',
-    'licenseSubstitutionString': 'CC BY-SA 3.0',
-    'menuCoordinateTitle': 'View on a map'
+    fragment: "pcs-menu",
+    editedDaysAgo: 3,
+    languageCount: 12
   },
   readMore: {
     itemCount: 3,

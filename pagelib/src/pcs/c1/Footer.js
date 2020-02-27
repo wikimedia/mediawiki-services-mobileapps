@@ -2,6 +2,7 @@ import FooterContainer from '../../transform/FooterContainer'
 import FooterLegal from '../../transform/FooterLegal'
 import FooterMenu from '../../transform/FooterMenu'
 import FooterReadMore from '../../transform/FooterReadMore'
+import Banana from 'banana-i18n'
 
 let handlers
 
@@ -22,132 +23,154 @@ const _connectHandlers = newHandlers => {
  *   {!string} title article title for related pages
  *   {!map} menu
  *       {!array<string>} items menu items to add
- *       {!string} fragment anchor for the menu
  *   {!map} readMore
  *       {!number} itemCount number of read more items to add
- *       {!string} fragment anchor for read more
  *       {!string} baseURL base url for RESTBase to fetch read more
  *   {!map} l10n localized strings
  * @return {void}
  */
 const add = params => {
-  const { title: articleTitle, menu: { items: menuItems, fragment: menuFragment }, l10n,
-    readMore: { itemCount: readMoreItemCount, baseURL: readMoreBaseURL,
-      fragment: readMoreFragment } } = params
-
-  const fragments = {
-    menu: menuFragment,
-    readmore: readMoreFragment
-  }
+  const { title: articleTitle, menu: { items: menuItems, languageCount, editedDaysAgo },
+    readMore: { itemCount: readMoreItemCount, baseURL: readMoreBaseURL } } = params
 
   // Add container
   if (FooterContainer.isContainerAttached(document) === false) {
     const pcs = document.getElementById('pcs');
-    pcs.appendChild(FooterContainer.containerFragment(document, fragments))
+    pcs.appendChild(FooterContainer.containerFragment(document))
   }
-  // Add menu
-  FooterMenu.setHeading(
-    l10n.menuHeading,
-    'pcs-footer-container-menu-heading',
-    document
-  )
-  menuItems.forEach(item => {
-    let title = ''
-    let subtitle = ''
-    switch (item) {
-    case FooterMenu.MenuItemType.languages:
-      title = l10n.menuLanguagesTitle
-      break
-    case FooterMenu.MenuItemType.lastEdited:
-      title = l10n.menuLastEditedTitle
-      subtitle = l10n.menuLastEditedSubtitle
-      break
-    case FooterMenu.MenuItemType.pageIssues:
-      title = l10n.menuPageIssuesTitle
-      break
-    case FooterMenu.MenuItemType.disambiguation:
-      title = l10n.menuDisambiguationTitle
-      break
-    case FooterMenu.MenuItemType.coordinate:
-      title = l10n.menuCoordinateTitle
-      break
-    case FooterMenu.MenuItemType.talkPage:
-      title = l10n.menuTalkPageTitle
-      break
-    default:
+
+  const finish = (banana) => {
+    // Add menu
+    FooterMenu.setHeading(
+      banana.i18n('article-about-title'),
+      'pcs-footer-container-menu-heading',
+      document
+    )
+    menuItems.forEach(item => {
+      let title = ''
+      let subtitle = ''
+      switch (item) {
+      case FooterMenu.MenuItemType.languages:
+        title = languageCount && languageCount > 0 ? banana.i18n('page-read-in-other-languages', languageCount) : ''
+        break
+      case FooterMenu.MenuItemType.lastEdited:
+        title = banana.i18n('page-edit-history')
+        subtitle = editedDaysAgo !== undefined && editedDaysAgo >= 0 ? banana.i18n('page-last-edited', editedDaysAgo) : ''
+        break
+      case FooterMenu.MenuItemType.pageIssues:
+        title = banana.i18n('page-issues')
+        break
+      case FooterMenu.MenuItemType.disambiguation:
+        title = banana.i18n('page-similar-titles')
+        break
+      case FooterMenu.MenuItemType.coordinate:
+        title = banana.i18n('page-location')
+        break
+      case FooterMenu.MenuItemType.talkPage:
+        title = banana.i18n('page-talk-page')
+        break
+      default:
+      }
+
+      /**
+       * @param {!map} payload menu item payload
+       * @return {void}
+       */
+      const itemSelectionHandler = payload => {
+        if (handlers) {
+          handlers.footerItemSelected(item, payload)
+        }
+      }
+
+      FooterMenu.maybeAddItem(
+        title,
+        subtitle,
+        item,
+        'pcs-footer-container-menu-items',
+        itemSelectionHandler,
+        document
+      )
+    })
+
+    if (readMoreItemCount && readMoreItemCount > 0) {
+
+      /**
+       * @param {!list} titles article titles
+       * @return {void}
+       */
+      const titlesShownHandler = titles => {
+        if (handlers) {
+          handlers.titlesRetrieved(titles)
+        }
+      }
+
+      FooterReadMore.fetchAndAdd(
+        articleTitle,
+        banana.i18n('article-read-more-title'),
+        readMoreItemCount,
+        'pcs-footer-container-readmore',
+        'pcs-footer-container-readmore-pages',
+        readMoreBaseURL,
+        titlesShownHandler,
+        document
+      )
     }
 
     /**
-     * @param {!map} payload menu item payload
      * @return {void}
      */
-    const itemSelectionHandler = payload => {
+    const licenseLinkClickHandler = () => {
       if (handlers) {
-        handlers.footerItemSelected(item, payload)
+        handlers.viewLicense()
       }
     }
-
-    FooterMenu.maybeAddItem(
-      title,
-      subtitle,
-      item,
-      'pcs-footer-container-menu-items',
-      itemSelectionHandler,
-      document
-    )
-  })
-
-  if (readMoreItemCount && readMoreItemCount > 0) {
 
     /**
-     * @param {!list} titles article titles
      * @return {void}
      */
-    const titlesShownHandler = titles => {
+    const viewInBrowserLinkClickHandler = () => {
       if (handlers) {
-        handlers.titlesRetrieved(titles)
+        handlers.viewInBrowser()
       }
     }
 
-    FooterReadMore.fetchAndAdd(
-      articleTitle,
-      l10n.readMoreHeading,
-      readMoreItemCount,
-      'pcs-footer-container-readmore',
-      'pcs-footer-container-readmore-pages',
-      readMoreBaseURL,
-      titlesShownHandler,
-      document
+    FooterLegal.add(
+      document,
+      banana.i18n('license-footer-text'),
+      banana.i18n('license-footer-name'),
+      'pcs-footer-container-legal',
+      licenseLinkClickHandler,
+      banana.i18n('view-in-browser-footer-link'),
+      viewInBrowserLinkClickHandler
     )
+
   }
 
-  /**
-   * @return {void}
-   */
-  const licenseLinkClickHandler = () => {
-    if (handlers) {
-      handlers.viewLicense()
+
+  const xhr = new XMLHttpRequest() // eslint-disable-line no-undef
+  const href = window.location.href || ''
+  const index = href.indexOf('/page/mobile-html/') // hax
+  const stringsBaseURL = index >= 0 ? href.slice(0, index) : ''
+  const stringsURL = `${stringsBaseURL}/data/i18n/pcs`
+  xhr.open('GET', stringsURL, true)
+  const failsafeBanana = {
+    i18n: (message) => { return message }
+  }
+  xhr.onload = () => {
+    let banana
+    try {
+      const response = JSON.parse(xhr.responseText)
+      banana = new Banana(response.locale)
+      banana.load(response.messages)
+    } catch (e) {
+      banana = failsafeBanana
     }
+    finish(banana);
   }
-
-  /**
-   * @return {void}
-   */
-  const viewInBrowserLinkClickHandler = () => {
-    if (handlers) {
-      handlers.viewInBrowser()
-    }
+  xhr.onerror = () => {
+    finish(failsafeBanana);
   }
-
-  FooterLegal.add(
-    document,
-    l10n.licenseString,
-    l10n.licenseSubstitutionString,
-    'pcs-footer-container-legal',
-    licenseLinkClickHandler,
-    l10n.viewInBrowserString,
-    viewInBrowserLinkClickHandler
-  )
+  xhr.send()
 }
 
 export default {

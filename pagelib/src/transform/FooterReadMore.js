@@ -190,7 +190,10 @@ const fetchAndAdd = (title, heading, count, sectionContainerId, pageContainerId,
   const xhr = new XMLHttpRequest() // eslint-disable-line no-undef
   xhr.open('GET', readMoreQueryURL(title, count, baseURL), true)
   xhr.onload = () => {
-    const pages = JSON.parse(xhr.responseText).pages
+    let pages
+    try {
+      pages = JSON.parse(xhr.responseText).pages
+    } catch (e) { }
     if (!(pages && pages.length)) {
       return
     }

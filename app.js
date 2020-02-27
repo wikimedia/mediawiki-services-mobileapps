@@ -73,6 +73,10 @@ function initApp(options) {
         app.conf.mobile_html_rest_api_base_uri = 'https://meta.wikimedia.org/api/rest_v1/';
     }
 
+    if (app.conf.mobile_html_local_rest_api_base_uri_template === undefined) {
+        app.conf.mobile_html_local_rest_api_base_uri_template = 'https://{{domain}}/api/rest_v1/';
+    }
+
     // set outgoing proxy
     if (app.conf.proxy) {
         process.env.HTTP_PROXY = app.conf.proxy;

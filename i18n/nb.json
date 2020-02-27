@@ -1,0 +1,18 @@
+{
+  "license-footer-text" : "Innholdet er tilgjengelig under $1 med mindre annet er angitt.",
+  "article-read-more-title" : "Les mer",
+  "table-title-other" : "Mer informasjon",
+  "page-edit-history" : "Fullstendig redigeringshistorikk",
+  "info-box-close-text" : "Lukk",
+  "page-talk-page" : "Vis diskusjonsside",
+  "info-box-title" : "Kjappe fakta",
+  "view-in-browser-footer-link" : "Vis artikkelen i nettleseren",
+  "page-location" : "Vis på kart",
+  "page-similar-titles" : "Lignende sider",
+  "page-last-edited" : "{{PLURAL:$1|0=Redigert i dag|1=Redigert i går|Redigert for $1 dager siden}}",
+  "license-footer-name" : "CC BY-SA 3.0",
+  "page-issues" : "Merknader for siden",
+  "article-about-title" : "Om artikkelen",
+  "description-add-link-title" : "Legg til tittelbeskrivelse",
+  "page-read-in-other-languages" : "Tilgjengelig på {{PLURAL:$1|$1 annet språk|$1 andre språk}}"
+}
