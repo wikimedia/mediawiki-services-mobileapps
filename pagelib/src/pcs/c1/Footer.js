@@ -42,7 +42,8 @@ const add = params => {
 
   // Add container
   if (FooterContainer.isContainerAttached(document) === false) {
-    document.body.appendChild(FooterContainer.containerFragment(document, fragments))
+    const pcs = document.getElementById('pcs');
+    pcs.appendChild(FooterContainer.containerFragment(document, fragments))
   }
   // Add menu
   FooterMenu.setHeading(
@@ -72,9 +73,6 @@ const add = params => {
       break
     case FooterMenu.MenuItemType.talkPage:
       title = l10n.menuTalkPageTitle
-      break
-    case FooterMenu.MenuItemType.referenceList:
-      title = l10n.menuReferenceListTitle
       break
     default:
     }

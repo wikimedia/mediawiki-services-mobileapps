@@ -20,7 +20,7 @@ describe('mobile-html', function() {
         return preq.get({ uri })
         .then((res) => {
             const document = domino.createDocument(res.body);
-            assert.selectorExistsNTimes(document, 'section', 6, 'should have 6 sections'); // 7 minus one reference section
+            assert.selectorExistsNTimes(document, 'section', 7, 'should have 7 sections');
         });
     });
 

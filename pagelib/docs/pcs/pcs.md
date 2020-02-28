@@ -261,11 +261,11 @@ Example:
 
 ```
 pcs.c1.Footer.add({
-  platform: pcs.c1.Platforms.IOS,
+  platform: 'ios',
   clientVersion: '6.2.1',
   title: 'Knight Lore',
   menu: {
-    items: [pcs.c1.Footer.MenuItemType.languages, pcs.c1.Footer.MenuItemType.lastEdited, pcs.c1.Footer.MenuItemType.pageIssues, pcs.c1.Footer.MenuItemType.disambiguation, pcs.c1.Footer.MenuItemType.talkPage, pcs.c1.Footer.MenuItemType.referenceList],
+    items: [pcs.c1.Footer.MenuItemType.languages, pcs.c1.Footer.MenuItemType.lastEdited, pcs.c1.Footer.MenuItemType.pageIssues, pcs.c1.Footer.MenuItemType.disambiguation, pcs.c1.Footer.MenuItemType.talkPage],
     fragment: "pcs-menu"
   },
   l10n: {
@@ -280,8 +280,7 @@ pcs.c1.Footer.add({
     'menuPageIssuesTitle': 'Page issues',
     'viewInBrowserString': 'View article in browser',
     'licenseSubstitutionString': 'CC BY-SA 3.0',
-    'menuCoordinateTitle': 'View on a map',
-    'menuReferenceListTitle': 'References'
+    'menuCoordinateTitle': 'View on a map'
   },
   readMore: {
     itemCount: 3,
@@ -326,19 +325,54 @@ Currently the following actions can be emitted:
 
 ```
 const Actions = {
-  LinkClicked
-  ImageClicked,
-  ReferenceClicked,
-  EditSection,
-  AddTitleDescription,
-  PronunciationClicked,
-
+  InitialSetup: 'setup',
+  FinalSetup: 'final_setup',
+  LinkClicked: 'link',
+  ImageClicked: 'image',
+  ReferenceClicked: 'reference',
+  BackLink: 'back_link',
+  EditSection: 'edit_section',
+  AddTitleDescription: 'add_title_description',
+  PronunciationClicked: 'pronunciation',
   /* Footer related actions: */
-  FooterItemSelected,
-  SaveOtherPage,
-  ReadMoreTitlesRetrieved,
-  ViewLicense,
-  ViewInBrowser,
+  FooterItemSelected: 'footer_item',
+  SaveOtherPage: 'save_other_page',
+  ReadMoreTitlesRetrieved: 'read_more_titles_retrieved',
+  ViewLicense: 'view_license',
+  ViewInBrowser: 'view_in_browser',
+}
+```
+
+**Future "proof"ing:** If clients don't recognize an event type, they should fallback on reading the 'href' and navigating to that link. This way, future events could be added without fully breaking compatibility with existing clients.
+
+##### Events
+
+###### back_link
+Sent when a user taps a back link in a reference list. Provides a list of where that reference is used in the article. Example:
+```
+{
+  "action": "back_link",
+  "data": {
+    "referenceId": "cite_note-Thalmann2018-1",
+    "backLinks": [
+      {
+        "id": "cite_ref-Thalmann2018_1-0"
+      },
+      {
+        "id": "cite_ref-Thalmann2018_1-1"
+      },
+      {
+        "id": "cite_ref-Thalmann2018_1-2"
+      },
+      {
+        "id": "cite_ref-Thalmann2018_1-3"
+      },
+      {
+        "id": "cite_ref-Thalmann2018_1-4"
+      }
+    ],
+    "href": "./Dog#cite_ref-Thalmann2018_1-0"
+  }
 }
 ```
 

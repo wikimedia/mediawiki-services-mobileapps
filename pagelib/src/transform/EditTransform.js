@@ -98,7 +98,7 @@ const newEditSectionWrapper = (document, index) => {
  * @return {void}
  */
 const appendEditSectionHeader = (wrapper, header) => {
-  header.className = CLASS.TITLE
+  header.classList.add(CLASS.TITLE)
   /* DOM sink status: safe - content transform with no user interference */
   wrapper.appendChild(header)
 }

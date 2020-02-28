@@ -9,8 +9,12 @@ import LazyLoadTransformer from '../../transform/LazyLoadTransformer'
 import PlatformTransform from '../../transform/PlatformTransform'
 import Scroller from './Scroller'
 import ThemeTransform from '../../transform/ThemeTransform'
+import NodeUtilities from '../../transform/NodeUtilities'
+import SectionUtilities from '../../transform/SectionUtilities'
 
 const unitsRegex = /[^0-9]+$/
+
+const PCS_CSS_CLASS_ELEMENT_HIGHLIGHT = 'pcs-element-highlight'
 
 /**
  * @typedef {function} OnSuccess
@@ -202,10 +206,13 @@ const setEditButtons = (isEditable, isProtected, onSuccess) => {
 
 /**
  * Gets the revision of the current mobile-html page.
- * @return {string}
+ * @return {?string}
  */
 const getRevision = () => {
   const about = document.documentElement.getAttribute('about')
+  if (!about) {
+    return undefined
+  }
   return about.substring(about.lastIndexOf('/') + 1)
 }
 
@@ -280,6 +287,45 @@ const getProtection = () => getProtectionFromMetaTags(getMetaTags())
 
 
 /**
+ * Ensures the element with the given anchor is visible before scrolling and returns the
+ * boundingClientRect of that element
+ * @param {!string} anchor of the element that will be scrolled to
+ * @param {!boolean} highlight whether or not to highlight the element
+ * @return {?Object} client rect for the element or undefined if there's no element
+ */
+const prepareForScrollToAnchor = (anchor, highlight = false) => {
+  if (!document) {
+    return undefined
+  }
+  const element = document.getElementById(anchor)
+  if (!element) {
+    return undefined
+  }
+  SectionUtilities.expandCollapsedSectionIfItContainsElement(document, element)
+  CollapseTable.expandCollapsedTableIfItContainsElement(element)
+  if (highlight) {
+    removeHighlightsFromHighlightedElements()
+    element.classList.add(PCS_CSS_CLASS_ELEMENT_HIGHLIGHT)
+  }
+  return NodeUtilities.getBoundingClientRectAsPlainObject(element)
+}
+
+/**
+ * Removes highlight class from any highlighted elements
+ */
+const removeHighlightsFromHighlightedElements = () => {
+  if (!document) {
+    return
+  }
+  const selector = '.' + PCS_CSS_CLASS_ELEMENT_HIGHLIGHT
+  let element = document.querySelector(selector)
+  while (element) {
+    element.classList.remove(PCS_CSS_CLASS_ELEMENT_HIGHLIGHT)
+    element = document.querySelector(selector)
+  }
+}
+
+/**
  * Gets the lead image for a page
  * @private
  * @param {!Array} metaTags
@@ -346,6 +392,8 @@ const onBodyStart = () => {
 
   if (document.pcsActionHandler) {
     InteractionHandling.setInteractionHandler(document.pcsActionHandler)
+  } else {
+    InteractionHandling.setInteractionHandler(action => console.log(action))
   }
   // eslint-disable-next-line require-jsdoc
   const initialSetupCompletion = () => {
@@ -434,6 +482,8 @@ export default {
   getProtection,
   getRevision,
   getTableOfContents,
+  prepareForScrollToAnchor,
+  removeHighlightsFromHighlightedElements,
   testing: {
     getScroller
   }
