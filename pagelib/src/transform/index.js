@@ -33,7 +33,6 @@ import SectionUtilities from './SectionUtilities'
 import WidenImage from './WidenImage'
 import './OrderedList.css'
 import './Sections.css'
-import './References.css'
 
 export default {
   AdjustTextSize,

@@ -181,9 +181,3 @@ a.notheme {
   -webkit-filter: invert(100%);
   filter: invert(100%);
 }
-
-.pcs-element-highlight {
-  background-color: rgba(255, 204, 51, 1.0) !important;
-  color: black !important;
-  border-radius: 2px !important;
-}

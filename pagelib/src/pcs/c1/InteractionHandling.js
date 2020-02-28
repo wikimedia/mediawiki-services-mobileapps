@@ -14,7 +14,6 @@ const Actions = {
   LinkClicked: 'link',
   ImageClicked: 'image',
   ReferenceClicked: 'reference',
-  BackLink: 'back_link',
   EditSection: 'edit_section',
   AddTitleDescription: 'add_title_description',
   PronunciationClicked: 'pronunciation',
@@ -52,8 +51,7 @@ const ItemType = {
   link: 1,
   image: 2,
   imagePlaceholder: 3,
-  reference: 4,
-  backLink: 5
+  reference: 4
 }
 
 /**
@@ -65,13 +63,10 @@ class ClickedItem {
   /**
    * @param {!EventTarget} target event target
    * @param {!string} href
-   * @param {!string} pageLinkTitle last path component of the current document as read
-   * from dc:isVersionOf
    */
-  constructor(target, href, pageLinkTitle) {
+  constructor(target, href) {
     this.target = target
     this.href = href
-    this.pageLinkTitle = pageLinkTitle
   }
 
   /**
@@ -79,10 +74,8 @@ class ClickedItem {
    * @return {!ItemType} Type of the item
    */
   type() {
-    if (ReferenceCollection.isCitation(this.href, this.pageLinkTitle)) {
+    if (ReferenceCollection.isCitation(this.href)) {
       return ItemType.reference
-    } if (ReferenceCollection.isBackLink(this.href, this.pageLinkTitle)) {
-      return ItemType.backLink
     } else if (this.target.tagName === 'IMG'
       && (this.target.classList.contains(LazyLoadTransform.CLASSES.IMAGE_LOADED_CLASS)
           || this.target.classList.contains(LazyLoadTransform.CLASSES.IMAGE_LOADING_CLASS))
@@ -176,20 +169,9 @@ const postMessageForImagePlaceholder = (innerPlaceholderSpan, href) => {
  * @param {!Element} target an anchor element
  * @return {void}
  */
-const postMessageForReferenceWithTarget = (target, href) => {
+const postMessageForReferenceWithTarget = target => {
   const nearbyReferences = ReferenceCollection.collectNearbyReferences(document, target)
-  nearbyReferences.href = href
   postMessage(new Interaction(Actions.ReferenceClicked, nearbyReferences))
-}
-
-/**
- * Posts a message for a back link click.
- * @param {!Element} target an anchor element
- * @return {void}
- */
-const postMessageForBackLinkWithTarget = (target, href) => {
-  const nearbyReferences = ReferenceCollection.collectReferencesForBackLink(document, target, href)
-  postMessage(new Interaction(Actions.BackLink, nearbyReferences))
 }
 
 /**
@@ -210,10 +192,7 @@ const postMessageForClickedItem = item => {
     postMessageForImagePlaceholder(item.target, item.href)
     break
   case ItemType.reference:
-    postMessageForReferenceWithTarget(item.target, item.href)
-    break
-  case ItemType.backLink:
-    postMessageForBackLinkWithTarget(item.target, item.href)
+    postMessageForReferenceWithTarget(item.target)
     break
   default:
     return false
@@ -267,19 +246,7 @@ const handleClickEvent = event => {
   if (!href) {
     return
   }
-  let pageTitle
-  const linkElement = document.head.querySelector('link[rel="dc:isVersionOf"]')
-  if (linkElement) {
-    const linkHref = linkElement.href
-    if (linkHref) {
-      const components = linkHref.split('/')
-      pageTitle = components.pop()
-      if (pageTitle === '') {
-        pageTitle = components.pop
-      }
-    }
-  }
-  postMessageForClickedItem(new ClickedItem(target, href, pageTitle))
+  postMessageForClickedItem(new ClickedItem(target, href))
 }
 
 /**

@@ -8,7 +8,7 @@ import CollectionUtilities from './CollectionUtilities'
  */
 
 /**
- * @typedef {string} MenuItemType
+ * @typedef {number} MenuItemType
  */
 
 /**
@@ -23,7 +23,8 @@ const MenuItemType = {
   pageIssues: 'pageIssues',
   disambiguation: 'disambiguation',
   coordinate: 'coordinate',
-  talkPage: 'talkPage'
+  talkPage: 'talkPage',
+  referenceList: 'referenceList',
 }
 
 /**
@@ -63,6 +64,8 @@ class MenuItem {
       return 'pcs-footer-menu-icon-disambiguation'
     case MenuItemType.coordinate:
       return 'pcs-footer-menu-icon-coordinate'
+    case MenuItemType.referenceList:
+      return 'pcs-footer-menu-icon-reference-list'
     default:
       return ''
     }
@@ -158,9 +161,6 @@ const addItem = (menuItem, containerID, document) => {
  * @return {void}
  */
 const maybeAddItem = (title, subtitle, itemType, containerID, clickHandler, document) => {
-  if (title === '') {
-    return;
-  }
   const item = new MenuItem(title, subtitle, itemType, clickHandler)
 
   // Items are not added if they have a payload extractor which fails to extract anything.
