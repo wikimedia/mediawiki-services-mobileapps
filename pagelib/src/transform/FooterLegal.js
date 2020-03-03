@@ -11,6 +11,15 @@ import './FooterLegal.css'
   */
 
 /**
+ * @param {?string} licenseString
+ * @param {?string} linkText
+ */
+const buildLicenseHtml = (licenseString, linkText) => {
+  const halves = licenseString.split('$1')
+  return `${halves[0]}<a class='pcs-footer-legal-license-link'>${linkText}</a>${halves[1]}`
+}
+
+/**
  * Adds legal footer html to 'containerID' element.
  * @param {!Element} content
  * @param {?string} licenseString
@@ -23,21 +32,17 @@ import './FooterLegal.css'
  */
 const add = (content, licenseString, licenseSubstitutionString, containerID,
   licenseLinkClickHandler, viewInBrowserString, browserLinkClickHandler) => {
+
   // todo: don't manipulate the selector. The client can make this an ID if they want it to be.
   const container = content.querySelector(`#${containerID}`)
-  const licenseStringHalves = licenseString.split('$1')
 
   /* DOM sink status: risk? - content can be changed by clients */
   container.innerHTML =
   `<div class='pcs-footer-legal-contents'>
     <hr class='pcs-footer-legal-divider'>
     <span class='pcs-footer-legal-license'>
-      ${licenseStringHalves[0]}
-      <a class='pcs-footer-legal-license-link'>
-        ${licenseSubstitutionString}
-      </a>
-      ${licenseStringHalves[1]}
-      <br>
+    ${buildLicenseHtml(licenseString, licenseSubstitutionString)}
+    <br>
       <div class="pcs-footer-browser">
         <a class='pcs-footer-browser-link'>
           ${viewInBrowserString}
