@@ -4,8 +4,17 @@ import NodeUtilities from './NodeUtilities'
 
 const REFERENCE_SELECTOR = '.reference, .mw-ref'
 const CITE_FRAGMENT_PREFIX = '#cite_note-'
-const BACK_LINK_FRAGMENT_PREFIX = '#pcs-reference-back-link-'
+const BACK_LINK_FRAGMENT_PREFIX = '#pcs-ref-back-link-'
 const BACK_LINK_ATTRIBUTE = 'pcs-back-links'
+
+const CLASS = {
+  BACK_LINK_ANCHOR: 'pcs-ref-back-link',
+  BACK_LINK_CONTAINER: 'pcs-ref-backlink-container',
+  BODY: 'pcs-ref-body',
+  BODY_HEADER: 'pcs-ref-body-header',
+  BODY_CONTENT: 'pcs-ref-body-content',
+  REF: 'pcs-ref'
+}
 
 
 /**
@@ -260,20 +269,30 @@ const collectNearbyReferenceNodes = sourceNode => {
 }
 
 /**
+ * Reads the BACK_LINK_ATTRIBUTE and returns a list of back link hrefs
+ * @param {Element} element to read the back links from
+ * @returns {Array.<string>} hrefs of the back links
+ */
+const getBackLinks = (element) => {
+  const backLinksJSON = element.getAttribute(BACK_LINK_ATTRIBUTE)
+  if (!backLinksJSON) {
+    return []
+  }
+  return JSON.parse(backLinksJSON)
+}
+
+/**
  * Collect nearby reference nodes.
  * @param {!Node} sourceNode
  * @return {!Object}
  */
 const collectReferencesForBackLink = (document, target, href) => {
-  const backLinksJSON = target.getAttribute(BACK_LINK_ATTRIBUTE)
-  if (!backLinksJSON) {
-    return {}
-  }
-  const referenceId = href.split(BACK_LINK_FRAGMENT_PREFIX)[1]
-  const backLinkHrefs = JSON.parse(backLinksJSON)
+  const backLinkHrefs = getBackLinks(target)
   if (!backLinkHrefs || backLinkHrefs.length == 0) {
     return {}
   }
+  const referenceId = href.split(BACK_LINK_FRAGMENT_PREFIX)[1]
+  let referenceText
   let backLinks = []
   // Used as fallback. Send the href of the first back link as the event href
   const firstBackLinkHref = backLinkHrefs[0]
@@ -284,10 +303,13 @@ const collectReferencesForBackLink = (document, target, href) => {
     if (!element) {
       continue
     }
+    if (!referenceText) {
+      referenceText = element.textContent.trim()
+    }
     // Use an object with id to allow for adding more properties in the future
     backLinks.push({id})
   }
-  return {referenceId, backLinks, href: firstBackLinkHref}
+  return {referenceId, referenceText, backLinks, href: firstBackLinkHref}
 }
 
 
@@ -335,6 +357,7 @@ export default {
   collectReferencesForBackLink,
   isBackLink,
   isCitation,
+  CLASS,
   BACK_LINK_FRAGMENT_PREFIX,
   BACK_LINK_ATTRIBUTE,
   test: {

@@ -5,6 +5,7 @@ const MobileHTML = require('../../../lib/mobile/MobileHTML');
 const constants = require('../../../lib/mobile/MobileHTMLConstants');
 const fixtures = require('../../utils/fixtures');
 const perf = require('../../utils/performance');
+const Reference = require('../../../lib/mobile/Reference');
 
 describe('lib:MobileHTML', () => {
       it('does not block the event loop', () => {
@@ -71,12 +72,6 @@ describe('lib:MobileHTML', () => {
         assert(constants.widenImageExclusionClassRegex.test('noresize infobox'));
         assert(constants.widenImageExclusionClassRegex.test('noviewer'));
       });
-      it('detects linkbacks from references', () => {
-        assert(constants.linkbackClassRegex.test('mw-linkback-text tsingle'));
-        assert(constants.linkbackClassRegex.test('noresize mw-linkback-text'));
-        assert(constants.linkbackClassRegex.test('mw-linkback-text'));
-        assert(!constants.linkbackClassRegex.test('mw-reference-text'));
-      });
       it('detects reference text', () => {
         assert(constants.referenceClassRegex.test('infobox mw-reference-text'));
         assert(constants.referenceClassRegex.test('mw-reference-text infobox'));
@@ -135,5 +130,13 @@ describe('lib:MobileHTML', () => {
         const containsNS = perf.finish(start);
 
         assert(regexNS < containsNS, 'Infobox regexes should be faster than classList.contains');
+      });
+      it('truncates reference links properly', () => {
+        assert.strictEqual(Reference.truncateLinkText('[notes 1]'), '[N 1]');
+        assert.strictEqual(Reference.truncateLinkText('[notes 101]'), '[N ..1]');
+        assert.strictEqual(Reference.truncateLinkText('[1029]'), '[..29]');
+        assert.strictEqual(Reference.truncateLinkText('[999]'), '[999]');
+        assert.strictEqual(Reference.truncateLinkText('[1001]'), '[..01]');
+        assert.strictEqual(Reference.truncateLinkText('[10001]'), '[...01]');
       });
 });
