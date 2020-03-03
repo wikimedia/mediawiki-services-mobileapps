@@ -3,28 +3,53 @@ ol.mw-references {
     padding: 0em;
 }
 
-.pcs-reference {
+.pcs-ref {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     margin-bottom: 1.5em;
 }
 
-.pcs-reference-number {
+.pcs-ref-backlink-container {
     min-width: 6ex; /* bracket + 3 digits + bracket */
     flex-grow: 0;
 }
 
-.pcs-reference-body {
+.pcs-ref-body {
     margin-left: 0.5em;
     flex-grow: 1;
 }
 
-.pcs-reference-body-header {
+.pcs-ref-body-header {
     display: flex;
     justify-content: space-between;
 }
 
-.pcs-reference-body-content {
+.pcs-ref-body-content {
     margin-top: 0.5em;
+}
+
+/* Groups with special appearance */
+a.pcs-ref-back-link[ data-mw-group='decimal' ]:after {
+    content: '[' counter( mw-Ref, decimal ) ']';
+}
+
+a.pcs-ref-back-link[ data-mw-group='lower-alpha' ]:after {
+    content: '[' counter( mw-Ref, lower-alpha ) ']';
+}
+
+a.pcs-ref-back-link[ data-mw-group='upper-alpha' ]:after {
+    content: '[' counter( mw-Ref, upper-alpha ) ']';
+}
+
+a.pcs-ref-back-link[ data-mw-group='lower-greek' ]:after {
+    content: '[' counter( mw-Ref, lower-greek ) ']';
+}
+
+a.pcs-ref-back-link[ data-mw-group='lower-roman' ]:after {
+    content: '[' counter( mw-Ref, lower-roman ) ']';
+}
+
+a.pcs-ref-back-link[ data-mw-group='upper-roman' ]:after {
+    content: '[' counter( mw-Ref, upper-roman ) ']';
 }
