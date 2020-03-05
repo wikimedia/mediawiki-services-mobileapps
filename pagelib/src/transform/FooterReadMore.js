@@ -158,7 +158,7 @@ const showReadMorePages = (pages, heading, sectionContainerId, pageContainerId, 
     pageContainer.appendChild(pageFragment)
   })
   titlesShownHandler(shownTitles)
-  sectionContainer.style.display = 'block';
+  sectionContainer.style.display = 'block'
 }
 
 /**

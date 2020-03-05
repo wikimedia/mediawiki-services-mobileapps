@@ -317,7 +317,7 @@ const removeHighlightsFromHighlightedElements = () => {
   if (!document) {
     return
   }
-  const selector = '.' + PCS_CSS_CLASS_ELEMENT_HIGHLIGHT
+  const selector = `.${PCS_CSS_CLASS_ELEMENT_HIGHLIGHT}`
   let element = document.querySelector(selector)
   while (element) {
     element.classList.remove(PCS_CSS_CLASS_ELEMENT_HIGHLIGHT)

@@ -35,11 +35,11 @@ const add = params => {
 
   // Add container
   if (FooterContainer.isContainerAttached(document) === false) {
-    const pcs = document.getElementById('pcs');
+    const pcs = document.getElementById('pcs')
     pcs.appendChild(FooterContainer.containerFragment(document))
   }
 
-  const finish = (banana) => {
+  const finish = banana => {
     // Add menu
     FooterMenu.setHeading(
       banana.i18n('article-about-title'),
@@ -154,7 +154,7 @@ const add = params => {
   const stringsURL = `${stringsBaseURL}/data/i18n/pcs`
   xhr.open('GET', stringsURL, true)
   const failsafeBanana = {
-    i18n: (message) => { return message }
+    i18n: message => message
   }
   xhr.onload = () => {
     let banana
@@ -165,10 +165,10 @@ const add = params => {
     } catch (e) {
       banana = failsafeBanana
     }
-    finish(banana);
+    finish(banana)
   }
   xhr.onerror = () => {
-    finish(failsafeBanana);
+    finish(failsafeBanana)
   }
   xhr.send()
 }

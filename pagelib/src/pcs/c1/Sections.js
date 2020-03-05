@@ -3,7 +3,7 @@ import SectionUtilities from '../../transform/SectionUtilities'
 
 const setHidden = (sectionId, hidden) => {
   if (!document) {
-    return;
+    return
   }
   SectionUtilities.setHidden(document, sectionId, hidden)
 }

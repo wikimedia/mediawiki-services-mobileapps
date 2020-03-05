@@ -13,7 +13,7 @@ import CollectionUtilities from './CollectionUtilities'
 
 /**
  * Type representing kinds of menu items.
- * IMPORTANT: Don't change these values without considering it a breaking change. 
+ * IMPORTANT: Don't change these values without considering it a breaking change.
  * Existing clients rely on using the string values so that they are serializable.
  * @enum {MenuItemType}
  */
@@ -159,7 +159,7 @@ const addItem = (menuItem, containerID, document) => {
  */
 const maybeAddItem = (title, subtitle, itemType, containerID, clickHandler, document) => {
   if (title === '') {
-    return;
+    return
   }
   const item = new MenuItem(title, subtitle, itemType, clickHandler)
 

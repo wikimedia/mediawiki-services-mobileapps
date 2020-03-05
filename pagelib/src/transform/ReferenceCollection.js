@@ -30,9 +30,9 @@ const hasFragmentPrefix = (href, fragment, pageTitle) => {
     const decodedPageTitle = decodeURIComponent(pageTitle)
     const relativePath = `./${decodedPageTitle}`
     return decodedHref.indexOf(relativePath) === 0 && href.indexOf(decodedFragment) === relativePath.length
-  } else {
-    return decodedHref.indexOf(decodedFragment) > -1
   }
+  return decodedHref.indexOf(decodedFragment) > -1
+
 }
 
 /**
@@ -273,7 +273,7 @@ const collectNearbyReferenceNodes = sourceNode => {
  * @param {Element} element to read the back links from
  * @returns {Array.<string>} hrefs of the back links
  */
-const getBackLinks = (element) => {
+const getBackLinks = element => {
   const backLinksJSON = element.getAttribute(BACK_LINK_ATTRIBUTE)
   if (!backLinksJSON) {
     return []
@@ -293,7 +293,7 @@ const collectReferencesForBackLink = (document, target, href) => {
   }
   const referenceId = href.split(BACK_LINK_FRAGMENT_PREFIX)[1]
   let referenceText
-  let backLinks = []
+  const backLinks = []
   // Used as fallback. Send the href of the first back link as the event href
   const firstBackLinkHref = backLinkHrefs[0]
   for (let i = 0; i < backLinkHrefs.length; i++) {
@@ -307,9 +307,9 @@ const collectReferencesForBackLink = (document, target, href) => {
       referenceText = element.textContent.trim()
     }
     // Use an object with id to allow for adding more properties in the future
-    backLinks.push({id})
+    backLinks.push({ id })
   }
-  return {referenceId, referenceText, backLinks, href: firstBackLinkHref}
+  return { referenceId, referenceText, backLinks, href: firstBackLinkHref }
 }
 
 

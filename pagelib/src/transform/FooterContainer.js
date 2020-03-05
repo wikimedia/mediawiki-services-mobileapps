@@ -5,7 +5,7 @@ import './FooterContainer.css'
  * @param {!Document} document
  * @return {!DocumentFragment}
  */
-const containerFragment = (document) => {
+const containerFragment = document => {
   const containerFragment = document.createDocumentFragment()
   const menuSection = document.createElement('section')
   menuSection.id = 'pcs-footer-container-menu'
@@ -18,7 +18,7 @@ const containerFragment = (document) => {
   const readMoreSection = document.createElement('section')
   readMoreSection.id = 'pcs-footer-container-readmore'
   readMoreSection.className = 'pcs-footer-section'
-  readMoreSection.style.display = 'none';
+  readMoreSection.style.display = 'none'
   readMoreSection.innerHTML =
   `<h2 id='pcs-footer-container-readmore-heading'></h2>
    <div id='pcs-footer-container-readmore-pages'></div>`
