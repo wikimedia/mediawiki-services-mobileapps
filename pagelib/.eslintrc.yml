@@ -40,6 +40,8 @@ rules:
   no-cond-assign: [2, always]
   no-implicit-coercion: [1, {allow: ['!!']}]
   no-param-reassign: 1
+  max-len: [error, {code: 200, ignoreUrls: true}]
+  no-use-before-define: [error, {variables: false, functions: false, classes: false}]
 
   # ECMAScript 6
   arrow-body-style: 1
