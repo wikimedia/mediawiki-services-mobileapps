@@ -1,5 +1,4 @@
 import './WidenImage.css'
-import elementUtilities from './ElementUtilities'
 
 /**
  * Gets array of ancestors of element which need widening.

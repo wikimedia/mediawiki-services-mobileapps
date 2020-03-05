@@ -1,9 +1,10 @@
 import CollapseTable from '../../transform/CollapseTable'
+import EditTransform from '../../transform/EditTransform'
 import Footer from './Footer'
 import LazyLoadTransform from '../../transform/LazyLoadTransform'
 import ReferenceCollection from '../../transform/ReferenceCollection'
 import SectionUtilities from '../../transform/SectionUtilities'
-import EditTransform from '../../transform/EditTransform'
+
 /**
  * Type of actions users can click which may need to be handled by the native side.
  * @type {!Object}
@@ -174,6 +175,7 @@ const postMessageForImagePlaceholder = (innerPlaceholderSpan, href) => {
 /**
  * Posts a message for a reference click.
  * @param {!Element} target an anchor element
+ * @param {?string} href
  * @return {void}
  */
 const postMessageForReferenceWithTarget = (target, href) => {
@@ -185,6 +187,7 @@ const postMessageForReferenceWithTarget = (target, href) => {
 /**
  * Posts a message for a back link click.
  * @param {!Element} target an anchor element
+ * @param {?string} href
  * @return {void}
  */
 const postMessageForBackLinkWithTarget = (target, href) => {
@@ -200,8 +203,7 @@ const postMessageForBackLinkWithTarget = (target, href) => {
 const postMessageForClickedItem = item => {
   switch (item.type()) {
   case ItemType.link:
-    const target = item.target.closest('a')
-    postMessageForLink(target, item.href)
+    postMessageForLink(item.target.closest('a'), item.href)
     break
   case ItemType.image:
     postMessageForImage(item.target, item.href)
@@ -241,10 +243,9 @@ const handleClickEvent = event => {
   if (anchorForTarget.getAttribute('data-action') === 'edit_section') {
     const sectionId = anchorForTarget.getAttribute('data-id') || undefined
     const data = { sectionId }
-    if (sectionId && sectionId == 0) {
+    if (sectionId && sectionId === 0) {
       const descriptionElement = document.getElementById(EditTransform.IDS.TITLE_DESCRIPTION)
-      const descriptionSource = descriptionElement && descriptionElement.getAttribute(EditTransform.DATA_ATTRIBUTE.DESCRIPTION_SOURCE) || undefined
-      data.descriptionSource = descriptionSource
+      data.descriptionSource = descriptionElement && descriptionElement.getAttribute(EditTransform.DATA_ATTRIBUTE.DESCRIPTION_SOURCE) || undefined
     }
     postMessage(new Interaction(Actions.EditSection, data))
     return
@@ -354,7 +355,7 @@ const getSelectionInfo = optionalWindow => {
 
 /**
  * Sets the interaction handler function.
- * @param {!Function} myHandlerFunction a platform specific bridge function.
+ * @param {!~Function} myHandlerFunction a platform specific bridge function.
  * On iOS consider using something like:
  *   (interaction) => { window.webkit.messageHandlers.interaction.postMessage(interaction) }
  * On Android consider using something like:

@@ -6,11 +6,11 @@ import EditTransform from '../../transform/EditTransform'
 import InteractionHandling from './InteractionHandling'
 import L10N from './L10N'
 import LazyLoadTransformer from '../../transform/LazyLoadTransformer'
+import NodeUtilities from '../../transform/NodeUtilities'
 import PlatformTransform from '../../transform/PlatformTransform'
 import Scroller from './Scroller'
-import ThemeTransform from '../../transform/ThemeTransform'
-import NodeUtilities from '../../transform/NodeUtilities'
 import SectionUtilities from '../../transform/SectionUtilities'
+import ThemeTransform from '../../transform/ThemeTransform'
 
 const unitsRegex = /[^0-9]+$/
 
@@ -291,7 +291,7 @@ const getProtection = () => getProtectionFromMetaTags(getMetaTags())
  * boundingClientRect of that element
  * @param {!string} anchor of the element that will be scrolled to
  * @param {!boolean} highlight whether or not to highlight the element
- * @return {?Object} client rect for the element or undefined if there's no element
+ * @return {?{}} client rect for the element or undefined if there's no element
  */
 const prepareForScrollToAnchor = (anchor, highlight = false) => {
   if (!document) {
@@ -312,6 +312,7 @@ const prepareForScrollToAnchor = (anchor, highlight = false) => {
 
 /**
  * Removes highlight class from any highlighted elements
+ * @return {void}
  */
 const removeHighlightsFromHighlightedElements = () => {
   if (!document) {
@@ -393,6 +394,7 @@ const onBodyStart = () => {
   if (document.pcsActionHandler) {
     InteractionHandling.setInteractionHandler(document.pcsActionHandler)
   } else {
+    // eslint-disable-next-line no-console
     InteractionHandling.setInteractionHandler(action => console.log(action))
   }
   // eslint-disable-next-line require-jsdoc

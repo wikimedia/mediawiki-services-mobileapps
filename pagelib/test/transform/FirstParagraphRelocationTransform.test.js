@@ -91,7 +91,6 @@ describe('LeadIntroductionTransform', () => {
           </p>
         </div>`)
       const container = document.getElementById('container')
-      console.log(`wmf container ${container.outerHTML}`)
       const goodP = getEligibleParagraph(document, container)
       assert.equal(goodP.id, 'p3')
     })

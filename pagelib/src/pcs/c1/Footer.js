@@ -1,8 +1,8 @@
+import Banana from 'banana-i18n'
 import FooterContainer from '../../transform/FooterContainer'
 import FooterLegal from '../../transform/FooterLegal'
 import FooterMenu from '../../transform/FooterMenu'
 import FooterReadMore from '../../transform/FooterReadMore'
-import Banana from 'banana-i18n'
 
 let handlers
 
@@ -39,6 +39,11 @@ const add = params => {
     pcs.appendChild(FooterContainer.containerFragment(document))
   }
 
+  /**
+   * Callback for after i18n messages are loaded.
+   * @param {!Banana} banana
+   * @return {void}
+   */
   const finish = banana => {
     // Add menu
     FooterMenu.setHeading(

@@ -132,6 +132,7 @@ const newEditSectionHeader = (document, index, level, titleHTML, showEditPencil 
  * Elements needed to show or add page title description.
  * @param {!Document} document
  * @param {?string} titleDescription Page title description.
+ * @param {?string} titleDescriptionSource
  * @param {?string} addTitleDescriptionString Localized string e.g. 'Add title description'.
  * @param {?boolean} isTitleDescriptionEditable Whether title description is editable.
  * @return {?HTMLElement}

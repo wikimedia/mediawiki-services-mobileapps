@@ -4,8 +4,6 @@ import fixtureIO from '../utilities/FixtureIO'
 import pagelib from '../../build/wikimedia-page-library-transform'
 import styleMocking from '../utilities/StyleMocking'
 
-
-const widenAncestors = pagelib.WidenImage.test.widenAncestors
 const updateExistingStyleValue = pagelib.WidenImage.test.updateExistingStyleValue
 const ancestorsToWiden = pagelib.WidenImage.test.ancestorsToWiden
 const widenElementByUpdatingStyles = pagelib.WidenImage.test.widenElementByUpdatingStyles

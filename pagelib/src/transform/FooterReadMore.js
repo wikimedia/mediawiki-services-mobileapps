@@ -180,7 +180,6 @@ const readMoreQueryURL = (title, count, baseURL) =>
  * @param {!string} sectionContainerId
  * @param {!string} pageContainerId
  * @param {?string} baseURL
- * @param {!ShowReadMorePagesHandler} showReadMorePagesHandler
  * @param {!TitlesShownHandler} titlesShownHandler
  * @param {!Document} document
  * @return {void}

@@ -1,6 +1,6 @@
 import ElementUtilities from './ElementUtilities'
-import Polyfill from './Polyfill'
 import NodeUtilities from './NodeUtilities'
+import Polyfill from './Polyfill'
 
 const REFERENCE_SELECTOR = '.reference, .mw-ref'
 const CITE_FRAGMENT_PREFIX = '#cite_note-'
@@ -20,12 +20,13 @@ const CLASS = {
 /**
  * Does this have the proper fragment prefix?
  * @param {!string} href
- * @param {?string} pageTitle - assumed to be encoded for links
+ * @param {!string} fragmentPrefix fragment prefix to look for
+ * @param {?string} pageTitle assumed to be encoded for links
  * @return {!boolean}
  */
-const hasFragmentPrefix = (href, fragment, pageTitle) => {
+const hasFragmentPrefix = (href, fragmentPrefix, pageTitle) => {
   const decodedHref = decodeURIComponent(href)
-  const decodedFragment = decodeURIComponent(fragment)
+  const decodedFragment = decodeURIComponent(fragmentPrefix)
   if (pageTitle !== undefined) {
     const decodedPageTitle = decodeURIComponent(pageTitle)
     const relativePath = `./${decodedPageTitle}`
@@ -271,7 +272,7 @@ const collectNearbyReferenceNodes = sourceNode => {
 /**
  * Reads the BACK_LINK_ATTRIBUTE and returns a list of back link hrefs
  * @param {Element} element to read the back links from
- * @returns {Array.<string>} hrefs of the back links
+ * @return {Array.<string>} hrefs of the back links
  */
 const getBackLinks = element => {
   const backLinksJSON = element.getAttribute(BACK_LINK_ATTRIBUTE)
@@ -283,12 +284,14 @@ const getBackLinks = element => {
 
 /**
  * Collect nearby reference nodes.
- * @param {!Node} sourceNode
- * @return {!Object}
+ * @param {!Document} document
+ * @param {!Element} target
+ * @param {!string} href
+ * @return {!{referenceId, referenceText, backLinks, href}}
  */
 const collectReferencesForBackLink = (document, target, href) => {
   const backLinkHrefs = getBackLinks(target)
-  if (!backLinkHrefs || backLinkHrefs.length == 0) {
+  if (!backLinkHrefs || backLinkHrefs.length === 0) {
     return {}
   }
   const referenceId = href.split(BACK_LINK_FRAGMENT_PREFIX)[1]

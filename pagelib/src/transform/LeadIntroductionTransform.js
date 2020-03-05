@@ -1,5 +1,3 @@
-import Polyfill from './Polyfill'
-
 const ELEMENT_NODE = 1
 
 /**
@@ -55,7 +53,7 @@ const getEligibleParagraph = (document, container) => {
 
   let el = container.firstElementChild
   while (el) {
-    if (el.tagName == 'P' && isParagraphEligible(el)) {
+    if (el.tagName === 'P' && isParagraphEligible(el)) {
       return el
     }
     el = el.nextElementSibling
