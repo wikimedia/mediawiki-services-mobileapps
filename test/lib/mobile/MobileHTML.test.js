@@ -76,6 +76,8 @@ describe('lib:MobileHTML', () => {
         assert(constants.referenceClassRegex.test('infobox mw-reference-text'));
         assert(constants.referenceClassRegex.test('mw-reference-text infobox'));
         assert(constants.referenceClassRegex.test('mw-reference-text'));
+        assert(constants.referenceClassRegex.test('reference-text'));
+        assert(!constants.referenceClassRegex.test('someother-reference-text'));
         assert(!constants.referenceClassRegex.test('mw-linkback-text'));
       });
       it('detects forbidden element classes', () => {
