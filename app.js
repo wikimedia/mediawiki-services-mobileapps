@@ -59,10 +59,12 @@ function initApp(options) {
     *   The pages also have some inline styles.
     * img-src:
     *   We need to specifically allow data: URIs for the buttons from pagelib.
+    *   We need to specifically allow wikimedia.org URIs for Mathoid images.
     */
     if (app.conf.mobile_html_csp === undefined) {
-        app.conf.mobile_html_csp = "default-src 'none'; connect-src https://*.wikipedia.org;" +
-            "media-src app://upload.wikimedia.org https://upload.wikimedia.org 'self'; img-src app://upload.wikimedia.org https://upload.wikimedia.org 'self' data:; " +
+        app.conf.mobile_html_csp = "default-src 'none'; connect-src https://*.wikipedia.org; " +
+            "media-src app://upload.wikimedia.org https://upload.wikimedia.org 'self'; " +
+            "img-src app://*.wikimedia.org https://*.wikimedia.org app://wikimedia.org https://wikimedia.org 'self' data:; " +
             "script-src app://meta.wikimedia.org https://meta.wikimedia.org 'unsafe-inline'; " +
             "object-src 'none'; " +
             "style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org 'self' 'unsafe-inline'; " +
