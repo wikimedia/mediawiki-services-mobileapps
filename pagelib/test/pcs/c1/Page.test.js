@@ -18,7 +18,7 @@ describe('pcs.c1.Page', () => {
       document = window.document
 
       Page.setup({
-        platform: Platforms.IOS,
+        platform: 'ios',
         clientVersion: '6.2.1',
         l10n: {
           addTitleDescription: 'Titelbeschreibung bearbeiten',
@@ -26,7 +26,7 @@ describe('pcs.c1.Page', () => {
           tableOther: 'Weitere Informationen',
           tableClose: 'Schließen'
         },
-        theme: Themes.DARK,
+        theme: 'dark',
         dimImages: true,
         margins: { top: '1px', right: '2px', bottom: '3px', left: '4px' },
         areTablesInitiallyExpanded: true,
@@ -53,10 +53,8 @@ describe('pcs.c1.Page', () => {
     it('sepia', () => {
       let callbackCalled = false
       document = domino.createDocument(emptyHTML)
-
       Page.setTheme(Themes.SEPIA, () => { callbackCalled = true })
-
-      assert.ok(document.body.classList.contains('pcs-theme-sepia'))
+      assert.ok(document.body.classList.contains(Themes.SEPIA))
       assert.ok(callbackCalled)
     })
   })

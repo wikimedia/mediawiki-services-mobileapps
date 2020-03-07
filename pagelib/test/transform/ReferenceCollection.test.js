@@ -11,10 +11,10 @@ const referenceGroupHTML = `
   <sup id='cite_ref-b' class='reference'><a id='a2' href='#cite_note-b'>[6]</a></sup>
   <sup id='cite_ref-c' class='reference'><a id='a3' href='#cite_note-c'>[7]</a></sup>
   <sup id='cite_ref-d' class='reference'><a id='a4' href='#cite_note-d'>[8]</a></sup>
-  <span id='cite_note-a'>0 1 2</span>
-  <span id='cite_note-b'>3 4 5</span>
-  <span id='cite_note-c'>6 7 8</span>
-  <span id='cite_note-d'>9 10 11
+  <span id='cite_note-a'><span class='mw-reference-text'>0 1 2</span></span>
+  <span id='cite_note-b'><span class='mw-reference-text'>3 4 5</span></span>
+  <span id='cite_note-c'><span class='mw-reference-text'>6 7 8</span></span>
+  <span id='cite_note-d'><span class='mw-reference-text'>9 10 11</span>
     <sup id='cite_ref-d'>tick</sup>
     <a class='mw-cite-backlink'>link</a>
     <style>.mw-parser-output cite.citation{font-style:inherit}</style>
@@ -115,13 +115,15 @@ describe('ReferenceCollection', () => {
   describe('.isCitation()', () => {
     const isCitation = ReferenceCollection.isCitation
     it('identifies citations', () => {
-      assert.ok(isCitation('bla#cite_note') === true)
-      assert.ok(isCitation('#cite_note') === true)
+      assert.ok(isCitation('bla#cite_note-') === true)
+      assert.ok(isCitation('#cite_note-') === true)
+      assert.ok(isCitation('./Dog#cite_note-20', 'Dog') === true)
     })
     it('rejects non-citations', () => {
-      assert.ok(isCitation('bla#nope_note') === false)
+      assert.ok(isCitation('bla#nope_note-') === false)
       assert.ok(isCitation('') === false)
       assert.ok(isCitation('#') === false)
+      assert.ok(isCitation('./Dog#cite_note-20', 'Cat') === false)
     })
   })
 
