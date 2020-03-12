@@ -1,7 +1,7 @@
 import * as path from 'path'
 import * as pkg from './package.json'
 import * as webpack from 'webpack'
-import CleanPlugin from 'clean-webpack-plugin'
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import TerserJSPlugin from 'terser-webpack-plugin'
@@ -81,7 +81,7 @@ const config = {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
   plugins: [
-    new CleanPlugin('build', { verbose: false }),
+    new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(PRODUCTION ? 'production' : 'development')
