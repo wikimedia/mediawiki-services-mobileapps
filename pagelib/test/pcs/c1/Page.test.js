@@ -3,7 +3,6 @@ import { c1 } from '../../../build/wikimedia-page-library-pcs'
 import domino from 'domino'
 
 const Page = c1.Page
-const Platforms = c1.Platforms
 const Themes = c1.Themes
 
 /* eslint-disable no-global-assign, no-native-reassign */

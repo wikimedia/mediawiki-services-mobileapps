@@ -11,8 +11,9 @@ import './FooterLegal.css'
   */
 
 /**
- * @param {?string} licenseString
+ * @param {!string} licenseString
  * @param {?string} linkText
+ * @return {!string}
  */
 const buildLicenseHtml = (licenseString, linkText) => {
   const halves = licenseString.split('$1')
