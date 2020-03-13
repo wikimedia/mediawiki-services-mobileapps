@@ -60,17 +60,20 @@ services:
       #   - user-agent
       #   - x-request-id
       # the user agent to use when issuing requests
+      user_agent: WMF Mobile Content Service dev
+      # REST API base URIs
       mobile_html_rest_api_base_uri: "//apps.wmflabs.org/api/v1/"
       mobile_html_local_rest_api_base_uri_template: "//apps.wmflabs.org/{{domain}}/v1/"
+      # CSP
       mobile_html_csp: "default-src 'none';
-        connect-src https://*.wikipedia.org app://apps.wmflabs.org https://apps.wmflabs.org; media-src *;
+        connect-src https://*.wikipedia.org app://apps.wmflabs.org https://apps.wmflabs.org;
+        media-src *;
         img-src * data:;
         script-src app://meta.wikimedia.org https://meta.wikimedia.org app://apps.wmflabs.org https://apps.wmflabs.org 'unsafe-inline';
         object-src 'none';
-        style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org app://apps.wmflabs.org https://apps.wmflabs.org 'self' 'unsafe-inline';"
-      user_agent: WMF Mobile Content Service dev
-      #
-      # Max JSON POST body size limit.
+        style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org app://apps.wmflabs.org https://apps.wmflabs.org 'self' 'unsafe-inline';
+        "
+      # max JSON POST body size limit
       # max_body_size: 100kb
       # the template used for contacting the MW API
       mwapi_req:
