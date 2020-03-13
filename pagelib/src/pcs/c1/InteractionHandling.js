@@ -19,7 +19,7 @@ const Actions = {
   EditSection: 'edit_section',
   AddTitleDescription: 'add_title_description',
   PronunciationClicked: 'pronunciation',
-
+  ScrollToAnchor: 'scroll_to_anchor',
   /* Footer related actions: */
   FooterItemSelected: 'footer_item',
   SaveOtherPage: 'save_other_page',
@@ -337,6 +337,15 @@ const finalSetupComplete = () => {
 }
 
 /**
+ * @param {!string} anchor id for the element
+ * @param {!string} rect client rect for the element
+ * @return {void}
+ */
+const scrollToAnchor = (anchor, rect) => {
+  postMessage(new Interaction(Actions.ScrollToAnchor, { anchor, rect, href: `#${anchor}` }))
+}
+
+/**
  * Gets information about the current text selection
  * @param {?Window} optionalWindow
  * @return {!map} selection info
@@ -388,4 +397,5 @@ export default {
   setInteractionHandler,
   initialSetupComplete,
   finalSetupComplete,
+  scrollToAnchor
 }

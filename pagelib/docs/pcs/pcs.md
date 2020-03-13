@@ -230,6 +230,26 @@ Example:
 pcs.c1.Page.setEditButtons(true, false)
 ```
 
+#### prepareForScrollToAnchor(anchor, options)
+
+Prepares the page to scroll to the given anchor by ensuring the content is completely loaded and the table or section that contains it isn't collapsed.
+
+`anchor` is the element id of the element you want to scroll to
+`options` an options object that currently only supports one parameter, a highlighted boolean that will highlight the element if true.
+
+The page will indicate it's ready and return the [bounding client rect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) of the element through the `scroll_to_anchor` interaction event.
+
+Example:
+
+```
+pcs.c1.Page.prepareForScrollToAnchor('cite_ref-1', { highlight: true })
+```
+
+#### removeHighlightsFromHighlightedElements()
+
+Removes highlights from any elements highlighted by `prepareForScrollToAnchor`
+
+
 ### Sections
 
 A set of utilities to handle Sections properties.
@@ -315,6 +335,7 @@ const Actions = {
   EditSection: 'edit_section',
   AddTitleDescription: 'add_title_description',
   PronunciationClicked: 'pronunciation',
+  ScrollToAnchor: 'scroll_to_anchor',
   /* Footer related actions: */
   FooterItemSelected: 'footer_item',
   SaveOtherPage: 'save_other_page',
@@ -353,6 +374,24 @@ Sent when a user taps a back link in a reference list. Provides a list of where 
       }
     ],
     "href": "./Dog#cite_ref-Thalmann2018_1-0"
+  }
+}
+```
+
+###### scroll_to_anchor
+Sent when an anchor is ready to be scrolled to after the client calls `pcs.c1.Page.prepareForScrollToAnchor()`. Example:
+```
+{
+  "action": "scroll_to_anchor",
+  "data": {
+    "anchor": "elementid",
+    "rect": {
+      "x": 10,
+      "y": 10,
+      "width": 100,
+      "height": 100
+    },
+    "href": "#elementid" // href is here for backwards compatibility / simplified client compatibility
   }
 }
 ```

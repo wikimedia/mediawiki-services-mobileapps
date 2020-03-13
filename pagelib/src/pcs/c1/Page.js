@@ -16,10 +16,30 @@ const unitsRegex = /[^0-9]+$/
 
 const PCS_CSS_CLASS_ELEMENT_HIGHLIGHT = 'pcs-element-highlight'
 
+
 /**
  * @typedef {function} OnSuccess
  * @return {void}
  */
+
+/**
+ * Waits for the next paint, then calls the callback
+ * @param {?OnSuccess} onSuccess callback
+ * @return {void}
+ */
+const waitForNextPaint = onSuccess => {
+  if (window && window.requestAnimationFrame) {
+    // request animation frame and set timeout before callback to ensure paint occurs
+    window.requestAnimationFrame(() => {
+      setTimeout(() => {
+        onSuccess()
+      }, 1)
+    })
+  } else {
+    onSuccess()
+  }
+}
+
 
 /**
  * Makes multiple page modifications based on client specific settings, which should be called
@@ -27,7 +47,7 @@ const PCS_CSS_CLASS_ELEMENT_HIGHLIGHT = 'pcs-element-highlight'
  * @param {?{}} optionalSettings client settings
  *   { platform, clientVersion, l10n, theme, dimImages, margins, areTablesInitiallyExpanded,
  *   scrollTop, textSizeAdjustmentPercentage }
- * @param {?Page~Function} onSuccess callback
+ * @param {?OnSuccess} onSuccess callback
  * @return {void}
  */
 const setup = (optionalSettings, onSuccess) => {
@@ -105,18 +125,7 @@ const setup = (optionalSettings, onSuccess) => {
     lazyLoader.collectExistingPlaceholders(document.body)
     lazyLoader.loadPlaceholders()
   }
-  if (onSuccess instanceof Function) {
-    if (window && window.requestAnimationFrame) {
-      // request animation frame and set timeout before callback to ensure paint occurs
-      window.requestAnimationFrame(() => {
-        setTimeout(() => {
-          onSuccess()
-        }, 1)
-      })
-    } else {
-      onSuccess()
-    }
-  }
+  waitForNextPaint(onSuccess)
 }
 
 /**
@@ -285,15 +294,15 @@ const getMetaTags = () => document.head.querySelectorAll('meta')
  */
 const getProtection = () => getProtectionFromMetaTags(getMetaTags())
 
-
 /**
  * Ensures the element with the given anchor is visible before scrolling and returns the
  * boundingClientRect of that element
  * @param {!string} anchor of the element that will be scrolled to
- * @param {!boolean} highlight whether or not to highlight the element
- * @return {?{}} client rect for the element or undefined if there's no element
+ * @param {!{}} options object with options. currently only supports
+ * highlight = true to highlight the element
+ * @return {void}
  */
-const prepareForScrollToAnchor = (anchor, highlight = false) => {
+const prepareForScrollToAnchor = (anchor, options) => {
   if (!document) {
     return undefined
   }
@@ -301,13 +310,19 @@ const prepareForScrollToAnchor = (anchor, highlight = false) => {
   if (!element) {
     return undefined
   }
+
   SectionUtilities.expandCollapsedSectionIfItContainsElement(document, element)
   CollapseTable.expandCollapsedTableIfItContainsElement(element)
-  if (highlight) {
+
+  if (options && options.highlight) {
     removeHighlightsFromHighlightedElements()
     element.classList.add(PCS_CSS_CLASS_ELEMENT_HIGHLIGHT)
   }
-  return NodeUtilities.getBoundingClientRectAsPlainObject(element)
+
+  waitForNextPaint(() => {
+    const rect = NodeUtilities.getBoundingClientRectAsPlainObject(element)
+    InteractionHandling.scrollToAnchor(anchor, rect)
+  })
 }
 
 /**
