@@ -43,6 +43,15 @@ services:
       # cors: restricted.domain.org
       # content for the CSP headers
       # csp: false  # uncomment this line to disable sending them
+      # CSP for mobile-html
+      mobile_html_csp: "default-src 'none';
+        connect-src http://localhost:8888 app://localhost:8888 http://localhost:7231 http://*.wikipedia.org;
+        media-src upload.wikimedia.org 'self';
+        img-src upload.wikimedia.org wikimedia.org 'self' data:;
+        script-src app://localhost:8888 http://localhost:8888 'self' 'unsafe-inline';
+        style-src app://localhost http://localhost app://*.wikipedia.org http://*.wikipedia.org 'self' 'unsafe-inline';
+        frame-ancestors 'self'
+        "
       # URL of the outbound proxy to use (complete with protocol)
       # proxy: http://my.proxy.org:8080
       # the list of domains for which not to use the proxy defined above
@@ -64,15 +73,6 @@ services:
       # REST API base URIs
       mobile_html_rest_api_base_uri: "//localhost:8888/api/v1/"
       mobile_html_local_rest_api_base_uri_template: "//localhost:8888/{{domain}}/v1/"
-      # CSP
-      mobile_html_csp: "default-src 'none';
-        connect-src http://localhost:8888 app://localhost:8888 http://localhost:7231 http://*.wikipedia.org;
-        media-src upload.wikimedia.org 'self';
-        img-src upload.wikimedia.org wikimedia.org 'self' data:;
-        script-src app://localhost:8888 http://localhost:8888 'self' 'unsafe-inline';
-        style-src app://localhost http://localhost app://*.wikipedia.org http://*.wikipedia.org 'self' 'unsafe-inline';
-        frame-ancestors 'self'
-        "
       # max JSON POST body size limit
       # max_body_size: 100kb
       # the template used for contacting the MW API

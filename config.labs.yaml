@@ -43,6 +43,15 @@ services:
       # cors: restricted.domain.org
       # content for the CSP headers
       # csp: false  # uncomment this line to disable sending them
+      # CSP for mobile-html
+      mobile_html_csp: "default-src 'none';
+        connect-src https://*.wikipedia.org app://mobileapps.wmflabs.org https://mobileapps.wmflabs.org;
+        media-src *;
+        img-src * data:;
+        script-src app://meta.wikimedia.org https://meta.wikimedia.org app://mobileapps.wmflabs.org https://mobileapps.wmflabs.org 'unsafe-inline';
+        object-src 'none';
+        style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org app://mobileapps.wmflabs.org https://mobileapps.wmflabs.org 'self' 'unsafe-inline';
+        "
       # URL of the outbound proxy to use (complete with protocol)
       # proxy: http://my.proxy.org:8080
       # the list of domains for which not to use the proxy defined above
@@ -64,15 +73,6 @@ services:
       # REST API base URIs
       mobile_html_rest_api_base_uri: "//mobileapps.wmflabs.org/api/v1/"
       mobile_html_local_rest_api_base_uri_template: "//mobileapps.wmflabs.org/{{domain}}/v1/"
-      # CSP
-      mobile_html_csp: "default-src 'none';
-        connect-src https://*.wikipedia.org app://mobileapps.wmflabs.org https://mobileapps.wmflabs.org;
-        media-src *;
-        img-src * data:;
-        script-src app://meta.wikimedia.org https://meta.wikimedia.org app://mobileapps.wmflabs.org https://mobileapps.wmflabs.org 'unsafe-inline';
-        object-src 'none';
-        style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org app://mobileapps.wmflabs.org https://mobileapps.wmflabs.org 'self' 'unsafe-inline';
-        "
       # max JSON POST body size limit
       # max_body_size: 100kb
       # the template used for contacting the MW API
