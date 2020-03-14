@@ -45,12 +45,13 @@ services:
       # csp: false  # uncomment this line to disable sending them
       # CSP for mobile-html
       mobile_html_csp: "default-src 'none';
-        connect-src https://*.wikipedia.org app://apps.wmflabs.org https://apps.wmflabs.org;
-        media-src *;
-        img-src * data:;
-        script-src app://meta.wikimedia.org https://meta.wikimedia.org app://apps.wmflabs.org https://apps.wmflabs.org 'unsafe-inline';
+        connect-src https://*.wikipedia.org app://apps.wmflabs.org https://apps.wmflabs.org 'self';
+        media-src upload.wikimedia.org 'self';
+        img-src *.wikimedia.org wikimedia.org 'self' data:;
         object-src 'none';
-        style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org app://apps.wmflabs.org https://apps.wmflabs.org 'self' 'unsafe-inline';
+        script-src 'self' 'unsafe-inline';
+        style-src *.wikipedia.org 'self' 'unsafe-inline';
+        frame-ancestors 'self'
         "
       # URL of the outbound proxy to use (complete with protocol)
       # proxy: http://my.proxy.org:8080
