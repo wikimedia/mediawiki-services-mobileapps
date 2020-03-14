@@ -43,6 +43,27 @@ services:
       # cors: restricted.domain.org
       # content for the CSP headers
       # csp: false  # uncomment this line to disable sending them
+      # CSP for mobile-html
+      ## Documentation for mobile-html CSP policy directives:
+      ## script-src
+      ##   The pagelib JavaScript bundle is served on meta.wikimedia.org.
+      ##   We also add a small piece of inline JS to the end of the body to trigger lazy-loading.
+      ## style-src
+      ##   The site CSS bundle is served from the current domain (TODO: currently assumes WP).
+      ##   The base CSS bundle is served on meta.wikimedia.org.
+      ##   The pages also have some inline styles.
+      ## img-src
+      ##   We need to specifically allow data: URIs for the buttons from pagelib.
+      ##   We need to specifically allow wikimedia.org URIs for Mathoid images.
+      mobile_html_csp: "default-src 'none';
+        connect-src https://*.wikipedia.org;
+        media-src app://upload.wikimedia.org https://upload.wikimedia.org 'self';
+        img-src app://*.wikimedia.org https://*.wikimedia.org app://wikimedia.org https://wikimedia.org 'self' data:;
+        script-src app://meta.wikimedia.org https://meta.wikimedia.org 'unsafe-inline';
+        object-src 'none';
+        style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org 'self' 'unsafe-inline';
+        frame-ancestors 'self'
+        "
       # URL of the outbound proxy to use (complete with protocol)
       # proxy: http://my.proxy.org:8080
       # the list of domains for which not to use the proxy defined above
@@ -61,6 +82,9 @@ services:
       #   - x-request-id
       # the user agent to use when issuing requests
       user_agent: WMF Mobile Content Service
+      # REST API base URIs
+      mobile_html_rest_api_base_uri: 'https://meta.wikimedia.org/api/rest_v1/'
+      mobile_html_local_rest_api_base_uri_template: 'https://{{domain}}/api/rest_v1/'
       # the template used for contacting the MW API
       #
       # Max JSON POST body size limit.
