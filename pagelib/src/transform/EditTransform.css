@@ -161,13 +161,6 @@ html[dir="rtl"] #pcs-edit-section-add-title-description:before {
 
 /* Horizontal divider between title/description and lead section text */
 #pcs-edit-section-divider {
-    border: 1px solid #ccc;
     margin: 12px 0px 16px 0px;
     width: 60px;
-}
-
-@media (-webkit-min-device-pixel-ratio: 2) {
-    #pcs-edit-section-divider {
-        border-width: 0.5px;
-    }
 }

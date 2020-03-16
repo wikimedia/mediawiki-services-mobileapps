@@ -125,21 +125,19 @@ a.notheme {
   background: #000;
 }
 
-/* horizontal rule */
-/* en > Audioslave > 793042679 */
-/* en > Chris Cornell > 793305307 */
-.pcs-theme-dark hr:not(.notheme),
-.pcs-theme-black hr:not(.notheme) {
-  border-style: solid;
-}
-.pcs-theme-sepia hr:not(.notheme) {
-  border-style: solid;
+hr:not(.notheme) {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
 }
 
-.pcs-theme-dark hr.pcs-footer-legal-divider,
-.pcs-theme-black hr.pcs-footer-legal-divider,
-.pcs-theme-sepia hr.pcs-footer-legal-divider {
-  border-style: none;
+.pcs-theme-dark hr:not(.notheme) 
+.pcs-theme-black hr:not(.notheme) {
+  background-color: #43464a;
+}
+
+.pcs-theme-sepia hr:not(.notheme) {
+  background-color: #cbc8c1;
 }
 
 /* figcaption color */
