@@ -71,7 +71,7 @@ Directory names should be lowercase. Filenames should be singular.
 To be able to get breakpoints to work in your production code you'll want to use the (in memory)
 webpack-dev-server instead of the regular build output. To run it:
 ```sh
-npm run -s build:watch
+npm run dev:debug
 ```
 
 ### NPM
@@ -157,7 +157,7 @@ Babel transpiles ES6 syntax to ES5 except for...of, spread, array destructuring,
 https://babeljs.io/docs/usage/caveats/#polyfills
 
 ### Automatic incremental builds
-`npm run -s build:watch` will monitor and automatically rebuild the JavaScript and CSS bundles when files change. When used with NPM linking, this allows the app to always pull the latest local changes.
+`npm run dev` will monitor and automatically rebuild the JavaScript and CSS bundles when files change. When used with NPM linking, this allows the app to always pull the latest local changes.
 
 ### Demo
 Demos are viewable by running `npm -s start` which also updates the browser instantly for changes.
