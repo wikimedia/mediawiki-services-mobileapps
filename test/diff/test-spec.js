@@ -245,7 +245,6 @@ const TEST_SPECS = [
     new TestSpec('en.wikipedia.org', 'transform/html/to/mobile-html', ['Dog'], { suffix: 'html', method: 'POST', headers: { 'Content-Type': 'text/html' }, payloadFile: 'test/fixtures/Dog.html' }),
     new TestSpec('zh.wikipedia.org', 'page/mobile-html', ['天囷增十五', '44944947'], { suffix: 'html' }),
 
-    new TestSpec('en.wikipedia.org', 'page/media', ['County_Durham', '909408132']),
     new TestSpec('en.wikipedia.org', 'page/media-list', ['Hummingbird', '810247947']),
 
     new TestSpec('www.mediawiki.org', 'page/references', ['Page_Content_Service/References/SimpleReference', '2640831']),
@@ -253,8 +252,6 @@ const TEST_SPECS = [
     new TestSpec('en.wikipedia.org', 'page/references', ['Neutronium', '857150438']),
 
     new TestSpec('en.wiktionary.org', 'page/definition', ['cat', '50657469']),
-
-    new TestSpec('en.wikipedia.org', 'page/metadata', ['Red_Wing,_Minnesota', '876662662']),
 
     new TestSpec('en.wikipedia.org', 'page/summary', ['Tokyo', '871928272']),
 
