@@ -20,21 +20,18 @@
   "bugs": "https://github.com/wikimedia/wikimedia-page-library/issues",
   "main": "build/wikimedia-page-library-transform.js",
   "scripts": {
+    "dev": "NODE_ENV=production webpack -wp",
+    "dev:debug": "webpack -dw --devtool source-map",
     "lint": "eslint --cache --max-warnings 0 --ext .js --ext .json --ext .html --fix",
     "lint:all": "npm run -s lint .",
     "build": "NODE_ENV=production webpack -p",
     "build:debug": "NODE_ENV=development webpack --debug --output-pathinfo --mode=development",
-    "build:watch": "webpack -dw --devtool source-map",
     "serve:watch": "webpack-dev-server -dw",
     "test:size": "bundlesize",
     "pretest": "npm run -s build",
     "test": "mocha --recursive test && bundlesize",
     "serve:demo": "browser-sync start -c .browsersync.config.js",
-    "start": "run-p -s serve:watch serve:demo",
-    "preversion": "[ -z \"$(git status -z)\" ]",
-    "postversion": "git push --follow-tags origin HEAD && npm publish",
-    "prepublish": "npm run -s lint:all && npm -s t",
-    "upgrade": "ncu -au"
+    "start": "run-p -s serve:watch serve:demo"
   },
   "pre-commit": [
     "lint:all"
