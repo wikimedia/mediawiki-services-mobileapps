@@ -114,7 +114,7 @@ const extractEligibleHeaderText = (document, header, pageTitle) => {
   const fragmentHeader = fragment.querySelector('th')
 
   Polyfill.querySelectorAll(
-    fragmentHeader, '.geo, .coordinates, sup.reference, ol, ul, style, script'
+    fragmentHeader, '.geo, .coordinates, sup.mw-ref, ol, ul, style, script'
   ).forEach(el => el.remove())
 
   let cur = fragmentHeader.lastChild
@@ -145,29 +145,6 @@ const extractEligibleHeaderText = (document, header, pageTitle) => {
 }
 
 /**
- * Used to sort array of Elements so those containing 'scope' attribute are moved to front of
- * array. Relative order between 'scope' elements is preserved. Relative order between non 'scope'
- * elements is preserved.
- * @param  {!Element} a
- * @param  {!Element} b
- * @return {!number}
- */
-const elementScopeComparator = (a, b) => {
-  const aHasScope = a.hasAttribute('scope')
-  const bHasScope = b.hasAttribute('scope')
-  if (aHasScope && bHasScope) {
-    return 0
-  }
-  if (aHasScope) {
-    return -1
-  }
-  if (bHasScope) {
-    return 1
-  }
-  return 0
-}
-
-/**
  * Find an array of table header (TH) contents. If there are no TH elements in
  * the table or the header's link matches pageTitle, an empty array is returned.
  * @param {!Document} document
@@ -178,10 +155,15 @@ const elementScopeComparator = (a, b) => {
  */
 const getTableHeaderTextArray = (document, element, pageTitle) => {
   const headerTextArray = []
-  const headers = Polyfill.querySelectorAll(element, 'th')
-  headers.sort(elementScopeComparator)
-  for (let i = 0; i < headers.length; ++i) {
-    const headerText = extractEligibleHeaderText(document, headers[i], pageTitle)
+
+  const walker = document.createTreeWalker(element)
+  let header = walker.nextNode()
+  while (header) {
+    if (header.tagName !== 'TH') {
+      header = walker.nextNode()
+      continue;
+    }
+    const headerText = extractEligibleHeaderText(document, header, pageTitle)
     if (headerText && headerTextArray.indexOf(headerText) === -1) {
       headerTextArray.push(headerText)
       // 'newCaptionFragment' only ever uses the first 2 items.
@@ -189,6 +171,7 @@ const getTableHeaderTextArray = (document, element, pageTitle) => {
         break
       }
     }
+    header = walker.nextNode()
   }
   return headerTextArray
 }
@@ -573,7 +556,6 @@ export default {
   setupEventHandling,
   expandCollapsedTableIfItContainsElement,
   test: {
-    elementScopeComparator,
     extractEligibleHeaderText,
     firstWordFromString,
     shouldTableBeCollapsed,
