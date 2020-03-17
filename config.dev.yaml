@@ -45,11 +45,12 @@ services:
       # csp: false  # uncomment this line to disable sending them
       # CSP for mobile-html
       mobile_html_csp: "default-src 'none';
-        connect-src http://localhost:8888 app://localhost:8888 http://localhost:7231 http://*.wikipedia.org;
+        connect-src localhost:7231 *.wikipedia.org 'self';
         media-src upload.wikimedia.org 'self';
-        img-src upload.wikimedia.org wikimedia.org 'self' data:;
-        script-src app://localhost:8888 http://localhost:8888 'self' 'unsafe-inline';
-        style-src app://localhost http://localhost app://*.wikipedia.org http://*.wikipedia.org 'self' 'unsafe-inline';
+        img-src *.wikimedia.org wikimedia.org 'self' data:;
+        object-src 'none';
+        script-src 'self' 'unsafe-inline';
+        style-src *.wikipedia.org 'self' 'unsafe-inline';
         frame-ancestors 'self'
         "
       # URL of the outbound proxy to use (complete with protocol)
