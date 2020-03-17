@@ -198,3 +198,7 @@ div.pcs-collapse-table-container {
     float: initial;
   }
 }
+
+.wikitable {
+  border: none;
+}

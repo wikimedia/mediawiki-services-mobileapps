@@ -411,12 +411,17 @@ const prepareTable = (table, document, pageTitle, tableTitle,
   /* DOM sink status: risk? - collapsedHeaderDiv is potentially risk */
   containerDiv.appendChild(collapsedHeaderDiv)
   /* DOM sink status: safe - content from parsoid output */
-  containerDiv.appendChild(table)
+
+  // Add a wrapper div for content to allow for overflow scrolling
+  const contentDiv = document.createElement('div')
+  contentDiv.appendChild(table)
+  containerDiv.appendChild(contentDiv)
+
   /* DOM sink status: risk? - collapsedFooterDiv is potentially risk */
   containerDiv.appendChild(collapsedFooterDiv)
 
   // set initial visibility
-  table.style.display = 'none'
+  contentDiv.style.display = 'none'
 }
 /**
  * @param {!Document} document
