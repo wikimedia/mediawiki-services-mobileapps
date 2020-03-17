@@ -45,18 +45,38 @@ function initApp(options) {
         app.conf.cors = '*';
     }
     if (app.conf.csp === undefined) {
-        app.conf.csp = "default-src 'none'";
+        app.conf.csp = "default-src 'self'; object-src 'none'; media-src app://upload.wikimedia.org https://upload.wikimedia.org 'self'; " +
+            "img-src app://upload.wikimedia.org https://upload.wikimedia.org 'self' data:; style-src *; frame-ancestors 'self'";
     }
 
-    // better to have these values in the config
+   /**
+    * script-src:
+    *   The pagelib JavaScript bundle is served on meta.wikimedia.org.
+    *   We also add a small piece of inline JS to the end of the body to trigger lazy-loading.
+    * style-src:
+    *   The site CSS bundle is served from the current domain (TODO: currently assumes WP).
+    *   The base CSS bundle is served on meta.wikimedia.org.
+    *   The pages also have some inline styles.
+    * img-src:
+    *   We need to specifically allow data: URIs for the buttons from pagelib.
+    *   We need to specifically allow wikimedia.org URIs for Mathoid images.
+    */
     if (app.conf.mobile_html_csp === undefined) {
-        return BBPromise.reject('config missing mobile_html_csp');
+        app.conf.mobile_html_csp = "default-src 'none'; connect-src https://*.wikipedia.org; " +
+            "media-src app://upload.wikimedia.org https://upload.wikimedia.org 'self'; " +
+            "img-src app://*.wikimedia.org https://*.wikimedia.org app://wikimedia.org https://wikimedia.org 'self' data:; " +
+            "script-src app://meta.wikimedia.org https://meta.wikimedia.org 'unsafe-inline'; " +
+            "object-src 'none'; " +
+            "style-src app://meta.wikimedia.org https://meta.wikimedia.org app://*.wikipedia.org https://*.wikipedia.org 'self' 'unsafe-inline'; " +
+            "frame-ancestors 'self'";
     }
+
     if (app.conf.mobile_html_rest_api_base_uri === undefined) {
-        return BBPromise.reject('config missing mobile_html_rest_api_base_uri');
+        app.conf.mobile_html_rest_api_base_uri = 'https://meta.wikimedia.org/api/rest_v1/';
     }
+
     if (app.conf.mobile_html_local_rest_api_base_uri_template === undefined) {
-        return BBPromise.reject('config missing mobile_html_local_rest_api_base_uri_template');
+        app.conf.mobile_html_local_rest_api_base_uri_template = 'https://{{domain}}/api/rest_v1/';
     }
 
     // set outgoing proxy
