@@ -30,6 +30,7 @@ import RedLinks from './RedLinks'
 import ReferenceCollection from './ReferenceCollection'
 import Throttle from './Throttle'
 import SectionUtilities from './SectionUtilities'
+import HTMLUtilities from './HTMLUtilities'
 import WidenImage from './WidenImage'
 import './OrderedList.css'
 import './Sections.css'
@@ -44,6 +45,7 @@ export default {
   CompatibilityTransform,
   DimImagesTransform,
   EditTransform,
+  HTMLUtilities,
   // todo: rename Footer.ContainerTransform, Footer.LegalTransform, Footer.MenuTransform,
   //       Footer.ReadMoreTransform.
   LeadIntroductionTransform,

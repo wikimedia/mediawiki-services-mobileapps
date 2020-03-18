@@ -161,7 +161,7 @@ const getTableHeaderTextArray = (document, element, pageTitle) => {
   while (header) {
     if (header.tagName !== 'TH') {
       header = walker.nextNode()
-      continue;
+      continue
     }
     const headerText = extractEligibleHeaderText(document, header, pageTitle)
     if (headerText && headerTextArray.indexOf(headerText) === -1) {
