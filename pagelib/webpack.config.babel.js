@@ -69,7 +69,7 @@ const config = {
 
   stats: STATS,
 
-  devtool: 'source-map',
+  devtool: PRODUCTION ? undefined : 'source-map',
 
   devServer: PRODUCTION ? undefined : {
     clientLogLevel: 'warning',
