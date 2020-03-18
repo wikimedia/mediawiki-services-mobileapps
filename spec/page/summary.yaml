@@ -86,9 +86,7 @@ paths:
               api_urls:
                 summary: /.+/
               # mobile_html: /.+/
-                metadata: /.+/
-                references: /.+/
-                media: /.+/
+                media_list: /.+/
                 edit_html: /.+/
                 talk_page_html: /.+/
               extract: /.+/
@@ -263,13 +261,7 @@ components:
         summary:
           type: string
           description: the REST API summary URL for the page
-        metadata:
-          type: string
-          description: the REST API URL for the page metadata (not yet active)
-        references:
-          type: string
-          description: the REST API URL for the references on the page (not yet active)
-        media:
+        media_list:
           type: string
           description: the REST API URL for the media included in the page (not yet active)
         edit_html:
@@ -280,8 +272,6 @@ components:
           description: the REST API URL for the raw Parsoid HTML for the talk page for this page (if applicable)
       required:
         - summary
-        - metadata
-        - references
-        - media
+        - media_list
         - edit_html
       additionalProperties: false
