@@ -144,7 +144,7 @@ describe('CollapseTable', () => {
     })
     it('extracted text excludes ref links', () => {
       const doc = domino.createDocument(
-        '<table><tr><th>Some text <sup class=reference>[1]</sup></th></tr></table>'
+        '<table><tr><th>Some text <sup class=mw-ref>[1]</sup></th></tr></table>'
       )
       const header = doc.querySelector('th')
       const text = extractEligibleHeaderText(doc, header, 'SampleTitle')
@@ -658,10 +658,10 @@ describe('CollapseTable', () => {
         const html = '<table><tr><th><a>text</a></th></tr></table>'
         this.window = domino.createWindow(html)
         this.assertTableIsExpanded = () => {
-          assert.ok(this.window.document.querySelector('table').style.display !== 'none')
+          assert.ok(this.window.document.querySelector('table').parentElement.style.display !== 'none')
         }
         this.assertTableIsCollapsed = () => {
-          assert.deepEqual(this.window.document.querySelector('table').style.display, 'none')
+          assert.deepEqual(this.window.document.querySelector('table').parentElement.style.display, 'none')
         }
       })
 
@@ -709,15 +709,15 @@ describe('CollapseTable', () => {
 
         it('table is replaced with a new container in the parent', function Test() {
           const table = this.window.document.querySelector('table')
-          table.parentNode.id = 'container'
+          table.parentNode.parentNode.id = 'container'
           collapseTables(this.window, this.window.document, 'pageTitle')
-          assert.ok(table.parentNode.id !== 'container')
+          assert.ok(table.parentNode.parentNode.id !== 'container')
         })
 
         it('table is wrapped in a container', function Test() {
           collapseTables(this.window, this.window.document, 'pageTitle')
           const table = this.window.document.querySelector('table')
-          assert.ok(table.parentNode.classList.contains('pcs-collapse-table-container'))
+          assert.ok(table.parentNode.parentNode.classList.contains('pcs-collapse-table-container'))
         })
 
         it('table has a header', function Test() {
@@ -732,7 +732,7 @@ describe('CollapseTable', () => {
 
         it('table expands when header is clicked', function Test() {
           collapseTables(this.window, this.window.document, 'pageTitle')
-          this.window.document.querySelector('table').parentNode.children[0].click()
+          this.window.document.querySelector('table').parentNode.parentNode.children[0].click()
           this.assertTableIsExpanded()
         })
 
@@ -742,37 +742,37 @@ describe('CollapseTable', () => {
             assert.ok(!event.collapsed)
             done()
           })
-          this.window.document.querySelector('table').parentNode.children[2].click()
+          this.window.document.querySelector('table').parentNode.parentNode.children[2].click()
         })
 
         it('table expands when footer is clicked', function Test() {
           collapseTables(this.window, this.window.document, 'pageTitle')
-          this.window.document.querySelector('table').parentNode.children[2].click()
+          this.window.document.querySelector('table').parentNode.parentNode.children[2].click()
           this.assertTableIsExpanded()
         })
 
         it('footer click callback is not called when header is expanded', function Test() {
           collapseTables(this.window, this.window.document, 'pageTitle', null, null, null, null,
             () => { assert.fail() })
-          this.window.document.querySelector('table').parentNode.children[0].click()
-          this.window.document.querySelector('table').parentNode.children[0].click()
+          this.window.document.querySelector('table').parentNode.parentNode.children[0].click()
+          this.window.document.querySelector('table').parentNode.parentNode.children[0].click()
         })
 
         it('footer click callback is called when footer is expanded', function Test(done) {
           collapseTables(this.window, this.window.document, 'pageTitle', null, null, null, null,
             () => done())
-          this.window.document.querySelector('table').parentNode.children[2].click()
-          this.window.document.querySelector('table').parentNode.children[2].click()
+          this.window.document.querySelector('table').parentNode.parentNode.children[2].click()
+          this.window.document.querySelector('table').parentNode.parentNode.children[2].click()
         })
 
         it('event is emitted when footer is clicked', function Test(done) {
           collapseTables(this.window, this.window.document, 'pageTitle')
-          this.window.document.querySelector('table').parentNode.children[2].click()
+          this.window.document.querySelector('table').parentNode.parentNode.children[2].click()
           this.window.addEventListener(pagelib.CollapseTable.SECTION_TOGGLED_EVENT_TYPE, event => {
             assert.ok(event.collapsed)
             done()
           })
-          this.window.document.querySelector('table').parentNode.children[2].click()
+          this.window.document.querySelector('table').parentNode.parentNode.children[2].click()
         })
 
         it('table header is used', function Test() {
@@ -836,10 +836,10 @@ describe('CollapseTable', () => {
         <table id=d class=infobox></table>`
       const window = domino.createWindow(html)
       collapseTables(window, window.document)
-      assert.deepEqual(window.document.getElementById('a').style.display, 'none')
-      assert.ok(!window.document.getElementById('b').style.display)
-      assert.deepEqual(window.document.getElementById('c').style.display, 'none')
-      assert.deepEqual(window.document.getElementById('d').style.display, 'none')
+      assert.deepEqual(window.document.getElementById('a').parentElement.style.display, 'none')
+      assert.ok(!window.document.getElementById('b').parentElement.style.display)
+      assert.deepEqual(window.document.getElementById('c').parentElement.style.display, 'none')
+      assert.deepEqual(window.document.getElementById('d').parentElement.style.display, 'none')
     })
   })
 

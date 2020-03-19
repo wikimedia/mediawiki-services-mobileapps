@@ -7,6 +7,13 @@
   height: auto !important;
 }
 
+.pcs-widen-image-ancestor {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  float: none !important;
+}
+
 @media (orientation: portrait) {
   img.pcs-widen-image-override {
     width: 100% !important;
