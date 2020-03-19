@@ -21,5 +21,5 @@ describe('WidenImage', () => {
       assert.ok(ancestors[2].id === 'widthConstrainedAncestor3')
     })
   })
-  
+
 })

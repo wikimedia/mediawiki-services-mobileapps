@@ -28,7 +28,7 @@ const ancestorsToWiden = element => {
  * @return {void}
  */
 const widenAncestors = element => {
-  ancestorsToWiden(element).forEach((e) => e.classList.add('pcs-widen-image-ancestor'))
+  ancestorsToWiden(element).forEach(e => e.classList.add('pcs-widen-image-ancestor'))
 }
 
 /**

@@ -42,7 +42,8 @@ describe('mobile-html', function() {
         .then((res) => {
             const document = domino.createDocument(res.body);
             const section0 = document.querySelector('section[data-mw-section-id=0]');
-            assert.ok(section0.children[0].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
+            // children[1] instead of children[0] because it should be after the hatnote
+            assert.ok(section0.children[1].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
         });
     });
 

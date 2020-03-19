@@ -8,11 +8,6 @@ section.pcs-hide-section {
     display: none;
 }
 
-/* Hide hatnotes */
-.hatnote {
-    display: none;
-}
-
 .pcs-section-hideable-header {
     cursor: pointer;
 }

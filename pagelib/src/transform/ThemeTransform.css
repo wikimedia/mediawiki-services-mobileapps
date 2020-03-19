@@ -185,3 +185,33 @@ hr:not(.notheme) {
   color: black !important;
   border-radius: 2px !important;
 }
+
+.dablink,
+.hatnote,
+.rellink {
+    padding: 5px 0;
+    color: #72777d;
+    font-size: .875em;
+    background-color: initial;
+    margin-bottom: 1px;
+    overflow: hidden;
+    font-style: italic;
+}
+
+.pcs-theme-sepia #pcs-edit-section-title-description,
+.pcs-theme-sepia div.dablink,
+.pcs-theme-sepia div.hatnote,
+.pcs-theme-sepia div.rellink {
+    color: #646059;
+}
+
+.pcs-theme-dark #pcs-edit-section-title-description,
+.pcs-theme-black #pcs-edit-section-title-description,
+.pcs-theme-black div.dablink,
+.pcs-theme-black div.hatnote,
+.pcs-theme-black div.rellink,
+.pcs-theme-dark div.dablink,
+.pcs-theme-dark div.hatnote,
+.pcs-theme-dark div.rellink {
+    color: #c8ccd1;
+}
