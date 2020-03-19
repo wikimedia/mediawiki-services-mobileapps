@@ -11,6 +11,7 @@ const BREAKING_SPACE = ' '
 const CLASS = {
   ICON: 'pcs-collapse-table-icon',
   CONTAINER: 'pcs-collapse-table-container',
+  CONTENT: 'pcs-collapse-table-content',
   COLLAPSED_CONTAINER: 'pcs-collapse-table-collapsed-container',
   COLLAPSED: 'pcs-collapse-table-collapsed',
   COLLAPSED_BOTTOM: 'pcs-collapse-table-collapsed-bottom',
@@ -397,6 +398,7 @@ const prepareTable = (table, document, pageTitle, tableTitle,
 
   // Add a wrapper div for content to allow for overflow scrolling
   const contentDiv = document.createElement('div')
+  contentDiv.className = CLASS.CONTENT
   contentDiv.appendChild(table)
   containerDiv.appendChild(contentDiv)
 
