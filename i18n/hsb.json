@@ -1,6 +1,8 @@
 {
-  "info-box-title" : "Zakładne fakty",
-  "info-box-close-text" : "Začinić",
-  "article-read-more-title" : "Wjace čitać",
-  "table-title-other" : "Dalše informacije"
+	"@metadata": [],
+	"article-read-more-title": "Wjace čitać",
+	"table-title-other": "Dalše informacije",
+	"info-box-close-text": "Začinić",
+	"info-box-title": "Zakładne fakty",
+	"page-similar-titles": "Podobne strony"
 }

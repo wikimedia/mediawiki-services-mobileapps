@@ -1,7 +1,8 @@
 {
-  "info-box-title" : "Info velòsi",
-  "info-box-close-text" : "Sara",
-  "article-read-more-title" : "Lèxi de pi",
-  "license-footer-name" : "CC BY-SA 3.0",
-  "table-title-other" : "Pì informasion"
+	"@metadata": [],
+	"article-read-more-title": "Lèxi de pi",
+	"table-title-other": "Pì informasion",
+	"info-box-close-text": "Sara",
+	"info-box-title": "Info velòsi",
+	"license-footer-name": "CC BY-SA 3.0"
 }

@@ -1,10 +1,11 @@
 {
-  "article-read-more-title" : "Več o tem",
-  "article-about-title" : "O tem članku",
-  "info-box-close-text" : "Zapri",
-  "page-location" : "Poglej na karti",
-  "page-talk-page" : "Poglej pogovorno stran",
-  "description-add-link-title" : "Dodaj opis naslova",
-  "page-similar-titles" : "Podobne strani",
-  "license-footer-name" : "CC BY-SA 3.0"
+	"@metadata": [],
+	"article-read-more-title": "Več o tem",
+	"info-box-close-text": "Zapri",
+	"page-talk-page": "Poglej pogovorno stran",
+	"page-location": "Poglej na karti",
+	"page-similar-titles": "Podobne strani",
+	"license-footer-name": "CC BY-SA 3.0",
+	"article-about-title": "O tem članku",
+	"description-add-link-title": "Dodaj opis naslova"
 }

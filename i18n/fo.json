@@ -1,8 +1,9 @@
 {
-  "info-box-title" : "Skjót fakta",
-  "table-title-other" : "Meira kunning",
-  "info-box-close-text" : "Lat aftur",
-  "page-similar-titles" : "Líknandi síður",
-  "article-read-more-title" : "Les meira",
-  "article-about-title" : "Um hesa greinina"
+	"@metadata": [],
+	"article-read-more-title": "Les meira",
+	"table-title-other": "Meira kunning",
+	"info-box-close-text": "Lat aftur",
+	"info-box-title": "Skjót fakta",
+	"page-similar-titles": "Líknandi síður",
+	"article-about-title": "Um hesa greinina"
 }

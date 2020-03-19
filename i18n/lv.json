@@ -1,11 +1,12 @@
 {
-  "article-read-more-title" : "Lasīt vairāk",
-  "table-title-other" : "Vairāk informācijas",
-  "article-about-title" : "Par šo rakstu",
-  "info-box-close-text" : "Aizvērt",
-  "info-box-title" : "Ātrie fakti",
-  "page-talk-page" : "Skatīt diskusiju lapu",
-  "page-similar-titles" : "Līdzīgas lapas",
-  "page-edit-history" : "Pilna labojumu vēsture",
-  "license-footer-name" : "CC-BY-SA 3.0"
+	"@metadata": [],
+	"article-read-more-title": "Lasīt vairāk",
+	"table-title-other": "Vairāk informācijas",
+	"page-edit-history": "Pilna labojumu vēsture",
+	"info-box-close-text": "Aizvērt",
+	"page-talk-page": "Skatīt diskusiju lapu",
+	"info-box-title": "Ātrie fakti",
+	"page-similar-titles": "Līdzīgas lapas",
+	"license-footer-name": "CC-BY-SA 3.0",
+	"article-about-title": "Par šo rakstu"
 }

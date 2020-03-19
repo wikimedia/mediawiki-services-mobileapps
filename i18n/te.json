@@ -1,12 +1,13 @@
 {
-  "article-read-more-title" : "మరింత చదవండి",
-  "table-title-other" : "మరింత సమాచారం",
-  "page-last-edited" : "$1 రోజుల క్రితం మార్చబడింది",
-  "info-box-close-text" : "మూసివేయి",
-  "article-about-title" : "ఈ వ్యాసం గురించి",
-  "page-read-in-other-languages" : "$1 భాషల్లో చదవండి",
-  "info-box-title" : "త్వరిత వాస్తవాలు",
-  "page-edit-history" : "పూర్తి మార్పుల చరితం",
-  "page-similar-titles" : "పోలిన పేజీలు",
-  "page-issues" : "పేజి సమస్యలు"
+	"@metadata": [],
+	"article-read-more-title": "మరింత చదవండి",
+	"table-title-other": "మరింత సమాచారం",
+	"page-edit-history": "పూర్తి మార్పుల చరితం",
+	"info-box-close-text": "మూసివేయి",
+	"page-last-edited": "$1 రోజుల క్రితం మార్చబడింది",
+	"info-box-title": "త్వరిత వాస్తవాలు",
+	"page-similar-titles": "పోలిన పేజీలు",
+	"page-issues": "పేజి సమస్యలు",
+	"article-about-title": "ఈ వ్యాసం గురించి",
+	"page-read-in-other-languages": "$1 భాషల్లో చదవండి"
 }

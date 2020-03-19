@@ -1,18 +1,23 @@
 {
-  "page-read-in-other-languages" : "Saatavilla {{PLURAL:$1|$1 muulla kielellä|$1 muulla kielellä}}",
-  "table-title-other" : "Lisätietoja",
-  "article-read-more-title" : "Lue lisää",
-  "page-edit-history" : "Täysi muokkaushistoria",
-  "info-box-close-text" : "Sulje",
-  "page-talk-page" : "Tarkastele keskustelusivua",
-  "page-last-edited" : "{{PLURAL:$1|0=Muokattu tänään|1=Muokattu eilen|Muokattu $1 päivää sitten}}",
-  "info-box-title" : "Pikafaktoja",
-  "page-location" : "Näytä kartalla",
-  "view-in-browser-footer-link" : "Lue artikkeli selaimessa",
-  "page-similar-titles" : "Samankaltaiset sivut",
-  "article-about-title" : "Tietoja tästä artikkelista",
-  "license-footer-name" : "CC BY-SA 3.0",
-  "page-issues" : "Sivun ongelmat",
-  "license-footer-text" : "Sisältö on käytettävissä $1 -lisenssin ehtojen mukaisesti ellei toisin mainita.",
-  "description-add-link-title" : "Lisää otsikon kuvaus"
+	"@metadata": {
+		"authors": [
+			"Nike"
+		]
+	},
+	"license-footer-text": "Sisältö on käytettävissä $1 -lisenssin ehtojen mukaisesti ellei toisin mainita.",
+	"article-read-more-title": "Lue lisää",
+	"table-title-other": "Lisätietoja",
+	"page-edit-history": "Täysi muokkaushistoria",
+	"info-box-close-text": "Sulje",
+	"page-last-edited": "{{PLURAL:$1|0=Muokattu tänään|1=Muokattu eilen|Muokattu $1 päivää sitten}}",
+	"page-talk-page": "Tarkastele keskustelusivua",
+	"info-box-title": "Pikafaktoja",
+	"page-location": "Näytä kartalla",
+	"page-similar-titles": "Samankaltaiset sivut",
+	"view-in-browser-footer-link": "Lue artikkeli selaimessa",
+	"license-footer-name": "CC BY-SA 3.0",
+	"page-issues": "Sivun ongelmat",
+	"article-about-title": "Tietoja tästä artikkelista",
+	"description-add-link-title": "Lisää otsikon kuvaus",
+	"page-read-in-other-languages": "Saatavilla {{PLURAL:$1|$1 muulla kielellä|$1 muulla kielellä}}"
 }

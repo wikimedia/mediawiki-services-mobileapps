@@ -1,13 +1,14 @@
 {
-  "article-read-more-title" : "Ne saber mai",
-  "page-last-edited" : "Modificat i a $1 jorns",
-  "table-title-other" : "Mai d'informacions",
-  "article-about-title" : "A prepaus d'aqueste article",
-  "info-box-close-text" : "Tampar",
-  "page-read-in-other-languages" : "Disponible dins $1 autras lengas",
-  "info-box-title" : "Faits en brèu",
-  "page-edit-history" : "Istoric complet de las modificacions",
-  "page-issues" : "Problèmas de pagina",
-  "page-similar-titles" : "Paginas similaras",
-  "license-footer-name" : "CC BY-SA 3.0"
+	"@metadata": [],
+	"article-read-more-title": "Ne saber mai",
+	"table-title-other": "Mai d'informacions",
+	"page-edit-history": "Istoric complet de las modificacions",
+	"info-box-close-text": "Tampar",
+	"page-last-edited": "Modificat i a $1 jorns",
+	"info-box-title": "Faits en brèu",
+	"page-similar-titles": "Paginas similaras",
+	"license-footer-name": "CC BY-SA 3.0",
+	"page-issues": "Problèmas de pagina",
+	"article-about-title": "A prepaus d'aqueste article",
+	"page-read-in-other-languages": "Disponible dins $1 autras lengas"
 }

@@ -1,11 +1,13 @@
 {
-  "article-read-more-title" : "Կարդալ ավելին",
-  "table-title-other" : "Մանրամասն տեղեկատվություն",
-  "article-about-title" : "Այս հոդվածի մասին",
-  "info-box-close-text" : "Փակել",
-  "info-box-title" : "Համառոտ փաստեր",
-  "license-footer-text" : "Բովանդակությունը հասանելի է",
-  "page-issues" : "Էջի խնդիրներ",
-  "license-footer-name" : "CC BY-SA 3.0",
-  "page-similar-titles" : "Նմանատիպ էջեր"
+	"@metadata": [],
+	"license-footer-text": "Բովանդակությունը թողարկված է $1, եթե այլ բան նշված չէ։",
+	"article-read-more-title": "Կարդալ ավելին",
+	"table-title-other": "Մանրամասն տեղեկատվություն",
+	"info-box-close-text": "Փակել",
+	"info-box-title": "Արագ փաստեր",
+	"page-location": "Դիտել քարտեզի վրա",
+	"page-similar-titles": "Նմանատիպ էջեր",
+	"license-footer-name": "CC BY-SA 3.0",
+	"page-issues": "Էջի խնդիրներ",
+	"article-about-title": "Այս հոդվածի մասին"
 }
