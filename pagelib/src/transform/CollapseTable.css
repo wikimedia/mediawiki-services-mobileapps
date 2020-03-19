@@ -202,6 +202,10 @@ div.pcs-collapse-table-container {
   }
 }
 
+.pcs-collapse-table-content {
+  overflow-x: auto;
+}
+
 .wikitable {
   border: none;
 }
