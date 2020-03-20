@@ -32,6 +32,9 @@ function getMobileHtmlFromPOST(req, res) {
         mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
         mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
         res.send(mobileHTML.doc.outerHTML).end();
+        if (mobileHTML.processingTime) {
+            app.metrics.timing('transform_html_to_mobile-html.processing', mobileHTML.processingTime);
+        }
     });
 }
 
@@ -49,6 +52,9 @@ function getMobileHtmlFromParsoid(req, res) {
         mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
         mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
         res.send(mobileHTML.doc.outerHTML).end();
+        if (mobileHTML.processingTime) {
+            app.metrics.timing('page_mobile-html.processing', mobileHTML.processingTime);
+        }
     });
 }
 
@@ -62,6 +68,9 @@ function getMobileHtmlFromMobileview(req, res) {
         mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
         mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
         res.send(mobileHTML.doc.outerHTML).end();
+        if (mobileHTML.processingTime) {
+            app.metrics.timing('page_mobile-html.mobileview_processing', mobileHTML.processingTime);
+        }
     });
 }
 
