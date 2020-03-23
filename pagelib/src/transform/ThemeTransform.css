@@ -186,9 +186,9 @@ hr:not(.notheme) {
   border-radius: 2px !important;
 }
 
-.dablink,
-.hatnote,
-.rellink {
+#pcs .dablink,
+#pcs .hatnote,
+#pcs .rellink {
     padding: 5px 0;
     color: #72777d;
     font-size: .875em;
@@ -198,20 +198,20 @@ hr:not(.notheme) {
     font-style: italic;
 }
 
-.pcs-theme-sepia #pcs-edit-section-title-description,
-.pcs-theme-sepia div.dablink,
-.pcs-theme-sepia div.hatnote,
-.pcs-theme-sepia div.rellink {
+#pcs.pcs-theme-sepia #pcs-edit-section-title-description,
+#pcs.pcs-theme-sepia div.dablink,
+#pcs.pcs-theme-sepia div.hatnote,
+#pcs.pcs-theme-sepia div.rellink {
     color: #646059;
 }
 
-.pcs-theme-dark #pcs-edit-section-title-description,
-.pcs-theme-black #pcs-edit-section-title-description,
-.pcs-theme-black div.dablink,
-.pcs-theme-black div.hatnote,
-.pcs-theme-black div.rellink,
-.pcs-theme-dark div.dablink,
-.pcs-theme-dark div.hatnote,
-.pcs-theme-dark div.rellink {
+#pcs.pcs-theme-dark #pcs-edit-section-title-description,
+#pcs.pcs-theme-black #pcs-edit-section-title-description,
+#pcs.pcs-theme-black div.dablink,
+#pcs.pcs-theme-black div.hatnote,
+#pcs.pcs-theme-black div.rellink,
+#pcs.pcs-theme-dark div.dablink,
+#pcs.pcs-theme-dark div.hatnote,
+#pcs.pcs-theme-dark div.rellink {
     color: #c8ccd1;
 }
