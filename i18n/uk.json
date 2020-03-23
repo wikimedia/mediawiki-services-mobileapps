@@ -1,20 +1,25 @@
 {
-	"@metadata": [],
-	"license-footer-text": "Вміст доступний на умовах $1, якщо не вказано інше.",
+	"@metadata": {
+		"authors": [
+			"Movses"
+		]
+	},
+	"description-add-link-title": "Додати опис назви",
 	"article-read-more-title": "Детальніше",
 	"table-title-other": "Більше інформації",
 	"page-edit-history": "Переглянути історію редагувань",
 	"info-box-close-text": "Закрити",
-	"page-last-edited": "{{PLURAL:$1|0=Оновлено сьогодні|one=Оновлено $1 день тому|few=Оновлено $1 дні тому|many=Оновлено $1 днів тому}}",
+	"page-talk-page-subtitle": "Обговорити як покращити цю статтю",
+	"page-issues-subtitle": "Звістки про незвичний чи проблематичний вміст",
 	"page-talk-page": "Сторінка обговорення",
 	"info-box-title": "Табличка основної інформації",
+	"view-in-browser-footer-link": "Переглянути статтю в браузері",
 	"page-location": "Переглянути на карті",
 	"page-similar-titles": "Подібні сторінки",
-	"view-in-browser-footer-link": "Переглянути статтю в браузері",
-	"page-last-edited-unknown": "Відредаговано якийсь час тому",
-	"license-footer-name": "CC BY-SA 3.0",
-	"page-issues": "Проблеми сторінки",
+	"page-last-edited": "{{PLURAL:$1|0=Оновлено сьогодні|one=Оновлено $1 день тому|few=Оновлено $1 дні тому|many=Оновлено $1 днів тому}}",
 	"article-about-title": "Про цю статтю",
-	"description-add-link-title": "Додати опис назви",
+	"page-issues": "Проблеми сторінки",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Вміст доступний на умовах $1, якщо не вказано інше.",
 	"page-read-in-other-languages": "Доступно в {{PLURAL:$1|іншій мові|$1 інших мовах}}"
 }

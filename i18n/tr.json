@@ -1,20 +1,25 @@
 {
-	"@metadata": [],
-	"license-footer-text": "İçerik, aksi belirtilmedikçe $1 lisansı altında kullanılabilir",
+	"@metadata": {
+		"authors": [
+			"BaRaN6161 TURK"
+		]
+	},
+	"description-add-link-title": "Başlık tanımı ekle",
 	"article-read-more-title": "Devamını oku",
 	"table-title-other": "Daha fazla bilgi",
 	"page-edit-history": "Düzenleme geçmişini görüntüle",
 	"info-box-close-text": "Kapat",
-	"page-last-edited": "{{PLURAL:$1|0=Bugün güncellendi|1=Dün güncellendi|$1 gün önce güncellendi}}",
+	"page-talk-page-subtitle": "Bu maddedeki geliştirmeleri tartışın",
+	"page-issues-subtitle": "Alt bölüm veya sorunlu içerik hakkında uyarılar",
 	"page-talk-page": "Tartışma sayfasını görüntüle",
 	"info-box-title": "Pratik Bilgiler",
+	"view-in-browser-footer-link": "Maddeyi tarayıcıda görüntüle",
 	"page-location": "Haritada görüntüle",
 	"page-similar-titles": "Benzer sayfalar",
-	"view-in-browser-footer-link": "Maddeyi tarayıcıda görüntüle",
-	"page-last-edited-unknown": "Bir süre önce düzenlendi",
-	"license-footer-name": "CC BY-SA 3.0",
-	"page-issues": "Sayfa sorunları",
+	"page-last-edited": "{{PLURAL:$1|0=Bugün güncellendi|1=Dün güncellendi|$1 gün önce güncellendi}}",
 	"article-about-title": "Bu madde hakkında",
-	"description-add-link-title": "Başlık tanımı ekle",
+	"page-issues": "Sayfa sorunları",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "İçerik, aksi belirtilmedikçe $1 lisansı altında kullanılabilir",
 	"page-read-in-other-languages": "{{PLURAL:$1|$1 farklı dilde|$1 farklı dilde}} mevcut"
 }

@@ -1,20 +1,24 @@
 {
-	"@metadata": [],
-	"license-footer-text": "De inhoud is beschikbaar onder de $1 tenzij anders aangegeven.",
+	"@metadata": {
+		"authors": [
+			"Mainframe98"
+		]
+	},
+	"description-add-link-title": "Titelbeschrijving toevoegen",
 	"article-read-more-title": "Meer lezen",
 	"table-title-other": "Meer informatie",
 	"page-edit-history": "Bewerkingsgeschiedenis bekijken",
 	"info-box-close-text": "Sluiten",
-	"page-last-edited": "{{PLURAL:$1|0=Vandaag bijgewerkt|1=Gisteren bijgewerkt|$1 dagen geleden bijgewerkt}}",
+	"page-talk-page-subtitle": "Overleg over verbeteringen voor dit artikel",
 	"page-talk-page": "Overlegpagina bekijken",
 	"info-box-title": "Snelle feiten",
+	"view-in-browser-footer-link": "Artikel in browser bekijken",
 	"page-location": "Op een kaart bekijken",
 	"page-similar-titles": "Vergelijkbare pagina's",
-	"view-in-browser-footer-link": "Artikel in browser bekijken",
-	"page-last-edited-unknown": "Enige tijd geleden bewerkt",
-	"license-footer-name": "CC BY-SA 3.0",
-	"page-issues": "Paginaproblemen",
+	"page-last-edited": "{{PLURAL:$1|0=Vandaag bijgewerkt|1=Gisteren bijgewerkt|$1 dagen geleden bijgewerkt}}",
 	"article-about-title": "Over deze pagina",
-	"description-add-link-title": "Titelbeschrijving toevoegen",
+	"page-issues": "Paginaproblemen",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "De inhoud is beschikbaar onder de $1 tenzij anders aangegeven.",
 	"page-read-in-other-languages": "Beschikbaar in {{PLURAL:$1|$1 andere taal|$1 andere talen}}"
 }

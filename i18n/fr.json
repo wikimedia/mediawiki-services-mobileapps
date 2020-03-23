@@ -1,20 +1,26 @@
 {
-	"@metadata": [],
-	"license-footer-text": "Le contenu est disponible sous $1 sauf spécification contraire.",
+	"@metadata": {
+		"authors": [
+			"Gomoko",
+			"Wladek92"
+		]
+	},
+	"description-add-link-title": "Ajouter la description du titre",
 	"article-read-more-title": "En savoir plus",
 	"table-title-other": "Plus d’informations",
 	"page-edit-history": "Voir l'historique des modifications",
 	"info-box-close-text": "Fermer",
-	"page-last-edited": "Mis à jour {{PLURAL:$1|0=aujourd’hui|1=hier|il y a $1 jours}}",
+	"page-talk-page-subtitle": "Discuter des améliorations à cet article",
+	"page-issues-subtitle": "Alertes sur un contenu trop moyen ou problématique",
 	"page-talk-page": "Afficher la page de discussion",
 	"info-box-title": "Faits en bref",
+	"view-in-browser-footer-link": "Afficher l’article dans le navigateur",
 	"page-location": "Afficher sur une carte",
 	"page-similar-titles": "Pages similaires",
-	"view-in-browser-footer-link": "Afficher l’article dans le navigateur",
-	"page-last-edited-unknown": "Modifié il y a quelque temps",
-	"license-footer-name": "CC BY-SA 3.0",
-	"page-issues": "Problèmes de page",
+	"page-last-edited": "Mis à jour {{PLURAL:$1|0=aujourd’hui|1=hier|il y a $1 jours}}",
 	"article-about-title": "À propos de cet article",
-	"description-add-link-title": "Ajouter la description du titre",
+	"page-issues": "Problèmes de page",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Le contenu est disponible sous $1 sauf spécification contraire.",
 	"page-read-in-other-languages": "Disponible dans $1 autre{{PLURAL:$1||s}} langue{{PLURAL:$1||s}}"
 }

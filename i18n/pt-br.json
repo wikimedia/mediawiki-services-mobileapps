@@ -1,20 +1,25 @@
 {
-	"@metadata": [],
-	"license-footer-text": "Conteúdo disponibilizado nos termos da $1, salvo indicação contrária.",
+	"@metadata": {
+		"authors": [
+			"Eduardo Addad de Oliveira"
+		]
+	},
+	"description-add-link-title": "Adicionar descrição do título",
 	"article-read-more-title": "Leia mais",
 	"table-title-other": "Mais informações",
 	"page-edit-history": "Ver histórico de edições",
 	"info-box-close-text": "Fechar",
-	"page-last-edited": "{{PLURAL:$1|0=Atualizado hoje|1=Atualizado ontem|Atualizado $1 dia atrás}}",
+	"page-talk-page-subtitle": "Discutir melhorias neste artigo",
+	"page-issues-subtitle": "Alertas sobre conteúdo insuficiente ou problemático",
 	"page-talk-page": "Ver página de discussão",
 	"info-box-title": "Fatos rápidos",
+	"view-in-browser-footer-link": "Ver artigo no navegador",
 	"page-location": "Ver no mapa",
 	"page-similar-titles": "Páginas similares",
-	"view-in-browser-footer-link": "Ver artigo no navegador",
-	"page-last-edited-unknown": "Editado há algum tempo",
-	"license-footer-name": "CC BY-SA 3.0",
-	"page-issues": "Problemas da página",
+	"page-last-edited": "{{PLURAL:$1|0=Atualizado hoje|1=Atualizado ontem|Atualizado $1 dia atrás}}",
 	"article-about-title": "Sobre este artigo",
-	"description-add-link-title": "Adicionar descrição do título",
+	"page-issues": "Problemas da página",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Conteúdo disponibilizado nos termos da $1, salvo indicação contrária.",
 	"page-read-in-other-languages": "Disponível em {PLURAL:$1|$1 outro idioma|$1 outros idiomas}}"
 }

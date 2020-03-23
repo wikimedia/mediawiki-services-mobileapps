@@ -1,20 +1,25 @@
 {
-	"@metadata": [],
-	"license-footer-text": "Содржината е достапна под условите на $1 освен ако не е поинаку наведено.",
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"description-add-link-title": "Додај опис на насловот",
 	"article-read-more-title": "Прочитајте повеќе",
 	"table-title-other": "Повеќе информации",
 	"page-edit-history": "Историја на уредувања",
 	"info-box-close-text": "Затвори",
-	"page-last-edited": "{{PLURAL:$1|0=Подновено денес|1=Подновено вчера|Подновено пред $1 дена}}",
+	"page-talk-page-subtitle": "Поразговарајте за подобрувањето на статијава",
+	"page-issues-subtitle": "Известува за неквалитетна или проблематична содржина",
 	"page-talk-page": "Разговорна страница",
 	"info-box-title": "Кратки факти",
+	"view-in-browser-footer-link": "Отвори во прелистувач",
 	"page-location": "Погл. на карта",
 	"page-similar-titles": "Слични страници",
-	"view-in-browser-footer-link": "Отвори во прелистувач",
-	"page-last-edited-unknown": "Уредено пред некое време",
-	"license-footer-name": "CC-BY-SA 3.0",
-	"page-issues": "Проблеми со страницата",
+	"page-last-edited": "{{PLURAL:$1|0=Подновено денес|1=Подновено вчера|Подновено пред $1 дена}}",
 	"article-about-title": "Уреди ја статијава",
-	"description-add-link-title": "Додај опис на насловот",
+	"page-issues": "Проблеми со страницата",
+	"license-footer-name": "CC-BY-SA 3.0",
+	"license-footer-text": "Содржината е достапна под условите на $1 освен ако не е поинаку наведено.",
 	"page-read-in-other-languages": "Достапно на {{PLURAL:$1|уште $1 јазик|уште $1 јазици}}"
 }

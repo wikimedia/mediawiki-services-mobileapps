@@ -1,9 +1,25 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Orbot707"
+		]
+	},
+	"description-add-link-title": "Şınastiya sereki dekerê",
 	"article-read-more-title": "Tayêna bıwane",
 	"table-title-other": "Tayêna melumat",
+	"page-edit-history": "Verorê vurnayışi bıvêne",
 	"info-box-close-text": "Kip ke",
+	"page-talk-page-subtitle": "Ravêrberdışê na meqale mışewre bıkerê",
+	"page-issues-subtitle": "Heqê zerrekê problemıni u letey bınêni iqazi",
+	"page-talk-page": "Pela werênayışi bıvêne",
 	"info-box-title": "Pêt Raşti",
+	"view-in-browser-footer-link": "Meqaleyi browseri sero bıvinê",
+	"page-location": "Xerita sero bıvênên",
+	"page-similar-titles": "Zey cı peri",
+	"page-last-edited": "{{PLURAL:$1|0=Ewro kerdo rocane|1=Vızêr biyo rocanê |Verê $1 roca kerdo rocane }}",
 	"article-about-title": "Heqê nê meqaley",
+	"page-issues": "Meseleyê pele",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Zerrekê cı bınê $1 de qeyd biyo.",
 	"page-read-in-other-languages": "{{PLURAL:$1|$1 yew zıwanê bini|$1 zıwananê binan}} de esto"
 }

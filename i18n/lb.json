@@ -1,19 +1,23 @@
 {
-	"@metadata": [],
-	"license-footer-text": "Den Inhalt ass ënner der $1 disponibel wann et net anescht uginn ass.",
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
 	"article-read-more-title": "Liest méi",
 	"table-title-other": "Méi Informatiounen",
 	"page-edit-history": "All Versioune vun der Säit weisen",
 	"info-box-close-text": "Zoumaachen",
-	"page-last-edited": "{{PLURAL:$1|0=Haut today|1=Gëschter|Viru(n) $1 Deeg}} geännert",
+	"page-talk-page-subtitle": "Verbesserunge vun dësem Artikel diskutéieren",
 	"page-talk-page": "Diskussiounssäit weisen",
 	"info-box-title": "Séier Fakten",
+	"view-in-browser-footer-link": "Artikel am Browser kucken",
 	"page-location": "Op enger Kaart weisen",
 	"page-similar-titles": "Änlech Säiten",
-	"view-in-browser-footer-link": "Artikel am Browser kucken",
-	"page-last-edited-unknown": "Virun enger gewësser Zäit geännert",
-	"license-footer-name": "CC-BY-SA 3.0",
-	"page-issues": "Problemer mat der Säit",
+	"page-last-edited": "{{PLURAL:$1|0=Haut today|1=Gëschter|Viru(n) $1 Deeg}} geännert",
 	"article-about-title": "Iwwer dësen Artikel",
+	"page-issues": "Problemer mat der Säit",
+	"license-footer-name": "CC-BY-SA 3.0",
+	"license-footer-text": "Den Inhalt ass ënner der $1 disponibel wann et net anescht uginn ass.",
 	"page-read-in-other-languages": "Disponibel {{PLURAL:$1|an enger anerer Sprooch|a(n) $1 anere Sproochen}}"
 }

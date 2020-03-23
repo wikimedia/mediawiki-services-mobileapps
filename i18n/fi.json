@@ -4,20 +4,20 @@
 			"Nike"
 		]
 	},
-	"license-footer-text": "Sisältö on käytettävissä $1 -lisenssin ehtojen mukaisesti ellei toisin mainita.",
+	"description-add-link-title": "Lisää otsikon kuvaus",
 	"article-read-more-title": "Lue lisää",
 	"table-title-other": "Lisätietoja",
 	"page-edit-history": "Täysi muokkaushistoria",
 	"info-box-close-text": "Sulje",
-	"page-last-edited": "{{PLURAL:$1|0=Muokattu tänään|1=Muokattu eilen|Muokattu $1 päivää sitten}}",
 	"page-talk-page": "Tarkastele keskustelusivua",
 	"info-box-title": "Pikafaktoja",
+	"view-in-browser-footer-link": "Lue artikkeli selaimessa",
 	"page-location": "Näytä kartalla",
 	"page-similar-titles": "Samankaltaiset sivut",
-	"view-in-browser-footer-link": "Lue artikkeli selaimessa",
-	"license-footer-name": "CC BY-SA 3.0",
-	"page-issues": "Sivun ongelmat",
+	"page-last-edited": "{{PLURAL:$1|0=Muokattu tänään|1=Muokattu eilen|Muokattu $1 päivää sitten}}",
 	"article-about-title": "Tietoja tästä artikkelista",
-	"description-add-link-title": "Lisää otsikon kuvaus",
+	"page-issues": "Sivun ongelmat",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Sisältö on käytettävissä $1 -lisenssin ehtojen mukaisesti ellei toisin mainita.",
 	"page-read-in-other-languages": "Saatavilla {{PLURAL:$1|$1 muulla kielellä|$1 muulla kielellä}}"
 }

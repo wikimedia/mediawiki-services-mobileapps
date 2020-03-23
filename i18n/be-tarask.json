@@ -1,15 +1,15 @@
 {
 	"@metadata": [],
-	"license-footer-text": "Зьмест даступны на ўмовах $1, калі не пазначанае іншае.",
 	"article-read-more-title": "Даведацца болей",
 	"table-title-other": "Болей зьвестак",
 	"page-edit-history": "Уся гісторыя рэдагаваньняў",
 	"info-box-close-text": "Закрыць",
-	"page-last-edited": "{{PLURAL:$1|0=Рэдагаваны сёньня|1=Рэдагаваны ўчора|Рэдагаваны $1 дзён таму}}",
 	"info-box-title": "Хуткія факты",
 	"page-similar-titles": "Падобныя старонкі",
-	"license-footer-name": "CC BY-SA 3.0",
-	"page-issues": "Хібы старонкі",
+	"page-last-edited": "{{PLURAL:$1|0=Рэдагаваны сёньня|1=Рэдагаваны ўчора|Рэдагаваны $1 дзён таму}}",
 	"article-about-title": "Пра гэты артыкул",
+	"page-issues": "Хібы старонкі",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Зьмест даступны на ўмовах $1, калі не пазначанае іншае.",
 	"page-read-in-other-languages": "Даступнае на {{PLURAL:$1|$1 іншай мове|$1 іншых мовах}}"
 }
