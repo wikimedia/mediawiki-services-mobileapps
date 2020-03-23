@@ -1,4 +1,5 @@
 import './FooterLegal.css'
+import HTMLUtil from "../transform/HTMLUtilities";
 
 /**
  * @typedef {function} FooterLegalClickCallback
@@ -17,7 +18,8 @@ import './FooterLegal.css'
  */
 const buildLicenseHtml = (licenseString, linkText) => {
   const halves = licenseString.split('$1')
-  return `${halves[0]}<a class='pcs-footer-legal-license-link'>${linkText}</a>${halves[1]}`
+  /* DOM sink status: sanitized - content can be changed by users */
+  return `${HTMLUtil.escape(halves[0])}<a class='pcs-footer-legal-license-link'>${HTMLUtil.escape(linkText)}</a>${HTMLUtil.escape(halves[1])}`
 }
 
 /**
@@ -37,7 +39,7 @@ const add = (content, licenseString, licenseSubstitutionString, containerID,
   // todo: don't manipulate the selector. The client can make this an ID if they want it to be.
   const container = content.querySelector(`#${containerID}`)
 
-  /* DOM sink status: risk? - content can be changed by clients */
+  /* DOM sink status: sanitized - content can be changed by users */
   container.innerHTML =
   `<div class='pcs-footer-legal-contents'>
     <hr class='pcs-footer-legal-divider'>
@@ -46,7 +48,7 @@ const add = (content, licenseString, licenseSubstitutionString, containerID,
     <br>
       <div class="pcs-footer-browser">
         <a class='pcs-footer-browser-link'>
-          ${viewInBrowserString}
+          ${HTMLUtil.escape(viewInBrowserString)}
         </a>
       </div>
     </span>

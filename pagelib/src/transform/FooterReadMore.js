@@ -1,4 +1,5 @@
 import './FooterReadMore.css'
+import HTMLUtil from "../transform/HTMLUtilities";
 
 /**
  * @typedef {function} TitlesShownHandler
@@ -224,9 +225,9 @@ const fetchAndAdd = (title, heading, count, sectionContainerId, pageContainerId,
  */
 const setHeading = (headingString, headingID, document) => {
   const headingElement = document.getElementById(headingID)
-  /* DOM sink status: risk? - headingString can be changed by clients */
-  headingElement.innerText = headingString
-  headingElement.title = headingString
+  /* DOM sink status: sanitized - headingString can be changed by clients */
+  headingElement.textContent = HTMLUtil.escape(headingString)
+  headingElement.title = HTMLUtil.escape(headingString)
 }
 
 export default {

@@ -1,6 +1,7 @@
 import CollapseTable from '../../transform/CollapseTable'
 import EditTransform from '../../transform/EditTransform'
 import Polyfill from '../../transform/Polyfill'
+import HTMLUtil from '../../transform/HTMLUtilities'
 
 const selectors = {
   addTitleDescription: `#${EditTransform.IDS.ADD_TITLE_DESCRIPTION}`,
@@ -21,9 +22,9 @@ const localizeLabels = localizedStrings => {
     if (localizedStrings[key]) {
       const elements = Polyfill.querySelectorAll(document, selector)
       for (const element of elements) {
-        /* DOM sink status: risk? localizedStrings are client inputs,
+        /* DOM sink status: sanitized localizedStrings are client inputs,
           which should be in full control by the apps */
-        element.innerHTML = localizedStrings[key]
+        element.textContent = HTMLUtil.escape(localizedStrings[key])
       }
     }
   }

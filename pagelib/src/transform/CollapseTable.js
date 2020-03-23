@@ -3,6 +3,7 @@ import ElementUtilities from './ElementUtilities'
 import NodeUtilities from './NodeUtilities'
 import Polyfill from './Polyfill'
 import SectionUtilities from './SectionUtilities'
+import HTMLUtil from "../transform/HTMLUtilities";
 
 const NODE_TYPE = NodeUtilities.NODE_TYPE
 
@@ -284,8 +285,8 @@ const newCollapsedFooterDiv = (document, content) => {
   const div = document.createElement('div')
   div.classList.add(CLASS.COLLAPSED_BOTTOM)
   div.classList.add(CLASS.ICON)
-  /* DOM sink status: risk? - footer title can be overridden by the client */
-  div.innerHTML = content || ''
+  /* DOM sink status: sanitized - footer title can be overridden by the client */
+  div.textContent = HTMLUtil.escape(content) || ''
   return div
 }
 
@@ -300,8 +301,8 @@ const newCaptionFragment = (document, title, titleClass, headerText) => {
   const fragment = document.createDocumentFragment()
 
   const strong = document.createElement('strong')
-  /* DOM sink status: risk? - title can be overridden by clients */
-  strong.innerHTML = title
+  /* DOM sink status: sanitized - title can be overridden by clients */
+  strong.textContent = HTMLUtil.escape(title)
   strong.classList.add(titleClass)
   fragment.appendChild(strong)
 
