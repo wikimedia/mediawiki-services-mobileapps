@@ -137,6 +137,10 @@ a.pcs-edit-section-link {
     padding-bottom: 0px;
 }
 
+#pcs-edit-section-title-description::first-letter {
+  text-transform: capitalize;
+}
+
 #pcs-edit-section-add-title-description {
     font-size: 0.875em;
     font-weight: 400;
