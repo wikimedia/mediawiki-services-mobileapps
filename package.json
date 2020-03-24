@@ -5,6 +5,7 @@
   "main": "./app.js",
   "scripts": {
     "dev": "nodemon server.js --signal SIGTERM",
+    "dev:debug": "nodemon --inspect-brk server.js --signal SIGTERM",
     "start": "service-runner",
     "test": "PREQ_CONNECT_TIMEOUT=15 mocha 'test/{,!(diff)/**}/*.js' && npm run lint",
     "test:talk": "PREQ_CONNECT_TIMEOUT=15 mocha 'test/{,!(diff)/**}/talk.test.js'",

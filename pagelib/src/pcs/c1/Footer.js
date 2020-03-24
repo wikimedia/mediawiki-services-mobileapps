@@ -165,7 +165,17 @@ const add = params => {
     let banana
     try {
       const response = JSON.parse(xhr.responseText)
-      banana = new Banana(response.locale)
+      // default locale is returned in the response
+      let locale = response && response.locale || 'en'
+      // actual locale (with variant if applicable) is in the meta tag
+      const localeMetaTag = document.head.querySelector('meta[property="pcs:locale"]')
+      if (localeMetaTag) {
+        const content = localeMetaTag.getAttribute('content')
+        if (content) {
+          locale = content
+        }
+      }
+      banana = new Banana(locale)
       banana.load(response.messages)
     } catch (e) {
       banana = failsafeBanana

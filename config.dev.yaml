@@ -45,7 +45,7 @@ services:
       # csp: false  # uncomment this line to disable sending them
       # CSP for mobile-html
       mobile_html_csp: "default-src 'none';
-        connect-src localhost:7231 *.wikipedia.org 'self';
+        connect-src localhost https://*.wikipedia.org 'self';
         media-src upload.wikimedia.org 'self';
         img-src *.wikimedia.org wikimedia.org 'self' data:;
         object-src 'none';
