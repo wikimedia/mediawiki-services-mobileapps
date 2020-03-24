@@ -95,22 +95,16 @@ router.post('/transform/html/to/mobile-html/:title', (req, res) => {
     return getMobileHtmlFromPOST(req, res);
 });
 
-const schemeRegex = /^[a-z]*:\/\//i;
-
 router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, res) => {
     res.status(200);
     mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtmlOfflineResources);
     mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
 
     // Get external API URI
-    let externalApiUri = apiUtilConstants.getExternalRestApiUri(req.params.domain);
-    // make it  schemeless
-    externalApiUri = externalApiUri.replace(schemeRegex, '//');
-    const metawikiApiUri = app.conf.mobile_html_rest_api_base_uri
-        .replace(schemeRegex, '//');
+    const externalApiUri = apiUtilConstants.getExternalRestApiUri(req.params.domain);
+    const metawikiApiUri = app.conf.mobile_html_rest_api_base_uri;
     const localApiUri = app.conf.mobile_html_local_rest_api_base_uri_template
-        .replace('{{domain}}', req.params.domain || 'en.wikipedia.org')
-        .replace(schemeRegex, '//');
+        .replace('{{domain}}', req.params.domain || 'en.wikipedia.org');
 
     const offlineResources = [
         `${metawikiApiUri}data/css/mobile/base`,

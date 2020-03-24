@@ -17,8 +17,7 @@ describe('mobile-html-offline-resources', function() {
 
     const localApiUri = server.config.conf.services[0]
         .conf.mobile_html_local_rest_api_base_uri_template
-        .replace('{{domain}}', domain)
-        .replace(new RegExp('(https|http)://'), '//');
+        .replace('{{domain}}', domain);
 
     const localUri = (title, domain = 'en.wikipedia.org') => {
         return `${server.config.uri}${domain}/v1/page/mobile-html-offline-resources/${title}`;

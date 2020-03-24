@@ -72,11 +72,11 @@ function initApp(options) {
     }
 
     if (app.conf.mobile_html_rest_api_base_uri === undefined) {
-        app.conf.mobile_html_rest_api_base_uri = 'https://meta.wikimedia.org/api/rest_v1/';
+        app.conf.mobile_html_rest_api_base_uri = '//meta.wikimedia.org/api/rest_v1/';
     }
 
     if (app.conf.mobile_html_local_rest_api_base_uri_template === undefined) {
-        app.conf.mobile_html_local_rest_api_base_uri_template = 'https://{{domain}}/api/rest_v1/';
+        app.conf.mobile_html_local_rest_api_base_uri_template = '//{{domain}}/api/rest_v1/';
     }
 
     // set outgoing proxy
