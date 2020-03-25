@@ -1,6 +1,6 @@
 import './FooterMenu.css'
 import CollectionUtilities from './CollectionUtilities'
-import HTMLUtil from "../transform/HTMLUtilities";
+import HTMLUtil from '../transform/HTMLUtilities'
 
 /**
  * @typedef {function} FooterMenuItemClickCallback
@@ -114,7 +114,7 @@ const documentFragmentForMenuItem = (menuItem, document) => {
     const title = document.createElement('div')
     title.className = 'pcs-footer-menu-item-title'
     /* DOM sink status: sanitized - headingString can be changed by clients */
-    title.textContent = HTMLUtil.escape(menuItem.title)
+    title.textContent = menuItem.title
     containerAnchor.title = menuItem.title
     containerAnchor.appendChild(title)
   }
@@ -123,7 +123,7 @@ const documentFragmentForMenuItem = (menuItem, document) => {
     const subtitle = document.createElement('div')
     subtitle.className = 'pcs-footer-menu-item-subtitle'
     /* DOM sink status: sanitized - headingString can be changed by clients */
-    subtitle.textContent = HTMLUtil.escape(menuItem.subtitle)
+    subtitle.textContent = menuItem.subtitle
     containerAnchor.appendChild(subtitle)
   }
 
@@ -186,7 +186,7 @@ const maybeAddItem = (title, subtitle, itemType, containerID, clickHandler, docu
 const setHeading = (headingString, headingID, document) => {
   const headingElement = document.getElementById(headingID)
   /* DOM sink status: sanitized - headingString can be changed by clients */
-  headingElement.textContent = HTMLUtil.escape(headingString)
+  headingElement.textContent = headingString
   headingElement.title = HTMLUtil.escape(headingString)
 }
 

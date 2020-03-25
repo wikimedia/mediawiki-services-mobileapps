@@ -116,7 +116,7 @@ const newEditSectionHeader = (document, index, level, titleHTML, showEditPencil 
 
   const element = newEditSectionWrapper(document, index)
   const title = document.createElement(`h${level}`)
-  /* DOM sink status: safe - Displaytitle is sanitized in CoreParserHooks::displaytitle by MW 
+  /* DOM sink status: safe - Displaytitle is sanitized in CoreParserHooks::displaytitle by MW
     OBS: if titleHTML is escaped it will cause a regression of T242028 */
   title.innerHTML = titleHTML || ''
   title.setAttribute(DATA_ATTRIBUTE.SECTION_INDEX, index)

@@ -1,5 +1,5 @@
 import './FooterLegal.css'
-import HTMLUtil from "../transform/HTMLUtilities";
+import HTMLUtil from '../transform/HTMLUtilities'
 
 /**
  * @typedef {function} FooterLegalClickCallback

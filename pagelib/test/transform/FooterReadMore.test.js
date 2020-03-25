@@ -1,5 +1,6 @@
 import assert from 'assert'
 import pagelib from '../../build/wikimedia-page-library-transform'
+import domino from 'domino'
 
 describe('FooterReadMore', () => {
   describe('safelyRemoveEnclosures()', () => {
@@ -27,5 +28,13 @@ describe('FooterReadMore', () => {
       'Lutefisk or lutfisk is a traditional dish of some Nordic countries.'
       assert.ok(cleanExtract(input) === expectation)
     })
+  })
+  describe('escapedContent', () => {
+    const document = domino.createDocument('<h2 id="id"></h2>')
+    pagelib.FooterReadMore.setHeading('<span id="hello">&amp;</span>', 'id', document)
+    const element = document.getElementById('id')
+    assert.equal(element.innerHTML, '&lt;span id="hello"&gt;&amp;amp;&lt;/span&gt;')
+    // Quotes aren't OK on attributes
+    assert.equal(element.title, '&lt;span id=&quot;hello&quot;&gt;&amp;amp;&lt;/span&gt;')
   })
 })
