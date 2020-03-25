@@ -72,8 +72,8 @@ services:
       # the user agent to use when issuing requests
       user_agent: WMF Mobile Content Service dev
       # REST API base URIs
-      mobile_html_rest_api_base_uri: "//mobileapps.wmflabs.org/api/v1/"
-      mobile_html_local_rest_api_base_uri_template: "//mobileapps.wmflabs.org/{{domain}}/v1/"
+      mobile_html_rest_api_base_uri: '//mobileapps.wmflabs.org/api/v1/'
+      mobile_html_local_rest_api_base_uri_template: '//mobileapps.wmflabs.org/{{domain}}/v1/'
       # max JSON POST body size limit
       # max_body_size: 100kb
       # the template used for contacting the MW API
