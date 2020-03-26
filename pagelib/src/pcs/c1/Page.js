@@ -4,7 +4,6 @@ import CollapseTable from '../../transform/CollapseTable'
 import DimImagesTransform from '../../transform/DimImagesTransform'
 import EditTransform from '../../transform/EditTransform'
 import InteractionHandling from './InteractionHandling'
-import L10N from './L10N'
 import LazyLoadTransformer from '../../transform/LazyLoadTransformer'
 import NodeUtilities from '../../transform/NodeUtilities'
 import PlatformTransform from '../../transform/PlatformTransform'
@@ -45,18 +44,18 @@ const waitForNextPaint = onSuccess => {
  * Makes multiple page modifications based on client specific settings, which should be called
  * during initial page load.
  * @param {?{}} optionalSettings client settings
- *   { platform, clientVersion, l10n, theme, dimImages, margins, areTablesInitiallyExpanded,
+ *   { platform, version, theme, dimImages, margins, areTablesInitiallyExpanded,
  *   scrollTop, textSizeAdjustmentPercentage }
  * @param {?OnSuccess} onSuccess callback
  * @return {void}
  */
 const setup = (optionalSettings, onSuccess) => {
   const settings = optionalSettings || {}
+
+  PlatformTransform.setVersion(document, settings.version)
+
   if (settings.platform !== undefined) {
     PlatformTransform.setPlatform(document, PlatformTransform.CLASS_PREFIX + settings.platform)
-  }
-  if (settings.l10n !== undefined) {
-    L10N.localizeLabels(settings.l10n)
   }
   if (settings.theme !== undefined) {
     ThemeTransform.setTheme(document, ThemeTransform.CLASS_PREFIX + settings.theme)

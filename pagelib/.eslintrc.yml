@@ -42,6 +42,7 @@ rules:
   no-param-reassign: 1
   max-len: [error, {code: 200, ignoreUrls: true}]
   no-use-before-define: [error, {variables: false, functions: false, classes: false}]
+  sort-imports: 0
 
   # ECMAScript 6
   arrow-body-style: 1

@@ -19,12 +19,6 @@ describe('pcs.c1.Page', () => {
       Page.setup({
         platform: 'ios',
         clientVersion: '6.2.1',
-        l10n: {
-          addTitleDescription: 'Titelbeschreibung bearbeiten',
-          tableInfobox: 'Schnelle Fakten',
-          tableOther: 'Weitere Informationen',
-          tableClose: 'Schließen'
-        },
         theme: 'dark',
         dimImages: true,
         margins: { top: '1px', right: '2px', bottom: '3px', left: '4px' },
@@ -34,8 +28,6 @@ describe('pcs.c1.Page', () => {
         loadImages: true
       }, () => { onSuccessCallbackCalled = true })
 
-      assert.strictEqual(document.querySelector('.pcs-table-infobox').innerHTML,
-        'Schnelle Fakten')
       assert.ok(document.body.classList.contains('pcs-theme-dark'))
       assert.ok(document.body.classList.contains('pcs-dim-images'))
       assert.strictEqual(document.body.style.marginTop, '1px')

@@ -34,9 +34,20 @@ There are two kinds of versions we are concerned about, client side and server s
   - Consider adding object parameters to functions and set sensible defaults to allow for future arguments to be passed without breaking older clients.
   - Apply some defaults where it’s reasonable to do so. Be prepared for nulls, undefined, or empty string values. Don’t bail when the backend returns additional unexpected properties - just ignore it. Enums: expect unexpected and ignore it.
   - Do not return primitive values. Return JS objects with only one field instead. If you want to return something in addition to the primitive value you won’t need a new API version.
-- Identify clients using the `platform` and `clientVersion` preferences. This information is useful to be able to patch things server side if the need arises. This list may not be complete yet. Potentially other device- or user preference specific info might be useful in the future (locale?).
+- Identify platform using the `platform` parameter. This will enable platform-specific CSS.
+- Identify the version of the PCS JS that the client supports with the `version` parameter. See the versions section below for more information
 - Only create a new API version when you really have to. You can add new stuff to the current version if it doesn’t affect existing clients.
 - Prepare for phasing out an API version. Some old versions you can’t afford to maintain. So define a process for informing clients that you may later not support their version.
+
+## Versions
+
+### 1 
+
+Initial version
+
+### 2 (in development)
+
+Adds support for Page Issues. Clients will need to support the `page_issues` interaction event
 
 ## Interface
 
@@ -59,7 +70,7 @@ Combination of the following calls, changing multiple settings in one single cal
 Setting parameter object fields:
 
 - platform: possible values are 'ios' and 'android'
-- clientVersion: string of client version (platform specific)
+- version: integer pcs version
 - loadImages: will images be loaded (defaults to true if omitted)
 - theme: possible values are 'default', 'sepia', 'dark', and 'black'
 - dimImages: boolean
@@ -78,7 +89,7 @@ Example:
 ```
 pcs.c1.Page.setup({
   platform: 'ios',
-  clientVersion: '6.2.1',
+  version: 2,
   theme: 'sepia',
   dimImages: true,
   margins: { top: '32px', right: '32px', bottom: '32px', left: '32px' },

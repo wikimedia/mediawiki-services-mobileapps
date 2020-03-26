@@ -13,6 +13,19 @@ describe('PlatformTransform', () => {
     })
   })
 
+  describe('.setVersion()', () => {
+    it('v2', () => {
+      const document = domino.createDocument('')
+      pagelib.PlatformTransform.setVersion(document, 1)
+      const classes = document.documentElement.classList
+      assert.ok(classes.contains('pcs-v1'))
+      assert.ok(!classes.contains('pcs-v2'))
+      pagelib.PlatformTransform.setVersion(document, 2)
+      assert.ok(classes.contains('pcs-v1'))
+      assert.ok(classes.contains('pcs-v2'))
+    })
+  })
+
   describe('.classify()', () => {
     const testUserAgent = userAgent => { // eslint-disable-line require-jsdoc
       const window = domino.createWindow()

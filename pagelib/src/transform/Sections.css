@@ -4,7 +4,7 @@ section.pcs-hide-section {
 }
 
 /* Hide page issues */
-.ambox {
+html:not(.pcs-v2) .ambox {
     display: none;
 }
 

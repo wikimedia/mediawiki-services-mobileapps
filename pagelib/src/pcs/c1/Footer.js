@@ -26,7 +26,6 @@ const _connectHandlers = newHandlers => {
  *   {!map} readMore
  *       {!number} itemCount number of read more items to add
  *       {!string} baseURL base url for RESTBase to fetch read more
- *   {!map} l10n localized strings
  * @return {void}
  */
 const add = params => {
