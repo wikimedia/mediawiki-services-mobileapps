@@ -73,6 +73,7 @@ class ReadMorePage {
   }
 }
 
+const schemeRegex = /^[a-z]+:/
 /**
  * Makes document fragment for a read more page.
  * @param {!ReadMorePage} readMorePage
@@ -88,7 +89,7 @@ const documentFragmentForReadMorePage = (readMorePage, index, document) => {
   const hasImage = readMorePage.thumbnail && readMorePage.thumbnail.source
   if (hasImage) {
     const image = document.createElement('div')
-    image.style.backgroundImage = `url(${readMorePage.thumbnail.source})`
+    image.style.backgroundImage = `url(${readMorePage.thumbnail.source.replace(schemeRegex, '')})`
     image.classList.add('pcs-footer-readmore-page-image')
     outerAnchorContainer.appendChild(image)
   }
