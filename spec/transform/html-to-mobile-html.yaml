@@ -30,4 +30,4 @@ paths:
           response:
             status: 200
             headers:
-              content-type: text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.2.0"
+              content-type: text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML/1.2.1"
