@@ -1,10 +1,16 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"500000000006城"
+		]
+	},
 	"description-add-link-title": "添加标题描述",
 	"article-read-more-title": "阅读更多",
 	"table-title-other": "更多信息",
 	"page-edit-history": "完整编辑历史",
 	"info-box-close-text": "关闭",
+	"page-talk-page-subtitle": "讨论本文的改进",
+	"page-issues-subtitle": "关于内容不足或有问题的警告",
 	"page-talk-page": "查看讨论页",
 	"info-box-title": "快速预览",
 	"view-in-browser-footer-link": "在浏览器查看条目",

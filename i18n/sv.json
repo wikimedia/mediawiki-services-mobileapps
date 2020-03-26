@@ -1,10 +1,16 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"WikiPhoenix"
+		]
+	},
 	"description-add-link-title": "Lägg till titelbeskrivning",
 	"article-read-more-title": "Läs mer",
 	"table-title-other": "Mer information",
 	"page-edit-history": "Visa redigeringshistorik",
 	"info-box-close-text": "Stäng",
+	"page-talk-page-subtitle": "Diskutera förbättringar av denna artikel",
+	"page-issues-subtitle": "Meddelanden om bristfälligt eller problematiskt innehåll",
 	"page-talk-page": "Visa diskussionssidan",
 	"info-box-title": "Snabbfakta",
 	"view-in-browser-footer-link": "Visa artikeln i webbläsaren",
