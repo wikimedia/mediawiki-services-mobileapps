@@ -19,7 +19,6 @@ import HTMLUtil from '../transform/HTMLUtilities'
  * @enum {MenuItemType}
  */
 const MenuItemType = {
-  languages: 'languages',
   lastEdited: 'lastEdited',
   pageIssues: 'pageIssues',
   disambiguation: 'disambiguation',
@@ -52,8 +51,6 @@ class MenuItem {
    */
   iconClass() {
     switch (this.itemType) {
-    case MenuItemType.languages:
-      return 'pcs-footer-menu-icon-languages'
     case MenuItemType.lastEdited:
       return 'pcs-footer-menu-icon-last-edited'
     case MenuItemType.talkPage:

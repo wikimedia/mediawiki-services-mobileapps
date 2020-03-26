@@ -29,7 +29,7 @@ const _connectHandlers = newHandlers => {
  * @return {void}
  */
 const add = params => {
-  const { title: articleTitle, menu: { items: menuItems, languageCount, editedDaysAgo },
+  const { title: articleTitle, menu: { items: menuItems, editedDaysAgo },
     readMore: { itemCount: readMoreItemCount, baseURL: readMoreBaseURL } } = params
 
   // Add container
@@ -54,15 +54,13 @@ const add = params => {
       let title = ''
       let subtitle = ''
       switch (item) {
-      case FooterMenu.MenuItemType.languages:
-        title = languageCount && languageCount > 0 ? banana.i18n('page-read-in-other-languages', languageCount) : ''
-        break
       case FooterMenu.MenuItemType.lastEdited:
         title = banana.i18n('page-edit-history')
         subtitle = editedDaysAgo !== undefined && editedDaysAgo >= 0 ? banana.i18n('page-last-edited', editedDaysAgo) : ''
         break
       case FooterMenu.MenuItemType.pageIssues:
         title = banana.i18n('page-issues')
+        subtitle = banana.i18n('page-issues-subtitle')
         break
       case FooterMenu.MenuItemType.disambiguation:
         title = banana.i18n('page-similar-titles')
@@ -72,6 +70,7 @@ const add = params => {
         break
       case FooterMenu.MenuItemType.talkPage:
         title = banana.i18n('page-talk-page')
+        subtitle = banana.i18n('page-talk-page-subtitle')
         break
       default:
       }
