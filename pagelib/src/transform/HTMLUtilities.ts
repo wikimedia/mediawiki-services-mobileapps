@@ -16,7 +16,7 @@ const escapeCallback = (s: string): string => {
 }
 
 const escape = (input: string): string => {
-    return input.replace( /['"<>&]/g, escapeCallback )
+    return input && input.replace( /['"<>&]/g, escapeCallback )
 }
 
 export default {
