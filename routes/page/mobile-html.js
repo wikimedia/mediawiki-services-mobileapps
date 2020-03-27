@@ -61,7 +61,8 @@ function getMobileHtmlFromParsoid(req, res) {
 function getMobileHtmlFromMobileview(req, res) {
     const scripts = [];
     const baseURI = app.conf.mobile_html_rest_api_base_uri;
-    mobileviewHtml.requestAndProcessPageIntoMobileHTML(req, scripts, baseURI).then((mobileHTML) => {
+    return mobileviewHtml.requestAndProcessPageIntoMobileHTML(req, scripts, baseURI)
+    .then((mobileHTML) => {
         res.status(200);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
         mUtil.setETag(res, mobileHTML.metadata.revision);
