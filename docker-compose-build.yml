@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  pagelib-build:
+    build:
+      context: ./pagelib
+      dockerfile: Dockerfile-dev
+    volumes:
+    - ./pagelib:/srv/app
+    - /srv/app/node_modules
+    command: npm run build

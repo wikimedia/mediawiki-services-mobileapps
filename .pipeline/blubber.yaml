@@ -6,6 +6,11 @@ runs:
   environment: { APP_BASE_PATH: /srv/service }
 
 variants:
+  dev:
+    base: docker-registry.wikimedia.org/buster-nodejs10-devel
+    apt: { packages: [git, build-essential] }
+    node: { requirements: [package.json] }
+    entrypoint: [npm, run, dev]
   build:
     base: docker-registry.wikimedia.org/nodejs10-devel
     copies: [local]

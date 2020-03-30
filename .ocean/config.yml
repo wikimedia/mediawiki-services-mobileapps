@@ -1,0 +1,16 @@
+version: 1.0
+variants:
+    dev:
+        services:
+            mobileapps:
+                ports:
+                    - "8888:8888"
+            pagelib:
+                path: pagelib
+    build:
+        services:
+            pagelib:
+                blubber: 
+                    variant: dev
+                path: pagelib
+                command: npm run build
