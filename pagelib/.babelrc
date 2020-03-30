@@ -1,3 +1,0 @@
-{
-  "presets": [["env", {"targets": { "android": "4.4", "ios": "10.3" }}]]
-}

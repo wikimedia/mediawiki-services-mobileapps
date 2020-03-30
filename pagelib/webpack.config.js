@@ -1,10 +1,10 @@
-import * as path from 'path'
-import * as pkg from './package.json'
-import * as webpack from 'webpack'
+const path = require('path')
+const pkg = require('./package.json')
+const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
-import TerserJSPlugin from 'terser-webpack-plugin'
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserJSPlugin = require('terser-webpack-plugin')
 
 const PRODUCTION = process.env.NODE_ENV === 'production'
 
@@ -16,7 +16,7 @@ const STATS = {
   warnings: true
 }
 
-const config = {
+module.exports = {
   entry: {
     'wikimedia-page-library-pcs': './src/pcs',
     'wikimedia-page-library-transform': './src/transform',
@@ -51,6 +51,7 @@ const config = {
         use: {
           loader: 'babel-loader',
           options: {
+            presets: [['@babel/preset-env', {"targets": { "android": "5.0", "ios": "11.0"}}]],
             cacheDirectory: true,
             compact: PRODUCTION,
             comments: !PRODUCTION
@@ -91,5 +92,3 @@ const config = {
     new MiniCssExtractPlugin({ filename: '[name].css' })
   ]
 }
-
-export default config
