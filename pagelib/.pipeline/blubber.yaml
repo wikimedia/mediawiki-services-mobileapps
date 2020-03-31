@@ -1,8 +1,7 @@
 version: v4
-base: docker-registry.wikimedia.org/buster-nodejs10-devel
+base: docker-registry.wikimedia.org/nodejs10-devel
 variants:
   dev:
-    base: docker-registry.wikimedia.org/buster-nodejs10-devel
     apt: { packages: [git, build-essential] }
-    node: { requirements: [package.json] }
+    node: { requirements: [package.json, package-lock.json] }
     entrypoint: [npm, run, dev]

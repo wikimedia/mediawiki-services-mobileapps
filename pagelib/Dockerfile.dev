@@ -1,4 +1,4 @@
-FROM docker-registry.wikimedia.org/buster-nodejs10-devel
+FROM docker-registry.wikimedia.org/nodejs10-devel
 USER "root"
 ENV HOME="/root"
 ENV DEBIAN_FRONTEND="noninteractive"
@@ -8,7 +8,7 @@ RUN groupadd -o -g "900" -r "runuser" && useradd -l -o -m -d "/home/runuser" -r 
 USER "somebody"
 ENV HOME="/home/somebody"
 WORKDIR "/srv/app"
-COPY --chown=65533:65533 ["package.json", "./"]
+COPY --chown=65533:65533 ["package.json", "package-lock.json", "./"]
 RUN npm install
 USER "runuser"
 ENV HOME="/home/runuser"

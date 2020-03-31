@@ -1,4 +1,4 @@
-FROM docker-registry.wikimedia.org/buster-nodejs10-devel
+FROM docker-registry.wikimedia.org/nodejs10-devel
 USER "root"
 ENV HOME="/root"
 ENV DEBIAN_FRONTEND="noninteractive"
@@ -9,7 +9,7 @@ USER "somebody"
 ENV HOME="/home/somebody"
 WORKDIR "/srv/service"
 ENV APP_BASE_PATH="/srv/service"
-COPY --chown=65533:65533 ["package.json", "./"]
+COPY --chown=65533:65533 ["package.json", "package-lock.json", "./"]
 RUN npm install
 USER "runuser"
 ENV HOME="/home/runuser"

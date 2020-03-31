@@ -9,6 +9,5 @@ tmp/
 /fixtures/
 /private/compare-sections/
 .nyc_output/
-/.node-version
 .vscode/
 docker-compose.override.yml
