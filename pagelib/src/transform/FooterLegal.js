@@ -19,7 +19,7 @@ import HTMLUtil from '../transform/HTMLUtilities'
 const buildLicenseHtml = (licenseString, linkText) => {
   const halves = licenseString.split('$1')
   /* DOM sink status: sanitized - content can be changed by users */
-  return `${HTMLUtil.escape(halves[0])}<a class='pcs-footer-legal-license-link'>${HTMLUtil.escape(linkText)}</a>${HTMLUtil.escape(halves[1])}`
+  return `${HTMLUtil.escape(halves[0])}<a class="external text" rel="mw:ExtLink" href="https://creativecommons.org/licenses/by-sa/3.0/">${HTMLUtil.escape(linkText)}</a>${HTMLUtil.escape(halves[1])}`
 }
 
 /**
@@ -34,7 +34,7 @@ const buildLicenseHtml = (licenseString, linkText) => {
  * @return {void}
  */
 const add = (content, licenseString, licenseSubstitutionString, containerID,
-  licenseLinkClickHandler, viewInBrowserString, browserLinkClickHandler) => {
+  viewInBrowserString, browserLinkClickHandler) => {
 
   // todo: don't manipulate the selector. The client can make this an ID if they want it to be.
   const container = content.querySelector(`#${containerID}`)
@@ -53,11 +53,6 @@ const add = (content, licenseString, licenseSubstitutionString, containerID,
       </div>
     </span>
   </div>`
-
-  container.querySelector('.pcs-footer-legal-license-link')
-    .addEventListener('click', () => {
-      licenseLinkClickHandler()
-    })
 
   container.querySelector('.pcs-footer-browser-link')
     .addEventListener('click', () => {

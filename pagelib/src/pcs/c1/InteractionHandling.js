@@ -24,7 +24,6 @@ const Actions = {
   FooterItemSelected: 'footer_item',
   SaveOtherPage: 'save_other_page',
   ReadMoreTitlesRetrieved: 'read_more_titles_retrieved',
-  ViewLicense: 'view_license',
   ViewInBrowser: 'view_in_browser',
 }
 
@@ -311,13 +310,6 @@ const titlesRetrieved = titles => {
 /**
  * @return {void}
  */
-const viewLicense = () => {
-  postMessage(new Interaction(Actions.ViewLicense))
-}
-
-/**
- * @return {void}
- */
 const viewInBrowser = () => {
   postMessage(new Interaction(Actions.ViewInBrowser))
 }
@@ -380,7 +372,6 @@ const setInteractionHandler = myHandlerFunction => {
     footerItemSelected,
     saveOtherPage,
     titlesRetrieved,
-    viewLicense,
     viewInBrowser
   })
 

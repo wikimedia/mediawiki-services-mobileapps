@@ -122,15 +122,6 @@ const add = params => {
     /**
      * @return {void}
      */
-    const licenseLinkClickHandler = () => {
-      if (handlers) {
-        handlers.viewLicense()
-      }
-    }
-
-    /**
-     * @return {void}
-     */
     const viewInBrowserLinkClickHandler = () => {
       if (handlers) {
         handlers.viewInBrowser()
@@ -142,7 +133,6 @@ const add = params => {
       banana.i18n('license-footer-text'),
       banana.i18n('license-footer-name'),
       'pcs-footer-container-legal',
-      licenseLinkClickHandler,
       banana.i18n('view-in-browser-footer-link'),
       viewInBrowserLinkClickHandler
     )
