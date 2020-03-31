@@ -35,6 +35,10 @@ cd mobileapps
 npm install
 ```
 
+### Docker setup
+
+It's also possible to engage in development with a docker setup, take a look at this [guide](/docs/develop/docker.md) on how to setup a docker-compose environment for mobileapps.
+
 You are now ready to get to work!
 
 * Inspect/modify/configure `app.js`

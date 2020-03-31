@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  mobileapps:
+    user: "${MW_DOCKER_UID}:${MW_DOCKER_GID}"
+  pagelib:
+    user: "${MW_DOCKER_UID}:${MW_DOCKER_GID}"
+    environment: 
+      - BABEL_DISABLE_CACHE=1

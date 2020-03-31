@@ -1,18 +1,18 @@
 version: "3.7"
 services:
-  mobileapps-dev:
+  mobileapps:
     build:
       context: .
-      dockerfile: Dockerfile-dev
+      dockerfile: Dockerfile.dev
     ports:
     - 8888:8888
     volumes:
     - .:/srv/service
     - /srv/service/node_modules
-  pagelib-dev:
+  pagelib:
     build:
       context: ./pagelib
-      dockerfile: Dockerfile-dev
+      dockerfile: Dockerfile.dev
     volumes:
     - ./pagelib:/srv/app
     - /srv/app/node_modules

@@ -1,0 +1,18 @@
+FROM docker-registry.wikimedia.org/buster-nodejs10-devel
+USER "root"
+ENV HOME="/root"
+ENV DEBIAN_FRONTEND="noninteractive"
+RUN apt-get update && apt-get install -y "git" "build-essential" && rm -rf /var/lib/apt/lists/*
+RUN groupadd -o -g "65533" -r "somebody" && useradd -l -o -m -d "/home/somebody" -r -g "somebody" -u "65533" "somebody" && mkdir -p "/srv/service" && chown "65533":"65533" "/srv/service" && mkdir -p "/opt/lib" && chown "65533":"65533" "/opt/lib"
+RUN groupadd -o -g "900" -r "runuser" && useradd -l -o -m -d "/home/runuser" -r -g "runuser" -u "900" "runuser"
+USER "somebody"
+ENV HOME="/home/somebody"
+WORKDIR "/srv/service"
+ENV APP_BASE_PATH="/srv/service"
+COPY --chown=65533:65533 ["package.json", "./"]
+RUN npm install
+USER "runuser"
+ENV HOME="/home/runuser"
+ENV NODE_ENV=""
+ENTRYPOINT ["npm", "run", "dev"]
+LABEL blubber.variant="dev" blubber.version="+"

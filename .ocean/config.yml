@@ -10,7 +10,7 @@ variants:
     build:
         services:
             pagelib:
-                blubber: 
+                blubber:
                     variant: dev
                 path: pagelib
-                command: npm run build
+                entrypoint: npm run build
