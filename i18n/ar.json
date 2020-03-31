@@ -1,10 +1,16 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Meno25"
+		]
+	},
 	"description-add-link-title": "إضافة وصف للعنوان",
 	"article-read-more-title": "قراءة المزيد",
 	"table-title-other": "مزيد من المعلومات",
 	"page-edit-history": "عرض تاريخ التعديلات",
 	"info-box-close-text": "إغلاق",
+	"page-talk-page-subtitle": "ناقش التحسينات لهذه المقالة",
+	"page-issues-subtitle": "تنبيهات حول المحتوى ذي المشاكل",
 	"page-talk-page": "اعرض صفحة النقاش",
 	"info-box-title": "معلومات سريعة",
 	"view-in-browser-footer-link": "اعرض المقالة في المتصفح",

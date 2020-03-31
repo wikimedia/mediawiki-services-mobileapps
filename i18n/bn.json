@@ -1,9 +1,16 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"আফতাবুজ্জামান"
+		]
+	},
+	"description-add-link-title": "শিরোনামের বিবরণ যোগ করুন",
 	"article-read-more-title": "আরো পড়ুন",
 	"table-title-other": "আরও তথ্য",
 	"page-edit-history": "সম্পূর্ণ সম্পাদনা ইতিহাস",
 	"info-box-close-text": "বন্ধ",
+	"page-talk-page-subtitle": "এই নিবন্ধের উন্নতি আলোচনা করুন",
+	"page-issues-subtitle": "নিন্মগড় বা সমস্যাযুক্ত সামগ্রী সম্পর্কে সতর্কতা",
 	"page-talk-page": "আলাপ পাতা দেখুন",
 	"info-box-title": "দ্রুত তথ্য",
 	"view-in-browser-footer-link": "ব্রাউজারে নিবন্ধ দেখুন",
