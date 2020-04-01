@@ -44,14 +44,13 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.ts$/, use: 'ts-loader' },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx|tsx|ts)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [['@babel/preset-env', {"targets": { "android": "5.0", "ios": "11.0"}}]],
+            presets: [['@babel/preset-env', { targets: { android: 5, ios: 11 } }]],
             cacheDirectory: true,
             compact: PRODUCTION,
             comments: !PRODUCTION

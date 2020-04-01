@@ -42,11 +42,12 @@ const waitForNextPaint = onSuccess => {
  * Makes multiple page modifications based on client specific settings, which should be called
  * during initial page load.
  * @param {?{}} optionalSettings client settings
+ * @param {?OnSuccess} onSuccess callback
  *   { platform, version, theme, dimImages, margins, areTablesInitiallyExpanded,
  *   scrollTop, textSizeAdjustmentPercentage }
  * @return {void}
  */
-const setup = (optionalSettings) => {
+const setup = (optionalSettings, onSuccess) => {
   const settings = optionalSettings || {}
 
   PlatformTransform.setVersion(document, settings.version)
@@ -124,6 +125,7 @@ const setup = (optionalSettings) => {
     lazyLoader.collectExistingPlaceholders(document.body)
     lazyLoader.loadPlaceholders()
   }
+  waitForNextPaint(onSuccess)
 }
 
 /**
@@ -131,7 +133,7 @@ const setup = (optionalSettings) => {
  * @param {!string} theme one of the values in Themes
  * @return {void}
  */
-const setTheme = (theme) => {
+const setTheme = theme => {
   ThemeTransform.setTheme(document, theme)
 }
 
@@ -140,7 +142,7 @@ const setTheme = (theme) => {
  * @param {!boolean} dimImages true if images should be dimmed, false otherwise
  * @return {void}
  */
-const setDimImages = (dimImages) => {
+const setDimImages = dimImages => {
   DimImagesTransform.dimImages(document, dimImages)
 }
 
@@ -149,7 +151,7 @@ const setDimImages = (dimImages) => {
  * @param {!{BodySpacingTransform.Spacing}} margins
  * @return {void}
  */
-const setMargins = (margins) => {
+const setMargins = margins => {
   BodySpacingTransform.setMargins(document.body, margins)
 }
 
@@ -159,7 +161,7 @@ const setMargins = (margins) => {
  * @param {!string} maxWidth
  * @return {void}
  */
-const setMaxWidth = (maxWidth) => {
+const setMaxWidth = maxWidth => {
   if (!document || !document.body) {
     return
   }
@@ -171,7 +173,7 @@ const setMaxWidth = (maxWidth) => {
  * @param {!number} scrollTop height of decor covering the top portion of the Viewport in pixel
  * @return {void}
  */
-const setScrollTop = (scrollTop) => {
+const setScrollTop = scrollTop => {
   Scroller.setScrollTop(scrollTop)
 }
 
@@ -180,7 +182,7 @@ const setScrollTop = (scrollTop) => {
  * @param  {!string} textSize percentage for text-size-adjust in format of string, like '100%'
  * @return {void}
  */
-const setTextSizeAdjustmentPercentage = (textSize) => {
+const setTextSizeAdjustmentPercentage = textSize => {
   AdjustTextSize.setPercentage(document.body, textSize)
 }
 

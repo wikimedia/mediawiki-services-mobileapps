@@ -28,7 +28,6 @@ const buildLicenseHtml = (licenseString, linkText) => {
  * @param {?string} licenseString
  * @param {?string} licenseSubstitutionString
  * @param {!string} containerID
- * @param {!FooterLegalClickCallback} licenseLinkClickHandler
  * @param {!string} viewInBrowserString
  * @param {!FooterBrowserClickCallback} browserLinkClickHandler
  * @return {void}
@@ -41,7 +40,7 @@ const add = (content, licenseString, licenseSubstitutionString, containerID,
 
   /* DOM sink status: sanitized - content can be changed by users */
   container.innerHTML =
-  `<div class='pcs-footer-legal-contents'>
+    `<div class='pcs-footer-legal-contents'>
     <hr class='pcs-footer-legal-divider'>
     <span class='pcs-footer-legal-license'>
     ${buildLicenseHtml(licenseString, licenseSubstitutionString)}

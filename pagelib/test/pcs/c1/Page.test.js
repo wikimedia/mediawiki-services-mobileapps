@@ -11,7 +11,6 @@ describe('pcs.c1.Page', () => {
 
   describe('.setup()', () => {
     it('all', () => {
-      let onSuccessCallbackCalled = false
       window = domino.createWindow(
         '<strong class="pcs-table-infobox">Quick facts</strong>')
       document = window.document
@@ -26,7 +25,7 @@ describe('pcs.c1.Page', () => {
         textSizeAdjustmentPercentage: '100%',
         scrollTop: 64,
         loadImages: true
-      }, () => { onSuccessCallbackCalled = true })
+      })
 
       assert.ok(document.body.classList.contains('pcs-theme-dark'))
       assert.ok(document.body.classList.contains('pcs-dim-images'))
@@ -36,30 +35,25 @@ describe('pcs.c1.Page', () => {
       assert.strictEqual(document.body.style.marginLeft, '4px')
       assert.strictEqual(document.body.style['text-size-adjust'], '100%')
       assert.strictEqual(Page.testing.getScroller().testing.getScrollTop(), 64)
-      assert.ok(onSuccessCallbackCalled)
     })
   })
 
   describe('.setTheme()', () => {
     it('sepia', () => {
-      let callbackCalled = false
       document = domino.createDocument(emptyHTML)
-      Page.setTheme(Themes.SEPIA, () => { callbackCalled = true })
+      Page.setTheme(Themes.SEPIA)
       assert.ok(document.body.classList.contains(Themes.SEPIA))
-      assert.ok(callbackCalled)
     })
   })
 
   describe('.setDimImages()', () => {
     it('true + callback', () => {
-      let callbackCalled = false
       window = domino.createWindow(emptyHTML)
       document = window.document
 
-      Page.setDimImages(true, () => { callbackCalled = true })
+      Page.setDimImages(true)
 
       assert.ok(document.body.classList.contains('pcs-dim-images'))
-      assert.ok(callbackCalled)
     })
 
     it('false', () => {
@@ -74,18 +68,15 @@ describe('pcs.c1.Page', () => {
 
   describe('.setMargins()', () => {
     it('all', () => {
-      let callbackCalled = false
       window = domino.createWindow(emptyHTML)
       document = window.document
 
-      Page.setMargins({ top: '1px', right: '2px', bottom: '3px', left: '4px' },
-        () => { callbackCalled = true })
+      Page.setMargins({ top: '1px', right: '2px', bottom: '3px', left: '4px' })
 
       assert.strictEqual(document.body.style.marginTop, '1px')
       assert.strictEqual(document.body.style.marginRight, '2px')
       assert.strictEqual(document.body.style.marginBottom, '3px')
       assert.strictEqual(document.body.style.marginLeft, '4px')
-      assert.ok(callbackCalled)
     })
 
     it('nothing', () => {
@@ -103,44 +94,36 @@ describe('pcs.c1.Page', () => {
 
   describe('.setTextSizeAdjustmentPercentage()', () => {
     it('120%', () => {
-      let callbackCalled = false
       window = domino.createWindow(emptyHTML)
       document = window.document
 
-      Page.setTextSizeAdjustmentPercentage('120%',
-        () => { callbackCalled = true })
+      Page.setTextSizeAdjustmentPercentage('120%')
 
       assert.strictEqual(document.body.style['text-size-adjust'], '120%')
-      assert.ok(callbackCalled)
     })
   })
 
   describe('.setScrollTop()', () => {
     it('all', () => {
-      let callbackCalled = false
       window = domino.createWindow(emptyHTML)
       document = window.document
 
-      Page.setScrollTop(64,
-        () => { callbackCalled = true })
+      Page.setScrollTop(64)
 
       assert.strictEqual(Page.testing.getScroller().testing.getScrollTop(), 64)
-      assert.ok(callbackCalled)
     })
   })
 
   describe('.setEditButtons()', () => {
-    it('simple', () =>  {
-      let callbackCalled = false
+    it('simple', () => {
       window = domino.createWindow(
         '<html about="http://en.wikipedia.org/wiki/Special:Redirect/revision/907165344">')
       document = window.document
 
-      Page.setEditButtons(false, true, () => { callbackCalled = true })
+      Page.setEditButtons(false, true)
 
       assert.ok(document.documentElement.classList.contains('no-editing'))
       assert.ok(document.documentElement.classList.contains('page-protected'))
-      assert.ok(callbackCalled)
     })
   })
 
@@ -176,7 +159,7 @@ describe('pcs.c1.Page', () => {
       assert.strictEqual(result.length, expectedNumbers.length)
       result.forEach((tocSection, idx) => {
         assert.ok(tocSection.level, 'level should be present')
-        assert.ok(tocSection.id,'id should be present')
+        assert.ok(tocSection.id, 'id should be present')
         assert.strictEqual(tocSection.number, expectedNumbers[idx], 'should have correct number')
         assert.ok(tocSection.anchor, 'anchor should be present')
         assert.ok(tocSection.title, 'title should be present')

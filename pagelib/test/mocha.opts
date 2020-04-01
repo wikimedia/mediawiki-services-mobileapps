@@ -1,2 +1,2 @@
--r babel-register
+-r @babel/register
 -r test/MochaConfiguration
