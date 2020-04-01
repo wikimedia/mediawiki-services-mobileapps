@@ -75,14 +75,12 @@ Setting parameter object fields:
 - theme: possible values are 'default', 'sepia', 'dark', and 'black'
 - dimImages: boolean
 - margins: object with { top, right, bottom, left }
+- maxWidth: string to set for the max-width of the content. Use 'auto' for left and right margins to center the content when setting a max width
 - leadImageHeight: string that is conditionally added to margins.top if there's a lead image on the page. Units should match margins.top if provided
 - areTablesInitiallyExpanded: boolean (Default: tables are collapsed)
 - scrollTop: number of pixel for highest position to scroll to. Use this to adjust for any decor overlaying the viewport.
   (The first four fields don't have any equivalent separate call since those don't make sense to change after the fact.)
 - userGroups: list of strings of user roles to determine which edit pencils to show example: ['autoconfirmed']
-
-Callback parameter:
-Function called after all settings are applied.
 
 Example:
 
@@ -92,15 +90,15 @@ pcs.c1.Page.setup({
   version: 2,
   theme: 'sepia',
   dimImages: true,
-  margins: { top: '32px', right: '32px', bottom: '32px', left: '32px' },
+  maxWidth: '100ex',
+  margins: { top: '2em', right: 'auto', bottom: '2em', left: 'auto' },
   leadImageHeight: '100px',
   areTablesInitiallyExpanded: true,
   textSizeAdjustmentPercentage: '100%',
   scrollTop: 64,
   loadImages: true,
   userGroups: ['autoconfirmed']
-},
-callback) // optional callback function to be called after all settings are applied
+})
 ```
 
 #### setTheme()
@@ -131,6 +129,16 @@ Example:
 
 ```
 pcs.c1.Page.setMargins({ top: '128px', right: '32px', bottom: '16px', left: '32px' })
+```
+
+#### setMaxWidth()
+
+Sets the max-width on the `<body>` tag.
+
+Example:
+
+```
+pcs.c1.Page.setMaxWidth('100ex')
 ```
 
 #### setScrollTop()
@@ -228,7 +236,7 @@ The input needs to be a string like '10%'. Example:
 pcs.c1.Page.setTextSizeAdjustmentPercentage('10%')
 ```
 
-#### setEditButtons(isEditable, isProtected, onSuccess)
+#### setEditButtons(isEditable, isProtected)
 
 Enables or disables the edit buttons on the page. The default is edit buttons are off but it's probably best to not assume that.
 The second boolean is whether to show the protected edit pencils.
@@ -260,6 +268,9 @@ pcs.c1.Page.prepareForScrollToAnchor('cite_ref-1', { highlight: true })
 
 Removes highlights from any elements highlighted by `prepareForScrollToAnchor`
 
+### waitForNextPaint(callback)
+
+Executes the function supplied as the parameter when the page has had time to update visually.
 
 ### Sections
 

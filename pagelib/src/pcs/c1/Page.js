@@ -10,16 +10,11 @@ import PlatformTransform from '../../transform/PlatformTransform'
 import Scroller from './Scroller'
 import SectionUtilities from '../../transform/SectionUtilities'
 import ThemeTransform from '../../transform/ThemeTransform'
+import HTMLUtilities from '../../transform/HTMLUtilities'
 
 const unitsRegex = /[^0-9]+$/
 
 const PCS_CSS_CLASS_ELEMENT_HIGHLIGHT = 'pcs-element-highlight'
-
-
-/**
- * @typedef {function} OnSuccess
- * @return {void}
- */
 
 /**
  * Waits for the next paint, then calls the callback
@@ -27,6 +22,9 @@ const PCS_CSS_CLASS_ELEMENT_HIGHLIGHT = 'pcs-element-highlight'
  * @return {void}
  */
 const waitForNextPaint = onSuccess => {
+  if (!(onSuccess instanceof Function)) {
+    return
+  }
   if (window && window.requestAnimationFrame) {
     // request animation frame and set timeout before callback to ensure paint occurs
     window.requestAnimationFrame(() => {
@@ -46,10 +44,9 @@ const waitForNextPaint = onSuccess => {
  * @param {?{}} optionalSettings client settings
  *   { platform, version, theme, dimImages, margins, areTablesInitiallyExpanded,
  *   scrollTop, textSizeAdjustmentPercentage }
- * @param {?OnSuccess} onSuccess callback
  * @return {void}
  */
-const setup = (optionalSettings, onSuccess) => {
+const setup = (optionalSettings) => {
   const settings = optionalSettings || {}
 
   PlatformTransform.setVersion(document, settings.version)
@@ -76,13 +73,16 @@ const setup = (optionalSettings, onSuccess) => {
           const top = parseFloat(margins.top, 10)
           const height = parseFloat(settings.leadImageHeight, 10)
           const units = margins.top.match(unitsRegex) || ''
-          margins.top =  top + height + units
+          margins.top = top + height + units
         } else {
           margins.top = settings.leadImageHeight
         }
       }
     }
     BodySpacingTransform.setMargins(document.body, margins)
+  }
+  if (settings.maxWidth !== undefined) {
+    setMaxWidth(settings.maxWidth)
   }
   if (settings.userGroups !== undefined) {
     if (!metaTags) {
@@ -124,92 +124,74 @@ const setup = (optionalSettings, onSuccess) => {
     lazyLoader.collectExistingPlaceholders(document.body)
     lazyLoader.loadPlaceholders()
   }
-  waitForNextPaint(onSuccess)
 }
 
 /**
  * Sets the theme.
  * @param {!string} theme one of the values in Themes
- * @param {?OnSuccess} onSuccess callback
  * @return {void}
  */
-const setTheme = (theme, onSuccess) => {
+const setTheme = (theme) => {
   ThemeTransform.setTheme(document, theme)
-
-  if (onSuccess instanceof Function) {
-    onSuccess()
-  }
 }
 
 /**
  * Toggles dimming of images.
  * @param {!boolean} dimImages true if images should be dimmed, false otherwise
- * @param {?OnSuccess} onSuccess callback
  * @return {void}
  */
-const setDimImages = (dimImages, onSuccess) => {
+const setDimImages = (dimImages) => {
   DimImagesTransform.dimImages(document, dimImages)
-
-  if (onSuccess instanceof Function) {
-    onSuccess()
-  }
 }
 
 /**
  * Sets the margins.
  * @param {!{BodySpacingTransform.Spacing}} margins
- * @param {?OnSuccess} onSuccess callback
  * @return {void}
  */
-const setMargins = (margins, onSuccess) => {
+const setMargins = (margins) => {
   BodySpacingTransform.setMargins(document.body, margins)
+}
 
-  if (onSuccess instanceof Function) {
-    onSuccess()
+
+/**
+ * Sets the max width of the content.
+ * @param {!string} maxWidth
+ * @return {void}
+ */
+const setMaxWidth = (maxWidth) => {
+  if (!document || !document.body) {
+    return
   }
+  document.body.style.maxWidth = HTMLUtilities.escape(maxWidth)
 }
 
 /**
  * Sets the top scroll position for collapsing of tables (when bottom close button is tapped).
  * @param {!number} scrollTop height of decor covering the top portion of the Viewport in pixel
- * @param {?OnSuccess} onSuccess callback
  * @return {void}
  */
-const setScrollTop = (scrollTop, onSuccess) => {
+const setScrollTop = (scrollTop) => {
   Scroller.setScrollTop(scrollTop)
-
-  if (onSuccess instanceof Function) {
-    onSuccess()
-  }
 }
 
 /**
  * Sets text size adjustment percentage of the body element
  * @param  {!string} textSize percentage for text-size-adjust in format of string, like '100%'
- * @param  {?OnSuccess} onSuccess onSuccess callback
  * @return {void}
  */
-const setTextSizeAdjustmentPercentage = (textSize, onSuccess) => {
+const setTextSizeAdjustmentPercentage = (textSize) => {
   AdjustTextSize.setPercentage(document.body, textSize)
-
-  if (onSuccess instanceof Function) {
-    onSuccess()
-  }
 }
 
 /**
  * Enables edit buttons to be shown (and which ones).
  * @param {?boolean} isEditable true if edit buttons should be shown
  * @param {?boolean} isProtected true if the protected edit buttons should be shown
- * @param {?OnSuccess} onSuccess onSuccess callback
  * @return {void}
  */
-const setEditButtons = (isEditable, isProtected, onSuccess) => {
+const setEditButtons = (isEditable, isProtected) => {
   EditTransform.setEditButtons(document, isEditable, isProtected)
-
-  if (onSuccess instanceof Function) {
-    onSuccess()
-  }
 }
 
 /**
@@ -355,7 +337,7 @@ const getLeadImageFromMetaTags = metaTags => {
     if (!property || property !== leadImageProperty) {
       continue
     }
-    image.source =  metaTag.getAttribute('content')
+    image.source = metaTag.getAttribute('content')
     const widthString = metaTag.getAttribute('data-file-width')
     if (widthString) {
       image.width = parseInt(widthString, 10)
@@ -431,7 +413,9 @@ const onBodyStart = () => {
 
   const defaultInitialSettings = {
     loadImages: false,
-    setupTableEventHandling: false
+    setupTableEventHandling: false,
+    maxWidth: '100ex',
+    margins: { top: '2em', right: 'auto', bottom: '2em', left: 'auto' }
   }
 
   const href = document.location && document.location.href
@@ -491,6 +475,7 @@ export default {
   setTheme,
   setDimImages,
   setMargins,
+  setMaxWidth,
   setScrollTop,
   setTextSizeAdjustmentPercentage,
   setEditButtons,
@@ -500,6 +485,7 @@ export default {
   getTableOfContents,
   prepareForScrollToAnchor,
   removeHighlightsFromHighlightedElements,
+  waitForNextPaint,
   testing: {
     getScroller
   }
