@@ -50,8 +50,9 @@
   },
   "api_urls": {
     "summary": "https://en.wikipedia.org/api/rest_v1/page/summary/Tokyo",
-    "mobile_html": "https://en.wikipedia.org/api/rest_v1/page/mobile-html/Tokyo",
-    "media_list": "https://en.wikipedia.org/api/rest_v1/page/media-list/Tokyo",
+    "metadata": "https://en.wikipedia.org/api/rest_v1/page/metadata/Tokyo",
+    "references": "https://en.wikipedia.org/api/rest_v1/page/references/Tokyo",
+    "media": "https://en.wikipedia.org/api/rest_v1/page/media/Tokyo",
     "edit_html": "https://en.wikipedia.org/api/rest_v1/page/html/Tokyo",
     "talk_page_html": "https://en.wikipedia.org/api/rest_v1/page/html/Talk:Tokyo"
   },
