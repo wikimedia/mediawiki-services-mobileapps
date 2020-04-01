@@ -13,6 +13,7 @@ ol.mw-references {
 .pcs-ref-backlink-container {
     min-width: 6ex; /* bracket + 3 digits + bracket */
     flex-grow: 0;
+    font-weight: 500;
 }
 
 .pcs-ref-body {
