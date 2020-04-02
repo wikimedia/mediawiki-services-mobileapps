@@ -11,12 +11,14 @@ describe('mobile-html-offline-resources', function() {
     before(() => server.start());
 
     const metawikiApiUri = server.config.conf.services[0].conf.mobile_html_rest_api_base_uri
+        .replace('{{host}}', 'localhost:8888')
         .replace(new RegExp('(https|http)://'), '//');
 
     const domain = 'en.wikipedia.org';
 
     const localApiUri = server.config.conf.services[0]
         .conf.mobile_html_local_rest_api_base_uri_template
+        .replace('{{host}}', 'localhost:8888')
         .replace('{{domain}}', domain);
 
     const localUri = (title, domain = 'en.wikipedia.org') => {
