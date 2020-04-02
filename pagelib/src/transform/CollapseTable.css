@@ -118,7 +118,7 @@ div.pcs-collapse-table-container {
   background-color: #f8f9fa;
   background-repeat: no-repeat;
   background-position: 95% 50%;
-  background-size: 16px 16px;
+  background-size: 1em 1em;
 }
 
 /* The outermost table container header's subcaption text. */
@@ -145,7 +145,7 @@ div.pcs-collapse-table-container {
   background-color: #f8f9fa;
   background-repeat: no-repeat;
   background-position: 95% 50%;
-  background-size: 16px 16px;
+  background-size: 1em 1em;
 }
 
 .pcs-theme-dark div.pcs-collapse-table-collapsed-container,
@@ -169,19 +169,23 @@ div.pcs-collapse-table-container {
    with mobile-html 1.2.1 (2020-04)
  */
 .pcs-collapse-icon,
-.pcs-collapse-table-icon {
+.pcs-section-control-hide /* temp */,
+.pcs-collapse-table-icon /* old */ {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z'/%3E%3C/svg%3E");
 }
 
 .pcs-theme-sepia .pcs-collapse-icon,
-.pcs-theme-sepia .pcs-collapse-table-icon {
+.pcs-theme-sepia .pcs-section-control-hide /* temp */,
+.pcs-theme-sepia .pcs-collapse-table-icon /* old */ {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z' fill='%23222'/%3E%3C/svg%3E");
 }
 
 .pcs-theme-dark .pcs-collapse-icon,
-.pcs-theme-dark .pcs-collapse-table-icon,
+.pcs-theme-dark .pcs-section-control-hide/* temp */,
+.pcs-theme-dark .pcs-collapse-table-icon /* old */,
 .pcs-theme-black .pcs-collapse-icon,
-.pcs-theme-black .pcs-collapse-table-icon {
+.pcs-theme-black .pcs-section-control-hide /* temp */,
+.pcs-theme-black .pcs-collapse-table-icon /* old */ {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z' fill='%23fff'/%3E%3C/svg%3E");
 }
 
@@ -196,19 +200,23 @@ div.pcs-collapse-table-container {
    with mobile-html 1.2.1 (2020-04)
  */
 .pcs-expand-icon,
-.pcs-collapse-table-expanded {
+.pcs-section-control-show /* temp */,
+.pcs-collapse-table-expanded /* old */ {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z'/%3E%3C/svg%3E");
 }
 
 .pcs-theme-sepia .pcs-expand-icon,
-.pcs-theme-sepia .pcs-collapse-table-expanded {
+.pcs-theme-sepia .pcs-section-control-show /* temp */,
+.pcs-theme-sepia .pcs-collapse-table-expanded /* old */ {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z' fill='%23222'/%3E%3C/svg%3E");
 }
 
 .pcs-theme-dark .pcs-expand-icon,
-.pcs-theme-dark .pcs-collapse-table-expanded,
+.pcs-theme-dark .pcs-section-control-show /* temp */,
+.pcs-theme-dark .pcs-collapse-table-expanded /* old */,
 .pcs-theme-black .pcs-expand-icon,
-.pcs-theme-black .pcs-collapse-table-expanded {
+.pcs-theme-black .pcs-section-control-show /* temp */,
+.pcs-theme-black .pcs-collapse-table-expanded /* old */ {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath  d='M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z' fill='%23fff'/%3E%3C/svg%3E");
 }
 
