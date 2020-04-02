@@ -34,21 +34,27 @@ html:not(.pcs-v2) .ambox {
     margin-bottom: -.2em;
 }
 
-.pcs-section-control-show {
+.pcs-section-control.pcs-expand-icon, /* override the one in CollapseTable.css */
+.pcs-section-control-show /* old one for mobile-html 1.2.1 */ {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
 }
 
-.pcs-section-control-hide {
+.pcs-section-control.pcs-collapse-icon  /* override the one in CollapseTable.css */,
+.pcs-section-control-hide /* old one for mobile-html 1.2.1 */ {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
 }
 
-.pcs-theme-black .pcs-section-control-show,
-.pcs-theme-dark .pcs-section-control-show {
+.pcs-theme-black .pcs-section-control.pcs-expand-icon /* override the one in CollapseTable.css */,
+.pcs-theme-dark .pcs-section-control.pcs-expand-icon /* override the one in CollapseTable.css */,
+.pcs-theme-black .pcs-section-control-show /* old one for mobile-html 1.2.1 */,
+.pcs-theme-dark .pcs-section-control-show /* old one for mobile-html 1.2.1 */ {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" fill="%23fff"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
 }
 
-.pcs-theme-black .pcs-section-control-hide,
-.pcs-theme-dark .pcs-section-control-hide  {
+.pcs-theme-black .pcs-section-control.pcs-collapse-icon /* override the one in CollapseTable.css */,
+.pcs-theme-dark .pcs-section-control.pcs-collapse-icon /* override the one in CollapseTable.css */,
+.pcs-theme-black .pcs-section-control-hide /* old one for mobile-html 1.2.1 */,
+.pcs-theme-dark .pcs-section-control-hide /* old one for mobile-html 1.2.1 */ {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" fill="%23fff"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
 }
 
