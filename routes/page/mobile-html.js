@@ -60,7 +60,7 @@ function getMobileHtmlFromParsoid(req, res) {
 
 function getMobileHtmlFromMobileview(req, res) {
     const scripts = [];
-    const baseURI = app.conf.mobile_html_rest_api_base_uri;
+    const baseURI = mUtil.getMetaWikiRESTBaseAPIURI(app, req);
     return mobileviewHtml.requestAndProcessPageIntoMobileHTML(req, scripts, baseURI)
     .then((mobileHTML) => {
         res.status(200);
@@ -103,9 +103,8 @@ router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, 
 
     // Get external API URI
     const externalApiUri = apiUtilConstants.getExternalRestApiUri(req.params.domain);
-    const metawikiApiUri = app.conf.mobile_html_rest_api_base_uri;
-    const localApiUri = app.conf.mobile_html_local_rest_api_base_uri_template
-        .replace('{{domain}}', req.params.domain || 'en.wikipedia.org');
+    const metawikiApiUri = mUtil.getMetaWikiRESTBaseAPIURI(app, req);
+    const localApiUri = mUtil.getLocalRESTBaseAPIURI(app, req);
 
     const offlineResources = [
         `${metawikiApiUri}data/css/mobile/base`,

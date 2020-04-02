@@ -47,7 +47,7 @@ services:
       mobile_html_csp: "default-src 'none';
         connect-src https://*.wikipedia.org app://mobileapps.wmflabs.org https://mobileapps.wmflabs.org 'self';
         media-src upload.wikimedia.org 'self';
-        img-src *.wikimedia.org wikimedia.org 'self' data:;
+        img-src *.wikimedia.org wikimedia.org *.wikipedia.org wikipedia.org 'self' data:;
         object-src 'none';
         script-src 'self' 'unsafe-inline';
         style-src *.wikipedia.org 'self' 'unsafe-inline';

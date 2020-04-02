@@ -45,9 +45,9 @@ services:
       # csp: false  # uncomment this line to disable sending them
       # CSP for mobile-html
       mobile_html_csp: "default-src 'none';
-        connect-src localhost https://*.wikipedia.org 'self';
+        connect-src https://*.wikipedia.org 'self';
         media-src upload.wikimedia.org 'self';
-        img-src *.wikimedia.org wikimedia.org 'self' data:;
+        img-src *.wikimedia.org wikimedia.org *.wikipedia.org wikipedia.org 'self' data:;
         object-src 'none';
         script-src 'self' 'unsafe-inline';
         style-src *.wikipedia.org 'self' 'unsafe-inline';
@@ -72,8 +72,9 @@ services:
       # the user agent to use when issuing requests
       user_agent: WMF Mobile Content Service dev
       # REST API base URIs
-      mobile_html_rest_api_base_uri: '//localhost:8888/api/v1/'
-      mobile_html_local_rest_api_base_uri_template: '//localhost:8888/{{domain}}/v1/'
+      use_request_host: true
+      mobile_html_rest_api_base_uri: '//{{host}}/api/v1/'
+      mobile_html_local_rest_api_base_uri_template: '//{{host}}/{{domain}}/v1/'
       # max JSON POST body size limit
       # max_body_size: 100kb
       # the template used for contacting the MW API
