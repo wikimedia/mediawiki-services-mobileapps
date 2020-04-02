@@ -163,15 +163,24 @@ div.pcs-collapse-table-container {
   background-color: #222 !important;
 }
 
+/* Icon from https://design.wikimedia.org/style-guide/resources/WikimediaUI-icons-SVGs/collapse.svg
+   pcs-collapse-icon is the preferred name going forward
+   pcs-collapse-table-icon is kept for backwards-compatibility with already rendered pages
+   with mobile-html 1.2.1 (2020-04)
+ */
+.pcs-collapse-icon,
 .pcs-collapse-table-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z'/%3E%3C/svg%3E");
 }
 
+.pcs-theme-sepia .pcs-collapse-icon,
 .pcs-theme-sepia .pcs-collapse-table-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z' fill='%23222'/%3E%3C/svg%3E");
 }
 
+.pcs-theme-dark .pcs-collapse-icon,
 .pcs-theme-dark .pcs-collapse-table-icon,
+.pcs-theme-black .pcs-collapse-icon,
 .pcs-theme-black .pcs-collapse-table-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z' fill='%23fff'/%3E%3C/svg%3E");
 }
@@ -179,14 +188,26 @@ div.pcs-collapse-table-container {
 /* The outermost table container's collapsed header. */
 .pcs-collapse-table-expanded {
   border-radius: 2px;
+}
+
+/* Icon from https://design.wikimedia.org/style-guide/resources/WikimediaUI-icons-SVGs/expand.svg
+   pcs-expand-icon is the preferred name going forward
+   pcs-collapse-table-expanded is kept for backwards-compatibility with already rendered pages
+   with mobile-html 1.2.1 (2020-04)
+ */
+.pcs-expand-icon,
+.pcs-collapse-table-expanded {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z'/%3E%3C/svg%3E");
 }
 
+.pcs-theme-sepia .pcs-expand-icon,
 .pcs-theme-sepia .pcs-collapse-table-expanded {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z' fill='%23222'/%3E%3C/svg%3E");
 }
 
+.pcs-theme-dark .pcs-expand-icon,
 .pcs-theme-dark .pcs-collapse-table-expanded,
+.pcs-theme-black .pcs-expand-icon,
 .pcs-theme-black .pcs-collapse-table-expanded {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath  d='M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z' fill='%23fff'/%3E%3C/svg%3E");
 }
@@ -198,7 +219,10 @@ div.pcs-collapse-table-container {
 
 /* Temporary fix to prevent right side of collapsed tables from extending
    offscreen. todo: fix, add an example, or remove. */
-.pcs-collapse-table-container, .pcs-collapse-table-collapsed-container, .pcs-collapse-table-collapsed,
+.pcs-collapse-icon,
+.pcs-collapse-table-container,
+.pcs-collapse-table-collapsed-container,
+.pcs-collapse-table-collapsed,
 .pcs-collapse-table-icon {
   box-sizing: border-box;
 }
