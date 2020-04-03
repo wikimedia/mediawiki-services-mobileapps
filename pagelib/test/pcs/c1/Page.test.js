@@ -33,7 +33,8 @@ describe('pcs.c1.Page', () => {
       assert.strictEqual(document.body.style.marginRight, '2px')
       assert.strictEqual(document.body.style.marginBottom, '3px')
       assert.strictEqual(document.body.style.marginLeft, '4px')
-      assert.strictEqual(document.body.style['text-size-adjust'], '100%')
+      assert.strictEqual(document.body.style['font-size'], '95%')
+      // assert.strictEqual(document.body.style['text-size-adjust'], '100%')
       assert.strictEqual(Page.testing.getScroller().testing.getScrollTop(), 64)
     })
   })
@@ -97,9 +98,10 @@ describe('pcs.c1.Page', () => {
       window = domino.createWindow(emptyHTML)
       document = window.document
 
-      Page.setTextSizeAdjustmentPercentage('120%')
+      Page.setTextSizeAdjustmentPercentage('100%')
 
-      assert.strictEqual(document.body.style['text-size-adjust'], '120%')
+      assert.strictEqual(document.body.style['font-size'], '95%')
+      // assert.strictEqual(document.body.style['text-size-adjust'], '100%')
     })
   })
 
