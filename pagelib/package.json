@@ -49,6 +49,7 @@
     "@babel/runtime": "^7.9.2",
     "@types/node": "10.12.12",
     "babel-loader": "^8.1.0",
+    "banana-i18n": "^1.1.2",
     "browser-sync": "2.26.7",
     "bundlesize": "0.18.0",
     "clean-webpack-plugin": "3.0.0",
@@ -93,8 +94,5 @@
       "path": "build/wikimedia-page-library-transform.js",
       "maxSize": "13.83KB"
     }
-  ],
-  "dependencies": {
-    "banana-i18n": "^1.2.1"
-  }
+  ]
 }
