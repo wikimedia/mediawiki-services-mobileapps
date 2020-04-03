@@ -11,6 +11,7 @@ describe('pcs.c1.Page', () => {
 
   describe('.setup()', () => {
     it('all', () => {
+      let onSuccessCallbackCalled = false
       window = domino.createWindow(
         '<strong class="pcs-table-infobox">Quick facts</strong>')
       document = window.document
@@ -25,7 +26,7 @@ describe('pcs.c1.Page', () => {
         textSizeAdjustmentPercentage: '100%',
         scrollTop: 64,
         loadImages: true
-      })
+      }, () => { onSuccessCallbackCalled = true })
 
       assert.ok(document.body.classList.contains('pcs-theme-dark'))
       assert.ok(document.body.classList.contains('pcs-dim-images'))
@@ -36,6 +37,7 @@ describe('pcs.c1.Page', () => {
       assert.strictEqual(document.body.style['font-size'], '95%')
       // assert.strictEqual(document.body.style['text-size-adjust'], '100%')
       assert.strictEqual(Page.testing.getScroller().testing.getScrollTop(), 64)
+      assert.ok(onSuccessCallbackCalled)
     })
   })
 
