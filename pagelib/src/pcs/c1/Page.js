@@ -402,6 +402,8 @@ const onBodyStart = () => {
   if (document.pcsSetupSettings) {
     const preSettings = {
       margins: document.pcsSetupSettings.margins,
+      maxWidth: document.pcsSetupSettings.maxWidth,
+      textSizeAdjustmentPercentage: document.pcsSetupSettings.textSizeAdjustmentPercentage,
       leadImageHeight: document.pcsSetupSettings.leadImageHeight,
       userGroups: document.pcsSetupSettings.userGroups,
       theme: document.pcsSetupSettings.theme,
@@ -452,9 +454,11 @@ const onBodyEnd = () => {
     const postSettings = document.pcsSetupSettings
     delete postSettings.theme
     delete postSettings.margins
+    delete postSettings.maxWidth
     delete postSettings.userGroups
     delete postSettings.leadImageHeight
     delete postSettings.platform
+    delete postSettings.textSizeAdjustmentPercentage
     postSettings.setupTableEventHandling = true
     setup(postSettings, finalSetupComplete)
     remainingContentTimeout = document.pcsSetupSettings.remainingTimeout || remainingContentTimeout
