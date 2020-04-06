@@ -2,9 +2,15 @@
   text-decoration: none;
 }
 
+#pcs-footer-container-menu,
+#pcs-footer-container-readmore {
+  margin-bottom: 0;
+}
+
 h2#pcs-footer-container-readmore-heading,
 h2#pcs-footer-container-menu-heading {
   text-transform: uppercase;
+  letter-spacing: 0.5px;
   font-size: 12pt;
   color: #72777d;
   border-top: 0.5px solid #c8ccd1;

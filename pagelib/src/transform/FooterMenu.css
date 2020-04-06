@@ -5,7 +5,7 @@
 }
 
 .pcs-footer-menu-item {
-  padding: 15px 0;
+  padding: 13px 0 17px;
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-color: white;
@@ -59,8 +59,8 @@ body[dir='rtl'] .pcs-footer-menu-item-title {
 
 .pcs-footer-menu-item-subtitle {
   color: #72777d;
-  font-size: 0.9em;
-  line-height: 1.1;
+  font-size: 0.875em; /*14px @16px*/
+  line-height: 1.1428571429; /*16px @14px*/
 }
 
 .pcs-theme-sepia .pcs-footer-menu-item-subtitle {
@@ -75,45 +75,6 @@ body[dir='ltr'] .pcs-footer-menu-item-subtitle {
 html[dir='rtl'] .pcs-footer-menu-item-subtitle,
 body[dir='rtl'] .pcs-footer-menu-item-subtitle {
   padding-right: 45px;
-}
-
-.pcs-footer-menu-item:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  height: 1px;
-  border-bottom: 1px solid #c8ccd1;
-  width: calc(100vw - 70px);
-  /* Width: calc had lots of math, which was causing display issues.
-  Above is equal to (100% + (50vw - 50%) - (70px - (50vw - 50%)).
-  Explained: Full width of prior element, plus (50vw - 50%) for the trailing <body> padding
-  (so line goes to edge of screen), less the leading positioning of the :after element.
-   */
-}
-
-.pcs-theme-black .pcs-footer-menu-item:after,
-.pcs-theme-dark .pcs-footer-menu-item:after {
-  border-bottom: 1px solid #43464a;
-}
-
-.pcs-theme-sepia .pcs-footer-menu-item:after {
-  border-bottom: 1px solid #cbc8c1;
-}
-
-html[dir='ltr'] .pcs-footer-menu-item:after,
-body[dir='ltr'] .pcs-footer-menu-item:after {
-  left: calc(70px - (50vw - 50%));
-}
-
-
-html[dir='rtl'] .pcs-footer-menu-item:after,
-body[dir='rtl'] .pcs-footer-menu-item:after {
-  right: calc(70px - (50vw - 50%));
-}
-
-.pcs-footer-menu-item:last-child:after
-{
-  display: none;
 }
 
 #pcs-footer-container-menu-heading {
