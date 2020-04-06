@@ -91,7 +91,7 @@ pcs.c1.Page.setup({
   theme: 'sepia',
   dimImages: true,
   maxWidth: '100ex',
-  margins: { top: '2em', right: 'auto', bottom: '2em', left: 'auto' },
+  margins: { top: '2em', right: 'auto', bottom: '0', left: 'auto' },
   leadImageHeight: '100px',
   areTablesInitiallyExpanded: true,
   textSizeAdjustmentPercentage: '100%',
