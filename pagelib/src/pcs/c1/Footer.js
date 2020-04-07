@@ -18,6 +18,31 @@ const _connectHandlers = newHandlers => {
 }
 
 /**
+ * Note: T249541: pluralization with banana-i18 1.1.2 doesn't work if the zero case comes first
+ * in the string.
+ * @param {!Banana} banana
+ * @param {?number} editedDaysAgo
+ * @return {string}
+ */
+const _getPageLastEditedString = (banana, editedDaysAgo) => {
+  if (editedDaysAgo === undefined || editedDaysAgo < 0) {
+    return ''
+  }
+
+  try {
+    let result = banana.i18n('page-last-edited', editedDaysAgo)
+
+    if (result && result.includes('undefined')) {
+      result = ''
+    }
+
+    return result
+  } catch (err) {
+    return ''
+  }
+}
+
+/**
  * Adds footer to the end of the document
  * @param {!Object.<any>} params parameters as follows
  *   {!string} title article title for related pages
@@ -56,7 +81,7 @@ const add = params => {
       switch (item) {
       case FooterMenu.MenuItemType.lastEdited:
         title = banana.i18n('page-edit-history')
-        subtitle = editedDaysAgo !== undefined && editedDaysAgo >= 0 ? banana.i18n('page-last-edited', editedDaysAgo) : ''
+        subtitle = _getPageLastEditedString(banana, editedDaysAgo)
         break
       case FooterMenu.MenuItemType.pageIssues:
         title = banana.i18n('page-issues')
@@ -179,5 +204,7 @@ const add = params => {
 export default {
   MenuItemType: FooterMenu.MenuItemType,
   add,
-  _connectHandlers // to be used internally only
+  // to be used internally or for unit testing only:
+  _connectHandlers,
+  _getPageLastEditedString
 }

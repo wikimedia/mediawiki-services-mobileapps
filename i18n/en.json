@@ -11,7 +11,7 @@
   "view-in-browser-footer-link" : "View article in browser",
   "page-location" : "View on a map",
   "page-similar-titles" : "Similar pages",
-  "page-last-edited" : "{{PLURAL:$1|0=Updated today|1=Updated yesterday|Updated $1 days ago}}",
+  "page-last-edited" : "{{PLURAL:$1|Updated yesterday|Updated $1 days ago|0=Updated today}}",
   "article-about-title" : "About this article",
   "page-issues" : "Page issues",
   "license-footer-name" : "CC BY-SA 3.0",
