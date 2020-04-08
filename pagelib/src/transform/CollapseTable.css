@@ -117,8 +117,18 @@ div.pcs-collapse-table-container {
   line-height: 120%;
   background-color: #f8f9fa;
   background-repeat: no-repeat;
-  background-position: 95% 50%;
+  background-position-y: 50%;
   background-size: 1em 1em;
+}
+
+html[dir='ltr'] .pcs-collapse-table-collapsed-container,
+body[dir='ltr'] .pcs-collapse-table-collapsed-container {
+  background-position-x: 95%;
+}
+
+html[dir='rtl'] .pcs-collapse-table-collapsed-container,
+body[dir='rtl'] .pcs-collapse-table-collapsed-container {
+  background-position-x: 5%;
 }
 
 /* The outermost table container header's subcaption text. */
