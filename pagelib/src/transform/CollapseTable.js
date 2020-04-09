@@ -3,6 +3,7 @@ import ElementUtilities from './ElementUtilities'
 import NodeUtilities from './NodeUtilities'
 import Polyfill from './Polyfill'
 import SectionUtilities from './SectionUtilities'
+import { ARIA } from './HTMLUtilities'
 
 const NODE_TYPE = NodeUtilities.NODE_TYPE
 
@@ -20,6 +21,10 @@ const CLASS = {
   TABLE_INFOBOX: 'pcs-table-infobox',
   TABLE_OTHER: 'pcs-table-other',
   TABLE: 'pcs-collapse-table'
+}
+const ID = {
+  ARIA_COLLAPSE: 'pcs-collapse-table-aria-collapse',
+  ARIA_EXPAND: 'pcs-collapse-table-aria-expand'
 }
 
 /**
@@ -193,7 +198,7 @@ const toggleCollapsedForContainer = function(container, trigger, footerDivClickC
   const header = container.children[0]
   const table = container.children[1]
   const footer = container.children[2]
-  const caption = header.querySelector('.app-table-collapsed-caption')
+  const caption = header.querySelector('.pcs-collapse-table-aria')
   const collapsed = table.style.display !== 'none'
   if (collapsed) {
     table.style.display = 'none'
@@ -201,7 +206,7 @@ const toggleCollapsedForContainer = function(container, trigger, footerDivClickC
     header.classList.remove(CLASS.ICON)
     header.classList.add(CLASS.EXPANDED)
     if (caption) {
-      caption.style.visibility = 'visible'
+      caption.setAttribute(ARIA.LABELED_BY, ID.ARIA_EXPAND)
     }
     footer.style.display = 'none'
     // if they clicked the bottom div, then scroll back up to the top of the table.
@@ -214,7 +219,7 @@ const toggleCollapsedForContainer = function(container, trigger, footerDivClickC
     header.classList.add(CLASS.COLLAPSED)
     header.classList.add(CLASS.ICON)
     if (caption) {
-      caption.style.visibility = 'hidden'
+      caption.setAttribute(ARIA.LABELED_BY, ID.ARIA_COLLAPSE)
     }
     footer.style.display = 'block'
   }
@@ -294,9 +299,11 @@ const newCollapsedFooterDiv = (document, content) => {
  * @param {!string} title
  * @param {!string} titleClass
  * @param {!Array.<string>} headerText
+ * @param {string} collapseText Text for VoiceOver to read
+ * @param {string} expandText Text for VoiceOver to read
  * @return {!DocumentFragment}
  */
-const newCaptionFragment = (document, title, titleClass, headerText) => {
+const newCaptionFragment = (document, title, titleClass, headerText, collapseText, expandText) => {
   const fragment = document.createDocumentFragment()
 
   const strong = document.createElement('strong')
@@ -316,11 +323,39 @@ const newCaptionFragment = (document, title, titleClass, headerText) => {
     span.appendChild(document.createTextNode(`, ${headerText[1]}`))
   }
   if (headerText.length > 0) {
-  /* DOM sink status: safe - content transform with no user interference */
-    span.appendChild(document.createTextNode(' …'))
+    /* DOM sink status: safe - content transform with no user interference */
+    // As single character `…`, iOS's VoiceOver ignores this. As `...`, it reads it as "ellipsis". :facepalm:
+    span.appendChild(document.createTextNode(' ...'))
   }
   /* DOM sink status: safe - content from parsoid output */
   fragment.appendChild(span)
+
+  // While this should be on the actual caret, we'd need to make the caret it's own element
+  // (rather than a backround image on the entire section) to read the action as well as the text.
+  // For now, we're creating a new invisible element that is read by the screen reader.
+  const ariaDescription = document.createElement('span')
+  ariaDescription.classList.add('pcs-collapse-table-aria')
+  ariaDescription.setAttribute(ARIA.LABELED_BY, ID.ARIA_EXPAND)
+  ariaDescription.setAttribute('role', 'button')
+  ariaDescription.setAttribute('display', 'none')
+  ariaDescription.appendChild(document.createTextNode(''))
+
+  // Check if it already exists from another table - only need once on entire document
+  if (document.getElementById(ID.ARIA_EXPAND) === null) {
+    const ariaDescriptionExpand = document.createElement('span')
+    ariaDescriptionExpand.setAttribute('id', ID.ARIA_EXPAND)
+    ariaDescriptionExpand.setAttribute(ARIA.LABEL, expandText)
+    ariaDescription.appendChild(ariaDescriptionExpand)
+  }
+
+  if (document.getElementById(ID.ARIA_COLLAPSE) === null) {
+    const ariaDescriptionCollapse = document.createElement('span')
+    ariaDescriptionCollapse.setAttribute('id', ID.ARIA_COLLAPSE)
+    ariaDescriptionCollapse.setAttribute(ARIA.LABEL, collapseText)
+    ariaDescription.appendChild(ariaDescriptionCollapse)
+  }
+
+  fragment.appendChild(ariaDescription)
 
   return fragment
 }
@@ -364,17 +399,21 @@ const replaceNodeInSection = (nodeToReplace, replacementNode) => {
  * @param {?string} tableClass css class
  * @param {!Array<string>} headerTextArray array of header text strings
  * @param {?string} footerTitle
+ * @param {string} collapseText Text for VoiceOver to read
+ * @param {string} expandText Text for VoiceOver to read
  * @return {void}
  */
 const prepareTable = (table, document, pageTitle, tableTitle,
-  tableClass, headerTextArray, footerTitle) => {
+  tableClass, headerTextArray, footerTitle, collapseText, expandText) => {
 
   const captionFragment =
     newCaptionFragment(
       document,
       tableTitle,
       tableClass,
-      headerTextArray)
+      headerTextArray,
+      collapseText,
+      expandText)
 
   // create the container div that will contain both the original table
   // and the collapsed version.

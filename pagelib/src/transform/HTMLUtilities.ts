@@ -1,3 +1,8 @@
+export const ARIA = {
+    LABEL: 'aria-label',
+    LABELED_BY: 'aria-labelledby'
+}
+
 const escapeCallback = (s: string): string => {
     switch (s) {
         case '\'':

@@ -1,4 +1,7 @@
+import {ARIA} from  './HTMLUtilities'
+
 const Polyfill = require('./Polyfill').default
+
 /**
  * get Section Offsets object to handle quick scrolling in the table of contents
  * @param  {!HTMLBodyElement} body HTML body element DOM object.
@@ -94,7 +97,9 @@ const ID = {
     PREFIX: {
         CONTENT: 'pcs-section-content-',
         CONTROL: 'pcs-section-control-'
-    }
+    },
+    ARIA_COLLAPSE: 'pcs-section-aria-collapse',
+    ARIA_EXPAND: 'pcs-section-aria-expand'
 }
 
 const getControlIdForSectionId = (sectionId: string): string => {
@@ -117,8 +122,25 @@ const getControl = (document: Document, sectionId: string): Element => {
     return control
 }
 
-const prepareForHiding = (document: Document, sectionId: string, section: Element, header: Element) => {
+const prepareForHiding = (document: Document, sectionId: string, section: Element, header: Element, expandText: string, collapseText: string) => {
     const control: Element = getControl(document, sectionId)
+
+    if (document.getElementById(ID.ARIA_EXPAND) === null) {
+        const ariaDescriptionExpand = document.createElement('span')
+        ariaDescriptionExpand.setAttribute('id', ID.ARIA_EXPAND)
+        ariaDescriptionExpand.setAttribute(ARIA.LABEL, expandText)
+        control.appendChild(ariaDescriptionExpand)
+    }
+
+    if (document.getElementById(ID.ARIA_COLLAPSE) === null) {
+        const ariaDescriptionCollapse = document.createElement('span')
+        ariaDescriptionCollapse.setAttribute('id', ID.ARIA_COLLAPSE)
+        ariaDescriptionCollapse.setAttribute(ARIA.LABEL, collapseText)
+        control.appendChild(ariaDescriptionCollapse)
+    }
+    control.setAttribute('role', 'button')
+    control.setAttribute(ARIA.LABELED_BY, ID.ARIA_EXPAND)
+
     if (header && control) {
         header.appendChild(control)
         header.classList.add(CLASS.HEADER.HIDEABLE)
@@ -152,10 +174,12 @@ const setHidden = (document: Document, sectionId: string, hidden: boolean = true
         control.classList.remove(CLASS.CONTROL.HIDE)
         control.classList.add(CLASS.CONTROL.SHOW)
         content.classList.add(CLASS.SECTION.HIDE)
+        control.setAttribute(ARIA.LABELED_BY, ID.ARIA_EXPAND)
     } else {
         control.classList.remove(CLASS.CONTROL.SHOW)
         control.classList.add(CLASS.CONTROL.HIDE)
         content.classList.remove(CLASS.SECTION.HIDE)
+        control.setAttribute(ARIA.LABELED_BY, ID.ARIA_COLLAPSE)
     }
     const header = control.parentElement
     if (!header) {

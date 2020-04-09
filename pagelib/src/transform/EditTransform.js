@@ -1,4 +1,5 @@
 import './EditTransform.css'
+import { ARIA } from './HTMLUtilities'
 
 const CLASS = {
   SECTION_HEADER: 'pcs-edit-section-header',
@@ -12,7 +13,9 @@ const IDS = {
   TITLE_DESCRIPTION: 'pcs-edit-section-title-description',
   ADD_TITLE_DESCRIPTION: 'pcs-edit-section-add-title-description',
   DIVIDER: 'pcs-edit-section-divider',
-  PRONUNCIATION: 'pcs-edit-section-title-pronunciation'
+  PRONUNCIATION: 'pcs-edit-section-title-pronunciation',
+  ARIA_EDIT_PROTECTED: 'pcs-edit-section-aria-protected',
+  ARIA_EDIT_NORMAL: 'pcs-edit-section-aria-normal'
 }
 
 const DATA_ATTRIBUTE = {
@@ -47,6 +50,17 @@ const setEditButtons = (document, isEditable = false, isProtected = false) => {
 }
 
 /**
+ * Sets appropriate label for VoiceOver to read for edit buttons. Defaults to normal, so only need to check if it's protected.
+ * @param {!HTMLDocument} document
+ * @return {void}
+ */
+const setARIAEditButtons = (document) => {
+  if (document.documentElement.classList.contains(CLASS.PROTECTION.PROTECTED)) {
+    Array.from(document.getElementsByClassName(CLASS.LINK)).forEach(link => link.setAttribute(ARIA.LABELED_BY, IDS.ARIA_EDIT_PROTECTED))
+  }
+}
+
+/**
  * @param {!Document} document
  * @param {!number} index The zero-based index of the section.
  * @param {!string} href The href for the link
@@ -57,6 +71,7 @@ const newEditSectionLink = (document, index, href = '') => {
   link.href = href
   link.setAttribute(DATA_ATTRIBUTE.SECTION_INDEX, index)
   link.setAttribute(DATA_ATTRIBUTE.ACTION, ACTION_EDIT_SECTION)
+  link.setAttribute(ARIA.LABELED_BY, IDS.ARIA_EDIT_NORMAL)
   link.classList.add(CLASS.LINK)
   return link
 }
@@ -65,11 +80,27 @@ const newEditSectionLink = (document, index, href = '') => {
  * @param {!Document} document
  * @param {!number} index The zero-based index of the section.
  * @param {!HTMLElement} link The link element
+ * @param {?String} normalAriaLabel
+ * @param {?String} protectedAriaLabel
  * @return {!HTMLSpanElement}
  */
-const newEditSectionButton = (document, index, link) => {
+const newEditSectionButton = (document, index, link, normalAriaLabel, protectedAriaLabel) => {
   const container = document.createElement('span')
   container.classList.add(CLASS.LINK_CONTAINER)
+
+  if (document.getElementById(IDS.ARIA_EDIT_NORMAL) === null && normalAriaLabel) {
+    const ariaDescriptionNormal = document.createElement('span')
+    ariaDescriptionNormal.setAttribute('id', IDS.ARIA_EDIT_NORMAL)
+    ariaDescriptionNormal.setAttribute(ARIA.LABEL, normalAriaLabel)
+    container.appendChild(ariaDescriptionNormal)
+  }
+
+  if (document.getElementById(IDS.ARIA_EDIT_PROTECTED) === null && protectedAriaLabel) {
+    const ariaDescriptionProtected = document.createElement('span')
+    ariaDescriptionProtected.setAttribute('id', IDS.ARIA_EDIT_PROTECTED)
+    ariaDescriptionProtected.setAttribute(ARIA.LABEL, protectedAriaLabel)
+    container.appendChild(ariaDescriptionProtected)
+  }
 
   let actualLink = link
   if (!actualLink) {
@@ -213,6 +244,7 @@ export default {
   IDS,
   DATA_ATTRIBUTE,
   setEditButtons,
+  setARIAEditButtons,
   newEditSectionButton,
   newEditSectionHeader,
   newEditSectionWrapper,

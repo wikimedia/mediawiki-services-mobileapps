@@ -39,6 +39,7 @@ const add = (content, licenseString, licenseSubstitutionString, containerID,
   const container = content.querySelector(`#${containerID}`)
 
   /* DOM sink status: sanitized - content can be changed by users */
+  // pcs-footer-browser-link anchor tag: href w/ fake content so iOS's VoiceOver reads it as an unvisited link
   container.innerHTML =
     `<div class='pcs-footer-legal-contents'>
     <hr class='pcs-footer-legal-divider'>
@@ -46,7 +47,7 @@ const add = (content, licenseString, licenseSubstitutionString, containerID,
     ${buildLicenseHtml(licenseString, licenseSubstitutionString)}
     <br>
       <div class="pcs-footer-browser">
-        <a class='pcs-footer-browser-link'>
+        <a class='pcs-footer-browser-link' href='N/A'>
           ${HTMLUtil.escape(viewInBrowserString)}
         </a>
       </div>

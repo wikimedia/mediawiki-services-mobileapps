@@ -443,6 +443,8 @@ const onBodyEnd = () => {
   }
   let remainingContentTimeout = 100
 
+  EditTransform.setARIAEditButtons(document)
+
   /**
    * Executed when final setup is complete
    * @return {void}

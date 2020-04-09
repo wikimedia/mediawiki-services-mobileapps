@@ -12,7 +12,7 @@ describe('lib:MobileHTML', () => {
         const doc = fixtures.readIntoDocument('United_States.html');
         const mobileHTMLPromise = MobileHTML.promise(doc);
         return perf.measure(mobileHTMLPromise, 1000).then(mobileHTML => {
-          assert.equal(mobileHTML.doc.querySelector('section[data-mw-section-id="1"]').firstChild.outerHTML, '<div class="pcs-edit-section-header"><h2 id="Etymology" class="pcs-edit-section-title">Etymology</h2><span class="pcs-edit-section-link-container"><a href="/w/index.php?title=United_States&amp;action=edit&amp;section=1" data-id="1" data-action="edit_section" class="pcs-edit-section-link"></a></span></div>');
+          assert.equal(mobileHTML.doc.querySelector('section[data-mw-section-id="1"]').firstChild.outerHTML, '<div class="pcs-edit-section-header"><h2 id="Etymology" class="pcs-edit-section-title">Etymology</h2><span class="pcs-edit-section-link-container"><a href="/w/index.php?title=United_States&amp;action=edit&amp;section=1" data-id="1" data-action="edit_section" aria-labelledby="pcs-edit-section-aria-normal" class="pcs-edit-section-link"></a></span></div>');
         });
       });
       it('detects mwids', () => {
