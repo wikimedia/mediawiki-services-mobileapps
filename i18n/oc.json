@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Ne saber mai",
 	"table-title-other": "Mai d'informacions",
 	"page-edit-history": "Istoric complet de las modificacions",

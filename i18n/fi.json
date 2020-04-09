@@ -14,7 +14,7 @@
 	"view-in-browser-footer-link": "Lue artikkeli selaimessa",
 	"page-location": "Näytä kartalla",
 	"page-similar-titles": "Samankaltaiset sivut",
-	"page-last-edited": "{{PLURAL:$1|0=Muokattu tänään|1=Muokattu eilen|Muokattu $1 päivää sitten}}",
+	"page-last-edited": "{{PLURAL:$1|0=Päivitetty tänään|1=Päivitetty eilen|Päivitetty $1 päivää sitten}}",
 	"article-about-title": "Tietoja tästä artikkelista",
 	"page-issues": "Sivun ongelmat",
 	"license-footer-name": "CC BY-SA 3.0",

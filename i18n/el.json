@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Διαβάστε περισσότερα",
 	"table-title-other": "Περισσότερες πληροφορίες",
 	"page-edit-history": "Πλήρες ιστορικό επεξεργασίας",

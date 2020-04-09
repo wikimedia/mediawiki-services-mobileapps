@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "और पढ़ें",
 	"table-title-other": "अधिक जानकारी",
 	"page-edit-history": "पूर्ण संपादन इतिहास",

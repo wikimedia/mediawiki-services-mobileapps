@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "Gehitu artikuluaren deskribapena",
 	"article-read-more-title": "Irakurri gehiago",
 	"table-title-other": "Informazio gehiago",

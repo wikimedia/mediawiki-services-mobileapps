@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "បន្ថែមចំណារពន្យល់អំពីចំណងជើង",
 	"article-read-more-title": "អានបន្ថែម",
 	"table-title-other": "ព័ត៌មានបន្ថែម",

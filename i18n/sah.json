@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "Аатын быһаар",
 	"article-read-more-title": "Бу туһунан сиһилии",
 	"table-title-other": "Сиһилии",

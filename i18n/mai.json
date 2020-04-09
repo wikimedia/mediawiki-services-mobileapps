@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "आर बेसी पढू",
 	"table-title-other": "आधिक जानकारी",
 	"info-box-close-text": "बंद करू",

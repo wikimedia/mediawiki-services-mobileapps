@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "عنوان جي تشريح وجھو",
 	"article-read-more-title": "وڌيڪ پڙهو",
 	"table-title-other": "وڌيڪ معلومات",

@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Կարդալ ավելին",
 	"table-title-other": "Մանրամասն տեղեկատվություն",
 	"info-box-close-text": "Փակել",

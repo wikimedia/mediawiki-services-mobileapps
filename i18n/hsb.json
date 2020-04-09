@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Wjace čitać",
 	"table-title-other": "Dalše informacije",
 	"info-box-close-text": "Začinić",

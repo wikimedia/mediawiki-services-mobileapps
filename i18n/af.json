@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Lees meer",
 	"table-title-other": "Meer inligting",
 	"info-box-close-text": "Sluit",

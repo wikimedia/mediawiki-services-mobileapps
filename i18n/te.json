@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "మరింత చదవండి",
 	"table-title-other": "మరింత సమాచారం",
 	"page-edit-history": "పూర్తి మార్పుల చరితం",

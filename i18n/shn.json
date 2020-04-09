@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်းႁူဝ်ၶေႃႈ",
 	"article-read-more-title": "သိုပ်ႇလူ",
 	"table-title-other": "လွၼ်ႉၶၢဝ်ႇ ၼမ်လိူဝ်",

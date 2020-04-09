@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "Bæta við lýsingu á titli",
 	"article-read-more-title": "Lesa meira",
 	"table-title-other": "Nánari upplýsingar",

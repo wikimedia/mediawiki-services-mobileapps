@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "記事の説明を追加",
 	"article-read-more-title": "さらに読む",
 	"table-title-other": "さらに見る",

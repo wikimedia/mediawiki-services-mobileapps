@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Lexo më shumë",
 	"table-title-other": "Më shumë informacion",
 	"info-box-close-text": "Mbylle",

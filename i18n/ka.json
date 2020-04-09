@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "წაიკითხეთ მეტი",
 	"table-title-other": "მეტი ინფორმაცია",
 	"page-edit-history": "მთლიანი რედაქტირების ისტორია",

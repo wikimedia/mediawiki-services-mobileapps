@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "Лоацца укхох лаьца тIатохар",
 	"article-read-more-title": "Ма дарра",
 	"table-title-other": "Ма дарра",

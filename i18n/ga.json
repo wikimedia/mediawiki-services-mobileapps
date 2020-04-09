@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "Cuir sainchuntas teidil leis",
 	"article-read-more-title": "Léigh a thuilleadh",
 	"table-title-other": "Tuilleadh eolais",

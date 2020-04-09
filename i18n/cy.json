@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Darllen rhagor",
 	"table-title-other": "Rhagor o wybodaeth",
 	"info-box-close-text": "Cau",

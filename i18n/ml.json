@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "തലക്കെട്ട് വിവരണം ചേർക്കുക",
 	"article-read-more-title": "കൂടുതൽ വായിക്കുക",
 	"table-title-other": "കൂടുതൽ വിവരങ്ങൾ",

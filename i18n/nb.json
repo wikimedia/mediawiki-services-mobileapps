@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "Legg til tittelbeskrivelse",
 	"article-read-more-title": "Les mer",
 	"table-title-other": "Mer informasjon",

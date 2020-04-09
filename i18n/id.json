@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "Tambah deskripsi judul",
 	"article-read-more-title": "Baca lebih lanjut",
 	"table-title-other": "Informasi lebih lanjut",

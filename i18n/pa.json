@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "ਹੋਰ ਪੜ੍ਹੋ",
 	"table-title-other": "ਹੋਰ ਜਾਣਕਾਰੀ",
 	"page-edit-history": "ਪੂਰਾ ਸੋਧ ਇਤੇਹਾਸ",

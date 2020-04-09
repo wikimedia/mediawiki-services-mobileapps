@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "Přidat popis článku",
 	"article-read-more-title": "Číst dál",
 	"table-title-other": "Další informace",

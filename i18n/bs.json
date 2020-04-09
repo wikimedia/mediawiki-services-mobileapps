@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Također pogledajte",
 	"table-title-other": "Više informacija",
 	"page-edit-history": "Cjelokupna historija izmjena",

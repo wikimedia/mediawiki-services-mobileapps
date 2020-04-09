@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "Добавление краткого описания",
 	"article-read-more-title": "Подробнее",
 	"table-title-other": "Подробнее",

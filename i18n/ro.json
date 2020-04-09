@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Citiți mai multe",
 	"table-title-other": "Mai multe informații",
 	"page-edit-history": "Istoric complet al modificărilor",

@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "הוספת תיאור כותרת",
 	"article-read-more-title": "לקרוא עוד",
 	"table-title-other": "מידע נוסף",

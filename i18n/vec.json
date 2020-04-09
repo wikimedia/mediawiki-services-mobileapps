@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Lèxi de pi",
 	"table-title-other": "Pì informasion",
 	"info-box-close-text": "Sara",

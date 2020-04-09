@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Lasīt vairāk",
 	"table-title-other": "Vairāk informācijas",
 	"page-edit-history": "Pilna labojumu vēsture",

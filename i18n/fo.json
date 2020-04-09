@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Les meira",
 	"table-title-other": "Meira kunning",
 	"info-box-close-text": "Lat aftur",

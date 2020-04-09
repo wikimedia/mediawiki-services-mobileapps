@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "আৰু পঢ়ক",
 	"table-title-other": "অধিক তথ্য",
 	"info-box-close-text": "বন্ধ কৰক",

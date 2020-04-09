@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "शीर्षकमा विवरण थप्नुहोस्",
 	"article-read-more-title": "थप पढ्ने",
 	"table-title-other": "थप जानकारी",

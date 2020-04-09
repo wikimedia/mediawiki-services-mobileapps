@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "Тулыраҡ уҡырға",
 	"table-title-other": "Тулыраҡ",
 	"page-edit-history": "Мөхәррирләүҙең тулы тарихы",

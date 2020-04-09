@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"article-read-more-title": "ನನಲಾ ಓದುಲೇ",
 	"table-title-other": "ಜಾಸ್ತಿ ಮಾಹಿತಿ",
 	"info-box-close-text": "ಮುಚ್ಚಿಲೆ",

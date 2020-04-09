@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "زیادکردنی وەسفی ناونیشان",
 	"article-read-more-title": "زیاتر بخوێنەوە",
 	"table-title-other": "زانیاریی زیاتر",

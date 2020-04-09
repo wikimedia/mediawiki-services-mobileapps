@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"description-add-link-title": "ဖော်ပြချက်အတို ပေါင်းထည့်ရန်",
 	"article-read-more-title": "ဆက်ဖတ်ပါ",
 	"table-title-other": "နောက်ထပ် အချက်အလက်များ",
