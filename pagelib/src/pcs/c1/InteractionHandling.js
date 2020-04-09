@@ -242,7 +242,7 @@ const handleClickEvent = event => {
   if (anchorForTarget.getAttribute('data-action') === 'edit_section') {
     const sectionId = anchorForTarget.getAttribute('data-id') || undefined
     const data = { sectionId }
-    if (sectionId && sectionId === 0) {
+    if (sectionId && sectionId === '0') {
       const descriptionElement = document.getElementById(EditTransform.IDS.TITLE_DESCRIPTION)
       data.descriptionSource = descriptionElement && descriptionElement.getAttribute(EditTransform.DATA_ATTRIBUTE.DESCRIPTION_SOURCE) || undefined
     }
