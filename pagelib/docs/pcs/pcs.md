@@ -39,6 +39,11 @@ There are two kinds of versions we are concerned about, client side and server s
 - Only create a new API version when you really have to. You can add new stuff to the current version if it doesn’t affect existing clients.
 - Prepare for phasing out an API version. Some old versions you can’t afford to maintain. So define a process for informing clients that you may later not support their version.
 
+## Test mode
+You can specify the following query parameters for testing:
+- `footer=true`: automatically adds the footer
+- `theme={theme}`: set the theme to one of `sepia`, `dark`, `black`
+
 ## Versions
 
 ### 1 
