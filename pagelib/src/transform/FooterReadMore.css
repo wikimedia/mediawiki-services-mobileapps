@@ -1,6 +1,6 @@
 .pcs-footer-readmore-page {
   background-color: white;
-  padding: 11px 0 10px 0;
+  padding: 11px 0;
   display: block;
   min-height: 50px;
 }
@@ -32,16 +32,22 @@
 }
 
 .pcs-footer-readmore-page-description {
-  color: #a2a9b1;
+  color: #72777d;
   display: block;
-  font-size: 0.9em;
+  font-size: 0.875em; /*14px @16px*/
+  line-height: 1.1428571429; /*16px @14px*/
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
 .pcs-theme-sepia .pcs-footer-readmore-page-description {
-  color: #7c776e;
+  color: #646059;
+}
+
+.pcs-theme-dark .pcs-footer-readmore-page-description,
+.pcs-theme-black .pcs-footer-readmore-page-description {
+  color: #a2a9b1;
 }
 
 .pcs-footer-readmore-page-description::first-letter {
