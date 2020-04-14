@@ -35,6 +35,16 @@ html[dir="rtl"] #pcs-edit-section-title-pronunciation {
   opacity: .54;
 }
 
+section[data-mw-section-id="0"] .pcs-edit-section-link-container {
+  float: right;
+}
+
+html[dir='rtl'] section[data-mw-section-id="0"] .pcs-edit-section-link-container,
+body[dir='rtl'] section[data-mw-section-id="0"] .pcs-edit-section-link-container,
+.mw-content-rtl section[data-mw-section-id="0"] .pcs-edit-section-link-container {
+  float: left;
+}
+
 h2 + .pcs-edit-section-link-container {
 	margin-bottom: 8px;
 }

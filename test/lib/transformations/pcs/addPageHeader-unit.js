@@ -23,10 +23,6 @@ describe('lib:addPageHeader', () => {
         const pronunciationLink = header.querySelector('#pcs-edit-section-title-pronunciation');
         assert.ok(pronunciationLink);
         assert.ok(pronunciationLink.getAttribute('data-action', 'title_pronunciation'));
-        const editLink = header.querySelector('a.pcs-edit-section-link');
-        assert.deepEqual(editLink.href, '/w/index.php?title=Dog&action=edit&section=0');
-        assert.deepEqual(editLink.getAttribute('data-action'), 'edit_section');
-        assert.deepEqual(editLink.getAttribute('data-id'), '0');
         assert.deepEqual(header.querySelector('#pcs-edit-section-title-description').innerHTML,
             'short desc');
         assert.ok(header.querySelector('#pcs-edit-section-divider'));

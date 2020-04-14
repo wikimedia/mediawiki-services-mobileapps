@@ -87,7 +87,7 @@
 }
 
 html[dir='rtl'] .pcs-footer-readmore-page-image,
-body[dir='rtl'] .pcs-footer-readmore-page-image
+body[dir='rtl'] .pcs-footer-readmore-page-image,
 .mw-content-rtl .pcs-footer-readmore-page-image {
   float: left;
   margin-right: 8px;

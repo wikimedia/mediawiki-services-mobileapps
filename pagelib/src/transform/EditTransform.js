@@ -80,8 +80,8 @@ const newEditSectionLink = (document, index, href = '') => {
  * @param {!Document} document
  * @param {!number} index The zero-based index of the section.
  * @param {!HTMLElement} link The link element
- * @param {?String} normalAriaLabel
- * @param {?String} protectedAriaLabel
+ * @param {?string} normalAriaLabel
+ * @param {?string} protectedAriaLabel
  * @return {!HTMLSpanElement}
  */
 const newEditSectionButton = (document, index, link, normalAriaLabel, protectedAriaLabel) => {
@@ -135,15 +135,13 @@ const appendEditSectionHeader = (wrapper, header) => {
 }
 
 /**
- * As a client, you may wish to set the ID attribute.
  * @param {!Document} document
  * @param {!number} index The zero-based index of the section.
  * @param {!number} level The *one-based* header or table of contents level.
  * @param {?string} titleHTML Title of this section header.
- * @param {?boolean} showEditPencil Whether to show the "edit" pencil (default is true).
  * @return {!HTMLElement}
  */
-const newEditSectionHeader = (document, index, level, titleHTML, showEditPencil = true) => {
+const newEditSectionHeader = (document, index, level, titleHTML) => {
 
   const element = newEditSectionWrapper(document, index)
   const title = document.createElement(`h${level}`)
@@ -152,11 +150,6 @@ const newEditSectionHeader = (document, index, level, titleHTML, showEditPencil 
   title.innerHTML = titleHTML || ''
   title.setAttribute(DATA_ATTRIBUTE.SECTION_INDEX, index)
   appendEditSectionHeader(element, title)
-
-  if (showEditPencil) {
-    const button = newEditSectionButton(document, index)
-    element.appendChild(button)
-  }
   return element
 }
 
@@ -193,26 +186,22 @@ const titleDescriptionElements = (document, titleDescription, titleDescriptionSo
 }
 
 /**
- * Lead section header is a special case as it needs to show page title and description too,
- * and in addition to the lead edit pencil, the description can also be editable.
- * As a client, you may wish to set the ID attribute.
+ * Adds page title, description, and optional pronunciation. The description can be editable.
  * @param {!Document} document
  * @param {?string} pageDisplayTitle Page display title.
  * @param {?string} titleDescription Page title description.
  * @param {?string} titleDescriptionSource Page title description source - "central" or "local".
  * @param {?string} addTitleDescriptionString Localized string e.g. 'Add title description'.
  * @param {?boolean} isTitleDescriptionEditable Whether title description is editable.
- * @param {?boolean} showEditPencil Whether to show the "edit" pencil (default is true).
  * @param {?string} pronunciationURL URL for the pronunciation - will show the speaker when provided.
  * @return {!HTMLElement}
  */
-const newEditLeadSectionHeader = (document, pageDisplayTitle, titleDescription, titleDescriptionSource,
-  addTitleDescriptionString, isTitleDescriptionEditable, showEditPencil = true,
-  pronunciationURL) => {
+const newPageHeader = (document, pageDisplayTitle, titleDescription, titleDescriptionSource,
+  addTitleDescriptionString, isTitleDescriptionEditable, pronunciationURL) => {
 
   const container = document.createDocumentFragment()
 
-  const header = newEditSectionHeader(document, 0, 1, pageDisplayTitle, showEditPencil)
+  const header = newEditSectionHeader(document, 0, 1, pageDisplayTitle)
 
   if (pronunciationURL) {
     const a = document.createElement('a')
@@ -246,8 +235,7 @@ export default {
   setEditButtons,
   setARIAEditButtons,
   newEditSectionButton,
-  newEditSectionHeader,
   newEditSectionWrapper,
-  newEditLeadSectionHeader,
-  newEditSectionLink
+  newEditSectionLink,
+  newPageHeader
 }
