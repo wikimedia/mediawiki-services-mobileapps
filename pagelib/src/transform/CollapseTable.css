@@ -67,14 +67,20 @@
         Close
       </div>
     </div>
+
+  - French Wikipedia uses infobox_v3: https://fr.wikipedia.org/api/rest_v1/page/mobile-html/France
 */
 
-.content table.infobox {
+.content table.infobox,
+.content .infobox_v3 {
   font-size: 100%;
   border-style: none !important;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-table.infobox caption {
+table.infobox caption,
+.infobox_v3 caption {
   text-align: center;
   font-weight: bold;
   padding: 10px 10px 0px 10px;
@@ -255,7 +261,8 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-container {
 
 /* Fix for upstream CSS landscape tablet layout interfering with collapsible table width. */
 @media all and (min-width:720px) {
-  table.infobox {
+  table.infobox,
+  table.infobox_v3 {
     margin: initial;
     max-width: initial;
     float: initial;
