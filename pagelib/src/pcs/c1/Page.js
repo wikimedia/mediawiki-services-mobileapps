@@ -1,6 +1,7 @@
 import AdjustTextSize from '../../transform/AdjustTextSize'
 import BodySpacingTransform from '../../transform/BodySpacingTransform'
 import CollapseTable from '../../transform/CollapseTable'
+import DemoMode from './DemoMode'
 import DimImagesTransform from '../../transform/DimImagesTransform'
 import EditTransform from '../../transform/EditTransform'
 import InteractionHandling from './InteractionHandling'
@@ -125,6 +126,10 @@ const setup = (optionalSettings, onSuccess) => {
     lazyLoader.collectExistingPlaceholders(document.body)
     lazyLoader.loadPlaceholders()
   }
+  if (settings.footer) {
+    DemoMode.addFooter(new URL(document.location))
+  }
+
   waitForNextPaint(onSuccess)
 }
 
@@ -422,11 +427,11 @@ const onBodyStart = () => {
     margins: { top: '2em', right: 'auto', bottom: '0', left: 'auto' }
   }
 
-  const href = document.location && document.location.href
-  if (href) {
-    const match = href.match(/[?&]theme=([a-z]+)(?:&|$)/)
-    if (match && match.length > 1) {
-      defaultInitialSettings.theme = match[1]
+  const queryString = document.location && document.location.search
+  if (queryString) {
+    const queryParams = new URLSearchParams(document.location.search)
+    if (queryParams.get('theme')) {
+      defaultInitialSettings.theme = queryParams.get('theme')
     }
   }
 
@@ -444,6 +449,18 @@ const onBodyEnd = () => {
   let remainingContentTimeout = 100
 
   EditTransform.setARIAEditButtons(document)
+
+  /**
+   * Check query parameters to see if the footer should be automatically added.
+   * @return {boolean}
+   */
+  const shouldAddFooter = () => {
+    if (document.location && document.location.search) {
+      const queryParams = new URLSearchParams(document.location.search)
+      return queryParams.get('footer') === 'true' || queryParams.get('demo') !== null
+    }
+    return false
+  }
 
   /**
    * Executed when final setup is complete
@@ -465,7 +482,12 @@ const onBodyEnd = () => {
     setup(postSettings, finalSetupComplete)
     remainingContentTimeout = document.pcsSetupSettings.remainingTimeout || remainingContentTimeout
   } else {
-    setup({ setupTableEventHandling: true, areTablesInitiallyExpanded: true }, finalSetupComplete)
+    const footer = shouldAddFooter()
+    setup({
+      setupTableEventHandling: true,
+      areTablesInitiallyExpanded: true,
+      footer
+    }, finalSetupComplete)
   }
 
   setTimeout(() => {
