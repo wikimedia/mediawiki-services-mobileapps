@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Shirayuki"
+		]
 	},
 	"description-add-link-title": "記事の説明を追加",
 	"article-read-more-title": "さらに読む",
@@ -17,5 +19,6 @@
 	"page-issues": "ページの問題点",
 	"license-footer-name": "クリエイティブ・コモンズ 表示-継承 3.0",
 	"license-footer-text": "特に記載がない限り、コンテンツは$1のライセンスで利用できます。",
-	"page-read-in-other-languages": "他に{{PLURAL:$1|$1 言語}}で利用可能"
+	"page-read-in-other-languages": "他に{{PLURAL:$1|$1 言語}}で利用可能",
+	"article-edit-button": "ページを編集"
 }

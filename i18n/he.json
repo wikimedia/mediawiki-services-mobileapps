@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"דגש חזק"
+		]
 	},
 	"description-add-link-title": "הוספת תיאור כותרת",
 	"article-read-more-title": "לקרוא עוד",
@@ -17,5 +19,6 @@
 	"page-issues": "בעיות בדף",
 	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "התוכן זמין לפי תנאי $1 אלא אם נאמר אחרת.",
-	"page-read-in-other-languages": "זמין ב{{PLURAL:$1|עוד שפה אחת|־$1 שפות נוספות}}"
+	"page-read-in-other-languages": "זמין ב{{PLURAL:$1|עוד שפה אחת|־$1 שפות נוספות}}",
+	"article-edit-protected-button": "עריכת דף מוגן"
 }

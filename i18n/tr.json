@@ -21,5 +21,11 @@
 	"page-issues": "Sayfa sorunları",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "İçerik, aksi belirtilmedikçe $1 lisansı altında kullanılabilir",
-	"page-read-in-other-languages": "{{PLURAL:$1|$1 farklı dilde|$1 farklı dilde}} mevcut"
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 farklı dilde|$1 farklı dilde}} mevcut",
+	"article-edit-button": "Sayfayı düzenle",
+	"article-edit-protected-button": "Korumalı sayfaları düzenle",
+	"article-section-expand": "Bölümü genişlet",
+	"article-section-collapse": "Bölümü daralt",
+	"table-expand": "Tabloyu genişlet",
+	"table-collapse": "Tabloyu daralt"
 }

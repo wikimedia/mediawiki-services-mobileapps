@@ -1,10 +1,14 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Saraiki"
+		]
 	},
 	"description-add-link-title": "عنوان دی تفصیل لکھو",
 	"article-read-more-title": "ٻیا پڑھو",
 	"table-title-other": "ٻیاں معلومات",
 	"info-box-close-text": "بند کرو",
-	"license-footer-name": " کریئیٹیو کامنز انتساب / یکساں-شراکت اجازت نامہ 3.0"
+	"license-footer-name": " کریئیٹیو کامنز انتساب / یکساں-شراکت اجازت نامہ 3.0",
+	"article-edit-button": "ورقے وچ لکھو",
+	"article-edit-protected-button": "محفوظ ورقے وچ تبدیلی کرو"
 }

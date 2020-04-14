@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Movses"
+			"Movses",
+			"Piramidion"
 		]
 	},
 	"description-add-link-title": "Додати опис назви",
@@ -21,5 +22,11 @@
 	"page-issues": "Проблеми сторінки",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Вміст доступний на умовах $1, якщо не вказано інше.",
-	"page-read-in-other-languages": "Доступно в {{PLURAL:$1|іншій мові|$1 інших мовах}}"
+	"page-read-in-other-languages": "Доступно в {{PLURAL:$1|іншій мові|$1 інших мовах}}",
+	"article-edit-button": "Редагувати сторінку",
+	"article-edit-protected-button": "Редагувати захищену сторінку",
+	"article-section-expand": "Розгорнути розділ",
+	"article-section-collapse": "Згорнути розділ",
+	"table-expand": "Розгорнути таблицю",
+	"table-collapse": "Згорнути таблицю"
 }

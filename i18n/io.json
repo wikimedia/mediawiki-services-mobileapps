@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joao Xavier"
+		]
+	},
+	"table-title-other": "Plusa informi",
+	"page-last-edited": "{{PLURAL:$1|0=Redaktita hodie|Redaktita hiere|Redaktita $1 dii ante nun}}",
+	"page-read-in-other-languages": "Disponebla en {{PLURAL:$1|$1 altra linguo|$1 altra lingui}}",
+	"article-edit-button": "Redaktar pagino",
+	"article-edit-protected-button": "Redaktar pagino protektita",
+	"article-section-expand": "Expansar segmento",
+	"article-section-collapse": "Rekoliar segmento",
+	"table-expand": "Expansar tabelo",
+	"table-collapse": "Rekoliar tabelo"
+}

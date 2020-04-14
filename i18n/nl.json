@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"PonkoSasuke"
 		]
 	},
 	"description-add-link-title": "Titelbeschrijving toevoegen",
@@ -20,5 +21,11 @@
 	"page-issues": "Paginaproblemen",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "De inhoud is beschikbaar onder de $1 tenzij anders aangegeven.",
-	"page-read-in-other-languages": "Beschikbaar in {{PLURAL:$1|$1 andere taal|$1 andere talen}}"
+	"page-read-in-other-languages": "Beschikbaar in {{PLURAL:$1|$1 andere taal|$1 andere talen}}",
+	"article-edit-button": "Pagina bewerken",
+	"article-edit-protected-button": "Beveiligde pagina bewerken",
+	"article-section-expand": "De sectie uitklappen",
+	"article-section-collapse": "Sectie inklappen",
+	"table-expand": "Tabel uitklappen",
+	"table-collapse": "Tabel inklappen"
 }

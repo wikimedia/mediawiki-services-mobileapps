@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"1917 Ekim Devrimi",
 			"Orbot707"
 		]
 	},
@@ -21,5 +22,11 @@
 	"page-issues": "Meseleyê pele",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Zerrekê cı bınê $1 de qeyd biyo.",
-	"page-read-in-other-languages": "{{PLURAL:$1|$1 yew zıwanê bini|$1 zıwananê binan}} de esto"
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 yew zıwanê bini|$1 zıwananê binan}} de esto",
+	"article-edit-button": "Pele bıvurne",
+	"article-edit-protected-button": "Pela şeveknayi bıvurne",
+	"article-section-expand": "Letey hera ke",
+	"article-section-collapse": "Letey teng ke",
+	"table-expand": "Tabloy hera ke",
+	"table-collapse": "Tabloy teng ke"
 }
