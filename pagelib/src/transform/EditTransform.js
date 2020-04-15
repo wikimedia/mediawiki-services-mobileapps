@@ -22,7 +22,8 @@ const DATA_ATTRIBUTE = {
   SECTION_INDEX: 'data-id',
   ACTION: 'data-action',
   PRONUNCIATION_URL: 'data-pronunciation-url',
-  DESCRIPTION_SOURCE: 'data-description-source'
+  DESCRIPTION_SOURCE: 'data-description-source',
+  WIKIDATA_ENTITY_ID: 'data-wikdata-entity-id'
 }
 const ACTION_EDIT_SECTION = 'edit_section'
 const ACTION_TITLE_PRONUNCIATION = 'title_pronunciation'
@@ -158,16 +159,18 @@ const newEditSectionHeader = (document, index, level, titleHTML) => {
  * @param {!Document} document
  * @param {?string} titleDescription Page title description.
  * @param {?string} titleDescriptionSource
+ * @param {?string} wikidataEntityID
  * @param {?string} addTitleDescriptionString Localized string e.g. 'Add title description'.
  * @param {?boolean} isTitleDescriptionEditable Whether title description is editable.
  * @return {?HTMLElement}
  */
-const titleDescriptionElements = (document, titleDescription, titleDescriptionSource, addTitleDescriptionString,
+const titleDescriptionElements = (document, titleDescription, titleDescriptionSource, wikidataEntityID, addTitleDescriptionString,
   isTitleDescriptionEditable) => {
   const descriptionExists = titleDescription !== undefined && titleDescription.length > 0
   if (descriptionExists) {
     const p = document.createElement('p')
     p.setAttribute(DATA_ATTRIBUTE.DESCRIPTION_SOURCE, titleDescriptionSource)
+    p.setAttribute(DATA_ATTRIBUTE.WIKIDATA_ENTITY_ID, wikidataEntityID)
     p.id = IDS.TITLE_DESCRIPTION
     p.innerHTML = titleDescription
     return p
@@ -191,12 +194,13 @@ const titleDescriptionElements = (document, titleDescription, titleDescriptionSo
  * @param {?string} pageDisplayTitle Page display title.
  * @param {?string} titleDescription Page title description.
  * @param {?string} titleDescriptionSource Page title description source - "central" or "local".
+ * @param {?string} wikidataEntityID wikidata entity ID
  * @param {?string} addTitleDescriptionString Localized string e.g. 'Add title description'.
  * @param {?boolean} isTitleDescriptionEditable Whether title description is editable.
  * @param {?string} pronunciationURL URL for the pronunciation - will show the speaker when provided.
  * @return {!HTMLElement}
  */
-const newPageHeader = (document, pageDisplayTitle, titleDescription, titleDescriptionSource,
+const newPageHeader = (document, pageDisplayTitle, titleDescription, titleDescriptionSource, wikidataEntityID,
   addTitleDescriptionString, isTitleDescriptionEditable, pronunciationURL) => {
 
   const container = document.createDocumentFragment()
@@ -213,8 +217,9 @@ const newPageHeader = (document, pageDisplayTitle, titleDescription, titleDescri
 
   container.appendChild(header)
 
-  const descriptionElements = titleDescriptionElements(document, titleDescription,
-    titleDescriptionSource, addTitleDescriptionString, isTitleDescriptionEditable)
+  const descriptionElements = titleDescriptionElements(document, titleDescription, 
+    titleDescriptionSource, wikidataEntityID, addTitleDescriptionString, 
+    isTitleDescriptionEditable)
 
   if (descriptionElements) {
     container.appendChild(descriptionElements)

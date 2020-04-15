@@ -245,6 +245,7 @@ const handleClickEvent = event => {
     if (sectionId && sectionId === '0') {
       const descriptionElement = document.getElementById(EditTransform.IDS.TITLE_DESCRIPTION)
       data.descriptionSource = descriptionElement && descriptionElement.getAttribute(EditTransform.DATA_ATTRIBUTE.DESCRIPTION_SOURCE) || undefined
+      data.wikidataEntityID = descriptionElement && descriptionElement.getAttribute(EditTransform.DATA_ATTRIBUTE.WIKIDATA_ENTITY_ID) || undefined
     }
     postMessage(new Interaction(Actions.EditSection, data))
     return
