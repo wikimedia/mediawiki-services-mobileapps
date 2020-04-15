@@ -169,13 +169,10 @@ div.pcs-collapse-table-container {
   border-radius: 0 0 2px 2px;
 }
 
-html[dir='ltr'] .pcs-collapse-table-collapsed-container,
-body[dir='ltr'] .pcs-collapse-table-collapsed-container {
-  background-position-x: 95%;
-}
-
 html[dir='rtl'] .pcs-collapse-table-collapsed-container,
-body[dir='rtl'] .pcs-collapse-table-collapsed-container {
+body[dir='rtl'] .pcs-collapse-table-collapsed-container,
+html[dir='rtl'] .pcs-collapse-table-collapsed-bottom,
+body[dir='rtl'] .pcs-collapse-table-collapsed-bottom {
   background-position-x: 5%;
 }
 
