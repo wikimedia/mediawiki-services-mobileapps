@@ -79,6 +79,16 @@
   box-sizing: border-box;
 }
 
+/* Fix for upstream CSS landscape tablet layout interfering with collapsible table width. */
+@media all and (min-width:720px) {
+  table.infobox,
+  table.infobox_v3 {
+    margin: initial;
+    max-width: initial;
+    float: initial;
+  }
+}
+
 table.infobox caption,
 .infobox_v3 caption {
   text-align: center;
@@ -95,46 +105,22 @@ div.pcs-collapse-table-container {
   clear: both;
 }
 
-.pcs-collapse-table {
-  float: none !important;
-  max-width: none !important;
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-}
-
-.pcs-theme-dark div.pcs-collapse-table-container {
-  box-shadow: none !important;
-  background-color: #222 !important;
-}
-
-.pcs-theme-black div.pcs-collapse-table-container {
-  box-shadow: none !important;
-  background-color: #222 !important;
-}
-
 .pcs-theme-sepia div.pcs-collapse-table-container {
   box-shadow: none !important;
   background-color: #e1dad1 !important;
 }
 
-.pcs-collapse-table-collapsed-container {
-  width: 100%;
-  padding: 12px 48px 12px 12px;
-  line-height: 120%;
-  background-color: #f8f9fa;
-  background-repeat: no-repeat;
-  background-position-y: 50%;
-  background-size: 1em 1em;
+.pcs-theme-dark div.pcs-collapse-table-container,
+.pcs-theme-black div.pcs-collapse-table-container {
+  box-shadow: none !important;
+  background-color: #222 !important;
 }
 
-html[dir='ltr'] .pcs-collapse-table-collapsed-container,
-body[dir='ltr'] .pcs-collapse-table-collapsed-container {
-  background-position-x: 95%;
-}
-
-html[dir='rtl'] .pcs-collapse-table-collapsed-container,
-body[dir='rtl'] .pcs-collapse-table-collapsed-container {
-  background-position-x: 5%;
+.pcs-collapse-table {
+  float: none !important;
+  max-width: none !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 /* The outermost table container header's subcaption text. */
@@ -151,6 +137,27 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-container {
   color: #c8ccd1 !important;
 }
 
+/* Temporary fix to prevent right side of collapsed tables from extending
+   offscreen. todo: fix, add an example, or remove. */
+.pcs-collapse-icon,
+.pcs-collapse-table-container,
+.pcs-collapse-table-collapsed-container,
+.pcs-collapse-table-collapsed,
+.pcs-collapse-table-icon {
+  box-sizing: border-box;
+}
+
+/* The outermost table container's header. */
+.pcs-collapse-table-collapsed-container {
+  width: 100%;
+  padding: 12px 48px 12px 12px;
+  line-height: 120%;
+  background-color: #f8f9fa;
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  background-size: 1em 1em;
+}
+
 /* The outermost table container's footer. */
 .pcs-collapse-table-collapsed-bottom {
   width: 100%;
@@ -162,6 +169,16 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-container {
   background-repeat: no-repeat;
   background-position: 95% 50%;
   background-size: 1em 1em;
+}
+
+html[dir='ltr'] .pcs-collapse-table-collapsed-container,
+body[dir='ltr'] .pcs-collapse-table-collapsed-container {
+  background-position-x: 95%;
+}
+
+html[dir='rtl'] .pcs-collapse-table-collapsed-container,
+body[dir='rtl'] .pcs-collapse-table-collapsed-container {
+  background-position-x: 5%;
 }
 
 .pcs-theme-dark div.pcs-collapse-table-collapsed-container,
@@ -177,6 +194,16 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-container {
 .pcs-theme-black div.pcs-collapse-table-collapsed-container,
 .pcs-theme-black div.pcs-collapse-table-collapsed-bottom {
   background-color: #222 !important;
+}
+
+/* The outermost table container's expanded header. */
+.pcs-collapse-table-collapsed {
+  border-radius: 2px 2px 0 0;
+}
+
+/* The outermost table container's collapsed header. */
+.pcs-collapse-table-expanded {
+  border-radius: 2px;
 }
 
 /* Icon from https://design.wikimedia.org/style-guide/resources/WikimediaUI-icons-SVGs/collapse.svg
@@ -205,11 +232,6 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-container {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z' fill='%23fff'/%3E%3C/svg%3E");
 }
 
-/* The outermost table container's collapsed header. */
-.pcs-collapse-table-expanded {
-  border-radius: 2px;
-}
-
 /* Icon from https://design.wikimedia.org/style-guide/resources/WikimediaUI-icons-SVGs/expand.svg
    pcs-expand-icon is the preferred name going forward
    pcs-collapse-table-expanded is kept for backwards-compatibility with already rendered pages
@@ -236,37 +258,12 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-container {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath  d='M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z' fill='%23fff'/%3E%3C/svg%3E");
 }
 
-/* The outermost table container's expanded header. */
-.pcs-collapse-table-collapsed {
-  border-radius: 2px 2px 0 0;
-}
-
-/* Temporary fix to prevent right side of collapsed tables from extending
-   offscreen. todo: fix, add an example, or remove. */
-.pcs-collapse-icon,
-.pcs-collapse-table-container,
-.pcs-collapse-table-collapsed-container,
-.pcs-collapse-table-collapsed,
-.pcs-collapse-table-icon {
-  box-sizing: border-box;
-}
-
 /* Avoid infobox too narrow issue, see https://phabricator.wikimedia.org/T201381,
    undoing some of https://gerrit.wikimedia.org/r/c/mediawiki/skins/MinervaNeue/+/428868
    but only for tables we collapse. */
 .pcs-collapse-table-container table {
-    width: 100% !important;
-    height: initial !important;
-}
-
-/* Fix for upstream CSS landscape tablet layout interfering with collapsible table width. */
-@media all and (min-width:720px) {
-  table.infobox,
-  table.infobox_v3 {
-    margin: initial;
-    max-width: initial;
-    float: initial;
-  }
+  width: 100% !important;
+  height: initial !important;
 }
 
 .pcs-collapse-table-content {
