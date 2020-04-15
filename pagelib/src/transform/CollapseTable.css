@@ -147,28 +147,26 @@ div.pcs-collapse-table-container {
   box-sizing: border-box;
 }
 
-/* The outermost table container's header. */
-.pcs-collapse-table-collapsed-container {
-  width: 100%;
-  padding: 12px 48px 12px 12px;
-  line-height: 120%;
-  background-color: #f8f9fa;
-  background-repeat: no-repeat;
-  background-position-y: 50%;
-  background-size: 1em 1em;
-}
-
-/* The outermost table container's footer. */
+/* Common between outermost table container's header and footer */
+.pcs-collapse-table-collapsed-container,
 .pcs-collapse-table-collapsed-bottom {
   width: 100%;
-  color: #72777d;
   padding: 12px 48px 12px 12px;
   line-height: 120%;
-  border-radius: 0 0 2px 2px;
   background-color: #f8f9fa;
   background-repeat: no-repeat;
   background-position: 95% 50%;
   background-size: 1em 1em;
+}
+
+/* The outermost table container's header. */
+.pcs-collapse-table-collapsed-container {
+}
+
+/* The outermost table container's footer. */
+.pcs-collapse-table-collapsed-bottom {
+  color: #72777d;
+  border-radius: 0 0 2px 2px;
 }
 
 html[dir='ltr'] .pcs-collapse-table-collapsed-container,
