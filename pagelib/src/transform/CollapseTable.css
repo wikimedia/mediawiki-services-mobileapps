@@ -79,10 +79,10 @@
   box-sizing: border-box;
 }
 
-/* Fix for upstream CSS landscape tablet layout interfering with collapsible table width. */
+/* Fix for upstream CSS landscape tablet layout interfering with collapsible table width. T221037 */
 @media all and (min-width:720px) {
   table.infobox,
-  table.infobox_v3 {
+  .infobox_v3 {
     margin: initial;
     max-width: initial;
     float: initial;
