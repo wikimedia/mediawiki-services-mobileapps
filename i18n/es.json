@@ -22,6 +22,6 @@
 	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "El contenido está disponible bajo la licencia $1, salvo que se indique lo contrario.",
 	"page-read-in-other-languages": "\nDisponible en {{PLURAL:$1|$1 idioma más|otros $1 idiomas}}",
-	"article-edit-button": "Editar página",
-	"article-edit-protected-button": "Editar página protegida"
+	"article-edit-button": "Editar sección",
+	"article-edit-protected-button": "Editar sección de página protegida"
 }

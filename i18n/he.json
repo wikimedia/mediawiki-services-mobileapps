@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"IKhitron",
 			"דגש חזק"
 		]
 	},
@@ -20,5 +21,5 @@
 	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "התוכן זמין לפי תנאי $1 אלא אם נאמר אחרת.",
 	"page-read-in-other-languages": "זמין ב{{PLURAL:$1|עוד שפה אחת|־$1 שפות נוספות}}",
-	"article-edit-protected-button": "עריכת דף מוגן"
+	"article-edit-protected-button": "עריכת פרק בדף מוגן"
 }
