@@ -86,8 +86,9 @@ const documentFragmentForReadMorePage = (readMorePage, index, document) => {
   outerAnchorContainer.id = index
   outerAnchorContainer.className = 'pcs-footer-readmore-page'
 
+  const globalLoadImages = document.pcsSetupSettings ? document.pcsSetupSettings.loadImages : true
   const hasImage = readMorePage.thumbnail && readMorePage.thumbnail.source
-  if (hasImage) {
+  if (hasImage && globalLoadImages) {
     const image = document.createElement('div')
     image.style.backgroundImage = `url(${readMorePage.thumbnail.source.replace(schemeRegex, '')})`
     image.classList.add('pcs-footer-readmore-page-image')
