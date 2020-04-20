@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"BadDog"
+			"BadDog",
+			"Obsuser"
 		]
 	},
 	"description-add-link-title": "Додај опис наслова",
@@ -21,5 +22,11 @@
 	"page-issues": "Проблеми са страницом",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Садржај је доступан под лиценцом $1, осим ако је другачије наведено.",
-	"page-read-in-other-languages": "Доступно на још $1 језика"
+	"page-read-in-other-languages": "Доступно на још $1 језика",
+	"article-edit-button": "Уреди одељак",
+	"article-edit-protected-button": "Уреди одељак на заштићеној страници",
+	"article-section-expand": "Прошири одељак",
+	"article-section-collapse": "Скупи одељак",
+	"table-expand": "Прошири табелу",
+	"table-collapse": "Скупи табелу"
 }

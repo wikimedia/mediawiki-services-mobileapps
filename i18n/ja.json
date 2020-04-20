@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Omotecho",
 			"Shirayuki"
 		]
 	},
@@ -20,5 +21,5 @@
 	"license-footer-name": "クリエイティブ・コモンズ 表示-継承 3.0",
 	"license-footer-text": "特に記載がない限り、コンテンツは$1のライセンスで利用できます。",
 	"page-read-in-other-languages": "他に{{PLURAL:$1|$1 言語}}で利用可能",
-	"article-edit-button": "ページを編集"
+	"article-edit-button": "節を編集"
 }
