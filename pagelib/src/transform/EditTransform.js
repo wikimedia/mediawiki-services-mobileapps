@@ -55,7 +55,7 @@ const setEditButtons = (document, isEditable = false, isProtected = false) => {
  * @param {!HTMLDocument} document
  * @return {void}
  */
-const setARIAEditButtons = (document) => {
+const setARIAEditButtons = document => {
   if (document.documentElement.classList.contains(CLASS.PROTECTION.PROTECTED)) {
     Array.from(document.getElementsByClassName(CLASS.LINK)).forEach(link => link.setAttribute(ARIA.LABELED_BY, IDS.ARIA_EDIT_PROTECTED))
   }
@@ -120,7 +120,8 @@ const newEditSectionButton = (document, index, link, normalAriaLabel, protectedA
  */
 const newEditSectionWrapper = (document, index) => {
   const element = document.createElement('div')
-  element.className = CLASS.SECTION_HEADER
+  element.classList.add(CLASS.SECTION_HEADER)
+  element.classList.add('v2')
   return element
 }
 
@@ -217,8 +218,8 @@ const newPageHeader = (document, pageDisplayTitle, titleDescription, titleDescri
 
   container.appendChild(header)
 
-  const descriptionElements = titleDescriptionElements(document, titleDescription, 
-    titleDescriptionSource, wikidataEntityID, addTitleDescriptionString, 
+  const descriptionElements = titleDescriptionElements(document, titleDescription,
+    titleDescriptionSource, wikidataEntityID, addTitleDescriptionString,
     isTitleDescriptionEditable)
 
   if (descriptionElements) {

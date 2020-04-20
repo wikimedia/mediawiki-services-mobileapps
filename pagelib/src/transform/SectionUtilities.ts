@@ -122,7 +122,7 @@ const getControl = (document: Document, sectionId: string): Element => {
     return control
 }
 
-const prepareForHiding = (document: Document, sectionId: string, section: Element, header: Element, expandText: string, collapseText: string) => {
+const prepareForHiding = (document: Document, sectionId: string, section: Element, headerWrapper: Element, header: Element, expandText: string, collapseText: string) => {
     const control: Element = getControl(document, sectionId)
 
     if (document.getElementById(ID.ARIA_EXPAND) === null) {
@@ -141,10 +141,10 @@ const prepareForHiding = (document: Document, sectionId: string, section: Elemen
     control.setAttribute('role', 'button')
     control.setAttribute(ARIA.LABELED_BY, ID.ARIA_EXPAND)
 
-    if (header && control) {
-        header.appendChild(control)
-        header.classList.add(CLASS.HEADER.HIDEABLE)
-        header.setAttribute('onclick', `pcs.c1.Sections.setHidden('${sectionId}', false);`)
+    if (headerWrapper && control) {
+        headerWrapper.appendChild(control)
+        headerWrapper.classList.add(CLASS.HEADER.HIDEABLE)
+        headerWrapper.setAttribute('onclick', `pcs.c1.Sections.setHidden('${sectionId}', false);`)
     }
     let el = section.firstElementChild
     const div = document.createElement('div')

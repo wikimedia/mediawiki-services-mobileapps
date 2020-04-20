@@ -17,6 +17,8 @@ html:not(.pcs-v2) .ambox {
     cursor: pointer;
 }
 
+
+/* Preserved for backwards compatibility, can be merged with .v2 after 2020.06.01 */
 .pcs-section-control {
     content: '';
     display: inline-block;
@@ -32,6 +34,21 @@ html:not(.pcs-v2) .ambox {
     box-sizing: content-box !important;
     margin-left: .1em;
     margin-bottom: -.25em;
+}
+
+.pcs-edit-section-header.v2 .pcs-section-control {
+    width: 0.6em;
+    height: 0.6em;
+    min-width: 0.6em;
+    min-height: 0.6em;
+    font-size: 1.5em;
+    margin: 0.85em 0.4em 0 0;
+    flex-basis: auto;
+    flex-grow: 0;
+}
+
+body[dir='rtl'] .pcs-edit-section-header.v2 .pcs-section-control {
+    margin: 0.85em 0 0 0.4em;
 }
 
 .pcs-section-hidden {

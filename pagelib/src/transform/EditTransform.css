@@ -3,6 +3,10 @@
   align-items: flex-end;
 }
 
+.pcs-edit-section-header.v2 {
+  align-items: flex-start;
+}
+
 .pcs-edit-section-title {
   flex: 1;
 }
@@ -84,6 +88,10 @@ a.pcs-edit-section-link {
   background-repeat: no-repeat;
 
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPGRlZnM+CiAgICA8cGF0aCBpZD0iYSIgZD0iTTMsMTcuMjQ3NSBMMywyMC45OTc1IEw2Ljc1LDIwLjk5NzUgTDE3LjgxNSw5LjkzMjUgTDE0LjA2NSw2LjE4MjUgTDMsMTcuMjQ3NSBaIE0yMC43MDUsNy4wNDI1IEMyMS4wOTUsNi42NTI1IDIxLjA5NSw2LjAxNzUgMjAuNzA1LDUuNjI3NSBMMTguMzcsMy4yOTI1IEMxNy45OCwyLjkwMjUgMTcuMzQ1LDIuOTAyNSAxNi45NTUsMy4yOTI1IEwxNS4xMjUsNS4xMjI1IEwxOC44NzUsOC44NzI1IEwyMC43MDUsNy4wNDI1IFoiLz4KICA8L2RlZnM+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDx1c2UgZmlsbD0iIzAwMDAwMCIgeGxpbms6aHJlZj0iI2EiLz4KICA8L2c+Cjwvc3ZnPgo=);
+}
+
+.pcs-edit-section-header.v2 a.pcs-edit-section-link {
+  margin-top: 0.85em;
 }
 
 .pcs-theme-dark.pcs-compatibility-filter a.pcs-edit-section-link,
