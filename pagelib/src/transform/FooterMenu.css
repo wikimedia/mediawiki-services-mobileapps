@@ -28,13 +28,11 @@
 html[dir='ltr'] .pcs-footer-menu-item,
 body[dir='ltr'] .pcs-footer-menu-item {
   background-position: left 0 center;
-  padding-left: calc(25px - (50vw - 50%));
 }
 
 html[dir='rtl'] .pcs-footer-menu-item,
 body[dir='rtl'] .pcs-footer-menu-item {
   background-position: right 0 center;
-  padding-right: calc(25px - (50vw - 50%));
 }
 
 .pcs-footer-menu-item-title {
@@ -49,12 +47,12 @@ body[dir='rtl'] .pcs-footer-menu-item {
 
 html[dir='ltr'] .pcs-footer-menu-item-title,
 body[dir='ltr'] .pcs-footer-menu-item-title {
-  padding-left: 45px;
+  padding-left: 36px;
 }
 
 html[dir='rtl'] .pcs-footer-menu-item-title,
 body[dir='rtl'] .pcs-footer-menu-item-title {
-  padding-right: 45px;
+  padding-right: 36px;
 }
 
 .pcs-footer-menu-item-subtitle {
@@ -69,12 +67,12 @@ body[dir='rtl'] .pcs-footer-menu-item-title {
 
 html[dir='ltr'] .pcs-footer-menu-item-subtitle,
 body[dir='ltr'] .pcs-footer-menu-item-subtitle {
-  padding-left: 45px;
+  padding-left: 36px;
 }
 
 html[dir='rtl'] .pcs-footer-menu-item-subtitle,
 body[dir='rtl'] .pcs-footer-menu-item-subtitle {
-  padding-right: 45px;
+  padding-right: 36px;
 }
 
 #pcs-footer-container-menu-heading {
