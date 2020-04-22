@@ -102,7 +102,9 @@ pcs.c1.Page.setup({
   textSizeAdjustmentPercentage: '100%',
   scrollTop: 64,
   loadImages: true,
-  userGroups: ['autoconfirmed']
+  userGroups: ['autoconfirmed'],
+  areEditingElementsRemoved: true
+})
 })
 ```
 
