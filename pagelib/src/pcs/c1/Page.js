@@ -43,9 +43,9 @@ const waitForNextPaint = onSuccess => {
  * Makes multiple page modifications based on client specific settings, which should be called
  * during initial page load.
  * @param {?{}} optionalSettings client settings
- * @param {?OnSuccess} onSuccess callback
  *   { platform, version, theme, dimImages, margins, areTablesInitiallyExpanded,
- *   scrollTop, textSizeAdjustmentPercentage }
+ *   scrollTop, textSizeAdjustmentPercentage, areEditingElementsRemoved }
+ * @param {?OnSuccess} onSuccess callback
  * @return {void}
  */
 const setup = (optionalSettings, onSuccess) => {
@@ -449,6 +449,18 @@ const onBodyEnd = () => {
   let remainingContentTimeout = 100
 
   EditTransform.setARIAEditButtons(document)
+
+  if (document.pcsSetupSettings.areEditingElementsRemoved !== undefined && document.pcsSetupSettings.areEditingElementsRemoved) {
+    // remove edit buttons
+    const allPencilIcons = Array.from(document.getElementsByClassName(EditTransform.CLASS.LINK_CONTAINER))
+    allPencilIcons.forEach(pencilIcon => pencilIcon.remove())
+
+    // if "Add title" exists, remove it
+    const titleDescription = document.getElementById(EditTransform.IDS.ADD_TITLE_DESCRIPTION)
+    if (titleDescription !== null) {
+      titleDescription.remove()
+    }
+  }
 
   /**
    * Check query parameters to see if the footer should be automatically added.
