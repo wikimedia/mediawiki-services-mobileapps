@@ -50,10 +50,6 @@
   color: #a2a9b1;
 }
 
-.pcs-footer-readmore-page-description::first-letter {
-  text-transform: uppercase;
-}
-
 .pcs-footer-readmore-bookmark-filled {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAiBAMAAAC3uAQAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAACdQTFRFAAAAQID/PGnSNmvQNWnONWfMM2fNNGbNNGbMM2fNNGfMM2bM////H6I4qQAAAAt0Uk5TAAQRJkRqlbvZ7vu+JdyCAAAAAWJLR0QMgbNRYwAAAEhJREFUGNNj3M2AAEwMoxySOK/mIzj/Zq96AOecOvBnLowDYp06AOWA1PybDeFAdINIJogYRJ4JohqikwliDsRMZrYDMM7/mwClEx4uyFBI7QAAAABJRU5ErkJggg==');
 }
