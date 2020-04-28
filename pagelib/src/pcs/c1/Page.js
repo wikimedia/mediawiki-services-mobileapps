@@ -44,7 +44,7 @@ const waitForNextPaint = onSuccess => {
  * during initial page load.
  * @param {?{}} optionalSettings client settings
  *   { platform, version, theme, dimImages, margins, areTablesInitiallyExpanded,
- *   scrollTop, textSizeAdjustmentPercentage, areEditingElementsRemoved }
+ *   scrollTop, textSizeAdjustmentPercentage, areEditButtonsHidden }
  * @param {?OnSuccess} onSuccess callback
  * @return {void}
  */
@@ -86,7 +86,10 @@ const setup = (optionalSettings, onSuccess) => {
   if (settings.maxWidth !== undefined) {
     setMaxWidth(settings.maxWidth)
   }
-  if (settings.userGroups !== undefined) {
+  if (settings.areEditButtonsHidden) {
+    // removes edit buttons and (if it exists) "Add title" link
+    setEditButtons(false, false)
+  } else if (settings.userGroups !== undefined) {
     if (!metaTags) {
       metaTags = getMetaTags()
     }
@@ -449,18 +452,6 @@ const onBodyEnd = () => {
   let remainingContentTimeout = 100
 
   EditTransform.setARIAEditButtons(document)
-
-  if (document.pcsSetupSettings && document.pcsSetupSettings.areEditingElementsRemoved) {
-    // remove edit buttons
-    const allPencilIcons = Array.from(document.getElementsByClassName(EditTransform.CLASS.LINK_CONTAINER))
-    allPencilIcons.forEach(pencilIcon => pencilIcon.remove())
-
-    // if "Add title" exists, remove it
-    const titleDescription = document.getElementById(EditTransform.IDS.ADD_TITLE_DESCRIPTION)
-    if (titleDescription !== null) {
-      titleDescription.remove()
-    }
-  }
 
   /**
    * Check query parameters to see if the footer should be automatically added.

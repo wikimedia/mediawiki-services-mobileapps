@@ -30,7 +30,8 @@ html[dir="rtl"] #pcs-edit-section-title-pronunciation {
 }
 
 #mainpage a.pcs-edit-section-link,
-.no-editing a.pcs-edit-section-link {
+.no-editing a.pcs-edit-section-link,
+.no-editing #pcs-edit-section-add-title-description {
   display: none;
 }
 

@@ -86,6 +86,7 @@ Setting parameter object fields:
 - scrollTop: number of pixel for highest position to scroll to. Use this to adjust for any decor overlaying the viewport.
   (The first four fields don't have any equivalent separate call since those don't make sense to change after the fact.)
 - userGroups: list of strings of user roles to determine which edit pencils to show example: ['autoconfirmed']
+- areEditButtonsHidden: when boolean is true, edit pencils and other editing-specific buttons are not displayed
 
 Example:
 
@@ -103,8 +104,7 @@ pcs.c1.Page.setup({
   scrollTop: 64,
   loadImages: true,
   userGroups: ['autoconfirmed'],
-  areEditingElementsRemoved: true
-})
+  areEditButtonsHidden: true
 })
 ```
 
