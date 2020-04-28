@@ -450,7 +450,7 @@ const onBodyEnd = () => {
 
   EditTransform.setARIAEditButtons(document)
 
-  if (document.pcsSetupSettings.areEditingElementsRemoved !== undefined && document.pcsSetupSettings.areEditingElementsRemoved) {
+  if (document.pcsSetupSettings && document.pcsSetupSettings.areEditingElementsRemoved) {
     // remove edit buttons
     const allPencilIcons = Array.from(document.getElementsByClassName(EditTransform.CLASS.LINK_CONTAINER))
     allPencilIcons.forEach(pencilIcon => pencilIcon.remove())
