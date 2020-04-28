@@ -4,17 +4,18 @@ The wikimedia-page-library-pcs output is an abstraction layer of the page librar
 
 ### What wikimedia-page-library-pcs is for
 
+- to be hosted server-side for clients of PCS mobile-html
+- to be run on a client inside a WebView or web browser
+- a high level abstraction layer of wikimedia-page-library
 - is an adapter of client side to server side mobile-html functionality
 - providing an interface for manipulating the presentation of page content (theme, dim images, margins, ...)
 - providing an interface for setting up expected event handling on the client side to complement server side DOM transformations (lazy loading, table collapsing, ...)
 - providing an interface for retrieving metadata directly from the PCS page (lead image URL, page revision, description, ...)
-- to be hosted server-side for clients of PCS mobile-html
-- to be run on a client inside a WebView or web browser
-- a high level abstraction layer of wikimedia-page-library
 - A specific major version knows which DOM transformations have been applied server side on a given page (by including the version in the URL for this adapter) and executes the corresponding client side functionality if and when needed (registering events).
   Examples:
   - Lazy Loading: server side we replace `<img>` tags with `<span>` placeholder elements. Then on the client side (here) we need to replace the placeholders back to the original `<img>` tags when appropriate.
   - Collapse / expand tables
+  - Collapse / expand reference list sections
 
 ### What wikimedia-page-library-pcs is not for
 
@@ -46,7 +47,7 @@ You can specify the following query parameters for testing:
 
 ## Versions
 
-### 1 
+### 1
 
 Initial version
 
@@ -90,7 +91,7 @@ Setting parameter object fields:
 
 Example:
 
-```
+```javascript
 pcs.c1.Page.setup({
   platform: 'ios',
   version: 2,
@@ -114,7 +115,7 @@ Sets the theme. See possible values listed in `setup()`.
 
 Example:
 
-```
+```javascript
 pcs.c1.Page.setTheme(pcs.c1.Themes.SEPIA)
 ```
 
@@ -124,7 +125,7 @@ Turns on or off dimming of images.
 
 Example:
 
-```
+```javascript
 pcs.c1.Page.setDimImages(true)
 ```
 
@@ -134,7 +135,7 @@ Sets the margins on the `<body>` tag.
 
 Example:
 
-```
+```javascript
 pcs.c1.Page.setMargins({ top: '128px', right: '32px', bottom: '16px', left: '32px' })
 ```
 
@@ -144,7 +145,7 @@ Sets the max-width on the `<body>` tag.
 
 Example:
 
-```
+```javascript
 pcs.c1.Page.setMaxWidth('100ex')
 ```
 
@@ -154,7 +155,7 @@ Sets the top-most vertical position to scroll to in pixel. Use this to adjust fo
 
 Example:
 
-```
+```javascript
 pcs.c1.Page.setScrollTop(64)
 ```
 
@@ -164,13 +165,13 @@ Gets the edit protections of the current page.
 
 Example:
 
-```
+```javascript
 pcs.c1.Page.getProtection()
 ```
 
 Returns a map with protection status:
 
-```
+```json
 {edit: "autoconfirmed", move: "sysop"}
 ```
 
@@ -180,11 +181,31 @@ Gets the revision of the current page as a string.
 
 Example:
 
-```
+```javascript
 pcs.c1.Page.getRevision()
 ```
 
-returns '907165344'
+returns `'907165344'`
+
+#### getLeadImage()
+
+Gets information about the lead image (aka PageImage) for this page.
+
+Example:
+
+```javascript
+pcs.c1.Page.getLeadImage()
+```
+
+returns 
+
+```json
+{
+  source: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Cat_poster_1.jpg",
+  width: 5935,
+  height: 3898
+}
+```
 
 #### getTableOfContents()
 
@@ -192,13 +213,13 @@ Gets the table of contents of the current page.
 
 Example:
 
-```
+```javascript
 pcs.c1.Page.getTableOfContents()
 ```
 
 Returns an array of objects that correspond to sections in the article. An example JSON representation (with some sections removed for brevity) would be:
 
-```
+```json
 [
   {
     "level": 1,
@@ -239,7 +260,7 @@ Sets the text-adjust-size property percentage allowing native clients to adjust 
 
 The input needs to be a string like '10%'. Example:
 
-```
+```javascript
 pcs.c1.Page.setTextSizeAdjustmentPercentage('10%')
 ```
 
@@ -252,7 +273,7 @@ All parameters are optional. Default is false, false.
 
 Example:
 
-```
+```javascript
 pcs.c1.Page.setEditButtons(true, false)
 ```
 
@@ -267,7 +288,7 @@ The page will indicate it's ready and return the [bounding client rect](https://
 
 Example:
 
-```
+```javascript
 pcs.c1.Page.prepareForScrollToAnchor('cite_ref-1', { highlight: true })
 ```
 
@@ -275,7 +296,7 @@ pcs.c1.Page.prepareForScrollToAnchor('cite_ref-1', { highlight: true })
 
 Removes highlights from any elements highlighted by `prepareForScrollToAnchor`
 
-### waitForNextPaint(callback)
+#### waitForNextPaint(callback)
 
 Executes the function supplied as the parameter when the page has had time to update visually.
 
@@ -289,7 +310,7 @@ Gets Section Offsets object to handle quick scrolling in the table of contents.
 
 Example:
 
-```
+```javascript
 pcs.c1.Sections.getOffsets()
 ```
 
@@ -301,16 +322,15 @@ Adds a footer to the page showing metadata of the page, like how many other lang
 
 Example:
 
-```
+```javascript
 pcs.c1.Footer.add({
   platform: 'ios',
-  clientVersion: '6.2.1',
-  title: 'Knight Lore',
+  version: '2',
+  title: 'Cat',
   menu: {
-    items: [pcs.c1.Footer.MenuItemType.languages, pcs.c1.Footer.MenuItemType.lastEdited, pcs.c1.Footer.MenuItemType.pageIssues, pcs.c1.Footer.MenuItemType.disambiguation, pcs.c1.Footer.MenuItemType.talkPage],
+    items: [pcs.c1.Footer.MenuItemType.lastEdited, pcs.c1.Footer.MenuItemType.pageIssues, pcs.c1.Footer.MenuItemType.disambiguation, pcs.c1.Footer.MenuItemType.talkPage],
     fragment: "pcs-menu",
-    editedDaysAgo: 3,
-    languageCount: 12
+    editedDaysAgo: 3
   },
   readMore: {
     itemCount: 3,
@@ -320,10 +340,9 @@ pcs.c1.Footer.add({
 })
 ```
 
-readMoreBaseURL:
-
-- production: `'https://en.wikipedia.org/api/rest_v1'`
-- local RB: `'http://localhost:7231/en.wikipedia.org/v1'`
+* `readMore.baseURL`:
+  * for production use something like `'https://en.wikipedia.org/api/rest_v1'`
+  * for a local RESTBase instance use something like `'http://localhost:7231/en.wikipedia.org/v1'`
 
 ### InteractionHandling
 
@@ -335,25 +354,25 @@ Sets up callbacks for select events originating from the WebView.
 
 Example for testing:
 
-```
+```javascript
 pcs.c1.InteractionHandling.setInteractionHandler((interaction) => { console.log(JSON.stringify(interaction)) })
 ```
 
 iOS:
 
-```
+```javascript
 pcs.c1.InteractionHandling.setInteractionHandler((interaction) => { window.webkit.messageHandlers.interaction.postMessage(interaction) })
 ```
 
 Android:
 
-```
+```javascript
 pcs.c1.InteractionHandling.setInteractionHandler((interaction) => { window.InteractionWebInterface.post(interaction) })
 ```
 
 Currently the following actions can be emitted:
 
-```
+```json
 const Actions = {
   InitialSetup: 'setup',
   FinalSetup: 'final_setup',
@@ -380,7 +399,7 @@ const Actions = {
 
 ###### back_link
 Sent when a user taps a back link in a reference list. Provides a list of where that reference is used in the article. Example:
-```
+```json
 {
   "action": "back_link",
   "data": {
@@ -409,7 +428,7 @@ Sent when a user taps a back link in a reference list. Provides a list of where 
 
 ###### scroll_to_anchor
 Sent when an anchor is ready to be scrolled to after the client calls `pcs.c1.Page.prepareForScrollToAnchor()`. Example:
-```
+```json
 {
   "action": "scroll_to_anchor",
   "data": {
@@ -431,13 +450,13 @@ Gets information about the currently selected text.
 
 Example for testing:
 
-```
+```javascript
 pcs.c1.InteractionHandling.getSelectionInfo()
 ```
 
 Should return something along the lines of:
 
-```
+```json
 {
   text: "selected text here",
   section: "1", // section id or null if outside of a section
