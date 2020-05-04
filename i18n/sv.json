@@ -23,7 +23,7 @@
 	"license-footer-text": "Innehållet är tillgängligt under $1 om ingenting annat anges.",
 	"page-read-in-other-languages": "Tillgänglig på {{PLURAL:$1|$1 annat|$1 andra}} språk",
 	"article-edit-button": "Redigera avsnitt",
-	"article-edit-protected-button": "Redigera skyddad sida",
+	"article-edit-protected-button": "Redigera avsnitt på skyddad sida",
 	"article-section-expand": "Expandera avsnitt",
 	"article-section-collapse": "Stäng avsnitt",
 	"table-expand": "Expandera tabell",

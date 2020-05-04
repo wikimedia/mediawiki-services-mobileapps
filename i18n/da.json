@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Saederup92"
+		]
 	},
 	"description-add-link-title": "Tilføj titelbeskrivelse",
 	"article-read-more-title": "Læs mere",
@@ -17,5 +19,9 @@
 	"page-issues": "Problemer med siden",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Indholdet er udgivet under $1 medmindre andet er angivet.",
-	"page-read-in-other-languages": "Tilgængelig på {{PLURAL:$1|$1 andet sprog|$1 andre sprog}}"
+	"page-read-in-other-languages": "Tilgængelig på {{PLURAL:$1|$1 andet sprog|$1 andre sprog}}",
+	"article-section-expand": "Udvid afsnittet",
+	"article-section-collapse": "Fold afsnittet",
+	"table-expand": "Udvid tabellen",
+	"table-collapse": "Fold tabellen"
 }
