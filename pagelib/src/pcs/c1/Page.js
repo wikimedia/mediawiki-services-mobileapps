@@ -44,7 +44,7 @@ const waitForNextPaint = onSuccess => {
  * during initial page load.
  * @param {?{}} optionalSettings client settings
  *   { platform, version, theme, dimImages, margins, areTablesInitiallyExpanded,
- *   scrollTop, textSizeAdjustmentPercentage, areEditButtonsHidden }
+ *   scrollTop, textSizeAdjustmentPercentage }
  * @param {?OnSuccess} onSuccess callback
  * @return {void}
  */
@@ -86,10 +86,7 @@ const setup = (optionalSettings, onSuccess) => {
   if (settings.maxWidth !== undefined) {
     setMaxWidth(settings.maxWidth)
   }
-  if (settings.areEditButtonsHidden) {
-    // removes edit buttons and (if it exists) "Add title" link
-    setEditButtons(false, false)
-  } else if (settings.userGroups !== undefined) {
+  if (settings.userGroups !== undefined) {
     if (!metaTags) {
       metaTags = getMetaTags()
     }

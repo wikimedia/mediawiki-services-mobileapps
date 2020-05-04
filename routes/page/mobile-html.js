@@ -7,6 +7,7 @@ const mobileviewHtml = require('../../lib/mobileview-html');
 const apiUtilConstants = require('../../lib/api-util-constants');
 const parsoidApi = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
+const MobileHTML = require('../../lib/mobile/MobileHTML');
 
 /**
  * The main router object
@@ -20,8 +21,11 @@ let app;
 
 function getMobileHtmlFromPOST(req, res) {
     const html = req.body && req.body.html || req.body;
+    const outputHeader = req.header('output-mode');
+    const outputMode = MobileHTML.OutputMode[outputHeader] || MobileHTML.OutputMode.editPreview;
+    const mobileHtmlPromise = parsoidApi.mobileHTMLPromiseFromHTML(app, req, res, html, outputMode);
     return BBPromise.props({
-        mobileHTML: parsoidApi.mobileHTMLPromiseFromHTML(app, req, res, html),
+        mobileHTML: mobileHtmlPromise,
         mw: mwapi.getMetadataForMobileHtml(req)
     }).then((response) => {
         response.mobileHTML.addMediaWikiMetadata(response.mw);

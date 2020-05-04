@@ -240,6 +240,7 @@ export default {
   DATA_ATTRIBUTE,
   setEditButtons,
   setARIAEditButtons,
+  newEditSectionHeader,
   newEditSectionButton,
   newEditSectionWrapper,
   newEditSectionLink,

@@ -27,5 +27,6 @@
 	"article-section-expand": "Label for `expand section down arrow` image used for sections like Notes and Footnotes. Read aloud to blind users by screen readers.",
 	"article-section-collapse": "Label for `collapse section up arrow` image used for sections like Notes and Footnotes. Read aloud to blind users by screen readers.",
 	"table-expand": "Label for `expand table down arrow` image used for tables like infoboxes. Read aloud to blind users by screen readers.",
-	"table-collapse": "Label for `collapse table up arrow` image used for tables like infoboxes. Read aloud to blind users by screen readers."
+	"table-collapse": "Label for `collapse table up arrow` image used for tables like infoboxes. Read aloud to blind users by screen readers.",
+	"references-preview-header": "When previewing an edit, the header used for references section"
 }
