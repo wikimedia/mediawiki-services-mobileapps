@@ -9,8 +9,6 @@ paths:
         The summary response includes an extract of the first paragraph of the page in plain text
         and HTML as well as the type of page. This is useful for page previews (fka. Hovercards,
         aka. Popups) on the web and link previews in the apps.
-
-        Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
       parameters:
         - $ref: '#/components/parameters/domainParam'
         - $ref: '#/components/parameters/title'
@@ -103,8 +101,6 @@ paths:
         The summary response includes an extract of the first paragraph of the page in plain text
         and HTML as well as the type of page. This is useful for page previews (fka. Hovercards,
         aka. Popups) on the web and link previews in the apps.
-
-        Stability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)
       parameters:
         - $ref: '#/components/parameters/domainParam'
         - $ref: '#/components/parameters/title'
