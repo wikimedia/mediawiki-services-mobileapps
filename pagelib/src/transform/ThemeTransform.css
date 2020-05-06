@@ -174,8 +174,8 @@ hr:not(.notheme) {
 }
 
 /* en > Quadratic equation > 793685454 */
-.pcs-theme-dark img.mwe-math-fallback-image-inline,
-.pcs-theme-black img.mwe-math-fallback-image-inline {
+.pcs-theme-dark img.mwe-math-fallback-image-inline:not(.notheme),
+.pcs-theme-black img.mwe-math-fallback-image-inline:not(.notheme) {
   -webkit-filter: invert(100%);
   filter: invert(100%);
 }
