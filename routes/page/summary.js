@@ -35,7 +35,11 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
                 res.status(summary.code);
                 if (summary.code === 200) {
                     delete summary.code;
-                    mUtil.setETag(res, revTid.revision, revTid.tid);
+                    // Don't pass revTid.tid - this response depends on more than
+                    // parsoid output. For example, if a wikidata description is edited,
+                    // this response will be regenerated, which should trigger a change
+                    // in the ETag
+                    mUtil.setETag(res, revTid.revision);
                     mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
                     mUtil.setLanguageHeaders(res, html.headers);
                     res.send(summary);
