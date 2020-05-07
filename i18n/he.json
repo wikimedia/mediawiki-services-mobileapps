@@ -2,6 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"IKhitron",
+			"Steeve815",
+			"YaronSh",
 			"דגש חזק"
 		]
 	},
@@ -10,6 +12,8 @@
 	"table-title-other": "מידע נוסף",
 	"page-edit-history": "הצגת היסטוריית עריכה מלאה",
 	"info-box-close-text": "סגירה",
+	"page-talk-page-subtitle": "דיון בשיפורים לערך הזה",
+	"page-issues-subtitle": "התראות על תוכן לא מספיק איכותי או בעייתי",
 	"page-talk-page": "הצגת דף השיחה",
 	"info-box-title": "עובדות מהירות",
 	"view-in-browser-footer-link": "הצגת הערך בדפדפן",
@@ -21,5 +25,10 @@
 	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "התוכן זמין לפי תנאי $1 אלא אם נאמר אחרת.",
 	"page-read-in-other-languages": "זמין ב{{PLURAL:$1|עוד שפה אחת|־$1 שפות נוספות}}",
-	"article-edit-protected-button": "עריכת פרק בדף מוגן"
+	"article-edit-button": "עריכת פסקה",
+	"article-edit-protected-button": "עריכת פרק בדף מוגן",
+	"article-section-expand": "הרחבת סעיף",
+	"article-section-collapse": "צמצום סעיף",
+	"table-expand": "הרחבת טבלה",
+	"table-collapse": "צמצום טבלה"
 }
