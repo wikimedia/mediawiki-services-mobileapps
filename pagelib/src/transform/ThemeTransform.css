@@ -155,7 +155,7 @@ hr:not(.notheme) {
   background-color: #ccc;
 }
 
-.pcs-theme-dark hr:not(.notheme)
+.pcs-theme-dark hr:not(.notheme),
 .pcs-theme-black hr:not(.notheme) {
   background-color: #43464a;
 }
