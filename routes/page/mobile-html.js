@@ -3,11 +3,11 @@
 const BBPromise = require('bluebird');
 const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
+const mRequestUtil = require('../../lib/mobile/mobile-request-util');
 const mobileviewHtml = require('../../lib/mobileview-html');
 const apiUtilConstants = require('../../lib/api-util-constants');
 const parsoidApi = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
-const MobileHTML = require('../../lib/mobile/MobileHTML');
 
 /**
  * The main router object
@@ -22,7 +22,7 @@ let app;
 function getMobileHtmlFromPOST(req, res) {
     const html = req.body && req.body.html || req.body;
     const outputHeader = req.header('output-mode');
-    const outputMode = MobileHTML.OutputMode[outputHeader] || MobileHTML.OutputMode.editPreview;
+    const outputMode = mRequestUtil.getOutputMode(outputHeader);
     const mobileHtmlPromise = parsoidApi.mobileHTMLPromiseFromHTML(app, req, res, html, outputMode);
     return BBPromise.props({
         mobileHTML: mobileHtmlPromise,
