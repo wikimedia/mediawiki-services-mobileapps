@@ -1,12 +1,16 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Okras"
+		]
 	},
 	"description-add-link-title": "Добавление краткого описания",
 	"article-read-more-title": "Подробнее",
 	"table-title-other": "Подробнее",
 	"page-edit-history": "Просмотр истории изменений",
 	"info-box-close-text": "Закрыть",
+	"page-talk-page-subtitle": "Обсудить улучшения этой статьи",
+	"page-issues-subtitle": "Оповещения о некачественном или проблемном контенте",
 	"page-talk-page": "Страница обсуждения",
 	"info-box-title": "Краткие факты",
 	"view-in-browser-footer-link": "Просмотреть статью в браузере",
@@ -17,5 +21,12 @@
 	"page-issues": "Вопросы по странице",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Содержимое доступно по лицензии $1",
-	"page-read-in-other-languages": "Доступно на {{PLURAL:$1|другом языке|$1 других языках}}"
+	"page-read-in-other-languages": "Доступно на {{PLURAL:$1|другом языке|$1 других языках}}",
+	"article-edit-button": "Редактировать раздел",
+	"article-edit-protected-button": "Редактировать раздел на защищённой странице",
+	"article-section-expand": "Раскрыть раздел",
+	"article-section-collapse": "Свернуть раздел",
+	"table-expand": "Раскрыть таблицу",
+	"table-collapse": "Свернуть таблицу",
+	"references-preview-header": "Предпросмотр примечаний"
 }

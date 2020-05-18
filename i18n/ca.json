@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Fitoschido"
+		]
 	},
 	"description-add-link-title": "Afegeix una descripció del títol",
 	"article-read-more-title": "Més informació",
@@ -17,5 +19,6 @@
 	"page-issues": "Problemes de la pàgina",
 	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "Contingut disponible sota $1 a menys que s'indiqui el contrari.",
-	"page-read-in-other-languages": "Disponible en {{PLURAL:$1|$1 altra llengua|$1 altres llengües}}"
+	"page-read-in-other-languages": "Disponible en {{PLURAL:$1|$1 altra llengua|$1 altres llengües}}",
+	"references-preview-header": "Previsualització de les referències"
 }

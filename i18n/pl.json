@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Rail"
+		]
 	},
 	"description-add-link-title": "Dodaj opis tytułu",
 	"article-read-more-title": "Czytaj więcej",
@@ -17,5 +19,6 @@
 	"page-issues": "Problemy ze stroną",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Treść udostępniana na licencji $1, jeśli nie podano inaczej.",
-	"page-read-in-other-languages": "Dostępne w {{PLURAL:$1|$1 innym języku|$1 innych językach}}"
+	"page-read-in-other-languages": "Dostępne w {{PLURAL:$1|$1 innym języku|$1 innych językach}}",
+	"references-preview-header": "Podgląd przypisów"
 }
