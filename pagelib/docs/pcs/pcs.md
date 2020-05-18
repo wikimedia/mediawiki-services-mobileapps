@@ -463,3 +463,9 @@ Should return something along the lines of:
 ```
 
 [Page Content Service]: https://www.mediawiki.org/wiki/Page_Content_Service
+
+## Expected behaviors
+
+### Themes
+
+Content can be excluded from theming if editors add the "notheme" class to the elements that have an explicit background color or should otherwise be excluded from themeing. More information about this can be found here: https://phabricator.wikimedia.org/T236137.

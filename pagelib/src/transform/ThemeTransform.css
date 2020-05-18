@@ -3,6 +3,11 @@ The styles referred to as 'baseline' in the comments below are critical because 
 a theme colors are more universally applied even by elements colored via inline styles. These are
 particularly difficult to theme otherwise. We can build on top of, so to speak, these baseline
 styles with only the things which need tweaking.
+
+**IMPORTANT** Refrain from adding CSS classes from user generated content here to fix themeing issues.
+These issues should be fixed by adding the "notheme" class to the elements that have an explicit
+background color or should otherwise be excluded from themeing. More information about this can
+be found here: https://phabricator.wikimedia.org/T236137
 */
 
 /* baseline */
