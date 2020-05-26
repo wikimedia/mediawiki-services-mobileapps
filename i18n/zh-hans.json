@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"500000000006城"
+			"500000000006城",
+			"VulpesVulpes825"
 		]
 	},
 	"description-add-link-title": "添加标题描述",
@@ -21,5 +22,12 @@
 	"page-issues": "页面问题",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "除非另有说明，内容基于$1授权。",
-	"page-read-in-other-languages": "在$1种其他语言中可用"
+	"page-read-in-other-languages": "在$1种其他语言中可用",
+	"article-edit-button": "编辑章节",
+	"article-edit-protected-button": "编辑在保护页面的章节",
+	"article-section-expand": "展开章节",
+	"article-section-collapse": "折叠章节",
+	"table-expand": "展开表格",
+	"table-collapse": "折叠表格",
+	"references-preview-header": "参考文献预览"
 }

@@ -20,5 +20,6 @@
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "특별한 언급이 없으면 내용은 $1에 따라 이용할 수 있습니다.",
 	"page-read-in-other-languages": "{{PLURAL:$1|$1개의 다른 언어}}로 읽어보기",
-	"article-edit-button": "문단 편집"
+	"article-edit-button": "문단 편집",
+	"references-preview-header": "각주 미리보기"
 }
