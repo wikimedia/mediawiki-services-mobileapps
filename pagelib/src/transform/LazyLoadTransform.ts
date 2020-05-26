@@ -1,4 +1,4 @@
-import './LazyLoadTransform.css'
+import './LazyLoadTransform.less'
 // todo: use imports when other modules are TypeScript.
 const ElementGeometry = require('./ElementGeometry').default
 const ElementUtilities = require('./ElementUtilities').default

@@ -71,6 +71,8 @@
   - French Wikipedia uses infobox_v3: https://fr.wikipedia.org/api/rest_v1/page/mobile-html/France
 */
 
+@import './Constants.less';
+
 .content table.infobox,
 .content .infobox_v3 {
   font-size: 100%;
@@ -107,13 +109,13 @@ div.pcs-collapse-table-container {
 
 .pcs-theme-sepia div.pcs-collapse-table-container {
   box-shadow: none !important;
-  background-color: #e1dad1 !important;
+  background-color: @wmui-color-sepia85 !important;
 }
 
 .pcs-theme-dark div.pcs-collapse-table-container,
 .pcs-theme-black div.pcs-collapse-table-container {
   box-shadow: none !important;
-  background-color: #222 !important;
+  background-color: @wmui-color-base10 !important;
 }
 
 .pcs-collapse-table {
@@ -125,16 +127,16 @@ div.pcs-collapse-table-container {
 
 /* The outermost table container header's subcaption text. */
 .pcs-collapse-table-collapse-text {
-  color: #72777d;
+  color: @wmui-color-base30;
 }
 
 .pcs-theme-sepia span.pcs-collapse-table-collapse-text {
-  color: #646059;
+  color: @wmui-color-sepia40;
 }
 
 .pcs-theme-dark span.pcs-collapse-table-collapse-text,
 .pcs-theme-black span.pcs-collapse-table-collapse-text {
-  color: #c8ccd1 !important;
+  color: @wmui-color-base70 !important;
 }
 
 /* Temporary fix to prevent right side of collapsed tables from extending
@@ -153,7 +155,7 @@ div.pcs-collapse-table-container {
   width: 100%;
   padding: 12px 48px 12px 12px;
   line-height: 120%;
-  background-color: #f8f9fa;
+  background-color: @wmui-color-base90;
   background-repeat: no-repeat;
   background-position: 95% 50%;
   background-size: 1em 1em;
@@ -165,7 +167,7 @@ div.pcs-collapse-table-container {
 
 /* The outermost table container's footer. */
 .pcs-collapse-table-collapsed-bottom {
-  color: #72777d;
+  color: @wmui-color-base30;
   border-radius: 0 0 2px 2px;
 }
 
@@ -178,17 +180,17 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-bottom {
 
 .pcs-theme-dark div.pcs-collapse-table-collapsed-container,
 .pcs-theme-dark div.pcs-collapse-table-collapsed-bottom {
-  background-color: #27292d !important;
+  background-color: @wmui-color-sepia10 !important;
 }
 
 .pcs-theme-sepia div.pcs-collapse-table-collapsed-container,
 .pcs-theme-sepia div.pcs-collapse-table-collapsed-bottom {
-  background-color: #f0e6d6 !important;
+  background-color: @wmui-color-sepia80 !important;
 }
 
 .pcs-theme-black div.pcs-collapse-table-collapsed-container,
 .pcs-theme-black div.pcs-collapse-table-collapsed-bottom {
-  background-color: #222 !important;
+  background-color: @wmui-color-base10 !important;
 }
 
 /* The outermost table container's expanded header. */

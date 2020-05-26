@@ -1,3 +1,5 @@
+@import './Constants.less';
+
 .pcs-footer-legal-contents {
   margin-top: 27px;
   padding-top: 23px;
@@ -26,7 +28,7 @@ html[dir='rtl'] .pcs-footer-legal-contents,
 }
 
 .pcs-footer-legal-license {
-  color: #72777d;
+  color: @wmui-color-base30;
   font-size: 0.75em;
   line-height: 1.5;
   display: block;
@@ -34,20 +36,20 @@ html[dir='rtl'] .pcs-footer-legal-contents,
 
 .pcs-theme-dark .pcs-footer-legal-license,
 .pcs-theme-black .pcs-footer-legal-license {
-  color: #a2a9b1;
+  color: @wmui-color-base50;
 }
 
 .pcs-theme-sepia .pcs-footer-legal-license {
-  color: #7c776e;
+  color: @wmui-color-sepia50;
 }
 
 a.pcs-footer-legal-license-link, a.pcs-footer-browser-link {
-  color: #3366cc;
+  color: @wmui-color-accent50;
 }
 
 .pcs-theme-dark .pcs-footer-legal-license-link, .pcs-theme-dark .pcs-footer-browser-link,
 .pcs-theme-black .pcs-footer-legal-license-link, .pcs-theme-black .pcs-footer-browser-link {
-  color: #69f;
+  color: @wmui-color-accent70;
 }
 
 .pcs-footer-browser {
@@ -57,14 +59,14 @@ a.pcs-footer-legal-license-link, a.pcs-footer-browser-link {
 hr.pcs-footer-legal-divider {
   height: 1px;
   border: none;
-  background-color: #eaecf0;
+  background-color: @wmui-color-base80;
 }
 
 .pcs-theme-dark .pcs-footer-legal-divider,
 .pcs-theme-black .pcs-footer-legal-divider {
-  background-color: #43464a;
+  background-color: @wmui-color-sepia30;
 }
 
 .pcs-theme-sepia .pcs-footer-legal-divider {
-  background-color: #cbc8c1;
+  background-color: @wmui-color-sepia60;
 }

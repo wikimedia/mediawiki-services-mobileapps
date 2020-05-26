@@ -58,6 +58,14 @@ module.exports = {
         }
       },
       {
+        test: /\.less$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { minimize: false } },
+          { loader: 'less-loader' }
+        ]
+      },
+      {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,

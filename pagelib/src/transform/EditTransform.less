@@ -1,3 +1,5 @@
+@import './Constants.less';
+
 .pcs-edit-section-header {
   display: flex;
   align-items: flex-end;
@@ -129,14 +131,14 @@ a.pcs-edit-section-link {
   height: 200%;
   top: -50%;
   left: -50%;
-  background-color: #eee;
+  background-color: @wmui-color-base80;
   -webkit-transform: scale( 0.6 );
   transform: scale( 0.6 );
 }
 
 .pcs-platform-android.pcs-theme-dark.pcs-compatibility-filter a.pcs-edit-section-link:active:before,
 .pcs-platform-android.pcs-theme-black.pcs-compatibility-filter a.pcs-edit-section-link:active:before {
-  background-color: #111;
+  background-color: @wmui-color-sepia0;
 }
 
 .pcs-platform-ios h3.pcs-edit-section-title + span.pcs-edit-section-link-container,
@@ -150,7 +152,7 @@ a.pcs-edit-section-link {
 #pcs-edit-section-title-description {
     font-size: 0.875em;
     line-height: 1.375em;
-    color: #777D84;
+    color: @wmui-color-base30;
     margin-top: 0.136em;
     margin-bottom: 0.227em;
     padding-bottom: 0px;

@@ -1,4 +1,4 @@
-import './WidenImage.css'
+import './WidenImage.less'
 
 /**
  * Gets array of ancestors of element which need widening.

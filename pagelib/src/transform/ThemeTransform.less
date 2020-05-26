@@ -1,3 +1,4 @@
+@import './Constants.less';
 /*
 The styles referred to as 'baseline' in the comments below are critical because they ensure
 a theme colors are more universally applied even by elements colored via inline styles. These are
@@ -12,33 +13,34 @@ be found here: https://phabricator.wikimedia.org/T236137
 
 /* baseline */
 .pcs-theme-dark {
-  color: #f8f9fa;
-  background: #2e3136;
+  color: @wmui-color-base90;
+  background: @wmui-color-sepia20;
 }
 .pcs-theme-sepia {
-  color: #222;
-  background: #f8f1e3;
+  color: @wmui-color-base10;
+  background: @wmui-color-sepia90;
 }
 .pcs-theme-black {
-  color: #f8f9fa;
-  background: #000;
+  color: @wmui-color-base90;
+  background: @wmui-color-base0;
 }
 
 .notheme {
-  color: #000;
+  color: @wmui-color-base0;
 }
 
 a.notheme {
-  color: #36c;
+  color: @wmui-color-accent50;
 }
 
 /* baseline anchor */
 .pcs-theme-dark a:not(.notheme),
 .pcs-theme-black a:not(.notheme) {
-  color: #69f;
+  color: @wmui-color-accent70;
 }
+
 .pcs-theme-sepia a:not(.notheme) {
-  color: #36c;
+  color: @wmui-color-accent50;
 }
 
 /* External link -- LTR */
@@ -75,9 +77,9 @@ body[dir='rtl'].pcs-theme-black .mw-parser-output a.external {
 .pcs-theme-dark li.gallerybox div.thumb,
 .pcs-theme-dark.content td:not(.notheme),
 .pcs-theme-dark.content th:not(.notheme) {
-  background: #27292d;
-  color: #f8f9fa;
-  border-color: #43464a;
+  background: @wmui-color-sepia10;
+  color: @wmui-color-base90;
+  border-color: @wmui-color-sepia30
 }
 
 .pcs-theme-sepia table:not(.notheme),
@@ -87,9 +89,9 @@ body[dir='rtl'].pcs-theme-black .mw-parser-output a.external {
 .pcs-theme-sepia li.gallerybox div.thumb,
 .pcs-theme-sepia.content td:not(.notheme),
 .pcs-theme-sepia.content th:not(.notheme)  {
-  background: #f0e6d6;
-  color: #222;
-  border-color: #cbc8c1;
+  background: @wmui-color-sepia80;
+  color: @wmui-color-base10;
+  border-color: @wmui-color-sepia60;
 }
 
 .pcs-theme-black table:not(.notheme),
@@ -99,9 +101,9 @@ body[dir='rtl'].pcs-theme-black .mw-parser-output a.external {
 .pcs-theme-black li.gallerybox div.thumb,
 .pcs-theme-black.content td:not(.notheme),
 .pcs-theme-black.content th:not(.notheme) {
-  background: #222;
-  color: #f8f9fa;
-  border-color: #43464a;
+  background: @wmui-color-base10;
+  color: @wmui-color-base90;
+  border-color: @wmui-color-sepia30;
 }
 
 /* baseline div, span, ul, li */
@@ -111,8 +113,8 @@ body[dir='rtl'].pcs-theme-black .mw-parser-output a.external {
 .pcs-theme-dark ol:not(.notheme),
 .pcs-theme-dark li:not(.notheme) {
   background-color: inherit;
-  color: #f8f9fa;
-  border-color: #43464a;
+  color: @wmui-color-base90;
+  border-color: @wmui-color-sepia30;
 }
 .pcs-theme-sepia div:not(.notheme),
 .pcs-theme-sepia span:not(.notheme),
@@ -120,8 +122,8 @@ body[dir='rtl'].pcs-theme-black .mw-parser-output a.external {
 .pcs-theme-sepia ol:not(.notheme),
 .pcs-theme-sepia li:not(.notheme) {
   background-color: inherit;
-  color: #222;
-  border-color: #cbc8c1;
+  color: @wmui-color-base10;
+  border-color: @wmui-color-sepia60;
 }
 .pcs-theme-black div:not(.notheme),
 .pcs-theme-black span:not(.notheme),
@@ -129,8 +131,8 @@ body[dir='rtl'].pcs-theme-black .mw-parser-output a.external {
 .pcs-theme-black ol:not(.notheme),
 .pcs-theme-black li:not(.notheme) {
   background-color: inherit;
-  color: #f8f9fa;
-  border-color: #43464a;
+  color: @wmui-color-base90;
+  border-color: @wmui-color-sepia30;
 }
 
 /* quotebox and blockquote */
@@ -138,62 +140,62 @@ body[dir='rtl'].pcs-theme-black .mw-parser-output a.external {
 /* es > Arte > 100819823 */
 .pcs-theme-dark blockquote:not(.notheme),
 .pcs-theme-dark div.quotebox :not(.notheme){
-  background: #27292d;
+  background: @wmui-color-sepia10;
 }
 .pcs-theme-sepia blockquote:not(.notheme),
 .pcs-theme-sepia div.quotebox :not(.notheme){
-  background: #f0e6d6;
+  background: @wmui-color-sepia80;
 }
 .pcs-theme-black blockquote:not(.notheme),
 .pcs-theme-black div.quotebox :not(.notheme){
-  background: #000;
+  background: @wmui-color-base0;
 }
 
 hr:not(.notheme) {
   border: none;
   height: 1px;
-  background-color: #ccc;
+  background-color: @wmui-color-base70;
 }
 
 .pcs-theme-dark hr:not(.notheme),
 .pcs-theme-black hr:not(.notheme) {
-  background-color: #43464a;
+  background-color: @wmui-color-sepia30;
 }
 
 .pcs-theme-sepia hr:not(.notheme) {
-  background-color: #cbc8c1;
+  background-color: @wmui-color-sepia60;
 }
 
 /* figcaption color */
 .pcs-theme-default figcaption:not(.notheme) {
-  color: #72777d;
+  color: @wmui-color-base30;
 }
 .pcs-theme-dark figcaption:not(.notheme) {
-  color: #c8ccd1;
+  color: @wmui-color-base70;
 }
 .pcs-theme-sepia figcaption:not(.notheme) {
-  color: #646059;
+  color: @wmui-color-sepia40;
 }
 .pcs-theme-black figcaption:not(.notheme) {
-  color: #c8ccd1;
+  color: @wmui-color-base70;
 }
 
 /* caption background */
 .pcs-theme-dark caption:not(.notheme) {
-  background: #43464a;
+  background: @wmui-color-sepia30;
 }
 .pcs-theme-sepia caption:not(.notheme) {
-  background: #cbc8c1;
+  background: @wmui-color-sepia60;
 }
 .pcs-theme-black caption:not(.notheme) {
-  background: #2e3136;
+  background: @wmui-color-sepia20;
 }
 
 /* images */
 /* compatibility transform */
 .pcs-theme-dark.pcs-compatibility-filter img.mwe-math-fallback-image-inline,
 .pcs-theme-black.pcs-compatibility-filter img.mwe-math-fallback-image-inline {
-  background: #ccc;
+  background: @wmui-color-base70;
   padding: 2px;
 }
 
@@ -205,8 +207,8 @@ hr:not(.notheme) {
 }
 
 .pcs-element-highlight {
-  background-color: rgba(255, 204, 51, 1.0) !important;
-  color: black !important;
+  background-color: @wmui-color-yellow50 !important;
+  color: @wmui-color-base0 !important;
   border-radius: 2px !important;
 }
 
@@ -214,7 +216,7 @@ hr:not(.notheme) {
 #pcs .hatnote,
 #pcs .rellink {
     padding: 5px 0;
-    color: #72777d;
+    color: @wmui-color-base30;
     font-size: .875em;
     background-color: initial;
     margin-bottom: 1px;
@@ -226,7 +228,7 @@ hr:not(.notheme) {
 #pcs.pcs-theme-sepia div.dablink,
 #pcs.pcs-theme-sepia div.hatnote,
 #pcs.pcs-theme-sepia div.rellink {
-    color: #646059;
+    color: @wmui-color-sepia40;
 }
 
 #pcs.pcs-theme-dark #pcs-edit-section-title-description,
@@ -237,5 +239,5 @@ hr:not(.notheme) {
 #pcs.pcs-theme-dark div.dablink,
 #pcs.pcs-theme-dark div.hatnote,
 #pcs.pcs-theme-dark div.rellink {
-    color: #c8ccd1;
+    color: @wmui-color-base70;
 }

@@ -1,4 +1,4 @@
-import './FooterReadMore.css'
+import './FooterReadMore.less'
 import HTMLUtil from '../transform/HTMLUtilities'
 
 /**

@@ -1,4 +1,4 @@
-import './FooterMenu.css'
+import './FooterMenu.less'
 import CollectionUtilities from './CollectionUtilities'
 import HTMLUtil from '../transform/HTMLUtilities'
 

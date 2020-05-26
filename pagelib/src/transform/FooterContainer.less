@@ -1,3 +1,5 @@
+@import './Constants.less';
+
 .pcs-footer-section a:hover {
   text-decoration: none;
 }
@@ -12,57 +14,57 @@ h2#pcs-footer-container-menu-heading {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-size: 12pt;
-  color: #72777d;
-  border-top: 0.5px solid #c8ccd1;
-  border-bottom: 0.5px solid #c8ccd1;
-  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Lato,Helvetica,Arial,sans-serif;
-  background-color: #f8f9fa;
+  color: @wmui-color-base30;
+  border-top: 0.5px solid @wmui-color-base70;
+  border-bottom: 0.5px solid @wmui-color-base70;
+  font-family: @font-family-system-sans;
+  background-color: @wmui-color-base90;
   margin: 0 calc(50% - 50vw);
   padding: 1.5em calc(50vw - 50%) 0.5em calc(50vw - 50%);
 }
 
 .pcs-theme-sepia h2#pcs-footer-container-readmore-heading,
 .pcs-theme-sepia h2#pcs-footer-container-menu-heading {
-  background-color: #f0e6d6;
-  border-top: 0.5px solid #cbc8c1;
-  border-bottom: 0.5px solid #cbc8c1;
+  background-color: @wmui-color-sepia80;
+  border-top: 0.5px solid @wmui-color-sepia60;
+  border-bottom: 0.5px solid @wmui-color-sepia60;
 }
 .pcs-theme-dark h2#pcs-footer-container-readmore-heading,
 .pcs-theme-dark h2#pcs-footer-container-menu-heading {
-  background-color: #27292d;
+  background-color: @wmui-color-sepia10;
 }
 .pcs-theme-black h2#pcs-footer-container-readmore-heading,
 .pcs-theme-black h2#pcs-footer-container-menu-heading {
-  background-color: #222222;
+  background-color: @wmui-color-base10;
 }
 
 .pcs-theme-dark h2#pcs-footer-container-readmore-heading,
 .pcs-theme-black h2#pcs-footer-container-readmore-heading,
 .pcs-theme-dark h2#pcs-footer-container-menu-heading,
 .pcs-theme-black h2#pcs-footer-container-menu-heading {
-  color: #f8f9fa;
-  border-top: 0.5px solid #43464a;
-  border-bottom: 0.5px solid #43464a;
+  color: @wmui-color-base90;
+  border-top: 0.5px solid @wmui-color-sepia30;
+  border-bottom: 0.5px solid @wmui-color-sepia30;
 }
 
 section#pcs-footer-container-legal {
-  background-color: #f8f9fa;
-  border-top: 0.5px solid #c8ccd1;
+  background-color: @wmui-color-base90;
+  border-top: 0.5px solid @wmui-color-base70;
   margin: 0 calc(50% - 50vw);
   padding: .5em calc(50vw - 50%);
 }
 
 .pcs-theme-sepia section#pcs-footer-container-legal {
-  border-top: 0.5px solid #cbc8c1;
-  background-color: #f0e6d6;
+  border-top: 0.5px solid @wmui-color-sepia60;
+  background-color: @wmui-color-sepia80;
 }
 
 .pcs-theme-dark section#pcs-footer-container-legal {
-  border-top: 0.5px solid #43464a;
-  background-color: #27292d;
+  border-top: 0.5px solid @wmui-color-sepia30;
+  background-color: @wmui-color-sepia10;
 }
 
 .pcs-theme-black section#pcs-footer-container-legal {
-  border-top: 0.5px solid #43464a;
-  background-color: #222222;
+  border-top: 0.5px solid @wmui-color-sepia30;
+  background-color: @wmui-color-base10;
 }

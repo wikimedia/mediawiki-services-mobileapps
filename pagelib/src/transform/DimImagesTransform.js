@@ -1,4 +1,4 @@
-import './DimImagesTransform.css'
+import './DimImagesTransform.less'
 const CLASS = 'pcs-dim-images'
 
 /**
