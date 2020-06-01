@@ -1,20 +1,22 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"YouvaDjouadi"
+		]
 	},
-	"article-read-more-title": "Ɣer ugar",
-	"table-title-other": "Ugar n telɣut",
-	"page-edit-history": "Amazray ummid n usnifel",
+	"article-read-more-title": "Ɣeṛ ugar",
+	"table-title-other": "Ugar n yisallen",
+	"page-edit-history": "Wali amazray ummid n usnifel",
 	"info-box-close-text": "Mdel",
-	"page-talk-page": "Wali asebter n usqerdec",
-	"info-box-title": "Axeddim s tewzel",
-	"view-in-browser-footer-link": "Sken amagrad deg iminig",
-	"page-location": "Wali ɣef tkarḍa",
-	"page-similar-titles": "Isebtar icuban",
-	"page-last-edited": "Yettwaẓreg $1 n wussan aya",
-	"article-about-title": "Ɣef umagrad-agi",
+	"page-talk-page": "Wali asebter n usqerdec d lehḍuṛ",
+	"info-box-title": "Ayen Yemmuggen s Tegzel",
+	"view-in-browser-footer-link": "Sken-d amagrad deg yiminig",
+	"page-location": "Sken-d ɣef tkarḍa",
+	"page-similar-titles": "Isebtar i yettemcabin",
+	"page-last-edited": "Yettwaẓṛeg {{PLURAL:$1|0=ass-a|1=iḍelli|$1 n wussan-aya}}",
+	"article-about-title": "Ɣef umagrad-a",
 	"page-issues": "Uguren n usebter",
 	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "Agbur yella ddaw $1 ḥaca ma abdar anemgal.",
-	"page-read-in-other-languages": "Yella deg $1 n tutlayin-nniḍen"
+	"license-footer-text": "Ma yella ur yettwaxtaṛ ara wayen-nniḍen, agbur atan ad yewjed akka $1.",
+	"page-read-in-other-languages": "Yella s {{PLURAL:$1|$1 n tutlayt-nniḍen|$1 n tutlayin-nniḍen}}"
 }
