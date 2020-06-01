@@ -1,4 +1,4 @@
-import './CollapseTable.css'
+import './CollapseTable.less'
 import ElementUtilities from './ElementUtilities'
 import NodeUtilities from './NodeUtilities'
 import Polyfill from './Polyfill'

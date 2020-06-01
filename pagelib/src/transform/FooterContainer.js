@@ -1,4 +1,4 @@
-import './FooterContainer.css'
+import './FooterContainer.less'
 
 /**
  * Returns a fragment containing structural footer html which may be inserted where needed.

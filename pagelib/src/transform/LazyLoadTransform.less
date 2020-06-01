@@ -32,6 +32,8 @@
     <img class='foo pcs-lazy-load-image-loaded' style='width: 100px; height: 200px' width=3
       height=4 src=/ srcset=/ alt=bar> */
 
+@import './Constants.less';
+
 /* LazyLoadTransform.PLACEHOLDER_CLASS. Present in all placeholder states. Image is not shown. */
 .pcs-lazy-load-placeholder {
   display: inline-block;
@@ -47,13 +49,13 @@
 
 /* LazyLoadTransform.PLACEHOLDER_PENDING_CLASS. Download pending, image is not shown. */
 .pcs-lazy-load-placeholder-pending {
-  background-color: #eaecf0;
+  background-color: @wmui-color-base80;
 }
 .pcs-theme-dark .pcs-lazy-load-placeholder-pending {
-  background-color: #72777d;
+  background-color: @wmui-color-base30;
 }
 .pcs-theme-black .pcs-lazy-load-placeholder-pending {
-  background-color: #43464a;
+  background-color: @wmui-color-sepia30;
 }
 
 /* LazyLoadTransform.PLACEHOLDER_LOADING_CLASS. Download started, image is not shown. */
@@ -69,13 +71,13 @@
 
 /* LazyLoadTransform.PLACEHOLDER_ERROR_CLASS. Download failure, image is not shown. */
 .pcs-lazy-load-placeholder-error {
-  background-color: #c8ccd1;
+  background-color: @wmui-color-base70;
 }
 .pcs-theme-dark .pcs-lazy-load-placeholder-error {
-  background-color: #54595d;
+  background-color: @wmui-color-base20;
 }
 .pcs-theme-black .pcs-lazy-load-placeholder-error {
-  background-color: #27292d;
+  background-color: @wmui-color-sepia10;
 }
 
 /* LazyLoadTransform.IMAGE-LOADING_CLASS. Download started, image is not shown. */
@@ -87,7 +89,7 @@
 .pcs-lazy-load-image-loaded {
   -webkit-animation: pcs-lazy-load-image-fade-in .3s ease-in;
   animation: pcs-lazy-load-image-fade-in .3s ease-in;
-  background-color: #fff;
+  background-color: @wmui-color-base100;
 }
 
 /* Many images, such as the Barack Obama infobox image, expect middle alignment.
@@ -104,19 +106,19 @@
 }
 
 @-webkit-keyframes pcs-lazy-load-placeholder-pulse {
-  0%, 100% { background-color: #eaecf0; } 50% { background-color: #c8ccd1; }
+  0%, 100% { background-color: @wmui-color-base80; } 50% { background-color: @wmui-color-base70; }
 }
 
 @keyframes pcs-lazy-load-placeholder-pulse {
-  0%, 100% { background-color: #eaecf0; } 50% { background-color: #c8ccd1; }
+  0%, 100% { background-color: @wmui-color-base80; } 50% { background-color: @wmui-color-base70; }
 }
 
 @-webkit-keyframes pcs-lazy-load-placeholder-pulse-dark {
-  0%, 100% { background-color: #72777d; } 50% { background-color: #a2a9b1; }
+  0%, 100% { background-color: @wmui-color-base30; } 50% { background-color: @wmui-color-base50; }
 }
 
 @keyframes pcs-lazy-load-placeholder-pulse-dark {
-  0%, 100% { background-color: #72777d; } 50% { background-color: #a2a9b1; }
+  0%, 100% { background-color: @wmui-color-base30; } 50% { background-color: @wmui-color-base50; }
 }
 
 @-webkit-keyframes pcs-lazy-load-image-fade-in {

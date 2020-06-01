@@ -1,4 +1,4 @@
-import './ThemeTransform.css'
+import './ThemeTransform.less'
 
 const CLASS_PREFIX = 'pcs-theme-'
 // Theme to CSS classes.

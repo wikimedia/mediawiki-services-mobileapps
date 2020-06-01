@@ -1,3 +1,5 @@
+@import './Constants.less';
+
 #pcs-footer-container-menu-items {
   width: 100%;
   border-collapse: collapse;
@@ -8,21 +10,21 @@
   padding: 13px 0 17px;
   background-size: 20px 20px;
   background-repeat: no-repeat;
-  background-color: white;
+  background-color: @wmui-color-base100;
   background-origin: content-box;
   position: relative;
 }
 
 .pcs-theme-dark .pcs-footer-menu-item {
-  background-color: #2e3136;
+  background-color: @wmui-color-sepia20;
 }
 
 .pcs-theme-sepia .pcs-footer-menu-item {
-  background-color: #f0e6d6;
+  background-color: @wmui-color-sepia80;
 }
 
 .pcs-theme-black .pcs-footer-menu-item {
-  background-color: #222;
+  background-color: @wmui-color-base10;
 }
 
 html[dir='ltr'] .pcs-footer-menu-item,
@@ -36,13 +38,13 @@ body[dir='rtl'] .pcs-footer-menu-item {
 }
 
 .pcs-footer-menu-item-title {
-  color: black;
+  color: @wmui-color-base0;
   min-height: 1.38em;
 }
 
 .pcs-theme-dark .pcs-footer-menu-item-title,
 .pcs-theme-black .pcs-footer-menu-item-title {
-  color: #f8f9fa;
+  color: @wmui-color-base90;
 }
 
 html[dir='ltr'] .pcs-footer-menu-item-title,
@@ -56,13 +58,13 @@ body[dir='rtl'] .pcs-footer-menu-item-title {
 }
 
 .pcs-footer-menu-item-subtitle {
-  color: #72777d;
+  color: @wmui-color-base30;
   font-size: 0.875em; /*14px @16px*/
   line-height: 1.1428571429; /*16px @14px*/
 }
 
 .pcs-theme-sepia .pcs-footer-menu-item-subtitle {
-  color: #7c776e;
+  color: @wmui-color-sepia50;
 }
 
 html[dir='ltr'] .pcs-footer-menu-item-subtitle,

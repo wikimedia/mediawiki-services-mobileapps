@@ -1,4 +1,4 @@
-import './EditTransform.css'
+import './EditTransform.less'
 import { ARIA } from './HTMLUtilities'
 
 const CLASS = {

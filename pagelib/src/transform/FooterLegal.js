@@ -1,4 +1,4 @@
-import './FooterLegal.css'
+import './FooterLegal.less'
 import HTMLUtil from '../transform/HTMLUtilities'
 
 /**
