@@ -145,11 +145,17 @@ components:
             - no-extract
             - mainpage
         title:
+          deprecated: true
           type: string
-          description: The page title
+          description: |
+            The page title.
+            Deprecated: Use `titles.normalized` instead.
         displaytitle:
+          deprecated: true
           type: string
-          description: The page title how it should be shown to the user
+          description: |
+            The page title how it should be shown to the user.
+            Deprecated: Use `titles.display` instead.
         namespace:
           type: object
           properties:
@@ -260,6 +266,7 @@ components:
       additionalProperties: false
 
     api_urls:
+      deprecated: true
       type: object
       properties:
         summary:

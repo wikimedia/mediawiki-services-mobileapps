@@ -159,7 +159,7 @@ components:
           description: the DB key (non-prefixed)
         normalized:
           type: string
-          description: the normalized title (https://www.mediawiki.org/wiki/API:Query#Title_normalization)
+          description: the normalized title (https://www.mediawiki.org/wiki/API:Query#Example_2:_Title_normalization)
         display:
           type: string
           description: the title as it should be displayed to the user
