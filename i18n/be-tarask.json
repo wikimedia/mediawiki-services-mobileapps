@@ -1,17 +1,30 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Renessaince"
+		]
 	},
+	"description-add-link-title": "Дадаць апісаньне назвы",
 	"article-read-more-title": "Даведацца болей",
 	"table-title-other": "Болей зьвестак",
 	"page-edit-history": "Уся гісторыя рэдагаваньняў",
 	"info-box-close-text": "Закрыць",
+	"page-talk-page-subtitle": "Абмеркаваць паляпшэньне гэтага артыкулу",
+	"page-talk-page": "Паказаць старонку абмеркаваньня",
 	"info-box-title": "Хуткія факты",
+	"view-in-browser-footer-link": "Паглядзець артыкул у броўзэры",
+	"page-location": "Паказаць на мапе",
 	"page-similar-titles": "Падобныя старонкі",
 	"page-last-edited": "{{PLURAL:$1|0=Рэдагаваны сёньня|1=Рэдагаваны ўчора|Рэдагаваны $1 дзён таму}}",
 	"article-about-title": "Пра гэты артыкул",
 	"page-issues": "Хібы старонкі",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Зьмест даступны на ўмовах $1, калі не пазначанае іншае.",
-	"page-read-in-other-languages": "Даступнае на {{PLURAL:$1|$1 іншай мове|$1 іншых мовах}}"
+	"page-read-in-other-languages": "Даступнае на {{PLURAL:$1|$1 іншай мове|$1 іншых мовах}}",
+	"article-edit-button": "Рэдагаваць сэкцыю",
+	"article-section-expand": "Разгарнуць разьдзел",
+	"article-section-collapse": "Згарнуць разьдзел",
+	"table-expand": "Разгарнуць табліцу",
+	"table-collapse": "Згарнуць табліцу",
+	"references-preview-header": "Прагляд крыніцаў"
 }
