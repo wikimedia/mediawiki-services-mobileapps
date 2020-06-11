@@ -1,4 +1,5 @@
 @import './Constants.less';
+@import './Themes.less';
 /*
 The styles referred to as 'baseline' in the comments below are critical because they ensure
 a theme colors are more universally applied even by elements colored via inline styles. These are
@@ -12,18 +13,11 @@ be found here: https://phabricator.wikimedia.org/T236137
 */
 
 /* baseline */
-.pcs-theme-dark {
-  color: @wmui-color-base90;
-  background: @wmui-color-sepia20;
-}
-.pcs-theme-sepia {
-  color: @wmui-color-base10;
-  background: @wmui-color-sepia90;
-}
-.pcs-theme-black {
-  color: @wmui-color-base90;
-  background: @wmui-color-base0;
-}
+
+.nonDefaultThemes({
+  color: var(--primary-text-color);
+  background: var(--paper-background);
+});
 
 .notheme {
   color: @wmui-color-base0;
@@ -34,176 +28,94 @@ a.notheme {
 }
 
 /* baseline anchor */
-.pcs-theme-dark a:not(.notheme),
-.pcs-theme-black a:not(.notheme) {
-  color: @wmui-color-accent70;
-}
-
-.pcs-theme-sepia a:not(.notheme) {
-  color: @wmui-color-accent50;
+a:not(.notheme) {
+  .nonDefaultThemes({
+    color: var(--link-color);
+  });
 }
 
 /* External link -- LTR */
-.mw-parser-output a.external,
-.pcs-theme-sepia .mw-parser-output a.external {
-  /* fill-color=#36c */
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z' fill='%2336c'/%3E%3Cpath d='M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z' fill='%2336c'/%3E%3C/svg%3E");
-}
-
-.pcs-theme-dark .mw-parser-output a.external,
-.pcs-theme-black .mw-parser-output a.external {
-  /* fill-color=#69f */
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z' fill='%2369f'/%3E%3Cpath d='M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z' fill='%2369f'/%3E%3C/svg%3E");
+.mw-parser-output a.external {
+  background-image: var(--external-link-icon);
 }
 
 /* External link -- RTL */
-body[dir='rtl'] .mw-parser-output a.external,
-body[dir='rtl'].pcs-theme-sepia .mw-parser-output a.external {
-  /* fill-color=#36c */
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3 12H1v5c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2h-5v2h5v14H3z' fill='%2336c'/%3E%3Cpath d='M1 9l3.3-3.3 5.7 5.7 1.4-1.4-5.7-5.7L9 1H1z' fill='%2336c'/%3E%3C/svg%3E");
-}
-
-body[dir='rtl'].pcs-theme-dark .mw-parser-output a.external,
-body[dir='rtl'].pcs-theme-black .mw-parser-output a.external {
-  /* fill-color=#69f */
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3 12H1v5c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2h-5v2h5v14H3z' fill='%2369f'/%3E%3Cpath d='M1 9l3.3-3.3 5.7 5.7 1.4-1.4-5.7-5.7L9 1H1z' fill='%2369f'/%3E%3C/svg%3E");
+body[dir='rtl'] .mw-parser-output a.external {
+  background-image: var(--rtl-external-link-icon);
 }
 
 /* baseline mid background */
-.pcs-theme-dark table:not(.notheme),
-.pcs-theme-dark td:not(.notheme),
-.pcs-theme-dark tr:not(.notheme),
-.pcs-theme-dark th:not(.notheme),
-.pcs-theme-dark li.gallerybox div.thumb,
-.pcs-theme-dark.content td:not(.notheme),
-.pcs-theme-dark.content th:not(.notheme) {
-  background: @wmui-color-sepia10;
-  color: @wmui-color-base90;
-  border-color: @wmui-color-sepia30
-}
-
-.pcs-theme-sepia table:not(.notheme),
-.pcs-theme-sepia td:not(.notheme),
-.pcs-theme-sepia tr:not(.notheme),
-.pcs-theme-sepia th:not(.notheme),
-.pcs-theme-sepia li.gallerybox div.thumb,
-.pcs-theme-sepia.content td:not(.notheme),
-.pcs-theme-sepia.content th:not(.notheme)  {
-  background: @wmui-color-sepia80;
-  color: @wmui-color-base10;
-  border-color: @wmui-color-sepia60;
-}
-
-.pcs-theme-black table:not(.notheme),
-.pcs-theme-black td:not(.notheme),
-.pcs-theme-black tr:not(.notheme),
-.pcs-theme-black th:not(.notheme),
-.pcs-theme-black li.gallerybox div.thumb,
-.pcs-theme-black.content td:not(.notheme),
-.pcs-theme-black.content th:not(.notheme) {
-  background: @wmui-color-base10;
-  color: @wmui-color-base90;
-  border-color: @wmui-color-sepia30;
+table:not(.notheme),
+td:not(.notheme),
+tr:not(.notheme),
+th:not(.notheme),
+// TODO - Should this line have the :not(.notheme) the other lines have?
+li.gallerybox div.thumb,
+.content td:not(.notheme),
+.content th:not(.notheme) {
+  .nonDefaultThemes({
+    background: var(--mid-background);
+    color: var(--primary-text-color);
+    border-color: var(--border-color);
+  });
 }
 
 /* baseline div, span, ul, li */
-.pcs-theme-dark div:not(.notheme),
-.pcs-theme-dark span:not(.notheme),
-.pcs-theme-dark ul:not(.notheme),
-.pcs-theme-dark ol:not(.notheme),
-.pcs-theme-dark li:not(.notheme) {
-  background-color: inherit;
-  color: @wmui-color-base90;
-  border-color: @wmui-color-sepia30;
-}
-.pcs-theme-sepia div:not(.notheme),
-.pcs-theme-sepia span:not(.notheme),
-.pcs-theme-sepia ul:not(.notheme),
-.pcs-theme-sepia ol:not(.notheme),
-.pcs-theme-sepia li:not(.notheme) {
-  background-color: inherit;
-  color: @wmui-color-base10;
-  border-color: @wmui-color-sepia60;
-}
-.pcs-theme-black div:not(.notheme),
-.pcs-theme-black span:not(.notheme),
-.pcs-theme-black ul:not(.notheme),
-.pcs-theme-black ol:not(.notheme),
-.pcs-theme-black li:not(.notheme) {
-  background-color: inherit;
-  color: @wmui-color-base90;
-  border-color: @wmui-color-sepia30;
+div:not(.notheme),
+span:not(.notheme),
+ul:not(.notheme),
+ol:not(.notheme),
+li:not(.notheme) {
+  .nonDefaultThemes({
+    background-color: inherit;
+    color: var(--primary-text-color);
+    border-color: var(--border-color);
+  });
 }
 
 /* quotebox and blockquote */
 /* en > Audioslave > 793042679 */
 /* es > Arte > 100819823 */
-.pcs-theme-dark blockquote:not(.notheme),
-.pcs-theme-dark div.quotebox :not(.notheme){
-  background: @wmui-color-sepia10;
-}
-.pcs-theme-sepia blockquote:not(.notheme),
-.pcs-theme-sepia div.quotebox :not(.notheme){
-  background: @wmui-color-sepia80;
-}
-.pcs-theme-black blockquote:not(.notheme),
-.pcs-theme-black div.quotebox :not(.notheme){
-  background: @wmui-color-base0;
+blockquote:not(.notheme),
+div.quotebox :not(.notheme) {
+  .nonDefaultThemes({
+    background: var(--card-background);
+  });
 }
 
 hr:not(.notheme) {
   border: none;
   height: 1px;
-  background-color: @wmui-color-base70;
-}
-
-.pcs-theme-dark hr:not(.notheme),
-.pcs-theme-black hr:not(.notheme) {
-  background-color: @wmui-color-sepia30;
-}
-
-.pcs-theme-sepia hr:not(.notheme) {
-  background-color: @wmui-color-sepia60;
+  background-color: var(--border-color);
 }
 
 /* figcaption color */
-.pcs-theme-default figcaption:not(.notheme) {
-  color: @wmui-color-base30;
-}
-.pcs-theme-dark figcaption:not(.notheme) {
-  color: @wmui-color-base70;
-}
-.pcs-theme-sepia figcaption:not(.notheme) {
-  color: @wmui-color-sepia40;
-}
-.pcs-theme-black figcaption:not(.notheme) {
-  color: @wmui-color-base70;
+figcaption:not(.notheme) {
+  color: var(--secondary-text-color);
 }
 
 /* caption background */
-.pcs-theme-dark caption:not(.notheme) {
-  background: @wmui-color-sepia30;
-}
-.pcs-theme-sepia caption:not(.notheme) {
-  background: @wmui-color-sepia60;
-}
-.pcs-theme-black caption:not(.notheme) {
-  background: @wmui-color-sepia20;
+caption:not(.notheme) {
+  .nonDefaultThemes({
+    background: var(--caption-background);
+  });
 }
 
 /* images */
 /* compatibility transform */
-.pcs-theme-dark.pcs-compatibility-filter img.mwe-math-fallback-image-inline,
-.pcs-theme-black.pcs-compatibility-filter img.mwe-math-fallback-image-inline {
-  background: @wmui-color-base70;
-  padding: 2px;
+img.mwe-math-fallback-image-inline {
+  .darkThemesOnly({
+    background: @wmui-color-base70;
+    padding: 2px;
+  }, true);
 }
 
 /* en > Quadratic equation > 793685454 */
-.pcs-theme-dark img.mwe-math-fallback-image-inline:not(.notheme),
-.pcs-theme-black img.mwe-math-fallback-image-inline:not(.notheme) {
-  -webkit-filter: invert(100%);
-  filter: invert(100%);
+img.mwe-math-fallback-image-inline:not(.notheme) {
+  .darkThemesOnly({
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+  });
 }
 
 .pcs-element-highlight {
@@ -216,28 +128,10 @@ hr:not(.notheme) {
 #pcs .hatnote,
 #pcs .rellink {
     padding: 5px 0;
-    color: @wmui-color-base30;
+    color: var(--secondary-text-color);
     font-size: .875em;
     background-color: initial;
     margin-bottom: 1px;
     overflow: hidden;
     font-style: italic;
-}
-
-#pcs.pcs-theme-sepia #pcs-edit-section-title-description,
-#pcs.pcs-theme-sepia div.dablink,
-#pcs.pcs-theme-sepia div.hatnote,
-#pcs.pcs-theme-sepia div.rellink {
-    color: @wmui-color-sepia40;
-}
-
-#pcs.pcs-theme-dark #pcs-edit-section-title-description,
-#pcs.pcs-theme-black #pcs-edit-section-title-description,
-#pcs.pcs-theme-black div.dablink,
-#pcs.pcs-theme-black div.hatnote,
-#pcs.pcs-theme-black div.rellink,
-#pcs.pcs-theme-dark div.dablink,
-#pcs.pcs-theme-dark div.hatnote,
-#pcs.pcs-theme-dark div.rellink {
-    color: @wmui-color-base70;
 }

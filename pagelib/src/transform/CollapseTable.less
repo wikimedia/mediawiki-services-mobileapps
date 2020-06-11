@@ -71,6 +71,7 @@
   - French Wikipedia uses infobox_v3: https://fr.wikipedia.org/api/rest_v1/page/mobile-html/France
 */
 
+@import './Themes.less';
 @import './Constants.less';
 
 .content table.infobox,
@@ -103,19 +104,11 @@ div.pcs-collapse-table-container {
   margin-top: 14px;
   margin-bottom: 14px;
   border-radius: 2px;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.18);
+  box-shadow: var(--box-shadow-collapse-table);
   clear: both;
-}
-
-.pcs-theme-sepia div.pcs-collapse-table-container {
-  box-shadow: none !important;
-  background-color: @wmui-color-sepia85 !important;
-}
-
-.pcs-theme-dark div.pcs-collapse-table-container,
-.pcs-theme-black div.pcs-collapse-table-container {
-  box-shadow: none !important;
-  background-color: @wmui-color-base10 !important;
+  .nonDefaultThemes({
+    background-color: var(--collapse-table-background) !important;
+  })
 }
 
 .pcs-collapse-table {
@@ -127,16 +120,7 @@ div.pcs-collapse-table-container {
 
 /* The outermost table container header's subcaption text. */
 .pcs-collapse-table-collapse-text {
-  color: @wmui-color-base30;
-}
-
-.pcs-theme-sepia span.pcs-collapse-table-collapse-text {
-  color: @wmui-color-sepia40;
-}
-
-.pcs-theme-dark span.pcs-collapse-table-collapse-text,
-.pcs-theme-black span.pcs-collapse-table-collapse-text {
-  color: @wmui-color-base70 !important;
+  color: var(--secondary-text-color);
 }
 
 /* Temporary fix to prevent right side of collapsed tables from extending
@@ -155,14 +139,17 @@ div.pcs-collapse-table-container {
   width: 100%;
   padding: 12px 48px 12px 12px;
   line-height: 120%;
-  background-color: @wmui-color-base90;
+  background-color: var(--mid-background);
   background-repeat: no-repeat;
   background-position: 95% 50%;
   background-size: 1em 1em;
-}
 
-/* The outermost table container's header. */
-.pcs-collapse-table-collapsed-container {
+  .nonDefaultThemes({
+    // For all non-default themes, we're forcing the mid-background.
+    // Otherwise, it tends to get the "inherit" value from the div:not(.notheme)
+    // rule in the ThemeTransform file.
+    background-color: var(--mid-background) !important;
+  })
 }
 
 /* The outermost table container's footer. */
@@ -178,21 +165,6 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-bottom {
   background-position-x: 5%;
 }
 
-.pcs-theme-dark div.pcs-collapse-table-collapsed-container,
-.pcs-theme-dark div.pcs-collapse-table-collapsed-bottom {
-  background-color: @wmui-color-sepia10 !important;
-}
-
-.pcs-theme-sepia div.pcs-collapse-table-collapsed-container,
-.pcs-theme-sepia div.pcs-collapse-table-collapsed-bottom {
-  background-color: @wmui-color-sepia80 !important;
-}
-
-.pcs-theme-black div.pcs-collapse-table-collapsed-container,
-.pcs-theme-black div.pcs-collapse-table-collapsed-bottom {
-  background-color: @wmui-color-base10 !important;
-}
-
 /* The outermost table container's expanded header. */
 .pcs-collapse-table-collapsed {
   border-radius: 2px 2px 0 0;
@@ -203,7 +175,7 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-bottom {
   border-radius: 2px;
 }
 
-/* Icon from https://design.wikimedia.org/style-guide/resources/WikimediaUI-icons-SVGs/collapse.svg
+/*
    pcs-collapse-icon is the preferred name going forward
    pcs-collapse-table-icon is kept for backwards-compatibility with already rendered pages
    with mobile-html 1.2.1 (2020-04)
@@ -211,25 +183,10 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-bottom {
 .pcs-collapse-icon,
 .pcs-section-control-hide /* temp */,
 .pcs-collapse-table-icon /* old */ {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z'/%3E%3C/svg%3E");
+  background-image: var(--collapse-icon);
 }
 
-.pcs-theme-sepia .pcs-collapse-icon,
-.pcs-theme-sepia .pcs-section-control-hide /* temp */,
-.pcs-theme-sepia .pcs-collapse-table-icon /* old */ {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z' fill='%23222'/%3E%3C/svg%3E");
-}
-
-.pcs-theme-dark .pcs-collapse-icon,
-.pcs-theme-dark .pcs-section-control-hide/* temp */,
-.pcs-theme-dark .pcs-collapse-table-icon /* old */,
-.pcs-theme-black .pcs-collapse-icon,
-.pcs-theme-black .pcs-section-control-hide /* temp */,
-.pcs-theme-black .pcs-collapse-table-icon /* old */ {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z' fill='%23fff'/%3E%3C/svg%3E");
-}
-
-/* Icon from https://design.wikimedia.org/style-guide/resources/WikimediaUI-icons-SVGs/expand.svg
+/*
    pcs-expand-icon is the preferred name going forward
    pcs-collapse-table-expanded is kept for backwards-compatibility with already rendered pages
    with mobile-html 1.2.1 (2020-04)
@@ -237,22 +194,7 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-bottom {
 .pcs-expand-icon,
 .pcs-section-control-show /* temp */,
 .pcs-collapse-table-expanded /* old */ {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z'/%3E%3C/svg%3E");
-}
-
-.pcs-theme-sepia .pcs-expand-icon,
-.pcs-theme-sepia .pcs-section-control-show /* temp */,
-.pcs-theme-sepia .pcs-collapse-table-expanded /* old */ {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z' fill='%23222'/%3E%3C/svg%3E");
-}
-
-.pcs-theme-dark .pcs-expand-icon,
-.pcs-theme-dark .pcs-section-control-show /* temp */,
-.pcs-theme-dark .pcs-collapse-table-expanded /* old */,
-.pcs-theme-black .pcs-expand-icon,
-.pcs-theme-black .pcs-section-control-show /* temp */,
-.pcs-theme-black .pcs-collapse-table-expanded /* old */ {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath  d='M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z' fill='%23fff'/%3E%3C/svg%3E");
+  background-image: var(--expand-icon);
 }
 
 /* Avoid infobox too narrow issue, see https://phabricator.wikimedia.org/T201381,

@@ -33,6 +33,7 @@
       height=4 src=/ srcset=/ alt=bar> */
 
 @import './Constants.less';
+@import './Themes.less';
 
 /* LazyLoadTransform.PLACEHOLDER_CLASS. Present in all placeholder states. Image is not shown. */
 .pcs-lazy-load-placeholder {
@@ -49,35 +50,23 @@
 
 /* LazyLoadTransform.PLACEHOLDER_PENDING_CLASS. Download pending, image is not shown. */
 .pcs-lazy-load-placeholder-pending {
-  background-color: @wmui-color-base80;
-}
-.pcs-theme-dark .pcs-lazy-load-placeholder-pending {
-  background-color: @wmui-color-base30;
-}
-.pcs-theme-black .pcs-lazy-load-placeholder-pending {
-  background-color: @wmui-color-sepia30;
+  background-color: var(--placeholder-background);
 }
 
 /* LazyLoadTransform.PLACEHOLDER_LOADING_CLASS. Download started, image is not shown. */
 .pcs-lazy-load-placeholder-loading {
   -webkit-animation: pcs-lazy-load-placeholder-pulse 1s infinite;
   animation: pcs-lazy-load-placeholder-pulse 1s infinite;
-}
-.pcs-theme-dark .pcs-lazy-load-placeholder-loading,
-.pcs-theme-black .pcs-lazy-load-placeholder-loading {
-  -webkit-animation: pcs-lazy-load-placeholder-pulse-dark 1s infinite;
-  animation: pcs-lazy-load-placeholder-pulse-dark 1s infinite;
+
+  .darkThemesOnly({
+    -webkit-animation: pcs-lazy-load-placeholder-pulse-dark 1s infinite;
+    animation: pcs-lazy-load-placeholder-pulse-dark 1s infinite;
+  })
 }
 
 /* LazyLoadTransform.PLACEHOLDER_ERROR_CLASS. Download failure, image is not shown. */
 .pcs-lazy-load-placeholder-error {
-  background-color: @wmui-color-base70;
-}
-.pcs-theme-dark .pcs-lazy-load-placeholder-error {
-  background-color: @wmui-color-base20;
-}
-.pcs-theme-black .pcs-lazy-load-placeholder-error {
-  background-color: @wmui-color-sepia10;
+  background-color: var(--placeholder-error-background);
 }
 
 /* LazyLoadTransform.IMAGE-LOADING_CLASS. Download started, image is not shown. */
