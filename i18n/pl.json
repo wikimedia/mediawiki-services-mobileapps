@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rail"
+			"Rail",
+			"WaldiSt"
 		]
 	},
 	"description-add-link-title": "Dodaj opis tytułu",
@@ -9,6 +10,7 @@
 	"table-title-other": "Więcej informacji",
 	"page-edit-history": "Zobacz historię edycji",
 	"info-box-close-text": "Zamknij",
+	"page-issues-subtitle": "Alerty dotyczące treści nieodpowiednich lub problematycznych",
 	"page-talk-page": "Zobacz stronę dyskusji",
 	"info-box-title": "Szybkie fakty",
 	"view-in-browser-footer-link": "Zobacz artykuł w przeglądarce",
@@ -20,5 +22,11 @@
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Treść udostępniana na licencji $1, jeśli nie podano inaczej.",
 	"page-read-in-other-languages": "Dostępne w {{PLURAL:$1|$1 innym języku|$1 innych językach}}",
+	"article-edit-button": "Dodaj sekcję",
+	"article-edit-protected-button": "Edytuj sekcję na chronionej stronie",
+	"article-section-expand": "Rozwiń sekcję",
+	"article-section-collapse": "Zwiń sekcję",
+	"table-expand": "Rozwiń tabele",
+	"table-collapse": "Zwiń tabelę",
 	"references-preview-header": "Podgląd przypisów"
 }
