@@ -6,7 +6,7 @@ This service is a facade the mobile apps can use to improve runtime performance 
 * performing DOM manipulations once on the server instead of on the clients,
 * avoiding downloading of DOM elements that are not displayed in the apps and therefore not needed,
 * taking advantage of caching via RESTBase, and
-* take advantage of streaming by being able to use WebView.loadUrl() instead of piping every page section by section over the JS bridge.
+* taking advantage of streaming by being able to use WebView.loadUrl() instead of piping every page section by section over the JS bridge.
 
 Furthermore this can also speed up development by
 * combining the DOM manipulation code for both apps into a single service,
