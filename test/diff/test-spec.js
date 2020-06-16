@@ -243,7 +243,8 @@ const TEST_SPECS = [
     new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'], { suffix: 'html' }),
     new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'], { suffix: 'html' }),
     new TestSpec('en.wikipedia.org', 'transform/html/to/mobile-html', ['Dog'], { suffix: 'html', method: 'POST', headers: { 'Content-Type': 'text/html' }, payloadFile: 'test/fixtures/Dog.html' }),
-    new TestSpec('zh.wikipedia.org', 'page/mobile-html', ['天囷增十五', '44944947'], { suffix: 'html' }),
+    // zh-TW is the first relevant language variant in this list of accepted languages
+    new TestSpec('zh.wikipedia.org', 'page/mobile-html', ['天囷增十五', '44944947'], { suffix: 'html', headers: { 'accept-language': 'en-US,en;q=0.9,zh-TW;q=0.8,zh;q=0.7' } }),
 
     new TestSpec('en.wikipedia.org', 'page/media-list', ['Hummingbird', '810247947']),
 
