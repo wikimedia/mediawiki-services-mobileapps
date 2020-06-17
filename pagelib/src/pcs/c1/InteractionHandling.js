@@ -238,6 +238,11 @@ const handleClickEvent = event => {
     return
   }
 
+  // "View article in browser" handled in `browserLinkClickHandler`. Need to ignore it here.
+  if (anchorForTarget.className === "pcs-footer-browser-link") {
+    return
+  }
+
   // Handle edit links.
   if (anchorForTarget.getAttribute('data-action') === 'edit_section') {
     const sectionId = anchorForTarget.getAttribute('data-id') || undefined
