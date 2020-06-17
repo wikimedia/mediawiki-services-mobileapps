@@ -35,6 +35,7 @@ import WidenImage from './WidenImage'
 import './OrderedList.less'
 import './Sections.less'
 import './References.less'
+import './Timeline.less'
 
 export default {
   AdjustTextSize,
