@@ -65,7 +65,6 @@ Next generation routes for page content. See [Page_Content_Service](https://www.
 * `http://localhost:8888/{domain}/v1/page/summary/{title}`
 * `http://localhost:8888/{domain}/v1/page/metadata/{title}`
 * `http://localhost:8888/{domain}/v1/page/media/{title}`
-* `http://localhost:8888/{domain}/v1/page/references/{title}`
 * `http://localhost:8888/{domain}/v1/page/mobile-html/{title}`
 * `http://localhost:8888/{domain}/v1/transform/html/to/mobile-html/{title}` (POST to this for edit preview)
 * `http://localhost:8888/{domain}/v1/page/mobile-html-offline-resources/{title}`

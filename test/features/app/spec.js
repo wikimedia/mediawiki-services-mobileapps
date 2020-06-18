@@ -314,11 +314,6 @@ describe('Swagger spec', function() {
             return assertValidSchema(uri, '#/components/schemas/media_list');
         });
 
-        it('references response should conform to schema', () => {
-            const uri = `${baseUri}page/references/List_of_highest-grossing_Indian_films`;
-            return assertValidSchema(uri, '#/components/schemas/references_response');
-        });
-
     });
 
     describe('validate spec examples', () => {

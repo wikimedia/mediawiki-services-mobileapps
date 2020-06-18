@@ -247,10 +247,6 @@ const TEST_SPECS = [
 
     new TestSpec('en.wikipedia.org', 'page/media-list', ['Hummingbird', '810247947']),
 
-    new TestSpec('www.mediawiki.org', 'page/references', ['Page_Content_Service/References/SimpleReference', '2640831']),
-    new TestSpec('www.mediawiki.org', 'page/references', ['Page_Content_Service/References/MultipleReflists', '2640615']),
-    new TestSpec('en.wikipedia.org', 'page/references', ['Neutronium', '857150438']),
-
     new TestSpec('en.wiktionary.org', 'page/definition', ['cat', '50657469']),
 
     new TestSpec('en.wikipedia.org', 'page/summary', ['Tokyo', '871928272']),
