@@ -6,9 +6,9 @@ paths:
       summary: Create HTML optimized for mobile consumption based on POSTed Parsoid HTML
       description: |
         Creates HTML optimized for mobile consumption for the given page based on the POSTed
-        Parsoid HTML in the request body. The result is intended for use as a preview of
-        potential changes to the page and should look similar to mobile-html but with no page header
-        (article title and description), no edit UI (edit pencils), and no collapsed sections.
+        Parsoid HTML in the request body. The result can be used as a preview of potential wikitext
+        changes if `output-mode` header is sent as `editPreview` - that removes page headers (article
+        title and description) and edit UI elements (edit pencils, etc.), and has no collapsed sections.
       parameters:
         - $ref: '#/components/parameters/domainParam'
         - $ref: '#/components/parameters/title'
@@ -17,6 +17,17 @@ paths:
           required: true
           schema:
             type: string
+        - name: output-mode
+          in: header
+          description: Output mode for mobile-html. Default is `editPreview`.
+          required: false
+          schema:
+            type: string
+            enum:
+              - editPreview
+              - contentAndReferences
+              - content
+              - references
       responses:
         200:
           $ref: '#/components/responses/success'
