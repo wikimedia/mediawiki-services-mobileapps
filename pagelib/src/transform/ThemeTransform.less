@@ -51,8 +51,11 @@ tr:not(.notheme),
 th:not(.notheme),
 // TODO - Should this line have the :not(.notheme) the other lines have?
 li.gallerybox div.thumb,
-.content td:not(.notheme),
-.content th:not(.notheme) {
+// These selectors are more specific versions of the more general selectors above
+// in order to properly overwrite the base theme selector '.content table.infobox td'.
+// With theme attached, these have the same specificity as the base theme (0, 2, 2).
+table td:not(.notheme),
+table th:not(.notheme) {
   .nonDefaultThemes({
     background: var(--mid-background);
     color: var(--primary-text-color);
