@@ -19,15 +19,18 @@ const CLASS = {
 
 /**
  * Does this have the proper fragment prefix?
- * @param {!string} href
- * @param {!string} fragmentPrefix fragment prefix to look for
- * @param {?string} pageTitle assumed to be encoded for links
+ * @param {!string} href of the anchor
+ * @param {!string} fragmentPrefix to look for. For example in './Dog#Cite-test',
+ * 'Cite-' is the prefix.
+ * @param {?string} pageTitle to check for before the fragment if it's not a relative fragment.
+ * It should be encoded for links. A relative fragment is a href without a path prefix. For example
+ * '#cite-test' will match no matter the title, but for './Dog/#cite-test' the title must be 'Dog'.
  * @return {!boolean}
  */
-const hasFragmentPrefix = (href, fragmentPrefix, pageTitle) => {
+const isForSamePageTitleAndHasFragmentPrefix = (href, fragmentPrefix, pageTitle) => {
   const decodedHref = decodeURIComponent(href)
   const decodedFragment = decodeURIComponent(fragmentPrefix)
-  if (pageTitle !== undefined) {
+  if (pageTitle !== undefined && href[0] !== '#') {
     const decodedPageTitle = decodeURIComponent(pageTitle)
     const relativePath = `./${decodedPageTitle}`
     return decodedHref.indexOf(relativePath) === 0 && href.indexOf(decodedFragment) === relativePath.length
@@ -42,7 +45,7 @@ const hasFragmentPrefix = (href, fragmentPrefix, pageTitle) => {
  * @param {!string} pageTitle - assumed to be encoded for links
  * @return {!boolean}
  */
-const isCitation = (href, pageTitle) => hasFragmentPrefix(href, CITE_FRAGMENT_PREFIX, pageTitle)
+const isCitation = (href, pageTitle) => isForSamePageTitleAndHasFragmentPrefix(href, CITE_FRAGMENT_PREFIX, pageTitle)
 
 /**
  * Is Back Link.
@@ -50,7 +53,7 @@ const isCitation = (href, pageTitle) => hasFragmentPrefix(href, CITE_FRAGMENT_PR
  * @param {!string} pageTitle - assumed to be encoded for links
  * @return {!boolean}
  */
-const isBackLink = (href, pageTitle) => hasFragmentPrefix(href, BACK_LINK_FRAGMENT_PREFIX, pageTitle)
+const isBackLink = (href, pageTitle) => isForSamePageTitleAndHasFragmentPrefix(href, BACK_LINK_FRAGMENT_PREFIX, pageTitle)
 
 
 /**
