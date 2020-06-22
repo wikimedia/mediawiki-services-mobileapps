@@ -88,22 +88,4 @@ describe('EditTransform', () => {
       assert.equal(element.firstChild.nodeName, 'H4')
     })
   })
-
-  describe('.newEditSectionHeader(0, 2, false)', () => {
-    let document
-    let element
-
-    beforeEach(() => {
-      document = fixtureIO.documentFromFixtureFile('EditTransform.html')
-      element = editTransform.newEditSectionHeader(document, 0, 2, 'Title', false)
-    })
-
-    it('creates h2 element', () => {
-      assert.equal(element.firstChild.nodeName, 'H2')
-    })
-    it('does not have edit container or pencil', () => {
-      assert.ok(!element.innerHTML.includes('pcs-edit-section-link'))
-      assert.ok(!element.innerHTML.includes('pcs-edit-section-link-container'))
-    })
-  })
 })
