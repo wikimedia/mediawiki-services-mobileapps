@@ -17,6 +17,7 @@ const imageThumbSpan = '<span typeof="mw:Image/Thumb"><img resource="./File:E" w
 const imageThumbFigureInline = '<figure-inline typeof="mw:Image/Thumb"><img resource="./File:F" width="100" height="100"/></figure-inline>';
 
 const mathImage = '<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/11235" class="mwe-math-fallback-image-inline">';
+const timelineImage = '<div typeof="mw:Extension/timeline mw:Transclusion"></map><img src="//upload.wikimedia.org/wikipedia/en/timeline/1234.png"></div>'; // has no width or height
 
 const videoFigure = '<figure typeof="mw:Video"><video resource="./File:G"/></figure>';
 const videoSpan = '<span typeof="mw:Video"><video resource="./File:H"/></span>';
@@ -43,7 +44,7 @@ const imageMetadata = '<span class="metadata"><figure typeof="mw:Image"><img res
 
 const falsePositive = '<figure typeof="mw:Image" class="noviewer"><img resource="./File:S"/></figure>';
 
-const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline, mathImage];
+const images = [imageFigure, imageSpan, imageFigureInline, imageThumbFigure, imageThumbSpan, imageThumbFigureInline, mathImage, timelineImage];
 const videos = [videoFigure, videoSpan, videoFigureInline, videoThumbFigure, videoThumbSpan, videoThumbFigureInline];
 const audios = [audioFigure, audioSpan, audioFigureInline,
     // TODO: remove after Parsoid change https://gerrit.wikimedia.org/r/c/mediawiki/services/parsoid/+/449903 is deployed
