@@ -12,7 +12,6 @@ import AdjustTextSize from './AdjustTextSize'
 import BodySpacingTransform from './BodySpacingTransform'
 import CollapseTable from './CollapseTable'
 import CollectionUtilities from './CollectionUtilities'
-import CompatibilityTransform from './CompatibilityTransform'
 import DimImagesTransform from './DimImagesTransform'
 import EditTransform from './EditTransform'
 import ElementGeometry from './ElementGeometry'
@@ -43,7 +42,6 @@ export default {
   // todo: rename CollapseTableTransform.
   CollapseTable,
   CollectionUtilities,
-  CompatibilityTransform,
   DimImagesTransform,
   EditTransform,
   HTMLUtilities,

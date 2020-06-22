@@ -55,10 +55,6 @@ describe('EditTransform', () => {
     it('has child nodes', () => {
       assert.ok(element.firstChild.firstChild)
     })
-    it('has edit container and pencil', () => {
-      assert.ok(element.innerHTML.includes('pcs-edit-section-link'))
-      assert.ok(element.innerHTML.includes('pcs-edit-section-link-container'))
-    })
     it('has desired title', () => {
       const text = element.firstChild.textContent
       assert.ok(text.includes('Title'))

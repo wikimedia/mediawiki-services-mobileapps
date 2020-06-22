@@ -25,7 +25,6 @@
   width: 0.8em;
   height: 0.8em;
   vertical-align: middle;
-
   .darkThemesOnly({
     -webkit-filter: invert(100%);
     filter: invert(100%);
@@ -51,11 +50,6 @@ html[dir="rtl"] #pcs-edit-section-title-pronunciation {
     -webkit-filter: invert(100%);
     filter: invert(100%);
   });
-
-  .darkThemesOnly({
-    -webkit-filter: none;
-    filter: none;
-  }, true);
 }
 
 section[data-mw-section-id="0"] .pcs-edit-section-link-container {
@@ -86,10 +80,6 @@ a.pcs-edit-section-link {
   background-size: 24px 24px;
   background-repeat: no-repeat;
   background-image: var(--edit-section-icon);
-
-  .darkThemesOnly({
-    background-image: var(--compat-filter-edit-section-icon)
-  }, true);
 }
 
 .pcs-edit-section-header.v2 a.pcs-edit-section-link {
@@ -98,10 +88,6 @@ a.pcs-edit-section-link {
 
 .page-protected a.pcs-edit-section-link {
   background-image: var(--edit-section-page-protected-icon);
-
-  .darkThemesOnly({
-    background-image: var(--compat-filter-edit-section-page-protected-icon)
-  }, true, true);
 }
 
 .pcs-platform-android a.pcs-edit-section-link:active {

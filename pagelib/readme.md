@@ -63,7 +63,6 @@ Directory names should be lowercase. Filenames should be singular.
 - Legacy-specific CSS fallback rules should appear in one of the following files:
   - If a related transform exists, directly above any default / non-compatibility rule or at least in the transform's CSS file.
   - Otherwise, if a default override rule exists, directly above it.
-  - Otherwise in CompatibilityTransform.css.
 
 ## Development setup and workflow
 
