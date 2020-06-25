@@ -45,7 +45,7 @@ const _getPageLastEditedString = (banana, editedDaysAgo) => {
 /**
  * Adds footer to the end of the document
  * @param {!Object.<any>} params parameters as follows
- *   {!string} title article title for related pages
+ *   {!string} title percent-encoded article title for related pages
  *   {!map} menu
  *       {!array<string>} items menu items to add
  *   {!map} readMore

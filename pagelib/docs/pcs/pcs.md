@@ -338,6 +338,7 @@ pcs.c1.Footer.add({
 })
 ```
 
+* `title` must be percent-encoded
 * `readMore.baseURL`:
   * for production use something like `'https://en.wikipedia.org/api/rest_v1'`
   * for a local RESTBase instance use something like `'http://localhost:7231/en.wikipedia.org/v1'`
