@@ -9,6 +9,9 @@ const router = sUtil.router();
  */
 router.get('/pagelib', (req, res) => js.fetchLegacyPageLibJs(res));
 router.get('/pcs', (req, res) => js.fetchPageLibJs(res));
+router.get('/components', (req, res) => js.fetchComponentLibJs(res));
+router.get('/webcomponents', (req, res) => js.fetchWebComponentLibJs(res));
+router.get('/vendor', (req, res) => js.fetchVendorLibJs(res));
 
 module.exports = function(appObj) {
     return {

@@ -5,6 +5,7 @@ const lib = require('../../lib/css');
 const fetchBaseCss = lib.fetchBaseCss;
 const fetchMobileSiteCss = lib.fetchMobileSiteCss;
 const fetchPageLibCss = lib.fetchPageLibCss;
+const fetchComponentsLibCss = lib.fetchComponentsLibCss;
 const fetchLegacyPageLibCss = lib.fetchLegacyPageLibCss;
 
 const router = sUtil.router();
@@ -25,6 +26,11 @@ router.get('/pagelib', (req, res) => fetchLegacyPageLibCss(res));
  * Gets the pcs CSS for mobile-html
  */
 router.get('/pcs', (req, res) => fetchPageLibCss(res));
+
+/**
+ * Gets the components CSS for mobile-html
+ */
+router.get('/components', (req, res) => fetchComponentsLibCss(res));
 
 /**
  * Gets the site-specific mobile styles defined in MediaWiki:Mobile.css

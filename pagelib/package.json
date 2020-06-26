@@ -73,7 +73,10 @@
     "terser-webpack-plugin": "2.3.5",
     "ts-node": "8.6.2",
     "typescript": "3.8.3",
+    "vue-loader": "^15.9.2",
+    "vue-template-compiler": "^2.6.11",
     "webpack": "4.42.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.10.3"
   },
@@ -97,6 +100,9 @@
     }
   ],
   "dependencies": {
+    "lit-element": "^2.3.1",
+    "vue": "^2.6.11",
+    "vue-custom-element": "^3.2.14",
     "wikimedia-ui-base": "^0.15.0"
   }
 }
