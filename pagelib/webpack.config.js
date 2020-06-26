@@ -173,15 +173,6 @@ module.exports = module.exports = [
     },
     optimization: {
       minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'wikimedia-page-library-vendor',
-            chunks: 'all'
-          }
-        }
-      }
     },
     plugins: [
       new webpack.DefinePlugin({

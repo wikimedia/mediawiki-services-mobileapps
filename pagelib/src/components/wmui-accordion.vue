@@ -55,10 +55,5 @@ export default {
     },
 };
 </script>
-<style lang="less">
-    @import '../transform/Constants.less';
-
-    h2 {
-        color: @wmui-color-accent50;
-    }
+<style scoped>
 </style>
