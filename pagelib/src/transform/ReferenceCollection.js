@@ -99,7 +99,8 @@ const collectRefText = (document, source) => {
   if (!refTextContainer) {
     return ''
   }
-  const refTextSpan = refTextContainer.querySelector('span.mw-reference-text')
+  // span.reference-text is for action=mobileview output
+  const refTextSpan = refTextContainer.querySelector('span.mw-reference-text,span.reference-text')
   if (!refTextSpan) {
     return ''
   }
