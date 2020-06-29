@@ -144,6 +144,8 @@ components:
             - disambiguation
             - no-extract
             - mainpage
+        titles:
+          $ref: '#/components/schemas/titles_set'
         title:
           deprecated: true
           type: string
@@ -170,8 +172,6 @@ components:
         wikibase_item:
           type: string
           description: the Wikibase item ID for the associated Wikidata entity (if any)
-        titles:
-          $ref: '#/components/schemas/titles_set'
         pageid:
           type: integer
           description: The page ID
@@ -232,6 +232,7 @@ components:
           required: [ 'lat', 'lon' ]
       required:
         - type
+        - titles
         - title
         - displaytitle
         - pageid
