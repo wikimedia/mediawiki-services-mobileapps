@@ -118,6 +118,8 @@ router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, 
         `${localApiUri}data/i18n/pcs`
     ];
 
+    // Enable caching since this endpoint is heavily requested
+    res.setHeader('cache-control', 's-maxage=1209600, max-age=0');
     res.send(offlineResources).end();
 });
 
