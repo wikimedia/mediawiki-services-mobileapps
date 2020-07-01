@@ -21,7 +21,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML-Offline-Resources/1.2.0"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Mobile-HTML-Offline-Resources/1.2.1"
               access-control-allow-origin: '*'
               access-control-allow-headers: accept, x-requested-with, content-type
               content-security-policy: default-src
