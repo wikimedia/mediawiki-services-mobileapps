@@ -1,19 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
+			"Hamilton Abreu",
 			"Mansil alfalb"
 		]
 	},
-	"description-add-link-title": "Adicionar descrição do título",
+	"description-add-link-title": "Adicionar título de descrição",
 	"article-read-more-title": "Ler mais",
 	"table-title-other": "Mais informação",
 	"page-edit-history": "Historial de edições completo",
 	"info-box-close-text": "Fechar",
-	"page-talk-page-subtitle": "Falar de melhoramentos para este artigo",
-	"page-issues-subtitle": "Alerta sobre o conteúdo problemático ou de qualidade baixa",
+	"page-talk-page-subtitle": "Debater melhoramentos a este artigo",
+	"page-issues-subtitle": "Alertas sobre conteúdos problemáticos ou de baixa qualidade",
 	"page-talk-page": "Ver página de discussão",
 	"info-box-title": "Factos rápidos",
-	"view-in-browser-footer-link": "Ver artigo no navegador",
+	"view-in-browser-footer-link": "Ver artigo no browser",
 	"page-location": "Ver num mapa",
 	"page-similar-titles": "Páginas semelhantes",
 	"page-last-edited": "{{PLURAL:$1|0=Editado hoje|1=Editado ontem|Editado há $1 dias}}",
@@ -23,10 +24,10 @@
 	"license-footer-text": "Conteúdo disponibilizado nos termos da $1, salvo indicação em contrário.",
 	"page-read-in-other-languages": "Disponível {{PLURAL:$1|noutra língua|em $1 outras línguas}}",
 	"article-edit-button": "Editar secção",
-	"article-edit-protected-button": "Editar secção na página protegida",
+	"article-edit-protected-button": "Editar secção de página protegida",
 	"article-section-expand": "Expandir secção",
-	"article-section-collapse": "Ocultar secção",
+	"article-section-collapse": "Recolher secção",
 	"table-expand": "Expandir tabela",
-	"table-collapse": "Ocultar tabela",
-	"references-preview-header": "Pré-visualização das referências"
+	"table-collapse": "Recolher tabela",
+	"references-preview-header": "Antevisão das referências"
 }
