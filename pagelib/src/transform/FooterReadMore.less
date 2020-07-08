@@ -25,6 +25,13 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+
+  .pcs-platform-android &{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
 }
 
 .pcs-footer-readmore-bookmark-filled {
