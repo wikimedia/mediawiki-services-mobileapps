@@ -43,7 +43,7 @@ describe('mobile-html-offline-resources', function() {
             assert.ok(Array.isArray(response));
             assert.deepEqual(response, expected);
             assert.ok('cache-control' in headers);
-            assert.deepEqual(headers['cache-control'], 's-maxage=1209600, max-age=0');
+            assert.deepEqual(headers['cache-control'], 's-maxage=1209600, max-age=86400');
         });
     });
 });
