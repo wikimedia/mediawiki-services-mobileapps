@@ -42,10 +42,11 @@ const _getPageLastEditedString = (banana, editedDaysAgo) => {
   }
 }
 
+const _getArticleTitleFromLocation = (location) => location.pathname.split('/page/mobile-html/')[1]
+
 /**
  * Adds footer to the end of the document
  * @param {!Object.<any>} params parameters as follows
- *   {!string} title percent-encoded article title for related pages
  *   {!map} menu
  *       {!array<string>} items menu items to add
  *   {!map} readMore
@@ -54,7 +55,7 @@ const _getPageLastEditedString = (banana, editedDaysAgo) => {
  * @return {void}
  */
 const add = params => {
-  const { title: articleTitle, menu: { items: menuItems, editedDaysAgo },
+  const { menu: { items: menuItems, editedDaysAgo },
     readMore: { itemCount: readMoreItemCount, baseURL: readMoreBaseURL } } = params
 
   // Add container
@@ -133,7 +134,7 @@ const add = params => {
       }
 
       FooterReadMore.fetchAndAdd(
-        articleTitle,
+        _getArticleTitleFromLocation(window.location),
         banana.i18n('article-read-more-title'),
         readMoreItemCount,
         'pcs-footer-container-readmore',

@@ -324,7 +324,6 @@ Example:
 pcs.c1.Footer.add({
   platform: 'ios',
   version: '2',
-  title: 'Cat',
   menu: {
     items: [pcs.c1.Footer.MenuItemType.lastEdited, pcs.c1.Footer.MenuItemType.pageIssues, pcs.c1.Footer.MenuItemType.disambiguation, pcs.c1.Footer.MenuItemType.talkPage],
     fragment: "pcs-menu",
@@ -338,7 +337,6 @@ pcs.c1.Footer.add({
 })
 ```
 
-* `title` must be percent-encoded
 * `readMore.baseURL`:
   * for production use something like `'https://en.wikipedia.org/api/rest_v1'`
   * for a local RESTBase instance use something like `'http://localhost:7231/en.wikipedia.org/v1'`
@@ -371,7 +369,7 @@ pcs.c1.InteractionHandling.setInteractionHandler((interaction) => { window.Inter
 
 Currently the following actions can be emitted:
 
-```json
+```javascript
 const Actions = {
   InitialSetup: 'setup',
   FinalSetup: 'final_setup',
@@ -427,7 +425,7 @@ Sent when a user taps a back link in a reference list. Provides a list of where 
 
 ###### scroll_to_anchor
 Sent when an anchor is ready to be scrolled to after the client calls `pcs.c1.Page.prepareForScrollToAnchor()`. Example:
-```json
+```javascript
 {
   "action": "scroll_to_anchor",
   "data": {
@@ -455,7 +453,7 @@ pcs.c1.InteractionHandling.getSelectionInfo()
 
 Should return something along the lines of:
 
-```json
+```javascript
 {
   text: "selected text here",
   section: "1", // section id or null if outside of a section
