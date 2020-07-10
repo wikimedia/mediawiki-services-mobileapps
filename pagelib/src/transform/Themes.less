@@ -16,14 +16,37 @@ To keep the CSS smaller and reduce clutter, this file does not contain all of th
 from the Swift file. Before creating a new customization, double-check the Swift file to
 make sure what you need is not in another base value that can be brought over.
 
+---
+
+"No Theme Portals" - Use of the class ".notheme" on any DOM element will cause the default
+theming to be reapplied to that element and all children of that element regardless of the
+current theme. Additionally, some CSS styling is applied only to elements NOT in a
+"No Theme Portal". To bypass the effects of a "No Theme Portal", styles can be applied
+using one of the "Universal" utilities below, which are not disabled in such portals.
+
+See the following for more dicussion about ".notheme" and "No Theme Portals":
+https://phabricator.wikimedia.org/T256277#6297683
+https://phabricator.wikimedia.org/T236137
+
 */
 
 // This mixin applies the given CSS rules to any theme other than the default theme
 // @rules - the CSS rules to apply for non-default themes
-.nonDefaultThemes(@rules) {
+.nonDefaultThemesUniversal(@rules) {
     .pcs-theme-sepia &,
     .pcs-theme-dark &,
     .pcs-theme-black & {
+        @rules();
+    }
+}
+
+// This mixin applies the given CSS rules to any theme other than the default theme
+// and only when not in a "no theme portal".
+// @rules - the CSS rules to apply for non-default themes
+.nonDefaultThemes(@rules) {
+    .pcs-theme-sepia :not(.notheme) &:not(.notheme),
+    .pcs-theme-dark :not(.notheme) &:not(.notheme),
+    .pcs-theme-black :not(.notheme) &:not(.notheme) {
         @rules();
     }
 }
@@ -33,7 +56,7 @@ make sure what you need is not in another base value that can be brought over.
 // @tight - Whether to treat the dark themes as if they are on the
 //          same element as their enclosing LESS selector, or whether
 //          to treat them as an ancestor of the enclosing LESS selector.
-.darkThemesOnly(@rules, @tight: false) {
+.darkThemesOnlyUniversal(@rules, @tight: false) {
     @spacer: e(if(@tight, '', ' '));
     .pcs-theme-dark@{spacer}&,
     .pcs-theme-black@{spacer}& {
@@ -41,7 +64,18 @@ make sure what you need is not in another base value that can be brought over.
     }
 }
 
-:root {
+// This mixin applies the given CSS rules to only dark themes and only
+// when not in a "no theme portal".
+// @rules - the CSS rules to apply for dark themes outside dark theme portals
+.darkThemesOnly(@rules) {
+    .pcs-theme-dark :not(.notheme) &:not(.notheme),
+    .pcs-theme-black :not(.notheme) &:not(.notheme) {
+        @rules();
+    }
+}
+
+:root,
+.notheme {
     // Base Values
     --mid-background: @wmui-color-base90;
     --paper-background: @wmui-color-base100;
@@ -162,7 +196,7 @@ make sure what you need is not in another base value that can be brought over.
 // we can put such CSS here, instead of in each theme. We don't have a similar
 // version for the light themes, because they can inherit from the default theme,
 // which is a light theme.
-.darkThemesOnly({
+.darkThemesOnlyUniversal({
     --external-link-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z' fill='%2369f'/%3E%3Cpath d='M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z' fill='%2369f'/%3E%3C/svg%3E");
     --rtl-external-link-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3 12H1v5c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2h-5v2h5v14H3z' fill='%2369f'/%3E%3Cpath d='M1 9l3.3-3.3 5.7 5.7 1.4-1.4-5.7-5.7L9 1H1z' fill='%2369f'/%3E%3C/svg%3E");
     --collapse-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z' fill='%23fff'/%3E%3C/svg%3E");

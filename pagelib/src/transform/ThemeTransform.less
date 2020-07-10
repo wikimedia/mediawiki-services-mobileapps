@@ -14,7 +14,7 @@ be found here: https://phabricator.wikimedia.org/T236137
 
 /* baseline */
 
-.nonDefaultThemes({
+.nonDefaultThemesUniversal({
   color: var(--primary-text-color);
   background: var(--paper-background);
 });
@@ -28,7 +28,7 @@ a.notheme {
 }
 
 /* baseline anchor */
-a:not(.notheme) {
+a {
   .nonDefaultThemes({
     color: var(--link-color);
   });
@@ -45,17 +45,11 @@ body[dir='rtl'] .mw-parser-output a.external {
 }
 
 /* baseline mid background */
-table:not(.notheme),
-td:not(.notheme),
-tr:not(.notheme),
-th:not(.notheme),
-// TODO - Should this line have the :not(.notheme) the other lines have?
-li.gallerybox div.thumb,
-// These selectors are more specific versions of the more general selectors above
-// in order to properly overwrite the base theme selector '.content table.infobox td'.
-// With theme attached, these have the same specificity as the base theme (0, 2, 2).
-table td:not(.notheme),
-table th:not(.notheme) {
+table,
+td,
+tr,
+th,
+li.gallerybox div.thumb {
   .nonDefaultThemes({
     background: var(--mid-background);
     color: var(--primary-text-color);
@@ -64,11 +58,11 @@ table th:not(.notheme) {
 }
 
 /* baseline div, span, ul, li */
-div:not(.notheme),
-span:not(.notheme),
-ul:not(.notheme),
-ol:not(.notheme),
-li:not(.notheme) {
+div,
+span,
+ul,
+ol,
+li {
   .nonDefaultThemes({
     background-color: inherit;
     color: var(--primary-text-color);
@@ -79,8 +73,8 @@ li:not(.notheme) {
 /* quotebox and blockquote */
 /* en > Audioslave > 793042679 */
 /* es > Arte > 100819823 */
-blockquote:not(.notheme),
-div.quotebox :not(.notheme) {
+blockquote,
+div.quotebox {
   .nonDefaultThemes({
     background: var(--card-background);
   });
@@ -98,7 +92,7 @@ figcaption:not(.notheme) {
 }
 
 /* caption background */
-caption:not(.notheme) {
+caption {
   .nonDefaultThemes({
     background: var(--caption-background);
   });
@@ -107,14 +101,14 @@ caption:not(.notheme) {
 /* images */
 /* compatibility transform */
 img.mwe-math-fallback-image-inline {
-  .darkThemesOnly({
+  .darkThemesOnlyUniversal({
     background: @wmui-color-base70;
     padding: 2px;
   }, true);
 }
 
 /* en > Quadratic equation > 793685454 */
-img.mwe-math-fallback-image-inline:not(.notheme) {
+img.mwe-math-fallback-image-inline {
   .darkThemesOnly({
     -webkit-filter: invert(100%);
     filter: invert(100%);
