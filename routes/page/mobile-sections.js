@@ -189,8 +189,8 @@ function handleFilePagePromise(req, res) {
         titles: req.params.title,
         prop: 'imageinfo',
         iiprop: 'url',
-        iiurlwidth: mwapi.LEAD_IMAGE_L,
-        iirurlheight: mwapi.LEAD_IMAGE_L * 0.75
+        iiurlwidth: mwapiConstants.LEAD_IMAGE_L,
+        iirurlheight: mwapiConstants.LEAD_IMAGE_L * 0.75
     })
     .then((resp) => {
         const body = resp.body;
