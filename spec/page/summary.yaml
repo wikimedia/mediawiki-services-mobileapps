@@ -81,12 +81,6 @@ paths:
                   revisions: /.+/
                   edit: /.+/
                   talk: /.+/
-              api_urls:
-                summary: /.+/
-                mobile_html: /.+/
-                media_list: /.+/
-                edit_html: /.+/
-                talk_page_html: /.+/
               extract: /.+/
               extract_html: /.+/
 
@@ -215,8 +209,6 @@ components:
               $ref: '#/components/schemas/content_urls'
             mobile:
               $ref: '#/components/schemas/content_urls'
-        api_urls:
-          $ref: '#/components/schemas/api_urls'
         coordinates:
           type: object
           description: The coordinates of the item
@@ -239,7 +231,6 @@ components:
         - revision
         - timestamp
         - content_urls
-        - api_urls
         - extract
         - extract_html
 
@@ -262,30 +253,4 @@ components:
         - page
         - revisions
         - edit
-      additionalProperties: false
-
-    api_urls:
-      deprecated: true
-      type: object
-      properties:
-        summary:
-          type: string
-          description: the REST API summary URL for the page
-        mobile_html:
-          type: string
-          description: the REST API page content URL optimized for mobile apps
-        media_list:
-          type: string
-          description: the REST API URL for a list of media included in the page
-        edit_html:
-          type: string
-          description: the REST API URL for the raw Parsoid HTML for the page
-        talk_page_html:
-          type: string
-          description: the REST API URL for the raw Parsoid HTML for the talk page for this page (if applicable)
-      required:
-        - summary
-        - mobile_html
-        - media_list
-        - edit_html
       additionalProperties: false

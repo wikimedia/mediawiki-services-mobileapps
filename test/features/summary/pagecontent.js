@@ -23,8 +23,6 @@ function assertHasAllRequiredProperties(body) {
         assert.ok(contentUrls.revisions);
         assert.ok(contentUrls.edit);
     });
-    assert.ok(body.api_urls.summary);
-    assert.ok(body.api_urls.edit_html);
 }
 
 describe('summary', function() {
