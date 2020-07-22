@@ -31,7 +31,7 @@ paths:
           response:
             status: 200
             headers:
-              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.2"
+              content-type: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.5.0"
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
@@ -83,10 +83,8 @@ paths:
                   talk: /.+/
               api_urls:
                 summary: /.+/
-              # mobile_html: /.+/
-                metadata: /.+/
-                references: /.+/
-                media: /.+/
+                mobile_html: /.+/
+                media_list: /.+/
                 edit_html: /.+/
                 talk_page_html: /.+/
               extract: /.+/
@@ -128,7 +126,7 @@ components:
           schema:
             type: string
       content:
-        'application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.4.2"':
+        'application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.5.0"':
           schema:
             $ref: '#/components/schemas/summary'
   schemas:
@@ -273,15 +271,12 @@ components:
         summary:
           type: string
           description: the REST API summary URL for the page
-        metadata:
+        mobile_html:
           type: string
-          description: the REST API URL for the page metadata (not yet active)
-        references:
+          description: the REST API page content URL optimized for mobile apps
+        media_list:
           type: string
-          description: the REST API URL for the references on the page (not yet active)
-        media:
-          type: string
-          description: the REST API URL for the media included in the page (not yet active)
+          description: the REST API URL for a list of media included in the page
         edit_html:
           type: string
           description: the REST API URL for the raw Parsoid HTML for the page
@@ -290,8 +285,7 @@ components:
           description: the REST API URL for the raw Parsoid HTML for the talk page for this page (if applicable)
       required:
         - summary
-        - metadata
-        - references
-        - media
+        - mobile_html
+        - media_list
         - edit_html
       additionalProperties: false
