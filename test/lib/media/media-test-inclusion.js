@@ -52,8 +52,8 @@ const audios = [audioFigure, audioSpan, audioFigureInline,
 const validItems = images.concat(videos).concat(audios);
 
 const noType = [noTypeFigure, noTypeSpan, noTypeFigureInline];
-const blacklisted = [imageNoViewer, imageMetadata];
-const invalidItems = noType.concat(blacklisted);
+const disallowed = [imageNoViewer, imageMetadata];
+const invalidItems = noType.concat(disallowed);
 
 describe('lib:media expected items are included or excluded', () => {
 

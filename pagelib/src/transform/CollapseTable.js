@@ -244,8 +244,8 @@ const toggleCollapseClickCallback = function(footerDivClickCallback) {
  * @return {!boolean} true if table should be collapsed, false otherwise.
  */
 const shouldTableBeCollapsed = table => {
-  const classBlacklist = ['navbox', 'vertical-navbox', 'navbox-inner', 'metadata', 'mbox-small']
-  const blacklistIntersects = classBlacklist.some(clazz => table.classList.contains(clazz))
+  const disallowedClasses = ['navbox', 'vertical-navbox', 'navbox-inner', 'metadata', 'mbox-small']
+  const doesContainDisallowedClass = disallowedClasses.some(clazz => table.classList.contains(clazz))
   let isHidden
   // Wrap in a try-catch block to avoid Domino crashing on a malformed style declaration.
   // T229521
@@ -255,7 +255,7 @@ const shouldTableBeCollapsed = table => {
     // If Domino fails to parse styles, err on the safe side and don't transform
     isHidden = true
   }
-  return !isHidden && !blacklistIntersects
+  return !isHidden && !doesContainDisallowedClass
 }
 
 /**

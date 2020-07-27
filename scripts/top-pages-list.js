@@ -10,7 +10,7 @@ const path = require('path');
 // A list of titles persistently in the top results per pageviews but that appear to have few
 // human viewers based on their traffic being almost all mobile or almost all non-mobile.
 // See https://phabricator.wikimedia.org/T124716#2080637.
-const BLACKLIST = [
+const DISALLOWED = [
     '-',
     'Test_card',
     'Web_scraping',
@@ -114,7 +114,7 @@ const getTopPageViews = () => {
         return rsp.body.items[0].articles.filter((article) => {
             const title = article.article;
             return (title.indexOf(SPECIAL) !== 0 && title.indexOf(SPECIAL2) !== 0
-                && !BLACKLIST.includes(title));
+                && !DISALLOWED.includes(title));
         }).map((article) => {
             return { title: article.article };
         });

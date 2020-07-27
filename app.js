@@ -73,14 +73,14 @@ function initApp(options) {
         }
     }
 
-    // set up header whitelisting for logging
-    if (!app.conf.log_header_whitelist) {
-        app.conf.log_header_whitelist = [
+    // set up header allowlist for logging
+    if (!app.conf.log_header_allowlist) {
+        app.conf.log_header_allowlist = [
             'cache-control', 'content-type', 'content-length', 'if-match',
             'user-agent', 'x-request-id'
         ];
     }
-    app.conf.log_header_whitelist = new RegExp(`^(?:${app.conf.log_header_whitelist.map((item) => {
+    app.conf.log_header_allowlist = new RegExp(`^(?:${app.conf.log_header_allowlist.map((item) => {
         return item.trim();
     }).join('|')})$`, 'i');
 
