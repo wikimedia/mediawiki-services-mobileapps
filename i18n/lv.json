@@ -1,7 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Papuass"
+		]
 	},
+	"description-add-link-title": "Pievienot raksta aprakstu",
 	"article-read-more-title": "Lasīt vairāk",
 	"table-title-other": "Vairāk informācijas",
 	"page-edit-history": "Pilna labojumu vēsture",
