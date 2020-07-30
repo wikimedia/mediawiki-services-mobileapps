@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"500000000006城",
-			"VulpesVulpes825"
+			"VulpesVulpes825",
+			"列维劳德"
 		]
 	},
-	"description-add-link-title": "添加标题描述",
+	"description-add-link-title": "添加文章描述",
 	"article-read-more-title": "阅读更多",
 	"table-title-other": "更多信息",
 	"page-edit-history": "完整编辑历史",

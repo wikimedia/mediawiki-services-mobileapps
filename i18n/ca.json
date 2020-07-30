@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"Mguix"
 		]
 	},
-	"description-add-link-title": "Afegeix una descripció del títol",
+	"description-add-link-title": "Afegeix una descripció de l'article",
 	"article-read-more-title": "Més informació",
 	"table-title-other": "Més informació",
 	"page-edit-history": "Mostra l'historial de modificacions",
