@@ -1,7 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Veeven"
+		]
 	},
+	"description-add-link-title": "వ్యాస వివరణ చేర్చు",
 	"article-read-more-title": "మరింత చదవండి",
 	"table-title-other": "మరింత సమాచారం",
 	"page-edit-history": "పూర్తి మార్పుల చరితం",

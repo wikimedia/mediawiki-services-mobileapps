@@ -10,6 +10,8 @@
 	"table-title-other": "Més informació",
 	"page-edit-history": "Mostra l'historial de modificacions",
 	"info-box-close-text": "Tanca",
+	"page-talk-page-subtitle": "Comenta les millores d’aquest article",
+	"page-issues-subtitle": "Avisa sobre contingut problemàtic o de baixa qualitat",
 	"page-talk-page": "Mostra la pàgina de discussió",
 	"info-box-title": "Dades ràpides",
 	"view-in-browser-footer-link": "Mostra l'article al navegador",
@@ -21,5 +23,11 @@
 	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "Contingut disponible sota $1 a menys que s'indiqui el contrari.",
 	"page-read-in-other-languages": "Disponible en {{PLURAL:$1|$1 altra llengua|$1 altres llengües}}",
+	"article-edit-button": "Editar la secció",
+	"article-edit-protected-button": "Edita la secció de la pàgina protegida",
+	"article-section-expand": "Amplia la secció",
+	"article-section-collapse": "Replega la secció",
+	"table-expand": "Ampliar la taula",
+	"table-collapse": "Replegar la taula",
 	"references-preview-header": "Previsualització de les referències"
 }
