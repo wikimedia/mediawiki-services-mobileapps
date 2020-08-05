@@ -109,6 +109,9 @@ describe('lib:MobileHTML', () => {
         assert(!constants.forbiddenElementIDRegex.test('notcoordinates'));
         assert(!constants.forbiddenElementIDRegex.test('COORDINATES'));
       });
+      it('detects style overriding classes', () => {
+        assert(constants.styleOverridingClasses.test('whitebg'));
+      });
       it('was worth it to write these regexes', () => {
         const doc = fixtures.readIntoDocument('United_States.html');
         const element = doc.getElementById('mwFA');
