@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nike"
+			"Nike",
+			"Pyscowicz"
 		]
 	},
-	"description-add-link-title": "Lisää otsikon kuvaus",
+	"description-add-link-title": "Lisää artikkelin kuvaus",
 	"article-read-more-title": "Lue lisää",
 	"table-title-other": "Lisätietoja",
 	"page-edit-history": "Täysi muokkaushistoria",

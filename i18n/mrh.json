@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Teitei Para"
+		]
+	},
+	"description-add-link-title": "Palâsapa châpaw khô teih",
+	"article-read-more-title": "A hluh viapa reih",
+	"table-title-other": "Chhichâna hluh viapa",
+	"page-edit-history": "Taopathina history palâ",
+	"info-box-close-text": "Khaw",
+	"page-talk-page-subtitle": "He châpaw kianathynazy pachia teih",
+	"page-issues-subtitle": "Subpar acv problematic a hlaopa thâtih pahnosanazy",
+	"page-talk-page": "Biepachiana châhmia palâ",
+	"info-box-title": "Thâtih chatleipa",
+	"view-in-browser-footer-link": "Browser liata châpaw moh teih",
+	"page-location": "Râh nohthlahpa sâkha liata moh teih",
+	"page-similar-titles": "A lyupa châhmiazy",
+	"page-last-edited": "{{PLURAL:$1|Zâhhnia ta patheih hawpa|Noh $1 nota patheihpa|0=Tanoh ta patheihpa}}",
+	"article-about-title": "He châpaw thâtih",
+	"page-issues": "Châhmia buanazy",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "A tlôhpa cha $1 ry liata â hmô.",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 Reihchâ hropa|$1 Reihchâ hropazy}} ta â hmo",
+	"article-edit-button": "Bo taopathi teih",
+	"article-edit-protected-button": "Vai hawpa châhmia liata bo kha taopathi teih",
+	"article-section-expand": "Bo pakawh teih",
+	"article-section-collapse": "Bo pabuah teih",
+	"table-expand": "Table taopathi teih",
+	"table-collapse": "Table pabuah teih",
+	"references-preview-header": "Patly pachhuahpazy mochhilina"
+}
