@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Sabelöga",
 			"WikiPhoenix"
 		]
 	},
-	"description-add-link-title": "Lägg till titelbeskrivning",
+	"description-add-link-title": "Lägg till artikelbeskrivning",
 	"article-read-more-title": "Läs mer",
 	"table-title-other": "Mer information",
 	"page-edit-history": "Visa redigeringshistorik",

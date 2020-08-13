@@ -20,5 +20,11 @@
 	"page-issues": "Sivun ongelmat",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Sisältö on käytettävissä $1 -lisenssin ehtojen mukaisesti ellei toisin mainita.",
-	"page-read-in-other-languages": "Saatavilla {{PLURAL:$1|$1 muulla kielellä|$1 muulla kielellä}}"
+	"page-read-in-other-languages": "Saatavilla {{PLURAL:$1|$1 muulla kielellä|$1 muulla kielellä}}",
+	"article-edit-button": "Muokkaa osiota",
+	"article-section-expand": "Laajenna osio",
+	"article-section-collapse": "Tiivistä osio",
+	"table-expand": "Laajenna taulukko",
+	"table-collapse": "Tiivistä taulukko",
+	"references-preview-header": "Viitteiden esikatselu"
 }

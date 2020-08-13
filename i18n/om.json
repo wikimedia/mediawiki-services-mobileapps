@@ -1,5 +1,23 @@
 {
-  "info-box-close-text" : "Cufi",
-  "article-read-more-title" : "Dabalata dubbisi",
-  "page-similar-titles" : "Fuula walfakkaatu"
+	"@metadata": {
+		"authors": [
+			"Oromoo"
+		]
+	},
+	"description-add-link-title": "Ibsa barruu dabali",
+	"article-read-more-title": "Dabalata dubbisi",
+	"table-title-other": "Odeeffannoo dabalataa",
+	"page-edit-history": "Seenaa gulaalaa ilaali",
+	"info-box-close-text": "Cufi",
+	"page-talk-page-subtitle": "Foyya'iinsa barruu kanaatif mari'adhu",
+	"page-talk-page": "Fuula haasaa ilaali",
+	"page-location": "Kaartaa gubbatti ilaali",
+	"page-similar-titles": "Fuula walfakkaatu",
+	"page-last-edited": "{{PLURAL:$1|Kalee haaroomfame|Guyyaa $1 dura haaromfame|0=Harra'a haaromfame}}",
+	"article-about-title": "Wa'ee barruu kanaa",
+	"page-read-in-other-languages": "{PLURAL:$1|Afaan biroo $1|afaanota biroo $1}}n jira",
+	"article-edit-button": "Kutaa gulaali",
+	"article-edit-protected-button": "Kutaa fuula eeggamu  irra jiru gulaali",
+	"article-section-expand": "Kutaa bal'isi",
+	"table-expand": "Gabatee bal'isi"
 }
