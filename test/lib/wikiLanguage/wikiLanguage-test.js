@@ -114,4 +114,41 @@ describe('lib:wikiLanguage', () => {
         assert.equal(wikiLanguage.getLanguageCode(''), undefined);
         assert.equal(wikiLanguage.getLanguageCode(undefined), undefined);
     });
+
+    it('returns the right language variant from request object', () => {
+        const req = {
+            headers: {
+                'accept-language': 'en-US,sr-Latn;q=0.8,zh-Hans-CN;q=0.9'
+            },
+            params: {
+                domain: 'zh.wikipedia.org'
+            }
+        };
+
+        assert.equal(wikiLanguage.relevantLanguageVariantOrCode(req), 'zh-cn');
+    });
+
+    it('falls back to language code when accept-language invalid', () => {
+        const req = {
+            headers: {
+                'accept-language': 'zh-Invalid-ok'
+            },
+            params: {
+                domain: 'zh.wikipedia.org'
+            }
+        };
+
+        assert.equal(wikiLanguage.relevantLanguageVariantOrCode(req), 'zh');
+    });
+
+    it('falls back to language code when no accept-language header sent', () => {
+        const req = {
+            headers: {},
+            params: {
+                domain: 'zh.wikipedia.org'
+            }
+        };
+
+        assert.equal(wikiLanguage.relevantLanguageVariantOrCode(req), 'zh');
+    });
 });
