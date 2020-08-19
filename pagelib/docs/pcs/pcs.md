@@ -468,3 +468,24 @@ Should return something along the lines of:
 ### Themes
 
 Content can be excluded from theming if editors add the "notheme" class to the elements that have an explicit background color or should otherwise be excluded from themeing. More information about this can be found here: https://phabricator.wikimedia.org/T236137.
+
+The overall problem is to allow editors and certain articles to bypass the styles of the themes for particular elements. There are now multiple layers of implementation for the solution to this challenge. They include:
+
+**1. Restoration of the Default Theme and "No Theme" Portals**
+
+Most of our theming is now implemented using CSS variables, whose values shift depending on the currently-applied theme. By adding the "notheme" class to any element, it now reapplies the default theme to that element (and to all child elements). The fact that this applies to not only the element containing the "notheme" class but also applies to all child elements is an important change from the previous behavior. It used to be the case that "notheme" had to be applied to every single element in a tree that needed custom styles. This led to some tricky code in the server transforms as well as some more cumbersome HTML.
+
+**2. Overridable vs "Universal" Theme Overrides**
+
+There were several places in the old styles that had formulations like "th:not(.notheme)" indicating that the style should only be applied in the absence of a "notheme" class applied to that element. The styles without this ":not(.notheme)" selector are considered "universal" as they are applied regardless of whether the user has applied the "notheme" class to an element. To achieve this same effect, we've added two new utilities "nonDefaultThemesUniversal" and "darkThemesOnlyUniversal" to pair with the existing "nonDefaultThemes" and "darkThemesOnly".
+
+"nonDefaultThemes" and "darkThemesOnly" behave like styles did when appended with ":not(.notheme)". Such styles are only applied in the absence of the "notheme" class and when an element is not a child of an element with the "notheme" class. "nonDefaultThemesUniversal" and "darkThemesOnlyUniversal" are applied regardless of whether the element contains the "notheme" class or whether its parent contains the "notheme" class.
+
+These utilities are used most extensively in the "ThemesTransform" file and should be avoided whenever possible. It's best to use CSS variables for theming as much as possible to avoid issues with CSS specificity.
+
+#### Suggestions for CSS changes going forward
+
+1. Eliminate the use of !important with respect to any style which an author might reasonably want to override. Many uses of !important in the existing stylesheets are in reference to position, margins, or sizes. These are more-or-less fine (although it's always better for you to not need any !important). But in any cases where !important is used because some other CSS rule in the base stylesheet or elsewhere is overwriting the mobileapps stylesheets, it's worth taking the time to refactor that rule and remove the !important.
+2. Apply styles to IDs, tags, or classes separately. Avoid creating styles that target a mix of those selectors. For example, the rule "#mainpage a.pcs-edit-section-link" hits all three types of selectors, which can make it difficult to overwrite and maintain. Instead, consider whether it's possible to use fewer selectors to achieve the same result or whether the styles can be layered with selectors that target each type separately.
+3. Try to keep specificity of selectors as low as possible (ideally 0,1,0). Consider adopting approaches such as BEM (http://getbem.com/introduction/) to reduce the specificity of CSS selectors. Where there are complex rules now (such as #pcs .dablink), consider a server-side transform that identifies these cases and adds a new class to the affected elements that can be targeted at lower specificity.
+4. Minimize the use of the overridable "nonDefaultThemes" and "darkThemesOnly" utilities. Each of these utilities takes a rule (such as .mwe-math-fallback-image-inline) and converts it into something longer (.pcs-theme-dark :not(.notheme) .mwe-math-fallback-image-inline:not(.notheme)". That takes something with specificity (0,1,0) and turns it into something with specificity (0,4,0). This significantly higher specificity will make it harder to layer your CSS in ways you expect.
