@@ -1,8 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Horus"
+		]
 	},
-	"description-add-link-title": "เพิ่มคำอธิบายชื่อเรื่อง",
+	"description-add-link-title": "เพิ่มคำอธิบายบทความ",
 	"article-read-more-title": "อ่านเพิ่มเติม",
 	"table-title-other": "ข้อมูลเพิ่มเติม",
 	"page-edit-history": "ประวัติการแก้ไขแบบเต็ม",
