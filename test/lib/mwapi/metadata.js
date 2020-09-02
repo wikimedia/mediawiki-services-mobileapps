@@ -16,7 +16,7 @@ const responseBuilder = (page, siteinfo, title, description) => {
 describe('lib:mwapi:queryForMetadata', () => {
     it('ensure that displaytitle is always requested', () => {
         const req = util.getMockedServiceReq({
-            params: { title: 'Homo sapiens', domain: 'en.wikipedia.org' },
+            params: { title: 'Β-lactam_antibiotic', domain: 'en.wikipedia.org' },
         });
         const query = {
             format: 'json',
@@ -29,8 +29,8 @@ describe('lib:mwapi:queryForMetadata', () => {
             titles: req.params.title,
         };
 
-        queryForMetadata(req, query, responseBuilder).then(metadata => {
-            assert.deepEqual(metadata.title.display, '<i>Homo sapiens</i>');
+        return queryForMetadata(req, query, responseBuilder).then(metadata => {
+            assert.deepEqual(metadata.title.display, 'β-lactam antibiotic');
         });
     });
 });
