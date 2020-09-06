@@ -1,3 +1,5 @@
+'use strict';
+
 const router = require('../../lib/util').router();
 const mUtil = require('../../lib/mobile-util');
 const parsoidApi = require('../../lib/parsoid-access');

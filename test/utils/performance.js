@@ -1,3 +1,5 @@
+'use strict';
+
 const P = require('bluebird');
 const assert = require('../utils/assert.js');
 const constants = require('../../lib/constants');

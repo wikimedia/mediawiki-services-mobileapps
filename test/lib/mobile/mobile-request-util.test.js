@@ -1,3 +1,5 @@
+'use strict';
+
 const assert = require('../../utils/assert');
 const MobileHTML = require('../../../lib/mobile/MobileHTML');
 const mRequestUtil = require('../../../lib/mobile/mobile-request-util');
