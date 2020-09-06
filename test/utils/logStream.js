@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 'use strict';
 
 const bunyan = require('bunyan');

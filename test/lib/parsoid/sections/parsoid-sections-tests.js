@@ -1,5 +1,3 @@
-/* eslint-disable prefer-template */
-
 'use strict';
 
 const assert = require('../../../utils/assert.js');

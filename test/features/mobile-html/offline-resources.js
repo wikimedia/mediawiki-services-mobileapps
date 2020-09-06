@@ -12,7 +12,7 @@ describe('mobile-html-offline-resources', function() {
 
     const metawikiApiUri = server.config.conf.services[0].conf.mobile_html_rest_api_base_uri
         .replace('{{host}}', 'localhost:8888')
-        .replace(new RegExp('(https|http)://'), '//');
+        .replace(/(https|http):\/\//, '//');
 
     const domain = 'en.wikipedia.org';
 
