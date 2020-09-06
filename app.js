@@ -235,8 +235,8 @@ function loadPreProcessingScripts(app, dir) {
         _validate(script);
         app.conf.processing_scripts[name] = script;
     })
-    .catch(e => app.logger.log('warn/loading', `Error loading processing scripts: ${e}`)))
-    .then(() => BBPromise.resolve(app));
+        .catch(e => app.logger.log('warn/loading', `Error loading processing scripts: ${e}`)))
+        .then(() => BBPromise.resolve(app));
 }
 
 /**
@@ -286,12 +286,12 @@ function createServer(app) {
 module.exports = (options) => {
 
     return initApp(options)
-    .then(app => loadRoutes(app, `${__dirname}/routes`))
-    .then(app => loadPreProcessingScripts(app, `${__dirname}/processing`))
-    .then((app) => {
+        .then(app => loadRoutes(app, `${__dirname}/routes`))
+        .then(app => loadPreProcessingScripts(app, `${__dirname}/processing`))
+        .then((app) => {
         // serve static files from static/
-        app.use('/static', express.static(`${__dirname}/static`));
-        return app;
-    }).then(createServer);
+            app.use('/static', express.static(`${__dirname}/static`));
+            return app;
+        }).then(createServer);
 
 };

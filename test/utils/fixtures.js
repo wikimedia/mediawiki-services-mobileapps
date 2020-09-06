@@ -35,7 +35,7 @@ const readProcessingScript = (fileName) => {
 };
 
 module.exports = {
-  readFileSync,
-  readIntoDocument,
-  readProcessingScript
+    readFileSync,
+    readIntoDocument,
+    readProcessingScript
 };

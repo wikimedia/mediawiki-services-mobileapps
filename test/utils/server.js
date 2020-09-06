@@ -56,20 +56,20 @@ function start(_options) {
             config = extend(true, {}, origConfig);
             extend(true, config.conf.services[myServiceIdx].conf, options);
             return runner.start(config.conf)
-            .then((serviceReturns) => {
-                module.exports.stop = () => {
-                    console.log('stopping test server');
-                    serviceReturns.forEach(servers =>
-                        servers.forEach(server =>
-                            server.shutdown()));
-                    return runner.stop().then(() => {
-                        module.exports.stop = () => {
-                            return BBPromise.resolve();
-                        };
-                    });
-                };
-                return true;
-            });
+                .then((serviceReturns) => {
+                    module.exports.stop = () => {
+                        console.log('stopping test server');
+                        serviceReturns.forEach(servers =>
+                            servers.forEach(server =>
+                                server.shutdown()));
+                        return runner.stop().then(() => {
+                            module.exports.stop = () => {
+                                return BBPromise.resolve();
+                            };
+                        });
+                    };
+                    return true;
+                });
         });
     } else {
         return BBPromise.resolve();

@@ -30,13 +30,13 @@ router.get('/metadata/:title/:revision?/:tid?', (req, res) => {
             const revTid = parsoid.getRevAndTidFromEtag(html.headers);
             return lib.buildMetadata(req, html, meta, siteinfo,
                 app.conf.processing_scripts.metadata)
-            .then((metadata) => {
-                res.status(200);
-                mUtil.setETag(res, revTid.revision, revTid.tid);
-                mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
-                mUtil.setLanguageHeaders(res, html.headers);
-                res.json(metadata);
-            });
+                .then((metadata) => {
+                    res.status(200);
+                    mUtil.setETag(res, revTid.revision, revTid.tid);
+                    mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
+                    mUtil.setLanguageHeaders(res, html.headers);
+                    res.json(metadata);
+                });
         });
 });
 

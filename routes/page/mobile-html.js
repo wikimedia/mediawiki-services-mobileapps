@@ -66,17 +66,17 @@ function getMobileHtmlFromMobileview(req, res) {
     const scripts = [];
     const baseURI = mUtil.getMetaWikiRESTBaseAPIURI(app, req);
     return mobileviewHtml.requestAndProcessPageIntoMobileHTML(req, scripts, baseURI)
-    .then((mobileHTML) => {
-        res.status(200);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
-        mUtil.setETag(res, mobileHTML.metadata.revision);
-        mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
-        mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-        res.send(mobileHTML.doc.outerHTML).end();
-        if (mobileHTML.processingTime) {
-            app.metrics.timing('page_mobile-html.mobileview_processing', mobileHTML.processingTime);
-        }
-    });
+        .then((mobileHTML) => {
+            res.status(200);
+            mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
+            mUtil.setETag(res, mobileHTML.metadata.revision);
+            mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
+            mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
+            res.send(mobileHTML.doc.outerHTML).end();
+            if (mobileHTML.processingTime) {
+                app.metrics.timing('page_mobile-html.mobileview_processing', mobileHTML.processingTime);
+            }
+        });
 }
 
 /**

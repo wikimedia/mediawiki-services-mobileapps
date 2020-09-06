@@ -27,8 +27,8 @@ router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
                         revision: revTid.revision,
                         tid: revTid.tid,
                         items: pageMediaList
+                    });
                 });
-            });
         });
     });
 });

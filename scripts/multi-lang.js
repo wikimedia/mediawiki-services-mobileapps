@@ -22,12 +22,12 @@ function isWikipediaLanguage(lang) {
 function processOneLanguage(script, lang) {
     const cmd = `${script} ${lang}`;
     return execSync(cmd, { stdio: [ 0, 1, 2 ] })
-    .then((rsp) => {
-        return BBPromise.resolve();
-    }).catch((err) => {
-        process.stderr.write(`ERROR processing language ${lang}: ${err}`);
-        return BBPromise.resolve();
-    });
+        .then((rsp) => {
+            return BBPromise.resolve();
+        }).catch((err) => {
+            process.stderr.write(`ERROR processing language ${lang}: ${err}`);
+            return BBPromise.resolve();
+        });
 }
 
 // MAIN

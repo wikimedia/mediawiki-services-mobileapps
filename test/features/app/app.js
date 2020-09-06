@@ -88,12 +88,12 @@ describe('express app', function() {
         const title = 'User:BSitzmann_%28WMF%29%2FMCS%2FTest%2Fredirect_test2';
         const normalizedTitle = 'User:BSitzmann (WMF)/MCS/Test/redirect test2';
         return preq.get(`${server.config.uri}test.wikipedia.org/v1/page/mobile-sections/${title}`)
-        .then((res) => {
-            assert.equal(res.status, 200);
-            assert.equal(res.body.lead.normalizedtitle, normalizedTitle);
-            assert.equal(res.body.lead.displaytitle, normalizedTitle);
-            assert.ok(res.body.lead.redirect === true);
-        });
+            .then((res) => {
+                assert.equal(res.status, 200);
+                assert.equal(res.body.lead.normalizedtitle, normalizedTitle);
+                assert.equal(res.body.lead.displaytitle, normalizedTitle);
+                assert.ok(res.body.lead.redirect === true);
+            });
     });
 
 });

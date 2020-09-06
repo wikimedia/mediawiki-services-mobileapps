@@ -112,9 +112,9 @@ describe('lib:transforms', () => {
         function test(input, expected) {
             const doc = domino.createDocument(input);
             return preprocessParsoidHtml(doc, [ script ])
-            .then((document) => {
-                assert.deepEqual(document.body.innerHTML, expected);
-            });
+                .then((document) => {
+                    assert.deepEqual(document.body.innerHTML, expected);
+                });
         }
         it('removes IPA speaker symbols (de): IPA in figure-inline', () => {
             test(

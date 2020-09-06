@@ -6,7 +6,7 @@ rules: {
     'comma-dangle': 'off',
     'comma-spacing': 'off',
     'computed-property-spacing': 'off',
-    'indent': 'off',
+    'indent': ['error', 4],
     'key-spacing': 'off',
     'max-statements-per-line': 'off',
     'no-multi-spaces': 'off',
@@ -22,7 +22,6 @@ rules: {
     'jsdoc/valid-types': 'off',
 
     'jsdoc/check-access': 'off',
-    'jsdoc/check-alignment': 'off',
     'jsdoc/check-param-names': 'off',
     'jsdoc/check-types': 'off',
     'jsdoc/require-param': 'off',

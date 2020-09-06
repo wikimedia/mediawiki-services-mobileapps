@@ -191,9 +191,9 @@ describe('lib:parsoid-sections (section elements)', function() {
 
         function test(html, expected) {
             return parsoidSections.createDocumentFromLeadSection(html)
-            .then((result) => {
-                assert.deepEqual(result.body.innerHTML, expected);
-            });
+                .then((result) => {
+                    assert.deepEqual(result.body.innerHTML, expected);
+                });
         }
 
         it('should just return the first section', () => {

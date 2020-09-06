@@ -17,25 +17,25 @@ let app;
 router.get('/talk/:title/:revision?/:tid?', (req, res) => {
     const lang = wikiLanguage.getLanguageCode(req.params.domain);
     return parsoidApi.getParsoidHtml(req)
-    .then(parsoidRsp => mUtil.createDocument(parsoidRsp.body)
-    .then(doc => TalkPage.promise(doc, lang)
-    .then(talkPage => {
-      res.status(200);
-      const revTid = parsoidApi.getRevAndTidFromEtag(parsoidRsp.headers);
-      // Store the processing time to read after the response is sent
-      const processingTime = talkPage.processingTime;
-      // Set the processing time to undefined on the talk page so that
-      // it's not included in the response
-      talkPage.processingTime = undefined;
-      const result = Object.assign({ revision: parseInt(revTid.revision) }, talkPage);
-      mUtil.setETag(res, revTid.revision, revTid.tid);
-      mUtil.setContentType(res, mUtil.CONTENT_TYPES.talk);
-      mUtil.setLanguageHeaders(res, parsoidRsp.headers);
-      res.json(result).end();
-      if (processingTime) {
-        app.metrics.timing('page_talk.processing', processingTime);
-      }
-    })));
+        .then(parsoidRsp => mUtil.createDocument(parsoidRsp.body)
+            .then(doc => TalkPage.promise(doc, lang)
+                .then(talkPage => {
+                    res.status(200);
+                    const revTid = parsoidApi.getRevAndTidFromEtag(parsoidRsp.headers);
+                    // Store the processing time to read after the response is sent
+                    const processingTime = talkPage.processingTime;
+                    // Set the processing time to undefined on the talk page so that
+                    // it's not included in the response
+                    talkPage.processingTime = undefined;
+                    const result = Object.assign({ revision: parseInt(revTid.revision) }, talkPage);
+                    mUtil.setETag(res, revTid.revision, revTid.tid);
+                    mUtil.setContentType(res, mUtil.CONTENT_TYPES.talk);
+                    mUtil.setLanguageHeaders(res, parsoidRsp.headers);
+                    res.json(result).end();
+                    if (processingTime) {
+                        app.metrics.timing('page_talk.processing', processingTime);
+                    }
+                })));
 });
 
 module.exports = function(appObj) {

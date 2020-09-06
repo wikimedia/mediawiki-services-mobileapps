@@ -56,7 +56,7 @@ describe('lib:mobile-util', () => {
         const html = fixtures.readFileSync('United_States.html');
         const docPromise = mUtil.createDocument(html);
         return perf.measure(docPromise, 1000).then(doc => {
-          assert.equal(doc.querySelector('section[data-mw-section-id="20"]').firstChild.outerHTML, '<h3 id="Health">Health</h3>');
+            assert.equal(doc.querySelector('section[data-mw-section-id="20"]').firstChild.outerHTML, '<h3 id="Health">Health</h3>');
         });
     });
 
