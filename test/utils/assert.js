@@ -96,7 +96,7 @@ function fails(promise, onRejected) {
  * @param {!number} expected
  * @param {!number} delta
  * @param {?string} message
-*/
+ */
 function closeTo(result, expected, delta, message) {
     assert.ok(_.isNumber(result) && Math.abs(result - expected) <= delta,
         message || `Result is ${result}; expected ${expected} ± ${delta}`);

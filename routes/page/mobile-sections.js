@@ -57,6 +57,7 @@ function buildLeadSections(sections) {
 
 /**
  * Build the lead for the requested page.
+ *
  * @param {!Object} input (needs to have a meta, page, and title property)
  * @return {!Object} lead json
  */
@@ -153,6 +154,7 @@ function mainPageFixPromise(req, response) {
 /**
  * Given a partial response for a user page, it will be hydrated
  * to contain information about the owner of the user page.
+ *
  * @param {!Request} req
  * @param {!Response} res
  * @return {!Promise}
@@ -177,6 +179,7 @@ function handleUserPagePromise(req, res) {
 /**
  * Given a partial response for a file page, it will be hydrated
  * to contain information about the image on the page.
+ *
  * @param {!Request} req
  * @param {!Response} res
  * @return {!Promise}
@@ -209,6 +212,7 @@ function isSubpage(title) {
 /**
  * Handles special cases such as main page and different
  * namespaces, preparing for output.
+ *
  * @param {!Request} req
  * @param {!Response} res
  * @return {!Promise}
@@ -228,6 +232,7 @@ function _handleNamespaceAndSpecialCases(req, res) {
 /**
  * Creates a raw object representing a page in preparation
  * for further massaging
+ *
  * @param {!Object} app the application object
  * @param {!Object} req the request object
  * @return {!BBPromise}
@@ -267,6 +272,7 @@ function buildAllResponse(app, req, res) {
 /**
  * Builds an object which gives structure to the lead of an article
  * providing access to metadata.
+ *
  * @param {!Object} app the application object
  * @param {!Object} req the request object
  * @return {!BBPromise}
@@ -279,6 +285,7 @@ function buildLeadObject(app, req) {
 
 /**
  * Responds with the lead content of a page in structured form.
+ *
  * @param {!Object} app the application object
  * @param {!Object} req the request object
  * @param {!Object} res the response object

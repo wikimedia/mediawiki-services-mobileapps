@@ -221,6 +221,7 @@ class TestSpec {
 
     /**
      * Prints the constructor for updating scripts
+     *
      * @return {string}
      */
     generator() {
