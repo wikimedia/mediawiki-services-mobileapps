@@ -29,8 +29,8 @@ function pageContentForMainPagePromise(req) {
         return BBPromise.each(page.sections, (section) => {
             const doc = domino.createDocument(section.text);
             return preprocessParsoidHtml(doc, app.conf.processing_scripts.mainpage)
-            .then((doc) => {
-                section.text = doc.body.innerHTML;
+            .then((document) => {
+                section.text = document.body.innerHTML;
             });
         }).then(() => page);
     });
@@ -233,14 +233,14 @@ function _handleNamespaceAndSpecialCases(req, res) {
  * Creates a raw object representing a page in preparation
  * for further massaging
  *
- * @param {!Object} app the application object
+ * @param {!Object} application the application object
  * @param {!Object} req the request object
  * @return {!BBPromise}
  */
-function _collectRawPageData(app, req) {
+function _collectRawPageData(application, req) {
     return mwapi.getSiteInfo(req)
     .then(si => BBPromise.props({
-        page: parsoid.pageJsonPromise(app, req),
+        page: parsoid.pageJsonPromise(application, req),
         meta: mwapi.getMetadataForMobileSections(req, mwapiConstants.LEAD_IMAGE_XL),
         title: mwapi.getTitleObj(req.params.title, si)
     })).then((interimState) => {
@@ -249,13 +249,13 @@ function _collectRawPageData(app, req) {
 }
 
 /**
- * @param {!Object} app the application object
+ * @param {!Object} application the application object
  * @param {!Object} req the request object
  * @param {!Object} res the response object
  * @return {!BBPromise}
  */
-function buildAllResponse(app, req, res) {
-    return _collectRawPageData(app, req).then((response) => {
+function buildAllResponse(application, req, res) {
+    return _collectRawPageData(application, req).then((response) => {
         response = buildAll(response);
         res.status(200);
         mUtil.setETag(res, response.lead.revision, response.lead.tid);
@@ -273,12 +273,12 @@ function buildAllResponse(app, req, res) {
  * Builds an object which gives structure to the lead of an article
  * providing access to metadata.
  *
- * @param {!Object} app the application object
+ * @param {!Object} application the application object
  * @param {!Object} req the request object
  * @return {!BBPromise}
  */
-function buildLeadObject(app, req) {
-    return _collectRawPageData(app, req).then((lead) => {
+function buildLeadObject(application, req) {
+    return _collectRawPageData(application, req).then((lead) => {
         return buildLead(lead);
     });
 }
@@ -286,13 +286,13 @@ function buildLeadObject(app, req) {
 /**
  * Responds with the lead content of a page in structured form.
  *
- * @param {!Object} app the application object
+ * @param {!Object} application the application object
  * @param {!Object} req the request object
  * @param {!Object} res the response object
  * @return {!BBPromise}
  */
-function buildLeadResponse(app, req, res) {
-    return buildLeadObject(app, req).then((response) => {
+function buildLeadResponse(application, req, res) {
+    return buildLeadObject(application, req).then((response) => {
         res.status(200);
         mUtil.setETag(res, response.revision, response.tid);
         mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileSections);

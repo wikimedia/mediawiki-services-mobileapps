@@ -103,8 +103,8 @@ const getETags = (myPages) => {
     return BBPromise.map(myPages, (page) => {
         return processOnePage(page);
     }, { concurrency: 1 })
-    .then((myPages) => {
-        writePages(myPages);
+    .then((pages) => {
+        writePages(pages);
     });
 };
 
