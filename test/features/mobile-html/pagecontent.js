@@ -44,9 +44,8 @@ describe('mobile-html', function() {
             const section0 = document.querySelector('section[data-mw-section-id=0]');
             // children[0] edit button
             // children[1] 1st hatnote
-            // TODO: it should actually come even later since there are two hatnotes
-            // associated with this revision. This is not a regression by this patch.
-            assert.ok(section0.children[2].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
+            // children[2] 2nd hatnote
+            assert.ok(section0.children[3].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
         });
     });
 
