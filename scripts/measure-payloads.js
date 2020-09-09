@@ -27,20 +27,20 @@ const processEndpoint = (endpointLabel, baseUri, page, measurement) => {
     const fileName = requestTitle;
     const cmd = `curl -s "${uri}" -o "${fileName}"`;
     return exec(cmd)
-    .then((rsp) => {
-        const stats = fs.statSync(fileName);
-        measurement.push(stats.size);
-        return exec(`${GZIP} "${fileName}"`);
-    })
-    .then((rsp) => {
-        const stats = fs.statSync(`${fileName}.gz`);
-        measurement.push(stats.size);
-        fs.unlinkSync(`${fileName}.gz`);
-        return BBPromise.resolve(measurement);
-    })
-    .catch((err) => {
-        process.stderr.write(`ERROR getting parsoid ${page.title}: ${err}`);
-    });
+        .then((rsp) => {
+            const stats = fs.statSync(fileName);
+            measurement.push(stats.size);
+            return exec(`${GZIP} "${fileName}"`);
+        })
+        .then((rsp) => {
+            const stats = fs.statSync(`${fileName}.gz`);
+            measurement.push(stats.size);
+            fs.unlinkSync(`${fileName}.gz`);
+            return BBPromise.resolve(measurement);
+        })
+        .catch((err) => {
+            process.stderr.write(`ERROR getting parsoid ${page.title}: ${err}`);
+        });
 };
 
 const processParsoid = (page, measurement) => {
@@ -63,18 +63,18 @@ const processAllPages = () => {
     BBPromise.map(pages, (page) => {
         const measurement = [ page.title ];
         return processParsoid(page, measurement)
-        .then(() => {
-            return processReadHtml(page, measurement);
-        })
-        .then(() => {
-            process.stdout.write('.');
-            measurements.push(measurement);
-            return measurement;
-        });
+            .then(() => {
+                return processReadHtml(page, measurement);
+            })
+            .then(() => {
+                process.stdout.write('.');
+                measurements.push(measurement);
+                return measurement;
+            });
     }, { concurrency: 1 })
-    .then(() => {
-        printResultSummary();
-    });
+        .then(() => {
+            printResultSummary();
+        });
 };
 
 // MAIN

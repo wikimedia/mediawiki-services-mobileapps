@@ -18,44 +18,44 @@ describe('mobile-html', function() {
     it('HTML should be sectioned', () => {
         const uri = localUri('Foobar/788941783');
         return preq.get({ uri })
-        .then((res) => {
-            const document = domino.createDocument(res.body);
-            assert.selectorExistsNTimes(document, 'section', 7, 'should have 7 sections');
-        });
+            .then((res) => {
+                const document = domino.createDocument(res.body);
+                assert.selectorExistsNTimes(document, 'section', 7, 'should have 7 sections');
+            });
     });
 
     it('mobile-html should have css links + viewport set', () => {
         const uri = localUri('Foobar/788941783');
         return preq.get({ uri })
-        .then((res) => {
-            const document = domino.createDocument(res.body);
-            assert.selectorExistsNTimes(document, 'html > head > link[rel=stylesheet]', 3,
-                'should have 3 css files');
-            assert.selectorExistsNTimes(document, 'html > head > meta[name=viewport]', 1,
-                'should have 1 meta element setting viewport');
-        });
+            .then((res) => {
+                const document = domino.createDocument(res.body);
+                assert.selectorExistsNTimes(document, 'html > head > link[rel=stylesheet]', 3,
+                    'should have 3 css files');
+                assert.selectorExistsNTimes(document, 'html > head > meta[name=viewport]', 1,
+                    'should have 1 meta element setting viewport');
+            });
     });
 
     it('mobile-html should have lead paragraph moved up', () => {
         const uri = localUri('Dog/844680047');
         return preq.get({ uri })
-        .then((res) => {
-            const document = domino.createDocument(res.body);
-            const section0 = document.querySelector('section[data-mw-section-id=0]');
-            // children[0] edit button
-            // children[1] 1st hatnote
-            // children[2] 2nd hatnote
-            assert.ok(section0.children[3].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
-        });
+            .then((res) => {
+                const document = domino.createDocument(res.body);
+                const section0 = document.querySelector('section[data-mw-section-id=0]');
+                // children[0] edit button
+                // children[1] 1st hatnote
+                // children[2] 2nd hatnote
+                assert.ok(section0.children[3].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
+            });
     });
 
     it('mobile-html should not have navboxes', () => {
         const uri = localUri('Cat');
         return preq.get({ uri })
-        .then((res) => {
-            const document = domino.createDocument(res.body);
-            assert.selectorDoesNotExist(document, 'div.navbox', 'Document contain navboxes');
-        });
+            .then((res) => {
+                const document = domino.createDocument(res.body);
+                assert.selectorDoesNotExist(document, 'div.navbox', 'Document contain navboxes');
+            });
     });
 
     it('mobile-html should have meta tags indicating page protection', () => {

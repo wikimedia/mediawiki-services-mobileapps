@@ -229,11 +229,11 @@ const compareExtracts = (oldExtract, newExtract, counter, domain, title, rev) =>
 
 const fetchExtract = (uri) => {
     return preq.get({ uri })
-    .then((response) => {
-        return BBPromise.delay(DELAY, getExtract(response));
-    }).catch((err) => {
-        return BBPromise.resolve(`!!! ${err} "${uri}" !!!`);
-    });
+        .then((response) => {
+            return BBPromise.delay(DELAY, getExtract(response));
+        }).catch((err) => {
+            return BBPromise.resolve(`!!! ${err} "${uri}" !!!`);
+        });
 };
 
 const fetchAndVerify = (page, counter) => {
@@ -243,16 +243,16 @@ const fetchAndVerify = (page, counter) => {
     process.stdout.write('.');
     let newExtract;
     return fetchExtract(uriForLocal(domain, title, rev))
-    .then((response) => {
-        newExtract = response;
-        if (OLD_PORT) {
-            return fetchExtract(uriForLocal(domain, title, rev, OLD_PORT));
-        } else {
-            return fetchExtract(uriForProd(domain, title));
-        }
-    }).then((oldExtract) => {
-        compareExtracts(oldExtract, newExtract, counter, domain, title, rev);
-    });
+        .then((response) => {
+            newExtract = response;
+            if (OLD_PORT) {
+                return fetchExtract(uriForLocal(domain, title, rev, OLD_PORT));
+            } else {
+                return fetchExtract(uriForProd(domain, title));
+            }
+        }).then((oldExtract) => {
+            compareExtracts(oldExtract, newExtract, counter, domain, title, rev);
+        });
 };
 
 const iteratePages = (pageList, defaultDomain, pageFunction) => {
@@ -269,12 +269,12 @@ const processOneList = (defaultDomain, pageList) => {
     iteratePages(pageList, defaultDomain, (page, counter) => {
         return fetchAndVerify(page, counter);
     })
-    .then(() => {
-        outputEnd(html);
-        outputEnd(plain);
-        outputEnd(other);
-        outputEndTxtFiles();
-    });
+        .then(() => {
+            outputEnd(html);
+            outputEnd(plain);
+            outputEnd(other);
+            outputEndTxtFiles();
+        });
 };
 
 const setupFiles = (type, lang) => {

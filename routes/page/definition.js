@@ -24,16 +24,16 @@ let app;
  */
 router.get('/definition/:title/:revision?/:tid?', (req, res) => {
     return getDefinitions(app, req)
-    .then((response) => {
-        res.status(200);
-        mUtil.setETag(res, response.meta.revision);
-        mUtil.setContentType(res, mUtil.CONTENT_TYPES.definition);
-        mUtil.setLanguageHeaders(res, response._headers);
-        // Don't poison the client response with the internal _headers object
-        delete response._headers;
+        .then((response) => {
+            res.status(200);
+            mUtil.setETag(res, response.meta.revision);
+            mUtil.setContentType(res, mUtil.CONTENT_TYPES.definition);
+            mUtil.setLanguageHeaders(res, response._headers);
+            // Don't poison the client response with the internal _headers object
+            delete response._headers;
 
-        res.json(response.payload).end();
-    });
+            res.json(response.payload).end();
+        });
 });
 
 module.exports = function(appObj) {

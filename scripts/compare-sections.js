@@ -95,23 +95,23 @@ const compareExtracts = (filePrefix, oldExtract, newExtract, counter, title, rev
 
 const fetchExtract = (uri) => {
     return preq.get({ uri })
-    .then((response) => {
-        return BBPromise.delay(DELAY, getExtractHtml(response));
-    }).catch((err) => {
-        return BBPromise.resolve(`!!! ${err} "${uri}" !!!`);
-    });
+        .then((response) => {
+            return BBPromise.delay(DELAY, getExtractHtml(response));
+        }).catch((err) => {
+            return BBPromise.resolve(`!!! ${err} "${uri}" !!!`);
+        });
 };
 
 const fetchAndVerify = (filePrefix, title, rev, counter, lang) => {
     process.stdout.write('.');
     let newExtract;
     return fetchExtract(uriForNewSections(title, rev, lang))
-    .then((response) => {
-        newExtract = response;
-        return fetchExtract(uriForOldMobileSections(title, rev, lang));
-    }).then((oldExtract) => {
-        compareExtracts(filePrefix, oldExtract, newExtract, counter, title, rev);
-    });
+        .then((response) => {
+            newExtract = response;
+            return fetchExtract(uriForOldMobileSections(title, rev, lang));
+        }).then((oldExtract) => {
+            compareExtracts(filePrefix, oldExtract, newExtract, counter, title, rev);
+        });
 };
 
 const processOneLanguage = (lang) => {

@@ -37,13 +37,13 @@ describe('mobile-html-offline-resources', function() {
         ];
 
         return preq.get({ uri })
-        .then((res) => {
-            const response = res.body;
-            const headers = res.headers;
-            assert.ok(Array.isArray(response));
-            assert.deepEqual(response, expected);
-            assert.ok('cache-control' in headers);
-            assert.deepEqual(headers['cache-control'], 's-maxage=1209600, max-age=86400');
-        });
+            .then((res) => {
+                const response = res.body;
+                const headers = res.headers;
+                assert.ok(Array.isArray(response));
+                assert.deepEqual(response, expected);
+                assert.ok('cache-control' in headers);
+                assert.deepEqual(headers['cache-control'], 's-maxage=1209600, max-age=86400');
+            });
     });
 });

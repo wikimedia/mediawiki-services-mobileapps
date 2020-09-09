@@ -47,8 +47,8 @@ class TestSpec {
      */
     project() {
         return this._domain
-                   .replace('.wikipedia.org', 'wiki')
-                   .replace('.wiktionary.org', 'wiktionary');
+            .replace('.wikipedia.org', 'wiki')
+            .replace('.wiktionary.org', 'wiktionary');
     }
 
     /**
@@ -126,8 +126,8 @@ class TestSpec {
     introduceFixedValuesForJSON(input) {
         input = JSON.parse(
             JSON.stringify(input)
-            .replace(/#mwt\d+/g, '#mwt_present')
-            .replace(/id=\\"mw[\w-]{2,3}\\"/g, 'id=\\"mw_id\\"')
+                .replace(/#mwt\d+/g, '#mwt_present')
+                .replace(/id=\\"mw[\w-]{2,3}\\"/g, 'id=\\"mw_id\\"')
         );
 
         if (input.lead) {

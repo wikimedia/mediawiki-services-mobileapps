@@ -119,8 +119,8 @@ function constructTests(paths, defParams) {
                     ex.title,
                     uri.toString({
                         params: Object.assign({},
-                        defParams,
-                        ex.request.params || {})
+                            defParams,
+                            ex.request.params || {})
                     }),
                     method,
                     ex.request,
@@ -250,12 +250,12 @@ describe('Swagger spec', function() {
 
     it('get the spec', () => {
         return preq.get(`${server.config.uri}?spec`)
-        .then((res) => {
-            assert.status(200);
-            assert.contentType(res, 'application/json');
-            assert.notDeepEqual(res.body, undefined, 'No body received!');
-            assert.deepEqual({ errors: [] }, validator.validate(res.body), 'Spec must have no validation errors');
-        });
+            .then((res) => {
+                assert.status(200);
+                assert.contentType(res, 'application/json');
+                assert.notDeepEqual(res.body, undefined, 'No body received!');
+                assert.deepEqual({ errors: [] }, validator.validate(res.body), 'Spec must have no validation errors');
+            });
     });
 
     it('spec validation', () => {
@@ -288,11 +288,11 @@ describe('Swagger spec', function() {
 
         const assertValidSchema = (uri, schemaPath) => {
             return preq.get({ uri })
-            .then((res) => {
-                if (!ajv.validate(schemaPath, res.body)) {
-                    throw new assert.AssertionError({ message: ajv.errorsText() });
-                }
-            });
+                .then((res) => {
+                    if (!ajv.validate(schemaPath, res.body)) {
+                        throw new assert.AssertionError({ message: ajv.errorsText() });
+                    }
+                });
         };
 
         Object.keys(spec.components.schemas).forEach((defName) => {
@@ -321,11 +321,11 @@ describe('Swagger spec', function() {
         constructTests(spec.paths, defParams).forEach((testCase) => {
             it(testCase.title, () => {
                 return preq(testCase.request)
-                .then((res) => {
-                    validateTestResponse(testCase, res);
-                }, (err) => {
-                    validateTestResponse(testCase, err);
-                });
+                    .then((res) => {
+                        validateTestResponse(testCase, res);
+                    }, (err) => {
+                        validateTestResponse(testCase, err);
+                    });
             });
         });
 

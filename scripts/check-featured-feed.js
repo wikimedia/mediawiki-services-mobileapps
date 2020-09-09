@@ -114,32 +114,32 @@ const getRssFeed = (projectLang, feature) => {
     const indices = [];
 
     return parseRssUrl(uri)
-    .then((response) => {
-        let languageCode;
-        // console.log(`${projectLang}: ${response.feed.title}`);
-        response.feed.entries.forEach((entry) => {
-            const index = underscore.indexOf(contentPool, entry.content);
-            // console.log(`${entry.title}: ${index}: ${entry.link}`);
-            if (index >= 0) {
-                indices.push(index);
+        .then((response) => {
+            let languageCode;
+            // console.log(`${projectLang}: ${response.feed.title}`);
+            response.feed.entries.forEach((entry) => {
+                const index = underscore.indexOf(contentPool, entry.content);
+                // console.log(`${entry.title}: ${index}: ${entry.link}`);
+                if (index >= 0) {
+                    indices.push(index);
+                } else {
+                    contentPool.push(entry.content);
+                    indices.push(contentPool.length - 1);
+                }
+                languageCode = entry.link.substr(entry.link.lastIndexOf('/') + 1);
+            });
+            // in a few instances the languageCode differs from the projectLang (Example: no/nb)
+            console.log(`${projectLang}/${languageCode}: ${indices}: ${uri}`);
+            candidates.push(projectLang);
+        })
+        .catch((err) => {
+            if (err.message === 'RSS 1.0 parsing not yet implemented.') {
+                errNotConfigured.push(projectLang);
             } else {
-                contentPool.push(entry.content);
-                indices.push(contentPool.length - 1);
+                console.log(`${projectLang}: ERROR: ${uri}: ${err}`);
+                errHttp.push(projectLang);
             }
-            languageCode = entry.link.substr(entry.link.lastIndexOf('/') + 1);
         });
-        // in a few instances the languageCode differs from the projectLang (Example: no/nb)
-        console.log(`${projectLang}/${languageCode}: ${indices}: ${uri}`);
-        candidates.push(projectLang);
-    })
-    .catch((err) => {
-        if (err.message === 'RSS 1.0 parsing not yet implemented.') {
-            errNotConfigured.push(projectLang);
-        } else {
-            console.log(`${projectLang}: ERROR: ${uri}: ${err}`);
-            errHttp.push(projectLang);
-        }
-    });
 };
 
 const printResultSummary = () => {
@@ -159,9 +159,9 @@ const processAllLanguages = (feature) => {
             return getRssFeed(projectLang, feature);
         }
     }, { concurrency: 1 })
-    .then(() => {
-        printResultSummary();
-    });
+        .then(() => {
+            printResultSummary();
+        });
 };
 
 // MAIN

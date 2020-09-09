@@ -122,19 +122,19 @@ describe('mobile-sections-lead', function() {
         const path = '//upload.wikimedia.org/wikipedia/commons/8/8d';
         const exp = `${path}/En-us-Yazidis_from_Iraq_pronunciation_%28Voice_of_America%29.ogg`;
         return preq.get({ uri })
-                   .then((res) => {
-                       const lead = res.body;
-                       assert.equal(res.status, 200);
-                       assert.equal(lead.pronunciation.url, exp);
-                   });
+            .then((res) => {
+                const lead = res.body;
+                assert.equal(res.status, 200);
+                assert.equal(lead.pronunciation.url, exp);
+            });
     });
     it("' in pronunciation file name does not cause parsing error)", () => {
         const title = '%D8%A2%D8%A6%DB%8C%D9%88%D8%B1%DB%8C_%DA%A9%D9%88%D8%B3%D9%B9';
         const uri = `${server.config.uri}ur.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
         return preq.get({ uri })
-                   .then((res) => {
-                       assert.equal(res.status, 200);
-                   });
+            .then((res) => {
+                assert.equal(res.status, 200);
+            });
     });
     it('Enwiki Lead_paragraph_move has the infobox moved after the lead paragraph', () => {
         const title = 'User:BSitzmann_%28WMF%29%2FMCS%2FTest%2FLead_paragraph_move';

@@ -31,21 +31,21 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
             const revTid = parsoid.getRevAndTidFromEtag(html.headers);
             return lib.buildSummary(req.params.domain, req.params.title,
                 html.body, revTid, meta, siteinfo, app.conf.processing_scripts.summary)
-            .then((summary) => {
-                res.status(summary.code);
-                if (summary.code === 200) {
-                    delete summary.code;
-                    // Don't pass revTid.tid - this response depends on more than
-                    // parsoid output. For example, if a wikidata description is edited,
-                    // this response will be regenerated, which should trigger a change
-                    // in the ETag
-                    mUtil.setETag(res, revTid.revision);
-                    mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
-                    mUtil.setLanguageHeaders(res, html.headers);
-                    res.send(summary);
-                }
-                res.end();
-            });
+                .then((summary) => {
+                    res.status(summary.code);
+                    if (summary.code === 200) {
+                        delete summary.code;
+                        // Don't pass revTid.tid - this response depends on more than
+                        // parsoid output. For example, if a wikidata description is edited,
+                        // this response will be regenerated, which should trigger a change
+                        // in the ETag
+                        mUtil.setETag(res, revTid.revision);
+                        mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
+                        mUtil.setLanguageHeaders(res, html.headers);
+                        res.send(summary);
+                    }
+                    res.end();
+                });
         });
 });
 

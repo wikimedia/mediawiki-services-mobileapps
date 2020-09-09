@@ -95,13 +95,13 @@ describe('summary', function() {
 
     function shouldReturnEmptyExtracts(uri) {
         return preq.get({ uri })
-        .then((res) => {
-            assert.deepEqual(res.status, 200);
-            assert.deepEqual(res.body.type, 'no-extract');
-            assert.deepEqual(res.body.extract, '', 'extract should be empty');
-            assert.deepEqual(res.body.extract_html, '', 'extract_html should be empty');
-            assertHasAllRequiredProperties(res.body);
-        });
+            .then((res) => {
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.type, 'no-extract');
+                assert.deepEqual(res.body.extract, '', 'extract should be empty');
+                assert.deepEqual(res.body.extract_html, '', 'extract_html should be empty');
+                assertHasAllRequiredProperties(res.body);
+            });
     }
 
     it('Empty extracts should be returned for a file page', () => {
@@ -119,12 +119,12 @@ describe('summary', function() {
     it('timestamp should refer to the requested revision, not the latest revision', () => {
         const uri = localUri('John_Candy/813020982');
         return preq.get({ uri })
-        .then((res) => {
-            assert.deepEqual(res.status, 200);
-            assert.deepEqual(res.body.type, 'standard');
-            assert.deepEqual(res.body.timestamp, '2017-12-01T07:29:24Z');
-            assertHasAllRequiredProperties(res.body);
-        });
+            .then((res) => {
+                assert.deepEqual(res.status, 200);
+                assert.deepEqual(res.body.type, 'standard');
+                assert.deepEqual(res.body.timestamp, '2017-12-01T07:29:24Z');
+                assertHasAllRequiredProperties(res.body);
+            });
     });
 
     it("404 for a page that doesn't exist", () => {
@@ -147,27 +147,27 @@ describe('summary', function() {
         const uri = localUri(encodeURIComponent('User:BSitzmann_(WMF)/MCS/Test/Description'),
             'test.wikipedia.org');
         return preq.get({ uri })
-        .then((res) => {
-            const summary = res.body;
-            assert.deepEqual(summary.description, 'funny description, haha');
-        });
+            .then((res) => {
+                const summary = res.body;
+                assert.deepEqual(summary.description, 'funny description, haha');
+            });
     });
 
     it('Summary URLs do not contain un-encoded special characters (T216739)', () => {
         const uri = localUri(encodeURIComponent('January–February_2019_North_American_cold_wave'));
         return preq.get({ uri })
-        .then((res) => {
-            const summary = res.body;
-            assert.notContains(JSON.stringify(summary), '—');
-        });
+            .then((res) => {
+                const summary = res.body;
+                assert.notContains(JSON.stringify(summary), '—');
+            });
     });
 
     it('Stray leading citation and template are stripped before parsing intro (T225474)', () => {
         const uri = localUri('Financial_statement/891354485');
         return preq.get(uri)
-        .then((res) => {
-            assert.ok(res.body.extract.length);
-            assert.ok(res.body.extract_html.length);
-        });
+            .then((res) => {
+                assert.ok(res.body.extract.length);
+                assert.ok(res.body.extract_html.length);
+            });
     });
 });

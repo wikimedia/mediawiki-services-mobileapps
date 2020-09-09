@@ -17,9 +17,9 @@ describe('lib:summary', () => {
 
         function test(inputString, expected, message) {
             return unit.buildExtracts(inputString, { ns: 0, contentmodel: 'wikitext' }, [ script ])
-            .then((result) => {
-                assert.deepEqual(result.extract_html, expected, message);
-            });
+                .then((result) => {
+                    assert.deepEqual(result.extract_html, expected, message);
+                });
         }
         it('Applies stripUnneededMarkup', () => {
             test('<section data-mw-section-id="0"><p><span><span id="coordinates"><a>Hello</a></span></span></p><p>2</p></section>',
