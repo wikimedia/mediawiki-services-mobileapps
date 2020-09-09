@@ -24,9 +24,9 @@ describe('diff', function() {
         return rsp.body;
     };
 
-    function buildRequestParams(buildUri, spec) {
+    function buildRequestParams(build, spec) {
         const requestParams = {
-            uri: buildUri(spec.uriPath()),
+            uri: build(spec.uriPath()),
             headers: spec.getHeaders()
         };
         if (spec.getPayloadFile()) {
@@ -35,10 +35,10 @@ describe('diff', function() {
         return requestParams;
     }
 
-    function writeExpectedResultsToFile(spec, rsp, formatOutput) {
+    function writeExpectedResultsToFile(spec, rsp, format) {
         // console.log(`mcs headers.etag: ${rsp.headers.etag}`);
         const processedResponse = spec.postProcessing(rsp);
-        fs.writeFileSync(spec.filePath(), formatOutput(processedResponse), 'utf8');
+        fs.writeFileSync(spec.filePath(), format(processedResponse), 'utf8');
     }
 
     function verifyResult(spec, rsp) {

@@ -35,7 +35,6 @@ const DELAY = 10; // delay between requests in ms
 const topPagesDir = path.join(__dirname, '../private/page-lists/top-pages/wikipedia');
 const outDir = path.join(__dirname, '../private/compare-sections');
 
-let lang;
 let topPages;
 
 let oldDirName;
@@ -126,10 +125,9 @@ const processOneLanguage = (lang) => {
 // MAIN
 const arg = process.argv[2];
 if (arg) {
-    lang = arg;
-    topPages = require(`${topPagesDir}/top-pages.${lang}.json`).items;
-    oldDirName = `${outDir}/v1/${lang}`;
-    newDirName = `${outDir}/v2/${lang}`;
+    topPages = require(`${topPagesDir}/top-pages.${arg}.json`).items;
+    oldDirName = `${outDir}/v1/${arg}`;
+    newDirName = `${outDir}/v2/${arg}`;
 
     mkdir.sync(oldDirName);
     mkdir.sync(newDirName);

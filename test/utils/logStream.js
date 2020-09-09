@@ -40,21 +40,21 @@ function logStream(logStdout) {
     function slice() {
 
         const begin = log.length;
-        let end   = null;
+        let endPos = null;
 
         function halt() {
-            if (end === null) {
-                end = log.length;
+            if (endPos === null) {
+                endPos = log.length;
             }
         }
 
-        function get() {
-            return log.slice(begin, end);
+        function getInner() {
+            return log.slice(begin, endPos);
         }
 
         return {
             halt: halt,
-            get: get
+            get: getInner
         };
 
     }

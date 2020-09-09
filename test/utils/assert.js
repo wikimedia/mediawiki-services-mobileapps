@@ -61,15 +61,15 @@ function notDeepEqual(result, expected, message) {
 
 }
 
-function property(object, property) {
-    const msg = `expected property="${property}"`;
+function property(object, prop) {
+    const msg = `expected property="${prop}"`;
     assert.ok(object, msg);
-    assert.ok({}.hasOwnProperty.call(object, property), msg);
+    assert.ok({}.hasOwnProperty.call(object, prop), msg);
 }
 
-function notProperty(object, property) {
-    assert.ok(!object || !{}.hasOwnProperty.call(object, property),
-        `unexpected property="${property}"`);
+function notProperty(object, prop) {
+    assert.ok(!object || !{}.hasOwnProperty.call(object, prop),
+        `unexpected property="${prop}"`);
 }
 
 function fails(promise, onRejected) {
