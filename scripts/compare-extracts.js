@@ -295,6 +295,7 @@ const setupFiles = (type, lang) => {
 const arg = process.argv[2];
 if (process.argv.length > 3) {
     process.stderr.write('Error: supply only 0 or 1 language parameter (e.g. en)!\n');
+    // eslint-disable-next-line no-process-exit
     process.exit(-1);
 }
 

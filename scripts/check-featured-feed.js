@@ -36,8 +36,6 @@ const errHttp = [];
 
 const cleanUpHtml = html => html.replace(/<!--[\s\S]*?-->/mg, '').replace(/\n/mg, '');
 
-/* eslint-disable no-console */
-
 const lookForBoldAnchor = (document, projectLang, html) => {
     const boldAnchor = document.querySelector('b > a, a > b');
     if (boldAnchor) {
@@ -218,5 +216,6 @@ if (feature) {
     processAllLanguages(feature);
 } else {
     console.error(`Error: need to specify one of ${Object.keys(featureMap)}!`);
+    // eslint-disable-next-line no-process-exit
     process.exit(-1);
 }

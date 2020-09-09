@@ -19,7 +19,7 @@ describe('lib:apiUtil', () => {
 
     it('checkForQueryPagesInResponse should return 504 when query.pages are absent', () => {
         return new Promise((resolve) => {
-            return resolve({});
+            resolve({});
         }).then((response) => {
             assert.throws(() => {
                 mwapi.checkForQueryPagesInResponse({ logger }, response);

@@ -135,5 +135,6 @@ if (arg) {
     processOneLanguage(arg);
 } else {
     process.stderr.write('Error: supply one language parameter (e.g. en)!\n');
+    // eslint-disable-next-line no-process-exit
     process.exit(-1);
 }

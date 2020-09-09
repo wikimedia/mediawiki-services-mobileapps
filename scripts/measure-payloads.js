@@ -81,6 +81,7 @@ const processAllPages = () => {
 const arg = process.argv[2];
 if (arg) {
     process.stderr.write('Error: unrecognized parameter!');
+    // eslint-disable-next-line no-process-exit
     process.exit(-1);
 } else {
     processAllPages();

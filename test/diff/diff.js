@@ -69,7 +69,6 @@ describe('diff', function() {
         }
 
         after(() => {
-            /* eslint-disable no-console */
             console.log('\nConsider updating test-spec.js file with:');
             for (const spec of testSpec.TEST_SPECS) {
                 console.log(spec.generator());
