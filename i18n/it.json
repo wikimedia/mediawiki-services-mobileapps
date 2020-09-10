@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
-			"S4b1nuz E.656"
+			"S4b1nuz E.656",
+			"Yacine Boussoufa"
 		]
 	},
 	"description-add-link-title": "Aggiungi una descrizione della voce",
@@ -10,6 +11,7 @@
 	"table-title-other": "Ulteriori informazioni",
 	"page-edit-history": "Vedi cronologia delle modifiche",
 	"info-box-close-text": "Chiudi",
+	"page-talk-page-subtitle": "Discuti per migliorare la voce",
 	"info-box-title": "Fatti in breve",
 	"view-in-browser-footer-link": "Vedi la voce nel browser",
 	"page-location": "Visualizza sulla mappa",
