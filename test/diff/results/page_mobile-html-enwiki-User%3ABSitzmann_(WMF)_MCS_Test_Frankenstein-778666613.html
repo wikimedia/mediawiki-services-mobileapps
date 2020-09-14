@@ -443,7 +443,7 @@
       </p>
 
       <p>Multiple images:</p>
-      <style data-mw-deduplicate="TemplateStyles:r923042769/mw-parser-output/.tmulti" typeof="mw:Extension/templatestyles mw:Transclusion">
+      <style data-mw-deduplicate="TemplateStyles:r978413945/mw-parser-output/.tmulti" typeof="mw:Extension/templatestyles mw:Transclusion">
         .mw-parser-output .tmulti .thumbinner {
           display: flex;
           flex-direction: column
@@ -473,12 +473,6 @@
         }
 
         .mw-parser-output .tmulti .thumbcaption {
-          text-align: left;
-          background-color: transparent
-        }
-
-        .mw-parser-output .tmulti .thumbcaption-center {
-          text-align: center;
           background-color: transparent
         }
 
@@ -513,7 +507,11 @@
             text-align: center
           }
 
-          .mw-parser-output .tmulti .thumbcaption {
+          .mw-parser-output .tmulti .tsingle .thumbcaption {
+            text-align: left
+          }
+
+          .mw-parser-output .tmulti .trow>.thumbcaption {
             text-align: center
           }
         }
@@ -536,7 +534,7 @@
             </div>
           </div>
           <div class="trow" style="display:flex">
-            <div class="thumbcaption" style="background-color:transparent">Two cards used by football referees</div>
+            <div class="thumbcaption">Two cards used by football referees</div>
           </div>
         </div>
       </div>
