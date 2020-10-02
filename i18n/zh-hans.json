@@ -3,7 +3,8 @@
 		"authors": [
 			"500000000006城",
 			"VulpesVulpes825",
-			"列维劳德"
+			"列维劳德",
+			"铁桶"
 		]
 	},
 	"description-add-link-title": "添加文章描述",
@@ -22,7 +23,7 @@
 	"article-about-title": "关于此条目",
 	"page-issues": "页面问题",
 	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "除非另有说明，内容基于$1授权。",
+	"license-footer-text": "内容除另有注明外，均在$1协议下提供。",
 	"page-read-in-other-languages": "在$1种其他语言中可用",
 	"article-edit-button": "编辑章节",
 	"article-edit-protected-button": "编辑在保护页面的章节",
