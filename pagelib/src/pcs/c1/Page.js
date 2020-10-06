@@ -59,6 +59,9 @@ const setup = (optionalSettings, onSuccess) => {
   if (settings.theme !== undefined) {
     ThemeTransform.setTheme(document, ThemeTransform.CLASS_PREFIX + settings.theme)
   }
+  if (settings.bodyFont !== undefined) {
+    ThemeTransform.setBodyFont(document, settings.bodyFont)
+  }
   if (settings.dimImages !== undefined) {
     DimImagesTransform.dimImages(document, settings.dimImages)
   }
@@ -413,6 +416,7 @@ const onBodyStart = () => {
       userGroups: document.pcsSetupSettings.userGroups,
       theme: document.pcsSetupSettings.theme,
       platform: document.pcsSetupSettings.platform,
+      bodyFont: document.pcsSetupSettings.bodyFont,
       loadImages: false,
       setupTableEventHandling: false
     }

@@ -79,6 +79,7 @@ Setting parameter object fields:
 - version: integer pcs version
 - loadImages: will images be loaded (defaults to true if omitted)
 - theme: possible values are 'default', 'sepia', 'dark', and 'black'
+- bodyFont: font family applied to the document body object, e.g. 'serif', 'sans-serif', etc.
 - dimImages: boolean
 - margins: object with { top, right, bottom, left }
 - maxWidth: string to set for the max-width of the content. Use 'auto' for left and right margins to center the content when setting a max width
@@ -95,6 +96,7 @@ pcs.c1.Page.setup({
   platform: 'ios',
   version: 2,
   theme: 'sepia',
+  bodyFont: 'sans-serif',
   dimImages: true,
   maxWidth: '100ex',
   margins: { top: '2em', right: 'auto', bottom: '0', left: 'auto' },

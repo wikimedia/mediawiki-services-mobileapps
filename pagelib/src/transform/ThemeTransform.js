@@ -48,8 +48,20 @@ const setTheme = (document, theme) => {
   setThemeOnElement(pcs, theme)
 }
 
+/**
+ * Set a custom font-family onto the document body. For example, setting a font-family
+ * of "serif" will use the default serif font on the current platform.
+ * @param {!Document} document
+ * @param {!string} font
+ * @return {void}
+ */
+const setBodyFont = (document, font) => {
+  document.body.style.fontFamily = font
+}
+
 export default {
   THEME,
   CLASS_PREFIX,
-  setTheme
+  setTheme,
+  setBodyFont
 }
