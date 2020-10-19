@@ -11,6 +11,18 @@ const mUtil = require('../../lib/mobile-util');
  */
 const router = sUtil.router();
 
+const ENWIKI_REGEX = /^en\.wikipedia(?:\.beta\.wmflabs)?\.org$/;
+
+/**
+ * Check whether domain is english wikipedia.
+ *
+ * @param {string} domain
+ * @return {boolean}
+ */
+function isEnWiki(domain) {
+    return ENWIKI_REGEX.test(domain);
+}
+
 /**
  * The main application object reported when this module is require()d
  */
@@ -34,17 +46,6 @@ router.get('/description/:title', (req, res) => {
  * PUT {domain}/v1/page/description/{title}
  */
 router.put('/description/:title', (req, res) => {
-    if (req.params.domain === 'en.wikipedia.org') {
-        // Enwiki uses local short descriptions only,
-        // setting those requires adding a ShortDescription
-        // template on the page. It's not supported yet.
-        throw new HTTPError({
-            status: 501,
-            type: 'unsupported_project',
-            title: 'Unsupported project',
-            detail: 'Setting page description is not supported for English Wikipedia.'
-        });
-    }
     if (!req.body.description) {
         throw new HTTPError({
             status: 400,
@@ -53,8 +54,13 @@ router.put('/description/:title', (req, res) => {
             detail: 'Parameter required: body.description'
         });
     }
-    // TODO: throw unsupported on enwiki
-    return mwapi.setCentralDescription(req, req.body.description)
+    let setDescriptionPromise;
+    if (isEnWiki(req.params.domain)) {
+        setDescriptionPromise = mwapi.setLocalShortDescription(req, req.body.description);
+    } else {
+        setDescriptionPromise = mwapi.setCentralDescription(req, req.body.description);
+    }
+    return setDescriptionPromise
         .then((description) => {
             res.status(201);
             mUtil.setContentType(res, mUtil.CONTENT_TYPES.description);
@@ -68,18 +74,13 @@ router.put('/description/:title', (req, res) => {
  * DELETE {domain}/v1/page/description/{title}
  */
 router.delete('/description/:title', (req, res) => {
-    if (req.params.domain === 'en.wikipedia.org') {
-        // Enwiki uses local short descriptions only,
-        // setting those requires adding a ShortDescription
-        // template on the page. It's not supported yet.
-        throw new HTTPError({
-            status: 501,
-            type: 'unsupported_project',
-            title: 'Unsupported project',
-            detail: 'Deleting page description is not supported for English Wikipedia.'
-        });
+    let deleteDescriptionPromise;
+    if (isEnWiki(req.params.domain)) {
+        deleteDescriptionPromise = mwapi.setLocalShortDescription(req, '');
+    } else {
+        deleteDescriptionPromise = mwapi.setCentralDescription(req, '');
     }
-    return mwapi.setCentralDescription(req, '')
+    return deleteDescriptionPromise
         .then(() => {
             res.status(204);
             res.end();

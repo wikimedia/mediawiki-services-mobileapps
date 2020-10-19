@@ -82,15 +82,29 @@ describe('description', function() {
             .reply(200, result);
     }
 
-    function failedTokenTest(requestMethod) {
-        const api = nock('https://www.wikidata.org');
+    function setUpPageRequestMock(api, request, result) {
+        api.post('/w/api.php', Object.assign({
+            action: 'query',
+            prop: 'revisions',
+            titles: 'Fake',
+            rvslots: 'main',
+            rvprop: 'ids|content',
+            format: 'json',
+            formatversion: 2,
+        }, request))
+            .reply(200, result);
+    }
+
+    function failedTokenTest(requestMethod, local) {
+        const api = nock(local ? 'https://en.wikipedia.org' : 'https://www.wikidata.org');
         setUpTokenMock(api, {
             error: {
                 code: 'badtoken',
                 info: "Can't get the token"
             }
         });
-        const uri = `${server.config.uri}fake.fakepedia.org/v1/page/description/Fake`;
+        const reqDomain = local ? 'en.wikipedia.org' : 'fake.fakepedia.org';
+        const uri = `${server.config.uri}${reqDomain}/v1/page/description/Fake`;
         return preq[requestMethod]({
             uri,
             headers: {
@@ -110,23 +124,49 @@ describe('description', function() {
             .finally(() => { nock.cleanAll(); });
     }
 
-    function unsupportedOnEnwikiTest(requestMethod) {
-        const uri = `${server.config.uri}en.wikipedia.org/v1/page/description/Fake`;
+    function failedFetchPageTest(requestMethod) {
+        const api = nock('https://en.wikipedia.org',{
+            reqheaders: {
+                authorization: 'Basic Auth Header'
+            },
+        });
+        setUpTokenMock(api, {
+            query: {
+                tokens: {
+                    csrftoken: 'TOKENTOKEN'
+                }
+            }
+        });
+        setUpPageRequestMock(api, {
+            titles: 'Testing'
+        }, {
+            query: {
+                pages: [ {
+                    title: 'Testing',
+                    missing: true
+                } ]
+            }
+        });
+
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/description/Testing`;
         return preq[requestMethod]({
             uri,
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: 'Basic Auth Header'
             },
             body: {
-                comment: 'Test comment',
-                description: 'Test description'
+                description: 'Test description',
+                comment: 'Test test'
             }
         })
             .then((res) => {
                 throw new Error(`Expected an error, but got status: ${res.status}`);
             }, (err) => {
-                assert.status(err, 501);
-            });
+                assert.status(err, 404);
+            })
+            .then(() => { api.done(); })
+            .finally(() => { nock.cleanAll(); });
     }
 
     describe('PUT', () => {
@@ -136,9 +176,9 @@ describe('description', function() {
             }
         });
 
-        it('failed fetching token', () => failedTokenTest('put'));
-
-        it('not supported on enwiki', () => unsupportedOnEnwikiTest('put'));
+        it('failed fetching token, central', () => failedTokenTest('put', false));
+        it('failed fetching token, local', () => failedTokenTest('put', true));
+        it('failed fetching page, local', () => failedFetchPageTest('put'));
 
         it('missing required parameter', () => {
             const uri = `${server.config.uri}fake.fakepedia.org/v1/page/description/Fake`;
@@ -158,7 +198,7 @@ describe('description', function() {
                 });
         });
 
-        it('set description: fail', () => {
+        it('set central description: fail', () => {
             const api = nock('https://www.wikidata.org',{
                 reqheaders: {
                     authorization: 'Basic Auth Header'
@@ -203,7 +243,7 @@ describe('description', function() {
                 .finally(() => { nock.cleanAll(); });
         });
 
-        it('set description', () => {
+        it('set central description', () => {
             const api = nock('https://www.wikidata.org',{
                 reqheaders: {
                     authorization: 'Basic Auth Header'
@@ -255,7 +295,7 @@ describe('description', function() {
                 .finally(() => { nock.cleanAll(); });
         });
 
-        it('set description, variant', () => {
+        it('set central description, variant', () => {
             const api = nock('https://www.wikidata.org',{
                 reqheaders: {
                     authorization: 'Basic Auth Header'
@@ -309,6 +349,81 @@ describe('description', function() {
                 .then(() => { api.done(); })
                 .finally(() => { nock.cleanAll(); });
         });
+        it('set local description', () => {
+            const api = nock('https://en.wikipedia.org',{
+                reqheaders: {
+                    authorization: 'Basic Auth Header'
+                },
+            });
+            setUpTokenMock(api, {
+                query: {
+                    tokens: {
+                        csrftoken: 'TOKENTOKEN'
+                    }
+                }
+            });
+            setUpPageRequestMock(api, {
+                titles: 'Testing'
+            }, {
+                query: {
+                    pages: [ {
+                        title: 'Testing',
+                        pageid: 123,
+                        revisions: [
+                            {
+                                revid: 321,
+                                slots: {
+                                    main: {
+                                        contentmodel: 'wikitext',
+                                        content: 'Hello!'
+                                    }
+                                }
+                            }
+                        ]
+                    } ]
+                }
+            });
+
+            api.post('/w/api.php', {
+                action: 'edit',
+                pageid: 123,
+                summary: 'Test comment',
+                minor: true,
+                baserevid: 321,
+                prependtext: '{{Short description|Test description}}',
+                token: 'TOKENTOKEN',
+                format: 'json',
+                formatversion: 2
+            })
+                .reply(200, {
+                    edit: {
+                        result: 'Success'
+                    }
+                });
+
+            const uri = `${server.config.uri}en.wikipedia.org/v1/page/description/Testing`;
+            return preq.put({
+                uri,
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: 'Basic Auth Header'
+                },
+                body: {
+                    description: 'Test description',
+                    comment: 'Test comment'
+                }
+            })
+                .then((res) => {
+                    assert.status(res, 201);
+                    assert.contentType(res, 'application/json');
+                    assert.ok('content-language' in res.headers);
+                    assert.deepEqual({
+                        description: 'Test description'
+                    }, res.body);
+                })
+                .then(() => { api.done(); })
+                .finally(() => { nock.cleanAll(); });
+        });
     });
 
     describe('DELETE', () => {
@@ -318,9 +433,9 @@ describe('description', function() {
             }
         });
 
-        it('failed fetching token', () => failedTokenTest('delete'));
-
-        it('not supported on enwiki', () => unsupportedOnEnwikiTest('delete'));
+        it('failed fetching token, central', () => failedTokenTest('delete', false));
+        it('failed fetching token, local', () => failedTokenTest('delete', true));
+        it('failed fetching page, local', () => failedFetchPageTest('delete'));
 
         it('delete description', () => {
             const api = nock('https://www.wikidata.org', {
@@ -362,5 +477,74 @@ describe('description', function() {
                 .then(() => { api.done(); })
                 .finally(() => { nock.cleanAll(); });
         });
+    });
+    it('delete local description', () => {
+        const api = nock('https://en.wikipedia.org',{
+            reqheaders: {
+                authorization: 'Basic Auth Header'
+            },
+        });
+        setUpTokenMock(api, {
+            query: {
+                tokens: {
+                    csrftoken: 'TOKENTOKEN'
+                }
+            }
+        });
+        setUpPageRequestMock(api, {
+            titles: 'Testing'
+        }, {
+            query: {
+                pages: [ {
+                    title: 'Testing',
+                    pageid: 123,
+                    revisions: [
+                        {
+                            revid: 321,
+                            slots: {
+                                main: {
+                                    contentmodel: 'wikitext',
+                                    content: '{{Short description|Test description}}Hello!'
+                                }
+                            }
+                        }
+                    ]
+                } ]
+            }
+        });
+
+        api.post('/w/api.php', {
+            action: 'edit',
+            pageid: 123,
+            summary: 'Test comment',
+            minor: true,
+            baserevid: 321,
+            text: 'Hello!',
+            token: 'TOKENTOKEN',
+            format: 'json',
+            formatversion: 2
+        })
+            .reply(200, {
+                edit: {
+                    result: 'Success'
+                }
+            });
+
+        const uri = `${server.config.uri}en.wikipedia.org/v1/page/description/Testing`;
+        return preq.delete({
+            uri,
+            headers: {
+                'content-type': 'application/json',
+                authorization: 'Basic Auth Header'
+            },
+            body: {
+                comment: 'Test comment'
+            }
+        })
+            .then((res) => {
+                assert.status(res, 204);
+            })
+            .then(() => { api.done(); })
+            .finally(() => { nock.cleanAll(); });
     });
 });
