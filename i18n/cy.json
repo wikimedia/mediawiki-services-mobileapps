@@ -1,10 +1,31 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Robin Owain"
+		]
 	},
+	"description-add-link-title": "Ychwanegwch disgrifiad o'r erthygl",
 	"article-read-more-title": "Darllen rhagor",
 	"table-title-other": "Rhagor o wybodaeth",
+	"page-edit-history": "Fweld hanes y golygiadau",
 	"info-box-close-text": "Cau",
+	"page-talk-page-subtitle": "Trafod gwelliannau i'r erthygl hon",
+	"page-talk-page": "Gweld y dudalen Sgwrs",
 	"info-box-title": "Ffeithiau sydyn",
-	"article-about-title": "Ynglŷn â'r erthygl hon"
+	"view-in-browser-footer-link": "Gweld yr erthygl yn y porwr",
+	"page-location": "Gweld ar fap",
+	"page-similar-titles": "Tudalennau tebyg",
+	"page-last-edited": "{{PLURAL:$1|Diweddarwyd ddoe|Diweddarwyd $1 diwrnod yn ol|0=Diweddarwyd heddiw}}",
+	"article-about-title": "Ynglŷn â'r erthygl hon",
+	"page-issues": "Trafferthion gyda'r dudalen hon",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Mae'r cynnwys ar gael dan $1 oni noder yn wahanol.",
+	"page-read-in-other-languages": "Ar gael mewn {{PLURAL:$1|$1 iaith|iaith}} arall",
+	"article-edit-button": "Adran golygu",
+	"article-edit-protected-button": "Adran golygu tudalen wedi'i chloi",
+	"article-section-expand": "Ehangu'r adran",
+	"article-section-collapse": "Lleihau'r adran",
+	"table-expand": "Ehangu'r tabl",
+	"table-collapse": "Lleihau'r tabl",
+	"references-preview-header": "Rhagweld ffynonellau"
 }
