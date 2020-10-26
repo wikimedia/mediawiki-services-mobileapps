@@ -4,7 +4,7 @@
 			"Fulup"
 		]
 	},
-	"description-add-link-title": "Ouzhpennañ deskvrivadur an titl",
+	"description-add-link-title": "Ouzhpennañ deskrivadur ar pennad",
 	"article-read-more-title": "Lenn muioc'h",
 	"table-title-other": "Muioc'h a ditouroù",
 	"page-edit-history": "Istor klok ar c'hemmoù",
@@ -27,5 +27,6 @@
 	"article-section-expand": "Dispakañ ar rannbennad",
 	"article-section-collapse": "Dastum ar rannbennad",
 	"table-expand": "Dispakañ an daolenn",
-	"table-collapse": "Dastum an daolenn"
+	"table-collapse": "Dastum an daolenn",
+	"references-preview-header": "Rakwel an daveennoù"
 }
