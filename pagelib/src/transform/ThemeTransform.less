@@ -80,6 +80,16 @@ div.quotebox {
   });
 }
 
+blockquote {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 hr:not(.notheme) {
   border: none;
   height: 1px;
