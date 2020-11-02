@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Meno25",
+			"Sonic N800",
 			"Tala Ali"
 		]
 	},
@@ -26,8 +27,8 @@
 	"article-edit-button": "عدل هذا القسم",
 	"article-edit-protected-button": "عدل القسم على الصفحة المحمية",
 	"article-section-expand": "وسع القسم",
-	"article-section-collapse": "طوي القسم",
+	"article-section-collapse": "طَيّ القسم",
 	"table-expand": "تمديد الجدول",
-	"table-collapse": "طوي الجدول",
+	"table-collapse": "طَيّ الجداول",
 	"references-preview-header": "معاينة المراجع"
 }

@@ -1,8 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"ManuelFranz"
+		]
 	},
-	"description-add-link-title": "Titelbeschreibung hinzufügen",
+	"description-add-link-title": "Artikelbeschreibung hinzufügen",
 	"article-read-more-title": "Mehr lesen",
 	"table-title-other": "Weitere Informationen",
 	"page-edit-history": "Vollständige Versionsgeschichte",
@@ -17,5 +19,6 @@
 	"page-issues": "Seitenprobleme",
 	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "Der Inhalt ist verfügbar unter $1, sofern nicht anders angegeben.",
-	"page-read-in-other-languages": "In {{PLURAL:$1|einer weiteren Sprache|$1 weiteren Sprachen}} verfügbar"
+	"page-read-in-other-languages": "In {{PLURAL:$1|einer weiteren Sprache|$1 weiteren Sprachen}} verfügbar",
+	"article-edit-button": "Abschnitt bearbeiten"
 }
