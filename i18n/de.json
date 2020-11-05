@@ -20,5 +20,11 @@
 	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "Der Inhalt ist verfügbar unter $1, sofern nicht anders angegeben.",
 	"page-read-in-other-languages": "In {{PLURAL:$1|einer weiteren Sprache|$1 weiteren Sprachen}} verfügbar",
-	"article-edit-button": "Abschnitt bearbeiten"
+	"article-edit-button": "Abschnitt bearbeiten",
+	"article-edit-protected-button": "Abschnitt auf der geschützten Seite bearbeiten",
+	"article-section-expand": "Abschnitt erweitern",
+	"article-section-collapse": "Abschnitt einklappen",
+	"table-expand": "Tabelle erweitern",
+	"table-collapse": "Tabelle einklappen",
+	"references-preview-header": "Vorschau von Einzelnachweisen"
 }
