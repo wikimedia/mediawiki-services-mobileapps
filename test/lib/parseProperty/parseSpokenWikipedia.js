@@ -19,12 +19,12 @@ function test(html, expected) {
 
 describe('lib:parseSpokenWikipedia', () => {
     it('one spoken file', () => {
-        const html = '<div id="section_SpokenWikipedia" data-mw=\'{"parts":[{"template":{"target":{"wt":"Spoken Wikipedia"},"params":{"1":{"wt":"Bill Clinton (spoken article).ogg"}}}}]}\'></div>';
+        const html = '<div id="section_SpokenWikipedia"><audio><source src="/path/to/Bill_Clinton (spoken article).ogg"></audio></div>';
         test(html, { files: [ 'File:Bill Clinton (spoken article).ogg' ] });
     });
 
     it('multiple spoken files', () => {
-        const html = '<div id="section_SpokenWikipedia" data-mw=\'{"parts":[{"template":{"target":{"wt":"Spoken Wikipedia-2"},"params":{"1":{"wt":"2006-02-11"},"2":{"wt":"Douglas_Adams_Part_1.ogg"},"3":{"wt":"Douglas_Adams_Part_2.ogg"}}}}]}\'></div>';
+        const html = '<div id="section_SpokenWikipedia"><audio><source src="Douglas_Adams_Part_1.ogg"/></audio><audio><source src="Douglas_Adams_Part_2.ogg"/></audio></div>';
         test(html, { files: [
             'File:Douglas_Adams_Part_1.ogg',
             'File:Douglas_Adams_Part_2.ogg'

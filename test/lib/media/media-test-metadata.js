@@ -45,11 +45,6 @@ const spokenWikipedia =
         '<figure typeof="mw:Audio"><audio resource="./File:Foo"/></figure>' +
     '</div>';
 
-const spokenWikipediaOld =
-    '<div id="section_SpokenWikipedia">' +
-        '<figure typeof="mw:Audio"><video resource="./File:Foo"/></figure>' +
-    '</div>';
-
 const pronunciationAudio =
     '<span class="IPA"></span>' +
     '<small>' +
@@ -120,11 +115,6 @@ describe('lib:media metadata is correctly parsed from HTML', () => {
 
     it('spoken Wikipedia file is correctly identified', () => {
         const result = media.getMediaItemInfoFromPage(spokenWikipedia)[0];
-        assert.deepEqual(result.audio_type, 'spoken');
-    });
-
-    it('spoken Wikipedia (OLD: with video tag) file is correctly identified', () => {
-        const result = media.getMediaItemInfoFromPage(spokenWikipediaOld)[0];
         assert.deepEqual(result.audio_type, 'spoken');
     });
 
