@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Mainframe98",
+			"Optilete",
 			"PonkoSasuke"
 		]
 	},
-	"description-add-link-title": "Titelbeschrijving toevoegen",
+	"description-add-link-title": "Artikelbeschrijving toevoegen",
 	"article-read-more-title": "Meer lezen",
 	"table-title-other": "Meer informatie",
 	"page-edit-history": "Bewerkingsgeschiedenis bekijken",
@@ -27,5 +28,6 @@
 	"article-section-expand": "De sectie uitklappen",
 	"article-section-collapse": "Sectie inklappen",
 	"table-expand": "Tabel uitklappen",
-	"table-collapse": "Tabel inklappen"
+	"table-collapse": "Tabel inklappen",
+	"references-preview-header": "Voorbeeldweergave van de referenties"
 }
