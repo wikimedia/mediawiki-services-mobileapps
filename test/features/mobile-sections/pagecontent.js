@@ -130,16 +130,6 @@ describe('mobile-sections', function() {
             });
     });
 
-    // TODO: remove skip
-    // beta cluster is down right now
-    it.skip('Beta cluster request should load successfully', () => {
-        const uri = localUri('Foobar', 'en.wikipedia.beta.wmflabs.org');
-        return preq.get({ uri })
-            .then((res) => {
-                assert.equal(res.status, 200);
-            });
-    });
-
     it('Page with irregular Spoken Wikipedia template usage should load correctly', () => {
         const filename = 'File:En-Alliterative_verse-article.ogg';
         const title = 'Alliterative_verse';
