@@ -234,8 +234,6 @@ class TestSpec {
 }
 
 const TEST_SPECS = [
-    new TestSpec('meta.wikimedia.org', 'data/javascript/mobile', ['pagelib'], { suffix: 'js' }),
-    new TestSpec('meta.wikimedia.org', 'data/css/mobile', ['pagelib'], { suffix: 'css' }),
     new TestSpec('en.wikipedia.org', 'data/css/mobile', ['site'], { suffix: 'css' }),
 
     new TestSpec('en.wikipedia.org', 'page/mobile-sections', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682']),
