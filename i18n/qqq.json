@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nike"
+			"Nike",
+			"Verdy p"
 		]
 	},
 	"description-add-link-title": "Text for link for adding a title description",
@@ -20,7 +21,7 @@
 	"article-about-title": "The text that is displayed before the 'about' section at the bottom of an article",
 	"page-issues": "Label for the button that shows the \"Page issues\" dialog, where information about the imperfections of the current page is provided (by displaying the warning/cleanup templates). {{Identical|Page issue}}",
 	"license-footer-name": "License short name; usually leave untranslated as CC-BY-SA 3.0 {{Identical|CC BY-SA}}",
-	"license-footer-text": "Marker at page end for who last modified the page when anonymous. $1 is a relative date such as '2 months ago' or 'today'.",
+	"license-footer-text": "Marker at page end for who last modified the page when anonymous. $1 is a relative date such as '2 months ago' or 'today'.\n{{Identical|Content is available under}}",
 	"page-read-in-other-languages": "Label for button showing number of languages an article is available in. $1 will be replaced with the number of languages",
 	"article-edit-button": "Label for `edit section` buttons, read aloud to blind users by screen readers.",
 	"article-edit-protected-button": "Label for `edit section on protected page` buttons (pencil with lock). Read aloud to blind users by screen readers.",
