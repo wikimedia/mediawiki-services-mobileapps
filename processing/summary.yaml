@@ -32,6 +32,7 @@
     code: ['about', 'data-mw', 'typeof']
     div: ['data-mw', 'typeof']
     figure: ['typeof']
+    # FIXME(T266143): 'figure-inline' is being deprecated
     figure-inline: ['about', 'data-file-type', 'data-mw', 'itemscope', 'itemtype', 'lang', 'rel', 'title', 'typeof']
     i: ['about', 'data-mw', 'typeof']
     img: ['about', 'alt', 'resource']

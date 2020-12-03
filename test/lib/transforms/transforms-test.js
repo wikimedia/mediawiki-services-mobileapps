@@ -116,9 +116,9 @@ describe('lib:transforms', () => {
                     assert.deepEqual(document.body.innerHTML, expected);
                 });
         }
-        it('removes IPA speaker symbols (de): IPA in figure-inline', () => {
+        it('removes IPA speaker symbols (de): IPA in span', () => {
             test(
-                '<figure-inline typeof="mw:Transclusion mw:Image" ' +
+                '<span typeof="mw:Transclusion mw:Image" ' +
                 'data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{' +
                 '&quot;target&quot;:{&quot;wt&quot;:&quot;IPA&quot;,' +
                 '&quot;href&quot;:&quot;./Vorlage:IPA&quot;},' +
@@ -127,7 +127,7 @@ describe('lib:transforms', () => {
                 '&quot;Tondatei&quot;:{&quot;wt&quot;:&quot;De-Niedersachsen.ogg&quot;}},' +
                 '&quot;i&quot;:0}}]}">' +
                 '<a href="//upload.wikimedia.org/wikipedia/commons/f/ff/De-Niedersachsen.ogg">' +
-                '<img src="Loudspeaker.svg/12px-Loudspeaker.svg.png"></a></figure-inline>',
+                '<img src="Loudspeaker.svg/12px-Loudspeaker.svg.png"></a></span>',
                 '');
         });
         // en.wikipedia.org/api/rest_v1/page/html/London/822677492

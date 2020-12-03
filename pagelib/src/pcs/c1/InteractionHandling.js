@@ -86,12 +86,14 @@ class ClickedItem {
     } else if (this.target.tagName === 'IMG'
       && (this.target.classList.contains(LazyLoadTransform.CLASSES.IMAGE_LOADED_CLASS)
           || this.target.classList.contains(LazyLoadTransform.CLASSES.IMAGE_LOADING_CLASS))
-      && (this.target.closest('figure') || this.target.closest('figure-inline'))
+      // FIXME(T266143): 'figure-inline' is being deprecated
+      && (this.target.closest('figure') || this.target.closest('figure-inline') || this.target.closest('span'))
     ) {
       return ItemType.image
     } else if (this.target.tagName === 'SPAN'
       && this.target.classList.contains(LazyLoadTransform.CLASSES.PLACEHOLDER_CLASS)
-      && (this.target.closest('figure') || this.target.closest('figure-inline'))
+      // FIXME(T266143): 'figure-inline' is being deprecated
+      && (this.target.closest('figure') || this.target.closest('figure-inline') || this.target.closest('span'))
     ) {
       return ItemType.imagePlaceholder
     } else if (this.href) {

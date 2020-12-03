@@ -28,7 +28,7 @@ describe('lib:parsePronunciation', () => {
             '<span class"nowrap">(<span class="unicode haudio">' +
             // There are actually more nested <span>s in the real output.
             // Can't just look for any anchor. There are some other ones we don't want.
-            '<figure-inline><a href="./File:En-us-Barack-Hussein-Obama.ogg"></a></figure-inline>' +
+            '<span><a href="./File:En-us-Barack-Hussein-Obama.ogg"></a></span>' +
             // This is the one we want:
             '<a rel="mw:MediaLink" href="B.ogg">listen</a>' +
             '</span>)' +

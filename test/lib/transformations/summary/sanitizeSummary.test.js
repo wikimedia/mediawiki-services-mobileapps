@@ -140,10 +140,10 @@ describe('lib:sanitizeSummary', () => {
         it('keeps abbr with .alt .aria-hidden and .class', () => {
             assertKeepsAsIs('<abbr alt="bar" aria-hidden="true" class="baz qux">foo</abbr>');
         });
-        it('keeps figure-inline.style border', () => {
+        it('keeps span.style border', () => {
             assert.deepEqual(
-                sanitize('<figure-inline style="border: thin dashed red">foo</figure-inline>'),
-                '<figure-inline style="border:thin dashed red">foo</figure-inline>',
+                sanitize('<span style="border: thin dashed red">foo</span>'),
+                '<span style="border:thin dashed red">foo</span>',
                 'almost as-is but an extra space gets removed');
         });
         it('removes audio tags', () => {

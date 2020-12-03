@@ -212,7 +212,11 @@ body[dir='rtl'] .pcs-collapse-table-collapsed-bottom {
 .wikitable {
   border: none;
 
+  // FIXME(T266143): 'figure-inline' is being deprecated
   figure-inline > a > img {
+    max-width: none !important;
+  }
+  span > a > img {
     max-width: none !important;
   }
 }
