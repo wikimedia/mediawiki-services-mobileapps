@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"BrennodAloisi"
+		]
 	},
 	"article-read-more-title": "Ne saber mai",
 	"table-title-other": "Mai d'informacions",
@@ -12,5 +14,6 @@
 	"article-about-title": "A prepaus d'aqueste article",
 	"page-issues": "Problèmas de pagina",
 	"license-footer-name": "CC BY-SA 3.0",
-	"page-read-in-other-languages": "Disponible dins $1 autras lengas"
+	"page-read-in-other-languages": "Disponible dins $1 autras lengas",
+	"references-preview-header": "Previsualizacion de las referéncias"
 }
