@@ -10,6 +10,7 @@
 	"page-talk-page": "گل بات آلا صفحہ ویکھو",
 	"page-location": "نقشے تے دیکھو",
 	"page-similar-titles": "اکوجہے صفحے",
+	"page-last-edited": "{{PLURAL:$1|کل اپڈیٹ ہویا|اپڈیٹ ہویا$1 دن پہلے|0=اج اپڈیٹ ہویا}}",
 	"article-about-title": "اس لیکھ بارے",
 	"page-issues": "صفحے دے مسئلے",
 	"license-footer-text": "لکھت $1 لسنس تھلے ہیگا اے۔",
