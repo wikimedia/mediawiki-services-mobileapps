@@ -5,7 +5,7 @@
 			"Orbot707"
 		]
 	},
-	"description-add-link-title": "Şınastiya sereki cıke",
+	"description-add-link-title": "Şınastiya sernamey cı ke",
 	"article-read-more-title": "Tayêna bıwane",
 	"table-title-other": "Tayêna melumat",
 	"page-edit-history": "Tarixê vurnayışi bıvêne",
@@ -23,10 +23,11 @@
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Zerrekê cı bınê $1 de qeyd biyo.",
 	"page-read-in-other-languages": "{{PLURAL:$1|$1 yew zıwanê bini|$1 zıwananê binan}} de esto",
-	"article-edit-button": "Pele bıvurne",
-	"article-edit-protected-button": "Pela şeveknayi bıvurne",
+	"article-edit-button": "Letey bıvurne",
+	"article-edit-protected-button": "Pela şeveknayi de letey bıvurne",
 	"article-section-expand": "Letey hera ke",
 	"article-section-collapse": "Letey teng ke",
 	"table-expand": "Tabloy hera ke",
-	"table-collapse": "Tabloy teng ke"
+	"table-collapse": "Tabloy teng ke",
+	"references-preview-header": "Verqaytê çımeyan"
 }
