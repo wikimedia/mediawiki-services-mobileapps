@@ -6,7 +6,7 @@ paths:
         - Page content
       summary: Get article short description
       description: |
-        Returns the article short description either from WikiData or from
+        Returns the article short description either from Wikidata or from
         local on-wiki description depending on the site.
       parameters:
         - $ref: '#/components/parameters/domainParam'
@@ -52,8 +52,8 @@ paths:
         - Page content
       summary: Update article short description
       description: |
-        Creates or updates the article short description on WikiData.
-        Currently not supported for wikis that use local description.
+        Creates or updates the article short description either on Wikidata
+        or on the local on-wiki description depending on the site.
       security:
         - oauth2: []
       parameters:
@@ -96,8 +96,8 @@ paths:
         - Page content
       summary: Delete article short description
       description: |
-        Deletes the article short description on WikiData.
-        Currently not supported for wikis that use local description.
+        Deletes the article short description either from Wikidata
+        or from the local on-wiki description depending on the site.
       security:
         - oauth2: []
       parameters:
