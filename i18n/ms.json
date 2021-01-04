@@ -1,12 +1,16 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Tofeiku"
+		]
 	},
-	"description-add-link-title": "Tambah huraian tajuk",
+	"description-add-link-title": "Tambah huraian rencana",
 	"article-read-more-title": "Selanjutnya",
 	"table-title-other": "Maklumat lanjut",
 	"page-edit-history": "Semua sejarah penyuntingan",
 	"info-box-close-text": "Tutup",
+	"page-talk-page-subtitle": "Bincangkan penambahbaikan untuk rencana ini",
+	"page-issues-subtitle": "Amaran tentang kandungan yang berkualiti rendah atau bermasalah",
 	"page-talk-page": "Lihat laman perbincangan",
 	"info-box-title": "Fakta Segera",
 	"view-in-browser-footer-link": "Lihat rencana dalam penyemak imbas",
@@ -17,5 +21,12 @@
 	"page-issues": "Isu-isu laman",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Kandungan disediakan di bawah $1 melainkan dinyatakan sebaliknya.",
-	"page-read-in-other-languages": "Tersedia dalam {{PLURAL:$1|$1 bahasa lain|$1 bahasa lain}}"
+	"page-read-in-other-languages": "Tersedia dalam {{PLURAL:$1|$1 bahasa lain|$1 bahasa lain}}",
+	"article-edit-button": "Sunting bahagian",
+	"article-edit-protected-button": "Sunting bahagian di laman terlindung",
+	"article-section-expand": "Kembangkan bahagian",
+	"article-section-collapse": "Runtuhkan bahagian",
+	"table-expand": "Kembangkan jadual",
+	"table-collapse": "Runtuhkan jadual",
+	"references-preview-header": "Pralihat rujukan"
 }
