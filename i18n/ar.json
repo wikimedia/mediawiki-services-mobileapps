@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Meno25",
+			"NEHAOUA",
 			"Sonic N800",
 			"Tala Ali"
 		]
 	},
-	"description-add-link-title": "إضافة وصف للعنوان",
+	"description-add-link-title": "إضافة وصف المقالة",
 	"article-read-more-title": "قراءة المزيد",
 	"table-title-other": "مزيد من المعلومات",
 	"page-edit-history": "عرض تاريخ التعديلات",
