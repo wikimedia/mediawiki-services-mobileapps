@@ -97,7 +97,7 @@ describe('mobile-sections-lead', function() {
     });
     it('Enwiki Uranus loads successfully (no pronunciation parsing TypeErrors)', () => {
         const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Uranus`;
-        const exp = '//upload.wikimedia.org/wikipedia/commons/7/71/En-us-Uranus%282%29.oga';
+        const exp = '//upload.wikimedia.org/wikipedia/commons/1/1c/En-us-Uranus.ogg';
         return preq.get({ uri })
             .then((res) => {
                 const lead = res.body;

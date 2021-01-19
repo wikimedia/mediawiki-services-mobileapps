@@ -154,7 +154,7 @@ describe('mobile-sections', function() {
 
     it('Any sections that contain references should have a reference flag', () => {
         const uri = localUri('Barack_Obama');
-        const sections = [ 'Notes and references', 'Notes', 'References', 'Further reading' ];
+        const sections = [ 'Notes and references', 'Notes', 'References', 'Further reading', 'Works cited' ];
         return preq.get({ uri })
             .then((res) => {
                 assert.equal(res.status, 200);
