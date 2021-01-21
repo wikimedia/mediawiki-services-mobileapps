@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong"
+			"Ykhwong",
+			"그냥기여자"
 		]
 	},
 	"description-add-link-title": "문서 설명 추가",
@@ -9,6 +10,8 @@
 	"table-title-other": "자세한 정보",
 	"page-edit-history": "전체 편집 내역",
 	"info-box-close-text": "닫기",
+	"page-talk-page-subtitle": "이 문서의 개선 사항에 대해 토론하기",
+	"page-issues-subtitle": "수준 이하의 콘텐츠나 문제가 있는 콘텐츠에 대한 경고",
 	"page-talk-page": "토론 문서 보기",
 	"info-box-title": "간략 정보",
 	"view-in-browser-footer-link": "브라우저에서 문서 보기",
@@ -21,5 +24,10 @@
 	"license-footer-text": "특별한 언급이 없으면 내용은 $1에 따라 이용할 수 있습니다.",
 	"page-read-in-other-languages": "{{PLURAL:$1|$1개의 다른 언어}}로 읽어보기",
 	"article-edit-button": "문단 편집",
+	"article-edit-protected-button": "보호된 페이지에서 섹션 편집",
+	"article-section-expand": "섹션 확장",
+	"article-section-collapse": "섹션 접기",
+	"table-expand": "표 확장",
+	"table-collapse": "표 접기",
 	"references-preview-header": "각주 미리보기"
 }
