@@ -1,12 +1,17 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Eleassar"
+		]
 	},
 	"description-add-link-title": "Dodaj opis naslova",
-	"article-read-more-title": "Več o tem",
+	"article-read-more-title": "Preberite še kaj",
 	"info-box-close-text": "Zapri",
-	"page-talk-page": "Poglej pogovorno stran",
-	"page-location": "Poglej na karti",
+	"page-talk-page-subtitle": "Pogovor o izboljšanju tega članka",
+	"page-talk-page": "Prikaži pogovorno stran",
+	"info-box-title": "Podatki na hitro",
+	"view-in-browser-footer-link": "Ogled članka v brskalniku",
+	"page-location": "Prikaži na karti",
 	"page-similar-titles": "Podobne strani",
 	"article-about-title": "O tem članku",
 	"license-footer-name": "CC BY-SA 3.0"
