@@ -428,7 +428,7 @@ const onBodyStart = () => {
     loadImages: false,
     setupTableEventHandling: false,
     maxWidth: '100ex',
-    margins: { top: '2em', right: 'auto', bottom: '0', left: 'auto' },
+    margins: { top: '2em', bottom: '0' },
     userGroups: []
   }
 
