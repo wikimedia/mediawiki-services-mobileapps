@@ -1,4 +1,7 @@
 {
-  "article-about-title" : "Aboot this airticle",
-  "article-read-more-title" : "Read mair"
+	"@metadata": {
+		"authors": []
+	},
+	"article-read-more-title": "Read mair",
+	"article-about-title": "Aboot this airticle"
 }

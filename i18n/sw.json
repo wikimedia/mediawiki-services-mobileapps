@@ -1,6 +1,9 @@
 {
-  "info-box-close-text" : "Funga",
-  "article-read-more-title" : "Soma zaidi",
-  "license-footer-name" : "CC BY-SA 3.0",
-  "table-title-other" : "Maelezo zaidi"
+	"@metadata": {
+		"authors": []
+	},
+	"article-read-more-title": "Soma zaidi",
+	"table-title-other": "Maelezo zaidi",
+	"info-box-close-text": "Funga",
+	"license-footer-name": "CC BY-SA 3.0"
 }

@@ -1,10 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Fierodelveneto"
+		]
 	},
 	"article-read-more-title": "Lèxi de pi",
 	"table-title-other": "Pì informasion",
 	"info-box-close-text": "Sara",
 	"info-box-title": "Info velòsi",
-	"license-footer-name": "CC BY-SA 3.0"
+	"license-footer-name": "CC BY-SA 3.0",
+	"references-preview-header": "Vista prèvia de łe notasion"
 }
