@@ -1,11 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Adam-Yourist"
+		]
 	},
 	"description-add-link-title": "Лоацца укхох лаьца тIатохар",
 	"article-read-more-title": "Ма дарра",
 	"table-title-other": "Ма дарра",
 	"info-box-close-text": "ДIакъовла",
-	"info-box-title": "Лоаца факташ",
+	"info-box-title": "Лоацца",
 	"article-about-title": "Укх статьях лаьца"
 }
