@@ -41,7 +41,7 @@ const videoWithDerivative =
     '</figure>';
 
 const spokenWikipedia =
-    '<div id="section_SpokenWikipedia">' +
+    '<div class="spoken-wikipedia">' +
         '<figure typeof="mw:Audio"><audio resource="./File:Foo"/></figure>' +
     '</div>';
 
