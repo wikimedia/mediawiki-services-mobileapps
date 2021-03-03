@@ -333,6 +333,17 @@ const removeHighlightsFromHighlightedElements = () => {
 }
 
 /**
+ * Toggle all collapsed tables
+ * @return {void}
+ */
+const toggleCollapsedForAll = () => {
+  if (!document) {
+    return
+  }
+  CollapseTable.toggleCollapsedForAll(document)
+}
+
+/**
  * Gets the lead image for a page
  * @private
  * @param {!Array} metaTags
@@ -520,6 +531,7 @@ export default {
   getTableOfContents,
   prepareForScrollToAnchor,
   removeHighlightsFromHighlightedElements,
+  toggleCollapsedForAll,
   waitForNextPaint,
   testing: {
     getScroller
