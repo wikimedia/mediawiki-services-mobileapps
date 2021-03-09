@@ -63,15 +63,6 @@ describe('lib:wikiLanguage', () => {
         assert.deepEqual(relevantCodes, ['zh-hans', 'zh']);
     });
 
-    it('returns relevant iuwiki language codes', () => {
-        let relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('es-Us,ike-cans;q=0.9', 'iu');
-        assert.deepEqual(relevantCodes, ['ike-cans', 'iu']);
-        relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('ike-cans;q=0.9,ike-latn;q=0.8', 'iu');
-        assert.deepEqual(relevantCodes, ['ike-cans', 'ike-latn', 'iu']);
-        relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('ike-Invalid-ok', 'iu');
-        assert.deepEqual(relevantCodes, ['iu']);
-    });
-
     it('falls back on the provided language code', () => {
         const relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('en-US,zh-Hans-CN;q=0.9', 'sr');
         assert.deepEqual(relevantCodes, ['sr']);

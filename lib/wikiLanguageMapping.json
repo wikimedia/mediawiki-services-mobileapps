@@ -1,0 +1,154 @@
+{
+    "zh": {
+        "default": {
+            "default": "zh",
+            "cn": "zh-cn",
+            "hk": "zh-hk",
+            "mo": "zh-mo",
+            "my": "zh-my",
+            "sg": "zh-sg",
+            "tw": "zh-tw"
+        },
+        "hans": {
+            "default": "zh-hans",
+            "cn": "zh-cn",
+            "hk": "zh-hk",
+            "mo": "zh-mo",
+            "my": "zh-my",
+            "sg": "zh-sg",
+            "tw": "zh-tw"
+        },
+        "hant": {
+            "default": "zh-hant",
+            "cn": "zh-cn",
+            "hk": "zh-hk",
+            "mo": "zh-mo",
+            "my": "zh-my",
+            "sg": "zh-sg",
+            "tw": "zh-tw"
+        }
+    },
+    "sr": {
+        "default": {
+            "default": "sr-ec",
+            "el": "sr-el",
+            "ec": "sr-ec"
+        },
+        "cyrl": {
+            "default": "sr-ec"
+        },
+        "latn": {
+            "default": "sr-el"
+        }
+    },
+    "crh": {
+        "default": {
+            "default": "chr",
+            "latn": "crh-latn",
+            "cyrl": "crh-cyrl"
+        },
+        "cyrl": {
+            "default": "crh-cyrl"
+        },
+        "latn": {
+            "default": "crh-latn"
+        }
+    },
+    "gan": {
+        "default": {
+            "default": "gan",
+            "hans": "gan-hans",
+            "hant": "gan-hant"
+            
+        },
+        "hans": {
+            "default": "gan-hans"
+            
+        },
+        "hant": {
+            "default": "gan-hant"
+        }
+    },
+    "iu": {
+        "default": {
+            "default": "iu",
+            "ike-cans": "ike-cans",
+            "ike-latn": "ike-latn"
+        },
+        "ike-cans": {
+            "default": "ike-cans"
+        },
+        "ike-latn": {
+            "default": "ike-latn"
+        }
+    },
+    "kk": {
+        "default": {
+            "default": "kk",
+            "cyrl": "kk-cyrl",
+            "arab": "kk-arab",
+            "cn": "kk-cn",
+            "kz": "kk-kz",
+            "tr": "kk-tr"
+
+        },
+        "cyrl": {
+            "default": "kk-cyrl",
+            "cn": "kk-cn",
+            "kz": "kk-kz",
+            "tr": "kk-tr"
+        },
+        "arab": {
+            "default": "kk-arab",
+            "cn": "kk-cn",
+            "kz": "kk-kz",
+            "tr": "kk-tr"
+        }
+    },
+    "ku": {
+        "default": {
+            "default": "ku-latn"
+        },
+        "arab": {
+            "default": "ku-arab"
+        },
+        "latn": {
+            "default": "ku-latn"
+        }
+    },
+    "shi": {
+        "default": {
+            "default": "shi-tfng",
+            "latn": "shi-latn",
+            "tfng":  "shi-tfng"  
+        },
+        "latn": {
+            "default": "shi-latn"
+        },
+        "tfng": {
+            "default": "shi-tfng"
+        }
+    },
+    "tg": {
+        "default": {
+            "default": "tg",
+            "latn":  "tg-latn"
+        },
+        "latn": {
+            "default": "tg-latn"
+        }
+    },
+    "uz": {
+        "default": {
+            "default": "uz",
+            "latn": "uz-latn",
+            "cyrl": "uz-cyrl"
+        },
+        "latn": { 
+            "default": "uz-latn" 
+        },
+        "cyrl": { 
+            "default": "uz-cyrl" 
+        }
+    }
+}
