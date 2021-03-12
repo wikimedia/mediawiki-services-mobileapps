@@ -27,6 +27,8 @@ const ID = {
   ARIA_EXPAND: 'pcs-collapse-table-aria-expand'
 }
 
+const MATH_IMG_URL_PATH_REGEX = /\/math\/render\/svg\//;
+
 /**
  * Determine if we want to extract text from this header.
  * @param {!Element} header
@@ -296,6 +298,20 @@ const newCollapsedFooterDiv = (document, content) => {
 }
 
 /**
+ * @param {!Array.<string>} headerText
+ * @return {!HTMLElement}
+*/
+const transformHeaderText = (document, headerTextElem) => {
+  if (headerTextElem.match(MATH_IMG_URL_PATH_REGEX)) {
+    let mathImgElem = document.createElement('img')
+    mathImgElem.setAttribute('src', headerTextElem)
+    return mathImgElem
+  } else {
+    return document.createTextNode(headerTextElem)
+  }
+}
+
+/**
  * @param {!Document} document
  * @param {!string} title
  * @param {!string} titleClass
@@ -315,19 +331,29 @@ const newCaptionFragment = (document, title, titleClass, headerText, collapseTex
 
   const span = document.createElement('span')
   span.classList.add(CLASS.COLLAPSE_TEXT)
+
   if (headerText.length > 0) {
     /* DOM sink status: safe - content from parsoid output */
-    span.appendChild(document.createTextNode(`: ${headerText[0]}`))
+    span.appendChild(document.createTextNode(' '))
+    span.appendChild(transformHeaderText(document, headerText[0]))
   }
   if (headerText.length > 1) {
     /* DOM sink status: safe - content from parsoid output */
-    span.appendChild(document.createTextNode(`, ${headerText[1]}`))
+
+    // Don't place a comma between text and formula right after it
+    if (!headerText[0].match(MATH_IMG_URL_PATH_REGEX) && headerText[1].match(MATH_IMG_URL_PATH_REGEX)) {
+      span.appendChild(document.createTextNode(' '))
+    } else {
+      span.appendChild(document.createTextNode(', '))
+    }
+    span.appendChild(transformHeaderText(document, headerText[1]))
   }
   if (headerText.length > 0) {
     /* DOM sink status: safe - content transform with no user interference */
     // As single character `…`, iOS's VoiceOver ignores this. As `...`, it reads it as "ellipsis". :facepalm:
     span.appendChild(document.createTextNode(' ...'))
   }
+
   /* DOM sink status: safe - content from parsoid output */
   fragment.appendChild(span)
 
@@ -407,15 +433,6 @@ const replaceNodeInSection = (nodeToReplace, replacementNode) => {
 const prepareTable = (table, document, pageTitle, tableTitle,
   tableClass, headerTextArray, footerTitle, collapseText, expandText) => {
 
-  const captionFragment =
-    newCaptionFragment(
-      document,
-      tableTitle,
-      tableClass,
-      headerTextArray,
-      collapseText,
-      expandText)
-
   // create the container div that will contain both the original table
   // and the collapsed version.
   const containerDiv = document.createElement('div')
@@ -425,7 +442,52 @@ const prepareTable = (table, document, pageTitle, tableTitle,
   // ensure the table doesn't float
   table.classList.add(CLASS.TABLE)
 
-  const collapsedHeaderDiv = newCollapsedHeaderDiv(document, captionFragment)
+  let captionFragment
+  // pcs-collapse-table
+  let collapsedHeaderDiv
+
+  // T252893 - Create filter to omit NavFrame class
+  // Exlicitly set values of filter constants
+  const FILTER_ACCEPT = 1
+  const FILTER_REJECT = 2
+  const SHOW_ELEMENT = '-1'
+  let filterNavFrame = {
+    acceptNode: function(n) {
+      return n && n.className && n.className.includes("NavFrame") ? FILTER_REJECT : FILTER_ACCEPT;
+    }
+  };
+
+  // Check if table has math elements and does not have text descrition for collapsing header
+  // Omit tables with infobox class even if they have math elements. That kind of tables should display only text in the header
+  if (!table.className.includes('infobox') && table.className.includes(CLASS.TABLE)) {
+    let tableWalker = document.createTreeWalker(table, SHOW_ELEMENT, filterNavFrame)
+    let mathAndTextArr = []
+
+    while(tableWalker.nextNode()) {
+      if (tableWalker.currentNode && tableWalker.currentNode.className && tableWalker.currentNode.className.includes('mwe-math-fallback-image-inline')) {
+        // Grab the text before math symbol if exists
+        if (tableWalker.currentNode.parentNode && tableWalker.currentNode.parentNode.previousSibling) {
+          let mathText = tableWalker.currentNode.parentNode.previousSibling.textContent.trim();
+          mathAndTextArr.push(mathText)
+        }
+        let mathImgSrc = tableWalker.currentNode.getAttribute('src')
+        mathAndTextArr.push(mathImgSrc)
+        
+        headerTextArray = mathAndTextArr
+      }
+    }
+
+  }
+
+  captionFragment = newCaptionFragment(
+    document,
+    tableTitle,
+    tableClass,
+    headerTextArray,
+    collapseText,
+    expandText)
+
+  collapsedHeaderDiv = newCollapsedHeaderDiv(document, captionFragment)
   collapsedHeaderDiv.style.display = 'block'
 
   const collapsedFooterDiv = newCollapsedFooterDiv(document, footerTitle)
@@ -448,6 +510,7 @@ const prepareTable = (table, document, pageTitle, tableTitle,
   // set initial visibility
   contentDiv.style.display = 'none'
 }
+
 /**
  * @param {!Document} document
  * @param {?string} pageTitle use title for this not `display title` (which can contain tags)
