@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"IKhitron",
 			"Steeve815",
 			"YaronSh",
@@ -24,11 +25,11 @@
 	"page-issues": "בעיות בדף",
 	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "התוכן זמין לפי תנאי $1 אלא אם נאמר אחרת.",
-	"page-read-in-other-languages": "זמין ב{{PLURAL:$1|עוד שפה אחת|־$1 שפות נוספות}}",
-	"article-edit-button": "עריכת פסקה",
+	"page-read-in-other-languages": "זמין {{PLURAL:$1|בעוד שפה אחת|ב־$1 שפות נוספות}}",
+	"article-edit-button": "עריכת פרק",
 	"article-edit-protected-button": "עריכת פרק בדף מוגן",
-	"article-section-expand": "הרחבת סעיף",
-	"article-section-collapse": "צמצום סעיף",
+	"article-section-expand": "הרחבת פרק",
+	"article-section-collapse": "צמצום פרק",
 	"table-expand": "הרחבת טבלה",
 	"table-collapse": "צמצום טבלה",
 	"references-preview-header": "תצוגה מקדימה של הערות"
