@@ -333,14 +333,15 @@ const removeHighlightsFromHighlightedElements = () => {
 }
 
 /**
- * Toggle all collapsed tables
+ * Expend or collapse all tables
+ * @param  {!boolean} Expand/collapse tables manually
  * @return {void}
  */
-const toggleCollapsedForAll = () => {
+const expandOrCollapseTables = expand => {
   if (!document) {
     return
   }
-  CollapseTable.toggleCollapsedForAll(document)
+  CollapseTable.expandOrCollapseTables(document, expand)
 }
 
 /**
@@ -531,7 +532,7 @@ export default {
   getTableOfContents,
   prepareForScrollToAnchor,
   removeHighlightsFromHighlightedElements,
-  toggleCollapsedForAll,
+  expandOrCollapseTables,
   waitForNextPaint,
   testing: {
     getScroller

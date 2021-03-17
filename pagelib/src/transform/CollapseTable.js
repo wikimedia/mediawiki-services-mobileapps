@@ -192,14 +192,15 @@ const getTableHeaderTextArray = (document, element, pageTitle) => {
  * @param {!Element} container div
  * @param {?Element} trigger element that was clicked or tapped
  * @param {?FooterDivClickCallback} footerDivClickCallback
+ * @param {?Element} expend/collapse tables
  * @return {boolean} true if collapsed, false if expanded.
  */
-const toggleCollapsedForContainer = function(container, trigger, footerDivClickCallback) {
+const toggleCollapsedForContainer = function(container, trigger, footerDivClickCallback, forceExpand) {
   const header = container.children[0]
   const table = container.children[1]
   const footer = container.children[2]
   const caption = header.querySelector('.pcs-collapse-table-aria')
-  const collapsed = table.style.display !== 'none'
+  const collapsed = forceExpand == undefined ? table.style.display !== 'none' : !forceExpand
   if (collapsed) {
     table.style.display = 'none'
     header.classList.remove(CLASS.COLLAPSED)
@@ -486,6 +487,18 @@ const toggleCollapsedForAll = container => {
 }
 
 /**
+ * @param {!Element} container root element to search from
+ * @param {!boolean} expand/collapse tables manually
+ * @return {void}
+ */
+const expandOrCollapseTables = (container, expand) => {
+  const containerDivs = Polyfill.querySelectorAll(container, `.${CLASS.CONTAINER}`)
+  containerDivs.forEach(containerDiv => {
+    toggleCollapsedForContainer(containerDiv, undefined, undefined, expand)
+  })
+}
+
+/**
  * @param {!Window} window
  * @param {!Element} container root element to search from
  * @param {?boolean} isInitiallyCollapsed
@@ -589,6 +602,7 @@ export default {
   SECTION_TOGGLED_EVENT_TYPE,
   toggleCollapsedForAll,
   toggleCollapseClickCallback,
+  expandOrCollapseTables,
   collapseTables,
   getTableHeaderTextArray,
   adjustTables,
