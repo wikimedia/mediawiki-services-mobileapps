@@ -312,8 +312,6 @@ module.exports = (options) => {
 		.then(app => loadRoutes(app, `${__dirname}/routes`))
 		.then(app => loadPreProcessingScripts(app, `${__dirname}/processing`))
 		.then((app) => {
-			// serve static files from static/
-			app.use('/static', express.static(`${__dirname}/static`));
 			const setJsdocHeaders = (req, res, next) => {
 				res.removeHeader('Content-Security-Policy');
 				next();
