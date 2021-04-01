@@ -56,14 +56,14 @@ section[data-mw-section-id="0"] .pcs-edit-section-link-container {
   float: right;
 }
 
+section[data-mw-section-id="0"] .pcs-edit-section-link-container a {
+  margin-top: -13px;
+}
+
 html[dir='rtl'] section[data-mw-section-id="0"] .pcs-edit-section-link-container,
 body[dir='rtl'] section[data-mw-section-id="0"] .pcs-edit-section-link-container,
 .mw-content-rtl section[data-mw-section-id="0"] .pcs-edit-section-link-container {
   float: left;
-}
-
-h2 + .pcs-edit-section-link-container {
-	margin-bottom: 8px;
 }
 
 .mw-content-rtl .pcs-edit-section-link-container {
@@ -74,16 +74,13 @@ h2 + .pcs-edit-section-link-container {
 
 a.pcs-edit-section-link {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   display: inline-block;
   background-size: 24px 24px;
   background-repeat: no-repeat;
   background-image: var(--edit-section-icon);
-}
-
-.pcs-edit-section-header.v2 a.pcs-edit-section-link {
-  margin-top: 0.85em;
+  background-position: 100% 55%;
 }
 
 .page-protected a.pcs-edit-section-link {
@@ -99,7 +96,7 @@ a.pcs-edit-section-link {
   position: absolute;
   z-index: -1;
   border-radius: 50%;
-   -webkit-transform: scale( 0 );
+  -webkit-transform: scale( 0 );
   transform: scale( 0 );
   -webkit-transition: transform 300ms cubic-bezier( 0.25, 0.46, 0.45, 0.94 );
   transition: transform 300ms cubic-bezier( 0.25, 0.46, 0.45, 0.94 ); /* ease out quad */
@@ -144,43 +141,43 @@ a.pcs-edit-section-link {
 .pcs-platform-ios h4.pcs-edit-section-title + span.pcs-edit-section-link-container,
 .pcs-platform-ios h5.pcs-edit-section-title + span.pcs-edit-section-link-container,
 .pcs-platform-ios h6.pcs-edit-section-title + span.pcs-edit-section-link-container {
-    display: none;
+  display: none;
 }
 
 /* Wikidata description styling */
 #pcs-edit-section-title-description {
-    font-size: 0.875em;
-    line-height: 1.375em;
-    color: var(--secondary-text-color);
-    margin-top: 0.136em;
-    margin-bottom: 0.227em;
-    padding-bottom: 0px;
+  font-size: 0.875em;
+  line-height: 1.375em;
+  color: var(--secondary-text-color);
+  margin-top: 0.136em;
+  margin-bottom: 0.227em;
+  padding-bottom: 0px;
 }
 
 #pcs-edit-section-add-title-description {
-    font-size: 0.875em;
-    font-weight: 400;
-    display: inline;
+  font-size: 0.875em;
+  font-weight: 400;
+  display: inline;
 }
 
 #pcs-edit-section-add-title-description:before {
-    content: "";
-    background-image: var(--plus-icon);
-    background-repeat: no-repeat;
-    width: 1.25em;
-    height: 0.75em;
-    background-size: 0.75em 0.75em;
-    display: inline-block;
-    background-position: left center;
+  content: "";
+  background-image: var(--plus-icon);
+  background-repeat: no-repeat;
+  width: 1.25em;
+  height: 0.75em;
+  background-size: 0.75em 0.75em;
+  display: inline-block;
+  background-position: left center;
 }
 
 body[dir='rtl'] #pcs-edit-section-add-title-description:before {
-    -webkit-transform: scaleX( -1 );
-    transform: scaleX(-1);
+  -webkit-transform: scaleX( -1 );
+  transform: scaleX(-1);
 }
 
 /* Horizontal divider between title/description and lead section text */
 #pcs-edit-section-divider {
-    margin: 12px 0px 16px 0px;
-    width: 60px;
+  margin: 12px 0px 16px 0px;
+  width: 60px;
 }
