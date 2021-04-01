@@ -13,6 +13,7 @@ const PLACEHOLDER_LOADING_CLASS = 'pcs-lazy-load-placeholder-loading' // Downloa
 const PLACEHOLDER_ERROR_CLASS = 'pcs-lazy-load-placeholder-error' // Download failure.
 const IMAGE_LOADING_CLASS = 'pcs-lazy-load-image-loading' // Download started.
 const IMAGE_LOADED_CLASS = 'pcs-lazy-load-image-loaded' // Download completed.
+const NO_LAZY_LOAD = 'pcs-no-lazy-load'; // Helper class to prevent lazy loading.
 
 const CLASSES = {
   PLACEHOLDER_CLASS,
@@ -20,7 +21,8 @@ const CLASSES = {
   PLACEHOLDER_LOADING_CLASS,
   PLACEHOLDER_ERROR_CLASS,
   IMAGE_LOADING_CLASS,
-  IMAGE_LOADED_CLASS
+  IMAGE_LOADED_CLASS,
+  NO_LAZY_LOAD
 }
 
 // Attributes copied from images to placeholders via data-* attributes for later restoration. The
@@ -176,6 +178,18 @@ const loadPlaceholder = (document: Document, placeholder: HTMLSpanElement): HTML
   return image
 }
 
+/**
+ * Set 'pcs-no-lazy-load' class for given images inside element
+ * @param {!Element} element
+ * @return {void}
+ */
+const addImageNoLazyLoadClass = (element: Element) : void => {
+  const images = Polyfill.querySelectorAll(element, 'img');
+  images.forEach((image: HTMLImageElement) => {
+      image.classList.add(NO_LAZY_LOAD);
+  });
+}
+
 export default {
   CLASSES,
   PLACEHOLDER_CLASS,
@@ -183,5 +197,6 @@ export default {
   queryLazyLoadableImages,
   convertImagesToPlaceholders,
   convertImageToPlaceholder,
-  loadPlaceholder
+  loadPlaceholder,
+  addImageNoLazyLoadClass
 }
