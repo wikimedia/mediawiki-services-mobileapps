@@ -19,7 +19,7 @@
 	"view-in-browser-footer-link": "Vedi la voce nel browser",
 	"page-location": "Visualizza sulla mappa",
 	"page-similar-titles": "Pagine simili",
-	"page-last-edited": "Aggiornata {{PLURAL:$1|0=oggi|1=ieri|$1 giorni fa}}",
+	"page-last-edited": "Aggiornata {{PLURAL:$1|ieri|$1 giorni fa|0=oggi}}",
 	"article-about-title": "Su questa voce",
 	"page-issues": "Problemi alla pagina",
 	"license-footer-name": "CC BY-SA 3.0",
