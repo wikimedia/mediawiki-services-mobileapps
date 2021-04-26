@@ -15,7 +15,7 @@
 	"view-in-browser-footer-link": "Artikel am Browser kucken",
 	"page-location": "Op enger Kaart weisen",
 	"page-similar-titles": "Änlech Säiten",
-	"page-last-edited": "{{PLURAL:$1|0=Haut today|1=Gëschter|Viru(n) $1 Deeg}} geännert",
+	"page-last-edited": "{{PLURAL:$1|Gëschter aktualiséiert|Viru(n) $1 Deeg geännert|0=Haut geànnert}}",
 	"article-about-title": "Iwwer dësen Artikel",
 	"page-issues": "Problemer mat der Säit",
 	"license-footer-name": "CC-BY-SA 3.0",
