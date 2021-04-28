@@ -15,10 +15,24 @@ let app;
  * Returns the non-UI media files used on the given page.
  */
 router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
-    return parsoid.getParsoidHtml(req).then(parsoidRsp => {
-        return mUtil.createDocument(parsoidRsp.body).then(doc => {
-            return lib.resolveTitleRedirects(req, lib.getMediaItemInfoFromDoc(doc))
-                .then(pageMediaList => {
+    return BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(resolvedTitle => {
+        req.params.title = resolvedTitle;
+        return parsoid.getParsoidHtml(req).then(parsoidRsp => {
+            return mUtil.createDocument(parsoidRsp.body).then(doc => {
+                return BBPromise.props({
+                    pageMediaList: lib.resolveTitleRedirects(req, lib.getMediaItemInfoFromDoc(doc)),
+                    mw: mwapi.getMetadataForMobileHtml(req)
+                }).then((response) => {
+                    // T269312 - Set the leadImage flag to true if
+                    // its value corresponds to mwapi response
+                    Object.values(response.pageMediaList).forEach((item) => {
+                        if (item.srcset &&
+                            response.mw.pageprops &&
+                            response.mw.pageprops.page_image_free &&
+                            item.srcset[0].src.includes(response.mw.pageprops.page_image_free)) {
+                            item.leadImage = true;
+                        }
+                    });
                     const revTid = parsoid.getRevAndTidFromEtag(parsoidRsp.headers);
                     mUtil.setETag(res, revTid.revision, revTid.tid);
                     mUtil.setContentType(res, mUtil.CONTENT_TYPES.mediaList);
@@ -26,9 +40,10 @@ router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
                     res.send({
                         revision: revTid.revision,
                         tid: revTid.tid,
-                        items: pageMediaList
+                        items: response.pageMediaList
                     });
                 });
+            });
         });
     });
 });
