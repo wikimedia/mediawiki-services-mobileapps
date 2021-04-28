@@ -29,7 +29,8 @@ router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
                         if (item.srcset &&
                             response.mw.pageprops &&
                             response.mw.pageprops.page_image_free &&
-                            item.srcset[0].src.includes(response.mw.pageprops.page_image_free)) {
+                            decodeURI(item.srcset[0].src)
+                                .includes(response.mw.pageprops.page_image_free)) {
                             item.leadImage = true;
                         }
                     });
