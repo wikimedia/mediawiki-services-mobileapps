@@ -10,6 +10,7 @@
 	"page-edit-history": "All Versioune vun der Säit weisen",
 	"info-box-close-text": "Zoumaachen",
 	"page-talk-page-subtitle": "Verbesserunge vun dësem Artikel diskutéieren",
+	"page-issues-subtitle": "Warnungen iwwer Inhalt vu schlechter Qualitéit oder problemateschen Inhalt",
 	"page-talk-page": "Diskussiounssäit weisen",
 	"info-box-title": "Séier Fakten",
 	"view-in-browser-footer-link": "Artikel am Browser kucken",
@@ -21,10 +22,11 @@
 	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "Den Inhalt ass ënner der $1 disponibel wann et net anescht uginn ass.",
 	"page-read-in-other-languages": "Disponibel {{PLURAL:$1|an enger anerer Sprooch|a(n) $1 anere Sproochen}}",
-	"article-edit-button": "Säit änneren",
+	"article-edit-button": "Abschnitt änneren",
 	"article-edit-protected-button": "Abschnitt op enger gespaarter Säit änneren",
 	"article-section-expand": "Abschnitt opklappen",
 	"article-section-collapse": "Abschnitt zesummeklappen",
 	"table-expand": "Tabell opklappen",
-	"table-collapse": "Tabellen zesummeklappen"
+	"table-collapse": "Tabellen zesummeklappen",
+	"references-preview-header": "Ausgesinn vun de Referenzen"
 }
