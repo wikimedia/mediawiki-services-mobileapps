@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"SaldırganSincap"
 		]
 	},
 	"description-add-link-title": "Madde açıklaması ekle",
@@ -16,7 +17,7 @@
 	"view-in-browser-footer-link": "Maddeyi tarayıcıda görüntüle",
 	"page-location": "Haritada görüntüle",
 	"page-similar-titles": "Benzer sayfalar",
-	"page-last-edited": "{{PLURAL:$1|0=Bugün güncellendi|1=Dün güncellendi|$1 gün önce güncellendi}}",
+	"page-last-edited": "{{PLURAL:$1|Dün güncellendi|$1 gün önce güncellendi|0=Bugün güncellendi}}",
 	"article-about-title": "Bu madde hakkında",
 	"page-issues": "Sayfa sorunları",
 	"license-footer-name": "CC BY-SA 3.0",
