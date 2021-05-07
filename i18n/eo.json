@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jakub Fabijan",
 			"Robin van der Vliet"
 		]
 	},
@@ -14,7 +15,7 @@
 	"view-in-browser-footer-link": "Vidi la artikolon en retumilo",
 	"page-location": "Montri sur mapo",
 	"page-similar-titles": "Similaj paĝoj",
-	"page-last-edited": "Redaktita {{PLURAL:$1|0=hodiaŭ|1=hieraŭ|antaŭ $1 tagoj}}",
+	"page-last-edited": "{{PLURAL:$1|Ĝisdatigita hieraŭ|Ĝisdatigita antaŭ $1 tagoj|0=Ĝisdatigita hodiaŭ}}",
 	"article-about-title": "Pri ĉi tiu artikolo",
 	"page-issues": "Problemoj pri paĝo",
 	"license-footer-name": "CC BY-SA 3.0",
