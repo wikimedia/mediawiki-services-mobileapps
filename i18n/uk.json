@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Movses",
-			"Piramidion"
+			"Piramidion",
+			"Ата"
 		]
 	},
-	"description-add-link-title": "Додати опис назви",
+	"description-add-link-title": "Додати опис статті",
 	"article-read-more-title": "Детальніше",
 	"table-title-other": "Більше інформації",
 	"page-edit-history": "Переглянути історію редагувань",
@@ -17,7 +18,7 @@
 	"view-in-browser-footer-link": "Переглянути статтю в браузері",
 	"page-location": "Переглянути на карті",
 	"page-similar-titles": "Подібні сторінки",
-	"page-last-edited": "{{PLURAL:$1|0=Оновлено сьогодні|one=Оновлено $1 день тому|few=Оновлено $1 дні тому|many=Оновлено $1 днів тому}}",
+	"page-last-edited": "{{PLURAL:$1|one=Оновлено $1 день тому|few=Оновлено $1 дні тому|many=Оновлено $1 днів тому|0=Оновлено сьогодні}}",
 	"article-about-title": "Про цю статтю",
 	"page-issues": "Проблеми сторінки",
 	"license-footer-name": "CC BY-SA 3.0",
