@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kyykaarme",
 			"Nike",
 			"Pyscowicz"
 		]
@@ -8,14 +9,15 @@
 	"description-add-link-title": "Lisää artikkelin kuvaus",
 	"article-read-more-title": "Lue lisää",
 	"table-title-other": "Lisätietoja",
-	"page-edit-history": "Täysi muokkaushistoria",
+	"page-edit-history": "Katso muokkaushistoria",
 	"info-box-close-text": "Sulje",
+	"page-talk-page-subtitle": "Keskustele tämän artikkelin kehittämisestä",
 	"page-talk-page": "Tarkastele keskustelusivua",
 	"info-box-title": "Pikafaktoja",
 	"view-in-browser-footer-link": "Lue artikkeli selaimessa",
 	"page-location": "Näytä kartalla",
 	"page-similar-titles": "Samankaltaiset sivut",
-	"page-last-edited": "{{PLURAL:$1|0=Päivitetty tänään|1=Päivitetty eilen|Päivitetty $1 päivää sitten}}",
+	"page-last-edited": "{{PLURAL:$1|Päivitetty eilen|Päivitetty $1 päivää sitten|0=Päivitetty tänään}}",
 	"article-about-title": "Tietoja tästä artikkelista",
 	"page-issues": "Sivun ongelmat",
 	"license-footer-name": "CC BY-SA 3.0",
