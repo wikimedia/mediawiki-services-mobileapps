@@ -144,10 +144,33 @@ describe('lib:MobileHTML', () => {
         assert.strictEqual(Reference.truncateLinkText('[1001]'), '[..01]');
         assert.strictEqual(Reference.truncateLinkText('[10001]'), '[...01]');
     });
+    it('detects text under divs with about attribute', () => {
+        const doc = fixtures.readIntoDocument('NATO_cs_black_theme.html');
+        const MobileHTMLObj = new MobileHTML(doc);
+        const figcaption = doc.querySelector('figcaption');
+        MobileHTMLObj.prepareFigcaption(figcaption);
+        const spans = figcaption.querySelectorAll('span');
+
+        Array.from(spans).forEach((span) => {
+            assert.strictEqual(MobileHTMLObj.excludeFigcaptionElems(span), true);
+        });
+    });
     it('detects specific HTML structure when "notheme" class adding is to be skipped from <span> inside <th>', () => {
         const doc = fixtures.readIntoDocument('Mobile_Michael_Lewis_Infobox.html');
         const MobileHTMLObj = new MobileHTML(doc);
         const spanElement = doc.querySelector('span[id="Mobile_Michael_Lewis_Span"]');
-        assert(MobileHTMLObj.isSpecificHTMLStructureToSkipClassAdding(spanElement));
+        assert(MobileHTMLObj.excludeThSpanElem(spanElement));
+    });
+    it('detects all elements inside <div> with class "equation-box-elem"', () => {
+        const doc = fixtures.readIntoDocument('Mass_Energy_en_black_theme.html');
+        const MobileHTMLObj = new MobileHTML(doc);
+        const equationBox = doc.querySelector('.equation-box');
+        MobileHTMLObj.prepareEquationDiv(equationBox);
+        const elems = equationBox.querySelectorAll('*');
+
+        Array.from(elems).forEach((elem) => {
+            assert.strictEqual(MobileHTMLObj.excludeEquationBoxElems(elem), true);
+        });
+
     });
 });
