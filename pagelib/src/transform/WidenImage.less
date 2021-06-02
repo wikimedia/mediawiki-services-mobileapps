@@ -1,5 +1,11 @@
 @import './Constants.less';
 
+.pcs-image-wrapper,
+.pcs-widen-image-wrapper {
+  background-color: @wmui-color-base30 !important;
+  margin: 0 auto;
+}
+
 .pcs-widen-image-override {
   /* Center images. */
   display: block;
@@ -17,6 +23,10 @@
 }
 
 @media (orientation: portrait) {
+  .pcs-widen-image-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
   img.pcs-widen-image-override {
     width: 100% !important;
     max-width: 100% !important;
@@ -31,6 +41,14 @@
 
   /* Tablet override */
   @media (min-device-width: @width-breakpoint-tablet) {
+    .pcs-widen-image-wrapper {
+      width: 60% !important;
+      max-width: 60% !important;
+    }
+    .pcs-widen-image-wrapper>img.pcs-widen-image-override {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
     img.pcs-widen-image-override {
       width: 60% !important;
       max-width: 60% !important;
@@ -42,6 +60,14 @@
 }
 
 @media (orientation: landscape) {
+  .pcs-widen-image-wrapper {
+      width: 50% !important;
+      max-width: 50% !important;
+  }
+  .pcs-widen-image-wrapper>img.pcs-widen-image-override {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
   img.pcs-widen-image-override {
     width: 50% !important;
     max-width: 50% !important;

@@ -159,8 +159,26 @@ const loadPlaceholder = (document: Document, placeholder: HTMLSpanElement): HTML
     placeholder.removeEventListener('click', retryListener)
     /* DOM sink status: safe - content from parsoid output */
     if (placeholder.parentNode) placeholder.parentNode.replaceChild(image, placeholder)
-    image.classList.add(IMAGE_LOADED_CLASS)
-    image.classList.remove(IMAGE_LOADING_CLASS)
+
+    const imageWidth = image.getAttribute('width');
+    let divWrapper = document.createElement('div');
+    if (image.className && image.className.includes('pcs-widen-image-override')) {
+      divWrapper.classList.add('pcs-widen-image-wrapper');
+    } else {
+      divWrapper.classList.add('pcs-image-wrapper');
+    }
+    const imageParent = image.parentNode;
+    divWrapper.appendChild(image);
+    divWrapper.setAttribute('style', `width: ${imageWidth}px;`);
+    
+    imageParent ? imageParent.appendChild(divWrapper) : null;
+
+    const nestedImage = divWrapper.querySelector('img');
+
+    if (nestedImage) {
+      nestedImage.classList.add(IMAGE_LOADED_CLASS)
+      nestedImage.classList.remove(IMAGE_LOADING_CLASS)
+    }
   }, { once: true })
 
   image.addEventListener('error', () => {

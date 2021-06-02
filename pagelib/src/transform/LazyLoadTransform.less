@@ -94,6 +94,15 @@
   clear: both;
 }
 
+// T190847 - make sure that updated images will receive relevant styles after loading
+.mw-image-border .pcs-image-wrapper {
+  > img,
+  > video {
+    border: 1px solid #eaecf0;
+    display: block;
+  }
+}
+
 @-webkit-keyframes pcs-lazy-load-placeholder-pulse {
   0%, 100% { background-color: @wmui-color-base80; } 50% { background-color: @wmui-color-base70; }
 }
