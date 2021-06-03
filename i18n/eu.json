@@ -14,7 +14,7 @@
 	"view-in-browser-footer-link": "Artikulua arakatzailean ikusi",
 	"page-location": "Ikusi mapan",
 	"page-similar-titles": "Antzeko orriak",
-	"page-last-edited": "Orain dela $1 egun aldatu da",
+	"page-last-edited": "{{PLURAL:$1|Atzo eguneratua|Eguneratua duela $1 egun|0=Gaur eguneratua}}",
 	"article-about-title": "Artikulu honi buruz",
 	"page-issues": "Orriaren arazoak",
 	"license-footer-name": "CC BY-SA 3.0",
@@ -24,5 +24,6 @@
 	"article-section-expand": "Atala zabaldu",
 	"article-section-collapse": "Atala txikitu",
 	"table-expand": "Taula zabaldu",
-	"table-collapse": "Taula txikitu"
+	"table-collapse": "Taula txikitu",
+	"references-preview-header": "Erreferentzien aurreikuspena"
 }

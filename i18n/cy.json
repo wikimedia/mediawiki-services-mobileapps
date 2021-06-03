@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robin Owain"
+			"Robin Owain",
+			"Troswr"
 		]
 	},
 	"description-add-link-title": "Ychwanegwch disgrifiad o'r erthygl",
@@ -10,12 +11,13 @@
 	"page-edit-history": "Fweld hanes y golygiadau",
 	"info-box-close-text": "Cau",
 	"page-talk-page-subtitle": "Trafod gwelliannau i'r erthygl hon",
+	"page-issues-subtitle": "Yn rhybuddio am gynnwys problemus neu eilradd",
 	"page-talk-page": "Gweld y dudalen Sgwrs",
 	"info-box-title": "Ffeithiau sydyn",
 	"view-in-browser-footer-link": "Gweld yr erthygl yn y porwr",
 	"page-location": "Gweld ar fap",
 	"page-similar-titles": "Tudalennau tebyg",
-	"page-last-edited": "{{PLURAL:$1|Diweddarwyd ddoe|Diweddarwyd $1 diwrnod yn ol|0=Diweddarwyd heddiw}}",
+	"page-last-edited": "{{PLURAL:$1|Diweddarwyd ddoe|Diweddarwyd $1 diwrnod yn ôl|0=Diweddarwyd heddiw}}",
 	"article-about-title": "Ynglŷn â'r erthygl hon",
 	"page-issues": "Trafferthion gyda'r dudalen hon",
 	"license-footer-name": "CC BY-SA 3.0",
