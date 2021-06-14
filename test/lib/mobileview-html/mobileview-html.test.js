@@ -36,14 +36,14 @@ describe('lib:mobileview-html', () => {
         });
     });
 
-    describe('wrapImagesInFigureElements', () => {
+    describe('wrapImagesInSpanElements', () => {
         it('single image', () => {
             const document = domino.createDocument(
                 '<p><a class="image" href="target"><img src="foo"/></a></p>');
-            const result = lib.testing.wrapImagesInFigureElements(document,
+            const result = lib.testing.wrapImagesInSpanElements(document,
                 { id: 0, text: 'lead' });
             assert.deepEqual(document.body.innerHTML,
-                '<p><figure class="mw-default-size"><a class="image" href="target"><img src="foo"></a></figure></p>');
+                '<p><span class="mw-default-size"><a class="image" href="target"><img src="foo"></a></span></p>');
         });
     });
 });
