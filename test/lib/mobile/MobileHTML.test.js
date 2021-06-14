@@ -152,14 +152,14 @@ describe('lib:MobileHTML', () => {
         const spans = figcaption.querySelectorAll('span');
 
         Array.from(spans).forEach((span) => {
-            assert.strictEqual(MobileHTMLObj.excludeFigcaptionElems(span), true);
+            assert.strictEqual(MobileHTMLObj.figCaptionsNotEligibleForThemeExclusion(span), true);
         });
     });
     it('detects specific HTML structure when "notheme" class adding is to be skipped from <span> inside <th>', () => {
         const doc = fixtures.readIntoDocument('Mobile_Michael_Lewis_Infobox.html');
         const MobileHTMLObj = new MobileHTML(doc);
         const spanElement = doc.querySelector('span[id="Mobile_Michael_Lewis_Span"]');
-        assert(MobileHTMLObj.excludeThSpanElem(spanElement));
+        assert(MobileHTMLObj.thSpanInfoboxTemplateNotEligibleForThemeExclusion(spanElement));
     });
     it('detects all elements inside <div> with class "equation-box-elem"', () => {
         const doc = fixtures.readIntoDocument('Mass_Energy_en_black_theme.html');
@@ -169,7 +169,7 @@ describe('lib:MobileHTML', () => {
         const elems = equationBox.querySelectorAll('*');
 
         Array.from(elems).forEach((elem) => {
-            assert.strictEqual(MobileHTMLObj.excludeEquationBoxElems(elem), true);
+            assert.strictEqual(MobileHTMLObj.equationBoxNotEligibleForThemeExclusion(elem), true);
         });
 
     });
