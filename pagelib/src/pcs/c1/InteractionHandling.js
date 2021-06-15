@@ -23,7 +23,6 @@ const Actions = {
   /* Footer related actions: */
   FooterItemSelected: 'footer_item',
   SaveOtherPage: 'save_other_page',
-  ReadMoreTitlesRetrieved: 'read_more_titles_retrieved',
   ViewInBrowser: 'view_in_browser',
 }
 
@@ -308,14 +307,6 @@ const saveOtherPage = title => {
 }
 
 /**
- * @param {!list<string>} titles list of 'Read more' page titles
- * @return {void}
- */
-const titlesRetrieved = titles => {
-  postMessage(new Interaction(Actions.ReadMoreTitlesRetrieved, { titles }))
-}
-
-/**
  * @return {void}
  */
 const viewInBrowser = () => {
@@ -379,7 +370,6 @@ const setInteractionHandler = myHandlerFunction => {
   Footer._connectHandlers({
     footerItemSelected,
     saveOtherPage,
-    titlesRetrieved,
     viewInBrowser
   })
 

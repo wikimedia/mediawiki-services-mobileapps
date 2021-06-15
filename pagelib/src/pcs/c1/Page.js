@@ -8,7 +8,6 @@ import InteractionHandling from './InteractionHandling'
 import LazyLoadTransformer from '../../transform/LazyLoadTransformer'
 import NodeUtilities from '../../transform/NodeUtilities'
 import PlatformTransform from '../../transform/PlatformTransform'
-import Scroller from './Scroller'
 import SectionUtilities from '../../transform/SectionUtilities'
 import ThemeTransform from '../../transform/ThemeTransform'
 import HTMLUtilities from '../../transform/HTMLUtilities'
@@ -112,12 +111,9 @@ const setup = (optionalSettings, onSuccess) => {
     const isInitiallyCollapsed = settings.areTablesInitiallyExpanded !== true
     CollapseTable.setupEventHandling(window,
       document,
-      isInitiallyCollapsed,
-      Scroller.scrollWithDecorOffset)
+      isInitiallyCollapsed)
   }
-  if (settings.scrollTop !== undefined) {
-    Scroller.setScrollTop(settings.scrollTop)
-  }
+
   if (settings.textSizeAdjustmentPercentage !== undefined) {
     AdjustTextSize.setPercentage(
       document.body,
@@ -174,15 +170,6 @@ const setMaxWidth = maxWidth => {
     return
   }
   document.body.style.maxWidth = HTMLUtilities.escape(maxWidth)
-}
-
-/**
- * Sets the top scroll position for collapsing of tables (when bottom close button is tapped).
- * @param {!number} scrollTop height of decor covering the top portion of the Viewport in pixel
- * @return {void}
- */
-const setScrollTop = scrollTop => {
-  Scroller.setScrollTop(scrollTop)
 }
 
 /**
@@ -379,17 +366,12 @@ const getLeadImageFromMetaTags = metaTags => {
  */
 const getLeadImage = () => getLeadImageFromMetaTags(getMetaTags())
 
-/**
- * Gets the Scroller object. Just for testing!
- * @return {{setScrollTop, scrollWithDecorOffset}}
- */
-const getScroller = () => Scroller
 
 /**
  * Executes pagelib functionality intended to run before any content has loaded
  * @return {void}
  */
-const onBodyStart = () => {
+const onBodyStart = () => {  
   if (!document) {
     return
   }
@@ -523,7 +505,6 @@ export default {
   setDimImages,
   setMargins,
   setMaxWidth,
-  setScrollTop,
   setTextSizeAdjustmentPercentage,
   setEditButtons,
   getLeadImage,
@@ -534,7 +515,4 @@ export default {
   removeHighlightsFromHighlightedElements,
   expandOrCollapseTables,
   waitForNextPaint,
-  testing: {
-    getScroller
-  }
 }

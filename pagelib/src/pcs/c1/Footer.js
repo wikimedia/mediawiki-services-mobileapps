@@ -9,7 +9,7 @@ let handlers
 /**
  * Sets up the interaction handlers for the footer.
  * @param {!{}} newHandlers an object with handlers for {
- *   titlesRetrieved, footerItemSelected, saveOtherPage, viewLicense, viewInBrowser
+ *   footerItemSelected, saveOtherPage, viewLicense, viewInBrowser
  * }
  * @return {void}
  */
@@ -122,17 +122,6 @@ const add = params => {
     })
 
     if (readMoreItemCount && readMoreItemCount > 0) {
-
-      /**
-       * @param {!list} titles article titles
-       * @return {void}
-       */
-      const titlesShownHandler = titles => {
-        if (handlers) {
-          handlers.titlesRetrieved(titles)
-        }
-      }
-
       FooterReadMore.fetchAndAdd(
         _getArticleTitleFromLocation(window.location),
         banana.i18n('article-read-more-title'),
@@ -140,7 +129,6 @@ const add = params => {
         'pcs-footer-container-readmore',
         'pcs-footer-container-readmore-pages',
         readMoreBaseURL,
-        titlesShownHandler,
         document
       )
     }
