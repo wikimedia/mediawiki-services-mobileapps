@@ -102,9 +102,6 @@ components:
         title:
           type: string
           description: The file page title
-        leadImage:
-          type: boolean
-          description: flag that marks specific image as the first image in the article
         type:
           type: string
           enum:
@@ -138,7 +135,6 @@ components:
               description: the Mathoid image mime type
       required:
         - type
-        - leadImage
         - section_id
         - showInGallery
 
