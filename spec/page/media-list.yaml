@@ -47,6 +47,7 @@ paths:
               items:
                 - section_id: /.+/
                   type: /.+/
+                  leadImage: /.+/
                   showInGallery: /.+/
   /{domain}/v1/page/media-list/{title}/{revision}:
     get:

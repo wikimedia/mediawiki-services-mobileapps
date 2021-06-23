@@ -85,11 +85,14 @@ function getMobileHtmlFromMobileview(req, res) {
  * clients.
  */
 router.get('/page/mobile-html/:title/:revision?/:tid?', (req, res) => {
-    if (!mobileviewHtml.shouldUseMobileview(req)) {
-        return getMobileHtmlFromParsoid(req, res);
-    } else {
-        return getMobileHtmlFromMobileview(req, res);
-    }
+    BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(resolvedTitle => {
+        req.params.title = resolvedTitle;
+        if (!mobileviewHtml.shouldUseMobileview(req)) {
+            return getMobileHtmlFromParsoid(req, res);
+        } else {
+            return getMobileHtmlFromMobileview(req, res);
+        }
+    });
 });
 
 /**
