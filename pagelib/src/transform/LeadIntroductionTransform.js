@@ -1,6 +1,19 @@
 const ELEMENT_NODE = 1
 
 /**
+ * T278023 - The document node created by domino does not contain
+ * .innerText property, use this helper method instead
+ * It helps to make sure that spaces and line breaks won't reflect
+ * the calculation in isParagraphEligible() and tests will pass
+ * correctly
+ * @param {string} text
+ * @returns {string}
+ */
+const trimTextContent = textContent => {
+  return textContent.replace(/\n|\r/g, '').trim()
+}
+
+/**
  * Determine if paragraph is the one we are interested in.
  * @param  {!HTMLParagraphElement}  paragraphElement
  * @return {!boolean}
@@ -12,15 +25,15 @@ const isParagraphEligible = paragraphElement => {
   // coordinates but also other elements meeting the eligible P min textContent length being
   // accepted.
   const coordElement = paragraphElement.querySelector('[id="coordinates"]')
-  const coordTextLength = !coordElement ? 0 : coordElement.textContent.length
+  const coordTextLength = !coordElement ? 0 : trimTextContent(coordElement.textContent).length
 
   // Ensures the paragraph has at least a little text. Otherwise silly things like a empty P or P
   // which only contains a BR tag will get pulled up. See enwiki 'Hawaii', 'United States',
   // 'Academy (educational institution)', 'Lovászpatona'
-  const minEligibleTextLength = 50
+  const minEligibleTextLength = 10
   const hasEnoughEligibleText =
-    paragraphElement.textContent.length - coordTextLength >= minEligibleTextLength
-  return hasEnoughEligibleText
+    trimTextContent(paragraphElement.textContent).length - coordTextLength >= minEligibleTextLength
+    return hasEnoughEligibleText
 }
 
 /**

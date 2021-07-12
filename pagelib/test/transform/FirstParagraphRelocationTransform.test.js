@@ -14,7 +14,7 @@ describe('LeadIntroductionTransform', () => {
   describe('isParagraphEligible()', () => {
     it('accept p with lots of text', () => {
       const document = domino.createDocument(
-        '<p id="p1"></p><p id="p2">This p has a bunch of stuff in it. It is so great.</p>'
+        '<p id="p1"></p><p id="p2">Small text</p>'
       )
       const goodP = document.getElementById('p2')
       assert.equal(isParagraphEligible(goodP), true)
@@ -28,11 +28,11 @@ describe('LeadIntroductionTransform', () => {
     })
     it('reject p with only coordinates', () => {
       const document = domino.createDocument(`
-      <p id="p1">
-        <span id="coordinates">
-          Coordinates: 39°54′04″N 083°08′13″W / 39.90111°N 83.13694°W / 39.90111; -83.13694
-        </span>
-      </p>
+        <p id="p1">
+          <span id="coordinates">
+            Coordinates: 39°54′04″N 083°08′13″W / 39.90111°N 83.13694°W / 39.90111; -83.13694
+          </span>
+        </p>
       `)
       const pWithCoordinates = document.getElementById('p1')
       assert.equal(isParagraphEligible(pWithCoordinates), false)
@@ -43,7 +43,7 @@ describe('LeadIntroductionTransform', () => {
           <span id="coordinates">
             Coordinates: 39°54′04″N 083°08′13″W / 39.90111°N 83.13694°W / 39.90111; -83.13694
           </span>
-          This p has a bunch of stuff in it. It is so great.
+          Small text
         </p>
       `)
       const pWithCoordinates = document.getElementById('p1')
