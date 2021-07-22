@@ -15,7 +15,7 @@
 	"view-in-browser-footer-link": "مقاله را در مرورگر ببینید",
 	"page-location": "دیدن در نقشه",
 	"page-similar-titles": "صفحات مشابه",
-	"page-last-edited": "{{PLURAL:$1|دیروز به‌روز شده|$1 روز پیش به‌روز شده|0=امروز به‌روز شده}}",
+	"page-last-edited": "{{PLURAL:$1|دیروز روزآمد شده|$1 روز پیش روزآمد شده|0=امروز روزآمد شده}}",
 	"article-about-title": "دربارهٔ این مقاله",
 	"page-issues": "موضوعات صفحه",
 	"license-footer-name": "CC BY-SA 3.0",
