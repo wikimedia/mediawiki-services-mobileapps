@@ -1,7 +1,7 @@
 // mediawiki/skins/MinervaNeue/minerva.less/minerva.mixins.less@9c1e1abc
 
-@import "../../mediawiki/mixins.less";
-@import "minerva.variables.less";
+@import '../../mediawiki/mixins.less';
+@import './minerva.variables.less';
 
 .editor-textarea() {
   // stylelint-disable-next-line no-descending-specificity
@@ -11,13 +11,13 @@
   padding: 10px @contentPadding 10px @contentPadding;
   resize: none;
 }
-
+  
 .clearfix() {
   display: block;
   content: "";
   clear: both;
 }
-
+  
 // Generic mixin for applying styles to text that accompanies/adds context to workflows
 .secondary-text() {
   font-size: @font-size-minerva-small;
@@ -25,7 +25,7 @@
   margin-top: 0.5em;
   line-height: 1.4;
 }
-
+  
 .truncated-text() {
   white-space: nowrap;
   overflow: hidden;

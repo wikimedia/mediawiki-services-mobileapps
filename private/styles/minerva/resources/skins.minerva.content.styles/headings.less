@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/headings.less@ecf404db
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.base.styles/content/headings.less@cbe85237
 
 // Headings in mobile
 //
@@ -21,6 +21,7 @@
 //   <h6>Heading 2</h6>
 //   <p>Paragraph of text</p>
 // </div>
+
 @import '../../minerva.less/minerva.variables.less';
 @import '../../minerva.less/minerva.mixins.less';
 
@@ -69,11 +70,8 @@ h3, h4, h5, h6 {
     padding: @headingMargin 0;
   }
 
-  // PCS note:
-  // Skipped in PCS since Parsoid wraps sections and their headings, so we won't get a `p + h3`.
-  //
-  // // `h3`s need extra `margin-top` after paragraphs, see T219572.
-  //p + h3 {
-  //  margin-top: @headingMargin * 3;
-  //}
+  // `h3`s need extra `margin-top` after paragraphs, see T219572.
+  p + h3 {
+    margin-top: @headingMargin * 3;
+  }
 }

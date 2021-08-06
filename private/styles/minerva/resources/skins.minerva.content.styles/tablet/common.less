@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/tablet/common.less@1e64fc8f
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.base.styles/content/tablet/common.less@cbe85237
 
 /*
 A file for css that optimises the Minerva skin on larger devices.
@@ -6,7 +6,6 @@ A file for css that optimises the Minerva skin on larger devices.
 
 @import '../../../minerva.less/minerva.variables.less';
 @import '../../../minerva.less/minerva.mixins.less';
-@paddingVertical: 1.4em;
 
 @media screen and ( min-width: @width-breakpoint-tablet ) {
   .client-js #searchIcon { // stylelint-disable-line selector-max-id
@@ -31,7 +30,7 @@ A file for css that optimises the Minerva skin on larger devices.
   // stylelint-disable selector-max-id
   // FIXME: Have a class that identifies all of these selectors
   .pre-content,
-    /* Form only pages e.g. Special:MobileOptions */
+  /* Form only pages e.g. Special:MobileOptions */
   #mw-content-text > form,
   .content,
   .post-content {
@@ -110,7 +109,7 @@ A file for css that optimises the Minerva skin on larger devices.
     width: 90%;
     max-width: @contentMaxWidthTablet;
   }
-  
+
   .header {
     // Make sure the main menu and secondary button icon images are aligned
     // with the content.

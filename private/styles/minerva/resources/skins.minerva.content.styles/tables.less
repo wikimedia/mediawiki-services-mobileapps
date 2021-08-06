@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.content.styles/tables.less@7280d255
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.base.styles/content/tables.less@cbe85237
 
 // Tables
 @import '../../minerva.less/minerva.variables.less';
@@ -14,6 +14,7 @@
     table {
       display: block;
       width: 100% !important;
+      box-sizing: border-box;
 
       &.wikitable {
         // Remove the outer table border as the table container may be
@@ -69,5 +70,6 @@
   > tr > th,
   > * > tr > th {
     background-color: @grayLightest;
+    text-align: center;
   }
 }
