@@ -45,7 +45,8 @@ describe('mobile-html', function() {
                 // children[0] edit button
                 // children[1] 1st hatnote
                 // children[2] 2nd hatnote
-                assert.ok(section0.children[3].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
+                // children[3] 3nd hatnote
+                assert.ok(section0.children[4].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
             });
     });
 
