@@ -386,7 +386,6 @@ const Actions = {
   /* Footer related actions: */
   FooterItemSelected: 'footer_item',
   SaveOtherPage: 'save_other_page',
-  ReadMoreTitlesRetrieved: 'read_more_titles_retrieved',
   ViewLicense: 'view_license',
   ViewInBrowser: 'view_in_browser',
 }

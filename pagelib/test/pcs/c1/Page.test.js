@@ -36,7 +36,6 @@ describe('pcs.c1.Page', () => {
       assert.strictEqual(document.body.style.marginLeft, '4px')
       assert.strictEqual(document.body.style['font-size'], '95%')
       // assert.strictEqual(document.body.style['text-size-adjust'], '100%')
-      assert.strictEqual(Page.testing.getScroller().testing.getScrollTop(), 64)
       assert.ok(onSuccessCallbackCalled)
     })
   })
@@ -107,16 +106,6 @@ describe('pcs.c1.Page', () => {
     })
   })
 
-  describe('.setScrollTop()', () => {
-    it('all', () => {
-      window = domino.createWindow(emptyHTML)
-      document = window.document
-
-      Page.setScrollTop(64)
-
-      assert.strictEqual(Page.testing.getScroller().testing.getScrollTop(), 64)
-    })
-  })
 
   describe('.setEditButtons()', () => {
     it('simple', () => {
