@@ -93,8 +93,8 @@ describe('lib:MobileHTML', () => {
         assert(!constants.forbiddenElementClassSubstringRegex.test('infobox'));
     });
     it('detects forbidden div classes', () => {
-        assert(constants.forbiddenDivClassRegex.test('infobox Z3988 ok'));
-        assert(constants.forbiddenDivClassRegex.test('Z3988 infobox'));
+        assert(!constants.forbiddenDivClassRegex.test('infobox Z3988 ok'));
+        assert(!constants.forbiddenDivClassRegex.test('Z3988 infobox'));
         assert(constants.forbiddenDivClassRegex.test('magnify'));
         assert(!constants.forbiddenDivClassRegex.test('someclass notmagnify'));
     });
