@@ -2,19 +2,12 @@ import './FooterReadMore.less'
 import HTMLUtil from '../transform/HTMLUtilities'
 
 /**
- * @typedef {function} TitlesShownHandler
- * @param {!Array.<string>} titles
- * @return {void}
- */
-
-/**
  * Display fetched read more pages.
  * @typedef {function} ShowReadMorePagesHandler
  * @param {!Array.<object>} pages
  * @param {!string} heading
  * @param {!string} sectionContainerId
  * @param {!string} pageContainerId
- * @param {!TitlesShownHandler} titlesShownHandler
  * @param {!Document} document
  * @return {void}
  */
@@ -142,9 +135,8 @@ const documentFragmentForReadMorePage = (readMorePage, index, document) => {
 /**
  * @type {ShowReadMorePagesHandler}
  */
-const showReadMorePages = (pages, heading, sectionContainerId, pageContainerId, titlesShownHandler,
+const showReadMorePages = (pages, heading, sectionContainerId, pageContainerId,
   document) => {
-  const shownTitles = []
   const sectionContainer = document.getElementById(sectionContainerId)
   const pageContainer = document.getElementById(pageContainerId)
   setHeading(
@@ -154,13 +146,11 @@ const showReadMorePages = (pages, heading, sectionContainerId, pageContainerId, 
   )
   pages.forEach((page, index) => {
     const title = page.titles.normalized
-    shownTitles.push(title)
     const pageModel = new ReadMorePage(title, page.titles.display, page.thumbnail,
       page.description, page.extract)
     const pageFragment = documentFragmentForReadMorePage(pageModel, index, document)
     pageContainer.appendChild(pageFragment)
   })
-  titlesShownHandler(shownTitles)
   sectionContainer.style.display = 'block'
 }
 
@@ -183,12 +173,11 @@ const readMoreQueryURL = (title, count, baseURL) =>
  * @param {!string} sectionContainerId
  * @param {!string} pageContainerId
  * @param {?string} baseURL
- * @param {!TitlesShownHandler} titlesShownHandler
  * @param {!Document} document
  * @return {void}
  */
 const fetchAndAdd = (title, heading, count, sectionContainerId, pageContainerId, baseURL,
-  titlesShownHandler, document) => {
+  document) => {
   const xhr = new XMLHttpRequest() // eslint-disable-line no-undef
   xhr.open('GET', readMoreQueryURL(title, count, baseURL), true)
   xhr.onload = () => {
@@ -211,7 +200,6 @@ const fetchAndAdd = (title, heading, count, sectionContainerId, pageContainerId,
       heading,
       sectionContainerId,
       pageContainerId,
-      titlesShownHandler,
       document
     )
   }
