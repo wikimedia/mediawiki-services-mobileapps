@@ -154,6 +154,15 @@ const loadPlaceholder = (document: Document, placeholder: HTMLSpanElement): HTML
     event.preventDefault()
   }
 
+  /**
+   * T271566 - Check if image has usemap attribute to prevent adding lazy load classes
+   * @param {HTMLImageElement} image
+   * @return {boolean}
+   */
+  const isUsemapImage = (image:HTMLImageElement) => {
+    return image.hasAttribute('usemap')
+  }
+
   // Add the download listener prior to setting the src attribute to avoid missing the load event.
   image.addEventListener('load', () => {
     placeholder.removeEventListener('click', retryListener)
@@ -164,13 +173,15 @@ const loadPlaceholder = (document: Document, placeholder: HTMLSpanElement): HTML
     let divWrapper = document.createElement('div');
     if (image.className && image.className.includes('pcs-widen-image-override')) {
       divWrapper.classList.add('pcs-widen-image-wrapper');
+    } else if (isUsemapImage(image)) {
+       return
     } else {
       divWrapper.classList.add('pcs-image-wrapper');
     }
     const imageParent = image.parentNode;
     divWrapper.appendChild(image);
     divWrapper.setAttribute('style', `width: ${imageWidth}px;`);
-    
+
     imageParent ? imageParent.appendChild(divWrapper) : null;
 
     const nestedImage = divWrapper.querySelector('img');
@@ -191,7 +202,9 @@ const loadPlaceholder = (document: Document, placeholder: HTMLSpanElement): HTML
   ElementUtilities.copyDataAttributesToAttributes(placeholder, image, COPY_ATTRIBUTES)
 
   // Append to the class list after copying over any preexisting classes.
-  image.classList.add(IMAGE_LOADING_CLASS)
+  if (!isUsemapImage(image)) {
+    image.classList.add(IMAGE_LOADING_CLASS)
+  }
 
   return image
 }
