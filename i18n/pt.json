@@ -5,7 +5,7 @@
 			"Mansil alfalb"
 		]
 	},
-	"description-add-link-title": "Adicionar título de descrição",
+	"description-add-link-title": "Adicionar descrição do artigo",
 	"article-read-more-title": "Ler mais",
 	"table-title-other": "Mais informação",
 	"page-edit-history": "Historial de edições completo",
@@ -17,7 +17,7 @@
 	"view-in-browser-footer-link": "Ver artigo no browser",
 	"page-location": "Ver num mapa",
 	"page-similar-titles": "Páginas semelhantes",
-	"page-last-edited": "{{PLURAL:$1|0=Editado hoje|1=Editado ontem|Editado há $1 dias}}",
+	"page-last-edited": "{{PLURAL:$1|Atualizado ontem|Atualizado há $1 dias|0=Atualizado hoje}}",
 	"article-about-title": "Sobre este artigo",
 	"page-issues": "Problemas da página",
 	"license-footer-name": "CC BY-SA 3.0",
