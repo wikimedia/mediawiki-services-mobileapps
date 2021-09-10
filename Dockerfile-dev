@@ -1,4 +1,4 @@
-FROM docker-registry.wikimedia.org/buster-nodejs10-devel
+FROM docker-registry.wikimedia.org/nodejs12-devel
 USER "root"
 ENV HOME="/root"
 ENV DEBIAN_FRONTEND="noninteractive"

@@ -1,5 +1,5 @@
 version: v4
-base: docker-registry.wikimedia.org/nodejs10-devel
+base: docker-registry.wikimedia.org/nodejs12-devel
 variants:
   dev:
     apt: { packages: [git, build-essential] }

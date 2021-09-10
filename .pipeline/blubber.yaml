@@ -1,5 +1,5 @@
 version: v4
-base: docker-registry.wikimedia.org/nodejs10-slim
+base: docker-registry.wikimedia.org/nodejs12-slim
 lives:
   in: /srv/service
 runs:
@@ -7,14 +7,14 @@ runs:
 
 variants:
   dev:
-    base: docker-registry.wikimedia.org/nodejs10-devel
+    base: docker-registry.wikimedia.org/nodejs12-devel
     apt: { packages: [git, build-essential] }
     node: { requirements: [package.json, package-lock.json] }
     entrypoint: [npm, run, dev]
   build:
-    base: docker-registry.wikimedia.org/nodejs10-devel
+    base: docker-registry.wikimedia.org/nodejs12-devel
     copies: [local]
-    apt: { packages: [git, build-essential, python-pkgconfig] }
+    apt: { packages: [git, build-essential, python, pkg-config] }
     node: { requirements: [package.json] }
     runs: { environment: { LINK: g++ } }
   development:
