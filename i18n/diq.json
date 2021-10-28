@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"1917 Ekim Devrimi",
+			"Mirzali",
 			"Orbot707"
 		]
 	},
-	"description-add-link-title": "Şınastiya sereki dekerê",
+	"description-add-link-title": "Şınasnayışê meqaleyi cı kerê",
 	"article-read-more-title": "Tayêna bıwane",
 	"table-title-other": "Tayêna melumat",
 	"page-edit-history": "Verorê vurnayışi bıvêne",
@@ -17,7 +18,7 @@
 	"view-in-browser-footer-link": "Meqaleyi browseri sero bıvinê",
 	"page-location": "Xerita sero bıvênên",
 	"page-similar-titles": "Zey cı peri",
-	"page-last-edited": "{{PLURAL:$1|0=Ewro kerdo rocane|1=Vızêr biyo rocanê |Verê $1 roca kerdo rocane }}",
+	"page-last-edited": "{{PLURAL:$1|Vızêri bi rocane|Verê $1 rocan kerd rocane|0=Ewro bi rocane}}",
 	"article-about-title": "Heqê nê meqaley",
 	"page-issues": "Meseleyê pele",
 	"license-footer-name": "CC BY-SA 3.0",
