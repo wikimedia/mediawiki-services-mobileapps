@@ -11,8 +11,6 @@
     font-weight: normal;
     font-style: normal;
     /* Isolation to fix references in case of RTL words at the end of a reference */
-    unicode-bidi: -moz-isolate;
-    unicode-bidi: -webkit-isolate;
     unicode-bidi: isolate;
 }
 
@@ -67,8 +65,6 @@ span.mw-reflink-text {
 }
 
 .mw-references-columns {
-    -webkit-column-width: 30em;
-    -moz-column-width: 30em;
     column-width: 30em;
 }
 
