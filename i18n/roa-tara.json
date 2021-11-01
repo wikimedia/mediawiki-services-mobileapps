@@ -1,32 +1,32 @@
 {
-	"@metadata": {
-		"authors": [
-			"Joetaras"
-		]
-	},
-	"description-add-link-title": "Aggiunge 'na descrizione pa vôsce",
-	"article-read-more-title": "Ligge de cchiù",
-	"table-title-other": "Cchiù 'mbormaziune",
-	"page-edit-history": "'Ndruche 'u cunde de le cangiaminde",
-	"info-box-close-text": "Achiude",
-	"page-talk-page-subtitle": "Le 'ngazzaminde migliorane sta vôsce",
-	"page-issues-subtitle": "Avvise sus a le sotteparametre o condenute probblemateche",
-	"page-talk-page": "'Ndruche 'a pàgene de le 'ngazzaminde",
-	"info-box-title": "Fatte veloce",
-	"view-in-browser-footer-link": "'Ndruche 'a vôsce jndr'à 'u browser",
-	"page-location": "'Ndruche sus 'a mappe",
-	"page-similar-titles": "Pàggene ca s'assemegghiane",
-	"page-last-edited": "Aggiornate {{PLURAL:$1|0=osce|1=ajere|$1 sciurne fa}}",
-	"article-about-title": "Sus a sta vôsce",
-	"page-issues": "Probbleme cu 'a pàgene",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "'U condenute jè disponibile sotte a $1 senze otre note.",
-	"page-read-in-other-languages": "Disponibbele jndr'à {{PLURAL:$1|'n'otra lènghe|otre $1 lènghe}}",
-	"article-edit-button": "Cange 'a sezione",
-	"article-edit-protected-button": "Cange 'a sezione d'a pàgene prutette",
-	"article-section-expand": "Spanne 'a sezione",
-	"article-section-collapse": "Scunne 'a sezione",
-	"table-expand": "Spanne 'a tabbelle",
-	"table-collapse": "Scunne 'a tabbelle",
-	"references-preview-header": "Andeprime de le note"
+    "@metadata": {
+        "authors": [
+            "Joetaras"
+        ]
+    },
+    "description-add-link-title": "Aggiunge 'na descrizione pa vôsce",
+    "article-read-more-title": "Ligge de cchiù",
+    "table-title-other": "Cchiù 'mbormaziune",
+    "page-edit-history": "'Ndruche 'u cunde de le cangiaminde",
+    "info-box-close-text": "Achiude",
+    "page-talk-page-subtitle": "Le 'ngazzaminde migliorane sta vôsce",
+    "page-issues-subtitle": "Avvise sus a le sotteparametre o condenute probblemateche",
+    "page-talk-page": "'Ndruche 'a pàgene de le 'ngazzaminde",
+    "info-box-title": "Fatte veloce",
+    "view-in-browser-footer-link": "'Ndruche 'a vôsce jndr'à 'u browser",
+    "page-location": "'Ndruche sus 'a mappe",
+    "page-similar-titles": "Pàggene ca s'assemegghiane",
+    "page-last-edited": "Aggiornate {{PLURAL:$1|0=osce|1=ajere|$1 sciurne fa}}",
+    "article-about-title": "Sus a sta vôsce",
+    "page-issues": "Probbleme cu 'a pàgene",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "'U condenute jè disponibile sotte a $1 senze otre note.",
+    "page-read-in-other-languages": "Disponibbele jndr'à {{PLURAL:$1|'n'otra lènghe|otre $1 lènghe}}",
+    "article-edit-button": "Cange 'a sezione",
+    "article-edit-protected-button": "Cange 'a sezione d'a pàgene prutette",
+    "article-section-expand": "Spanne 'a sezione",
+    "article-section-collapse": "Scunne 'a sezione",
+    "table-expand": "Spanne 'a tabbelle",
+    "table-collapse": "Scunne 'a tabbelle",
+    "references-preview-header": "Andeprime de le note"
 }

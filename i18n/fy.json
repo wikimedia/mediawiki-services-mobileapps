@@ -1,32 +1,32 @@
 {
-	"@metadata": {
-		"authors": [
-			"PiefPafPier"
-		]
-	},
-	"description-add-link-title": "Artikelbeskriuwing tafoegje",
-	"article-read-more-title": "Mear lêze",
-	"table-title-other": "Mear ynformaasje",
-	"page-edit-history": "Bewurkingsskiednis besjen",
-	"info-box-close-text": "Slute",
-	"page-talk-page-subtitle": "Ferbetterings oan dit artikel beprate",
-	"page-issues-subtitle": "Sinjalearing fan suboptimale of probleemynhâld",
-	"page-talk-page": "Oerlisside besjen",
-	"info-box-title": "Fluch de feiten",
-	"view-in-browser-footer-link": "Artikel yn webblêder besjen",
-	"page-location": "Op 'e kaart besjen",
-	"page-similar-titles": "Besibbe siden",
-	"page-last-edited": "{{PLURAL:$1|Juster bywurke|$1 dagen lyn bywurke|0=Hjoed bywurke}}",
-	"article-about-title": "Oer dit artikel",
-	"page-issues": "Sideproblemen",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "Ynhâld is beskikber ûnder $1, at net oars neamd wurdt.",
-	"page-read-in-other-languages": "Beskikber yn {{PLURAL:$1|$1 oare taal|$1 oare talen}}",
-	"article-edit-button": "Dielside bewurkje",
-	"article-edit-protected-button": "Befeilige dielside bewurkje",
-	"article-section-expand": "Dielside útklappe",
-	"article-section-collapse": "Dielside ynklappe",
-	"table-expand": "Tabel útklappe",
-	"table-collapse": "Tabel ynklappe",
-	"references-preview-header": "Proefbyld fan 'e referinsjes"
+    "@metadata": {
+        "authors": [
+            "PiefPafPier"
+        ]
+    },
+    "description-add-link-title": "Artikelbeskriuwing tafoegje",
+    "article-read-more-title": "Mear lêze",
+    "table-title-other": "Mear ynformaasje",
+    "page-edit-history": "Bewurkingsskiednis besjen",
+    "info-box-close-text": "Slute",
+    "page-talk-page-subtitle": "Ferbetterings oan dit artikel beprate",
+    "page-issues-subtitle": "Sinjalearing fan suboptimale of probleemynhâld",
+    "page-talk-page": "Oerlisside besjen",
+    "info-box-title": "Fluch de feiten",
+    "view-in-browser-footer-link": "Artikel yn webblêder besjen",
+    "page-location": "Op 'e kaart besjen",
+    "page-similar-titles": "Besibbe siden",
+    "page-last-edited": "{{PLURAL:$1|Juster bywurke|$1 dagen lyn bywurke|0=Hjoed bywurke}}",
+    "article-about-title": "Oer dit artikel",
+    "page-issues": "Sideproblemen",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "Ynhâld is beskikber ûnder $1, at net oars neamd wurdt.",
+    "page-read-in-other-languages": "Beskikber yn {{PLURAL:$1|$1 oare taal|$1 oare talen}}",
+    "article-edit-button": "Dielside bewurkje",
+    "article-edit-protected-button": "Befeilige dielside bewurkje",
+    "article-section-expand": "Dielside útklappe",
+    "article-section-collapse": "Dielside ynklappe",
+    "table-expand": "Tabel útklappe",
+    "table-collapse": "Tabel ynklappe",
+    "references-preview-header": "Proefbyld fan 'e referinsjes"
 }

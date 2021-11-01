@@ -1,31 +1,31 @@
 {
-	"@metadata": {
-		"authors": [
-			"ئارام بکر"
-		]
-	},
-	"description-add-link-title": "زیادکردنی وەسفی وتار",
-	"article-read-more-title": "زیاتر بخوێنەوە",
-	"table-title-other": "زانیاریی زیاتر",
-	"page-edit-history": "بینینی مێژووی دەستکاری",
-	"info-box-close-text": "دایخە",
-	"page-talk-page-subtitle": "وتووێژی چاکسازییەکان بۆ ئەم وتارە بکە",
-	"page-talk-page": "بینینی پەڕەی وتووێژ",
-	"info-box-title": "زانیاریی خێرا",
-	"view-in-browser-footer-link": "بینینی وتار لە وێبگەڕدا",
-	"page-location": "بینین لەسەر نەخشە",
-	"page-similar-titles": "پەڕە لێکچووەکان",
-	"page-last-edited": "{{PLURAL:$1|دوێنێ نوێ کراوەتەوە|$1 لەمەوپێش نوێ کراوەتەوە|0=ئەمڕۆ نوێ کراوەتەوە}}",
-	"article-about-title": "دەربارەی ئەم وتارە",
-	"page-issues": "گرفتەکانی پەڕە",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "ناوەڕۆک بەردەستە لەژێر $1 مەگەر بە پێچەوانەوە وترابێت.",
-	"page-read-in-other-languages": "بە $1 زمان بەردەستە",
-	"article-edit-button": "دەستکاریکردنی بەش",
-	"article-edit-protected-button": "دەستکاریکردنی بەش لەسەر پەڕەی پارێزراو",
-	"article-section-expand": "فراوانکردنی بەش",
-	"article-section-collapse": "داخستنی بەش",
-	"table-expand": "فراوانکردنی خشتە",
-	"table-collapse": "داخستنی خشتە",
-	"references-preview-header": "پێشبینینی سەرچاوەکان"
+    "@metadata": {
+        "authors": [
+            "ئارام بکر"
+        ]
+    },
+    "description-add-link-title": "زیادکردنی وەسفی وتار",
+    "article-read-more-title": "زیاتر بخوێنەوە",
+    "table-title-other": "زانیاریی زیاتر",
+    "page-edit-history": "بینینی مێژووی دەستکاری",
+    "info-box-close-text": "دایخە",
+    "page-talk-page-subtitle": "وتووێژی چاکسازییەکان بۆ ئەم وتارە بکە",
+    "page-talk-page": "بینینی پەڕەی وتووێژ",
+    "info-box-title": "زانیاریی خێرا",
+    "view-in-browser-footer-link": "بینینی وتار لە وێبگەڕدا",
+    "page-location": "بینین لەسەر نەخشە",
+    "page-similar-titles": "پەڕە لێکچووەکان",
+    "page-last-edited": "{{PLURAL:$1|دوێنێ نوێ کراوەتەوە|$1 لەمەوپێش نوێ کراوەتەوە|0=ئەمڕۆ نوێ کراوەتەوە}}",
+    "article-about-title": "دەربارەی ئەم وتارە",
+    "page-issues": "گرفتەکانی پەڕە",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "ناوەڕۆک بەردەستە لەژێر $1 مەگەر بە پێچەوانەوە وترابێت.",
+    "page-read-in-other-languages": "بە $1 زمان بەردەستە",
+    "article-edit-button": "دەستکاریکردنی بەش",
+    "article-edit-protected-button": "دەستکاریکردنی بەش لەسەر پەڕەی پارێزراو",
+    "article-section-expand": "فراوانکردنی بەش",
+    "article-section-collapse": "داخستنی بەش",
+    "table-expand": "فراوانکردنی خشتە",
+    "table-collapse": "داخستنی خشتە",
+    "references-preview-header": "پێشبینینی سەرچاوەکان"
 }

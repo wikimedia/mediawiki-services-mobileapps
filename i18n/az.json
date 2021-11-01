@@ -1,19 +1,19 @@
 {
-	"@metadata": {
-		"authors": [
-			"Serkanland",
-			"Şeyx Şamil"
-		]
-	},
-	"article-read-more-title": "Daha çox oxu",
-	"table-title-other": "Əlavə məlumat",
-	"page-edit-history": "Redaktə tarixçəsini göstər",
-	"info-box-close-text": "Bağla",
-	"info-box-title": "Cəld faktlar",
-	"page-location": "Xəritədə göstər",
-	"page-similar-titles": "Oxşar səhifələr",
-	"article-about-title": "Bu məqalə haqqında",
-	"article-edit-button": "Bölməni reaktə et",
-	"article-section-expand": "Bölməni genişləndir",
-	"table-expand": "Cədvəli genişləndir"
+    "@metadata": {
+        "authors": [
+            "Serkanland",
+            "Şeyx Şamil"
+        ]
+    },
+    "article-read-more-title": "Daha çox oxu",
+    "table-title-other": "Əlavə məlumat",
+    "page-edit-history": "Redaktə tarixçəsini göstər",
+    "info-box-close-text": "Bağla",
+    "info-box-title": "Cəld faktlar",
+    "page-location": "Xəritədə göstər",
+    "page-similar-titles": "Oxşar səhifələr",
+    "article-about-title": "Bu məqalə haqqında",
+    "article-edit-button": "Bölməni reaktə et",
+    "article-section-expand": "Bölməni genişləndir",
+    "table-expand": "Cədvəli genişləndir"
 }

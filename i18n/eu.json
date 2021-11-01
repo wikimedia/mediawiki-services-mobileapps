@@ -1,32 +1,32 @@
 {
-	"@metadata": {
-		"authors": [
-			"An13sa"
-		]
-	},
-	"description-add-link-title": "Gehitu artikuluaren deskribapena",
-	"article-read-more-title": "Irakurri gehiago",
-	"table-title-other": "Informazio gehiago",
-	"page-edit-history": "Aldaketa guztien historia",
-	"info-box-close-text": "Itxi",
-	"page-talk-page-subtitle": "Artikulu honetako hobekuntzak eztabaidatu",
-	"page-issues-subtitle": "Arazoak dituen edo kalitate bajuko oharrak",
-	"page-talk-page": "Elkarrizketa orrialdea ikusi",
-	"info-box-title": "Datu azkarrak",
-	"view-in-browser-footer-link": "Artikulua arakatzailean ikusi",
-	"page-location": "Ikusi mapan",
-	"page-similar-titles": "Antzeko orriak",
-	"page-last-edited": "{{PLURAL:$1|Atzo eguneratua|Eguneratua duela $1 egun|0=Gaur eguneratua}}",
-	"article-about-title": "Artikulu honi buruz",
-	"page-issues": "Orriaren arazoak",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "Eduki guztia $1(r)en babespean dago, ez bada kontrakoa esaten.",
-	"page-read-in-other-languages": "Irakurgarri beste $1 hizkuntzatan",
-	"article-edit-button": "Atala aldatu",
-	"article-edit-protected-button": "Orrialde babestuko atala aldatu",
-	"article-section-expand": "Atala zabaldu",
-	"article-section-collapse": "Atala txikitu",
-	"table-expand": "Taula zabaldu",
-	"table-collapse": "Taula txikitu",
-	"references-preview-header": "Erreferentzien aurreikuspena"
+    "@metadata": {
+        "authors": [
+            "An13sa"
+        ]
+    },
+    "description-add-link-title": "Gehitu artikuluaren deskribapena",
+    "article-read-more-title": "Irakurri gehiago",
+    "table-title-other": "Informazio gehiago",
+    "page-edit-history": "Aldaketa guztien historia",
+    "info-box-close-text": "Itxi",
+    "page-talk-page-subtitle": "Artikulu honetako hobekuntzak eztabaidatu",
+    "page-issues-subtitle": "Arazoak dituen edo kalitate bajuko oharrak",
+    "page-talk-page": "Elkarrizketa orrialdea ikusi",
+    "info-box-title": "Datu azkarrak",
+    "view-in-browser-footer-link": "Artikulua arakatzailean ikusi",
+    "page-location": "Ikusi mapan",
+    "page-similar-titles": "Antzeko orriak",
+    "page-last-edited": "{{PLURAL:$1|Atzo eguneratua|Eguneratua duela $1 egun|0=Gaur eguneratua}}",
+    "article-about-title": "Artikulu honi buruz",
+    "page-issues": "Orriaren arazoak",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "Eduki guztia $1(r)en babespean dago, ez bada kontrakoa esaten.",
+    "page-read-in-other-languages": "Irakurgarri beste $1 hizkuntzatan",
+    "article-edit-button": "Atala aldatu",
+    "article-edit-protected-button": "Orrialde babestuko atala aldatu",
+    "article-section-expand": "Atala zabaldu",
+    "article-section-collapse": "Atala txikitu",
+    "table-expand": "Taula zabaldu",
+    "table-collapse": "Taula txikitu",
+    "references-preview-header": "Erreferentzien aurreikuspena"
 }

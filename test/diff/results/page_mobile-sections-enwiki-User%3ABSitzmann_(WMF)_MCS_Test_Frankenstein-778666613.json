@@ -1,358 +1,358 @@
 {
-  "lead": {
-    "ns": 2,
-    "id": 53626841,
-    "revision": "778666613",
-    "displaytitle": "User:BSitzmann (WMF)/MCS/Test/Frankenstein",
-    "normalizedtitle": "User:BSitzmann (WMF)/MCS/Test/Frankenstein",
-    "protection": {
-      "edit": [
-        "autoconfirmed"
-      ],
-      "move": [
-        "autoconfirmed"
-      ]
+    "lead": {
+        "ns": 2,
+        "id": 53626841,
+        "revision": "778666613",
+        "displaytitle": "User:BSitzmann (WMF)/MCS/Test/Frankenstein",
+        "normalizedtitle": "User:BSitzmann (WMF)/MCS/Test/Frankenstein",
+        "protection": {
+            "edit": [
+                "autoconfirmed"
+            ],
+            "move": [
+                "autoconfirmed"
+            ]
+        },
+        "editable": false,
+        "geo": {
+            "latitude": 49.4388,
+            "longitude": 7.975
+        },
+        "sections": [
+            {
+                "id": 0,
+                "text": "<p><b>Frankenstein Castle</b> is a medieval fortification on a <a href=\"/wiki/Spur_castle\" title=\"Spur castle\">spur</a> above the village of <a href=\"/wiki/Frankenstein,_Rhineland-Palatinate\" title=\"Frankenstein, Rhineland-Palatinate\">Frankenstein, Rhineland-Palatinate</a> in the <a href=\"/wiki/Palatinate_Forest\" title=\"Palatinate Forest\">Palatinate Forest</a> in <a href=\"/wiki/Germany\" title=\"Germany\">Germany</a>. Its name derives from the local House of Frankenstein.</p>\n<figure class=\"mw-default-size\"><a href=\"/wiki/File:Frankensteingrundriss.jpg\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Frankensteingrundriss.jpg/220px-Frankensteingrundriss.jpg\" data-file-width=\"1234\" data-file-height=\"992\" data-file-type=\"bitmap\" height=\"177\" width=\"220\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Frankensteingrundriss.jpg/330px-Frankensteingrundriss.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/03/Frankensteingrundriss.jpg/440px-Frankensteingrundriss.jpg 2x\"></a><figcaption>Layout of Frankenstein Castle</figcaption></figure>\n\n<table class=\"plainlinks ombox ombox-notice nutshell\" role=\"presentation\"><tbody><tr><td class=\"mbox-image\"><span><span><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Walnut.png/30px-Walnut.png\" data-file-width=\"192\" data-file-height=\"192\" data-file-type=\"bitmap\" height=\"30\" width=\"30\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Walnut.png/45px-Walnut.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Walnut.png/60px-Walnut.png 2x\"></span></span></td><td class=\"mbox-text\"><b>This page in a nutshell:</b> A Collection of various elements of WP pages to be used for testing.</td></tr></tbody></table>\n\n<figure class=\"mw-default-size mw-halign-right\"><a href=\"/wiki/File:Frankensteinarp.jpg\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Frankensteinarp.jpg/220px-Frankensteinarp.jpg\" data-file-width=\"834\" data-file-height=\"606\" data-file-type=\"bitmap\" height=\"160\" width=\"220\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Frankensteinarp.jpg/330px-Frankensteinarp.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Frankensteinarp.jpg/440px-Frankensteinarp.jpg 2x\"></a><figcaption>Frankenstein Castle</figcaption></figure>\n<p><span style=\"font-size: small;\"></span></p>\n\n<p><span class=\"new\">Red link in da house</span>!</p>\n\n"
+            },
+            {
+                "id": 1,
+                "toclevel": 1,
+                "anchor": "More_red_links",
+                "line": "More red links"
+            },
+            {
+                "id": 2,
+                "toclevel": 1,
+                "anchor": "More_links",
+                "line": "More links"
+            },
+            {
+                "id": 3,
+                "toclevel": 1,
+                "anchor": "Pronunciation_aids",
+                "line": "Pronunciation aids"
+            },
+            {
+                "id": 4,
+                "toclevel": 1,
+                "anchor": "Media",
+                "line": "Media"
+            },
+            {
+                "id": 5,
+                "toclevel": 1,
+                "anchor": "Musical_notation",
+                "line": "Musical notation"
+            },
+            {
+                "id": 6,
+                "toclevel": 1,
+                "anchor": "Math",
+                "line": "Math"
+            },
+            {
+                "id": 7,
+                "toclevel": 2,
+                "anchor": "Conversions",
+                "line": "Conversions"
+            },
+            {
+                "id": 8,
+                "toclevel": 1,
+                "anchor": "Images",
+                "line": "Images"
+            },
+            {
+                "id": 9,
+                "toclevel": 1,
+                "anchor": "Audio",
+                "line": "Audio"
+            },
+            {
+                "id": 10,
+                "toclevel": 1,
+                "anchor": "Spoken_Wikipedia",
+                "line": "Spoken Wikipedia"
+            },
+            {
+                "id": 11,
+                "toclevel": 1,
+                "anchor": "Video",
+                "line": "Video"
+            },
+            {
+                "id": 12,
+                "toclevel": 1,
+                "anchor": "From_Wikipedia:The_perfect_article",
+                "line": "From <a href=\"/wiki/Wikipedia:The_perfect_article\" title=\"Wikipedia:The perfect article\">Wikipedia:The perfect article</a>"
+            },
+            {
+                "id": 13,
+                "toclevel": 1,
+                "anchor": "From_Wikipedia:Manual_of_Style/Layout",
+                "line": "From <a href=\"/wiki/Wikipedia:Manual_of_Style/Layout\" title=\"Wikipedia:Manual of Style/Layout\">Wikipedia:Manual_of_Style/Layout</a>"
+            },
+            {
+                "id": 14,
+                "toclevel": 2,
+                "anchor": "Order_of_article_elements",
+                "line": "Order of article elements"
+            },
+            {
+                "id": 15,
+                "toclevel": 2,
+                "anchor": "Body_sections",
+                "line": "Body sections"
+            },
+            {
+                "id": 16,
+                "toclevel": 3,
+                "anchor": "Headings_and_sections",
+                "line": "Headings and sections"
+            },
+            {
+                "id": 17,
+                "toclevel": 3,
+                "anchor": "Names_and_orders_for_section_headings",
+                "line": "Names and orders for section headings"
+            },
+            {
+                "id": 18,
+                "toclevel": 3,
+                "anchor": "Section_templates_and_summary_style",
+                "line": "Section templates and summary style"
+            },
+            {
+                "id": 19,
+                "toclevel": 1,
+                "anchor": "Standard_appendices_and_footers",
+                "line": "Standard appendices and footers"
+            },
+            {
+                "id": 20,
+                "toclevel": 2,
+                "anchor": "Headings",
+                "line": "Headings"
+            },
+            {
+                "id": 21,
+                "toclevel": 2,
+                "anchor": "Works_or_publications",
+                "line": "Works or publications"
+            },
+            {
+                "id": 22,
+                "toclevel": 2,
+                "anchor": "\"See_also\"_section",
+                "line": "\"See also\" section"
+            },
+            {
+                "id": 23,
+                "toclevel": 2,
+                "anchor": "Links_to_sister_projects",
+                "line": "Links to sister projects"
+            },
+            {
+                "id": 24,
+                "toclevel": 2,
+                "anchor": "Navigation_templates",
+                "line": "Navigation templates"
+            },
+            {
+                "id": 25,
+                "toclevel": 1,
+                "anchor": "Footnotes",
+                "line": "Footnotes"
+            }
+        ]
     },
-    "editable": false,
-    "geo": {
-      "latitude": 49.4388,
-      "longitude": 7.975
-    },
-    "sections": [
-      {
-        "id": 0,
-        "text": "<p><b>Frankenstein Castle</b> is a medieval fortification on a <a href=\"/wiki/Spur_castle\" title=\"Spur castle\">spur</a> above the village of <a href=\"/wiki/Frankenstein,_Rhineland-Palatinate\" title=\"Frankenstein, Rhineland-Palatinate\">Frankenstein, Rhineland-Palatinate</a> in the <a href=\"/wiki/Palatinate_Forest\" title=\"Palatinate Forest\">Palatinate Forest</a> in <a href=\"/wiki/Germany\" title=\"Germany\">Germany</a>. Its name derives from the local House of Frankenstein.</p>\n<figure class=\"mw-default-size\"><a href=\"/wiki/File:Frankensteingrundriss.jpg\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Frankensteingrundriss.jpg/220px-Frankensteingrundriss.jpg\" data-file-width=\"1234\" data-file-height=\"992\" data-file-type=\"bitmap\" height=\"177\" width=\"220\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Frankensteingrundriss.jpg/330px-Frankensteingrundriss.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/03/Frankensteingrundriss.jpg/440px-Frankensteingrundriss.jpg 2x\"></a><figcaption>Layout of Frankenstein Castle</figcaption></figure>\n\n<table class=\"plainlinks ombox ombox-notice nutshell\" role=\"presentation\"><tbody><tr><td class=\"mbox-image\"><span><span><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Walnut.png/30px-Walnut.png\" data-file-width=\"192\" data-file-height=\"192\" data-file-type=\"bitmap\" height=\"30\" width=\"30\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Walnut.png/45px-Walnut.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Walnut.png/60px-Walnut.png 2x\"></span></span></td><td class=\"mbox-text\"><b>This page in a nutshell:</b> A Collection of various elements of WP pages to be used for testing.</td></tr></tbody></table>\n\n<figure class=\"mw-default-size mw-halign-right\"><a href=\"/wiki/File:Frankensteinarp.jpg\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Frankensteinarp.jpg/220px-Frankensteinarp.jpg\" data-file-width=\"834\" data-file-height=\"606\" data-file-type=\"bitmap\" height=\"160\" width=\"220\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Frankensteinarp.jpg/330px-Frankensteinarp.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Frankensteinarp.jpg/440px-Frankensteinarp.jpg 2x\"></a><figcaption>Frankenstein Castle</figcaption></figure>\n<p><span style=\"font-size: small;\"></span></p>\n\n<p><span class=\"new\">Red link in da house</span>!</p>\n\n"
-      },
-      {
-        "id": 1,
-        "toclevel": 1,
-        "anchor": "More_red_links",
-        "line": "More red links"
-      },
-      {
-        "id": 2,
-        "toclevel": 1,
-        "anchor": "More_links",
-        "line": "More links"
-      },
-      {
-        "id": 3,
-        "toclevel": 1,
-        "anchor": "Pronunciation_aids",
-        "line": "Pronunciation aids"
-      },
-      {
-        "id": 4,
-        "toclevel": 1,
-        "anchor": "Media",
-        "line": "Media"
-      },
-      {
-        "id": 5,
-        "toclevel": 1,
-        "anchor": "Musical_notation",
-        "line": "Musical notation"
-      },
-      {
-        "id": 6,
-        "toclevel": 1,
-        "anchor": "Math",
-        "line": "Math"
-      },
-      {
-        "id": 7,
-        "toclevel": 2,
-        "anchor": "Conversions",
-        "line": "Conversions"
-      },
-      {
-        "id": 8,
-        "toclevel": 1,
-        "anchor": "Images",
-        "line": "Images"
-      },
-      {
-        "id": 9,
-        "toclevel": 1,
-        "anchor": "Audio",
-        "line": "Audio"
-      },
-      {
-        "id": 10,
-        "toclevel": 1,
-        "anchor": "Spoken_Wikipedia",
-        "line": "Spoken Wikipedia"
-      },
-      {
-        "id": 11,
-        "toclevel": 1,
-        "anchor": "Video",
-        "line": "Video"
-      },
-      {
-        "id": 12,
-        "toclevel": 1,
-        "anchor": "From_Wikipedia:The_perfect_article",
-        "line": "From <a href=\"/wiki/Wikipedia:The_perfect_article\" title=\"Wikipedia:The perfect article\">Wikipedia:The perfect article</a>"
-      },
-      {
-        "id": 13,
-        "toclevel": 1,
-        "anchor": "From_Wikipedia:Manual_of_Style/Layout",
-        "line": "From <a href=\"/wiki/Wikipedia:Manual_of_Style/Layout\" title=\"Wikipedia:Manual of Style/Layout\">Wikipedia:Manual_of_Style/Layout</a>"
-      },
-      {
-        "id": 14,
-        "toclevel": 2,
-        "anchor": "Order_of_article_elements",
-        "line": "Order of article elements"
-      },
-      {
-        "id": 15,
-        "toclevel": 2,
-        "anchor": "Body_sections",
-        "line": "Body sections"
-      },
-      {
-        "id": 16,
-        "toclevel": 3,
-        "anchor": "Headings_and_sections",
-        "line": "Headings and sections"
-      },
-      {
-        "id": 17,
-        "toclevel": 3,
-        "anchor": "Names_and_orders_for_section_headings",
-        "line": "Names and orders for section headings"
-      },
-      {
-        "id": 18,
-        "toclevel": 3,
-        "anchor": "Section_templates_and_summary_style",
-        "line": "Section templates and summary style"
-      },
-      {
-        "id": 19,
-        "toclevel": 1,
-        "anchor": "Standard_appendices_and_footers",
-        "line": "Standard appendices and footers"
-      },
-      {
-        "id": 20,
-        "toclevel": 2,
-        "anchor": "Headings",
-        "line": "Headings"
-      },
-      {
-        "id": 21,
-        "toclevel": 2,
-        "anchor": "Works_or_publications",
-        "line": "Works or publications"
-      },
-      {
-        "id": 22,
-        "toclevel": 2,
-        "anchor": "\"See_also\"_section",
-        "line": "\"See also\" section"
-      },
-      {
-        "id": 23,
-        "toclevel": 2,
-        "anchor": "Links_to_sister_projects",
-        "line": "Links to sister projects"
-      },
-      {
-        "id": 24,
-        "toclevel": 2,
-        "anchor": "Navigation_templates",
-        "line": "Navigation templates"
-      },
-      {
-        "id": 25,
-        "toclevel": 1,
-        "anchor": "Footnotes",
-        "line": "Footnotes"
-      }
-    ]
-  },
-  "remaining": {
-    "sections": [
-      {
-        "id": 1,
-        "text": "\n<p><span class=\"new\">A red link</span> \n+ <span class=\"new\">Quotes' in\" the' title\" and red link</span></p>\n\n",
-        "toclevel": 1,
-        "line": "More red links",
-        "anchor": "More_red_links"
-      },
-      {
-        "id": 2,
-        "text": "\n<ul><li>Links partially italicized: <a href=\"/wiki/Hindenburg_disaster\" title=\"Hindenburg disaster\"><i>Hindenburg</i> disaster</a></li>\n<li>Link to edit action using edit template: <span class=\"noprint plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=User:BSitzmann_(WMF)/MCS/Test/Frankenstein&amp;action=edit\" class=\"external text\">edit</a></span></li>\n<li>Link to edit action using fullurl template <a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Help:Wiki_markup&amp;action=edit\" class=\"external text\">edit2</a></li></ul>\n\n",
-        "toclevel": 1,
-        "line": "More links",
-        "anchor": "More_links"
-      },
-      {
-        "id": 3,
-        "text": "\n<p><b>Konjac</b> (<span class=\"rt-commentedText nowrap\"><small>English:  </small><span class=\"IPA nopopups noexcerpt\"><a href=\"/wiki/Help:IPA/English\" title=\"Help:IPA/English\">/<span style=\"border-bottom:1px dotted\"><span>ˈ</span><span>k</span><span>oʊ</span><span>n</span><span>j</span><span>æ</span><span>k</span></span>/</a></span></span> <a href=\"/wiki/Help:Pronunciation_respelling_key\" title=\"Help:Pronunciation respelling key\"><i title=\"English pronunciation respelling\"><span style=\"font-size:90%\">KOHN</span>-yak</i></a>)</p>\n\n",
-        "toclevel": 1,
-        "line": "Pronunciation aids",
-        "anchor": "Pronunciation_aids"
-      },
-      {
-        "id": 4,
-        "text": "\n<p><a href=\"//upload.wikimedia.org/wikipedia/commons/5/53/Classical_guitar_scale.ogg\" resource=\"./Media:Classical_guitar_scale.ogg\" title=\"Classical guitar scale.ogg\">Sound</a></p>\n\n",
-        "toclevel": 1,
-        "line": "Media",
-        "anchor": "Media"
-      },
-      {
-        "id": 5,
-        "text": "\n<div class=\"mw-ext-score-disabled\" about=\"#mwt_present\">Musical scores are temporarily disabled.</div>\n\n",
-        "toclevel": 1,
-        "line": "Musical notation",
-        "anchor": "Musical_notation"
-      },
-      {
-        "id": 6,
-        "text": "\n\n<p>Let <b>q</b> = (<i>q</i><sub>x</sub>, <i>q</i><sub>y</sub>, <i>q</i><sub>z</sub>) and <b>p</b> = (<i>p</i><sub>x</sub>, <i>p</i><sub>y</sub>, <i>p</i><sub>z</sub>) denote the position vector and momentum vector of a particle of an ideal gas, respectively. Let <b>F</b> denote the net force on that particle. Then the time-averaged potential energy of the particle is:<br></p>\n<dl><dd><span class=\"mwe-math-element\"><span class=\"mwe-math-mathml-inline mwe-math-mathml-a11y\" style=\"display: none;\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" alttext=\"{\\displaystyle {\\begin{aligned}\\langle \\mathbf {q} \\cdot \\mathbf {F} \\rangle &amp;={\\Bigl \\langle }q_{x}{\\frac {dp_{x}}{dt}}{\\Bigr \\rangle }+{\\Bigl \\langle }q_{y}{\\frac {dp_{y}}{dt}}{\\Bigr \\rangle }+{\\Bigl \\langle }q_{z}{\\frac {dp_{z}}{dt}}{\\Bigr \\rangle }\\\\&amp;=-{\\Bigl \\langle }q_{x}{\\frac {\\partial H}{\\partial q_{x}}}{\\Bigr \\rangle }-{\\Bigl \\langle }q_{y}{\\frac {\\partial H}{\\partial q_{y}}}{\\Bigr \\rangle }-{\\Bigl \\langle }q_{z}{\\frac {\\partial H}{\\partial q_{z}}}{\\Bigr \\rangle }=-3k_{B}T,\\end{aligned}}}\">\n  <semantics>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mstyle displaystyle=\"true\" scriptlevel=\"0\">\n        <mrow class=\"MJX-TeXAtom-ORD\">\n          <mtable columnalign=\"right left right left right left right left right left right left\" rowspacing=\"3pt\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\">\n            <mtr>\n              <mtd>\n                <mo fence=\"false\" stretchy=\"false\">⟨</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mi mathvariant=\"bold\">q</mi>\n                </mrow>\n                <mo>⋅</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mi mathvariant=\"bold\">F</mi>\n                </mrow>\n                <mo fence=\"false\" stretchy=\"false\">⟩</mo>\n              </mtd>\n              <mtd>\n                <mi></mi>\n                <mo>=</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>x</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi>d</mi>\n                      <msub>\n                        <mi>p</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>x</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                    <mrow>\n                      <mi>d</mi>\n                      <mi>t</mi>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n                <mo>+</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>y</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi>d</mi>\n                      <msub>\n                        <mi>p</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>y</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                    <mrow>\n                      <mi>d</mi>\n                      <mi>t</mi>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n                <mo>+</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>z</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi>d</mi>\n                      <msub>\n                        <mi>p</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>z</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                    <mrow>\n                      <mi>d</mi>\n                      <mi>t</mi>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n              </mtd>\n            </mtr>\n            <mtr>\n              <mtd></mtd>\n              <mtd>\n                <mi></mi>\n                <mo>=</mo>\n                <mo>−</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>x</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <mi>H</mi>\n                    </mrow>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <msub>\n                        <mi>q</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>x</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n                <mo>−</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>y</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <mi>H</mi>\n                    </mrow>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <msub>\n                        <mi>q</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>y</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n                <mo>−</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>z</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <mi>H</mi>\n                    </mrow>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <msub>\n                        <mi>q</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>z</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n                <mo>=</mo>\n                <mo>−</mo>\n                <mn>3</mn>\n                <msub>\n                  <mi>k</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>B</mi>\n                  </mrow>\n                </msub>\n                <mi>T</mi>\n                <mo>,</mo>\n              </mtd>\n            </mtr>\n          </mtable>\n        </mrow>\n      </mstyle>\n    </mrow>\n    <annotation encoding=\"application/x-tex\">{\\displaystyle {\\begin{aligned}\\langle \\mathbf {q} \\cdot \\mathbf {F} \\rangle &amp;={\\Bigl \\langle }q_{x}{\\frac {dp_{x}}{dt}}{\\Bigr \\rangle }+{\\Bigl \\langle }q_{y}{\\frac {dp_{y}}{dt}}{\\Bigr \\rangle }+{\\Bigl \\langle }q_{z}{\\frac {dp_{z}}{dt}}{\\Bigr \\rangle }\\\\&amp;=-{\\Bigl \\langle }q_{x}{\\frac {\\partial H}{\\partial q_{x}}}{\\Bigr \\rangle }-{\\Bigl \\langle }q_{y}{\\frac {\\partial H}{\\partial q_{y}}}{\\Bigr \\rangle }-{\\Bigl \\langle }q_{z}{\\frac {\\partial H}{\\partial q_{z}}}{\\Bigr \\rangle }=-3k_{B}T,\\end{aligned}}}</annotation>\n  </semantics>\n</math></span><img src=\"https://wikimedia.org/api/rest_v1/media/math/render/svg/a29f4a0927b2d6b3990dba29b447ef87ce45d40c\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -5.505ex; width:56.647ex; height:12.176ex;\"></span></dd></dl>\n<p>where the first equality is <a href=\"/wiki/Newton's_second_law\" title=\"Newton's second law\" class=\"mw-redirect\">Newton's second law</a>, and the second line uses <a href=\"/wiki/Hamilton's_equations\" title=\"Hamilton's equations\" class=\"mw-redirect\">Hamilton's equations</a> and the <a href=\"/wiki/Equipartition_theorem\" title=\"Equipartition theorem\">equipartition theorem</a>. Summing over a system of <i>N</i> particles yields</p>\n\n<dl><dd><span class=\"mwe-math-element\"><span class=\"mwe-math-mathml-inline mwe-math-mathml-a11y\" style=\"display: none;\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" alttext=\"{\\displaystyle 3Nk_{B}T=-{\\biggl \\langle }\\sum _{k=1}^{N}\\mathbf {q} _{k}\\cdot \\mathbf {F} _{k}{\\biggr \\rangle }.}\">\n  <semantics>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mstyle displaystyle=\"true\" scriptlevel=\"0\">\n        <mn>3</mn>\n        <mi>N</mi>\n        <msub>\n          <mi>k</mi>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi>B</mi>\n          </mrow>\n        </msub>\n        <mi>T</mi>\n        <mo>=</mo>\n        <mo>−</mo>\n        <mrow class=\"MJX-TeXAtom-ORD\">\n          <mrow class=\"MJX-TeXAtom-OPEN\">\n            <mo maxsize=\"2.047em\" minsize=\"2.047em\">⟨</mo>\n          </mrow>\n        </mrow>\n        <munderover>\n          <mo>∑</mo>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi>k</mi>\n            <mo>=</mo>\n            <mn>1</mn>\n          </mrow>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi>N</mi>\n          </mrow>\n        </munderover>\n        <msub>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi mathvariant=\"bold\">q</mi>\n          </mrow>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi>k</mi>\n          </mrow>\n        </msub>\n        <mo>⋅</mo>\n        <msub>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi mathvariant=\"bold\">F</mi>\n          </mrow>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi>k</mi>\n          </mrow>\n        </msub>\n        <mrow class=\"MJX-TeXAtom-ORD\">\n          <mrow class=\"MJX-TeXAtom-CLOSE\">\n            <mo maxsize=\"2.047em\" minsize=\"2.047em\">⟩</mo>\n          </mrow>\n        </mrow>\n        <mo>.</mo>\n      </mstyle>\n    </mrow>\n    <annotation encoding=\"application/x-tex\">{\\displaystyle 3Nk_{B}T=-{\\biggl \\langle }\\sum _{k=1}^{N}\\mathbf {q} _{k}\\cdot \\mathbf {F} _{k}{\\biggr \\rangle }.}</annotation>\n  </semantics>\n</math></span><img src=\"https://wikimedia.org/api/rest_v1/media/math/render/svg/7afc829b8b4a0d95a2ad1cec06da28bfe2c4c6fa\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -3.005ex; width:27.672ex; height:7.343ex;\"></span></dd></dl>\n\n",
-        "toclevel": 1,
-        "line": "Math",
-        "anchor": "Math"
-      },
-      {
-        "id": 7,
-        "text": "\n<ul><li><span>60 and 170</span><span>&nbsp;</span><span>kg (130 and 370</span><span>&nbsp;</span><span>lb)</span></li>\n<li><span>18</span><span>&nbsp;</span><span>°C (64</span><span>&nbsp;</span><span>°F)</span></li>\n<li><span>3.21 kilograms (7.1</span><span>&nbsp;</span><span>lb)</span></li></ul>\n\n",
-        "toclevel": 2,
-        "line": "Conversions",
-        "anchor": "Conversions"
-      },
-      {
-        "id": 8,
-        "text": "\n\n<p><span><a href=\"/wiki/File:Example.png\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/7/70/Example.png/150px-Example.png\" data-file-width=\"172\" data-file-height=\"178\" data-file-type=\"bitmap\" height=\"155\" width=\"150\" srcset=\"//upload.wikimedia.org/wikipedia/commons/7/70/Example.png 1.5x, //upload.wikimedia.org/wikipedia/commons/7/70/Example.png 2x\"></a></span></p>\n\n<p>Multiple images:</p>\n<style data-mw-deduplicate=\"TemplateStyles:r978413945/mw-parser-output/.tmulti\" typeof=\"mw:Extension/templatestyles mw:Transclusion\">.mw-parser-output .tmulti .thumbinner{display:flex;flex-direction:column}.mw-parser-output .tmulti .trow{display:flex;flex-direction:row;clear:left;flex-wrap:wrap;width:100%;box-sizing:border-box}.mw-parser-output .tmulti .tsingle{margin:1px;float:left}.mw-parser-output .tmulti .theader{clear:both;font-weight:bold;text-align:center;align-self:center;background-color:transparent;width:100%}.mw-parser-output .tmulti .thumbcaption{background-color:transparent}.mw-parser-output .tmulti .text-align-left{text-align:left}.mw-parser-output .tmulti .text-align-right{text-align:right}.mw-parser-output .tmulti .text-align-center{text-align:center}@media all and (max-width:720px){.mw-parser-output .tmulti .thumbinner{width:100%!important;box-sizing:border-box;max-width:none!important;align-items:center}.mw-parser-output .tmulti .trow{justify-content:center}.mw-parser-output .tmulti .tsingle{float:none!important;max-width:100%!important;box-sizing:border-box;text-align:center}.mw-parser-output .tmulti .tsingle .thumbcaption{text-align:left}.mw-parser-output .tmulti .trow>.thumbcaption{text-align:center}}</style><div class=\"thumb tmulti tright\" about=\"#mwt_present\"><div class=\"thumbinner\" style=\"width:208px;max-width:208px\"><div class=\"trow\"><div class=\"tsingle\" style=\"width:102px;max-width:102px\"><div class=\"thumbimage\"><span><a href=\"/wiki/File:Yellow_card.svg\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Yellow_card.svg/100px-Yellow_card.svg.png\" data-file-width=\"200\" data-file-height=\"260\" data-file-type=\"drawing\" height=\"130\" width=\"100\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Yellow_card.svg/150px-Yellow_card.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Yellow_card.svg/200px-Yellow_card.svg.png 2x\"></a></span></div><div class=\"thumbcaption\">Caution</div></div><div class=\"tsingle\" style=\"width:102px;max-width:102px\"><div class=\"thumbimage\"><span><a href=\"/wiki/File:Red_card.svg\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Red_card.svg/100px-Red_card.svg.png\" data-file-width=\"200\" data-file-height=\"260\" data-file-type=\"drawing\" height=\"130\" width=\"100\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Red_card.svg/150px-Red_card.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Red_card.svg/200px-Red_card.svg.png 2x\"></a></span></div><div class=\"thumbcaption\">Ejection</div></div></div><div class=\"trow\" style=\"display:flex\"><div class=\"thumbcaption\">Two cards used by football referees</div></div></div></div>\n\n<p>Imagemap:</p>\n<figure class=\"mw-halign-right\" about=\"#mwt_present\" data-mw=\"{&quot;name&quot;:&quot;imagemap&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\nFile:Bryan-Sewall.jpg|300px|right|alt=1896 Democratic campaign poster with nominees William J. Bryan of Nebraska for President and Arthur Sewall of Maine for Vice President\\ncircle 950 850 700 [[William Jennings Bryan|William J. Bryan]]\\ncircle 2950 850 700 [[Arthur Sewall]]\\ndefault [http://projects.vassar.edu/1896/democrats.html 1896 Democrats]\\n&quot;}}\"><a href=\"http://projects.vassar.edu/1896/democrats.html\" class=\"plainlinks image\" title=\"1896 Democrats\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Bryan-Sewall.jpg/300px-Bryan-Sewall.jpg\" data-file-width=\"3916\" data-file-height=\"1980\" data-file-type=\"bitmap\" height=\"152\" width=\"300\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Bryan-Sewall.jpg/450px-Bryan-Sewall.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Bryan-Sewall.jpg/600px-Bryan-Sewall.jpg 2x\" usemap=\"#ImageMap_\"></a><map name=\"ImageMap_\"><area href=\"./William_Jennings_Bryan\" shape=\"circle\" coords=\"73,65,54\" alt=\"William J. Bryan\" title=\"William J. Bryan\"><area href=\"./Arthur_Sewall\" shape=\"circle\" coords=\"226,65,54\"></map><figcaption></figcaption></figure>\n\n<p>Panoramas:</p>\n<div class=\"thumb tnone\" style=\"margin-left:auto;margin-right:auto;overflow:hidden;width:auto;max-width:1808px\" about=\"#mwt_present\"><div class=\"thumbinner\"><div class=\"noresize\" style=\"overflow:auto\"><span><a href=\"/wiki/File:Helsinki_z00.jpg\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/0/07/Helsinki_z00.jpg/1800px-Helsinki_z00.jpg\" data-file-width=\"2666\" data-file-height=\"320\" data-file-type=\"bitmap\" height=\"216\" width=\"1800\" srcset=\"//upload.wikimedia.org/wikipedia/commons/0/07/Helsinki_z00.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/0/07/Helsinki_z00.jpg 2x\"></a></span></div><div class=\"thumbcaption\"><a href=\"/wiki/Helsinki\" title=\"Helsinki\">Helsinki</a> has many buildings.</div></div></div>\n\n",
-        "toclevel": 1,
-        "line": "Images",
-        "anchor": "Images"
-      },
-      {
-        "id": 9,
-        "text": "\n\n<table role=\"presentation\" class=\"mbox-small noprint\" style=\"background-color:#f9f9f9;border:1px solid #aaa;color:#000;\">\n<tbody><tr>\n<td class=\"mbox-image\"><figure class=\"mw-halign-center\"><span><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/50px-Gnome-mime-sound-openclipart.svg.png\" data-file-width=\"160\" data-file-height=\"160\" data-file-type=\"drawing\" height=\"50\" width=\"50\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/75px-Gnome-mime-sound-openclipart.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png 2x\"></span><figcaption></figcaption></figure></td>\n<td class=\"mbox-text plainlist\" style=\"line-height:1.1em\"><div class=\"haudio\">\n<div style=\"padding:4px 0\"><a href=\"/wiki/File:Anvil_of_Crom_(sample)_by_Basil_Poledouris.ogg\" title=\"File:Anvil of Crom (sample) by Basil Poledouris.ogg\">Anvil of Crom (sample)</a></div>\n<div><span class=\"mw-default-audio-height\"><span><audio controls=\"\" preload=\"none\" height=\"32\" width=\"220\" resource=\"./File:Anvil_of_Crom_(sample)_by_Basil_Poledouris.ogg\"><source src=\"//upload.wikimedia.org/wikipedia/en/0/0d/Anvil_of_Crom_%28sample%29_by_Basil_Poledouris.ogg\" type=\"audio/ogg; codecs=&quot;vorbis&quot;\" data-title=\"Original Ogg file (65 kbps)\" data-shorttitle=\"Ogg source\"><source src=\"//upload.wikimedia.org/wikipedia/en/transcoded/0/0d/Anvil_of_Crom_%28sample%29_by_Basil_Poledouris.ogg/Anvil_of_Crom_%28sample%29_by_Basil_Poledouris.ogg.mp3\" type=\"audio/mpeg\" data-title=\"MP3\" data-shorttitle=\"MP3\"></audio></span></span></div>\n<div class=\"description\" style=\"padding:2px 0 0 0\"></div></div></td></tr>\n<tr><td colspan=\"2\" class=\"mbox-text\" style=\"line-height:1.1em\"><hr><i class=\"selfreference\">Problems playing this file? See <a href=\"/wiki/Help:Media\" title=\"Help:Media\">media help</a>.</i></td></tr>\n</tbody></table>\n\n",
-        "toclevel": 1,
-        "line": "Audio",
-        "anchor": "Audio"
-      },
-      {
-        "id": 10,
-        "text": "\n\n<table role=\"presentation\" class=\"mbox-small noprint\" style=\"background-color:#f9f9f9;border:1px solid #aaa;color:#000;\">\n<tbody><tr>\n<td class=\"mbox-image\"><figure class=\"mw-halign-center\"><span><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/50px-Gnome-mime-sound-openclipart.svg.png\" data-file-width=\"160\" data-file-height=\"160\" data-file-type=\"drawing\" height=\"50\" width=\"50\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/75px-Gnome-mime-sound-openclipart.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png 2x\"></span><figcaption></figcaption></figure></td>\n<td class=\"mbox-text plainlist\" style=\"line-height:1.1em\"><div class=\"haudio\">\n<div style=\"padding:4px 0\"><a href=\"/wiki/File:The_Dilbert_Principle.ogg\" title=\"File:The Dilbert Principle.ogg\">The Dilbert Principle</a></div>\n<div><span class=\"mw-default-audio-height\"><span><audio controls=\"\" preload=\"none\" height=\"32\" width=\"220\" resource=\"./File:The_Dilbert_Principle.ogg\"><source src=\"//upload.wikimedia.org/wikipedia/commons/6/6d/The_Dilbert_Principle.ogg\" type=\"audio/ogg; codecs=&quot;vorbis&quot;\" data-title=\"Original Ogg file (56 kbps)\" data-shorttitle=\"Ogg source\"><source src=\"//upload.wikimedia.org/wikipedia/commons/transcoded/6/6d/The_Dilbert_Principle.ogg/The_Dilbert_Principle.ogg.mp3\" type=\"audio/mpeg\" data-title=\"MP3\" data-shorttitle=\"MP3\"></audio></span></span></div>\n<div class=\"description\" style=\"padding:2px 0 0 0\"></div></div></td></tr>\n<tr><td colspan=\"2\" class=\"mbox-text\" style=\"line-height:1.1em\"><hr><i class=\"selfreference\">Problems playing this file? See <a href=\"/wiki/Help:Media\" title=\"Help:Media\">media help</a>.</i></td></tr>\n</tbody></table>\n\n",
-        "toclevel": 1,
-        "line": "Spoken Wikipedia",
-        "anchor": "Spoken_Wikipedia"
-      },
-      {
-        "id": 11,
-        "text": "\n\n<p><span class=\"mw-default-size\"><span><a href=\"/wiki/File:Big_Buck_Bunny_small.ogv\" class=\"app_media\"><video poster=\"//upload.wikimedia.org/wikipedia/commons/thumb/7/79/Big_Buck_Bunny_small.ogv/240px-seek%3D21-Big_Buck_Bunny_small.ogv.jpg\" preload=\"none\" height=\"134\" width=\"240\" resource=\"./File:Big_Buck_Bunny_small.ogv\"><source src=\"//upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv\" type=\"video/ogg; codecs=&quot;theora, vorbis&quot;\" data-file-width=\"240\" data-file-height=\"134\" data-title=\"Original Ogg file, 240 × 134 (277 kbps)\" data-shorttitle=\"Ogg source\"><source src=\"//upload.wikimedia.org/wikipedia/commons/transcoded/7/79/Big_Buck_Bunny_small.ogv/Big_Buck_Bunny_small.ogv.120p.vp9.webm\" type=\"video/webm; codecs=&quot;vp9, opus&quot;\" data-width=\"214\" data-height=\"118\" data-title=\"Lowest bandwidth VP9 (120P)\" data-shorttitle=\"VP9 120P\"><source src=\"//upload.wikimedia.org/wikipedia/commons/transcoded/7/79/Big_Buck_Bunny_small.ogv/Big_Buck_Bunny_small.ogv.160p.webm\" type=\"video/webm; codecs=&quot;vp8, vorbis&quot;\" data-width=\"240\" data-height=\"134\" data-title=\"Low bandwidth WebM (160P)\" data-shorttitle=\"WebM 160P\"></video></a></span></span></p>\n\n",
-        "toclevel": 1,
-        "line": "Video",
-        "anchor": "Video"
-      },
-      {
-        "id": 12,
-        "text": "\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">\"WP:TPA\" redirects here. For talk page archiving, see <a href=\"/wiki/Help:Archiving_a_talk_page\" title=\"Help:Archiving a talk page\">Help:Archiving a talk page</a>.</div>\n<p><big><b>A perfect Wikipedia article...</b></big></p>\n<ul><li><b>Is on a <a href=\"/wiki/Wikipedia:Note\" title=\"Wikipedia:Note\" class=\"mw-redirect\">notable</a> topic.</b>\n<ul><li><b>Fills a gap</b> not provided by existing or related articles.</li></ul></li>\n<li><b>Has an appropriate structure.</b></li></ul>\n\n",
-        "toclevel": 1,
-        "line": "From <a href=\"/wiki/Wikipedia:The_perfect_article\" title=\"Wikipedia:The perfect article\">Wikipedia:The perfect article</a>",
-        "anchor": "From_Wikipedia:The_perfect_article"
-      },
-      {
-        "id": 13,
-        "text": "\n\n",
-        "toclevel": 1,
-        "line": "From <a href=\"/wiki/Wikipedia:Manual_of_Style/Layout\" title=\"Wikipedia:Manual of Style/Layout\">Wikipedia:Manual_of_Style/Layout</a>",
-        "anchor": "From_Wikipedia:Manual_of_Style/Layout"
-      },
-      {
-        "id": 14,
-        "text": "\n\n<style data-mw-deduplicate=\"TemplateStyles:r_REV_\" typeof=\"mw:Extension/templatestyles mw:Transclusion\">.mw-parser-output .module-shortcutboxplain{float:right;border:1px solid #aaa;background:#fff;margin:0 0 0 1em;padding:0.3em 0.6em 0.2em 0.6em;text-align:center;font-size:85%;font-weight:bold}.mw-parser-output .module-shortcutlist{display:inline-block;border-bottom:1px solid #aaa;margin-bottom:0.2em;font-weight:normal}.mw-parser-output .module-shortcutanchordiv{position:relative;top:-3em}.mw-parser-output li .module-shortcutanchordiv{float:right}</style><div class=\"module-shortcutanchordiv\" about=\"#mwt_present\"></div><div class=\"module-shortcutboxplain plainlist noprint\" role=\"note\" about=\"#mwt_present\"><div class=\"module-shortcutlist\"><a href=\"/wiki/Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcuts</a></div><ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:ORDER&amp;redirect=no\" class=\"external text\">MOS:ORDER</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:SECTIONORDER&amp;redirect=no\" class=\"external text\">MOS:SECTIONORDER</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">See also: <a href=\"/wiki/Wikipedia:Manual_of_Style#Section_headings\" title=\"Wikipedia:Manual of Style\">Wikipedia:Manual of Style §<span>&nbsp;</span>Section headings</a></div>\n\n<p>A <a href=\"/wiki/Wikipedia:Stub#Ideal_stub_article\" title=\"Wikipedia:Stub\">simple article</a> should have at least a lead section and references. As editors add complexity where required, the elements (such as sections and templates) that are used typically appear in the following order, although they would not <i>all</i> appear in the same article at the same time: </p>\n<ol><li>Before the lead section\n<ol><li><a href=\"/wiki/Wikipedia:Hatnote\" title=\"Wikipedia:Hatnote\">Hatnotes</a></li>\n<li>Deletion/Protection tags (<a href=\"/wiki/Wikipedia:CSD\" title=\"Wikipedia:CSD\" class=\"mw-redirect\">CSD</a>, <a href=\"/wiki/Wikipedia:PROD\" title=\"Wikipedia:PROD\" class=\"mw-redirect\">PROD</a>, <a href=\"/wiki/Wikipedia:AFD\" title=\"Wikipedia:AFD\" class=\"mw-redirect\">AFD</a>, <a href=\"/wiki/Category:Protection_templates\" title=\"Category:Protection templates\">PP</a> notices)</li></ol></li>\n<li><a href=\"#Standard_appendices_and_footers\">Appendices</a><span class=\"mw-ref reference\" id=\"cite_ref-sequence_1-0\"><a href=\"#cite_note-sequence-1\" style=\"counter-reset: mw-Ref 1;\"><span class=\"mw-reflink-text\">[1]</span></a></span>\n<ol><li><a href=\"#works\">Works or publications</a> (for biographies only)</li></ol></li>\n<li>Foo\n<ol><li><span>{</span><span>{</span><a href=\"/wiki/Template:Featured_list\" title=\"Template:Featured list\">featured list</a><span>}</span><span>}</span>, <span>{</span><span>{</span><a href=\"/wiki/Template:Featured_article\" title=\"Template:Featured article\">featured article</a><span>}</span><span>}</span> and <span>{</span><span>{</span><a href=\"/wiki/Template:Good_article\" title=\"Template:Good article\">good article</a><span>}</span><span>}</span> (where appropriate for article status)</li>\n<li><a href=\"/wiki/Help:Category#Default_sort_key\" title=\"Help:Category\">Defaultsort</a></li>\n<li><a href=\"/wiki/Wikipedia:Categorization\" title=\"Wikipedia:Categorization\">Categories</a><span class=\"mw-ref reference\" id=\"cite_ref-2\"><a href=\"#cite_note-2\" style=\"counter-reset: mw-Ref 2;\"><span class=\"mw-reflink-text\">[2]</span></a></span></li></ol></li></ol>\n\n",
-        "toclevel": 2,
-        "line": "Order of article elements",
-        "anchor": "Order_of_article_elements"
-      },
-      {
-        "id": 15,
-        "text": "\n<div class=\"module-shortcutanchordiv\" about=\"#mwt_present\"></div><div class=\"module-shortcutboxplain plainlist noprint\" role=\"note\" about=\"#mwt_present\"><div class=\"module-shortcutlist\"><a href=\"/wiki/Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcut</a></div><ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:BODY&amp;redirect=no\" class=\"external text\">MOS:BODY</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">Further information: <a href=\"/wiki/Help:Section\" title=\"Help:Section\">Help:Section</a> and <a href=\"/wiki/Wikipedia:Manual_of_Style#Article_titles,_headings,_and_sections\" title=\"Wikipedia:Manual of Style\">Wikipedia:Manual of Style §<span>&nbsp;</span>Article titles, headings, and sections</a></div>\n\n<figure class=\"mw-default-size\"><a href=\"/wiki/File:Wikipedia_layout_sample_bodies.png\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/1/10/Wikipedia_layout_sample_bodies.png/180px-Wikipedia_layout_sample_bodies.png\" data-file-width=\"441\" data-file-height=\"552\" data-file-type=\"bitmap\" height=\"225\" width=\"180\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/1/10/Wikipedia_layout_sample_bodies.png/270px-Wikipedia_layout_sample_bodies.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/10/Wikipedia_layout_sample_bodies.png/360px-Wikipedia_layout_sample_bodies.png 2x\"></a><figcaption>Body sections appear after the lead and table of contents (click on image for larger view).</figcaption></figure>\n\n<p>Articles longer than a stub are generally divided into sections...</p>\n\n",
-        "toclevel": 2,
-        "line": "Body sections",
-        "anchor": "Body_sections"
-      },
-      {
-        "id": 16,
-        "text": "\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">Further information: <a href=\"/wiki/Wikipedia:Manual_of_Style#Section_headings\" title=\"Wikipedia:Manual of Style\">Wikipedia:Manual of Style §<span>&nbsp;</span>Section headings</a></div>\n\n<p>Headings introduce sections and subsections, clarify articles by breaking up text, organize content, and populate the <a href=\"/wiki/Wikipedia:TOC\" title=\"Wikipedia:TOC\" class=\"mw-redirect\">table of contents</a>.</p>\n\n<p>Headings follow a six-level hierarchy, starting at 1 and ending at 6. The level of the heading is defined by the number of equal signs on either side of the title. Heading 1 (<code>=Heading<span>&nbsp;</span>1=</code>) is automatically generated as the title of the article, and is never appropriate within the body of articles. Sections start at the second level (<code>==Heading<span>&nbsp;</span>2==</code>), with subsections at the third level (<code>===Heading<span>&nbsp;</span>3===</code>), and additional levels of subsections at the fourth level (<code>====Heading<span>&nbsp;</span>4====</code>), fifth level, and sixth level. Sections should be consecutive, such that they do not skip levels from sections to sub-subsections; the exact methodology is part of the <a href=\"/wiki/Wikipedia:ACCESS\" title=\"Wikipedia:ACCESS\" class=\"mw-redirect\">Accessibility</a> guideline.<span class=\"mw-ref reference\" id=\"cite_ref-3\"><a href=\"#cite_note-3\" style=\"counter-reset: mw-Ref 3;\"><span class=\"mw-reflink-text\">[3]</span></a></span></p>\n\n",
-        "toclevel": 3,
-        "line": "Headings and sections",
-        "anchor": "Headings_and_sections"
-      },
-      {
-        "id": 17,
-        "text": "\n<p>Wikipedia has no general standards or guidelines for what section headings are expected in the bodies of articles or what order they should take, because the diversity of presentation in various Wikipedia subjects is too great. The usual practice is to name and order sections based on the precedent of some article which seems similar. There was no early standard proposed, and there is no general outline to follow. Contributors are advised to follow their instincts in proposing an order for sections in the body then seek community consensus in establishing a final order.</p>\n\n<p>The order of sections in the body of a Wikipedia article may be recommended by a relevant WikiProject, or may not exist at all for some topics. Some WikiProjects have developed their own topical style <a href=\"/wiki/Wikipedia:WikiProject_Council/Guide#Advice_pages\" title=\"Wikipedia:WikiProject Council/Guide\">advice pages</a> which include section naming and ordering recommendations. Here are some examples from <a href=\"/wiki/Category:WikiProject_style_advice\" title=\"Category:WikiProject style advice\">Category:WikiProject style advice</a>:</p>\n<style data-mw-deduplicate=\"TemplateStyles:r_REV_\" typeof=\"mw:Extension/templatestyles mw:Transclusion\">.mw-parser-output .div-col{margin-top:0.3em;column-width:30em}.mw-parser-output .div-col-small{font-size:90%}.mw-parser-output .div-col-rules{column-rule:1px solid #aaa}.mw-parser-output .div-col dl,.mw-parser-output .div-col ol,.mw-parser-output .div-col ul{margin-top:0}.mw-parser-output .div-col li,.mw-parser-output .div-col dd{page-break-inside:avoid;break-inside:avoid-column}</style><div class=\"div-col  \" about=\"#mwt_present\"> \n<ul><li><a href=\"/wiki/Wikipedia:WikiProject_Aviation/Style_guide\" title=\"Wikipedia:WikiProject Aviation/Style guide\">WikiProject Aviation</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Books\" title=\"Wikipedia:WikiProject Books\">WikiProject Books</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Books/Non-fiction_article\" title=\"Wikipedia:WikiProject Books/Non-fiction article\">WikiProject Books (Non-fiction)</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Cities/Settlements:_Article_structure\" title=\"Wikipedia:WikiProject Cities/Settlements: Article structure\">WikiProject Cities</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Composers#Article_structure\" title=\"Wikipedia:WikiProject Composers\">WikiProject Composers</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Conservatism/Style_guide#Article_structure\" title=\"Wikipedia:WikiProject Conservatism/Style guide\">WikiProject Conservatism</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Military_history/Content_guide\" title=\"Wikipedia:WikiProject Military history/Content guide\">WikiProject Military History</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Novels#Article_structure\" title=\"Wikipedia:WikiProject Novels\">WikiProject Novels</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Pharmacology/Style_guide#Sections\" title=\"Wikipedia:WikiProject Pharmacology/Style guide\">WikiProject Pharmacology</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Professional_wrestling/Style_guide\" title=\"Wikipedia:WikiProject Professional wrestling/Style guide\">WikiProject Professional wrestling</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Rivers#Article_structure_guidelines\" title=\"Wikipedia:WikiProject Rivers\">WikiProject Rivers</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Scouting/MOS#Article_layouts\" title=\"Wikipedia:WikiProject Scouting/MOS\" class=\"mw-redirect\">WikiProject Scouting</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Ships/Guidelines\" title=\"Wikipedia:WikiProject Ships/Guidelines\">WikiProject Ships</a></li>\n<li>(please add others)</li></ul>\n</div>\n\n<p>If a section is named inappropriately you may also use the <span>{</span><span>{</span><a href=\"/wiki/Template:Rename_section\" title=\"Template:Rename section\">Rename section</a><span>}</span><span>}</span> template.</p>\n\n",
-        "toclevel": 3,
-        "line": "Names and orders for section headings",
-        "anchor": "Names_and_orders_for_section_headings"
-      },
-      {
-        "id": 18,
-        "text": " \n<p>When a section is a <a href=\"/wiki/Wikipedia:SS\" title=\"Wikipedia:SS\" class=\"mw-redirect\">summary</a> of another article that provides a full exposition of the section, a link to that article should appear immediately under the section heading. You can use the <code><span>{</span><span>{</span><a href=\"/wiki/Template:Main\" title=\"Template:Main\">Main</a><span>}</span><span>}</span></code> template to generate a \"<i>Main article</i>\" link.</p>\n\n<p>If one or more articles provide further information or additional details (rather than a full exposition, see above), references to such articles may be placed immediately after the section heading for that section, provided this does not duplicate a wikilink in the text. These additional references should be grouped along with the <code><span>{</span><span>{</span><a href=\"/wiki/Template:Main\" title=\"Template:Main\">Main</a><span>}</span><span>}</span></code> template (if there is one), or at the foot of the section that introduces the material for which these templates provide additional information. You can use one of the following templates to generate these links:</p>\n<ul><li><code><span>{</span><span>{</span><a href=\"/wiki/Template:Details\" title=\"Template:Details\" class=\"mw-redirect\">Details</a><span>}</span><span>}</span></code><span>&nbsp;</span><span>–</span><span> </span> this generates a \"<i>For more details on this topic, see</i>\" link</li>\n<li><code><span>{</span><span>{</span><a href=\"/wiki/Template:Further\" title=\"Template:Further\">Further</a><span>}</span><span>}</span></code><span>&nbsp;</span><span>–</span><span> </span> this generates a \"<i>Further information</i>\" link</li>\n<li><code><span>{</span><span>{</span><a href=\"/wiki/Template:See_also\" title=\"Template:See also\">See also</a><span>}</span><span>}</span></code><span>&nbsp;</span><span>–</span><span> </span> this generates a \"<i>See also</i>\" link</li></ul><p>\n\nFor example, to generate a \"<i>See also</i>\" link to the article on <a href=\"/wiki/Wikipedia:How_to_edit_a_page\" title=\"Wikipedia:How to edit a page\" class=\"mw-redirect\">Wikipedia:How to edit a page</a>, type <span class=\"nowrap\"><code><span>{</span><span>{</span>See also<span>|</span>Wikipedia:How to edit a page<span>}</span><span>}</span></code></span>, which will generate: </p><div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">See also: <a href=\"/wiki/Wikipedia:How_to_edit_a_page\" title=\"Wikipedia:How to edit a page\" class=\"mw-redirect\">Wikipedia:How to edit a page</a></div>\n\n",
-        "toclevel": 3,
-        "line": "Section templates and summary style",
-        "anchor": "Section_templates_and_summary_style"
-      },
-      {
-        "id": 19,
-        "text": "\n<div class=\"module-shortcutanchordiv\" about=\"#mwt_present\"></div><div class=\"module-shortcutboxplain plainlist noprint\" role=\"note\" about=\"#mwt_present\"><div class=\"module-shortcutlist\"><a href=\"/wiki/Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcuts</a></div><ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:APPENDIX&amp;redirect=no\" class=\"external text\">MOS:APPENDIX</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:FOOTERS&amp;redirect=no\" class=\"external text\">MOS:FOOTERS</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">For the list and order of common appendices and footers, see <a href=\"#Order_of_article_elements\">§<span>&nbsp;</span>Order of article elements</a>.</div>\n\n",
-        "toclevel": 1,
-        "line": "Standard appendices and footers",
-        "anchor": "Standard_appendices_and_footers"
-      },
-      {
-        "id": 20,
-        "text": "\n<p>When appendix sections are used, they should appear at the bottom of an article, with <code>==level 2 headings==</code>,<span class=\"mw-ref reference\" id=\"cite_ref-4\"><a href=\"#cite_note-4\" style=\"counter-reset: mw-Ref 4;\"><span class=\"mw-reflink-text\">[4]</span></a></span> followed by the various footers.</p>\n\n",
-        "toclevel": 2,
-        "line": "Headings",
-        "anchor": "Headings"
-      },
-      {
-        "id": 21,
-        "text": "\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">Further information: <a href=\"/wiki/Wikipedia:Manual_of_Style/Lists_of_works\" title=\"Wikipedia:Manual of Style/Lists of works\">Wikipedia:Manual of Style/Lists of works</a></div>\n\n<p><b>Contents:</b>  A bulleted list, usually ordered chronologically, of the works created by the subject of the article.</p>\n\n",
-        "toclevel": 2,
-        "line": "Works or publications",
-        "anchor": "Works_or_publications"
-      },
-      {
-        "id": 22,
-        "text": "\n<div class=\"module-shortcutanchordiv\" about=\"#mwt_present\"></div><div class=\"module-shortcutboxplain plainlist noprint\" role=\"note\" about=\"#mwt_present\"><div class=\"module-shortcutlist\"><a href=\"/wiki/Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcuts</a></div><ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Wikipedia:ALSO&amp;redirect=no\" class=\"external text\">WP:ALSO</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:SEEALSO&amp;redirect=no\" class=\"external text\">MOS:SEEALSO</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:ALSO&amp;redirect=no\" class=\"external text\">MOS:ALSO</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">For \"other uses\" templates (such as this one), see <a href=\"/wiki/Wikipedia:Hatnote\" title=\"Wikipedia:Hatnote\">Wikipedia:Hatnote</a>.</div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">See also: <a href=\"/wiki/Wikipedia:Manual_of_Style/Embedded_lists#See_also_lists\" title=\"Wikipedia:Manual of Style/Embedded lists\" class=\"mw-redirect\">Wikipedia:Manual of Style/Embedded lists §<span>&nbsp;</span>See also lists</a></div>\n\n<p>For example:</p>\n\n<dl><dd><ul><li><a href=\"/wiki/Everyman\" title=\"Everyman\">Related person</a><span>&nbsp;</span>– made a similar achievement on April 4, 2005</li>\n<li><a href=\"/wiki/Ischemia\" title=\"Ischemia\">Ischemia</a><span>&nbsp;</span>– restriction in blood supply</li></ul></dd></dl>\n\n",
-        "toclevel": 2,
-        "line": "\"See also\" section",
-        "anchor": "\"See_also\"_section"
-      },
-      {
-        "id": 23,
-        "text": "\n\n<table role=\"presentation\" class=\"mbox-small plainlinks sistersitebox\" style=\"background-color:#f9f9f9;border:1px solid #aaa;color:#000\">\n<tbody><tr>\n<td class=\"mbox-image\"><span class=\"noviewer\"><span><img src=\"//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/30px-Commons-logo.svg.png\" data-file-width=\"1024\" data-file-height=\"1376\" data-file-type=\"drawing\" height=\"40\" width=\"30\" srcset=\"//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/45px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/59px-Commons-logo.svg.png 2x\"></span></span></td>\n<td class=\"mbox-text plainlist\">Wikimedia Commons has media related to <i><b><a href=\"https://commons.wikimedia.org/wiki/Category:Wikipedia%20logos\" title=\"commons:Category:Wikipedia logos\"><span style=\" \">Wikipedia logos</span></a></b></i>.</td></tr>\n</tbody></table>\n<p>More precisely, box-type templates such as <code><span>{</span><span>{</span><a href=\"/wiki/Template:Commons_category\" title=\"Template:Commons category\">Commons category</a><span>}</span><span>}</span></code> shown at right have to be put at the beginning of the <i>last section</i></p> \n\n",
-        "toclevel": 2,
-        "line": "Links to sister projects",
-        "anchor": "Links_to_sister_projects"
-      },
-      {
-        "id": 24,
-        "text": "\n<div class=\"module-shortcutanchordiv\" about=\"#mwt_present\"></div><div class=\"module-shortcutboxplain plainlist noprint\" role=\"note\" about=\"#mwt_present\"><div class=\"module-shortcutlist\"><a href=\"/wiki/Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcuts</a></div><ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Wikipedia:LAYOUTNAV&amp;redirect=no\" class=\"external text\">WP:LAYOUTNAV</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Wikipedia:NAVLAYOUT&amp;redirect=no\" class=\"external text\">WP:NAVLAYOUT</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">Main page: <a href=\"/wiki/Wikipedia:Categories,_lists,_and_navigation_templates#Navigation_templates\" title=\"Wikipedia:Categories, lists, and navigation templates\">Wikipedia:Categories, lists, and navigation templates §<span>&nbsp;</span>Navigation templates</a></div>\n\n<p><b>Contents:</b> <a href=\"/wiki/Wikipedia:Navigation_templates\" title=\"Wikipedia:Navigation templates\" class=\"mw-redirect\">Navigation templates</a> and footer navboxes, such as  <a href=\"/wiki/Wikipedia:WikiProject_Succession_Box_Standardization#Overview\" title=\"Wikipedia:WikiProject Succession Box Standardization\">succession boxes</a> and geography boxes (for example, <code><span>{</span><span>{</span><a href=\"/wiki/Template:Geographic_location\" title=\"Template:Geographic location\" class=\"mw-redirect\">Geographic location</a><span>}</span><span>}</span></code>). Most navboxes do not appear in printed versions of Wikipedia articles.<span class=\"mw-ref reference\" id=\"cite_ref-5\"><a href=\"#cite_note-5\" style=\"counter-reset: mw-Ref 5;\"><span class=\"mw-reflink-text\">[5]</span></a></span></p>\n\n",
-        "toclevel": 2,
-        "line": "Navigation templates",
-        "anchor": "Navigation_templates"
-      },
-      {
-        "id": 25,
-        "text": "\n<div class=\"reflist \" style=\" list-style-type: decimal;\" about=\"#mwt_present\">\n<div class=\"mw-references-wrap\" about=\"#mwt_present\"><ol class=\"mw-references references\"><li id=\"cite_note-sequence-1\"> <span id=\"mw-reference-text-cite_note-sequence-1\" class=\"mw-reference-text\">This sequence has been in place since at least <a rel=\"mw:ExtLink\" href=\"http://en.wikipedia.org/w/index.php?title=Wikipedia:Layout&amp;oldid=2166480\" class=\"external text\">2003</a> (when \"See also\" was called \"Related topics\"). <i>See, for example,</i> <a href=\"/wiki/Wikipedia:Perennial_proposals#Changes_to_standard_appendices\" title=\"Wikipedia:Perennial proposals\">Wikipedia:Perennial proposals#Changes to standard appendices</a>. The original rationale for this ordering is that, with the exception of <i>Works,</i> sections which contain material outside Wikipedia (including <i>Further reading</i> and <i>External links</i>) should come after sections that contain Wikipedia material (including <i>See also</i>) to help keep the distinction clear. The sections containing notes and references often contain both kinds of material and, consequently, appear after the <i>See also</i> section (if any) and before the <i>Further reading</i> section (if any). Whatever the validity of the original rationale, there is now the additional factor that readers have come to expect the appendices to appear in this order.</span></li><li id=\"cite_note-2\"> <span id=\"mw-reference-text-cite_note-2\" class=\"mw-reference-text\">While categories are entered on the editing page ahead of stub templates, they appear on the visual page in a separate box after the stub templates. One of the reasons this happens is that every stub template generates a stub category, and those stub categories appear after the \"main\" categories. Another is that certain bots and scripts are set up to expect the categories, stubs and <a href=\"/wiki/Help:Interlanguage_links\" title=\"Help:Interlanguage links\">interlanguage links</a> to appear in that order, and will reposition them if they don't. Therefore, any manual attempt to change the order is futile unless the bots and scripts are also altered.</span></li><li id=\"cite_note-3\"> <span id=\"mw-reference-text-cite_note-3\" class=\"mw-reference-text\">For example, skipping heading levels, such as jumping from <code>==Heading<span>&nbsp;</span>2==</code> to <code>====Heading<span>&nbsp;</span>4====</code> without <code>===Heading<span>&nbsp;</span>3===</code> in the middle, violates <a href=\"/wiki/Wikipedia:Accessibility\" title=\"Wikipedia:Accessibility\" class=\"mw-redirect\">Wikipedia:Accessibility</a> as it reduces usability for readers on screen readers who use heading levels to navigate pages.</span></li><li id=\"cite_note-4\"> <span id=\"mw-reference-text-cite_note-4\" class=\"mw-reference-text\">Syntax:\n<div style=\"color: #000000; background: #FFFFFF; padding: 1em; border: 1px solid #8FBC8F; font-size:111%;\" class=\"mw-highlight mw-highlight-lang-moin mw-content-ltr\" dir=\"ltr\" about=\"#mwt_present\"><pre><span class=\"gh\">==</span>See also<span class=\"gh\">==</span>\n* <span class=\"k\">[[Wikipedia:How to edit a page]]</span>\n* <span class=\"k\">[[Wikipedia:Manual of Style]]</span>\n</pre></div><span>\n</span>\n\nWhich produces:\n<blockquote style=\"background: #FFFFFF; padding: 1em; border: 1px solid #999999; font-size:111%;\">\n<div style=\"color: #000000; background: none; overflow: hidden; page-break-after: avoid; font-size: 1.5em; font-family: Georgia,Times,serif; margin-top: 1em; margin-bottom: 0.25em; line-height: 1.3; padding: 0; border-bottom: 1px solid #AAAAAA;\" about=\"#mwt_present\">See also</div>\n<ul><li><a href=\"/wiki/Wikipedia:How_to_edit_a_page\" title=\"Wikipedia:How to edit a page\" class=\"mw-redirect\">Wikipedia:How to edit a page</a></li>\n<li><a href=\"/wiki/Wikipedia:Manual_of_Style\" title=\"Wikipedia:Manual of Style\">Wikipedia:Manual of Style</a></li></ul>\n</blockquote></span></li><li id=\"cite_note-5\"> <span id=\"mw-reference-text-cite_note-5\" class=\"mw-reference-text\">The rationale for not printing navigation boxes is that these templates contain <a href=\"/wiki/Wikilink\" title=\"Wikilink\" class=\"mw-redirect\">wikilinks</a> that are of no use to print readers.<a href=\"/wiki/User_talk:Ruud_Koot/2010#Do_you_recall_the_reason?\" title=\"User talk:Ruud Koot/2010\">[1]</a> There are two problems with this rationale: First, other wikilink content does print, <i>for example</i> <a href=\"#See_also_section\">See also</a> and <a href=\"/wiki/Wikipedia:WikiProject_Succession_Box_Standardization#Overview\" title=\"Wikipedia:WikiProject Succession Box Standardization\">succession boxes</a>. Second, some navigation boxes contain useful information regarding the relationship of the article to the subjects of related articles.</span></li></ol></div></div>\n\n\n\n",
-        "toclevel": 1,
-        "line": "Footnotes",
-        "anchor": "Footnotes",
-        "isReferenceSection": true
-      }
-    ]
-  }
+    "remaining": {
+        "sections": [
+            {
+                "id": 1,
+                "text": "\n<p><span class=\"new\">A red link</span> \n+ <span class=\"new\">Quotes' in\" the' title\" and red link</span></p>\n\n",
+                "toclevel": 1,
+                "line": "More red links",
+                "anchor": "More_red_links"
+            },
+            {
+                "id": 2,
+                "text": "\n<ul><li>Links partially italicized: <a href=\"/wiki/Hindenburg_disaster\" title=\"Hindenburg disaster\"><i>Hindenburg</i> disaster</a></li>\n<li>Link to edit action using edit template: <span class=\"noprint plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=User:BSitzmann_(WMF)/MCS/Test/Frankenstein&amp;action=edit\" class=\"external text\">edit</a></span></li>\n<li>Link to edit action using fullurl template <a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Help:Wiki_markup&amp;action=edit\" class=\"external text\">edit2</a></li></ul>\n\n",
+                "toclevel": 1,
+                "line": "More links",
+                "anchor": "More_links"
+            },
+            {
+                "id": 3,
+                "text": "\n<p><b>Konjac</b> (<span class=\"rt-commentedText nowrap\"><small>English:  </small><span class=\"IPA nopopups noexcerpt\"><a href=\"/wiki/Help:IPA/English\" title=\"Help:IPA/English\">/<span style=\"border-bottom:1px dotted\"><span>ˈ</span><span>k</span><span>oʊ</span><span>n</span><span>j</span><span>æ</span><span>k</span></span>/</a></span></span> <a href=\"/wiki/Help:Pronunciation_respelling_key\" title=\"Help:Pronunciation respelling key\"><i title=\"English pronunciation respelling\"><span style=\"font-size:90%\">KOHN</span>-yak</i></a>)</p>\n\n",
+                "toclevel": 1,
+                "line": "Pronunciation aids",
+                "anchor": "Pronunciation_aids"
+            },
+            {
+                "id": 4,
+                "text": "\n<p><a href=\"//upload.wikimedia.org/wikipedia/commons/5/53/Classical_guitar_scale.ogg\" resource=\"./Media:Classical_guitar_scale.ogg\" title=\"Classical guitar scale.ogg\">Sound</a></p>\n\n",
+                "toclevel": 1,
+                "line": "Media",
+                "anchor": "Media"
+            },
+            {
+                "id": 5,
+                "text": "\n<div class=\"mw-ext-score-disabled\" about=\"#mwt_present\">Musical scores are temporarily disabled.</div>\n\n",
+                "toclevel": 1,
+                "line": "Musical notation",
+                "anchor": "Musical_notation"
+            },
+            {
+                "id": 6,
+                "text": "\n\n<p>Let <b>q</b> = (<i>q</i><sub>x</sub>, <i>q</i><sub>y</sub>, <i>q</i><sub>z</sub>) and <b>p</b> = (<i>p</i><sub>x</sub>, <i>p</i><sub>y</sub>, <i>p</i><sub>z</sub>) denote the position vector and momentum vector of a particle of an ideal gas, respectively. Let <b>F</b> denote the net force on that particle. Then the time-averaged potential energy of the particle is:<br></p>\n<dl><dd><span class=\"mwe-math-element\"><span class=\"mwe-math-mathml-inline mwe-math-mathml-a11y\" style=\"display: none;\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" alttext=\"{\\displaystyle {\\begin{aligned}\\langle \\mathbf {q} \\cdot \\mathbf {F} \\rangle &amp;={\\Bigl \\langle }q_{x}{\\frac {dp_{x}}{dt}}{\\Bigr \\rangle }+{\\Bigl \\langle }q_{y}{\\frac {dp_{y}}{dt}}{\\Bigr \\rangle }+{\\Bigl \\langle }q_{z}{\\frac {dp_{z}}{dt}}{\\Bigr \\rangle }\\\\&amp;=-{\\Bigl \\langle }q_{x}{\\frac {\\partial H}{\\partial q_{x}}}{\\Bigr \\rangle }-{\\Bigl \\langle }q_{y}{\\frac {\\partial H}{\\partial q_{y}}}{\\Bigr \\rangle }-{\\Bigl \\langle }q_{z}{\\frac {\\partial H}{\\partial q_{z}}}{\\Bigr \\rangle }=-3k_{B}T,\\end{aligned}}}\">\n  <semantics>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mstyle displaystyle=\"true\" scriptlevel=\"0\">\n        <mrow class=\"MJX-TeXAtom-ORD\">\n          <mtable columnalign=\"right left right left right left right left right left right left\" rowspacing=\"3pt\" columnspacing=\"0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em\" displaystyle=\"true\">\n            <mtr>\n              <mtd>\n                <mo fence=\"false\" stretchy=\"false\">⟨</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mi mathvariant=\"bold\">q</mi>\n                </mrow>\n                <mo>⋅</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mi mathvariant=\"bold\">F</mi>\n                </mrow>\n                <mo fence=\"false\" stretchy=\"false\">⟩</mo>\n              </mtd>\n              <mtd>\n                <mi></mi>\n                <mo>=</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>x</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi>d</mi>\n                      <msub>\n                        <mi>p</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>x</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                    <mrow>\n                      <mi>d</mi>\n                      <mi>t</mi>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n                <mo>+</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>y</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi>d</mi>\n                      <msub>\n                        <mi>p</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>y</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                    <mrow>\n                      <mi>d</mi>\n                      <mi>t</mi>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n                <mo>+</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>z</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi>d</mi>\n                      <msub>\n                        <mi>p</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>z</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                    <mrow>\n                      <mi>d</mi>\n                      <mi>t</mi>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n              </mtd>\n            </mtr>\n            <mtr>\n              <mtd></mtd>\n              <mtd>\n                <mi></mi>\n                <mo>=</mo>\n                <mo>−</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>x</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <mi>H</mi>\n                    </mrow>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <msub>\n                        <mi>q</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>x</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n                <mo>−</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>y</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <mi>H</mi>\n                    </mrow>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <msub>\n                        <mi>q</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>y</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n                <mo>−</mo>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-OPEN\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟨</mo>\n                  </mrow>\n                </mrow>\n                <msub>\n                  <mi>q</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>z</mi>\n                  </mrow>\n                </msub>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mfrac>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <mi>H</mi>\n                    </mrow>\n                    <mrow>\n                      <mi mathvariant=\"normal\">∂</mi>\n                      <msub>\n                        <mi>q</mi>\n                        <mrow class=\"MJX-TeXAtom-ORD\">\n                          <mi>z</mi>\n                        </mrow>\n                      </msub>\n                    </mrow>\n                  </mfrac>\n                </mrow>\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mrow class=\"MJX-TeXAtom-CLOSE\">\n                    <mo maxsize=\"1.623em\" minsize=\"1.623em\">⟩</mo>\n                  </mrow>\n                </mrow>\n                <mo>=</mo>\n                <mo>−</mo>\n                <mn>3</mn>\n                <msub>\n                  <mi>k</mi>\n                  <mrow class=\"MJX-TeXAtom-ORD\">\n                    <mi>B</mi>\n                  </mrow>\n                </msub>\n                <mi>T</mi>\n                <mo>,</mo>\n              </mtd>\n            </mtr>\n          </mtable>\n        </mrow>\n      </mstyle>\n    </mrow>\n    <annotation encoding=\"application/x-tex\">{\\displaystyle {\\begin{aligned}\\langle \\mathbf {q} \\cdot \\mathbf {F} \\rangle &amp;={\\Bigl \\langle }q_{x}{\\frac {dp_{x}}{dt}}{\\Bigr \\rangle }+{\\Bigl \\langle }q_{y}{\\frac {dp_{y}}{dt}}{\\Bigr \\rangle }+{\\Bigl \\langle }q_{z}{\\frac {dp_{z}}{dt}}{\\Bigr \\rangle }\\\\&amp;=-{\\Bigl \\langle }q_{x}{\\frac {\\partial H}{\\partial q_{x}}}{\\Bigr \\rangle }-{\\Bigl \\langle }q_{y}{\\frac {\\partial H}{\\partial q_{y}}}{\\Bigr \\rangle }-{\\Bigl \\langle }q_{z}{\\frac {\\partial H}{\\partial q_{z}}}{\\Bigr \\rangle }=-3k_{B}T,\\end{aligned}}}</annotation>\n  </semantics>\n</math></span><img src=\"https://wikimedia.org/api/rest_v1/media/math/render/svg/a29f4a0927b2d6b3990dba29b447ef87ce45d40c\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -5.505ex; width:56.647ex; height:12.176ex;\"></span></dd></dl>\n<p>where the first equality is <a href=\"/wiki/Newton's_second_law\" title=\"Newton's second law\" class=\"mw-redirect\">Newton's second law</a>, and the second line uses <a href=\"/wiki/Hamilton's_equations\" title=\"Hamilton's equations\" class=\"mw-redirect\">Hamilton's equations</a> and the <a href=\"/wiki/Equipartition_theorem\" title=\"Equipartition theorem\">equipartition theorem</a>. Summing over a system of <i>N</i> particles yields</p>\n\n<dl><dd><span class=\"mwe-math-element\"><span class=\"mwe-math-mathml-inline mwe-math-mathml-a11y\" style=\"display: none;\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" alttext=\"{\\displaystyle 3Nk_{B}T=-{\\biggl \\langle }\\sum _{k=1}^{N}\\mathbf {q} _{k}\\cdot \\mathbf {F} _{k}{\\biggr \\rangle }.}\">\n  <semantics>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mstyle displaystyle=\"true\" scriptlevel=\"0\">\n        <mn>3</mn>\n        <mi>N</mi>\n        <msub>\n          <mi>k</mi>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi>B</mi>\n          </mrow>\n        </msub>\n        <mi>T</mi>\n        <mo>=</mo>\n        <mo>−</mo>\n        <mrow class=\"MJX-TeXAtom-ORD\">\n          <mrow class=\"MJX-TeXAtom-OPEN\">\n            <mo maxsize=\"2.047em\" minsize=\"2.047em\">⟨</mo>\n          </mrow>\n        </mrow>\n        <munderover>\n          <mo>∑</mo>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi>k</mi>\n            <mo>=</mo>\n            <mn>1</mn>\n          </mrow>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi>N</mi>\n          </mrow>\n        </munderover>\n        <msub>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi mathvariant=\"bold\">q</mi>\n          </mrow>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi>k</mi>\n          </mrow>\n        </msub>\n        <mo>⋅</mo>\n        <msub>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi mathvariant=\"bold\">F</mi>\n          </mrow>\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mi>k</mi>\n          </mrow>\n        </msub>\n        <mrow class=\"MJX-TeXAtom-ORD\">\n          <mrow class=\"MJX-TeXAtom-CLOSE\">\n            <mo maxsize=\"2.047em\" minsize=\"2.047em\">⟩</mo>\n          </mrow>\n        </mrow>\n        <mo>.</mo>\n      </mstyle>\n    </mrow>\n    <annotation encoding=\"application/x-tex\">{\\displaystyle 3Nk_{B}T=-{\\biggl \\langle }\\sum _{k=1}^{N}\\mathbf {q} _{k}\\cdot \\mathbf {F} _{k}{\\biggr \\rangle }.}</annotation>\n  </semantics>\n</math></span><img src=\"https://wikimedia.org/api/rest_v1/media/math/render/svg/7afc829b8b4a0d95a2ad1cec06da28bfe2c4c6fa\" class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" style=\"vertical-align: -3.005ex; width:27.672ex; height:7.343ex;\"></span></dd></dl>\n\n",
+                "toclevel": 1,
+                "line": "Math",
+                "anchor": "Math"
+            },
+            {
+                "id": 7,
+                "text": "\n<ul><li><span>60 and 170</span><span>&nbsp;</span><span>kg (130 and 370</span><span>&nbsp;</span><span>lb)</span></li>\n<li><span>18</span><span>&nbsp;</span><span>°C (64</span><span>&nbsp;</span><span>°F)</span></li>\n<li><span>3.21 kilograms (7.1</span><span>&nbsp;</span><span>lb)</span></li></ul>\n\n",
+                "toclevel": 2,
+                "line": "Conversions",
+                "anchor": "Conversions"
+            },
+            {
+                "id": 8,
+                "text": "\n\n<p><span><a href=\"/wiki/File:Example.png\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/7/70/Example.png/150px-Example.png\" data-file-width=\"172\" data-file-height=\"178\" data-file-type=\"bitmap\" height=\"155\" width=\"150\" srcset=\"//upload.wikimedia.org/wikipedia/commons/7/70/Example.png 1.5x, //upload.wikimedia.org/wikipedia/commons/7/70/Example.png 2x\"></a></span></p>\n\n<p>Multiple images:</p>\n<style data-mw-deduplicate=\"TemplateStyles:r978413945/mw-parser-output/.tmulti\" typeof=\"mw:Extension/templatestyles mw:Transclusion\">.mw-parser-output .tmulti .thumbinner{display:flex;flex-direction:column}.mw-parser-output .tmulti .trow{display:flex;flex-direction:row;clear:left;flex-wrap:wrap;width:100%;box-sizing:border-box}.mw-parser-output .tmulti .tsingle{margin:1px;float:left}.mw-parser-output .tmulti .theader{clear:both;font-weight:bold;text-align:center;align-self:center;background-color:transparent;width:100%}.mw-parser-output .tmulti .thumbcaption{background-color:transparent}.mw-parser-output .tmulti .text-align-left{text-align:left}.mw-parser-output .tmulti .text-align-right{text-align:right}.mw-parser-output .tmulti .text-align-center{text-align:center}@media all and (max-width:720px){.mw-parser-output .tmulti .thumbinner{width:100%!important;box-sizing:border-box;max-width:none!important;align-items:center}.mw-parser-output .tmulti .trow{justify-content:center}.mw-parser-output .tmulti .tsingle{float:none!important;max-width:100%!important;box-sizing:border-box;text-align:center}.mw-parser-output .tmulti .tsingle .thumbcaption{text-align:left}.mw-parser-output .tmulti .trow>.thumbcaption{text-align:center}}</style><div class=\"thumb tmulti tright\" about=\"#mwt_present\"><div class=\"thumbinner\" style=\"width:208px;max-width:208px\"><div class=\"trow\"><div class=\"tsingle\" style=\"width:102px;max-width:102px\"><div class=\"thumbimage\"><span><a href=\"/wiki/File:Yellow_card.svg\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Yellow_card.svg/100px-Yellow_card.svg.png\" data-file-width=\"200\" data-file-height=\"260\" data-file-type=\"drawing\" height=\"130\" width=\"100\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Yellow_card.svg/150px-Yellow_card.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Yellow_card.svg/200px-Yellow_card.svg.png 2x\"></a></span></div><div class=\"thumbcaption\">Caution</div></div><div class=\"tsingle\" style=\"width:102px;max-width:102px\"><div class=\"thumbimage\"><span><a href=\"/wiki/File:Red_card.svg\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Red_card.svg/100px-Red_card.svg.png\" data-file-width=\"200\" data-file-height=\"260\" data-file-type=\"drawing\" height=\"130\" width=\"100\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Red_card.svg/150px-Red_card.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Red_card.svg/200px-Red_card.svg.png 2x\"></a></span></div><div class=\"thumbcaption\">Ejection</div></div></div><div class=\"trow\" style=\"display:flex\"><div class=\"thumbcaption\">Two cards used by football referees</div></div></div></div>\n\n<p>Imagemap:</p>\n<figure class=\"mw-halign-right\" about=\"#mwt_present\" data-mw=\"{&quot;name&quot;:&quot;imagemap&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;extsrc&quot;:&quot;\\nFile:Bryan-Sewall.jpg|300px|right|alt=1896 Democratic campaign poster with nominees William J. Bryan of Nebraska for President and Arthur Sewall of Maine for Vice President\\ncircle 950 850 700 [[William Jennings Bryan|William J. Bryan]]\\ncircle 2950 850 700 [[Arthur Sewall]]\\ndefault [http://projects.vassar.edu/1896/democrats.html 1896 Democrats]\\n&quot;}}\"><a href=\"http://projects.vassar.edu/1896/democrats.html\" class=\"plainlinks image\" title=\"1896 Democrats\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Bryan-Sewall.jpg/300px-Bryan-Sewall.jpg\" data-file-width=\"3916\" data-file-height=\"1980\" data-file-type=\"bitmap\" height=\"152\" width=\"300\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Bryan-Sewall.jpg/450px-Bryan-Sewall.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Bryan-Sewall.jpg/600px-Bryan-Sewall.jpg 2x\" usemap=\"#ImageMap_\"></a><map name=\"ImageMap_\"><area href=\"./William_Jennings_Bryan\" shape=\"circle\" coords=\"73,65,54\" alt=\"William J. Bryan\" title=\"William J. Bryan\"><area href=\"./Arthur_Sewall\" shape=\"circle\" coords=\"226,65,54\"></map><figcaption></figcaption></figure>\n\n<p>Panoramas:</p>\n<div class=\"thumb tnone\" style=\"margin-left:auto;margin-right:auto;overflow:hidden;width:auto;max-width:1808px\" about=\"#mwt_present\"><div class=\"thumbinner\"><div class=\"noresize\" style=\"overflow:auto\"><span><a href=\"/wiki/File:Helsinki_z00.jpg\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/0/07/Helsinki_z00.jpg/1800px-Helsinki_z00.jpg\" data-file-width=\"2666\" data-file-height=\"320\" data-file-type=\"bitmap\" height=\"216\" width=\"1800\" srcset=\"//upload.wikimedia.org/wikipedia/commons/0/07/Helsinki_z00.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/0/07/Helsinki_z00.jpg 2x\"></a></span></div><div class=\"thumbcaption\"><a href=\"/wiki/Helsinki\" title=\"Helsinki\">Helsinki</a> has many buildings.</div></div></div>\n\n",
+                "toclevel": 1,
+                "line": "Images",
+                "anchor": "Images"
+            },
+            {
+                "id": 9,
+                "text": "\n\n<table role=\"presentation\" class=\"mbox-small noprint\" style=\"background-color:#f9f9f9;border:1px solid #aaa;color:#000;\">\n<tbody><tr>\n<td class=\"mbox-image\"><figure class=\"mw-halign-center\"><span><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/50px-Gnome-mime-sound-openclipart.svg.png\" data-file-width=\"160\" data-file-height=\"160\" data-file-type=\"drawing\" height=\"50\" width=\"50\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/75px-Gnome-mime-sound-openclipart.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png 2x\"></span><figcaption></figcaption></figure></td>\n<td class=\"mbox-text plainlist\" style=\"line-height:1.1em\"><div class=\"haudio\">\n<div style=\"padding:4px 0\"><a href=\"/wiki/File:Anvil_of_Crom_(sample)_by_Basil_Poledouris.ogg\" title=\"File:Anvil of Crom (sample) by Basil Poledouris.ogg\">Anvil of Crom (sample)</a></div>\n<div><span class=\"mw-default-audio-height\"><span><audio controls=\"\" preload=\"none\" height=\"32\" width=\"220\" resource=\"./File:Anvil_of_Crom_(sample)_by_Basil_Poledouris.ogg\"><source src=\"//upload.wikimedia.org/wikipedia/en/0/0d/Anvil_of_Crom_%28sample%29_by_Basil_Poledouris.ogg\" type=\"audio/ogg; codecs=&quot;vorbis&quot;\" data-title=\"Original Ogg file (65 kbps)\" data-shorttitle=\"Ogg source\"><source src=\"//upload.wikimedia.org/wikipedia/en/transcoded/0/0d/Anvil_of_Crom_%28sample%29_by_Basil_Poledouris.ogg/Anvil_of_Crom_%28sample%29_by_Basil_Poledouris.ogg.mp3\" type=\"audio/mpeg\" data-title=\"MP3\" data-shorttitle=\"MP3\"></audio></span></span></div>\n<div class=\"description\" style=\"padding:2px 0 0 0\"></div></div></td></tr>\n<tr><td colspan=\"2\" class=\"mbox-text\" style=\"line-height:1.1em\"><hr><i class=\"selfreference\">Problems playing this file? See <a href=\"/wiki/Help:Media\" title=\"Help:Media\">media help</a>.</i></td></tr>\n</tbody></table>\n\n",
+                "toclevel": 1,
+                "line": "Audio",
+                "anchor": "Audio"
+            },
+            {
+                "id": 10,
+                "text": "\n\n<table role=\"presentation\" class=\"mbox-small noprint\" style=\"background-color:#f9f9f9;border:1px solid #aaa;color:#000;\">\n<tbody><tr>\n<td class=\"mbox-image\"><figure class=\"mw-halign-center\"><span><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/50px-Gnome-mime-sound-openclipart.svg.png\" data-file-width=\"160\" data-file-height=\"160\" data-file-type=\"drawing\" height=\"50\" width=\"50\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/75px-Gnome-mime-sound-openclipart.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png 2x\"></span><figcaption></figcaption></figure></td>\n<td class=\"mbox-text plainlist\" style=\"line-height:1.1em\"><div class=\"haudio\">\n<div style=\"padding:4px 0\"><a href=\"/wiki/File:The_Dilbert_Principle.ogg\" title=\"File:The Dilbert Principle.ogg\">The Dilbert Principle</a></div>\n<div><span class=\"mw-default-audio-height\"><span><audio controls=\"\" preload=\"none\" height=\"32\" width=\"220\" resource=\"./File:The_Dilbert_Principle.ogg\"><source src=\"//upload.wikimedia.org/wikipedia/commons/6/6d/The_Dilbert_Principle.ogg\" type=\"audio/ogg; codecs=&quot;vorbis&quot;\" data-title=\"Original Ogg file (56 kbps)\" data-shorttitle=\"Ogg source\"><source src=\"//upload.wikimedia.org/wikipedia/commons/transcoded/6/6d/The_Dilbert_Principle.ogg/The_Dilbert_Principle.ogg.mp3\" type=\"audio/mpeg\" data-title=\"MP3\" data-shorttitle=\"MP3\"></audio></span></span></div>\n<div class=\"description\" style=\"padding:2px 0 0 0\"></div></div></td></tr>\n<tr><td colspan=\"2\" class=\"mbox-text\" style=\"line-height:1.1em\"><hr><i class=\"selfreference\">Problems playing this file? See <a href=\"/wiki/Help:Media\" title=\"Help:Media\">media help</a>.</i></td></tr>\n</tbody></table>\n\n",
+                "toclevel": 1,
+                "line": "Spoken Wikipedia",
+                "anchor": "Spoken_Wikipedia"
+            },
+            {
+                "id": 11,
+                "text": "\n\n<p><span class=\"mw-default-size\"><span><a href=\"/wiki/File:Big_Buck_Bunny_small.ogv\" class=\"app_media\"><video poster=\"//upload.wikimedia.org/wikipedia/commons/thumb/7/79/Big_Buck_Bunny_small.ogv/240px-seek%3D21-Big_Buck_Bunny_small.ogv.jpg\" preload=\"none\" height=\"134\" width=\"240\" resource=\"./File:Big_Buck_Bunny_small.ogv\"><source src=\"//upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv\" type=\"video/ogg; codecs=&quot;theora, vorbis&quot;\" data-file-width=\"240\" data-file-height=\"134\" data-title=\"Original Ogg file, 240 × 134 (277 kbps)\" data-shorttitle=\"Ogg source\"><source src=\"//upload.wikimedia.org/wikipedia/commons/transcoded/7/79/Big_Buck_Bunny_small.ogv/Big_Buck_Bunny_small.ogv.120p.vp9.webm\" type=\"video/webm; codecs=&quot;vp9, opus&quot;\" data-width=\"214\" data-height=\"118\" data-title=\"Lowest bandwidth VP9 (120P)\" data-shorttitle=\"VP9 120P\"><source src=\"//upload.wikimedia.org/wikipedia/commons/transcoded/7/79/Big_Buck_Bunny_small.ogv/Big_Buck_Bunny_small.ogv.160p.webm\" type=\"video/webm; codecs=&quot;vp8, vorbis&quot;\" data-width=\"240\" data-height=\"134\" data-title=\"Low bandwidth WebM (160P)\" data-shorttitle=\"WebM 160P\"></video></a></span></span></p>\n\n",
+                "toclevel": 1,
+                "line": "Video",
+                "anchor": "Video"
+            },
+            {
+                "id": 12,
+                "text": "\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">\"WP:TPA\" redirects here. For talk page archiving, see <a href=\"/wiki/Help:Archiving_a_talk_page\" title=\"Help:Archiving a talk page\">Help:Archiving a talk page</a>.</div>\n<p><big><b>A perfect Wikipedia article...</b></big></p>\n<ul><li><b>Is on a <a href=\"/wiki/Wikipedia:Note\" title=\"Wikipedia:Note\" class=\"mw-redirect\">notable</a> topic.</b>\n<ul><li><b>Fills a gap</b> not provided by existing or related articles.</li></ul></li>\n<li><b>Has an appropriate structure.</b></li></ul>\n\n",
+                "toclevel": 1,
+                "line": "From <a href=\"/wiki/Wikipedia:The_perfect_article\" title=\"Wikipedia:The perfect article\">Wikipedia:The perfect article</a>",
+                "anchor": "From_Wikipedia:The_perfect_article"
+            },
+            {
+                "id": 13,
+                "text": "\n\n",
+                "toclevel": 1,
+                "line": "From <a href=\"/wiki/Wikipedia:Manual_of_Style/Layout\" title=\"Wikipedia:Manual of Style/Layout\">Wikipedia:Manual_of_Style/Layout</a>",
+                "anchor": "From_Wikipedia:Manual_of_Style/Layout"
+            },
+            {
+                "id": 14,
+                "text": "\n\n<style data-mw-deduplicate=\"TemplateStyles:r_REV_\" typeof=\"mw:Extension/templatestyles mw:Transclusion\">.mw-parser-output .module-shortcutboxplain{float:right;border:1px solid #aaa;background:#fff;margin:0 0 0 1em;padding:0.3em 0.6em 0.2em 0.6em;text-align:center;font-size:85%;font-weight:bold}.mw-parser-output .module-shortcutlist{display:inline-block;border-bottom:1px solid #aaa;margin-bottom:0.2em;font-weight:normal}.mw-parser-output .module-shortcutanchordiv{position:relative;top:-3em}.mw-parser-output li .module-shortcutanchordiv{float:right}</style><div class=\"module-shortcutanchordiv\" about=\"#mwt_present\"></div><div class=\"module-shortcutboxplain plainlist noprint\" role=\"note\" about=\"#mwt_present\"><div class=\"module-shortcutlist\"><a href=\"/wiki/Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcuts</a></div><ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:ORDER&amp;redirect=no\" class=\"external text\">MOS:ORDER</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:SECTIONORDER&amp;redirect=no\" class=\"external text\">MOS:SECTIONORDER</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">See also: <a href=\"/wiki/Wikipedia:Manual_of_Style#Section_headings\" title=\"Wikipedia:Manual of Style\">Wikipedia:Manual of Style §<span>&nbsp;</span>Section headings</a></div>\n\n<p>A <a href=\"/wiki/Wikipedia:Stub#Ideal_stub_article\" title=\"Wikipedia:Stub\">simple article</a> should have at least a lead section and references. As editors add complexity where required, the elements (such as sections and templates) that are used typically appear in the following order, although they would not <i>all</i> appear in the same article at the same time: </p>\n<ol><li>Before the lead section\n<ol><li><a href=\"/wiki/Wikipedia:Hatnote\" title=\"Wikipedia:Hatnote\">Hatnotes</a></li>\n<li>Deletion/Protection tags (<a href=\"/wiki/Wikipedia:CSD\" title=\"Wikipedia:CSD\" class=\"mw-redirect\">CSD</a>, <a href=\"/wiki/Wikipedia:PROD\" title=\"Wikipedia:PROD\" class=\"mw-redirect\">PROD</a>, <a href=\"/wiki/Wikipedia:AFD\" title=\"Wikipedia:AFD\" class=\"mw-redirect\">AFD</a>, <a href=\"/wiki/Category:Protection_templates\" title=\"Category:Protection templates\">PP</a> notices)</li></ol></li>\n<li><a href=\"#Standard_appendices_and_footers\">Appendices</a><span class=\"mw-ref reference\" id=\"cite_ref-sequence_1-0\"><a href=\"#cite_note-sequence-1\" style=\"counter-reset: mw-Ref 1;\"><span class=\"mw-reflink-text\">[1]</span></a></span>\n<ol><li><a href=\"#works\">Works or publications</a> (for biographies only)</li></ol></li>\n<li>Foo\n<ol><li><span>{</span><span>{</span><a href=\"/wiki/Template:Featured_list\" title=\"Template:Featured list\">featured list</a><span>}</span><span>}</span>, <span>{</span><span>{</span><a href=\"/wiki/Template:Featured_article\" title=\"Template:Featured article\">featured article</a><span>}</span><span>}</span> and <span>{</span><span>{</span><a href=\"/wiki/Template:Good_article\" title=\"Template:Good article\">good article</a><span>}</span><span>}</span> (where appropriate for article status)</li>\n<li><a href=\"/wiki/Help:Category#Default_sort_key\" title=\"Help:Category\">Defaultsort</a></li>\n<li><a href=\"/wiki/Wikipedia:Categorization\" title=\"Wikipedia:Categorization\">Categories</a><span class=\"mw-ref reference\" id=\"cite_ref-2\"><a href=\"#cite_note-2\" style=\"counter-reset: mw-Ref 2;\"><span class=\"mw-reflink-text\">[2]</span></a></span></li></ol></li></ol>\n\n",
+                "toclevel": 2,
+                "line": "Order of article elements",
+                "anchor": "Order_of_article_elements"
+            },
+            {
+                "id": 15,
+                "text": "\n<div class=\"module-shortcutanchordiv\" about=\"#mwt_present\"></div><div class=\"module-shortcutboxplain plainlist noprint\" role=\"note\" about=\"#mwt_present\"><div class=\"module-shortcutlist\"><a href=\"/wiki/Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcut</a></div><ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:BODY&amp;redirect=no\" class=\"external text\">MOS:BODY</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">Further information: <a href=\"/wiki/Help:Section\" title=\"Help:Section\">Help:Section</a> and <a href=\"/wiki/Wikipedia:Manual_of_Style#Article_titles,_headings,_and_sections\" title=\"Wikipedia:Manual of Style\">Wikipedia:Manual of Style §<span>&nbsp;</span>Article titles, headings, and sections</a></div>\n\n<figure class=\"mw-default-size\"><a href=\"/wiki/File:Wikipedia_layout_sample_bodies.png\" class=\"image\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/1/10/Wikipedia_layout_sample_bodies.png/180px-Wikipedia_layout_sample_bodies.png\" data-file-width=\"441\" data-file-height=\"552\" data-file-type=\"bitmap\" height=\"225\" width=\"180\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/1/10/Wikipedia_layout_sample_bodies.png/270px-Wikipedia_layout_sample_bodies.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/10/Wikipedia_layout_sample_bodies.png/360px-Wikipedia_layout_sample_bodies.png 2x\"></a><figcaption>Body sections appear after the lead and table of contents (click on image for larger view).</figcaption></figure>\n\n<p>Articles longer than a stub are generally divided into sections...</p>\n\n",
+                "toclevel": 2,
+                "line": "Body sections",
+                "anchor": "Body_sections"
+            },
+            {
+                "id": 16,
+                "text": "\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">Further information: <a href=\"/wiki/Wikipedia:Manual_of_Style#Section_headings\" title=\"Wikipedia:Manual of Style\">Wikipedia:Manual of Style §<span>&nbsp;</span>Section headings</a></div>\n\n<p>Headings introduce sections and subsections, clarify articles by breaking up text, organize content, and populate the <a href=\"/wiki/Wikipedia:TOC\" title=\"Wikipedia:TOC\" class=\"mw-redirect\">table of contents</a>.</p>\n\n<p>Headings follow a six-level hierarchy, starting at 1 and ending at 6. The level of the heading is defined by the number of equal signs on either side of the title. Heading 1 (<code>=Heading<span>&nbsp;</span>1=</code>) is automatically generated as the title of the article, and is never appropriate within the body of articles. Sections start at the second level (<code>==Heading<span>&nbsp;</span>2==</code>), with subsections at the third level (<code>===Heading<span>&nbsp;</span>3===</code>), and additional levels of subsections at the fourth level (<code>====Heading<span>&nbsp;</span>4====</code>), fifth level, and sixth level. Sections should be consecutive, such that they do not skip levels from sections to sub-subsections; the exact methodology is part of the <a href=\"/wiki/Wikipedia:ACCESS\" title=\"Wikipedia:ACCESS\" class=\"mw-redirect\">Accessibility</a> guideline.<span class=\"mw-ref reference\" id=\"cite_ref-3\"><a href=\"#cite_note-3\" style=\"counter-reset: mw-Ref 3;\"><span class=\"mw-reflink-text\">[3]</span></a></span></p>\n\n",
+                "toclevel": 3,
+                "line": "Headings and sections",
+                "anchor": "Headings_and_sections"
+            },
+            {
+                "id": 17,
+                "text": "\n<p>Wikipedia has no general standards or guidelines for what section headings are expected in the bodies of articles or what order they should take, because the diversity of presentation in various Wikipedia subjects is too great. The usual practice is to name and order sections based on the precedent of some article which seems similar. There was no early standard proposed, and there is no general outline to follow. Contributors are advised to follow their instincts in proposing an order for sections in the body then seek community consensus in establishing a final order.</p>\n\n<p>The order of sections in the body of a Wikipedia article may be recommended by a relevant WikiProject, or may not exist at all for some topics. Some WikiProjects have developed their own topical style <a href=\"/wiki/Wikipedia:WikiProject_Council/Guide#Advice_pages\" title=\"Wikipedia:WikiProject Council/Guide\">advice pages</a> which include section naming and ordering recommendations. Here are some examples from <a href=\"/wiki/Category:WikiProject_style_advice\" title=\"Category:WikiProject style advice\">Category:WikiProject style advice</a>:</p>\n<style data-mw-deduplicate=\"TemplateStyles:r_REV_\" typeof=\"mw:Extension/templatestyles mw:Transclusion\">.mw-parser-output .div-col{margin-top:0.3em;column-width:30em}.mw-parser-output .div-col-small{font-size:90%}.mw-parser-output .div-col-rules{column-rule:1px solid #aaa}.mw-parser-output .div-col dl,.mw-parser-output .div-col ol,.mw-parser-output .div-col ul{margin-top:0}.mw-parser-output .div-col li,.mw-parser-output .div-col dd{page-break-inside:avoid;break-inside:avoid-column}</style><div class=\"div-col  \" about=\"#mwt_present\"> \n<ul><li><a href=\"/wiki/Wikipedia:WikiProject_Aviation/Style_guide\" title=\"Wikipedia:WikiProject Aviation/Style guide\">WikiProject Aviation</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Books\" title=\"Wikipedia:WikiProject Books\">WikiProject Books</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Books/Non-fiction_article\" title=\"Wikipedia:WikiProject Books/Non-fiction article\">WikiProject Books (Non-fiction)</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Cities/Settlements:_Article_structure\" title=\"Wikipedia:WikiProject Cities/Settlements: Article structure\">WikiProject Cities</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Composers#Article_structure\" title=\"Wikipedia:WikiProject Composers\">WikiProject Composers</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Conservatism/Style_guide#Article_structure\" title=\"Wikipedia:WikiProject Conservatism/Style guide\">WikiProject Conservatism</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Military_history/Content_guide\" title=\"Wikipedia:WikiProject Military history/Content guide\">WikiProject Military History</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Novels#Article_structure\" title=\"Wikipedia:WikiProject Novels\">WikiProject Novels</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Pharmacology/Style_guide#Sections\" title=\"Wikipedia:WikiProject Pharmacology/Style guide\">WikiProject Pharmacology</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Professional_wrestling/Style_guide\" title=\"Wikipedia:WikiProject Professional wrestling/Style guide\">WikiProject Professional wrestling</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Rivers#Article_structure_guidelines\" title=\"Wikipedia:WikiProject Rivers\">WikiProject Rivers</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Scouting/MOS#Article_layouts\" title=\"Wikipedia:WikiProject Scouting/MOS\" class=\"mw-redirect\">WikiProject Scouting</a></li>\n<li><a href=\"/wiki/Wikipedia:WikiProject_Ships/Guidelines\" title=\"Wikipedia:WikiProject Ships/Guidelines\">WikiProject Ships</a></li>\n<li>(please add others)</li></ul>\n</div>\n\n<p>If a section is named inappropriately you may also use the <span>{</span><span>{</span><a href=\"/wiki/Template:Rename_section\" title=\"Template:Rename section\">Rename section</a><span>}</span><span>}</span> template.</p>\n\n",
+                "toclevel": 3,
+                "line": "Names and orders for section headings",
+                "anchor": "Names_and_orders_for_section_headings"
+            },
+            {
+                "id": 18,
+                "text": " \n<p>When a section is a <a href=\"/wiki/Wikipedia:SS\" title=\"Wikipedia:SS\" class=\"mw-redirect\">summary</a> of another article that provides a full exposition of the section, a link to that article should appear immediately under the section heading. You can use the <code><span>{</span><span>{</span><a href=\"/wiki/Template:Main\" title=\"Template:Main\">Main</a><span>}</span><span>}</span></code> template to generate a \"<i>Main article</i>\" link.</p>\n\n<p>If one or more articles provide further information or additional details (rather than a full exposition, see above), references to such articles may be placed immediately after the section heading for that section, provided this does not duplicate a wikilink in the text. These additional references should be grouped along with the <code><span>{</span><span>{</span><a href=\"/wiki/Template:Main\" title=\"Template:Main\">Main</a><span>}</span><span>}</span></code> template (if there is one), or at the foot of the section that introduces the material for which these templates provide additional information. You can use one of the following templates to generate these links:</p>\n<ul><li><code><span>{</span><span>{</span><a href=\"/wiki/Template:Details\" title=\"Template:Details\" class=\"mw-redirect\">Details</a><span>}</span><span>}</span></code><span>&nbsp;</span><span>–</span><span> </span> this generates a \"<i>For more details on this topic, see</i>\" link</li>\n<li><code><span>{</span><span>{</span><a href=\"/wiki/Template:Further\" title=\"Template:Further\">Further</a><span>}</span><span>}</span></code><span>&nbsp;</span><span>–</span><span> </span> this generates a \"<i>Further information</i>\" link</li>\n<li><code><span>{</span><span>{</span><a href=\"/wiki/Template:See_also\" title=\"Template:See also\">See also</a><span>}</span><span>}</span></code><span>&nbsp;</span><span>–</span><span> </span> this generates a \"<i>See also</i>\" link</li></ul><p>\n\nFor example, to generate a \"<i>See also</i>\" link to the article on <a href=\"/wiki/Wikipedia:How_to_edit_a_page\" title=\"Wikipedia:How to edit a page\" class=\"mw-redirect\">Wikipedia:How to edit a page</a>, type <span class=\"nowrap\"><code><span>{</span><span>{</span>See also<span>|</span>Wikipedia:How to edit a page<span>}</span><span>}</span></code></span>, which will generate: </p><div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">See also: <a href=\"/wiki/Wikipedia:How_to_edit_a_page\" title=\"Wikipedia:How to edit a page\" class=\"mw-redirect\">Wikipedia:How to edit a page</a></div>\n\n",
+                "toclevel": 3,
+                "line": "Section templates and summary style",
+                "anchor": "Section_templates_and_summary_style"
+            },
+            {
+                "id": 19,
+                "text": "\n<div class=\"module-shortcutanchordiv\" about=\"#mwt_present\"></div><div class=\"module-shortcutboxplain plainlist noprint\" role=\"note\" about=\"#mwt_present\"><div class=\"module-shortcutlist\"><a href=\"/wiki/Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcuts</a></div><ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:APPENDIX&amp;redirect=no\" class=\"external text\">MOS:APPENDIX</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:FOOTERS&amp;redirect=no\" class=\"external text\">MOS:FOOTERS</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">For the list and order of common appendices and footers, see <a href=\"#Order_of_article_elements\">§<span>&nbsp;</span>Order of article elements</a>.</div>\n\n",
+                "toclevel": 1,
+                "line": "Standard appendices and footers",
+                "anchor": "Standard_appendices_and_footers"
+            },
+            {
+                "id": 20,
+                "text": "\n<p>When appendix sections are used, they should appear at the bottom of an article, with <code>==level 2 headings==</code>,<span class=\"mw-ref reference\" id=\"cite_ref-4\"><a href=\"#cite_note-4\" style=\"counter-reset: mw-Ref 4;\"><span class=\"mw-reflink-text\">[4]</span></a></span> followed by the various footers.</p>\n\n",
+                "toclevel": 2,
+                "line": "Headings",
+                "anchor": "Headings"
+            },
+            {
+                "id": 21,
+                "text": "\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">Further information: <a href=\"/wiki/Wikipedia:Manual_of_Style/Lists_of_works\" title=\"Wikipedia:Manual of Style/Lists of works\">Wikipedia:Manual of Style/Lists of works</a></div>\n\n<p><b>Contents:</b>  A bulleted list, usually ordered chronologically, of the works created by the subject of the article.</p>\n\n",
+                "toclevel": 2,
+                "line": "Works or publications",
+                "anchor": "Works_or_publications"
+            },
+            {
+                "id": 22,
+                "text": "\n<div class=\"module-shortcutanchordiv\" about=\"#mwt_present\"></div><div class=\"module-shortcutboxplain plainlist noprint\" role=\"note\" about=\"#mwt_present\"><div class=\"module-shortcutlist\"><a href=\"/wiki/Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcuts</a></div><ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Wikipedia:ALSO&amp;redirect=no\" class=\"external text\">WP:ALSO</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:SEEALSO&amp;redirect=no\" class=\"external text\">MOS:SEEALSO</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=MOS:ALSO&amp;redirect=no\" class=\"external text\">MOS:ALSO</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">For \"other uses\" templates (such as this one), see <a href=\"/wiki/Wikipedia:Hatnote\" title=\"Wikipedia:Hatnote\">Wikipedia:Hatnote</a>.</div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">See also: <a href=\"/wiki/Wikipedia:Manual_of_Style/Embedded_lists#See_also_lists\" title=\"Wikipedia:Manual of Style/Embedded lists\" class=\"mw-redirect\">Wikipedia:Manual of Style/Embedded lists §<span>&nbsp;</span>See also lists</a></div>\n\n<p>For example:</p>\n\n<dl><dd><ul><li><a href=\"/wiki/Everyman\" title=\"Everyman\">Related person</a><span>&nbsp;</span>– made a similar achievement on April 4, 2005</li>\n<li><a href=\"/wiki/Ischemia\" title=\"Ischemia\">Ischemia</a><span>&nbsp;</span>– restriction in blood supply</li></ul></dd></dl>\n\n",
+                "toclevel": 2,
+                "line": "\"See also\" section",
+                "anchor": "\"See_also\"_section"
+            },
+            {
+                "id": 23,
+                "text": "\n\n<table role=\"presentation\" class=\"mbox-small plainlinks sistersitebox\" style=\"background-color:#f9f9f9;border:1px solid #aaa;color:#000\">\n<tbody><tr>\n<td class=\"mbox-image\"><span class=\"noviewer\"><span><img src=\"//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/30px-Commons-logo.svg.png\" data-file-width=\"1024\" data-file-height=\"1376\" data-file-type=\"drawing\" height=\"40\" width=\"30\" srcset=\"//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/45px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/59px-Commons-logo.svg.png 2x\"></span></span></td>\n<td class=\"mbox-text plainlist\">Wikimedia Commons has media related to <i><b><a href=\"https://commons.wikimedia.org/wiki/Category:Wikipedia%20logos\" title=\"commons:Category:Wikipedia logos\"><span style=\" \">Wikipedia logos</span></a></b></i>.</td></tr>\n</tbody></table>\n<p>More precisely, box-type templates such as <code><span>{</span><span>{</span><a href=\"/wiki/Template:Commons_category\" title=\"Template:Commons category\">Commons category</a><span>}</span><span>}</span></code> shown at right have to be put at the beginning of the <i>last section</i></p> \n\n",
+                "toclevel": 2,
+                "line": "Links to sister projects",
+                "anchor": "Links_to_sister_projects"
+            },
+            {
+                "id": 24,
+                "text": "\n<div class=\"module-shortcutanchordiv\" about=\"#mwt_present\"></div><div class=\"module-shortcutboxplain plainlist noprint\" role=\"note\" about=\"#mwt_present\"><div class=\"module-shortcutlist\"><a href=\"/wiki/Wikipedia:Shortcut\" title=\"Wikipedia:Shortcut\">Shortcuts</a></div><ul><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Wikipedia:LAYOUTNAV&amp;redirect=no\" class=\"external text\">WP:LAYOUTNAV</a></span></li><li><span class=\"plainlinks\"><a rel=\"mw:ExtLink\" href=\"//en.wikipedia.org/w/index.php?title=Wikipedia:NAVLAYOUT&amp;redirect=no\" class=\"external text\">WP:NAVLAYOUT</a></span></li></ul></div>\n<div role=\"note\" class=\"hatnote navigation-not-searchable\" about=\"#mwt_present\">Main page: <a href=\"/wiki/Wikipedia:Categories,_lists,_and_navigation_templates#Navigation_templates\" title=\"Wikipedia:Categories, lists, and navigation templates\">Wikipedia:Categories, lists, and navigation templates §<span>&nbsp;</span>Navigation templates</a></div>\n\n<p><b>Contents:</b> <a href=\"/wiki/Wikipedia:Navigation_templates\" title=\"Wikipedia:Navigation templates\" class=\"mw-redirect\">Navigation templates</a> and footer navboxes, such as  <a href=\"/wiki/Wikipedia:WikiProject_Succession_Box_Standardization#Overview\" title=\"Wikipedia:WikiProject Succession Box Standardization\">succession boxes</a> and geography boxes (for example, <code><span>{</span><span>{</span><a href=\"/wiki/Template:Geographic_location\" title=\"Template:Geographic location\" class=\"mw-redirect\">Geographic location</a><span>}</span><span>}</span></code>). Most navboxes do not appear in printed versions of Wikipedia articles.<span class=\"mw-ref reference\" id=\"cite_ref-5\"><a href=\"#cite_note-5\" style=\"counter-reset: mw-Ref 5;\"><span class=\"mw-reflink-text\">[5]</span></a></span></p>\n\n",
+                "toclevel": 2,
+                "line": "Navigation templates",
+                "anchor": "Navigation_templates"
+            },
+            {
+                "id": 25,
+                "text": "\n<div class=\"reflist \" style=\" list-style-type: decimal;\" about=\"#mwt_present\">\n<div class=\"mw-references-wrap\" about=\"#mwt_present\"><ol class=\"mw-references references\"><li id=\"cite_note-sequence-1\"> <span id=\"mw-reference-text-cite_note-sequence-1\" class=\"mw-reference-text\">This sequence has been in place since at least <a rel=\"mw:ExtLink\" href=\"http://en.wikipedia.org/w/index.php?title=Wikipedia:Layout&amp;oldid=2166480\" class=\"external text\">2003</a> (when \"See also\" was called \"Related topics\"). <i>See, for example,</i> <a href=\"/wiki/Wikipedia:Perennial_proposals#Changes_to_standard_appendices\" title=\"Wikipedia:Perennial proposals\">Wikipedia:Perennial proposals#Changes to standard appendices</a>. The original rationale for this ordering is that, with the exception of <i>Works,</i> sections which contain material outside Wikipedia (including <i>Further reading</i> and <i>External links</i>) should come after sections that contain Wikipedia material (including <i>See also</i>) to help keep the distinction clear. The sections containing notes and references often contain both kinds of material and, consequently, appear after the <i>See also</i> section (if any) and before the <i>Further reading</i> section (if any). Whatever the validity of the original rationale, there is now the additional factor that readers have come to expect the appendices to appear in this order.</span></li><li id=\"cite_note-2\"> <span id=\"mw-reference-text-cite_note-2\" class=\"mw-reference-text\">While categories are entered on the editing page ahead of stub templates, they appear on the visual page in a separate box after the stub templates. One of the reasons this happens is that every stub template generates a stub category, and those stub categories appear after the \"main\" categories. Another is that certain bots and scripts are set up to expect the categories, stubs and <a href=\"/wiki/Help:Interlanguage_links\" title=\"Help:Interlanguage links\">interlanguage links</a> to appear in that order, and will reposition them if they don't. Therefore, any manual attempt to change the order is futile unless the bots and scripts are also altered.</span></li><li id=\"cite_note-3\"> <span id=\"mw-reference-text-cite_note-3\" class=\"mw-reference-text\">For example, skipping heading levels, such as jumping from <code>==Heading<span>&nbsp;</span>2==</code> to <code>====Heading<span>&nbsp;</span>4====</code> without <code>===Heading<span>&nbsp;</span>3===</code> in the middle, violates <a href=\"/wiki/Wikipedia:Accessibility\" title=\"Wikipedia:Accessibility\" class=\"mw-redirect\">Wikipedia:Accessibility</a> as it reduces usability for readers on screen readers who use heading levels to navigate pages.</span></li><li id=\"cite_note-4\"> <span id=\"mw-reference-text-cite_note-4\" class=\"mw-reference-text\">Syntax:\n<div style=\"color: #000000; background: #FFFFFF; padding: 1em; border: 1px solid #8FBC8F; font-size:111%;\" class=\"mw-highlight mw-highlight-lang-moin mw-content-ltr\" dir=\"ltr\" about=\"#mwt_present\"><pre><span class=\"gh\">==</span>See also<span class=\"gh\">==</span>\n* <span class=\"k\">[[Wikipedia:How to edit a page]]</span>\n* <span class=\"k\">[[Wikipedia:Manual of Style]]</span>\n</pre></div><span>\n</span>\n\nWhich produces:\n<blockquote style=\"background: #FFFFFF; padding: 1em; border: 1px solid #999999; font-size:111%;\">\n<div style=\"color: #000000; background: none; overflow: hidden; page-break-after: avoid; font-size: 1.5em; font-family: Georgia,Times,serif; margin-top: 1em; margin-bottom: 0.25em; line-height: 1.3; padding: 0; border-bottom: 1px solid #AAAAAA;\" about=\"#mwt_present\">See also</div>\n<ul><li><a href=\"/wiki/Wikipedia:How_to_edit_a_page\" title=\"Wikipedia:How to edit a page\" class=\"mw-redirect\">Wikipedia:How to edit a page</a></li>\n<li><a href=\"/wiki/Wikipedia:Manual_of_Style\" title=\"Wikipedia:Manual of Style\">Wikipedia:Manual of Style</a></li></ul>\n</blockquote></span></li><li id=\"cite_note-5\"> <span id=\"mw-reference-text-cite_note-5\" class=\"mw-reference-text\">The rationale for not printing navigation boxes is that these templates contain <a href=\"/wiki/Wikilink\" title=\"Wikilink\" class=\"mw-redirect\">wikilinks</a> that are of no use to print readers.<a href=\"/wiki/User_talk:Ruud_Koot/2010#Do_you_recall_the_reason?\" title=\"User talk:Ruud Koot/2010\">[1]</a> There are two problems with this rationale: First, other wikilink content does print, <i>for example</i> <a href=\"#See_also_section\">See also</a> and <a href=\"/wiki/Wikipedia:WikiProject_Succession_Box_Standardization#Overview\" title=\"Wikipedia:WikiProject Succession Box Standardization\">succession boxes</a>. Second, some navigation boxes contain useful information regarding the relationship of the article to the subjects of related articles.</span></li></ol></div></div>\n\n\n\n",
+                "toclevel": 1,
+                "line": "Footnotes",
+                "anchor": "Footnotes",
+                "isReferenceSection": true
+            }
+        ]
+    }
 }

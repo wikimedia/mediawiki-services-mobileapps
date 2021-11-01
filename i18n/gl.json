@@ -1,30 +1,30 @@
 {
-	"@metadata": {
-		"authors": [
-			"Maria zaos"
-		]
-	},
-	"description-add-link-title": "Engadir unha descrición do artigo",
-	"article-read-more-title": "Ler máis",
-	"table-title-other": "Máis información",
-	"page-edit-history": "Historial de edición completo",
-	"info-box-close-text": "Pechar",
-	"page-talk-page": "Ver a páxina de conversa",
-	"info-box-title": "Datos rápidos",
-	"view-in-browser-footer-link": "Ver artigo no navegador",
-	"page-location": "Ver nun mapa",
-	"page-similar-titles": "Páxinas similares",
-	"page-last-edited": "{{PLURAL:$1|0=Editado hoxe|1=Editado onte|Editado hai $1 días}}",
-	"article-about-title": "Acerca deste artigo",
-	"page-issues": "Problemas na páxina",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "O contido está dispoñible baixo a $1, salvo que se indique o contrario.",
-	"page-read-in-other-languages": "Dispoñible {{PLURAL:$1|noutra lingua|noutras $1 linguas}}",
-	"article-edit-button": "Editar a sección",
-	"article-edit-protected-button": "Editar unha sección nunha páxina protexida",
-	"article-section-expand": "Expandir a sección",
-	"article-section-collapse": "Contraer a sección",
-	"table-expand": "Expandir a táboa",
-	"table-collapse": "Contraer a táboa",
-	"references-preview-header": "Previsualización de referencias"
+    "@metadata": {
+        "authors": [
+            "Maria zaos"
+        ]
+    },
+    "description-add-link-title": "Engadir unha descrición do artigo",
+    "article-read-more-title": "Ler máis",
+    "table-title-other": "Máis información",
+    "page-edit-history": "Historial de edición completo",
+    "info-box-close-text": "Pechar",
+    "page-talk-page": "Ver a páxina de conversa",
+    "info-box-title": "Datos rápidos",
+    "view-in-browser-footer-link": "Ver artigo no navegador",
+    "page-location": "Ver nun mapa",
+    "page-similar-titles": "Páxinas similares",
+    "page-last-edited": "{{PLURAL:$1|0=Editado hoxe|1=Editado onte|Editado hai $1 días}}",
+    "article-about-title": "Acerca deste artigo",
+    "page-issues": "Problemas na páxina",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "O contido está dispoñible baixo a $1, salvo que se indique o contrario.",
+    "page-read-in-other-languages": "Dispoñible {{PLURAL:$1|noutra lingua|noutras $1 linguas}}",
+    "article-edit-button": "Editar a sección",
+    "article-edit-protected-button": "Editar unha sección nunha páxina protexida",
+    "article-section-expand": "Expandir a sección",
+    "article-section-collapse": "Contraer a sección",
+    "table-expand": "Expandir a táboa",
+    "table-collapse": "Contraer a táboa",
+    "references-preview-header": "Previsualización de referencias"
 }

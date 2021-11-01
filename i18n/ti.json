@@ -1,25 +1,25 @@
 {
-	"@metadata": {
-		"authors": [
-			"Joanmp17"
-		]
-	},
-	"description-add-link-title": "መግለጺ ጽሑፍ ወስኽ",
-	"article-read-more-title": "ንባብካ ቀጽል",
-	"table-title-other": "ተወሳኺ ሓበሬታ",
-	"page-edit-history": "ታሪኽ ኣርትዖት ርኣይ",
-	"info-box-close-text": "ዕጸው",
-	"page-talk-page-subtitle": "ብዛዕባ እዚ ጽሑፍ እዚ ብዛዕባ ምምሕያሻት ተመያየጥ",
-	"page-talk-page": "ገጽ ምይይጥ ርኣይ",
-	"info-box-title": "ቅልጡፍ ሓቅታት",
-	"view-in-browser-footer-link": "ጽሑፍ ኣብ መዳህሰሲ ርኣይ",
-	"page-location": "ኣብ ካርታ ርኣይ",
-	"page-similar-titles": "ተመሳሳሊ ገጻት",
-	"page-last-edited": "{{PLURAL:$1|ትማሊ ተሓዲሱ|ቅድሚ $1 መዓልታት ተሓዲሱ|0=ሎሚ ተሓዲሱ}}",
-	"article-about-title": "ብዛዕባ እዚ ጽሑፍ",
-	"page-issues": "ጸገማት ገጽ",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "ትሕዝቶ ኣብ ትሕቲ ፍቓድ $1 ይርከብ እዩ፣ ካልእ እንተ ዘይተገልጸ።",
-	"page-read-in-other-languages": "ብ{{PLURAL:$1|$1 ካልእ ቋንቋ|$1 ካልኦት ቋንቋታት}} ይርከብ",
-	"article-edit-button": "ክፍሊ ኣመዓራርይ"
+    "@metadata": {
+        "authors": [
+            "Joanmp17"
+        ]
+    },
+    "description-add-link-title": "መግለጺ ጽሑፍ ወስኽ",
+    "article-read-more-title": "ንባብካ ቀጽል",
+    "table-title-other": "ተወሳኺ ሓበሬታ",
+    "page-edit-history": "ታሪኽ ኣርትዖት ርኣይ",
+    "info-box-close-text": "ዕጸው",
+    "page-talk-page-subtitle": "ብዛዕባ እዚ ጽሑፍ እዚ ብዛዕባ ምምሕያሻት ተመያየጥ",
+    "page-talk-page": "ገጽ ምይይጥ ርኣይ",
+    "info-box-title": "ቅልጡፍ ሓቅታት",
+    "view-in-browser-footer-link": "ጽሑፍ ኣብ መዳህሰሲ ርኣይ",
+    "page-location": "ኣብ ካርታ ርኣይ",
+    "page-similar-titles": "ተመሳሳሊ ገጻት",
+    "page-last-edited": "{{PLURAL:$1|ትማሊ ተሓዲሱ|ቅድሚ $1 መዓልታት ተሓዲሱ|0=ሎሚ ተሓዲሱ}}",
+    "article-about-title": "ብዛዕባ እዚ ጽሑፍ",
+    "page-issues": "ጸገማት ገጽ",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "ትሕዝቶ ኣብ ትሕቲ ፍቓድ $1 ይርከብ እዩ፣ ካልእ እንተ ዘይተገልጸ።",
+    "page-read-in-other-languages": "ብ{{PLURAL:$1|$1 ካልእ ቋንቋ|$1 ካልኦት ቋንቋታት}} ይርከብ",
+    "article-edit-button": "ክፍሊ ኣመዓራርይ"
 }

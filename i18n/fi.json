@@ -1,32 +1,32 @@
 {
-	"@metadata": {
-		"authors": [
-			"Kyykaarme",
-			"Nike",
-			"Pyscowicz"
-		]
-	},
-	"description-add-link-title": "Lisää artikkelin kuvaus",
-	"article-read-more-title": "Lue lisää",
-	"table-title-other": "Lisätietoja",
-	"page-edit-history": "Katso muokkaushistoria",
-	"info-box-close-text": "Sulje",
-	"page-talk-page-subtitle": "Keskustele tämän artikkelin kehittämisestä",
-	"page-talk-page": "Tarkastele keskustelusivua",
-	"info-box-title": "Pikafaktoja",
-	"view-in-browser-footer-link": "Lue artikkeli selaimessa",
-	"page-location": "Näytä kartalla",
-	"page-similar-titles": "Samankaltaiset sivut",
-	"page-last-edited": "{{PLURAL:$1|Päivitetty eilen|Päivitetty $1 päivää sitten|0=Päivitetty tänään}}",
-	"article-about-title": "Tietoja tästä artikkelista",
-	"page-issues": "Sivun ongelmat",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "Sisältö on käytettävissä $1 -lisenssin ehtojen mukaisesti ellei toisin mainita.",
-	"page-read-in-other-languages": "Saatavilla {{PLURAL:$1|$1 muulla kielellä|$1 muulla kielellä}}",
-	"article-edit-button": "Muokkaa osiota",
-	"article-section-expand": "Laajenna osio",
-	"article-section-collapse": "Tiivistä osio",
-	"table-expand": "Laajenna taulukko",
-	"table-collapse": "Tiivistä taulukko",
-	"references-preview-header": "Viitteiden esikatselu"
+    "@metadata": {
+        "authors": [
+            "Kyykaarme",
+            "Nike",
+            "Pyscowicz"
+        ]
+    },
+    "description-add-link-title": "Lisää artikkelin kuvaus",
+    "article-read-more-title": "Lue lisää",
+    "table-title-other": "Lisätietoja",
+    "page-edit-history": "Katso muokkaushistoria",
+    "info-box-close-text": "Sulje",
+    "page-talk-page-subtitle": "Keskustele tämän artikkelin kehittämisestä",
+    "page-talk-page": "Tarkastele keskustelusivua",
+    "info-box-title": "Pikafaktoja",
+    "view-in-browser-footer-link": "Lue artikkeli selaimessa",
+    "page-location": "Näytä kartalla",
+    "page-similar-titles": "Samankaltaiset sivut",
+    "page-last-edited": "{{PLURAL:$1|Päivitetty eilen|Päivitetty $1 päivää sitten|0=Päivitetty tänään}}",
+    "article-about-title": "Tietoja tästä artikkelista",
+    "page-issues": "Sivun ongelmat",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "Sisältö on käytettävissä $1 -lisenssin ehtojen mukaisesti ellei toisin mainita.",
+    "page-read-in-other-languages": "Saatavilla {{PLURAL:$1|$1 muulla kielellä|$1 muulla kielellä}}",
+    "article-edit-button": "Muokkaa osiota",
+    "article-section-expand": "Laajenna osio",
+    "article-section-collapse": "Tiivistä osio",
+    "table-expand": "Laajenna taulukko",
+    "table-collapse": "Tiivistä taulukko",
+    "references-preview-header": "Viitteiden esikatselu"
 }

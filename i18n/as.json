@@ -1,14 +1,14 @@
 {
-	"@metadata": {
-		"authors": []
-	},
-	"article-read-more-title": "আৰু পঢ়ক",
-	"table-title-other": "অধিক তথ্য",
-	"info-box-close-text": "বন্ধ কৰক",
-	"info-box-title": "ক্ষিপ্ৰ তথ্য",
-	"page-similar-titles": "একে ধৰণৰ পৃষ্ঠা",
-	"article-about-title": "এই প্ৰবন্ধ সম্পৰ্কে",
-	"page-issues": "পৃষ্ঠা সমস্যা",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "সমল $1ৰ আওতাত উপলব্ধ"
+    "@metadata": {
+        "authors": []
+    },
+    "article-read-more-title": "আৰু পঢ়ক",
+    "table-title-other": "অধিক তথ্য",
+    "info-box-close-text": "বন্ধ কৰক",
+    "info-box-title": "ক্ষিপ্ৰ তথ্য",
+    "page-similar-titles": "একে ধৰণৰ পৃষ্ঠা",
+    "article-about-title": "এই প্ৰবন্ধ সম্পৰ্কে",
+    "page-issues": "পৃষ্ঠা সমস্যা",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "সমল $1ৰ আওতাত উপলব্ধ"
 }

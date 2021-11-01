@@ -1,26 +1,26 @@
 {
-	"@metadata": {
-		"authors": [
-			"Lancine.kounfantoh.fofana"
-		]
-	},
-	"description-add-link-title": "ߞߎߡߘߊ ߞߊ߲߬ߛߓߍߟߌ ߝߙߊ߬",
-	"article-read-more-title": "ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬",
-	"table-title-other": "ߞߎ߲߬ߠߊ߬ߝߎ߬ߟߋ߲߬ ߜߘߍ ߟߎ߬",
-	"page-edit-history": "ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߝߐ ߦߋ߫",
-	"info-box-close-text": "ߊ߬ ߘߊߕߎ߲߯",
-	"page-talk-page-subtitle": "ߘߊߘߐߖߊߥߏ ߞߍ߫ ߞߎߡߘߊ ߣߌ߲߬ ߠߊߢߊ߬ ߞߏ ߞߊ߲߬",
-	"page-talk-page": "ߞߎߡߊ߫ ߞߐߜߍ ߦߋ߫",
-	"info-box-title": "ߞߊߟߌߦߊ߫ ߘߐ߫ ߞߍߟߌ",
-	"view-in-browser-footer-link": "ߞߎߡߘߊ ߦߋ߫ ߛߏ߲߯ߓߊߟߊ߲ ߠߊ߫",
-	"page-location": "ߊ߬ ߦߋ߫ ߔߊ߬ߔߘߊ ߞߊ߲߬",
-	"page-similar-titles": "ߞߐߜߍ߫ ߡߎߣߎ߲ߣߍ߲ ߠߎ߬",
-	"page-last-edited": "{{PLURAL:ߟߏ߲ߘߐߦߊߣߍ߲ $1 ߞߎߣߎ߲߬|ߟߏ߲ߘߐߦߊߣߍ߲ ߕߟߋ߬ $1 ߖߊ߬ߕߋ߬|ߓߌ߬ ߟߏ߲ߘߐߦߊߣߍ߲=߀}}",
-	"article-about-title": "ߞߊ߬ ߓߍ߲߬ ߞߎߡߘߊ ߣߌ߲߬ ߡߊ߬",
-	"article-edit-button": "ߕߍߕߍ߮ ߡߊߦߟߍ߬ߡߊ߲߬",
-	"article-edit-protected-button": "ߕߍߕߍ߮ ߡߊߦߟߍ߬ߡߊ߲߬ ߞߐߜߍ߫ ߟߊߞߊ߲ߘߊߣߍ߲ ߠߊ߫",
-	"article-section-expand": "ߕߍߕߍ߮ ߘߐߦߙߌߥߊ߫",
-	"article-section-collapse": "ߕߍߕߍ߮ ߟߊߡߛߐ߫",
-	"table-expand": "ߥߟߊ߬ߟߋ߲ ߘߐߦߙߌߥߊ߫",
-	"table-collapse": "ߥߟߊ߬ߟߋ߲ ߢߊ߲ߞߊ߲ ߡߊߓߍ߲߬"
+    "@metadata": {
+        "authors": [
+            "Lancine.kounfantoh.fofana"
+        ]
+    },
+    "description-add-link-title": "ߞߎߡߘߊ ߞߊ߲߬ߛߓߍߟߌ ߝߙߊ߬",
+    "article-read-more-title": "ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬",
+    "table-title-other": "ߞߎ߲߬ߠߊ߬ߝߎ߬ߟߋ߲߬ ߜߘߍ ߟߎ߬",
+    "page-edit-history": "ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߝߐ ߦߋ߫",
+    "info-box-close-text": "ߊ߬ ߘߊߕߎ߲߯",
+    "page-talk-page-subtitle": "ߘߊߘߐߖߊߥߏ ߞߍ߫ ߞߎߡߘߊ ߣߌ߲߬ ߠߊߢߊ߬ ߞߏ ߞߊ߲߬",
+    "page-talk-page": "ߞߎߡߊ߫ ߞߐߜߍ ߦߋ߫",
+    "info-box-title": "ߞߊߟߌߦߊ߫ ߘߐ߫ ߞߍߟߌ",
+    "view-in-browser-footer-link": "ߞߎߡߘߊ ߦߋ߫ ߛߏ߲߯ߓߊߟߊ߲ ߠߊ߫",
+    "page-location": "ߊ߬ ߦߋ߫ ߔߊ߬ߔߘߊ ߞߊ߲߬",
+    "page-similar-titles": "ߞߐߜߍ߫ ߡߎߣߎ߲ߣߍ߲ ߠߎ߬",
+    "page-last-edited": "{{PLURAL:ߟߏ߲ߘߐߦߊߣߍ߲ $1 ߞߎߣߎ߲߬|ߟߏ߲ߘߐߦߊߣߍ߲ ߕߟߋ߬ $1 ߖߊ߬ߕߋ߬|ߓߌ߬ ߟߏ߲ߘߐߦߊߣߍ߲=߀}}",
+    "article-about-title": "ߞߊ߬ ߓߍ߲߬ ߞߎߡߘߊ ߣߌ߲߬ ߡߊ߬",
+    "article-edit-button": "ߕߍߕߍ߮ ߡߊߦߟߍ߬ߡߊ߲߬",
+    "article-edit-protected-button": "ߕߍߕߍ߮ ߡߊߦߟߍ߬ߡߊ߲߬ ߞߐߜߍ߫ ߟߊߞߊ߲ߘߊߣߍ߲ ߠߊ߫",
+    "article-section-expand": "ߕߍߕߍ߮ ߘߐߦߙߌߥߊ߫",
+    "article-section-collapse": "ߕߍߕߍ߮ ߟߊߡߛߐ߫",
+    "table-expand": "ߥߟߊ߬ߟߋ߲ ߘߐߦߙߌߥߊ߫",
+    "table-collapse": "ߥߟߊ߬ߟߋ߲ ߢߊ߲ߞߊ߲ ߡߊߓߍ߲߬"
 }

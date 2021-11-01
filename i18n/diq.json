@@ -1,34 +1,34 @@
 {
-	"@metadata": {
-		"authors": [
-			"1917 Ekim Devrimi",
-			"Mirzali",
-			"Orbot707"
-		]
-	},
-	"description-add-link-title": "Şınasnayışê meqaleyi cı kerê",
-	"article-read-more-title": "Tayêna bıwane",
-	"table-title-other": "Tayêna melumat",
-	"page-edit-history": "Verorê vurnayışi bıvêne",
-	"info-box-close-text": "Kip ke",
-	"page-talk-page-subtitle": "Ravêrberdışê na meqale mışewre bıkerê",
-	"page-issues-subtitle": "Heqê zerrekê problemıni u letey bınêni iqazi",
-	"page-talk-page": "Pela werênayışi bıvêne",
-	"info-box-title": "Pêt Raşti",
-	"view-in-browser-footer-link": "Meqaleyi browseri sero bıvinê",
-	"page-location": "Xerita sero bıvênên",
-	"page-similar-titles": "Zey cı peri",
-	"page-last-edited": "{{PLURAL:$1|Vızêri bi rocane|Verê $1 rocan kerd rocane|0=Ewro bi rocane}}",
-	"article-about-title": "Heqê nê meqaley",
-	"page-issues": "Meseleyê pele",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "Zerrekê cı bınê $1 de qeyd biyo.",
-	"page-read-in-other-languages": "{{PLURAL:$1|$1 yew zıwanê bini|$1 zıwananê binan}} de esto",
-	"article-edit-button": "Letey bıvurne",
-	"article-edit-protected-button": "Pela şeveknayi de letey bıvurne",
-	"article-section-expand": "Letey hera kerê",
-	"article-section-collapse": "Letey teng kerê",
-	"table-expand": "Tabloy Hera kerê",
-	"table-collapse": "Tabloy teng kerê",
-	"references-preview-header": "Verasayışê çımeyan"
+    "@metadata": {
+        "authors": [
+            "1917 Ekim Devrimi",
+            "Mirzali",
+            "Orbot707"
+        ]
+    },
+    "description-add-link-title": "Şınasnayışê meqaleyi cı kerê",
+    "article-read-more-title": "Tayêna bıwane",
+    "table-title-other": "Tayêna melumat",
+    "page-edit-history": "Verorê vurnayışi bıvêne",
+    "info-box-close-text": "Kip ke",
+    "page-talk-page-subtitle": "Ravêrberdışê na meqale mışewre bıkerê",
+    "page-issues-subtitle": "Heqê zerrekê problemıni u letey bınêni iqazi",
+    "page-talk-page": "Pela werênayışi bıvêne",
+    "info-box-title": "Pêt Raşti",
+    "view-in-browser-footer-link": "Meqaleyi browseri sero bıvinê",
+    "page-location": "Xerita sero bıvênên",
+    "page-similar-titles": "Zey cı peri",
+    "page-last-edited": "{{PLURAL:$1|Vızêri bi rocane|Verê $1 rocan kerd rocane|0=Ewro bi rocane}}",
+    "article-about-title": "Heqê nê meqaley",
+    "page-issues": "Meseleyê pele",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "Zerrekê cı bınê $1 de qeyd biyo.",
+    "page-read-in-other-languages": "{{PLURAL:$1|$1 yew zıwanê bini|$1 zıwananê binan}} de esto",
+    "article-edit-button": "Letey bıvurne",
+    "article-edit-protected-button": "Pela şeveknayi de letey bıvurne",
+    "article-section-expand": "Letey hera kerê",
+    "article-section-collapse": "Letey teng kerê",
+    "table-expand": "Tabloy Hera kerê",
+    "table-collapse": "Tabloy teng kerê",
+    "references-preview-header": "Verasayışê çımeyan"
 }

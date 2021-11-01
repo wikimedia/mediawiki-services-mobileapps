@@ -1,32 +1,32 @@
 {
-	"@metadata": {
-		"authors": [
-			"BadDog",
-			"Obsuser"
-		]
-	},
-	"description-add-link-title": "Додај опис наслова",
-	"article-read-more-title": "Прочитајте више",
-	"table-title-other": "Више информација",
-	"page-edit-history": "Прикажи историју измена",
-	"info-box-close-text": "Затвори",
-	"page-talk-page-subtitle": "Разговор о побољшањима чланка",
-	"page-issues-subtitle": "Упозорења о неквалитетном или проблематичном садржају",
-	"page-talk-page": "Прикажи страницу за разговор",
-	"info-box-title": "Кратке чињенице",
-	"view-in-browser-footer-link": "Прикажи чланак у прегледачу",
-	"page-location": "Прикажи на мапи",
-	"page-similar-titles": "Сличне странице",
-	"page-last-edited": "{{PLURAL:$1|0=Ажурирано данас|1=Ажурирано јуче|Ажурирано пре $1 дана}}",
-	"article-about-title": "О овом чланку",
-	"page-issues": "Проблеми са страницом",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "Садржај је доступан под лиценцом $1, осим ако је другачије наведено.",
-	"page-read-in-other-languages": "Доступно на још $1 језика",
-	"article-edit-button": "Уреди одељак",
-	"article-edit-protected-button": "Уреди одељак на заштићеној страници",
-	"article-section-expand": "Прошири одељак",
-	"article-section-collapse": "Скупи одељак",
-	"table-expand": "Прошири табелу",
-	"table-collapse": "Скупи табелу"
+    "@metadata": {
+        "authors": [
+            "BadDog",
+            "Obsuser"
+        ]
+    },
+    "description-add-link-title": "Додај опис наслова",
+    "article-read-more-title": "Прочитајте више",
+    "table-title-other": "Више информација",
+    "page-edit-history": "Прикажи историју измена",
+    "info-box-close-text": "Затвори",
+    "page-talk-page-subtitle": "Разговор о побољшањима чланка",
+    "page-issues-subtitle": "Упозорења о неквалитетном или проблематичном садржају",
+    "page-talk-page": "Прикажи страницу за разговор",
+    "info-box-title": "Кратке чињенице",
+    "view-in-browser-footer-link": "Прикажи чланак у прегледачу",
+    "page-location": "Прикажи на мапи",
+    "page-similar-titles": "Сличне странице",
+    "page-last-edited": "{{PLURAL:$1|0=Ажурирано данас|1=Ажурирано јуче|Ажурирано пре $1 дана}}",
+    "article-about-title": "О овом чланку",
+    "page-issues": "Проблеми са страницом",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "Садржај је доступан под лиценцом $1, осим ако је другачије наведено.",
+    "page-read-in-other-languages": "Доступно на још $1 језика",
+    "article-edit-button": "Уреди одељак",
+    "article-edit-protected-button": "Уреди одељак на заштићеној страници",
+    "article-section-expand": "Прошири одељак",
+    "article-section-collapse": "Скупи одељак",
+    "table-expand": "Прошири табелу",
+    "table-collapse": "Скупи табелу"
 }

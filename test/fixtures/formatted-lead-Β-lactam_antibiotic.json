@@ -1,31 +1,31 @@
 {
-  "ns": 0,
-  "ns_text": "",
-  "id": 52784,
-  "revision": "801345149",
-  "lastmodified": "2017-09-19T03:33:47Z",
-  "lastmodifier": {
-    "user": "KolbertBot",
-    "gender": "unknown"
-  },
-  "displaytitle": "β-lactam antibiotic",
-  "normalizedtitle": "Β-lactam antibiotic",
-  "wikibase_item": "Q306264",
-  "description": "class of broad-spectrum antibiotics, consisting of all antibiotic agents that contain a β-lactam ring in their molecular structures. This includes penicillin derivatives (penams), cephalosporins (cephems), monobactams, and carbapenems",
-  "protection": {},
-  "editable": true,
-  "languagecount": 35,
-  "image": {
-    "file": "Beta-lactam_antibiotics_example_1.svg",
-    "urls": {
-      "320": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/320px-Beta-lactam_antibiotics_example_1.svg.png",
-      "640": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/640px-Beta-lactam_antibiotics_example_1.svg.png",
-      "800": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/678px-Beta-lactam_antibiotics_example_1.svg.png",
-      "1024": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/678px-Beta-lactam_antibiotics_example_1.svg.png"
-    }
-  },
-  "hatnotes": [],
-  "infobox": "<table class=\"infobox\"><tbody><tr><th colspan=\"2\" style=\"text-align:center;font-size:125%;font-weight:bold;background-color: \n#ddbbee\">β-lactam antibiotic<br>Beta-lactam antibiotic</th></tr><tr><td colspan=\"2\" style=\"text-align:center\">\n<i><a href=\"./Drug_class\" title=\"Drug class\">Drug class</a></i></td></tr><tr><td colspan=\"2\" style=\"text-align:center\">\n<p><span class=\"mw-default-size\"><a href=\"./File:Beta-lactam_antibiotics_example_1.svg\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/280px-Beta-lactam_antibiotics_example_1.svg.png\" data-file-type=\"drawing\" height=\"423\" width=\"280\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/560px-Beta-lactam_antibiotics_example_1.svg.png 2x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/420px-Beta-lactam_antibiotics_example_1.svg.png 1.5x\"></a></span></p><div>Core structure of <a href=\"./Penicillin\" title=\"Penicillin\">penicillins</a> (top) and <a href=\"./Cephalosporin\" title=\"Cephalosporin\">cephalosporins</a> (bottom). <a href=\"./Β-lactam\" title=\"Β-lactam\" class=\"mw-redirect\">β-lactam</a> ring in red.</div></td></tr><tr><th colspan=\"2\" style=\"text-align:center;background: #e8e8e8;\">Class identifiers</th></tr><tr><th scope=\"row\">Use</th><td>\nBacterial infection</td></tr><tr><th scope=\"row\"><a href=\"./Anatomical_Therapeutic_Chemical_Classification_System\" title=\"Anatomical Therapeutic Chemical Classification System\">ATC code</a></th><td>\n<a href=\"./ATC_code_J01C\" title=\"ATC code J01C\" class=\"mw-redirect\">J01C</a></td></tr><tr><th scope=\"row\"><a href=\"./Biological_target\" title=\"Biological target\">Biological target</a></th><td>\n<a href=\"./Penicillin_binding_protein\" title=\"Penicillin binding protein\" class=\"mw-redirect\">Penicillin binding protein</a></td></tr><tr><th colspan=\"2\" style=\"text-align:center;background: #e8e8e8;\">External links</th></tr><tr><th scope=\"row\"><a href=\"./Medical_Subject_Headings\" title=\"Medical Subject Headings\">MeSH</a></th><td>\n<span class=\"reflink plainlinks nourlexpansion\"><a rel=\"mw:ExtLink\" href=\"https://www.nlm.nih.gov/cgi/mesh/2011/MB_cgi?field=uid&amp;term=D047090\">D047090</a></span></td></tr><tr><td colspan=\"2\" style=\"text-align:center;background: #e8e8e8; text-align: center\">\n<a rel=\"mw:ExtLink\" href=\"https://www.wikidata.org/wiki/Q306264%20\" title=\"d:Q306264 \">In Wikidata</a></td></tr></tbody></table>",
-  "intro": "<p><b>β-lactam antibiotics</b> (<b>beta-lactam antibiotics</b>) are a class of <a href=\"./Broad-spectrum_antibiotic\" title=\"Broad-spectrum antibiotic\">broad-spectrum antibiotics</a>, consisting of all <a href=\"./Antibiotic\" title=\"Antibiotic\" class=\"mw-redirect\">antibiotic</a> agents that contain a <a href=\"./Beta-lactam\" title=\"Beta-lactam\">beta-lactam</a> ring in their molecular structures. This includes <a href=\"./Penicillin\" title=\"Penicillin\">penicillin</a> derivatives (<a href=\"./Penam\" title=\"Penam\">penams</a>), <a href=\"./Cephalosporin\" title=\"Cephalosporin\">cephalosporins</a> (<a href=\"./Cephem\" title=\"Cephem\">cephems</a>), <a href=\"./Monobactam\" title=\"Monobactam\">monobactams</a>, and <a href=\"./Carbapenem\" title=\"Carbapenem\">carbapenems</a>.<span class=\"mw-ref\" id=\"cite_ref-pmid10950216_1-0\"><a href=\"./Β-lactam_antibiotic#cite_note-pmid10950216-1\" style=\"counter-reset: mw-Ref 1;\"><span class=\"mw-reflink-text\">[1]</span></a></span> Most β-lactam antibiotics work by inhibiting <a href=\"./Cell_wall\" title=\"Cell wall\">cell wall</a> biosynthesis in the bacterial organism and are the most widely used group of antibiotics. Until 2003, when measured by sales, more than half of all commercially available antibiotics in use were β-lactam compounds.<span class=\"mw-ref\" id=\"cite_ref-2\"><a href=\"./Β-lactam_antibiotic#cite_note-2\" style=\"counter-reset: mw-Ref 2;\"><span class=\"mw-reflink-text\">[2]</span></a></span></p>",
-  "text": "\n\n<p>Bacteria often develop resistance to β-lactam antibiotics by synthesizing a <a href=\"./Beta-lactamase\" title=\"Beta-lactamase\">β-lactamase</a>, an enzyme that attacks the β-lactam ring. To overcome this resistance, β-lactam antibiotics are often given with <a href=\"./Β-Lactamase_inhibitor\" title=\"Β-Lactamase inhibitor\">β-lactamase inhibitors</a> such as <a href=\"./Clavulanic_acid\" title=\"Clavulanic acid\">clavulanic acid</a>.</p>\n\n"
+    "ns": 0,
+    "ns_text": "",
+    "id": 52784,
+    "revision": "801345149",
+    "lastmodified": "2017-09-19T03:33:47Z",
+    "lastmodifier": {
+        "user": "KolbertBot",
+        "gender": "unknown"
+    },
+    "displaytitle": "β-lactam antibiotic",
+    "normalizedtitle": "Β-lactam antibiotic",
+    "wikibase_item": "Q306264",
+    "description": "class of broad-spectrum antibiotics, consisting of all antibiotic agents that contain a β-lactam ring in their molecular structures. This includes penicillin derivatives (penams), cephalosporins (cephems), monobactams, and carbapenems",
+    "protection": {},
+    "editable": true,
+    "languagecount": 35,
+    "image": {
+        "file": "Beta-lactam_antibiotics_example_1.svg",
+        "urls": {
+            "320": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/320px-Beta-lactam_antibiotics_example_1.svg.png",
+            "640": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/640px-Beta-lactam_antibiotics_example_1.svg.png",
+            "800": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/678px-Beta-lactam_antibiotics_example_1.svg.png",
+            "1024": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/678px-Beta-lactam_antibiotics_example_1.svg.png"
+        }
+    },
+    "hatnotes": [],
+    "infobox": "<table class=\"infobox\"><tbody><tr><th colspan=\"2\" style=\"text-align:center;font-size:125%;font-weight:bold;background-color: \n#ddbbee\">β-lactam antibiotic<br>Beta-lactam antibiotic</th></tr><tr><td colspan=\"2\" style=\"text-align:center\">\n<i><a href=\"./Drug_class\" title=\"Drug class\">Drug class</a></i></td></tr><tr><td colspan=\"2\" style=\"text-align:center\">\n<p><span class=\"mw-default-size\"><a href=\"./File:Beta-lactam_antibiotics_example_1.svg\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/280px-Beta-lactam_antibiotics_example_1.svg.png\" data-file-type=\"drawing\" height=\"423\" width=\"280\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/560px-Beta-lactam_antibiotics_example_1.svg.png 2x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beta-lactam_antibiotics_example_1.svg/420px-Beta-lactam_antibiotics_example_1.svg.png 1.5x\"></a></span></p><div>Core structure of <a href=\"./Penicillin\" title=\"Penicillin\">penicillins</a> (top) and <a href=\"./Cephalosporin\" title=\"Cephalosporin\">cephalosporins</a> (bottom). <a href=\"./Β-lactam\" title=\"Β-lactam\" class=\"mw-redirect\">β-lactam</a> ring in red.</div></td></tr><tr><th colspan=\"2\" style=\"text-align:center;background: #e8e8e8;\">Class identifiers</th></tr><tr><th scope=\"row\">Use</th><td>\nBacterial infection</td></tr><tr><th scope=\"row\"><a href=\"./Anatomical_Therapeutic_Chemical_Classification_System\" title=\"Anatomical Therapeutic Chemical Classification System\">ATC code</a></th><td>\n<a href=\"./ATC_code_J01C\" title=\"ATC code J01C\" class=\"mw-redirect\">J01C</a></td></tr><tr><th scope=\"row\"><a href=\"./Biological_target\" title=\"Biological target\">Biological target</a></th><td>\n<a href=\"./Penicillin_binding_protein\" title=\"Penicillin binding protein\" class=\"mw-redirect\">Penicillin binding protein</a></td></tr><tr><th colspan=\"2\" style=\"text-align:center;background: #e8e8e8;\">External links</th></tr><tr><th scope=\"row\"><a href=\"./Medical_Subject_Headings\" title=\"Medical Subject Headings\">MeSH</a></th><td>\n<span class=\"reflink plainlinks nourlexpansion\"><a rel=\"mw:ExtLink\" href=\"https://www.nlm.nih.gov/cgi/mesh/2011/MB_cgi?field=uid&amp;term=D047090\">D047090</a></span></td></tr><tr><td colspan=\"2\" style=\"text-align:center;background: #e8e8e8; text-align: center\">\n<a rel=\"mw:ExtLink\" href=\"https://www.wikidata.org/wiki/Q306264%20\" title=\"d:Q306264 \">In Wikidata</a></td></tr></tbody></table>",
+    "intro": "<p><b>β-lactam antibiotics</b> (<b>beta-lactam antibiotics</b>) are a class of <a href=\"./Broad-spectrum_antibiotic\" title=\"Broad-spectrum antibiotic\">broad-spectrum antibiotics</a>, consisting of all <a href=\"./Antibiotic\" title=\"Antibiotic\" class=\"mw-redirect\">antibiotic</a> agents that contain a <a href=\"./Beta-lactam\" title=\"Beta-lactam\">beta-lactam</a> ring in their molecular structures. This includes <a href=\"./Penicillin\" title=\"Penicillin\">penicillin</a> derivatives (<a href=\"./Penam\" title=\"Penam\">penams</a>), <a href=\"./Cephalosporin\" title=\"Cephalosporin\">cephalosporins</a> (<a href=\"./Cephem\" title=\"Cephem\">cephems</a>), <a href=\"./Monobactam\" title=\"Monobactam\">monobactams</a>, and <a href=\"./Carbapenem\" title=\"Carbapenem\">carbapenems</a>.<span class=\"mw-ref\" id=\"cite_ref-pmid10950216_1-0\"><a href=\"./Β-lactam_antibiotic#cite_note-pmid10950216-1\" style=\"counter-reset: mw-Ref 1;\"><span class=\"mw-reflink-text\">[1]</span></a></span> Most β-lactam antibiotics work by inhibiting <a href=\"./Cell_wall\" title=\"Cell wall\">cell wall</a> biosynthesis in the bacterial organism and are the most widely used group of antibiotics. Until 2003, when measured by sales, more than half of all commercially available antibiotics in use were β-lactam compounds.<span class=\"mw-ref\" id=\"cite_ref-2\"><a href=\"./Β-lactam_antibiotic#cite_note-2\" style=\"counter-reset: mw-Ref 2;\"><span class=\"mw-reflink-text\">[2]</span></a></span></p>",
+    "text": "\n\n<p>Bacteria often develop resistance to β-lactam antibiotics by synthesizing a <a href=\"./Beta-lactamase\" title=\"Beta-lactamase\">β-lactamase</a>, an enzyme that attacks the β-lactam ring. To overcome this resistance, β-lactam antibiotics are often given with <a href=\"./Β-Lactamase_inhibitor\" title=\"Β-Lactamase inhibitor\">β-lactamase inhibitors</a> such as <a href=\"./Clavulanic_acid\" title=\"Clavulanic acid\">clavulanic acid</a>.</p>\n\n"
 }

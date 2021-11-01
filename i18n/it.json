@@ -1,35 +1,35 @@
 {
-	"@metadata": {
-		"authors": [
-			"Ajeje Brazorf",
-			"Beta16",
-			"S4b1nuz E.656",
-			"Yacine Boussoufa"
-		]
-	},
-	"description-add-link-title": "Aggiungi una descrizione della voce",
-	"article-read-more-title": "Leggi altro",
-	"table-title-other": "Ulteriori informazioni",
-	"page-edit-history": "Vedi cronologia delle modifiche",
-	"info-box-close-text": "Chiudi",
-	"page-talk-page-subtitle": "Discuti per migliorare la voce",
-	"page-issues-subtitle": "Avvisi su contenuti subparalleli o problematici",
-	"page-talk-page": "Vedi la pagina di discussione",
-	"info-box-title": "Fatti in breve",
-	"view-in-browser-footer-link": "Vedi la voce nel browser",
-	"page-location": "Visualizza sulla mappa",
-	"page-similar-titles": "Pagine simili",
-	"page-last-edited": "Aggiornata {{PLURAL:$1|ieri|$1 giorni fa|0=oggi}}",
-	"article-about-title": "Su questa voce",
-	"page-issues": "Problemi alla pagina",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "Il contenuto è disponibile in base alla licenza $1, se non diversamente specificato.",
-	"page-read-in-other-languages": "Disponibile in {{PLURAL:$1|un'altra lingua|altre $1 lingue}}",
-	"article-edit-button": "Modifica sezione",
-	"article-edit-protected-button": "Modifica sezione della pagina protetta",
-	"article-section-expand": "Espandi sezione",
-	"article-section-collapse": "Compimi sezione",
-	"table-expand": "Espandi tabella",
-	"table-collapse": "Comprimi tabella",
-	"references-preview-header": "Anteprima delle note"
+    "@metadata": {
+        "authors": [
+            "Ajeje Brazorf",
+            "Beta16",
+            "S4b1nuz E.656",
+            "Yacine Boussoufa"
+        ]
+    },
+    "description-add-link-title": "Aggiungi una descrizione della voce",
+    "article-read-more-title": "Leggi altro",
+    "table-title-other": "Ulteriori informazioni",
+    "page-edit-history": "Vedi cronologia delle modifiche",
+    "info-box-close-text": "Chiudi",
+    "page-talk-page-subtitle": "Discuti per migliorare la voce",
+    "page-issues-subtitle": "Avvisi su contenuti subparalleli o problematici",
+    "page-talk-page": "Vedi la pagina di discussione",
+    "info-box-title": "Fatti in breve",
+    "view-in-browser-footer-link": "Vedi la voce nel browser",
+    "page-location": "Visualizza sulla mappa",
+    "page-similar-titles": "Pagine simili",
+    "page-last-edited": "Aggiornata {{PLURAL:$1|ieri|$1 giorni fa|0=oggi}}",
+    "article-about-title": "Su questa voce",
+    "page-issues": "Problemi alla pagina",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "Il contenuto è disponibile in base alla licenza $1, se non diversamente specificato.",
+    "page-read-in-other-languages": "Disponibile in {{PLURAL:$1|un'altra lingua|altre $1 lingue}}",
+    "article-edit-button": "Modifica sezione",
+    "article-edit-protected-button": "Modifica sezione della pagina protetta",
+    "article-section-expand": "Espandi sezione",
+    "article-section-collapse": "Compimi sezione",
+    "table-expand": "Espandi tabella",
+    "table-collapse": "Comprimi tabella",
+    "references-preview-header": "Anteprima delle note"
 }

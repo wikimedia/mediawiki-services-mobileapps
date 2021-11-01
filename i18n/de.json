@@ -1,31 +1,31 @@
 {
-	"@metadata": {
-		"authors": [
-			"ManuelFranz"
-		]
-	},
-	"description-add-link-title": "Artikelbeschreibung hinzufügen",
-	"article-read-more-title": "Mehr lesen",
-	"table-title-other": "Weitere Informationen",
-	"page-edit-history": "Vollständige Versionsgeschichte",
-	"info-box-close-text": "Schließen",
-	"page-talk-page-subtitle": "Diskutieren Sie Verbesserungen zu diesem Artikel",
-	"page-talk-page": "Diskussionsseite ansehen",
-	"info-box-title": "Schnelle Fakten",
-	"view-in-browser-footer-link": "Artikel im Browser ansehen",
-	"page-location": "Auf einer Karte ansehen",
-	"page-similar-titles": "Ähnliche Seiten",
-	"page-last-edited": "{{PLURAL:$1|0=Heute|1=Gestern|Vor $1 Tagen}} bearbeitet",
-	"article-about-title": "Über diesen Artikel",
-	"page-issues": "Seitenprobleme",
-	"license-footer-name": "CC-BY-SA 3.0",
-	"license-footer-text": "Der Inhalt ist verfügbar unter $1, sofern nicht anders angegeben.",
-	"page-read-in-other-languages": "In {{PLURAL:$1|einer weiteren Sprache|$1 weiteren Sprachen}} verfügbar",
-	"article-edit-button": "Abschnitt bearbeiten",
-	"article-edit-protected-button": "Abschnitt auf der geschützten Seite bearbeiten",
-	"article-section-expand": "Abschnitt erweitern",
-	"article-section-collapse": "Abschnitt einklappen",
-	"table-expand": "Tabelle erweitern",
-	"table-collapse": "Tabelle einklappen",
-	"references-preview-header": "Vorschau von Einzelnachweisen"
+    "@metadata": {
+        "authors": [
+            "ManuelFranz"
+        ]
+    },
+    "description-add-link-title": "Artikelbeschreibung hinzufügen",
+    "article-read-more-title": "Mehr lesen",
+    "table-title-other": "Weitere Informationen",
+    "page-edit-history": "Vollständige Versionsgeschichte",
+    "info-box-close-text": "Schließen",
+    "page-talk-page-subtitle": "Diskutieren Sie Verbesserungen zu diesem Artikel",
+    "page-talk-page": "Diskussionsseite ansehen",
+    "info-box-title": "Schnelle Fakten",
+    "view-in-browser-footer-link": "Artikel im Browser ansehen",
+    "page-location": "Auf einer Karte ansehen",
+    "page-similar-titles": "Ähnliche Seiten",
+    "page-last-edited": "{{PLURAL:$1|0=Heute|1=Gestern|Vor $1 Tagen}} bearbeitet",
+    "article-about-title": "Über diesen Artikel",
+    "page-issues": "Seitenprobleme",
+    "license-footer-name": "CC-BY-SA 3.0",
+    "license-footer-text": "Der Inhalt ist verfügbar unter $1, sofern nicht anders angegeben.",
+    "page-read-in-other-languages": "In {{PLURAL:$1|einer weiteren Sprache|$1 weiteren Sprachen}} verfügbar",
+    "article-edit-button": "Abschnitt bearbeiten",
+    "article-edit-protected-button": "Abschnitt auf der geschützten Seite bearbeiten",
+    "article-section-expand": "Abschnitt erweitern",
+    "article-section-collapse": "Abschnitt einklappen",
+    "table-expand": "Tabelle erweitern",
+    "table-collapse": "Tabelle einklappen",
+    "references-preview-header": "Vorschau von Einzelnachweisen"
 }

@@ -1,32 +1,32 @@
 {
-	"@metadata": {
-		"authors": [
-			"Гусейн"
-		]
-	},
-	"description-add-link-title": "Кыртә ном-нышони әловә карде",
-	"article-read-more-title": "Әтрофин",
-	"table-title-other": "Әтрофинә мәлумот",
-	"page-edit-history": "Овахтәтијон тарихи дијә карде",
-	"info-box-close-text": "Жәј",
-	"page-talk-page-subtitle": "Ым сәһифә чок карде горнә мызокирә карде",
-	"page-issues-subtitle": "Че бекејфијәтинә ја проблемә контенти барәдә хәбәдо",
-	"page-talk-page": "Мызокирә сәһифә",
-	"info-box-title": "Кыртә фактон",
-	"view-in-browser-footer-link": "Мәғолә браузерәдә дијә карде",
-	"page-location": "Хәритәдә дијә карде",
-	"page-similar-titles": "Охшәш доә сәһифон",
-	"page-last-edited": "{{PLURAL:$1|Нујә кардә быә зинә|Нујә кардә быә $1 руж бә нав|0=Нујә кардә быә ымруж}}",
-	"article-about-title": "Че мәғолә барәдә",
-	"page-issues": "Сәһифә барәдә парсон",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "Контент дастрәсе де линки $1 әгәм ҹо чиј нывыштә быәни.",
-	"page-read-in-other-languages": "Дастрәсе бә {{PLURAL:$1|ҹо зывонәдә|$1 ҹо зывононәдә}}",
-	"article-edit-button": "Семонә сәрост карде",
-	"article-edit-protected-button": "Семонә сәрост карде бә мыдофијә кардә быә сәһифәдә",
-	"article-section-expand": "Семонә дәбастә быә",
-	"article-section-collapse": "Семонә бурмә карде",
-	"table-expand": "Ҹәдвәли окарде",
-	"table-collapse": "Ҹәдвәли бурмә карде",
-	"references-preview-header": "Ғејди сыфтәнә дијә карде"
+    "@metadata": {
+        "authors": [
+            "Гусейн"
+        ]
+    },
+    "description-add-link-title": "Кыртә ном-нышони әловә карде",
+    "article-read-more-title": "Әтрофин",
+    "table-title-other": "Әтрофинә мәлумот",
+    "page-edit-history": "Овахтәтијон тарихи дијә карде",
+    "info-box-close-text": "Жәј",
+    "page-talk-page-subtitle": "Ым сәһифә чок карде горнә мызокирә карде",
+    "page-issues-subtitle": "Че бекејфијәтинә ја проблемә контенти барәдә хәбәдо",
+    "page-talk-page": "Мызокирә сәһифә",
+    "info-box-title": "Кыртә фактон",
+    "view-in-browser-footer-link": "Мәғолә браузерәдә дијә карде",
+    "page-location": "Хәритәдә дијә карде",
+    "page-similar-titles": "Охшәш доә сәһифон",
+    "page-last-edited": "{{PLURAL:$1|Нујә кардә быә зинә|Нујә кардә быә $1 руж бә нав|0=Нујә кардә быә ымруж}}",
+    "article-about-title": "Че мәғолә барәдә",
+    "page-issues": "Сәһифә барәдә парсон",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "Контент дастрәсе де линки $1 әгәм ҹо чиј нывыштә быәни.",
+    "page-read-in-other-languages": "Дастрәсе бә {{PLURAL:$1|ҹо зывонәдә|$1 ҹо зывононәдә}}",
+    "article-edit-button": "Семонә сәрост карде",
+    "article-edit-protected-button": "Семонә сәрост карде бә мыдофијә кардә быә сәһифәдә",
+    "article-section-expand": "Семонә дәбастә быә",
+    "article-section-collapse": "Семонә бурмә карде",
+    "table-expand": "Ҹәдвәли окарде",
+    "table-collapse": "Ҹәдвәли бурмә карде",
+    "references-preview-header": "Ғејди сыфтәнә дијә карде"
 }

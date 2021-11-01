@@ -1,12 +1,12 @@
 {
-	"@metadata": {
-		"authors": []
-	},
-	"article-read-more-title": "Pročitajte više",
-	"table-title-other": "Više informacija",
-	"page-edit-history": "Pogledaj povijest izmjena",
-	"info-box-close-text": "Zatvori",
-	"info-box-title": "Kratke činjenice",
-	"article-about-title": "O ovom članku",
-	"license-footer-name": "CC BY-SA 3.0"
+    "@metadata": {
+        "authors": []
+    },
+    "article-read-more-title": "Pročitajte više",
+    "table-title-other": "Više informacija",
+    "page-edit-history": "Pogledaj povijest izmjena",
+    "info-box-close-text": "Zatvori",
+    "info-box-title": "Kratke činjenice",
+    "article-about-title": "O ovom članku",
+    "license-footer-name": "CC BY-SA 3.0"
 }

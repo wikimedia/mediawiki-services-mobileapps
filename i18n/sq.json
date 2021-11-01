@@ -1,12 +1,12 @@
 {
-	"@metadata": {
-		"authors": []
-	},
-	"article-read-more-title": "Lexo më shumë",
-	"table-title-other": "Më shumë informacion",
-	"info-box-close-text": "Mbylle",
-	"info-box-title": "Fakte të shpejta",
-	"page-similar-titles": "Faqe të ngjashme",
-	"article-about-title": "Rreth këtij artikulli",
-	"license-footer-name": "CC BY-SA 3.0"
+    "@metadata": {
+        "authors": []
+    },
+    "article-read-more-title": "Lexo më shumë",
+    "table-title-other": "Më shumë informacion",
+    "info-box-close-text": "Mbylle",
+    "info-box-title": "Fakte të shpejta",
+    "page-similar-titles": "Faqe të ngjashme",
+    "article-about-title": "Rreth këtij artikulli",
+    "license-footer-name": "CC BY-SA 3.0"
 }

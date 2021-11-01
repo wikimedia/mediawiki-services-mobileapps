@@ -1,21 +1,21 @@
 {
-	"@metadata": {
-		"authors": []
-	},
-	"description-add-link-title": "Dodaj opis naslova",
-	"article-read-more-title": "Pročitajte više",
-	"table-title-other": "Više informacija",
-	"page-edit-history": "Celokupna istorija izmena",
-	"info-box-close-text": "Zatvori",
-	"page-talk-page": "Prikaži stranicu za razgovor",
-	"info-box-title": "Kratke činjenice",
-	"view-in-browser-footer-link": "Prikaži članak u pregledaču",
-	"page-location": "Prikaži na mapi",
-	"page-similar-titles": "Slične stranice",
-	"page-last-edited": "{{PLURAL:$1|0=Uređeno danas|1=Uređeno juče|Uređeno pre $1 dana}}",
-	"article-about-title": "O ovom članku",
-	"page-issues": "Problemi sa stranicom",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "Sadržaj je dostupan pod licencom $1, osim ako je drugačije navedeno.",
-	"page-read-in-other-languages": "Dostupno na još $1 jezika"
+    "@metadata": {
+        "authors": []
+    },
+    "description-add-link-title": "Dodaj opis naslova",
+    "article-read-more-title": "Pročitajte više",
+    "table-title-other": "Više informacija",
+    "page-edit-history": "Celokupna istorija izmena",
+    "info-box-close-text": "Zatvori",
+    "page-talk-page": "Prikaži stranicu za razgovor",
+    "info-box-title": "Kratke činjenice",
+    "view-in-browser-footer-link": "Prikaži članak u pregledaču",
+    "page-location": "Prikaži na mapi",
+    "page-similar-titles": "Slične stranice",
+    "page-last-edited": "{{PLURAL:$1|0=Uređeno danas|1=Uređeno juče|Uređeno pre $1 dana}}",
+    "article-about-title": "O ovom članku",
+    "page-issues": "Problemi sa stranicom",
+    "license-footer-name": "CC BY-SA 3.0",
+    "license-footer-text": "Sadržaj je dostupan pod licencom $1, osim ako je drugačije navedeno.",
+    "page-read-in-other-languages": "Dostupno na još $1 jezika"
 }

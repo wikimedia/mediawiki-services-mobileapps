@@ -59,11 +59,11 @@
             "default": "gan",
             "hans": "gan-hans",
             "hant": "gan-hant"
-            
+
         },
         "hans": {
             "default": "gan-hans"
-            
+
         },
         "hant": {
             "default": "gan-hant"
@@ -120,7 +120,7 @@
         "default": {
             "default": "shi-tfng",
             "latn": "shi-latn",
-            "tfng":  "shi-tfng"  
+            "tfng":  "shi-tfng"
         },
         "latn": {
             "default": "shi-latn"
@@ -144,11 +144,11 @@
             "latn": "uz-latn",
             "cyrl": "uz-cyrl"
         },
-        "latn": { 
-            "default": "uz-latn" 
+        "latn": {
+            "default": "uz-latn"
         },
-        "cyrl": { 
-            "default": "uz-cyrl" 
+        "cyrl": {
+            "default": "uz-cyrl"
         }
     }
 }

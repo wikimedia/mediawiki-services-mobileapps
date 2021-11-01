@@ -1,19 +1,19 @@
 {
-	"@metadata": {
-		"authors": [
-			"BrennodAloisi"
-		]
-	},
-	"article-read-more-title": "Ne saber mai",
-	"table-title-other": "Mai d'informacions",
-	"page-edit-history": "Istoric complet de las modificacions",
-	"info-box-close-text": "Tampar",
-	"info-box-title": "Faits en brèu",
-	"page-similar-titles": "Paginas similaras",
-	"page-last-edited": "Modificat i a $1 jorns",
-	"article-about-title": "A prepaus d'aqueste article",
-	"page-issues": "Problèmas de pagina",
-	"license-footer-name": "CC BY-SA 3.0",
-	"page-read-in-other-languages": "Disponible dins $1 autras lengas",
-	"references-preview-header": "Previsualizacion de las referéncias"
+    "@metadata": {
+        "authors": [
+            "BrennodAloisi"
+        ]
+    },
+    "article-read-more-title": "Ne saber mai",
+    "table-title-other": "Mai d'informacions",
+    "page-edit-history": "Istoric complet de las modificacions",
+    "info-box-close-text": "Tampar",
+    "info-box-title": "Faits en brèu",
+    "page-similar-titles": "Paginas similaras",
+    "page-last-edited": "Modificat i a $1 jorns",
+    "article-about-title": "A prepaus d'aqueste article",
+    "page-issues": "Problèmas de pagina",
+    "license-footer-name": "CC BY-SA 3.0",
+    "page-read-in-other-languages": "Disponible dins $1 autras lengas",
+    "references-preview-header": "Previsualizacion de las referéncias"
 }
