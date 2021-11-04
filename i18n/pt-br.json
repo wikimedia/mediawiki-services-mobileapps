@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "Eduardo Addad de Oliveira",
-            "Eduardoaddad"
-        ]
-    },
-    "description-add-link-title": "Adicionar descrição do artigo",
-    "article-read-more-title": "Leia mais",
-    "table-title-other": "Mais informações",
-    "page-edit-history": "Ver histórico de edições",
-    "info-box-close-text": "Fechar",
-    "page-talk-page-subtitle": "Discutir melhorias neste artigo",
-    "page-issues-subtitle": "Alertas sobre conteúdo insuficiente ou problemático",
-    "page-talk-page": "Ver página de discussão",
-    "info-box-title": "Fatos rápidos",
-    "view-in-browser-footer-link": "Ver artigo no navegador",
-    "page-location": "Ver no mapa",
-    "page-similar-titles": "Páginas similares",
-    "page-last-edited": "{{PLURAL:$1|0=Atualizado hoje|1=Atualizado ontem|Atualizado $1 dia atrás}}",
-    "article-about-title": "Sobre este artigo",
-    "page-issues": "Problemas da página",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Conteúdo disponibilizado nos termos da $1, salvo indicação contrária.",
-    "page-read-in-other-languages": "Disponível em {PLURAL:$1|$1 outro idioma|$1 outros idiomas}}",
-    "article-edit-button": "Editar seção",
-    "article-edit-protected-button": "Editar seção na página protegida",
-    "article-section-expand": "Expandir seção",
-    "article-section-collapse": "Reduzir seção",
-    "table-expand": "Expandir tabela",
-    "table-collapse": "Recolher tabela",
-    "references-preview-header": "Pré-visualização das referências"
+	"@metadata": {
+		"authors": [
+			"Eduardo Addad de Oliveira",
+			"Eduardoaddad"
+		]
+	},
+	"description-add-link-title": "Adicionar descrição do artigo",
+	"article-read-more-title": "Leia mais",
+	"table-title-other": "Mais informações",
+	"page-edit-history": "Ver histórico de edições",
+	"info-box-close-text": "Fechar",
+	"page-talk-page-subtitle": "Discutir melhorias neste artigo",
+	"page-issues-subtitle": "Alertas sobre conteúdo insuficiente ou problemático",
+	"page-talk-page": "Ver página de discussão",
+	"info-box-title": "Fatos rápidos",
+	"view-in-browser-footer-link": "Ver artigo no navegador",
+	"page-location": "Ver no mapa",
+	"page-similar-titles": "Páginas similares",
+	"page-last-edited": "{{PLURAL:$1|0=Atualizado hoje|1=Atualizado ontem|Atualizado $1 dia atrás}}",
+	"article-about-title": "Sobre este artigo",
+	"page-issues": "Problemas da página",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Conteúdo disponibilizado nos termos da $1, salvo indicação contrária.",
+	"page-read-in-other-languages": "Disponível em {PLURAL:$1|$1 outro idioma|$1 outros idiomas}}",
+	"article-edit-button": "Editar seção",
+	"article-edit-protected-button": "Editar seção na página protegida",
+	"article-section-expand": "Expandir seção",
+	"article-section-collapse": "Reduzir seção",
+	"table-expand": "Expandir tabela",
+	"table-collapse": "Recolher tabela",
+	"references-preview-header": "Pré-visualização das referências"
 }

@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "description-add-link-title": "शीर्षकमा विवरण थप्नुहोस्",
-    "article-read-more-title": "थप पढ्ने",
-    "table-title-other": "थप जानकारी",
-    "page-edit-history": "सम्पादन इतिहास हेर्नुहोस्",
-    "info-box-close-text": "बन्द गर्नुहोस्",
-    "page-talk-page": "वार्तालाप पृष्ठ हेर्नुहोस्",
-    "info-box-title": "छरितो तथ्यहरू",
-    "view-in-browser-footer-link": "यस पृष्ठ ब्राउजरमा खोल्नुहोस्",
-    "page-location": "कुनै नक्सामा हेर्नुहोस्",
-    "page-similar-titles": "मिल्दोजुल्दो पृष्ठहरू",
-    "page-last-edited": "$1 दिन पहिले सम्पादन गरिएको",
-    "article-about-title": "यस लेखको बारेमा।",
-    "page-issues": "पृष्ठका समस्याहरू",
-    "license-footer-name": "CC BY-SA 3.0",
-    "page-read-in-other-languages": " $1 अरु भाषाहरूमा उपलब्ध"
+	"@metadata": {
+		"authors": []
+	},
+	"description-add-link-title": "शीर्षकमा विवरण थप्नुहोस्",
+	"article-read-more-title": "थप पढ्ने",
+	"table-title-other": "थप जानकारी",
+	"page-edit-history": "सम्पादन इतिहास हेर्नुहोस्",
+	"info-box-close-text": "बन्द गर्नुहोस्",
+	"page-talk-page": "वार्तालाप पृष्ठ हेर्नुहोस्",
+	"info-box-title": "छरितो तथ्यहरू",
+	"view-in-browser-footer-link": "यस पृष्ठ ब्राउजरमा खोल्नुहोस्",
+	"page-location": "कुनै नक्सामा हेर्नुहोस्",
+	"page-similar-titles": "मिल्दोजुल्दो पृष्ठहरू",
+	"page-last-edited": "$1 दिन पहिले सम्पादन गरिएको",
+	"article-about-title": "यस लेखको बारेमा।",
+	"page-issues": "पृष्ठका समस्याहरू",
+	"license-footer-name": "CC BY-SA 3.0",
+	"page-read-in-other-languages": " $1 अरु भाषाहरूमा उपलब्ध"
 }

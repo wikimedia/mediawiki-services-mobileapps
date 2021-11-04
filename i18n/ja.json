@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "Omotecho",
-            "Shirayuki"
-        ]
-    },
-    "description-add-link-title": "記事の説明を追加",
-    "article-read-more-title": "さらに読む",
-    "table-title-other": "さらに見る",
-    "page-edit-history": "すべての編集履歴",
-    "info-box-close-text": "閉じる",
-    "page-talk-page-subtitle": "この記事の改善について協議する",
-    "page-issues-subtitle": "標準以下もしくは記事に問題があると警告する",
-    "page-talk-page": "トークページを見る",
-    "info-box-title": "概要",
-    "view-in-browser-footer-link": "ブラウザで記事を表示する",
-    "page-location": "地図で見る",
-    "page-similar-titles": "類似したページ",
-    "page-last-edited": "{{PLURAL:$1|0=今日編集|1=昨日編集|$1日前に編集}}",
-    "article-about-title": "この記事について",
-    "page-issues": "ページの問題点",
-    "license-footer-name": "クリエイティブ・コモンズ 表示-継承 3.0",
-    "license-footer-text": "特に記載がない限り、コンテンツは$1のライセンスで利用できます。",
-    "page-read-in-other-languages": "他に{{PLURAL:$1|$1 言語}}で利用可能",
-    "article-edit-button": "節を編集",
-    "article-edit-protected-button": "保護されたページの節を編集する",
-    "article-section-expand": "節を展開",
-    "article-section-collapse": "節を折りたたむ",
-    "table-expand": "表を展開",
-    "table-collapse": "表を閉じる",
-    "references-preview-header": "脚注プレビュー"
+	"@metadata": {
+		"authors": [
+			"Omotecho",
+			"Shirayuki"
+		]
+	},
+	"description-add-link-title": "記事の説明を追加",
+	"article-read-more-title": "さらに読む",
+	"table-title-other": "さらに見る",
+	"page-edit-history": "すべての編集履歴",
+	"info-box-close-text": "閉じる",
+	"page-talk-page-subtitle": "この記事の改善について協議する",
+	"page-issues-subtitle": "標準以下もしくは記事に問題があると警告する",
+	"page-talk-page": "トークページを見る",
+	"info-box-title": "概要",
+	"view-in-browser-footer-link": "ブラウザで記事を表示する",
+	"page-location": "地図で見る",
+	"page-similar-titles": "類似したページ",
+	"page-last-edited": "{{PLURAL:$1|0=今日編集|1=昨日編集|$1日前に編集}}",
+	"article-about-title": "この記事について",
+	"page-issues": "ページの問題点",
+	"license-footer-name": "クリエイティブ・コモンズ 表示-継承 3.0",
+	"license-footer-text": "特に記載がない限り、コンテンツは$1のライセンスで利用できます。",
+	"page-read-in-other-languages": "他に{{PLURAL:$1|$1 言語}}で利用可能",
+	"article-edit-button": "節を編集",
+	"article-edit-protected-button": "保護されたページの節を編集する",
+	"article-section-expand": "節を展開",
+	"article-section-collapse": "節を折りたたむ",
+	"table-expand": "表を展開",
+	"table-collapse": "表を閉じる",
+	"references-preview-header": "脚注プレビュー"
 }

@@ -1,32 +1,32 @@
 {
-    "@metadata": {
-        "authors": [
-            "Eleassar"
-        ]
-    },
-    "description-add-link-title": "Dodaj opis članka",
-    "article-read-more-title": "Preberite še kaj",
-    "table-title-other": "Več informacij",
-    "page-edit-history": "Ogled zgodovine urejanja",
-    "info-box-close-text": "Zapri",
-    "page-talk-page-subtitle": "Pogovor o izboljšanju tega članka",
-    "page-issues-subtitle": "Opozorila o nekakovostni ali problematični vsebini",
-    "page-talk-page": "Ogled pogovorne strani",
-    "info-box-title": "Podatki na hitro",
-    "view-in-browser-footer-link": "Ogled članka v brskalniku",
-    "page-location": "Prikaži na karti",
-    "page-similar-titles": "Podobne strani",
-    "page-last-edited": "{{PLURAL:$1|Zadnje urejanje včeraj|Zadnje urejanje pred $1 dnevom|Zadnje urejanje pred $1 dnevi|0=Zadnje urejanje danes}}",
-    "article-about-title": "O tem članku",
-    "page-issues": "Težave strani",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Vsebna je na voljo pod licenco $1, razen če je navedeno drugače.",
-    "page-read-in-other-languages": "Na voljo v {{PLURAL:$1|$1 drugem jeziku|$1 drugih jezikih}}",
-    "article-edit-button": "Uredi razdelek",
-    "article-edit-protected-button": "Uredi razdelek na zaščiteni strani",
-    "article-section-expand": "Razširi razdelek",
-    "article-section-collapse": "Skrči razdelek",
-    "table-expand": "Razširi tabelo",
-    "table-collapse": "Skrči tabelo",
-    "references-preview-header": "Predogled sklicev"
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"description-add-link-title": "Dodaj opis članka",
+	"article-read-more-title": "Preberite še kaj",
+	"table-title-other": "Več informacij",
+	"page-edit-history": "Ogled zgodovine urejanja",
+	"info-box-close-text": "Zapri",
+	"page-talk-page-subtitle": "Pogovor o izboljšanju tega članka",
+	"page-issues-subtitle": "Opozorila o nekakovostni ali problematični vsebini",
+	"page-talk-page": "Ogled pogovorne strani",
+	"info-box-title": "Podatki na hitro",
+	"view-in-browser-footer-link": "Ogled članka v brskalniku",
+	"page-location": "Prikaži na karti",
+	"page-similar-titles": "Podobne strani",
+	"page-last-edited": "{{PLURAL:$1|Zadnje urejanje včeraj|Zadnje urejanje pred $1 dnevom|Zadnje urejanje pred $1 dnevi|0=Zadnje urejanje danes}}",
+	"article-about-title": "O tem članku",
+	"page-issues": "Težave strani",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Vsebna je na voljo pod licenco $1, razen če je navedeno drugače.",
+	"page-read-in-other-languages": "Na voljo v {{PLURAL:$1|$1 drugem jeziku|$1 drugih jezikih}}",
+	"article-edit-button": "Uredi razdelek",
+	"article-edit-protected-button": "Uredi razdelek na zaščiteni strani",
+	"article-section-expand": "Razširi razdelek",
+	"article-section-collapse": "Skrči razdelek",
+	"table-expand": "Razširi tabelo",
+	"table-collapse": "Skrči tabelo",
+	"references-preview-header": "Predogled sklicev"
 }

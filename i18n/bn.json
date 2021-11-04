@@ -1,27 +1,27 @@
 {
-    "@metadata": {
-        "authors": [
-            "আফতাবুজ্জামান"
-        ]
-    },
-    "description-add-link-title": "নিবন্ধের বিবরণ যোগ করুন",
-    "article-read-more-title": "আরো পড়ুন",
-    "table-title-other": "আরও তথ্য",
-    "page-edit-history": "সম্পূর্ণ সম্পাদনা ইতিহাস",
-    "info-box-close-text": "বন্ধ",
-    "page-talk-page-subtitle": "এই নিবন্ধের উন্নতি আলোচনা করুন",
-    "page-issues-subtitle": "নিন্মগড় বা সমস্যাযুক্ত সামগ্রী সম্পর্কে সতর্কতা",
-    "page-talk-page": "আলাপ পাতা দেখুন",
-    "info-box-title": "দ্রুত তথ্য",
-    "view-in-browser-footer-link": "ব্রাউজারে নিবন্ধ দেখুন",
-    "page-location": "একটি মানচিত্রে দেখুন",
-    "page-similar-titles": "অনুরূপ পাতাগুলি",
-    "page-last-edited": "$1 দিন আগে সম্পাদিত",
-    "article-about-title": "এই নিবন্ধ সম্পর্কে",
-    "page-issues": "পাতার সমস্যা",
-    "license-footer-name": "সিসি বাই-এসএ ৩.০",
-    "license-footer-text": "বিষয়বস্তু $1-এর আওতায় প্রকাশিত যদি না অন্য কিছু নির্ধারিত থাকে।",
-    "page-read-in-other-languages": "আরো $1টি ভাষায় উপলব্ধ",
-    "article-edit-button": "অনুচ্ছেদ সম্পাদনা",
-    "references-preview-header": "তথ্যসূত্রের প্রাকদর্শন"
+	"@metadata": {
+		"authors": [
+			"আফতাবুজ্জামান"
+		]
+	},
+	"description-add-link-title": "নিবন্ধের বিবরণ যোগ করুন",
+	"article-read-more-title": "আরো পড়ুন",
+	"table-title-other": "আরও তথ্য",
+	"page-edit-history": "সম্পূর্ণ সম্পাদনা ইতিহাস",
+	"info-box-close-text": "বন্ধ",
+	"page-talk-page-subtitle": "এই নিবন্ধের উন্নতি আলোচনা করুন",
+	"page-issues-subtitle": "নিন্মগড় বা সমস্যাযুক্ত সামগ্রী সম্পর্কে সতর্কতা",
+	"page-talk-page": "আলাপ পাতা দেখুন",
+	"info-box-title": "দ্রুত তথ্য",
+	"view-in-browser-footer-link": "ব্রাউজারে নিবন্ধ দেখুন",
+	"page-location": "একটি মানচিত্রে দেখুন",
+	"page-similar-titles": "অনুরূপ পাতাগুলি",
+	"page-last-edited": "$1 দিন আগে সম্পাদিত",
+	"article-about-title": "এই নিবন্ধ সম্পর্কে",
+	"page-issues": "পাতার সমস্যা",
+	"license-footer-name": "সিসি বাই-এসএ ৩.০",
+	"license-footer-text": "বিষয়বস্তু $1-এর আওতায় প্রকাশিত যদি না অন্য কিছু নির্ধারিত থাকে।",
+	"page-read-in-other-languages": "আরো $1টি ভাষায় উপলব্ধ",
+	"article-edit-button": "অনুচ্ছেদ সম্পাদনা",
+	"references-preview-header": "তথ্যসূত্রের প্রাকদর্শন"
 }

@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "article-read-more-title": "Աւելի կարդալ",
-    "info-box-close-text": "Գոցել",
-    "page-location": "Տեսնել քարտէսի վրայ",
-    "article-about-title": "Այս յօդուածին մասին",
-    "page-issues": "Էջի խնդիրներ"
+	"@metadata": {
+		"authors": []
+	},
+	"article-read-more-title": "Աւելի կարդալ",
+	"info-box-close-text": "Գոցել",
+	"page-location": "Տեսնել քարտէսի վրայ",
+	"article-about-title": "Այս յօդուածին մասին",
+	"page-issues": "Էջի խնդիրներ"
 }

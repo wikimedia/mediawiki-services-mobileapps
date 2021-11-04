@@ -1,35 +1,35 @@
 {
-    "@metadata": {
-        "authors": [
-            "DDPAT",
-            "Movses",
-            "Piramidion",
-            "Ата"
-        ]
-    },
-    "description-add-link-title": "Додати опис статті",
-    "article-read-more-title": "Детальніше",
-    "table-title-other": "Більше інформації",
-    "page-edit-history": "Переглянути історію редагувань",
-    "info-box-close-text": "Закрити",
-    "page-talk-page-subtitle": "Обговорити як покращити цю статтю",
-    "page-issues-subtitle": "Звістки про незвичний чи проблематичний вміст",
-    "page-talk-page": "Сторінка обговорення",
-    "info-box-title": "Табличка основної інформації",
-    "view-in-browser-footer-link": "Переглянути статтю в браузері",
-    "page-location": "Переглянути на мапі",
-    "page-similar-titles": "Подібні сторінки",
-    "page-last-edited": "{{PLURAL:$1|one=Оновлено $1 день тому|few=Оновлено $1 дні тому|many=Оновлено $1 днів тому|0=Оновлено сьогодні}}",
-    "article-about-title": "Про цю статтю",
-    "page-issues": "Проблеми сторінки",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Вміст доступний на умовах $1, якщо не вказано інше.",
-    "page-read-in-other-languages": "Доступно в {{PLURAL:$1|іншій мові|$1 інших мовах}}",
-    "article-edit-button": "Редагувати розділ",
-    "article-edit-protected-button": "Редагувати розділ захищеної сторінки",
-    "article-section-expand": "Розгорнути розділ",
-    "article-section-collapse": "Згорнути розділ",
-    "table-expand": "Розгорнути таблицю",
-    "table-collapse": "Згорнути таблицю",
-    "references-preview-header": "Попередній перегляд приміток"
+	"@metadata": {
+		"authors": [
+			"DDPAT",
+			"Movses",
+			"Piramidion",
+			"Ата"
+		]
+	},
+	"description-add-link-title": "Додати опис статті",
+	"article-read-more-title": "Детальніше",
+	"table-title-other": "Більше інформації",
+	"page-edit-history": "Переглянути історію редагувань",
+	"info-box-close-text": "Закрити",
+	"page-talk-page-subtitle": "Обговорити як покращити цю статтю",
+	"page-issues-subtitle": "Звістки про незвичний чи проблематичний вміст",
+	"page-talk-page": "Сторінка обговорення",
+	"info-box-title": "Табличка основної інформації",
+	"view-in-browser-footer-link": "Переглянути статтю в браузері",
+	"page-location": "Переглянути на мапі",
+	"page-similar-titles": "Подібні сторінки",
+	"page-last-edited": "{{PLURAL:$1|one=Оновлено $1 день тому|few=Оновлено $1 дні тому|many=Оновлено $1 днів тому|0=Оновлено сьогодні}}",
+	"article-about-title": "Про цю статтю",
+	"page-issues": "Проблеми сторінки",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Вміст доступний на умовах $1, якщо не вказано інше.",
+	"page-read-in-other-languages": "Доступно в {{PLURAL:$1|іншій мові|$1 інших мовах}}",
+	"article-edit-button": "Редагувати розділ",
+	"article-edit-protected-button": "Редагувати розділ захищеної сторінки",
+	"article-section-expand": "Розгорнути розділ",
+	"article-section-collapse": "Згорнути розділ",
+	"table-expand": "Розгорнути таблицю",
+	"table-collapse": "Згорнути таблицю",
+	"references-preview-header": "Попередній перегляд приміток"
 }

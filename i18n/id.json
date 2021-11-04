@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "Daud I.F. Argana",
-            "TMg"
-        ]
-    },
-    "description-add-link-title": "Tambah deskripsi artikel",
-    "article-read-more-title": "Baca lebih lanjut",
-    "table-title-other": "Informasi lebih lanjut",
-    "page-edit-history": "Semua riwayat suntingan",
-    "info-box-close-text": "Tutup",
-    "page-talk-page-subtitle": "Diskusikan perbaikan untuk artikel ini",
-    "page-issues-subtitle": "Peringatan tentang konten yang berkualitas rendah atau bermasalah",
-    "page-talk-page": "Lihat halaman pembicaraan",
-    "info-box-title": "Fakta Singkat",
-    "view-in-browser-footer-link": "Lihat artikel di peramban",
-    "page-location": "Lihat di peta",
-    "page-similar-titles": "Halaman serupa",
-    "page-last-edited": "{{PLURAL:$1|0=Disunting hari ini|1=Disunting kemarin|Disunting $1 hari yang lalu}}",
-    "article-about-title": "Mengenai artikel ini",
-    "page-issues": "Masalah halaman",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Konten tersedia di bawah $1 kecuali dinyatakan lain.",
-    "page-read-in-other-languages": "Tersedia dalam {{PLURAL:$1|$1 bahasa lain|$1 bahasa lain}}",
-    "article-edit-button": "Sunting bagian",
-    "article-edit-protected-button": "Sunting bagian di halaman yang dilindungi",
-    "article-section-expand": "Kembangkan bagian",
-    "article-section-collapse": "Ciutkan bagian",
-    "table-expand": "Kembangkan tabel",
-    "table-collapse": "Ciutkan tabel",
-    "references-preview-header": "Pratayang referensi"
+	"@metadata": {
+		"authors": [
+			"Daud I.F. Argana",
+			"TMg"
+		]
+	},
+	"description-add-link-title": "Tambah deskripsi artikel",
+	"article-read-more-title": "Baca lebih lanjut",
+	"table-title-other": "Informasi lebih lanjut",
+	"page-edit-history": "Semua riwayat suntingan",
+	"info-box-close-text": "Tutup",
+	"page-talk-page-subtitle": "Diskusikan perbaikan untuk artikel ini",
+	"page-issues-subtitle": "Peringatan tentang konten yang berkualitas rendah atau bermasalah",
+	"page-talk-page": "Lihat halaman pembicaraan",
+	"info-box-title": "Fakta Singkat",
+	"view-in-browser-footer-link": "Lihat artikel di peramban",
+	"page-location": "Lihat di peta",
+	"page-similar-titles": "Halaman serupa",
+	"page-last-edited": "{{PLURAL:$1|0=Disunting hari ini|1=Disunting kemarin|Disunting $1 hari yang lalu}}",
+	"article-about-title": "Mengenai artikel ini",
+	"page-issues": "Masalah halaman",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Konten tersedia di bawah $1 kecuali dinyatakan lain.",
+	"page-read-in-other-languages": "Tersedia dalam {{PLURAL:$1|$1 bahasa lain|$1 bahasa lain}}",
+	"article-edit-button": "Sunting bagian",
+	"article-edit-protected-button": "Sunting bagian di halaman yang dilindungi",
+	"article-section-expand": "Kembangkan bagian",
+	"article-section-collapse": "Ciutkan bagian",
+	"table-expand": "Kembangkan tabel",
+	"table-collapse": "Ciutkan tabel",
+	"references-preview-header": "Pratayang referensi"
 }

@@ -1,29 +1,29 @@
 {
-    "@metadata": {
-        "authors": [
-            "3atbulletz"
-        ]
-    },
-    "description-add-link-title": "Faka incazelo ye-athikhili",
-    "article-read-more-title": "Funda okunye",
-    "table-title-other": "Eminye imininingwane",
-    "page-edit-history": "Buka umlando wekhasi",
-    "info-box-close-text": "Vala",
-    "page-talk-page-subtitle": "Dingidani ukuthi lingathuthukiswa kanjani lelikhasi",
-    "page-talk-page": "Buka ikhasi lezingxoxo",
-    "info-box-title": "Buka imininingwane eyisigcino",
-    "view-in-browser-footer-link": "Buka i-athikhili nge-browser",
-    "page-location": "Buka kwimephu",
-    "page-similar-titles": "Amakhasi afanayo",
-    "page-last-edited": "{{PLURAL:$1|lihlelwe izilo|lihlelwe ezinsukwini ezi-$1 ezidlule|0=lihlelwe izolo}}",
-    "article-about-title": "Imininingwane ngalekhasi",
-    "page-issues": "Izinkinga zalekhasi",
-    "license-footer-name": "i-CC BY-SA 3.0",
-    "license-footer-text": "Lokhu kuyatholakala futhi la $1",
-    "article-edit-button": "Hlela lengxenye",
-    "article-section-expand": "Khulisa",
-    "article-section-collapse": "Nciphisa",
-    "table-expand": "Khulisa ithebula",
-    "table-collapse": "Nciphisa ithebula",
-    "references-preview-header": "Buka ushintsho lemithombo"
+	"@metadata": {
+		"authors": [
+			"3atbulletz"
+		]
+	},
+	"description-add-link-title": "Faka incazelo ye-athikhili",
+	"article-read-more-title": "Funda okunye",
+	"table-title-other": "Eminye imininingwane",
+	"page-edit-history": "Buka umlando wekhasi",
+	"info-box-close-text": "Vala",
+	"page-talk-page-subtitle": "Dingidani ukuthi lingathuthukiswa kanjani lelikhasi",
+	"page-talk-page": "Buka ikhasi lezingxoxo",
+	"info-box-title": "Buka imininingwane eyisigcino",
+	"view-in-browser-footer-link": "Buka i-athikhili nge-browser",
+	"page-location": "Buka kwimephu",
+	"page-similar-titles": "Amakhasi afanayo",
+	"page-last-edited": "{{PLURAL:$1|lihlelwe izilo|lihlelwe ezinsukwini ezi-$1 ezidlule|0=lihlelwe izolo}}",
+	"article-about-title": "Imininingwane ngalekhasi",
+	"page-issues": "Izinkinga zalekhasi",
+	"license-footer-name": "i-CC BY-SA 3.0",
+	"license-footer-text": "Lokhu kuyatholakala futhi la $1",
+	"article-edit-button": "Hlela lengxenye",
+	"article-section-expand": "Khulisa",
+	"article-section-collapse": "Nciphisa",
+	"table-expand": "Khulisa ithebula",
+	"table-collapse": "Nciphisa ithebula",
+	"references-preview-header": "Buka ushintsho lemithombo"
 }

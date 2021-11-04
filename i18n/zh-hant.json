@@ -1,32 +1,32 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kly"
-        ]
-    },
-    "description-add-link-title": "增加條目描述",
-    "article-read-more-title": "延伸閱讀",
-    "table-title-other": "更多資訊",
-    "page-edit-history": "檢視編輯歷史",
-    "info-box-close-text": "關閉",
-    "page-talk-page-subtitle": "討論改善此條目",
-    "page-issues-subtitle": "關於欠佳或是有問題內容的警告",
-    "page-talk-page": "檢視對話頁",
-    "info-box-title": "快速預覽",
-    "view-in-browser-footer-link": "在瀏覽器裡檢視條目",
-    "page-location": "在地圖上檢視",
-    "page-similar-titles": "相似的頁面",
-    "page-last-edited": "{{PLURAL:$1|0=今日更新|1=昨日更新|$1 日前更新}}",
-    "article-about-title": "關於此條目",
-    "page-issues": "頁面問題",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "除非另有註明，否則頁面內容均以 $1 條款授權",
-    "page-read-in-other-languages": "在 {{PLURAL:$1|$1 種其它語言}}中可用",
-    "article-edit-button": "編輯段落",
-    "article-edit-protected-button": "編輯在受保護頁面裡的段落",
-    "article-section-expand": "展開段落",
-    "article-section-collapse": "摺疊段落",
-    "table-expand": "展開表格",
-    "table-collapse": "折疊表格",
-    "references-preview-header": "參考資料預覽"
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"description-add-link-title": "增加條目描述",
+	"article-read-more-title": "延伸閱讀",
+	"table-title-other": "更多資訊",
+	"page-edit-history": "檢視編輯歷史",
+	"info-box-close-text": "關閉",
+	"page-talk-page-subtitle": "討論改善此條目",
+	"page-issues-subtitle": "關於欠佳或是有問題內容的警告",
+	"page-talk-page": "檢視對話頁",
+	"info-box-title": "快速預覽",
+	"view-in-browser-footer-link": "在瀏覽器裡檢視條目",
+	"page-location": "在地圖上檢視",
+	"page-similar-titles": "相似的頁面",
+	"page-last-edited": "{{PLURAL:$1|昨日更新|$1 日前更新|0=今日更新}}",
+	"article-about-title": "關於此條目",
+	"page-issues": "頁面問題",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "除非另有註明，否則頁面內容均以 $1 條款授權",
+	"page-read-in-other-languages": "在 {{PLURAL:$1|$1 種其它語言}}中可用",
+	"article-edit-button": "編輯段落",
+	"article-edit-protected-button": "編輯在受保護頁面裡的段落",
+	"article-section-expand": "展開段落",
+	"article-section-collapse": "摺疊段落",
+	"table-expand": "展開表格",
+	"table-collapse": "折疊表格",
+	"references-preview-header": "參考資料預覽"
 }

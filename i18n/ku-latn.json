@@ -1,32 +1,32 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bikarhêner"
-        ]
-    },
-    "description-add-link-title": "Danasîna gotarê tevlî bike",
-    "article-read-more-title": "Zêdetir bixwine",
-    "table-title-other": "Zêdetir agahî",
-    "page-edit-history": "Dîroka guhartinê bibîne",
-    "info-box-close-text": "Bigre",
-    "page-talk-page-subtitle": "Pêşxistinên ji bo vê gotarê gotûbêj bike",
-    "page-issues-subtitle": "Hişyariyên derbarê binbeş an naveroka problematîk de",
-    "page-talk-page": "Rûpela gotûbêjê bibîne",
-    "info-box-title": "Agahiyên Praktîk",
-    "view-in-browser-footer-link": "Gotarê di gerokê de bibîne",
-    "page-location": "Li ser nexşeyekê bibîne",
-    "page-similar-titles": "Peyamên wek hev",
-    "page-last-edited": "Berî $1 hate guherandin",
-    "article-about-title": "Di derbarê vê gotarê de",
-    "page-issues": "Pirsgirêkên rûpelê",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Ger wekî din nehatibe diyarkirin, naverok di bin $1 de berdest e.",
-    "page-read-in-other-languages": "{{PLURAL:$1|Bi $1 zimanê din|$1 zimanên din}} berdest e",
-    "article-edit-button": "Beşê biguherîne",
-    "article-edit-protected-button": "Beşê li ser rûpela parastî biguherîne",
-    "article-section-expand": "Beşê berfireh bike",
-    "article-section-collapse": "Beşê teng bike",
-    "table-expand": "Tabloyê berfireh bike",
-    "table-collapse": "Tabloyê teng bike",
-    "references-preview-header": "Pêşdîtina referansan"
+	"@metadata": {
+		"authors": [
+			"Bikarhêner"
+		]
+	},
+	"description-add-link-title": "Danasîna gotarê tevlî bike",
+	"article-read-more-title": "Zêdetir bixwine",
+	"table-title-other": "Zêdetir agahî",
+	"page-edit-history": "Dîroka guhartinê bibîne",
+	"info-box-close-text": "Bigre",
+	"page-talk-page-subtitle": "Pêşxistinên ji bo vê gotarê gotûbêj bike",
+	"page-issues-subtitle": "Hişyariyên derbarê binbeş an naveroka problematîk de",
+	"page-talk-page": "Rûpela gotûbêjê bibîne",
+	"info-box-title": "Agahiyên Praktîk",
+	"view-in-browser-footer-link": "Gotarê di gerokê de bibîne",
+	"page-location": "Li ser nexşeyekê bibîne",
+	"page-similar-titles": "Peyamên wek hev",
+	"page-last-edited": "Berî $1 hate guherandin",
+	"article-about-title": "Di derbarê vê gotarê de",
+	"page-issues": "Pirsgirêkên rûpelê",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Ger wekî din nehatibe diyarkirin, naverok di bin $1 de berdest e.",
+	"page-read-in-other-languages": "{{PLURAL:$1|Bi $1 zimanê din|$1 zimanên din}} berdest e",
+	"article-edit-button": "Beşê biguherîne",
+	"article-edit-protected-button": "Beşê li ser rûpela parastî biguherîne",
+	"article-section-expand": "Beşê berfireh bike",
+	"article-section-collapse": "Beşê teng bike",
+	"table-expand": "Tabloyê berfireh bike",
+	"table-collapse": "Tabloyê teng bike",
+	"references-preview-header": "Pêşdîtina referansan"
 }

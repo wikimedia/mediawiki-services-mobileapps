@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Adam-Yourist"
-        ]
-    },
-    "description-add-link-title": "<small>Лоацца язде сенах лаьца я ер</small>",
-    "article-read-more-title": "Ма дарра",
-    "table-title-other": "Ма дарра",
-    "info-box-close-text": "ДIакъовла",
-    "info-box-title": "Лоацца",
-    "article-about-title": "Укх статьях лаьца"
+	"@metadata": {
+		"authors": [
+			"Adam-Yourist"
+		]
+	},
+	"description-add-link-title": "<small>Лоацца язде сенах лаьца я ер</small>",
+	"article-read-more-title": "Ма дарра",
+	"table-title-other": "Ма дарра",
+	"info-box-close-text": "ДIакъовла",
+	"info-box-title": "Лоацца",
+	"article-about-title": "Укх статьях лаьца"
 }

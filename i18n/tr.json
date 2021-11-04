@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "BaRaN6161 TURK",
-            "SaldırganSincap"
-        ]
-    },
-    "description-add-link-title": "Madde açıklaması ekle",
-    "article-read-more-title": "Devamını oku",
-    "table-title-other": "Daha fazla bilgi",
-    "page-edit-history": "Düzenleme geçmişini görüntüle",
-    "info-box-close-text": "Kapat",
-    "page-talk-page-subtitle": "Bu maddedeki geliştirmeleri tartışın",
-    "page-issues-subtitle": "Alt bölüm veya sorunlu içerik hakkında uyarılar",
-    "page-talk-page": "Tartışma sayfasını görüntüle",
-    "info-box-title": "Pratik Bilgiler",
-    "view-in-browser-footer-link": "Maddeyi tarayıcıda görüntüle",
-    "page-location": "Haritada görüntüle",
-    "page-similar-titles": "Benzer sayfalar",
-    "page-last-edited": "{{PLURAL:$1|Dün güncellendi|$1 gün önce güncellendi|0=Bugün güncellendi}}",
-    "article-about-title": "Bu madde hakkında",
-    "page-issues": "Sayfa sorunları",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "İçerik, aksi belirtilmedikçe $1 lisansı altında kullanılabilir",
-    "page-read-in-other-languages": "{{PLURAL:$1|$1 farklı dilde|$1 farklı dilde}} mevcut",
-    "article-edit-button": "Bölümü düzenle",
-    "article-edit-protected-button": "Korumalı sayfadaki bölümü düzenle",
-    "article-section-expand": "Bölümü genişlet",
-    "article-section-collapse": "Bölümü daralt",
-    "table-expand": "Tabloyu genişlet",
-    "table-collapse": "Tabloyu daralt",
-    "references-preview-header": "Kaynakçanın önizlemesi"
+	"@metadata": {
+		"authors": [
+			"BaRaN6161 TURK",
+			"SaldırganSincap"
+		]
+	},
+	"description-add-link-title": "Madde açıklaması ekle",
+	"article-read-more-title": "Devamını oku",
+	"table-title-other": "Daha fazla bilgi",
+	"page-edit-history": "Düzenleme geçmişini görüntüle",
+	"info-box-close-text": "Kapat",
+	"page-talk-page-subtitle": "Bu maddedeki geliştirmeleri tartışın",
+	"page-issues-subtitle": "Alt bölüm veya sorunlu içerik hakkında uyarılar",
+	"page-talk-page": "Tartışma sayfasını görüntüle",
+	"info-box-title": "Pratik Bilgiler",
+	"view-in-browser-footer-link": "Maddeyi tarayıcıda görüntüle",
+	"page-location": "Haritada görüntüle",
+	"page-similar-titles": "Benzer sayfalar",
+	"page-last-edited": "{{PLURAL:$1|Dün güncellendi|$1 gün önce güncellendi|0=Bugün güncellendi}}",
+	"article-about-title": "Bu madde hakkında",
+	"page-issues": "Sayfa sorunları",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "İçerik, aksi belirtilmedikçe $1 lisansı altında kullanılabilir",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 farklı dilde|$1 farklı dilde}} mevcut",
+	"article-edit-button": "Bölümü düzenle",
+	"article-edit-protected-button": "Korumalı sayfadaki bölümü düzenle",
+	"article-section-expand": "Bölümü genişlet",
+	"article-section-collapse": "Bölümü daralt",
+	"table-expand": "Tabloyu genişlet",
+	"table-collapse": "Tabloyu daralt",
+	"references-preview-header": "Kaynakçanın önizlemesi"
 }

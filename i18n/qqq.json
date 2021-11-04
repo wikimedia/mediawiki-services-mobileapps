@@ -1,34 +1,34 @@
 {
-    "@metadata": {
-        "authors": [
-            "Nike",
-            "TMg",
-            "Verdy p"
-        ]
-    },
-    "description-add-link-title": "Text for link for adding a title description",
-    "article-read-more-title": "The text that is displayed before the read more section at the bottom of an article {{Identical|Read more}}",
-    "table-title-other": "The title of non-info box tables - in collapsed and expanded form {{Identical|More information}}",
-    "page-edit-history": "Label for button used to show an article's complete edit history",
-    "info-box-close-text": "The text for telling users they can tap the bottom of the info box to close it {{Identical|Close}}",
-    "page-talk-page-subtitle": "Subtitle for button linking out to an article's talk page",
-    "page-issues-subtitle": "Subtitle for the button that shows the \"Page issues\" dialog, where information about the imperfections of the current page is provided (by displaying the warning/cleanup templates).",
-    "page-talk-page": "Label for button linking out to an article's talk page",
-    "info-box-title": "The title of infoboxes – in collapsed and expanded form",
-    "view-in-browser-footer-link": "Link to view article in browser",
-    "page-location": "Label for button used to show an article on the map",
-    "page-similar-titles": "Label for button that shows a list of similar titles (disambiguation) for the current page",
-    "page-last-edited": "Relative days since an article was last edited. 0 = today, singular = yesterday. $1 will be replaced with the number of days ago.",
-    "article-about-title": "The text that is displayed before the 'about' section at the bottom of an article",
-    "page-issues": "Label for the button that shows the \"Page issues\" dialog, where information about the imperfections of the current page is provided (by displaying the warning/cleanup templates). {{Identical|Page issue}}",
-    "license-footer-name": "License short name; usually leave untranslated as CC-BY-SA 3.0 {{Identical|CC BY-SA}}",
-    "license-footer-text": "Marker at page end for who last modified the page when anonymous. $1 is a relative date such as '2 months ago' or 'today'.\n{{Identical|Content is available under}}",
-    "page-read-in-other-languages": "Label for button showing number of languages an article is available in. $1 will be replaced with the number of languages",
-    "article-edit-button": "Label for `edit section` buttons, read aloud to blind users by screen readers.",
-    "article-edit-protected-button": "Label for `edit section on protected page` buttons (pencil with lock). Read aloud to blind users by screen readers.",
-    "article-section-expand": "Label for `expand section down arrow` image used for sections like Notes and Footnotes. Read aloud to blind users by screen readers.",
-    "article-section-collapse": "Label for `collapse section up arrow` image used for sections like Notes and Footnotes. Read aloud to blind users by screen readers.",
-    "table-expand": "Label for `expand table down arrow` image used for tables like infoboxes. Read aloud to blind users by screen readers.",
-    "table-collapse": "Label for `collapse table up arrow` image used for tables like infoboxes. Read aloud to blind users by screen readers.",
-    "references-preview-header": "When previewing an edit, the header used for references section"
+	"@metadata": {
+		"authors": [
+			"Nike",
+			"TMg",
+			"Verdy p"
+		]
+	},
+	"description-add-link-title": "Text for link for adding a title description",
+	"article-read-more-title": "The text that is displayed before the read more section at the bottom of an article {{Identical|Read more}}",
+	"table-title-other": "The title of non-info box tables - in collapsed and expanded form {{Identical|More information}}",
+	"page-edit-history": "Label for button used to show an article's complete edit history",
+	"info-box-close-text": "The text for telling users they can tap the bottom of the info box to close it {{Identical|Close}}",
+	"page-talk-page-subtitle": "Subtitle for button linking out to an article's talk page",
+	"page-issues-subtitle": "Subtitle for the button that shows the \"Page issues\" dialog, where information about the imperfections of the current page is provided (by displaying the warning/cleanup templates).",
+	"page-talk-page": "Label for button linking out to an article's talk page",
+	"info-box-title": "The title of infoboxes – in collapsed and expanded form",
+	"view-in-browser-footer-link": "Link to view article in browser",
+	"page-location": "Label for button used to show an article on the map",
+	"page-similar-titles": "Label for button that shows a list of similar titles (disambiguation) for the current page",
+	"page-last-edited": "Relative days since an article was last edited. 0 = today, singular = yesterday. $1 will be replaced with the number of days ago.",
+	"article-about-title": "The text that is displayed before the 'about' section at the bottom of an article",
+	"page-issues": "Label for the button that shows the \"Page issues\" dialog, where information about the imperfections of the current page is provided (by displaying the warning/cleanup templates). {{Identical|Page issue}}",
+	"license-footer-name": "License short name; usually leave untranslated as CC-BY-SA 3.0 {{Identical|CC BY-SA}}",
+	"license-footer-text": "Marker at page end for who last modified the page when anonymous. $1 is a relative date such as '2 months ago' or 'today'.\n{{Identical|Content is available under}}",
+	"page-read-in-other-languages": "Label for button showing number of languages an article is available in. $1 will be replaced with the number of languages",
+	"article-edit-button": "Label for `edit section` buttons, read aloud to blind users by screen readers.",
+	"article-edit-protected-button": "Label for `edit section on protected page` buttons (pencil with lock). Read aloud to blind users by screen readers.",
+	"article-section-expand": "Label for `expand section down arrow` image used for sections like Notes and Footnotes. Read aloud to blind users by screen readers.",
+	"article-section-collapse": "Label for `collapse section up arrow` image used for sections like Notes and Footnotes. Read aloud to blind users by screen readers.",
+	"table-expand": "Label for `expand table down arrow` image used for tables like infoboxes. Read aloud to blind users by screen readers.",
+	"table-collapse": "Label for `collapse table up arrow` image used for tables like infoboxes. Read aloud to blind users by screen readers.",
+	"references-preview-header": "When previewing an edit, the header used for references section"
 }

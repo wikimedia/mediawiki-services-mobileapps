@@ -1,34 +1,34 @@
 {
-    "@metadata": {
-        "authors": [
-            "Gomoko",
-            "Verdy p",
-            "Wladek92"
-        ]
-    },
-    "description-add-link-title": "Ajouter la description de l’article",
-    "article-read-more-title": "En savoir plus",
-    "table-title-other": "Plus d’informations",
-    "page-edit-history": "Voir l’historique des modifications",
-    "info-box-close-text": "Fermer",
-    "page-talk-page-subtitle": "Discuter des améliorations à cet article",
-    "page-issues-subtitle": "Alertes sur un contenu de basse qualité ou problématique",
-    "page-talk-page": "Afficher la page de discussion",
-    "info-box-title": "Faits en bref",
-    "view-in-browser-footer-link": "Afficher l’article dans le navigateur",
-    "page-location": "Afficher sur une carte",
-    "page-similar-titles": "Pages similaires",
-    "page-last-edited": "Mis à jour {{PLURAL:$1|hier|il y a $1 jours|0=aujourd’hui}}",
-    "article-about-title": "À propos de cet article",
-    "page-issues": "Problèmes de page",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Le contenu est disponible sous $1 sauf mention contraire.",
-    "page-read-in-other-languages": "Disponible dans $1 autre{{PLURAL:$1||s}} langue{{PLURAL:$1||s}}",
-    "article-edit-button": "Modifier la section",
-    "article-edit-protected-button": "Modifier la section sur la page protégée",
-    "article-section-expand": "Développer la section",
-    "article-section-collapse": "Replier la section",
-    "table-expand": "Développer la table",
-    "table-collapse": "Replier la table",
-    "references-preview-header": "Aperçu des références"
+	"@metadata": {
+		"authors": [
+			"Gomoko",
+			"Verdy p",
+			"Wladek92"
+		]
+	},
+	"description-add-link-title": "Ajouter la description de l’article",
+	"article-read-more-title": "En savoir plus",
+	"table-title-other": "Plus d’informations",
+	"page-edit-history": "Voir l’historique des modifications",
+	"info-box-close-text": "Fermer",
+	"page-talk-page-subtitle": "Discuter des améliorations à cet article",
+	"page-issues-subtitle": "Alertes sur un contenu de basse qualité ou problématique",
+	"page-talk-page": "Afficher la page de discussion",
+	"info-box-title": "Faits en bref",
+	"view-in-browser-footer-link": "Afficher l’article dans le navigateur",
+	"page-location": "Afficher sur une carte",
+	"page-similar-titles": "Pages similaires",
+	"page-last-edited": "Mis à jour {{PLURAL:$1|hier|il y a $1 jours|0=aujourd’hui}}",
+	"article-about-title": "À propos de cet article",
+	"page-issues": "Problèmes de page",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Le contenu est disponible sous $1 sauf mention contraire.",
+	"page-read-in-other-languages": "Disponible dans $1 autre{{PLURAL:$1||s}} langue{{PLURAL:$1||s}}",
+	"article-edit-button": "Modifier la section",
+	"article-edit-protected-button": "Modifier la section sur la page protégée",
+	"article-section-expand": "Développer la section",
+	"article-section-collapse": "Replier la section",
+	"table-expand": "Développer la table",
+	"table-collapse": "Replier la table",
+	"references-preview-header": "Aperçu des références"
 }

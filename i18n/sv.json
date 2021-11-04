@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "Sabelöga",
-            "WikiPhoenix"
-        ]
-    },
-    "description-add-link-title": "Lägg till artikelbeskrivning",
-    "article-read-more-title": "Läs mer",
-    "table-title-other": "Mer information",
-    "page-edit-history": "Visa redigeringshistorik",
-    "info-box-close-text": "Stäng",
-    "page-talk-page-subtitle": "Diskutera förbättringar av denna artikel",
-    "page-issues-subtitle": "Meddelanden om bristfälligt eller problematiskt innehåll",
-    "page-talk-page": "Visa diskussionssidan",
-    "info-box-title": "Snabbfakta",
-    "view-in-browser-footer-link": "Visa artikeln i webbläsaren",
-    "page-location": "Visa på en karta",
-    "page-similar-titles": "Liknande sidor",
-    "page-last-edited": "{{PLURAL:$1|0=Uppdaterades idag|1=Uppdaterades igår|Uppdaterades $1 dygn sedan}}",
-    "article-about-title": "Om den här artikeln",
-    "page-issues": "Sidproblem",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Innehållet är tillgängligt under $1 om ingenting annat anges.",
-    "page-read-in-other-languages": "Tillgänglig på {{PLURAL:$1|$1 annat|$1 andra}} språk",
-    "article-edit-button": "Redigera avsnitt",
-    "article-edit-protected-button": "Redigera avsnitt på skyddad sida",
-    "article-section-expand": "Expandera avsnitt",
-    "article-section-collapse": "Stäng avsnitt",
-    "table-expand": "Expandera tabell",
-    "table-collapse": "Stäng tabell",
-    "references-preview-header": "Förhandsgranskning av referenser"
+	"@metadata": {
+		"authors": [
+			"Sabelöga",
+			"WikiPhoenix"
+		]
+	},
+	"description-add-link-title": "Lägg till artikelbeskrivning",
+	"article-read-more-title": "Läs mer",
+	"table-title-other": "Mer information",
+	"page-edit-history": "Visa redigeringshistorik",
+	"info-box-close-text": "Stäng",
+	"page-talk-page-subtitle": "Diskutera förbättringar av denna artikel",
+	"page-issues-subtitle": "Meddelanden om bristfälligt eller problematiskt innehåll",
+	"page-talk-page": "Visa diskussionssidan",
+	"info-box-title": "Snabbfakta",
+	"view-in-browser-footer-link": "Visa artikeln i webbläsaren",
+	"page-location": "Visa på en karta",
+	"page-similar-titles": "Liknande sidor",
+	"page-last-edited": "{{PLURAL:$1|0=Uppdaterades idag|1=Uppdaterades igår|Uppdaterades $1 dygn sedan}}",
+	"article-about-title": "Om den här artikeln",
+	"page-issues": "Sidproblem",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Innehållet är tillgängligt under $1 om ingenting annat anges.",
+	"page-read-in-other-languages": "Tillgänglig på {{PLURAL:$1|$1 annat|$1 andra}} språk",
+	"article-edit-button": "Redigera avsnitt",
+	"article-edit-protected-button": "Redigera avsnitt på skyddad sida",
+	"article-section-expand": "Expandera avsnitt",
+	"article-section-collapse": "Stäng avsnitt",
+	"table-expand": "Expandera tabell",
+	"table-collapse": "Stäng tabell",
+	"references-preview-header": "Förhandsgranskning av referenser"
 }

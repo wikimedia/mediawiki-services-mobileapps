@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "description-add-link-title": "Cuir sainchuntas teidil leis",
-    "article-read-more-title": "Léigh a thuilleadh",
-    "table-title-other": "Tuilleadh eolais",
-    "page-edit-history": "Stair iomlán eagarthóireachta",
-    "info-box-close-text": "Dún",
-    "page-talk-page": "Féach ar leathanach plé",
-    "info-box-title": "Fíricí Gasta",
-    "view-in-browser-footer-link": "Féach ar alt i mbrabhsálaí",
-    "page-location": "Féach ar léarscáil",
-    "page-similar-titles": "Leathanaigh den chineál céanna",
-    "page-last-edited": "Curtha in eagar $1 lá ó shin",
-    "article-about-title": "Maidir leis an alt seo",
-    "page-issues": "Ceisteanna le reitiu",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Inneachar ar fáil faoi $1 mura luaitear a mhalairt.",
-    "page-read-in-other-languages": "Ar fáil i {{PLURAL:$1|dteanga amháin eile|$1 teanga eile}}"
+	"@metadata": {
+		"authors": []
+	},
+	"description-add-link-title": "Cuir sainchuntas teidil leis",
+	"article-read-more-title": "Léigh a thuilleadh",
+	"table-title-other": "Tuilleadh eolais",
+	"page-edit-history": "Stair iomlán eagarthóireachta",
+	"info-box-close-text": "Dún",
+	"page-talk-page": "Féach ar leathanach plé",
+	"info-box-title": "Fíricí Gasta",
+	"view-in-browser-footer-link": "Féach ar alt i mbrabhsálaí",
+	"page-location": "Féach ar léarscáil",
+	"page-similar-titles": "Leathanaigh den chineál céanna",
+	"page-last-edited": "Curtha in eagar $1 lá ó shin",
+	"article-about-title": "Maidir leis an alt seo",
+	"page-issues": "Ceisteanna le reitiu",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Inneachar ar fáil faoi $1 mura luaitear a mhalairt.",
+	"page-read-in-other-languages": "Ar fáil i {{PLURAL:$1|dteanga amháin eile|$1 teanga eile}}"
 }

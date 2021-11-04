@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "description-add-link-title": "Wuwuh wedharaning sesirah",
-    "article-read-more-title": "Waca candhaké",
-    "table-title-other": "Katerangan liyané",
-    "page-edit-history": "Sajarah besutan wutuh",
-    "info-box-close-text": "Tutup",
-    "page-talk-page": "Deleng kaca parembugan",
-    "info-box-title": "Sunyata Rikat",
-    "view-in-browser-footer-link": "Deleng artikel ing pangluron",
-    "page-location": "Deleng ing petha",
-    "page-similar-titles": "Kaca sairib",
-    "page-last-edited": "{{PLURAL:$1|0=Kabesut dina iki|1=Kabesut wingi|Kabesut $1 dina kapungkur}}",
-    "article-about-title": "Ngenani artikel iki",
-    "page-issues": "Masalah kaca",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Isi cumepak kanthi pangayoman $1, kajaba ana katerangan liyané.",
-    "page-read-in-other-languages": "Cumawis ing {{PLURAL:$1|$1 basa liyané}}"
+	"@metadata": {
+		"authors": []
+	},
+	"description-add-link-title": "Wuwuh wedharaning sesirah",
+	"article-read-more-title": "Waca candhaké",
+	"table-title-other": "Katerangan liyané",
+	"page-edit-history": "Sajarah besutan wutuh",
+	"info-box-close-text": "Tutup",
+	"page-talk-page": "Deleng kaca parembugan",
+	"info-box-title": "Sunyata Rikat",
+	"view-in-browser-footer-link": "Deleng artikel ing pangluron",
+	"page-location": "Deleng ing petha",
+	"page-similar-titles": "Kaca sairib",
+	"page-last-edited": "{{PLURAL:$1|0=Kabesut dina iki|1=Kabesut wingi|Kabesut $1 dina kapungkur}}",
+	"article-about-title": "Ngenani artikel iki",
+	"page-issues": "Masalah kaca",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Isi cumepak kanthi pangayoman $1, kajaba ana katerangan liyané.",
+	"page-read-in-other-languages": "Cumawis ing {{PLURAL:$1|$1 basa liyané}}"
 }

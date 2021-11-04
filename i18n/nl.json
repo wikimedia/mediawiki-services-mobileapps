@@ -1,35 +1,35 @@
 {
-    "@metadata": {
-        "authors": [
-            "Mainframe98",
-            "Optilete",
-            "PonkoSasuke",
-            "Siebrand"
-        ]
-    },
-    "description-add-link-title": "Paginabeschrijving toevoegen",
-    "article-read-more-title": "Meer lezen",
-    "table-title-other": "Meer informatie",
-    "page-edit-history": "Bewerkingsgeschiedenis bekijken",
-    "info-box-close-text": "Sluiten",
-    "page-talk-page-subtitle": "Overleg over verbeteringen voor deze pagina",
-    "page-issues-subtitle": "Melding over problematische inhoud of inhoud van lage kwaliteit",
-    "page-talk-page": "Overlegpagina bekijken",
-    "info-box-title": "Snelle feiten",
-    "view-in-browser-footer-link": "Pagina in browser bekijken",
-    "page-location": "Op een kaart bekijken",
-    "page-similar-titles": "Vergelijkbare pagina's",
-    "page-last-edited": "{{PLURAL:$1|1=Gisteren bijgewerkt|$1 dagen geleden bijgewerkt|0=Vandaag bijgewerkt}}",
-    "article-about-title": "Over deze pagina",
-    "page-issues": "Paginaproblemen",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "De inhoud is beschikbaar onder de licentie $1 tenzij anders aangegeven.",
-    "page-read-in-other-languages": "Beschikbaar in {{PLURAL:$1|$1 andere taal|$1 andere talen}}",
-    "article-edit-button": "Sectie bewerken",
-    "article-edit-protected-button": "Sectie op beveiligde pagina bewerken",
-    "article-section-expand": "Sectie uitklappen",
-    "article-section-collapse": "Sectie inklappen",
-    "table-expand": "Tabel uitklappen",
-    "table-collapse": "Tabel inklappen",
-    "references-preview-header": "Voorbeeldweergave van de referenties"
+	"@metadata": {
+		"authors": [
+			"Mainframe98",
+			"Optilete",
+			"PonkoSasuke",
+			"Siebrand"
+		]
+	},
+	"description-add-link-title": "Paginabeschrijving toevoegen",
+	"article-read-more-title": "Meer lezen",
+	"table-title-other": "Meer informatie",
+	"page-edit-history": "Bewerkingsgeschiedenis bekijken",
+	"info-box-close-text": "Sluiten",
+	"page-talk-page-subtitle": "Overleg over verbeteringen voor deze pagina",
+	"page-issues-subtitle": "Melding over problematische inhoud of inhoud van lage kwaliteit",
+	"page-talk-page": "Overlegpagina bekijken",
+	"info-box-title": "Snelle feiten",
+	"view-in-browser-footer-link": "Pagina in browser bekijken",
+	"page-location": "Op een kaart bekijken",
+	"page-similar-titles": "Vergelijkbare pagina's",
+	"page-last-edited": "{{PLURAL:$1|1=Gisteren bijgewerkt|$1 dagen geleden bijgewerkt|0=Vandaag bijgewerkt}}",
+	"article-about-title": "Over deze pagina",
+	"page-issues": "Paginaproblemen",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "De inhoud is beschikbaar onder de licentie $1 tenzij anders aangegeven.",
+	"page-read-in-other-languages": "Beschikbaar in {{PLURAL:$1|$1 andere taal|$1 andere talen}}",
+	"article-edit-button": "Sectie bewerken",
+	"article-edit-protected-button": "Sectie op beveiligde pagina bewerken",
+	"article-section-expand": "Sectie uitklappen",
+	"article-section-collapse": "Sectie inklappen",
+	"table-expand": "Tabel uitklappen",
+	"table-collapse": "Tabel inklappen",
+	"references-preview-header": "Voorbeeldweergave van de referenties"
 }

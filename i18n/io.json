@@ -1,32 +1,32 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joao Xavier"
-        ]
-    },
-    "description-add-link-title": "Adjuntez deskripto dil artiklo",
-    "article-read-more-title": "Lektez pluse",
-    "table-title-other": "Plusa informi",
-    "page-edit-history": "Vidar redakto-historio",
-    "info-box-close-text": "Klozez",
-    "page-talk-page-subtitle": "Diskutez quale plubonigar ca artiklo",
-    "page-issues-subtitle": "Avizi pri kontenajo kun basa qualeso",
-    "page-talk-page": "Vidar diskuto-pagino",
-    "info-box-title": "Rapida fakti",
-    "view-in-browser-footer-link": "Vidar artiklo che ret-navigilo",
-    "page-location": "Vidar sur mapo",
-    "page-similar-titles": "Simila pagini",
-    "page-last-edited": "{{PLURAL:$1|Aktualigita hiere|Aktualigita $1 dii ante nun|0=Aktualigita hodie}}",
-    "article-about-title": "Pri ca artiklo",
-    "page-issues": "Problemi en la pagino",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "La kontenajo esas disponebla sub $1, ecepte kande kontree mencionata.",
-    "page-read-in-other-languages": "Disponebla en {{PLURAL:$1|$1 altra linguo|$1 altra lingui}}",
-    "article-edit-button": "Redaktar seciono",
-    "article-edit-protected-button": "Redaktar segmento di pagino protektita",
-    "article-section-expand": "Expansar segmento",
-    "article-section-collapse": "Rekoliar segmento",
-    "table-expand": "Expansar tabelo",
-    "table-collapse": "Rekoliar tabelo",
-    "references-preview-header": "Previdado di referi"
+	"@metadata": {
+		"authors": [
+			"Joao Xavier"
+		]
+	},
+	"description-add-link-title": "Adjuntez deskripto dil artiklo",
+	"article-read-more-title": "Lektez pluse",
+	"table-title-other": "Plusa informi",
+	"page-edit-history": "Vidar redakto-historio",
+	"info-box-close-text": "Klozez",
+	"page-talk-page-subtitle": "Diskutez quale plubonigar ca artiklo",
+	"page-issues-subtitle": "Avizi pri kontenajo kun basa qualeso",
+	"page-talk-page": "Vidar diskuto-pagino",
+	"info-box-title": "Rapida fakti",
+	"view-in-browser-footer-link": "Vidar artiklo che ret-navigilo",
+	"page-location": "Vidar sur mapo",
+	"page-similar-titles": "Simila pagini",
+	"page-last-edited": "{{PLURAL:$1|Aktualigita hiere|Aktualigita $1 dii ante nun|0=Aktualigita hodie}}",
+	"article-about-title": "Pri ca artiklo",
+	"page-issues": "Problemi en la pagino",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "La kontenajo esas disponebla sub $1, ecepte kande kontree mencionata.",
+	"page-read-in-other-languages": "Disponebla en {{PLURAL:$1|$1 altra linguo|$1 altra lingui}}",
+	"article-edit-button": "Redaktar seciono",
+	"article-edit-protected-button": "Redaktar segmento di pagino protektita",
+	"article-section-expand": "Expansar segmento",
+	"article-section-collapse": "Rekoliar segmento",
+	"table-expand": "Expansar tabelo",
+	"table-collapse": "Rekoliar tabelo",
+	"references-preview-header": "Previdado di referi"
 }

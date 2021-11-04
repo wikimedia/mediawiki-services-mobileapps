@@ -1,32 +1,32 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dr Lotus Black"
-        ]
-    },
-    "description-add-link-title": "ဆောင်းပါးဖော်ပြချက် ပေါင်းထည့်ရန်",
-    "article-read-more-title": "ဆက်ဖတ်ပါ",
-    "table-title-other": "နောက်ထပ် အချက်အလက်များ",
-    "page-edit-history": "တည်းဖြတ်မှုမှတ်တမ်း အပြည့်အစုံ",
-    "info-box-close-text": "ပိတ်ရန်",
-    "page-talk-page-subtitle": "ဤဆောင်းပါးအတွက် တိုးတက်မှုများကို ဆွေးနွေးရန်",
-    "page-issues-subtitle": "ပြဿနာရှိသောအကြောင်းအရာအား အသိပေးရန်",
-    "page-talk-page": "ဆွေးနွေးချက်စာမျက်နှာကို ကြည့်ရန်",
-    "info-box-title": "အချက်တိုများ",
-    "view-in-browser-footer-link": "ဆောင်းပါးကို ဘရောက်ဆာတွင် ကြည့်ရန်",
-    "page-location": "မြေပုံပေါ်တွင် ကြည့်ရန်",
-    "page-similar-titles": "ဆင်တူစာမျက်နှာများ",
-    "page-last-edited": "{{PLURAL:$1|0=ယနေ့တည်းဖြတ်ခဲ့သည်|1=မနေ့ကတည်းဖြတ်ခဲ့သည်|$1 ရက်အကြာက တည်းဖြတ်ခဲ့သည်}}",
-    "article-about-title": "ဤဆောင်းပါးအကြောင်း",
-    "page-issues": "စာမျက်နှာ ကိစ္စရပ်များ",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "အကြောင်းအရာများကို အခြားမှတ်ချက်မရှိပါက $1 အောက်တွင် ရရှိနိုင်ပါသည်။",
-    "page-read-in-other-languages": "{{PLURAL:$1|$1 အခြားဘာသာစကား|$1 အခြားဘာသာစကားများ}}တွင် ရရှိနိုင်သည်",
-    "article-edit-button": "အပိုင်းလိုက် ပြင်ဆင်ရန်",
-    "article-edit-protected-button": "ကာကွယ်ထားသောစာမျက်နှာတွင် အပိုင်းလိုက်ပြင်ဆင်ရန်",
-    "article-section-expand": "အပိုင်းလိုက် ချဲ့ကားရန်",
-    "article-section-collapse": "အပိုင်းလိုက် ချုံ့ရန်",
-    "table-expand": "ဇယားကို ချဲ့ကားရန်",
-    "table-collapse": "ဇယားကို ချုံ့ရန်",
-    "references-preview-header": "အကိုးအကားများ၏ အကြိုမြင်ကွင်း"
+	"@metadata": {
+		"authors": [
+			"Dr Lotus Black"
+		]
+	},
+	"description-add-link-title": "ဆောင်းပါးဖော်ပြချက် ပေါင်းထည့်ရန်",
+	"article-read-more-title": "ဆက်ဖတ်ပါ",
+	"table-title-other": "နောက်ထပ် အချက်အလက်များ",
+	"page-edit-history": "တည်းဖြတ်မှုမှတ်တမ်း အပြည့်အစုံ",
+	"info-box-close-text": "ပိတ်ရန်",
+	"page-talk-page-subtitle": "ဤဆောင်းပါးအတွက် တိုးတက်မှုများကို ဆွေးနွေးရန်",
+	"page-issues-subtitle": "ပြဿနာရှိသောအကြောင်းအရာအား အသိပေးရန်",
+	"page-talk-page": "ဆွေးနွေးချက်စာမျက်နှာကို ကြည့်ရန်",
+	"info-box-title": "အချက်တိုများ",
+	"view-in-browser-footer-link": "ဆောင်းပါးကို ဘရောက်ဆာတွင် ကြည့်ရန်",
+	"page-location": "မြေပုံပေါ်တွင် ကြည့်ရန်",
+	"page-similar-titles": "ဆင်တူစာမျက်နှာများ",
+	"page-last-edited": "{{PLURAL:$1|0=ယနေ့တည်းဖြတ်ခဲ့သည်|1=မနေ့ကတည်းဖြတ်ခဲ့သည်|$1 ရက်အကြာက တည်းဖြတ်ခဲ့သည်}}",
+	"article-about-title": "ဤဆောင်းပါးအကြောင်း",
+	"page-issues": "စာမျက်နှာ ကိစ္စရပ်များ",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "အကြောင်းအရာများကို အခြားမှတ်ချက်မရှိပါက $1 အောက်တွင် ရရှိနိုင်ပါသည်။",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 အခြားဘာသာစကား|$1 အခြားဘာသာစကားများ}}တွင် ရရှိနိုင်သည်",
+	"article-edit-button": "အပိုင်းလိုက် ပြင်ဆင်ရန်",
+	"article-edit-protected-button": "ကာကွယ်ထားသောစာမျက်နှာတွင် အပိုင်းလိုက်ပြင်ဆင်ရန်",
+	"article-section-expand": "အပိုင်းလိုက် ချဲ့ကားရန်",
+	"article-section-collapse": "အပိုင်းလိုက် ချုံ့ရန်",
+	"table-expand": "ဇယားကို ချဲ့ကားရန်",
+	"table-collapse": "ဇယားကို ချုံ့ရန်",
+	"references-preview-header": "အကိုးအကားများ၏ အကြိုမြင်ကွင်း"
 }

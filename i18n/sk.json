@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "Jaroslav.micek",
-            "Yardom78"
-        ]
-    },
-    "description-add-link-title": "Pridať popis článku",
-    "article-read-more-title": "Prečítajte si viac",
-    "table-title-other": "Viac informácií",
-    "page-edit-history": "Zobraziť históriu úprav",
-    "info-box-close-text": "Zavrieť",
-    "page-talk-page-subtitle": "Diskutovať o vylepšeniach tohto článku",
-    "page-issues-subtitle": "Upozornenia o nekvalitnom alebo problematickom obsahu",
-    "page-talk-page": "Zobraziť diskusiu",
-    "info-box-title": "Rýchle fakty",
-    "view-in-browser-footer-link": "Zobraziť článok v prehliadači",
-    "page-location": "Zobraziť na mape",
-    "page-similar-titles": "Podobné stránky",
-    "page-last-edited": "{{PLURAL:$1|0=Aktualizované dnes|1=Aktualizované včera|Aktualizované pred $1 dňami}}",
-    "article-about-title": "O tomto článku",
-    "page-issues": "Problémy stránky",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Pokiaľ nie je uvedené inak, je obsah dostupný v rámci licencie $1.",
-    "page-read-in-other-languages": "Dostupné v {{PLURAL:$1|$1 ďalšom jazyku|$1 ďalších jazykoch}}",
-    "article-edit-button": "Upraviť odsek",
-    "article-edit-protected-button": "Upraviť odsek na chránenej stránke",
-    "article-section-expand": "Rozbaliť odsek",
-    "article-section-collapse": "Zbaliť odsek",
-    "table-expand": "Rozbaliť tabuľku",
-    "table-collapse": "Zbaliť tabuľku",
-    "references-preview-header": "Náhľad referencií"
+	"@metadata": {
+		"authors": [
+			"Jaroslav.micek",
+			"Yardom78"
+		]
+	},
+	"description-add-link-title": "Pridať popis článku",
+	"article-read-more-title": "Prečítajte si viac",
+	"table-title-other": "Viac informácií",
+	"page-edit-history": "Zobraziť históriu úprav",
+	"info-box-close-text": "Zavrieť",
+	"page-talk-page-subtitle": "Diskutovať o vylepšeniach tohto článku",
+	"page-issues-subtitle": "Upozornenia o nekvalitnom alebo problematickom obsahu",
+	"page-talk-page": "Zobraziť diskusiu",
+	"info-box-title": "Rýchle fakty",
+	"view-in-browser-footer-link": "Zobraziť článok v prehliadači",
+	"page-location": "Zobraziť na mape",
+	"page-similar-titles": "Podobné stránky",
+	"page-last-edited": "{{PLURAL:$1|0=Aktualizované dnes|1=Aktualizované včera|Aktualizované pred $1 dňami}}",
+	"article-about-title": "O tomto článku",
+	"page-issues": "Problémy stránky",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Pokiaľ nie je uvedené inak, je obsah dostupný v rámci licencie $1.",
+	"page-read-in-other-languages": "Dostupné v {{PLURAL:$1|$1 ďalšom jazyku|$1 ďalších jazykoch}}",
+	"article-edit-button": "Upraviť odsek",
+	"article-edit-protected-button": "Upraviť odsek na chránenej stránke",
+	"article-section-expand": "Rozbaliť odsek",
+	"article-section-collapse": "Zbaliť odsek",
+	"table-expand": "Rozbaliť tabuľku",
+	"table-collapse": "Zbaliť tabuľku",
+	"references-preview-header": "Náhľad referencií"
 }

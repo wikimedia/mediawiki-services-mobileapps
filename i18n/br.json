@@ -1,32 +1,32 @@
 {
-    "@metadata": {
-        "authors": [
-            "Fulup"
-        ]
-    },
-    "description-add-link-title": "Ouzhpennañ deskrivadur ar pennad",
-    "article-read-more-title": "Lenn muioc'h",
-    "table-title-other": "Muioc'h a ditouroù",
-    "page-edit-history": "Istor klok ar c'hemmoù",
-    "info-box-close-text": "Serriñ",
-    "page-talk-page-subtitle": "Kaozeal diwar-benn gwellaennoù da zegas d'ar pennad-mañ",
-    "page-issues-subtitle": "Disklêriañ danvezioù kudennek pe izel e live betek re.",
-    "page-talk-page": "Gwelet ar bajenn gaozeal",
-    "info-box-title": "Fedoù berr-ha-berr",
-    "view-in-browser-footer-link": "Gwelet ar pennad er merdeer",
-    "page-location": "Diskwel war ur gartenn",
-    "page-similar-titles": "Pajennoù damheñvel",
-    "page-last-edited": "Kemmet $1 deiz zo",
-    "article-about-title": "Diwar-benn ar pennad-mañ",
-    "page-issues": "Kudennoù war ar bajenn",
-    "license-footer-name": "CC-BY-SA 3.0",
-    "license-footer-text": "An endalc'had a c'haller kavout dindan $1, nemet e vefe spisaet ar c'hontrol.",
-    "page-read-in-other-languages": "A c'haller kaout e $1 yezh all",
-    "article-edit-button": "Kemmañ ar rann",
-    "article-edit-protected-button": "Kemmañ ar rannbennad war ar bajenn warezet",
-    "article-section-expand": "Dispakañ ar rannbennad",
-    "article-section-collapse": "Dastum ar rannbennad",
-    "table-expand": "Dispakañ an daolenn",
-    "table-collapse": "Dastum an daolenn",
-    "references-preview-header": "Rakwel an daveennoù"
+	"@metadata": {
+		"authors": [
+			"Fulup"
+		]
+	},
+	"description-add-link-title": "Ouzhpennañ deskrivadur ar pennad",
+	"article-read-more-title": "Lenn muioc'h",
+	"table-title-other": "Muioc'h a ditouroù",
+	"page-edit-history": "Istor klok ar c'hemmoù",
+	"info-box-close-text": "Serriñ",
+	"page-talk-page-subtitle": "Kaozeal diwar-benn gwellaennoù da zegas d'ar pennad-mañ",
+	"page-issues-subtitle": "Disklêriañ danvezioù kudennek pe izel e live betek re.",
+	"page-talk-page": "Gwelet ar bajenn gaozeal",
+	"info-box-title": "Fedoù berr-ha-berr",
+	"view-in-browser-footer-link": "Gwelet ar pennad er merdeer",
+	"page-location": "Diskwel war ur gartenn",
+	"page-similar-titles": "Pajennoù damheñvel",
+	"page-last-edited": "Kemmet $1 deiz zo",
+	"article-about-title": "Diwar-benn ar pennad-mañ",
+	"page-issues": "Kudennoù war ar bajenn",
+	"license-footer-name": "CC-BY-SA 3.0",
+	"license-footer-text": "An endalc'had a c'haller kavout dindan $1, nemet e vefe spisaet ar c'hontrol.",
+	"page-read-in-other-languages": "A c'haller kaout e $1 yezh all",
+	"article-edit-button": "Kemmañ ar rann",
+	"article-edit-protected-button": "Kemmañ ar rannbennad war ar bajenn warezet",
+	"article-section-expand": "Dispakañ ar rannbennad",
+	"article-section-collapse": "Dastum ar rannbennad",
+	"table-expand": "Dispakañ an daolenn",
+	"table-collapse": "Dastum an daolenn",
+	"references-preview-header": "Rakwel an daveennoù"
 }

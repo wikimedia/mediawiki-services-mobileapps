@@ -1,31 +1,31 @@
 {
-    "@metadata": {
-        "authors": [
-            "Fitoschido",
-            "Joanmp17"
-        ]
-    },
-    "description-add-link-title": "Añadir descripción de artículo",
-    "article-read-more-title": "Seguir leyendo",
-    "table-title-other": "Más información",
-    "page-edit-history": "Ver historial de ediciones",
-    "info-box-close-text": "Cerrar",
-    "page-talk-page-subtitle": "Debatir mejoras a este artículo",
-    "page-issues-subtitle": "Avisa sobre contenido problemático o de baja calidad",
-    "page-talk-page": "Ver página de discusión",
-    "info-box-title": "Datos rápidos",
-    "view-in-browser-footer-link": "Ver artículo en el navegador",
-    "page-location": "Ver en mapa",
-    "page-similar-titles": "Páginas similares",
-    "page-last-edited": "{{PLURAL:$1|Actualizado ayer|Actualizado hace $1 días|0=Actualizado hoy}}",
-    "article-about-title": "Acerca de este artículo",
-    "page-issues": "Problemas de la página",
-    "license-footer-name": "CC-BY-SA 3.0",
-    "license-footer-text": "El contenido está disponible bajo la licencia $1, salvo que se indique lo contrario.",
-    "page-read-in-other-languages": "\nDisponible en {{PLURAL:$1|$1 idioma más|otros $1 idiomas}}",
-    "article-edit-button": "Editar sección",
-    "article-edit-protected-button": "Editar sección de página protegida",
-    "article-section-expand": "Expandir sección",
-    "table-expand": "Expandir tabla",
-    "references-preview-header": "Previsualización de las referencias"
+	"@metadata": {
+		"authors": [
+			"Fitoschido",
+			"Joanmp17"
+		]
+	},
+	"description-add-link-title": "Añadir descripción de artículo",
+	"article-read-more-title": "Seguir leyendo",
+	"table-title-other": "Más información",
+	"page-edit-history": "Ver historial de ediciones",
+	"info-box-close-text": "Cerrar",
+	"page-talk-page-subtitle": "Debatir mejoras a este artículo",
+	"page-issues-subtitle": "Avisa sobre contenido problemático o de baja calidad",
+	"page-talk-page": "Ver página de discusión",
+	"info-box-title": "Datos rápidos",
+	"view-in-browser-footer-link": "Ver artículo en el navegador",
+	"page-location": "Ver en mapa",
+	"page-similar-titles": "Páginas similares",
+	"page-last-edited": "{{PLURAL:$1|Actualizado ayer|Actualizado hace $1 días|0=Actualizado hoy}}",
+	"article-about-title": "Acerca de este artículo",
+	"page-issues": "Problemas de la página",
+	"license-footer-name": "CC-BY-SA 3.0",
+	"license-footer-text": "El contenido está disponible bajo la licencia $1, salvo que se indique lo contrario.",
+	"page-read-in-other-languages": "\nDisponible en {{PLURAL:$1|$1 idioma más|otros $1 idiomas}}",
+	"article-edit-button": "Editar sección",
+	"article-edit-protected-button": "Editar sección de página protegida",
+	"article-section-expand": "Expandir sección",
+	"table-expand": "Expandir tabla",
+	"references-preview-header": "Previsualización de las referencias"
 }

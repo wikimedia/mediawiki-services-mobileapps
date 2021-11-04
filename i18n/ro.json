@@ -1,32 +1,32 @@
 {
-    "@metadata": {
-        "authors": [
-            "Strainu"
-        ]
-    },
-    "description-add-link-title": "Adaugă descrierea articolului",
-    "article-read-more-title": "Citiți mai multe",
-    "table-title-other": "Mai multe informații",
-    "page-edit-history": "Istoric complet al modificărilor",
-    "info-box-close-text": "Închide",
-    "page-talk-page-subtitle": "Discută îmbunătățiri pentru acest articol",
-    "page-issues-subtitle": "Alerte despre conținut slab sau problematic",
-    "page-talk-page": "Vezi pagina de discuții",
-    "info-box-title": "Informații pe scurt",
-    "view-in-browser-footer-link": "Vezi articolul în browser",
-    "page-location": "Vezi pe o hartă",
-    "page-similar-titles": "Pagini similare",
-    "page-last-edited": "{{PLURAL:$1|Actualizat ieri|Actualizat acum $1 zile|Actualizat acum $1 de zile|0=Actualizat azi}}",
-    "article-about-title": "Despre acest articol",
-    "page-issues": "Problemele paginii",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Conținutul este disponibil sub $1, exceptând cazurile în care se specifică altfel.",
-    "page-read-in-other-languages": "Disponibil în alte $1 limbi",
-    "article-edit-button": "Modificare secțiune",
-    "article-edit-protected-button": "Modificare secțiune a unei pagini protejate",
-    "article-section-expand": "Arată secțiunea",
-    "article-section-collapse": "Ascunde secțiunea",
-    "table-expand": "Arată tabelul",
-    "table-collapse": "Ascunde tabelul",
-    "references-preview-header": "Previzualizare a notelor"
+	"@metadata": {
+		"authors": [
+			"Strainu"
+		]
+	},
+	"description-add-link-title": "Adaugă descrierea articolului",
+	"article-read-more-title": "Citiți mai multe",
+	"table-title-other": "Mai multe informații",
+	"page-edit-history": "Istoric complet al modificărilor",
+	"info-box-close-text": "Închide",
+	"page-talk-page-subtitle": "Discută îmbunătățiri pentru acest articol",
+	"page-issues-subtitle": "Alerte despre conținut slab sau problematic",
+	"page-talk-page": "Vezi pagina de discuții",
+	"info-box-title": "Informații pe scurt",
+	"view-in-browser-footer-link": "Vezi articolul în browser",
+	"page-location": "Vezi pe o hartă",
+	"page-similar-titles": "Pagini similare",
+	"page-last-edited": "{{PLURAL:$1|Actualizat ieri|Actualizat acum $1 zile|Actualizat acum $1 de zile|0=Actualizat azi}}",
+	"article-about-title": "Despre acest articol",
+	"page-issues": "Problemele paginii",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Conținutul este disponibil sub $1, exceptând cazurile în care se specifică altfel.",
+	"page-read-in-other-languages": "Disponibil în alte $1 limbi",
+	"article-edit-button": "Modificare secțiune",
+	"article-edit-protected-button": "Modificare secțiune a unei pagini protejate",
+	"article-section-expand": "Arată secțiunea",
+	"article-section-collapse": "Ascunde secțiunea",
+	"table-expand": "Arată tabelul",
+	"table-collapse": "Ascunde tabelul",
+	"references-preview-header": "Previzualizare a notelor"
 }

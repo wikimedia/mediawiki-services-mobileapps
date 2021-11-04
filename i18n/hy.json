@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kareyac"
-        ]
-    },
-    "description-add-link-title": "Ավելացնել հոդվածի նկարագրություն",
-    "article-read-more-title": "Կարդալ ավելին",
-    "table-title-other": "Մանրամասն տեղեկատվություն",
-    "page-edit-history": "Դիտել խմբագրումների պատմությունը",
-    "info-box-close-text": "Փակել",
-    "info-box-title": "Արագ փաստեր",
-    "page-location": "Դիտել քարտեզի վրա",
-    "page-similar-titles": "Նմանատիպ էջեր",
-    "article-about-title": "Այս հոդվածի մասին",
-    "page-issues": "Էջի խնդիրներ",
-    "license-footer-name": "CC BY-SA 3.0",
-    "license-footer-text": "Բովանդակությունը թողարկված է $1, եթե այլ բան նշված չէ։",
-    "article-edit-button": "Խմբագրել էջ"
+	"@metadata": {
+		"authors": [
+			"Kareyac"
+		]
+	},
+	"description-add-link-title": "Ավելացնել հոդվածի նկարագրություն",
+	"article-read-more-title": "Կարդալ ավելին",
+	"table-title-other": "Մանրամասն տեղեկատվություն",
+	"page-edit-history": "Դիտել խմբագրումների պատմությունը",
+	"info-box-close-text": "Փակել",
+	"info-box-title": "Արագ փաստեր",
+	"page-location": "Դիտել քարտեզի վրա",
+	"page-similar-titles": "Նմանատիպ էջեր",
+	"article-about-title": "Այս հոդվածի մասին",
+	"page-issues": "Էջի խնդիրներ",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Բովանդակությունը թողարկված է $1, եթե այլ բան նշված չէ։",
+	"article-edit-button": "Խմբագրել էջ"
 }
