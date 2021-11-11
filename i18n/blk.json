@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Khun Kt",
 			"咽頭べさ"
 		]
 	},
 	"description-add-link-title": "ထဲမ်သော့ꩻ ရောမ်ဖြုဲင်ꩻအွောန်ႏနယ်ချက်",
 	"article-read-more-title": "ဟော်ꩻထဲင်းအသွုပ်",
 	"table-title-other": "အချက်လက် အထဲင်းဖုံႏ",
-	"page-edit-history": "ခြပ်ချော်ꩻမုꩻမုဲင်တန်ꩻ အဗွေအစွုမ်ႏ",
+	"page-edit-history": "ထွား ခြပ်ချော်ꩻမုꩻမုဲင်တန်ꩻ",
 	"info-box-close-text": "ပေ့ꩻထိုꩻ",
 	"page-talk-page-subtitle": "ရောမ်ဖြုဲင်ꩻယိုအတာႏ အိုင်ကိုမ်သွော့ ထင်ႏထိုမုꩻဖုံႏ",
 	"page-issues-subtitle": "ဖေႏသေသွော့ ပျသာႏနာႏကအဝ်ႏဒါႏ အကျောင်ꩻခရာႏဖုံႏ",
@@ -16,6 +17,7 @@
 	"view-in-browser-footer-link": "ထွားရောမ်ဖြုဲင်ꩻ တောမ်ႏဗရောင်သာကို",
 	"page-location": "ထွား ဟံႏပုင်ႏကို",
 	"page-similar-titles": "လိတ်မဲ့ငါဗိုန်ပီဖုံႏ",
+	"page-last-edited": "{{PLURAL:$1|ဒင်ႏထွူလဲဉ်းမဟာနီꩻ|ဒင်ႏထွူ လꩻလဲဉ်း $1 နီꩻ|0=ဒင်ႏထွူလဲဉ်းဟန်ႏနီꩻ}}",
 	"article-about-title": "ရောမ်ဖြုဲင်ꩻယိုခရာႏ",
 	"page-issues": "လိတ်မဲ့ငါ ခရာႏဖုံႏ",
 	"license-footer-name": "CC BY-SA 3.0",
