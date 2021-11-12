@@ -27,51 +27,51 @@ const headHtml2
 
 describe('lib:domUtil', () => {
 
-    describe('isRTL', () => {
-        it('isRTL should return false for LTR doc', () => {
-            const document = testUtil.readTestFixtureDoc('Dog.html');
-            const firstSectionElement = document.querySelector('section');
-            assert.ok(!lib.isRTL(firstSectionElement));
-        });
+	describe('isRTL', () => {
+		it('isRTL should return false for LTR doc', () => {
+			const document = testUtil.readTestFixtureDoc('Dog.html');
+			const firstSectionElement = document.querySelector('section');
+			assert.ok(!lib.isRTL(firstSectionElement));
+		});
 
-        it('isRTL should return true for RTL doc', () => {
-            const document = testUtil.readTestFixtureDoc('ar-Mathematics.html');
-            const firstSectionElement = document.querySelector('section');
-            assert.ok(lib.isRTL(firstSectionElement));
-        });
-    });
+		it('isRTL should return true for RTL doc', () => {
+			const document = testUtil.readTestFixtureDoc('ar-Mathematics.html');
+			const firstSectionElement = document.querySelector('section');
+			assert.ok(lib.isRTL(firstSectionElement));
+		});
+	});
 
-    describe('getBaseUri()', () => {
-        it('returns URL without protocol', () => {
-            const doc = domino.createDocument(headHtml1);
-            assert.deepEqual(lib.getBaseUri(doc), '//en.wikipedia.org/wiki/');
-        });
-    });
+	describe('getBaseUri()', () => {
+		it('returns URL without protocol', () => {
+			const doc = domino.createDocument(headHtml1);
+			assert.deepEqual(lib.getBaseUri(doc), '//en.wikipedia.org/wiki/');
+		});
+	});
 
-    describe('getHttpsBaseUri()', () => {
-        it('returns URL with https protocol', () => {
-            const doc = domino.createDocument(headHtml1);
-            assert.deepEqual(lib.getHttpsBaseUri(doc), 'https://en.wikipedia.org/wiki/');
-        });
-    });
+	describe('getHttpsBaseUri()', () => {
+		it('returns URL with https protocol', () => {
+			const doc = domino.createDocument(headHtml1);
+			assert.deepEqual(lib.getHttpsBaseUri(doc), 'https://en.wikipedia.org/wiki/');
+		});
+	});
 
-    describe('getParsoidPlainTitle', () => {
-        it('getParsoidPlainTitle should return normalized title', () => {
-            const doc = domino.createDocument(headHtml1);
-            assert.deepEqual(lib.getParsoidPlainTitle(doc), 'Hope (painting)');
-        });
-    });
+	describe('getParsoidPlainTitle', () => {
+		it('getParsoidPlainTitle should return normalized title', () => {
+			const doc = domino.createDocument(headHtml1);
+			assert.deepEqual(lib.getParsoidPlainTitle(doc), 'Hope (painting)');
+		});
+	});
 
-    describe('getParsoidLinkTitle', () => {
-        it('getParsoidLinkTitle should return DB title', () => {
-            const doc = domino.createDocument(headHtml1);
-            assert.deepEqual(lib.getParsoidLinkTitle(doc), 'Hope_(painting)');
-        });
+	describe('getParsoidLinkTitle', () => {
+		it('getParsoidLinkTitle should return DB title', () => {
+			const doc = domino.createDocument(headHtml1);
+			assert.deepEqual(lib.getParsoidLinkTitle(doc), 'Hope_(painting)');
+		});
 
-        it('getParsoidLinkTitle should percent-decode title', () => {
-            const doc = domino.createDocument(headHtml2);
-            assert.deepEqual(lib.getParsoidLinkTitle(doc),
-                'User:BSitzmann_(WMF)/MCS/Test/Title_with_:');
-        });
-    });
+		it('getParsoidLinkTitle should percent-decode title', () => {
+			const doc = domino.createDocument(headHtml2);
+			assert.deepEqual(lib.getParsoidLinkTitle(doc),
+				'User:BSitzmann_(WMF)/MCS/Test/Title_with_:');
+		});
+	});
 });

@@ -13,7 +13,7 @@ const P = require('bluebird');
  * @return {!string}
  */
 const readFileSync = (fileName) => {
-    return fs.readFileSync(path.resolve(FIXTURES, fileName), 'utf8');
+	return fs.readFileSync(path.resolve(FIXTURES, fileName), 'utf8');
 };
 
 /**
@@ -21,8 +21,8 @@ const readFileSync = (fileName) => {
  * @return {!Document}
  */
 const readIntoDocument = (fileName) => {
-    const html = readFileSync(fileName);
-    return domino.createDocument(html);
+	const html = readFileSync(fileName);
+	return domino.createDocument(html);
 };
 
 /**
@@ -30,12 +30,12 @@ const readIntoDocument = (fileName) => {
  * @return {!Document}
  */
 const readProcessingScript = (fileName) => {
-    const yamlFile = fs.readFileSync(path.resolve(PROCESSING, `${fileName}.yaml`));
-    return yaml.safeLoad(yamlFile);
+	const yamlFile = fs.readFileSync(path.resolve(PROCESSING, `${fileName}.yaml`));
+	return yaml.safeLoad(yamlFile);
 };
 
 module.exports = {
-    readFileSync,
-    readIntoDocument,
-    readProcessingScript
+	readFileSync,
+	readIntoDocument,
+	readProcessingScript
 };

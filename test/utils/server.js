@@ -15,7 +15,7 @@ const sepia = require('sepia');
 
 // set up the configuration
 let config = {
-    conf: yaml.safeLoad(fs.readFileSync(`${__dirname}/../../config.yaml`))
+	conf: yaml.safeLoad(fs.readFileSync(`${__dirname}/../../config.yaml`))
 };
 // build the API endpoint URI by supposing the actual service
 // is the last one in the 'services' list in the config file
@@ -27,17 +27,17 @@ config.service = myService;
 config.conf.num_workers = 0;
 // have a separate, in-memory logger only
 config.conf.logging = {
-    name: 'test-log',
-    level: 'trace',
-    stream: logStream()
+	name: 'test-log',
+	level: 'trace',
+	stream: logStream()
 };
 // make a deep copy of it for later reference
 const origConfig = extend(true, {}, config);
 
 // Requests to our own service should always be live and not use the VCR facility.
 sepia.filter({
-    url: new RegExp(config.uri),
-    forceLive: true
+	url: new RegExp(config.uri),
+	forceLive: true
 });
 
 module.exports.stop = () => { return BBPromise.resolve(); };
@@ -46,34 +46,34 @@ const runner = new ServiceRunner();
 
 function start(_options) {
 
-    _options = _options || {};
+	_options = _options || {};
 
-    if (!assert.isDeepEqual(options, _options)) {
-        console.log('starting test server');
-        return module.exports.stop().then(() => {
-            options = _options;
-            // set up the config
-            config = extend(true, {}, origConfig);
-            extend(true, config.conf.services[myServiceIdx].conf, options);
-            return runner.start(config.conf)
-                .then((serviceReturns) => {
-                    module.exports.stop = () => {
-                        console.log('stopping test server');
-                        serviceReturns.forEach(servers =>
-                            servers.forEach(server =>
-                                server.shutdown()));
-                        return runner.stop().then(() => {
-                            module.exports.stop = () => {
-                                return BBPromise.resolve();
-                            };
-                        });
-                    };
-                    return true;
-                });
-        });
-    } else {
-        return BBPromise.resolve();
-    }
+	if (!assert.isDeepEqual(options, _options)) {
+		console.log('starting test server');
+		return module.exports.stop().then(() => {
+			options = _options;
+			// set up the config
+			config = extend(true, {}, origConfig);
+			extend(true, config.conf.services[myServiceIdx].conf, options);
+			return runner.start(config.conf)
+				.then((serviceReturns) => {
+					module.exports.stop = () => {
+						console.log('stopping test server');
+						serviceReturns.forEach(servers =>
+							servers.forEach(server =>
+								server.shutdown()));
+						return runner.stop().then(() => {
+							module.exports.stop = () => {
+								return BBPromise.resolve();
+							};
+						});
+					};
+					return true;
+				});
+		});
+	} else {
+		return BBPromise.resolve();
+	}
 }
 
 module.exports.config = config;

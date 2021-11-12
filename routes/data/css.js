@@ -32,10 +32,10 @@ router.get('/pcs', (req, res) => fetchPageLibCss(res));
 router.get('/site', (req, res) => fetchMobileSiteCss(req, res));
 
 module.exports = function(appObj) {
-    app = appObj;
-    return {
-        path: '/data/css/mobile',
-        api_version: 1,
-        router
-    };
+	app = appObj;
+	return {
+		path: '/data/css/mobile',
+		api_version: 1,
+		router
+	};
 };

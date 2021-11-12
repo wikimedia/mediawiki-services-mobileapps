@@ -1,53 +1,53 @@
 {
-    "type": "standard",
-    "title": "Tokyo",
-    "displaytitle": "Tokyo",
-    "namespace": {
-        "id": 0,
-        "text": ""
-    },
-    "wikibase_item": "Q1490",
-    "titles": {
-        "canonical": "Tokyo",
-        "normalized": "Tokyo",
-        "display": "Tokyo"
-    },
-    "pageid": 30057,
-    "thumbnail": {
-        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/320px-Skyscrapers_of_Shinjuku_2009_January.jpg",
-        "width": 320,
-        "height": 171
-    },
-    "originalimage": {
-        "source": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg",
-        "width": 2560,
-        "height": 1364
-    },
-    "lang": "en",
-    "dir": "ltr",
-    "revision": "871928272",
-    "tid": "present",
-    "timestamp": "2018-12-04T06:47:20Z",
-    "description": "Capital of Japan",
-    "description_source": "local",
-    "coordinates": {
-        "lat": 35.68972222,
-        "lon": 139.69222222
-    },
-    "content_urls": {
-        "desktop": {
-            "page": "https://en.wikipedia.org/wiki/Tokyo",
-            "revisions": "https://en.wikipedia.org/wiki/Tokyo?action=history",
-            "edit": "https://en.wikipedia.org/wiki/Tokyo?action=edit",
-            "talk": "https://en.wikipedia.org/wiki/Talk:Tokyo"
-        },
-        "mobile": {
-            "page": "https://en.m.wikipedia.org/wiki/Tokyo",
-            "revisions": "https://en.m.wikipedia.org/wiki/Special:History/Tokyo",
-            "edit": "https://en.m.wikipedia.org/wiki/Tokyo?action=edit",
-            "talk": "https://en.m.wikipedia.org/wiki/Talk:Tokyo"
-        }
-    },
-    "extract": "Tokyo , officially Tokyo Metropolis , one of the 47 prefectures of Japan, has served as the Japanese capital since 1869. As of 2014 the Greater Tokyo Area ranked as the most populous metropolitan area in the world. The urban area houses the seat of the Emperor of Japan, of the Japanese government and of the National Diet. Tokyo forms part of the Kantō region on the southeastern side of Japan's main island, Honshu, and includes the Izu Islands and Ogasawara Islands. Tokyo was formerly named Edo when Shōgun Tokugawa Ieyasu made the city as his headquarters in 1603. It became the capital after Emperor Meiji moved his seat to the city from Kyoto in 1868; at that time Edo was renamed Tokyo. Tokyo Metropolis formed in 1943 from the merger of the former Tokyo Prefecture  and the city of Tokyo .",
-    "extract_html": "<p><b>Tokyo</b><span style=\"font-weight:normal\"> </span>, officially <b>Tokyo Metropolis</b><span style=\"font-weight:normal\"> </span>, one of the 47 prefectures of Japan, has served as the Japanese capital since 1869. As of 2014 the Greater Tokyo Area ranked as the most populous metropolitan area in the world. The urban area houses the seat of the Emperor of Japan, of the Japanese government and of the National Diet. Tokyo forms part of the Kantō region on the southeastern side of Japan's main island, Honshu, and includes the Izu Islands and Ogasawara Islands. Tokyo was formerly named Edo when <i>Shōgun</i> Tokugawa Ieyasu made the city as his headquarters in 1603. It became the capital after Emperor Meiji moved his seat to the city from Kyoto in 1868; at that time Edo was renamed Tokyo. Tokyo Metropolis formed in 1943 from the merger of the former Tokyo Prefecture<span style=\"font-weight:normal\"> </span> and the city of Tokyo<span style=\"font-weight:normal\"> </span>.</p>"
+	"type": "standard",
+	"title": "Tokyo",
+	"displaytitle": "Tokyo",
+	"namespace": {
+		"id": 0,
+		"text": ""
+	},
+	"wikibase_item": "Q1490",
+	"titles": {
+		"canonical": "Tokyo",
+		"normalized": "Tokyo",
+		"display": "Tokyo"
+	},
+	"pageid": 30057,
+	"thumbnail": {
+		"source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/320px-Skyscrapers_of_Shinjuku_2009_January.jpg",
+		"width": 320,
+		"height": 171
+	},
+	"originalimage": {
+		"source": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg",
+		"width": 2560,
+		"height": 1364
+	},
+	"lang": "en",
+	"dir": "ltr",
+	"revision": "871928272",
+	"tid": "present",
+	"timestamp": "2018-12-04T06:47:20Z",
+	"description": "Capital of Japan",
+	"description_source": "local",
+	"coordinates": {
+		"lat": 35.68972222,
+		"lon": 139.69222222
+	},
+	"content_urls": {
+		"desktop": {
+			"page": "https://en.wikipedia.org/wiki/Tokyo",
+			"revisions": "https://en.wikipedia.org/wiki/Tokyo?action=history",
+			"edit": "https://en.wikipedia.org/wiki/Tokyo?action=edit",
+			"talk": "https://en.wikipedia.org/wiki/Talk:Tokyo"
+		},
+		"mobile": {
+			"page": "https://en.m.wikipedia.org/wiki/Tokyo",
+			"revisions": "https://en.m.wikipedia.org/wiki/Special:History/Tokyo",
+			"edit": "https://en.m.wikipedia.org/wiki/Tokyo?action=edit",
+			"talk": "https://en.m.wikipedia.org/wiki/Talk:Tokyo"
+		}
+	},
+	"extract": "Tokyo , officially Tokyo Metropolis , one of the 47 prefectures of Japan, has served as the Japanese capital since 1869. As of 2014 the Greater Tokyo Area ranked as the most populous metropolitan area in the world. The urban area houses the seat of the Emperor of Japan, of the Japanese government and of the National Diet. Tokyo forms part of the Kantō region on the southeastern side of Japan's main island, Honshu, and includes the Izu Islands and Ogasawara Islands. Tokyo was formerly named Edo when Shōgun Tokugawa Ieyasu made the city as his headquarters in 1603. It became the capital after Emperor Meiji moved his seat to the city from Kyoto in 1868; at that time Edo was renamed Tokyo. Tokyo Metropolis formed in 1943 from the merger of the former Tokyo Prefecture  and the city of Tokyo .",
+	"extract_html": "<p><b>Tokyo</b><span style=\"font-weight:normal\"> </span>, officially <b>Tokyo Metropolis</b><span style=\"font-weight:normal\"> </span>, one of the 47 prefectures of Japan, has served as the Japanese capital since 1869. As of 2014 the Greater Tokyo Area ranked as the most populous metropolitan area in the world. The urban area houses the seat of the Emperor of Japan, of the Japanese government and of the National Diet. Tokyo forms part of the Kantō region on the southeastern side of Japan's main island, Honshu, and includes the Izu Islands and Ogasawara Islands. Tokyo was formerly named Edo when <i>Shōgun</i> Tokugawa Ieyasu made the city as his headquarters in 1603. It became the capital after Emperor Meiji moved his seat to the city from Kyoto in 1868; at that time Edo was renamed Tokyo. Tokyo Metropolis formed in 1943 from the merger of the former Tokyo Prefecture<span style=\"font-weight:normal\"> </span> and the city of Tokyo<span style=\"font-weight:normal\"> </span>.</p>"
 }

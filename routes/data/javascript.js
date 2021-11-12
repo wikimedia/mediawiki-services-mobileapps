@@ -11,9 +11,9 @@ router.get('/pagelib', (req, res) => js.fetchLegacyPageLibJs(res));
 router.get('/pcs', (req, res) => js.fetchPageLibJs(res));
 
 module.exports = function(appObj) {
-    return {
-        path: '/data/javascript/mobile',
-        api_version: 1,
-        router
-    };
+	return {
+		path: '/data/javascript/mobile',
+		api_version: 1,
+		router
+	};
 };
