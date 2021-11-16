@@ -22,29 +22,29 @@ let app;
  * Gets extended metadata for a given wiki page.
  */
 router.get('/metadata/:title/:revision?/:tid?', (req, res) => {
-    return BBPromise.join(
-        parsoid.getParsoidHtml(req),
-        mwapi.getMetadataForMetadata(req),
-        mwapi.getSiteInfo(req),
-        (html, meta, siteinfo) => {
-            const revTid = parsoid.getRevAndTidFromEtag(html.headers);
-            return lib.buildMetadata(req, html, meta, siteinfo,
-                app.conf.processing_scripts.metadata)
-                .then((metadata) => {
-                    res.status(200);
-                    mUtil.setETag(res, revTid.revision, revTid.tid);
-                    mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
-                    mUtil.setLanguageHeaders(res, html.headers);
-                    res.json(metadata);
-                });
-        });
+	return BBPromise.join(
+		parsoid.getParsoidHtml(req),
+		mwapi.getMetadataForMetadata(req),
+		mwapi.getSiteInfo(req),
+		(html, meta, siteinfo) => {
+			const revTid = parsoid.getRevAndTidFromEtag(html.headers);
+			return lib.buildMetadata(req, html, meta, siteinfo,
+				app.conf.processing_scripts.metadata)
+				.then((metadata) => {
+					res.status(200);
+					mUtil.setETag(res, revTid.revision, revTid.tid);
+					mUtil.setContentType(res, mUtil.CONTENT_TYPES.metadata);
+					mUtil.setLanguageHeaders(res, html.headers);
+					res.json(metadata);
+				});
+		});
 });
 
 module.exports = function(appObj) {
-    app = appObj;
-    return {
-        path: '/page',
-        api_version: 1,
-        router
-    };
+	app = appObj;
+	return {
+		path: '/page',
+		api_version: 1,
+		router
+	};
 };

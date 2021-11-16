@@ -20,17 +20,17 @@ const testUtil = {};
  * @return {!string} formatted date string
  */
 testUtil.constructTestDate = function(dateObj) {
-    return `${dateObj.getUTCFullYear()}/${
-        dateUtil.pad(dateObj.getUTCMonth() + 1)}/${
-        dateUtil.pad(dateObj.getUTCDate())}`;
+	return `${dateObj.getUTCFullYear()}/${
+		dateUtil.pad(dateObj.getUTCMonth() + 1)}/${
+		dateUtil.pad(dateObj.getUTCDate())}`;
 };
 
 testUtil.rbTemplate = new Template({
-    method: '{{request.method}}',
-    uri: 'https://{{domain}}/api/rest_v1/{+path}',
-    query: '{{ default(request.query, {}) }}',
-    headers: '{{request.headers}}',
-    body: '{{request.body}}'
+	method: '{{request.method}}',
+	uri: 'https://{{domain}}/api/rest_v1/{+path}',
+	query: '{{ default(request.query, {}) }}',
+	headers: '{{request.headers}}',
+	body: '{{request.body}}'
 });
 
 /**
@@ -44,13 +44,13 @@ testUtil.readTestFixtureDoc = fixtures.readIntoDocument;
  * @return {!object} mocked app object
  */
 testUtil.getMockedApp = (options = {}) => {
-    const mockedApp = Object.assign({
-        conf: {
-            user_agent: 'WMF Mobile Content Service dev test',
-        }
-    }, options);
-    aUtil.setupApiTemplates(mockedApp);
-    return mockedApp;
+	const mockedApp = Object.assign({
+		conf: {
+			user_agent: 'WMF Mobile Content Service dev test',
+		}
+	}, options);
+	aUtil.setupApiTemplates(mockedApp);
+	return mockedApp;
 };
 
 /**
@@ -58,39 +58,39 @@ testUtil.getMockedApp = (options = {}) => {
  * @return {!object} mocked service request
  */
 testUtil.getMockedServiceReq = (options) => {
-    options = Object.assign({
-        headers: {},
-        app: testUtil.getMockedApp(),
-    }, options);
+	options = Object.assign({
+		headers: {},
+		app: testUtil.getMockedApp(),
+	}, options);
 
-    const req = mockReq(options);
+	const req = mockReq(options);
 
-    req.issueRequest = (request) => {
-        if (!(request.constructor === Object)) {
-            request = { uri: request };
-        }
-        if (request.url) {
-            request.uri = request.url;
-            delete request.url;
-        }
-        if (!request.uri) {
-            return BBPromise.reject(new HTTPError({
-                status: 500,
-                type: 'internal_error',
-                title: 'No request to issue',
-                detail: 'No request has been specified'
-            }));
-        }
-        request.method = request.method || 'get';
-        request.headers = request.headers || {};
-        Object.assign(request.headers, {
-            'user-agent': options.app.conf.user_agent,
-            'x-request-id': req.headers['x-request-id'] || uuidv1()
-        });
-        return preq(request);
-    };
+	req.issueRequest = (request) => {
+		if (!(request.constructor === Object)) {
+			request = { uri: request };
+		}
+		if (request.url) {
+			request.uri = request.url;
+			delete request.url;
+		}
+		if (!request.uri) {
+			return BBPromise.reject(new HTTPError({
+				status: 500,
+				type: 'internal_error',
+				title: 'No request to issue',
+				detail: 'No request has been specified'
+			}));
+		}
+		request.method = request.method || 'get';
+		request.headers = request.headers || {};
+		Object.assign(request.headers, {
+			'user-agent': options.app.conf.user_agent,
+			'x-request-id': req.headers['x-request-id'] || uuidv1()
+		});
+		return preq(request);
+	};
 
-    return req;
+	return req;
 };
 
 module.exports = testUtil;

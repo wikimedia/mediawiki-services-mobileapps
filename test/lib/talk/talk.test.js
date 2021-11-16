@@ -8,9 +8,9 @@ const perf = require('../../utils/performance');
 const P = require('bluebird');
 
 describe('lib:talk', () => {
-    describe('parseUserTalkPageDocIntoTopicsWithReplies', () => {
-        it('two h2 topics return first topic ID 1', () => {
-            const doc = domino.createDocument(`
+	describe('parseUserTalkPageDocIntoTopicsWithReplies', () => {
+		it('two h2 topics return first topic ID 1', () => {
+			const doc = domino.createDocument(`
           <section data-mw-section-id="0" id="mwAQ"></section>
           <section data-mw-section-id="1" id="mwAg">
             <h2 id="new_topic">new topic</h2>
@@ -25,17 +25,17 @@ describe('lib:talk', () => {
               </p>
             </section>
         `);
-            const topics = new TalkPage(doc, 'en').topics;
-            assert.equal(topics.length, 2);
-            assert.equal(topics[0].id, 1);
-            assert.equal(topics[0].html, 'new topic');
-            assert.equal(topics[0].replies.length, 1);
-            assert.equal(topics[1].id, 2);
-            assert.equal(topics[1].html, 'new topic 2');
-            assert.equal(topics[1].replies.length, 1);
-        });
-        it('text before first h2 returns separate topic ID 0', () => {
-            const doc = domino.createDocument(`
+			const topics = new TalkPage(doc, 'en').topics;
+			assert.equal(topics.length, 2);
+			assert.equal(topics[0].id, 1);
+			assert.equal(topics[0].html, 'new topic');
+			assert.equal(topics[0].replies.length, 1);
+			assert.equal(topics[1].id, 2);
+			assert.equal(topics[1].html, 'new topic 2');
+			assert.equal(topics[1].replies.length, 1);
+		});
+		it('text before first h2 returns separate topic ID 0', () => {
+			const doc = domino.createDocument(`
           <section data-mw-section-id="0" id="mwAQ">
             <p id="mwAg">Hello</p>
           </section>
@@ -52,21 +52,21 @@ describe('lib:talk', () => {
             </p>
           </section>
         `);
-            const topics = new TalkPage(doc, 'en').topics;
-            assert.equal(topics.length, 3);
-            assert.equal(topics[0].id, 0);
-            assert.equal(topics[0].html, '');
-            assert.equal(topics[0].replies.length, 1);
-            assert.equal(topics[0].replies[0].html, 'Hello');
-            assert.equal(topics[1].id, 1);
-            assert.equal(topics[1].html, 'new topic');
-            assert.equal(topics[1].replies.length, 1);
-            assert.equal(topics[2].id, 2);
-            assert.equal(topics[2].html, 'new topic 2');
-            assert.equal(topics[2].replies.length, 1);
-        });
-        it('h3 section is given it\'s own topic', () => {
-            const doc = domino.createDocument(`
+			const topics = new TalkPage(doc, 'en').topics;
+			assert.equal(topics.length, 3);
+			assert.equal(topics[0].id, 0);
+			assert.equal(topics[0].html, '');
+			assert.equal(topics[0].replies.length, 1);
+			assert.equal(topics[0].replies[0].html, 'Hello');
+			assert.equal(topics[1].id, 1);
+			assert.equal(topics[1].html, 'new topic');
+			assert.equal(topics[1].replies.length, 1);
+			assert.equal(topics[2].id, 2);
+			assert.equal(topics[2].html, 'new topic 2');
+			assert.equal(topics[2].replies.length, 1);
+		});
+		it('h3 section is given it\'s own topic', () => {
+			const doc = domino.createDocument(`
           <section data-mw-section-id="0" id="mwAQ">
             <p id="mwAg">Hello</p>
           </section>
@@ -90,24 +90,24 @@ describe('lib:talk', () => {
             </p>
           </section>
         `);
-            const topics = new TalkPage(doc, 'en').topics;
-            assert.equal(topics.length, 4);
-            assert.equal(topics[0].id, 0);
-            assert.equal(topics[0].html, '');
-            assert.equal(topics[0].replies.length, 1);
-            assert.equal(topics[0].replies[0].html, 'Hello');
-            assert.equal(topics[1].id, 1);
-            assert.equal(topics[1].html, 'new topic');
-            assert.equal(topics[1].replies.length, 1);
-            assert.equal(topics[2].id, 2);
-            assert.equal(topics[2].html, 'Subtopic test');
-            assert.equal(topics[2].replies.length, 1);
-            assert.equal(topics[3].id, 3);
-            assert.equal(topics[3].html, 'new topic 2');
-            assert.equal(topics[3].replies.length, 1);
-        });
-        it('empty h2 with title returns separate topic', () => {
-            const doc = domino.createDocument(`
+			const topics = new TalkPage(doc, 'en').topics;
+			assert.equal(topics.length, 4);
+			assert.equal(topics[0].id, 0);
+			assert.equal(topics[0].html, '');
+			assert.equal(topics[0].replies.length, 1);
+			assert.equal(topics[0].replies[0].html, 'Hello');
+			assert.equal(topics[1].id, 1);
+			assert.equal(topics[1].html, 'new topic');
+			assert.equal(topics[1].replies.length, 1);
+			assert.equal(topics[2].id, 2);
+			assert.equal(topics[2].html, 'Subtopic test');
+			assert.equal(topics[2].replies.length, 1);
+			assert.equal(topics[3].id, 3);
+			assert.equal(topics[3].html, 'new topic 2');
+			assert.equal(topics[3].replies.length, 1);
+		});
+		it('empty h2 with title returns separate topic', () => {
+			const doc = domino.createDocument(`
           <section data-mw-section-id="0" id="mwAQ">
             <p id="mwAg">Hello</p>
           </section>
@@ -127,24 +127,24 @@ describe('lib:talk', () => {
             </p>
           </section>
         `);
-            const topics = new TalkPage(doc, 'en').topics;
-            assert.equal(topics.length, 4);
-            assert.equal(topics[0].id, 0);
-            assert.equal(topics[0].html, '');
-            assert.equal(topics[0].replies.length, 1);
-            assert.equal(topics[0].replies[0].html, 'Hello');
-            assert.equal(topics[1].id, 1);
-            assert.equal(topics[1].html, 'new topic');
-            assert.equal(topics[1].replies.length, 1);
-            assert.equal(topics[2].id, 2);
-            assert.equal(topics[2].html, 'No replies topic');
-            assert.equal(topics[2].replies.length, 0);
-            assert.equal(topics[3].id, 3);
-            assert.equal(topics[3].html, 'new topic 2');
-            assert.equal(topics[3].replies.length, 1);
-        });
-        it('empty h2 without title is filtered out', () => {
-            const doc =  domino.createDocument(`
+			const topics = new TalkPage(doc, 'en').topics;
+			assert.equal(topics.length, 4);
+			assert.equal(topics[0].id, 0);
+			assert.equal(topics[0].html, '');
+			assert.equal(topics[0].replies.length, 1);
+			assert.equal(topics[0].replies[0].html, 'Hello');
+			assert.equal(topics[1].id, 1);
+			assert.equal(topics[1].html, 'new topic');
+			assert.equal(topics[1].replies.length, 1);
+			assert.equal(topics[2].id, 2);
+			assert.equal(topics[2].html, 'No replies topic');
+			assert.equal(topics[2].replies.length, 0);
+			assert.equal(topics[3].id, 3);
+			assert.equal(topics[3].html, 'new topic 2');
+			assert.equal(topics[3].replies.length, 1);
+		});
+		it('empty h2 without title is filtered out', () => {
+			const doc =  domino.createDocument(`
           <section data-mw-section-id="0" id="mwAQ">
             <p id="mwAg">Hello</p>
           </section>
@@ -164,30 +164,30 @@ describe('lib:talk', () => {
             </p>
           </section>
         `);
-            const topics = new TalkPage(doc, 'en').topics;
-            assert.equal(topics.length, 3);
-            assert.equal(topics[0].id, 0);
-            assert.equal(topics[0].html, '');
-            assert.equal(topics[0].replies.length, 1);
-            assert.equal(topics[0].replies[0].html, 'Hello');
-            assert.equal(topics[1].id, 1);
-            assert.equal(topics[1].html, 'new topic');
-            assert.equal(topics[1].replies.length, 1);
-            assert.equal(topics[2].id, 3);
-            assert.equal(topics[2].html, 'new topic 2');
-            assert.equal(topics[2].replies.length, 1);
-        });
-        it('handles empty links', () => {
-            const doc = domino.createDocument(`
+			const topics = new TalkPage(doc, 'en').topics;
+			assert.equal(topics.length, 3);
+			assert.equal(topics[0].id, 0);
+			assert.equal(topics[0].html, '');
+			assert.equal(topics[0].replies.length, 1);
+			assert.equal(topics[0].replies[0].html, 'Hello');
+			assert.equal(topics[1].id, 1);
+			assert.equal(topics[1].html, 'new topic');
+			assert.equal(topics[1].replies.length, 1);
+			assert.equal(topics[2].id, 3);
+			assert.equal(topics[2].html, 'new topic 2');
+			assert.equal(topics[2].replies.length, 1);
+		});
+		it('handles empty links', () => {
+			const doc = domino.createDocument(`
         <section data-mw-section-id="0" id="mwAQ">
           <a href="./File:Information.svg" id="mwjQ"><img resource="./File:Information.svg" src="//upload.wikimedia.org/wikipedia/en/thumb/2/28/Information.svg/25px-Information.svg.png" data-file-width="256" data-file-height="256" data-file-type="drawing" height="25" width="25" srcset="//upload.wikimedia.org/wikipedia/en/thumb/2/28/Information.svg/50px-Information.svg.png 2x, //upload.wikimedia.org/wikipedia/en/thumb/2/28/Information.svg/38px-Information.svg.png 1.5x" id="mwjg"></a>
         </section>
         `);
-            const topics = new TalkPage(doc, 'en').topics;
-            assert.equal(topics[0].replies[0].html, '<a href="./File:Information.svg">[File:Information.svg]</a>');
-        });
-        it('removes figures', () => {
-            const doc = domino.createDocument(`
+			const topics = new TalkPage(doc, 'en').topics;
+			assert.equal(topics[0].replies[0].html, '<a href="./File:Information.svg">[File:Information.svg]</a>');
+		});
+		it('removes figures', () => {
+			const doc = domino.createDocument(`
 <section data-mw-section-id="282" id="mwB44"><h2 id="Bay_Area_WikiSalon_February_reminder">Bay Area WikiSalon February reminder</h2>
 
 <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r888971367" about="#mwt224" typeof="mw:Extension/templatestyles mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"letterhead start","href":"./Template:Letterhead_start"},"params":{},"i":0}},"\n&lt;center>&lt;big>Please join us in downtown San Francisco!&lt;/big>&lt;/center>\n\n[[File:Panel fields questions on Journalism and Wikipedia (cropped).jpg|right|frameless|upright=1|alt=A Wikipedia panel discussion about journalism]]\nWednesday, February 22, 2017 at 6 p.m.\n&lt;hr>\nFor details and to RSVP: &apos;&apos;&apos;[[w:en:Wikipedia:Bay Area WikiSalon February 2017|Wikipedia:Bay Area WikiSalon, February 2017]]&apos;&apos;&apos;\n&lt;hr>\nSee you soon! ",{"template":{"target":{"wt":"u","href":"./Template:U"},"params":{"1":{"wt":"Ben Creasy"}},"i":1}}," and ",{"template":{"target":{"wt":"u","href":"./Template:U"},"params":{"1":{"wt":"Checkingfax"},"2":{"wt":"Wayne"}},"i":2}}," (co-coordinators) | &lt;small>([[Wikipedia:Meetup/San Francisco/Invite|Subscribe/Unsubscribe to this talk page notice here]])&lt;/small> | [[User:MediaWiki message delivery|MediaWiki message delivery]] ([[User talk:MediaWiki message delivery|talk]]) 02:58, 21 February 2017 (UTC)\n",{"template":{"target":{"wt":"letterhead end","href":"./Template:Letterhead_end"},"params":{},"i":3}}]}' id="mwB48"/><div class="letterhead " style="" about="#mwt224" id="mwB5A">
@@ -204,19 +204,19 @@ describe('lib:talk', () => {
 
 </section>
         `);
-            const topics = new TalkPage(doc, 'en').topics;
-            assert.equal(topics[0].replies[0].html, '<b>Please join us in downtown San Francisco!</b><br><br><a href="./File:Panel_fields_questions_on_Journalism_and_Wikipedia_(cropped).jpg">[File:Panel_fields_questions_on_Journalism_and_Wikipedia_(cropped).jpg]</a><br><br>Wednesday, February 22, 2017 at 6 p.m.<br><br>For details and to RSVP: <b><a href="./Wikipedia:Bay_Area_WikiSalon_February_2017" title="Wikipedia:Bay Area WikiSalon February 2017">Wikipedia:Bay Area WikiSalon, February 2017</a></b><br><br>See you soon! <a href="./User:Ben_Creasy" title="User:Ben Creasy">Ben Creasy</a> and <a href="./User:Checkingfax" title="User:Checkingfax">Wayne</a> (co-coordinators) | (<a href="./Wikipedia:Meetup/San_Francisco/Invite" title="Wikipedia:Meetup/San Francisco/Invite">Subscribe/Unsubscribe to this talk page notice here</a>) | <a href="./User:MediaWiki_message_delivery" title="User:MediaWiki message delivery">MediaWiki message delivery</a> (<a href="./User_talk:MediaWiki_message_delivery" title="User talk:MediaWiki message delivery">talk</a>) 02:58, 21 February 2017 (UTC)');
-        });
-        it('does not block the event loop', () => {
-            const doc = fixtures.readIntoDocument('User_talk-Koavf.html');
-            const talkPagePromise = TalkPage.promise(doc, 'en');
-            return perf.measure(talkPagePromise, 150).then(talkPage => {
-                const topic = talkPage.topics[2];
-                assert.equal(topic.html, '<i>The Midnight Snack</i>');
-                const reply = topic.replies[10];
-                assert.equal(reply.depth, 10);
-                assert.equal(reply.html, '<a href="./User:Rosguill" title="User:Rosguill">Rosguill</a>, There already <i>is</i> a consensus for <a href="./Wikipedia:OR" title="Wikipedia:OR">WP:OR</a>, <a href="./Wikipedia:V" title="Wikipedia:V">WP:V</a>, and <a href="./Wikipedia:SOURCE" title="Wikipedia:SOURCE">WP:SOURCE</a> for the entire encyclopedia project. If we get a consensus at <a href="./Wikipedia:AFD" title="Wikipedia:AFD">WP:AFD</a> or <a href="./Wikipedia_talk:ANIMATION" title="Wikipedia talk:ANIMATION">WT:ANIMATION</a> or any other page, why would they be more likely to listen to that? Why is the onus on me to expend more overhead for these non-articles that we should never have had instead of someone just saying, "Don\'t do this again or you\'ll be blocked"? ―<a href="./User:Koavf" title="User:Koavf">Justin (ko<b>a</b>vf)</a>❤<a href="./User_talk:Koavf" title="User talk:Koavf">T</a>☮<a href="./Special:Contributions/Koavf" title="Special:Contributions/Koavf">C</a>☺<a href="./Special:EmailUser/Koavf" title="Special:EmailUser/Koavf">M</a>☯ 00:08, 25 September 2019 (UTC)');
-            });
-        });
-    });
+			const topics = new TalkPage(doc, 'en').topics;
+			assert.equal(topics[0].replies[0].html, '<b>Please join us in downtown San Francisco!</b><br><br><a href="./File:Panel_fields_questions_on_Journalism_and_Wikipedia_(cropped).jpg">[File:Panel_fields_questions_on_Journalism_and_Wikipedia_(cropped).jpg]</a><br><br>Wednesday, February 22, 2017 at 6 p.m.<br><br>For details and to RSVP: <b><a href="./Wikipedia:Bay_Area_WikiSalon_February_2017" title="Wikipedia:Bay Area WikiSalon February 2017">Wikipedia:Bay Area WikiSalon, February 2017</a></b><br><br>See you soon! <a href="./User:Ben_Creasy" title="User:Ben Creasy">Ben Creasy</a> and <a href="./User:Checkingfax" title="User:Checkingfax">Wayne</a> (co-coordinators) | (<a href="./Wikipedia:Meetup/San_Francisco/Invite" title="Wikipedia:Meetup/San Francisco/Invite">Subscribe/Unsubscribe to this talk page notice here</a>) | <a href="./User:MediaWiki_message_delivery" title="User:MediaWiki message delivery">MediaWiki message delivery</a> (<a href="./User_talk:MediaWiki_message_delivery" title="User talk:MediaWiki message delivery">talk</a>) 02:58, 21 February 2017 (UTC)');
+		});
+		it('does not block the event loop', () => {
+			const doc = fixtures.readIntoDocument('User_talk-Koavf.html');
+			const talkPagePromise = TalkPage.promise(doc, 'en');
+			return perf.measure(talkPagePromise, 150).then(talkPage => {
+				const topic = talkPage.topics[2];
+				assert.equal(topic.html, '<i>The Midnight Snack</i>');
+				const reply = topic.replies[10];
+				assert.equal(reply.depth, 10);
+				assert.equal(reply.html, '<a href="./User:Rosguill" title="User:Rosguill">Rosguill</a>, There already <i>is</i> a consensus for <a href="./Wikipedia:OR" title="Wikipedia:OR">WP:OR</a>, <a href="./Wikipedia:V" title="Wikipedia:V">WP:V</a>, and <a href="./Wikipedia:SOURCE" title="Wikipedia:SOURCE">WP:SOURCE</a> for the entire encyclopedia project. If we get a consensus at <a href="./Wikipedia:AFD" title="Wikipedia:AFD">WP:AFD</a> or <a href="./Wikipedia_talk:ANIMATION" title="Wikipedia talk:ANIMATION">WT:ANIMATION</a> or any other page, why would they be more likely to listen to that? Why is the onus on me to expend more overhead for these non-articles that we should never have had instead of someone just saying, "Don\'t do this again or you\'ll be blocked"? ―<a href="./User:Koavf" title="User:Koavf">Justin (ko<b>a</b>vf)</a>❤<a href="./User_talk:Koavf" title="User talk:Koavf">T</a>☮<a href="./Special:Contributions/Koavf" title="Special:Contributions/Koavf">C</a>☺<a href="./Special:EmailUser/Koavf" title="Special:EmailUser/Koavf">M</a>☯ 00:08, 25 September 2019 (UTC)');
+			});
+		});
+	});
 });

@@ -1,949 +1,949 @@
 {
-    "revision": "810247947",
-    "tid": "present",
-    "items": [
-        {
-            "title": "File:Trinidad_and_Tobago_hummingbirds_composite.jpg",
-            "section_id": 0,
-            "type": "image",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Trinidad_and_Tobago_hummingbirds_composite.jpg/640px-Trinidad_and_Tobago_hummingbirds_composite.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Trinidad_and_Tobago_hummingbirds_composite.jpg/960px-Trinidad_and_Tobago_hummingbirds_composite.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Trinidad_and_Tobago_hummingbirds_composite.jpg/1280px-Trinidad_and_Tobago_hummingbirds_composite.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Purple-throated_carib_hummingbird_feeding.jpg",
-            "section_id": 3,
-            "type": "image",
-            "caption": {
-                "html": "<a rel=\"mw:WikiLink\" href=\"./Purple-throated_carib\" title=\"Purple-throated carib\" id=\"mw_id\">Purple-throated carib</a> feeding at a flower",
-                "text": "Purple-throated carib feeding at a flower"
-            },
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Purple-throated_carib_hummingbird_feeding.jpg/640px-Purple-throated_carib_hummingbird_feeding.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Purple-throated_carib_hummingbird_feeding.jpg/960px-Purple-throated_carib_hummingbird_feeding.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Purple-throated_carib_hummingbird_feeding.jpg/1280px-Purple-throated_carib_hummingbird_feeding.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Haeckel_Trochilidae.jpg",
-            "section_id": 5,
-            "type": "image",
-            "caption": {
-                "html": "A color plate illustration from <a rel=\"mw:WikiLink\" href=\"./Ernst_Haeckel\" title=\"Ernst Haeckel\" id=\"mw_id\">Ernst Haeckel</a>'s <i id=\"mw_id\"><a rel=\"mw:WikiLink\" href=\"./Kunstformen_der_Natur\" title=\"Kunstformen der Natur\" id=\"mw_id\">Kunstformen der Natur</a></i> (1899), showing a variety of hummingbirds",
-                "text": "A color plate illustration from Ernst Haeckel's Kunstformen der Natur (1899), showing a variety of hummingbirds"
-            },
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Haeckel_Trochilidae.jpg/640px-Haeckel_Trochilidae.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Haeckel_Trochilidae.jpg/960px-Haeckel_Trochilidae.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Haeckel_Trochilidae.jpg/1280px-Haeckel_Trochilidae.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Hummingbird_Incubating3.jpg",
-            "section_id": 15,
-            "type": "image",
-            "gallery_id": "mwAf0",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Hummingbird_Incubating3.jpg/347px-Hummingbird_Incubating3.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Hummingbird_Incubating3.jpg/521px-Hummingbird_Incubating3.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Hummingbird_Incubating3.jpg/694px-Hummingbird_Incubating3.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Hummingbird_nest_with_two_chicks_in_Santa_Monica,_CA._Photo_taken_June_26,_2006.jpg",
-            "section_id": 15,
-            "type": "image",
-            "gallery_id": "mwAf0",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg/260px-Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg/391px-Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg/520px-Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Calliope-nest_edit.jpg",
-            "section_id": 15,
-            "type": "image",
-            "gallery_id": "mwAf0",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Calliope-nest_edit.jpg/293px-Calliope-nest_edit.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Calliope-nest_edit.jpg/440px-Calliope-nest_edit.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Calliope-nest_edit.jpg/585px-Calliope-nest_edit.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:AnnasHummingbird-NestCollage.png",
-            "section_id": 15,
-            "type": "image",
-            "gallery_id": "mwAf0",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/AnnasHummingbird-NestCollage.png/262px-AnnasHummingbird-NestCollage.png",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/AnnasHummingbird-NestCollage.png/393px-AnnasHummingbird-NestCollage.png",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/AnnasHummingbird-NestCollage.png/523px-AnnasHummingbird-NestCollage.png",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:AnnasHummingbirdPaloAltoNorvig.jpg",
-            "section_id": 16,
-            "type": "image",
-            "caption": {
-                "html": "Male Anna's hummingbird showing iridescent crown and gorget feathers",
-                "text": "Male Anna's hummingbird showing iridescent crown and gorget feathers"
-            },
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/89/AnnasHummingbirdPaloAltoNorvig.jpg/640px-AnnasHummingbirdPaloAltoNorvig.jpg",
-                    "scale": "1x"
-                }
-            ]
-        },
-        {
-            "title": "File:Hummingbird_Aerodynamics_of_flight.jpg",
-            "section_id": 17,
-            "type": "image",
-            "caption": {
-                "html": "A female <a rel=\"mw:WikiLink\" href=\"./Ruby-throated_hummingbird\" title=\"Ruby-throated hummingbird\" id=\"mw_id\">ruby-throated hummingbird</a> hovering in mid-air",
-                "text": "A female ruby-throated hummingbird hovering in mid-air"
-            },
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hummingbird_Aerodynamics_of_flight.jpg/640px-Hummingbird_Aerodynamics_of_flight.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hummingbird_Aerodynamics_of_flight.jpg/960px-Hummingbird_Aerodynamics_of_flight.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hummingbird_Aerodynamics_of_flight.jpg/1280px-Hummingbird_Aerodynamics_of_flight.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Hummingbird_wake_Pengo.svg",
-            "section_id": 17,
-            "type": "image",
-            "caption": {
-                "html": "A trail of wake <a rel=\"mw:WikiLink\" href=\"./Vortex\" title=\"Vortex\" id=\"mw_id\">vortices</a> generated by a hummingbird's flight discovered after training a bird to fly through a cloud of neutrally buoyant, helium-filled soap bubbles and recording airflows in the wake with <a rel=\"mw:WikiLink\" href=\"./Stereo_photography\" title=\"Stereo photography\" class=\"mw-redirect\" id=\"mw_id\">stereo photography</a>.<sup about=\"#mwt_present\" class=\"mw-ref reference\" id=\"cite_ref-65\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-65&quot;}}\"><a href=\"./Hummingbird#cite_note-65\" style=\"counter-reset: mw-Ref 65;\" id=\"mw_id\"><span class=\"mw-reflink-text\" id=\"mw_id\">[65]</span></a></sup>",
-                "text": "A trail of wake vortices generated by a hummingbird's flight discovered after training a bird to fly through a cloud of neutrally buoyant, helium-filled soap bubbles and recording airflows in the wake with stereo photography.[65]"
-            },
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Hummingbird_wake_Pengo.svg/640px-Hummingbird_wake_Pengo.svg.png",
-                    "scale": "1x"
-                }
-            ]
-        },
-        {
-            "title": "File:Hummingbird_feeding_closeup_2000fps.webm",
-            "section_id": 17,
-            "type": "video",
-            "caption": {
-                "html": "Slow motion video of hummingbirds feeding",
-                "text": "Slow motion video of hummingbirds feeding"
-            },
-            "sources": [
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/2/21/Hummingbird_feeding_closeup_2000fps.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "Original WebM file, 864 × 480 (955 kbps)",
-                    "short_name": "WebM source",
-                    "width": "864",
-                    "height": "480"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.120p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "Lowest bandwidth VP9 (120P)",
-                    "short_name": "VP9 120P",
-                    "width": "214",
-                    "height": "118"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.160p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "Low bandwidth WebM (160P)",
-                    "short_name": "WebM 160P",
-                    "width": "288",
-                    "height": "160"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.180p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "Low bandwidth VP9 (180P)",
-                    "short_name": "VP9 180P",
-                    "width": "320",
-                    "height": "178"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "Small VP9 (240P)",
-                    "short_name": "VP9 240P",
-                    "width": "426",
-                    "height": "236"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "Small WebM (240P)",
-                    "short_name": "WebM 240P",
-                    "width": "426",
-                    "height": "236"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "VP9 (360P)",
-                    "short_name": "VP9 360P",
-                    "width": "640",
-                    "height": "356"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "WebM (360P)",
-                    "short_name": "WebM 360P",
-                    "width": "640",
-                    "height": "356"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "SD VP9 (480P)",
-                    "short_name": "VP9 480P",
-                    "width": "854",
-                    "height": "474"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "SD WebM (480P)",
-                    "short_name": "WebM 480P",
-                    "width": "854",
-                    "height": "474"
-                }
-            ],
-            "showInGallery": true
-        },
-        {
-            "title": "File:Velvet-purple_coronets_sequence.tif",
-            "section_id": 17,
-            "type": "image",
-            "caption": {
-                "html": "High speed capture sequence of two <a rel=\"mw:WikiLink\" href=\"./Velvet-purple_coronet\" title=\"Velvet-purple coronet\" id=\"mw_id\">velvet-purple coronets</a> sparring near a hummingbird feeder in Ecuador",
-                "text": "High speed capture sequence of two velvet-purple coronets sparring near a hummingbird feeder in Ecuador"
-            },
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Velvet-purple_coronets_sequence.tif/lossy-page1-640px-Velvet-purple_coronets_sequence.tif.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Velvet-purple_coronets_sequence.tif/lossy-page1-960px-Velvet-purple_coronets_sequence.tif.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Velvet-purple_coronets_sequence.tif/lossy-page1-1280px-Velvet-purple_coronets_sequence.tif.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Colibri-thalassinus-001-edit.jpg",
-            "section_id": 23,
-            "type": "image",
-            "caption": {
-                "html": "<a rel=\"mw:WikiLink\" href=\"./Lesser_violetear\" title=\"Lesser violetear\" id=\"mw_id\">Lesser violetear</a> at a flower",
-                "text": "Lesser violetear at a flower"
-            },
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Colibri-thalassinus-001-edit.jpg/640px-Colibri-thalassinus-001-edit.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Colibri-thalassinus-001-edit.jpg/960px-Colibri-thalassinus-001-edit.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Colibri-thalassinus-001-edit.jpg/1280px-Colibri-thalassinus-001-edit.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Hummingbird.ogv",
-            "section_id": 23,
-            "type": "video",
-            "caption": {
-                "html": "Hummingbird in <a rel=\"mw:WikiLink\" href=\"./Copiapó,_Chile\" title=\"Copiapó, Chile\" class=\"mw-redirect\" id=\"mw_id\">Copiapó, Chile</a>: The apparent slow movement of its wings is a result of the <a rel=\"mw:WikiLink\" href=\"./Stroboscopic_effect\" title=\"Stroboscopic effect\" id=\"mw_id\">stroboscopic effect</a>.",
-                "text": "Hummingbird in Copiapó, Chile: The apparent slow movement of its wings is a result of the stroboscopic effect."
-            },
-            "sources": [
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/d/db/Hummingbird.ogv",
-                    "mime": "video/ogg",
-                    "codecs": [
-                        "theora",
-                        "vorbis"
-                    ],
-                    "name": "Original Ogg file, 854 × 480 (2.55 Mbps)",
-                    "short_name": "Ogg source",
-                    "width": "854",
-                    "height": "480"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.120p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "Lowest bandwidth VP9 (120P)",
-                    "short_name": "VP9 120P",
-                    "width": "214",
-                    "height": "120"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.160p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "Low bandwidth WebM (160P)",
-                    "short_name": "WebM 160P",
-                    "width": "284",
-                    "height": "160"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.180p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "Low bandwidth VP9 (180P)",
-                    "short_name": "VP9 180P",
-                    "width": "320",
-                    "height": "180"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "Small VP9 (240P)",
-                    "short_name": "VP9 240P",
-                    "width": "426",
-                    "height": "240"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "Small WebM (240P)",
-                    "short_name": "WebM 240P",
-                    "width": "426",
-                    "height": "240"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "VP9 (360P)",
-                    "short_name": "VP9 360P",
-                    "width": "640",
-                    "height": "360"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "WebM (360P)",
-                    "short_name": "WebM 360P",
-                    "width": "640",
-                    "height": "360"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "SD VP9 (480P)",
-                    "short_name": "VP9 480P",
-                    "width": "854",
-                    "height": "480"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "SD WebM (480P)",
-                    "short_name": "WebM 480P",
-                    "width": "854",
-                    "height": "480"
-                }
-            ],
-            "showInGallery": true
-        },
-        {
-            "title": "File:Hummingbirds_at_feeder.jpg",
-            "section_id": 26,
-            "type": "image",
-            "caption": {
-                "html": "Hummingbirds hovering at an artificial nectar feeder",
-                "text": "Hummingbirds hovering at an artificial nectar feeder"
-            },
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Hummingbirds_at_feeder.jpg/640px-Hummingbirds_at_feeder.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Hummingbirds_at_feeder.jpg/960px-Hummingbirds_at_feeder.jpg",
-                    "scale": "1.5x"
-                }
-            ]
-        },
-        {
-            "title": "File:Huitzilopochtli,_the_Principal_Aztec_God_WDL6725.png",
-            "section_id": 29,
-            "type": "image",
-            "caption": {
-                "html": "<a rel=\"mw:WikiLink\" href=\"./Huitzilopochtli\" title=\"Huitzilopochtli\" class=\"mw-redirect\" id=\"mw_id\">Huitzilopochtli</a> wielding the <a rel=\"mw:WikiLink\" href=\"./Xiuhcoatl\" title=\"Xiuhcoatl\" id=\"mw_id\">xiuhcoatl</a>, as depicted in the <a rel=\"mw:WikiLink\" href=\"./Tovar_Codex\" title=\"Tovar Codex\" class=\"mw-redirect\" id=\"mw_id\">Tovar Codex</a>.",
-                "text": "Huitzilopochtli wielding the xiuhcoatl, as depicted in the Tovar Codex."
-            },
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png/640px-Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png/960px-Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png/1280px-Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Nazca_colibri.jpg",
-            "section_id": 29,
-            "type": "image",
-            "caption": {
-                "html": "Aerial photograph of hummingbird image as part of <a rel=\"mw:WikiLink\" href=\"./Nazca_Lines\" title=\"Nazca Lines\" id=\"mw_id\">Nazca Lines</a> in <a rel=\"mw:WikiLink\" href=\"./Peru\" title=\"Peru\" id=\"mw_id\">Peru</a>",
-                "text": "Aerial photograph of hummingbird image as part of Nazca Lines in Peru"
-            },
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Nazca_colibri.jpg/640px-Nazca_colibri.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Nazca_colibri.jpg/960px-Nazca_colibri.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Nazca_colibri.jpg/1280px-Nazca_colibri.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Caribbean_Airlines_logo-600x270.png",
-            "section_id": 29,
-            "type": "image",
-            "caption": {
-                "html": "Hummingbird as part of the emblem for Caribbean Airlines",
-                "text": "Hummingbird as part of the emblem for Caribbean Airlines"
-            },
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/en/thumb/1/1f/Caribbean_Airlines_logo-600x270.png/320px-Caribbean_Airlines_logo-600x270.png",
-                    "scale": "1x"
-                }
-            ]
-        },
-        {
-            "title": "File:Humming_birds_feeding_at_1500fps.webm",
-            "section_id": 30,
-            "type": "video",
-            "gallery_id": "mwBDc",
-            "sources": [
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/f/fe/Humming_birds_feeding_at_1500fps.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "Original WebM file, 864 × 480 (1.03 Mbps)",
-                    "short_name": "WebM source",
-                    "width": "864",
-                    "height": "480"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.120p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "Lowest bandwidth VP9 (120P)",
-                    "short_name": "VP9 120P",
-                    "width": "214",
-                    "height": "118"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.160p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "Low bandwidth WebM (160P)",
-                    "short_name": "WebM 160P",
-                    "width": "288",
-                    "height": "160"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.180p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "Low bandwidth VP9 (180P)",
-                    "short_name": "VP9 180P",
-                    "width": "320",
-                    "height": "178"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "Small VP9 (240P)",
-                    "short_name": "VP9 240P",
-                    "width": "426",
-                    "height": "236"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "Small WebM (240P)",
-                    "short_name": "WebM 240P",
-                    "width": "426",
-                    "height": "236"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "VP9 (360P)",
-                    "short_name": "VP9 360P",
-                    "width": "640",
-                    "height": "356"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "WebM (360P)",
-                    "short_name": "WebM 360P",
-                    "width": "640",
-                    "height": "356"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.vp9.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp9",
-                        "opus"
-                    ],
-                    "name": "SD VP9 (480P)",
-                    "short_name": "VP9 480P",
-                    "width": "854",
-                    "height": "474"
-                },
-                {
-                    "url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.webm",
-                    "mime": "video/webm",
-                    "codecs": [
-                        "vp8",
-                        "vorbis"
-                    ],
-                    "name": "SD WebM (480P)",
-                    "short_name": "WebM 480P",
-                    "width": "854",
-                    "height": "474"
-                }
-            ],
-            "showInGallery": true
-        },
-        {
-            "title": "File:Hummingbird_feeding.jpg",
-            "section_id": 30,
-            "type": "image",
-            "gallery_id": "mwBDc",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Hummingbird_feeding.jpg/120px-Hummingbird_feeding.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Hummingbird_feeding.jpg/180px-Hummingbird_feeding.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Hummingbird_feeding.jpg/240px-Hummingbird_feeding.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Hummingbird_headshot.jpg",
-            "section_id": 30,
-            "type": "image",
-            "gallery_id": "mwBDc",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Hummingbird_headshot.jpg/120px-Hummingbird_headshot.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Hummingbird_headshot.jpg/180px-Hummingbird_headshot.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Hummingbird_headshot.jpg/240px-Hummingbird_headshot.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Eugenes-fulgens-001.jpg",
-            "section_id": 30,
-            "type": "image",
-            "gallery_id": "mwBDc",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Eugenes-fulgens-001.jpg/120px-Eugenes-fulgens-001.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Eugenes-fulgens-001.jpg/180px-Eugenes-fulgens-001.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Eugenes-fulgens-001.jpg/240px-Eugenes-fulgens-001.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Hummingbird.jpg",
-            "section_id": 30,
-            "type": "image",
-            "gallery_id": "mwBDc",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Hummingbird.jpg/120px-Hummingbird.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Hummingbird.jpg/180px-Hummingbird.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Hummingbird.jpg/240px-Hummingbird.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
-            "section_id": 30,
-            "type": "image",
-            "gallery_id": "mwBDc",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg/120px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg/180px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg/240px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Hummingbird_Calypte_anna_in_ggp_15n.jpg",
-            "section_id": 30,
-            "type": "image",
-            "gallery_id": "mwBDc",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hummingbird_Calypte_anna_in_ggp_15n.jpg/120px-Hummingbird_Calypte_anna_in_ggp_15n.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hummingbird_Calypte_anna_in_ggp_15n.jpg/180px-Hummingbird_Calypte_anna_in_ggp_15n.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hummingbird_Calypte_anna_in_ggp_15n.jpg/240px-Hummingbird_Calypte_anna_in_ggp_15n.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Nano_Hummingbird.jpg",
-            "section_id": 30,
-            "type": "image",
-            "gallery_id": "mwBDc",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Nano_Hummingbird.jpg/120px-Nano_Hummingbird.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Nano_Hummingbird.jpg/180px-Nano_Hummingbird.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Nano_Hummingbird.jpg/240px-Nano_Hummingbird.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
-            "section_id": 30,
-            "type": "image",
-            "gallery_id": "mwBDc",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/120px-Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/180px-Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/240px-Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
-            "section_id": 30,
-            "type": "image",
-            "gallery_id": "mwBDc",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/120px-Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/180px-Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/240px-Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
-                    "scale": "2x"
-                }
-            ]
-        },
-        {
-            "title": "File:Female_Anna's_Hummingbird.JPG",
-            "section_id": 30,
-            "type": "image",
-            "gallery_id": "mwBDc",
-            "showInGallery": true,
-            "srcset": [
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Female_Anna%27s_Hummingbird.JPG/120px-Female_Anna%27s_Hummingbird.JPG",
-                    "scale": "1x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Female_Anna%27s_Hummingbird.JPG/180px-Female_Anna%27s_Hummingbird.JPG",
-                    "scale": "1.5x"
-                },
-                {
-                    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Female_Anna%27s_Hummingbird.JPG/240px-Female_Anna%27s_Hummingbird.JPG",
-                    "scale": "2x"
-                }
-            ]
-        }
-    ]
+	"revision": "810247947",
+	"tid": "present",
+	"items": [
+		{
+			"title": "File:Trinidad_and_Tobago_hummingbirds_composite.jpg",
+			"section_id": 0,
+			"type": "image",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Trinidad_and_Tobago_hummingbirds_composite.jpg/640px-Trinidad_and_Tobago_hummingbirds_composite.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Trinidad_and_Tobago_hummingbirds_composite.jpg/960px-Trinidad_and_Tobago_hummingbirds_composite.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Trinidad_and_Tobago_hummingbirds_composite.jpg/1280px-Trinidad_and_Tobago_hummingbirds_composite.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Purple-throated_carib_hummingbird_feeding.jpg",
+			"section_id": 3,
+			"type": "image",
+			"caption": {
+				"html": "<a rel=\"mw:WikiLink\" href=\"./Purple-throated_carib\" title=\"Purple-throated carib\" id=\"mw_id\">Purple-throated carib</a> feeding at a flower",
+				"text": "Purple-throated carib feeding at a flower"
+			},
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Purple-throated_carib_hummingbird_feeding.jpg/640px-Purple-throated_carib_hummingbird_feeding.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Purple-throated_carib_hummingbird_feeding.jpg/960px-Purple-throated_carib_hummingbird_feeding.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Purple-throated_carib_hummingbird_feeding.jpg/1280px-Purple-throated_carib_hummingbird_feeding.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Haeckel_Trochilidae.jpg",
+			"section_id": 5,
+			"type": "image",
+			"caption": {
+				"html": "A color plate illustration from <a rel=\"mw:WikiLink\" href=\"./Ernst_Haeckel\" title=\"Ernst Haeckel\" id=\"mw_id\">Ernst Haeckel</a>'s <i id=\"mw_id\"><a rel=\"mw:WikiLink\" href=\"./Kunstformen_der_Natur\" title=\"Kunstformen der Natur\" id=\"mw_id\">Kunstformen der Natur</a></i> (1899), showing a variety of hummingbirds",
+				"text": "A color plate illustration from Ernst Haeckel's Kunstformen der Natur (1899), showing a variety of hummingbirds"
+			},
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Haeckel_Trochilidae.jpg/640px-Haeckel_Trochilidae.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Haeckel_Trochilidae.jpg/960px-Haeckel_Trochilidae.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Haeckel_Trochilidae.jpg/1280px-Haeckel_Trochilidae.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Hummingbird_Incubating3.jpg",
+			"section_id": 15,
+			"type": "image",
+			"gallery_id": "mwAf0",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Hummingbird_Incubating3.jpg/347px-Hummingbird_Incubating3.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Hummingbird_Incubating3.jpg/521px-Hummingbird_Incubating3.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Hummingbird_Incubating3.jpg/694px-Hummingbird_Incubating3.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Hummingbird_nest_with_two_chicks_in_Santa_Monica,_CA._Photo_taken_June_26,_2006.jpg",
+			"section_id": 15,
+			"type": "image",
+			"gallery_id": "mwAf0",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg/260px-Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg/391px-Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg/520px-Hummingbird_nest_with_two_chicks_in_Santa_Monica%2C_CA._Photo_taken_June_26%2C_2006.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Calliope-nest_edit.jpg",
+			"section_id": 15,
+			"type": "image",
+			"gallery_id": "mwAf0",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Calliope-nest_edit.jpg/293px-Calliope-nest_edit.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Calliope-nest_edit.jpg/440px-Calliope-nest_edit.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Calliope-nest_edit.jpg/585px-Calliope-nest_edit.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:AnnasHummingbird-NestCollage.png",
+			"section_id": 15,
+			"type": "image",
+			"gallery_id": "mwAf0",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/AnnasHummingbird-NestCollage.png/262px-AnnasHummingbird-NestCollage.png",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/AnnasHummingbird-NestCollage.png/393px-AnnasHummingbird-NestCollage.png",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/AnnasHummingbird-NestCollage.png/523px-AnnasHummingbird-NestCollage.png",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:AnnasHummingbirdPaloAltoNorvig.jpg",
+			"section_id": 16,
+			"type": "image",
+			"caption": {
+				"html": "Male Anna's hummingbird showing iridescent crown and gorget feathers",
+				"text": "Male Anna's hummingbird showing iridescent crown and gorget feathers"
+			},
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/89/AnnasHummingbirdPaloAltoNorvig.jpg/640px-AnnasHummingbirdPaloAltoNorvig.jpg",
+					"scale": "1x"
+				}
+			]
+		},
+		{
+			"title": "File:Hummingbird_Aerodynamics_of_flight.jpg",
+			"section_id": 17,
+			"type": "image",
+			"caption": {
+				"html": "A female <a rel=\"mw:WikiLink\" href=\"./Ruby-throated_hummingbird\" title=\"Ruby-throated hummingbird\" id=\"mw_id\">ruby-throated hummingbird</a> hovering in mid-air",
+				"text": "A female ruby-throated hummingbird hovering in mid-air"
+			},
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hummingbird_Aerodynamics_of_flight.jpg/640px-Hummingbird_Aerodynamics_of_flight.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hummingbird_Aerodynamics_of_flight.jpg/960px-Hummingbird_Aerodynamics_of_flight.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hummingbird_Aerodynamics_of_flight.jpg/1280px-Hummingbird_Aerodynamics_of_flight.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Hummingbird_wake_Pengo.svg",
+			"section_id": 17,
+			"type": "image",
+			"caption": {
+				"html": "A trail of wake <a rel=\"mw:WikiLink\" href=\"./Vortex\" title=\"Vortex\" id=\"mw_id\">vortices</a> generated by a hummingbird's flight discovered after training a bird to fly through a cloud of neutrally buoyant, helium-filled soap bubbles and recording airflows in the wake with <a rel=\"mw:WikiLink\" href=\"./Stereo_photography\" title=\"Stereo photography\" class=\"mw-redirect\" id=\"mw_id\">stereo photography</a>.<sup about=\"#mwt_present\" class=\"mw-ref reference\" id=\"cite_ref-65\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-65&quot;}}\"><a href=\"./Hummingbird#cite_note-65\" style=\"counter-reset: mw-Ref 65;\" id=\"mw_id\"><span class=\"mw-reflink-text\" id=\"mw_id\">[65]</span></a></sup>",
+				"text": "A trail of wake vortices generated by a hummingbird's flight discovered after training a bird to fly through a cloud of neutrally buoyant, helium-filled soap bubbles and recording airflows in the wake with stereo photography.[65]"
+			},
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Hummingbird_wake_Pengo.svg/640px-Hummingbird_wake_Pengo.svg.png",
+					"scale": "1x"
+				}
+			]
+		},
+		{
+			"title": "File:Hummingbird_feeding_closeup_2000fps.webm",
+			"section_id": 17,
+			"type": "video",
+			"caption": {
+				"html": "Slow motion video of hummingbirds feeding",
+				"text": "Slow motion video of hummingbirds feeding"
+			},
+			"sources": [
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/2/21/Hummingbird_feeding_closeup_2000fps.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "Original WebM file, 864 × 480 (955 kbps)",
+					"short_name": "WebM source",
+					"width": "864",
+					"height": "480"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.120p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "Lowest bandwidth VP9 (120P)",
+					"short_name": "VP9 120P",
+					"width": "214",
+					"height": "118"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.160p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "Low bandwidth WebM (160P)",
+					"short_name": "WebM 160P",
+					"width": "288",
+					"height": "160"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.180p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "Low bandwidth VP9 (180P)",
+					"short_name": "VP9 180P",
+					"width": "320",
+					"height": "178"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "Small VP9 (240P)",
+					"short_name": "VP9 240P",
+					"width": "426",
+					"height": "236"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.240p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "Small WebM (240P)",
+					"short_name": "WebM 240P",
+					"width": "426",
+					"height": "236"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "VP9 (360P)",
+					"short_name": "VP9 360P",
+					"width": "640",
+					"height": "356"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.360p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "WebM (360P)",
+					"short_name": "WebM 360P",
+					"width": "640",
+					"height": "356"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "SD VP9 (480P)",
+					"short_name": "VP9 480P",
+					"width": "854",
+					"height": "474"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Hummingbird_feeding_closeup_2000fps.webm/Hummingbird_feeding_closeup_2000fps.webm.480p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "SD WebM (480P)",
+					"short_name": "WebM 480P",
+					"width": "854",
+					"height": "474"
+				}
+			],
+			"showInGallery": true
+		},
+		{
+			"title": "File:Velvet-purple_coronets_sequence.tif",
+			"section_id": 17,
+			"type": "image",
+			"caption": {
+				"html": "High speed capture sequence of two <a rel=\"mw:WikiLink\" href=\"./Velvet-purple_coronet\" title=\"Velvet-purple coronet\" id=\"mw_id\">velvet-purple coronets</a> sparring near a hummingbird feeder in Ecuador",
+				"text": "High speed capture sequence of two velvet-purple coronets sparring near a hummingbird feeder in Ecuador"
+			},
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Velvet-purple_coronets_sequence.tif/lossy-page1-640px-Velvet-purple_coronets_sequence.tif.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Velvet-purple_coronets_sequence.tif/lossy-page1-960px-Velvet-purple_coronets_sequence.tif.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Velvet-purple_coronets_sequence.tif/lossy-page1-1280px-Velvet-purple_coronets_sequence.tif.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Colibri-thalassinus-001-edit.jpg",
+			"section_id": 23,
+			"type": "image",
+			"caption": {
+				"html": "<a rel=\"mw:WikiLink\" href=\"./Lesser_violetear\" title=\"Lesser violetear\" id=\"mw_id\">Lesser violetear</a> at a flower",
+				"text": "Lesser violetear at a flower"
+			},
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Colibri-thalassinus-001-edit.jpg/640px-Colibri-thalassinus-001-edit.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Colibri-thalassinus-001-edit.jpg/960px-Colibri-thalassinus-001-edit.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Colibri-thalassinus-001-edit.jpg/1280px-Colibri-thalassinus-001-edit.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Hummingbird.ogv",
+			"section_id": 23,
+			"type": "video",
+			"caption": {
+				"html": "Hummingbird in <a rel=\"mw:WikiLink\" href=\"./Copiapó,_Chile\" title=\"Copiapó, Chile\" class=\"mw-redirect\" id=\"mw_id\">Copiapó, Chile</a>: The apparent slow movement of its wings is a result of the <a rel=\"mw:WikiLink\" href=\"./Stroboscopic_effect\" title=\"Stroboscopic effect\" id=\"mw_id\">stroboscopic effect</a>.",
+				"text": "Hummingbird in Copiapó, Chile: The apparent slow movement of its wings is a result of the stroboscopic effect."
+			},
+			"sources": [
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/d/db/Hummingbird.ogv",
+					"mime": "video/ogg",
+					"codecs": [
+						"theora",
+						"vorbis"
+					],
+					"name": "Original Ogg file, 854 × 480 (2.55 Mbps)",
+					"short_name": "Ogg source",
+					"width": "854",
+					"height": "480"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.120p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "Lowest bandwidth VP9 (120P)",
+					"short_name": "VP9 120P",
+					"width": "214",
+					"height": "120"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.160p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "Low bandwidth WebM (160P)",
+					"short_name": "WebM 160P",
+					"width": "284",
+					"height": "160"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.180p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "Low bandwidth VP9 (180P)",
+					"short_name": "VP9 180P",
+					"width": "320",
+					"height": "180"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "Small VP9 (240P)",
+					"short_name": "VP9 240P",
+					"width": "426",
+					"height": "240"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.240p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "Small WebM (240P)",
+					"short_name": "WebM 240P",
+					"width": "426",
+					"height": "240"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "VP9 (360P)",
+					"short_name": "VP9 360P",
+					"width": "640",
+					"height": "360"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.360p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "WebM (360P)",
+					"short_name": "WebM 360P",
+					"width": "640",
+					"height": "360"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "SD VP9 (480P)",
+					"short_name": "VP9 480P",
+					"width": "854",
+					"height": "480"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/d/db/Hummingbird.ogv/Hummingbird.ogv.480p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "SD WebM (480P)",
+					"short_name": "WebM 480P",
+					"width": "854",
+					"height": "480"
+				}
+			],
+			"showInGallery": true
+		},
+		{
+			"title": "File:Hummingbirds_at_feeder.jpg",
+			"section_id": 26,
+			"type": "image",
+			"caption": {
+				"html": "Hummingbirds hovering at an artificial nectar feeder",
+				"text": "Hummingbirds hovering at an artificial nectar feeder"
+			},
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Hummingbirds_at_feeder.jpg/640px-Hummingbirds_at_feeder.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Hummingbirds_at_feeder.jpg/960px-Hummingbirds_at_feeder.jpg",
+					"scale": "1.5x"
+				}
+			]
+		},
+		{
+			"title": "File:Huitzilopochtli,_the_Principal_Aztec_God_WDL6725.png",
+			"section_id": 29,
+			"type": "image",
+			"caption": {
+				"html": "<a rel=\"mw:WikiLink\" href=\"./Huitzilopochtli\" title=\"Huitzilopochtli\" class=\"mw-redirect\" id=\"mw_id\">Huitzilopochtli</a> wielding the <a rel=\"mw:WikiLink\" href=\"./Xiuhcoatl\" title=\"Xiuhcoatl\" id=\"mw_id\">xiuhcoatl</a>, as depicted in the <a rel=\"mw:WikiLink\" href=\"./Tovar_Codex\" title=\"Tovar Codex\" class=\"mw-redirect\" id=\"mw_id\">Tovar Codex</a>.",
+				"text": "Huitzilopochtli wielding the xiuhcoatl, as depicted in the Tovar Codex."
+			},
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png/640px-Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png/960px-Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png/1280px-Huitzilopochtli%2C_the_Principal_Aztec_God_WDL6725.png",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Nazca_colibri.jpg",
+			"section_id": 29,
+			"type": "image",
+			"caption": {
+				"html": "Aerial photograph of hummingbird image as part of <a rel=\"mw:WikiLink\" href=\"./Nazca_Lines\" title=\"Nazca Lines\" id=\"mw_id\">Nazca Lines</a> in <a rel=\"mw:WikiLink\" href=\"./Peru\" title=\"Peru\" id=\"mw_id\">Peru</a>",
+				"text": "Aerial photograph of hummingbird image as part of Nazca Lines in Peru"
+			},
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Nazca_colibri.jpg/640px-Nazca_colibri.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Nazca_colibri.jpg/960px-Nazca_colibri.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/46/Nazca_colibri.jpg/1280px-Nazca_colibri.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Caribbean_Airlines_logo-600x270.png",
+			"section_id": 29,
+			"type": "image",
+			"caption": {
+				"html": "Hummingbird as part of the emblem for Caribbean Airlines",
+				"text": "Hummingbird as part of the emblem for Caribbean Airlines"
+			},
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/en/thumb/1/1f/Caribbean_Airlines_logo-600x270.png/320px-Caribbean_Airlines_logo-600x270.png",
+					"scale": "1x"
+				}
+			]
+		},
+		{
+			"title": "File:Humming_birds_feeding_at_1500fps.webm",
+			"section_id": 30,
+			"type": "video",
+			"gallery_id": "mwBDc",
+			"sources": [
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/f/fe/Humming_birds_feeding_at_1500fps.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "Original WebM file, 864 × 480 (1.03 Mbps)",
+					"short_name": "WebM source",
+					"width": "864",
+					"height": "480"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.120p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "Lowest bandwidth VP9 (120P)",
+					"short_name": "VP9 120P",
+					"width": "214",
+					"height": "118"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.160p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "Low bandwidth WebM (160P)",
+					"short_name": "WebM 160P",
+					"width": "288",
+					"height": "160"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.180p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "Low bandwidth VP9 (180P)",
+					"short_name": "VP9 180P",
+					"width": "320",
+					"height": "178"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "Small VP9 (240P)",
+					"short_name": "VP9 240P",
+					"width": "426",
+					"height": "236"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.240p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "Small WebM (240P)",
+					"short_name": "WebM 240P",
+					"width": "426",
+					"height": "236"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "VP9 (360P)",
+					"short_name": "VP9 360P",
+					"width": "640",
+					"height": "356"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.360p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "WebM (360P)",
+					"short_name": "WebM 360P",
+					"width": "640",
+					"height": "356"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.vp9.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp9",
+						"opus"
+					],
+					"name": "SD VP9 (480P)",
+					"short_name": "VP9 480P",
+					"width": "854",
+					"height": "474"
+				},
+				{
+					"url": "//upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Humming_birds_feeding_at_1500fps.webm/Humming_birds_feeding_at_1500fps.webm.480p.webm",
+					"mime": "video/webm",
+					"codecs": [
+						"vp8",
+						"vorbis"
+					],
+					"name": "SD WebM (480P)",
+					"short_name": "WebM 480P",
+					"width": "854",
+					"height": "474"
+				}
+			],
+			"showInGallery": true
+		},
+		{
+			"title": "File:Hummingbird_feeding.jpg",
+			"section_id": 30,
+			"type": "image",
+			"gallery_id": "mwBDc",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Hummingbird_feeding.jpg/120px-Hummingbird_feeding.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Hummingbird_feeding.jpg/180px-Hummingbird_feeding.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Hummingbird_feeding.jpg/240px-Hummingbird_feeding.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Hummingbird_headshot.jpg",
+			"section_id": 30,
+			"type": "image",
+			"gallery_id": "mwBDc",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Hummingbird_headshot.jpg/120px-Hummingbird_headshot.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Hummingbird_headshot.jpg/180px-Hummingbird_headshot.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Hummingbird_headshot.jpg/240px-Hummingbird_headshot.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Eugenes-fulgens-001.jpg",
+			"section_id": 30,
+			"type": "image",
+			"gallery_id": "mwBDc",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Eugenes-fulgens-001.jpg/120px-Eugenes-fulgens-001.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Eugenes-fulgens-001.jpg/180px-Eugenes-fulgens-001.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Eugenes-fulgens-001.jpg/240px-Eugenes-fulgens-001.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Hummingbird.jpg",
+			"section_id": 30,
+			"type": "image",
+			"gallery_id": "mwBDc",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Hummingbird.jpg/120px-Hummingbird.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Hummingbird.jpg/180px-Hummingbird.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Hummingbird.jpg/240px-Hummingbird.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
+			"section_id": 30,
+			"type": "image",
+			"gallery_id": "mwBDc",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg/120px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg/180px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg/240px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Hummingbird_Calypte_anna_in_ggp_15n.jpg",
+			"section_id": 30,
+			"type": "image",
+			"gallery_id": "mwBDc",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hummingbird_Calypte_anna_in_ggp_15n.jpg/120px-Hummingbird_Calypte_anna_in_ggp_15n.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hummingbird_Calypte_anna_in_ggp_15n.jpg/180px-Hummingbird_Calypte_anna_in_ggp_15n.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hummingbird_Calypte_anna_in_ggp_15n.jpg/240px-Hummingbird_Calypte_anna_in_ggp_15n.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Nano_Hummingbird.jpg",
+			"section_id": 30,
+			"type": "image",
+			"gallery_id": "mwBDc",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Nano_Hummingbird.jpg/120px-Nano_Hummingbird.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Nano_Hummingbird.jpg/180px-Nano_Hummingbird.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Nano_Hummingbird.jpg/240px-Nano_Hummingbird.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
+			"section_id": 30,
+			"type": "image",
+			"gallery_id": "mwBDc",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/120px-Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/180px-Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/240px-Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
+			"section_id": 30,
+			"type": "image",
+			"gallery_id": "mwBDc",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/120px-Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/180px-Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg/240px-Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa%2C_Arizona.jpg",
+					"scale": "2x"
+				}
+			]
+		},
+		{
+			"title": "File:Female_Anna's_Hummingbird.JPG",
+			"section_id": 30,
+			"type": "image",
+			"gallery_id": "mwBDc",
+			"showInGallery": true,
+			"srcset": [
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Female_Anna%27s_Hummingbird.JPG/120px-Female_Anna%27s_Hummingbird.JPG",
+					"scale": "1x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Female_Anna%27s_Hummingbird.JPG/180px-Female_Anna%27s_Hummingbird.JPG",
+					"scale": "1.5x"
+				},
+				{
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Female_Anna%27s_Hummingbird.JPG/240px-Female_Anna%27s_Hummingbird.JPG",
+					"scale": "2x"
+				}
+			]
+		}
+	]
 }

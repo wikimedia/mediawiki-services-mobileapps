@@ -18,71 +18,71 @@ const headers = ['title', 'parsoid', 'parsoid-gz', 'mobile-html', 'mobile-html-g
 const measurements = [];
 
 const fixTitleForRequest = (pageTitle) => {
-    return encodeURIComponent(pageTitle);
+	return encodeURIComponent(pageTitle);
 };
 
 const processEndpoint = (endpointLabel, baseUri, page, measurement) => {
-    const requestTitle = fixTitleForRequest(page.title);
-    const uri = `${baseUri}/${requestTitle}/${page.rev}`;
-    const fileName = requestTitle;
-    const cmd = `curl -s "${uri}" -o "${fileName}"`;
-    return exec(cmd)
-        .then((rsp) => {
-            const stats = fs.statSync(fileName);
-            measurement.push(stats.size);
-            return exec(`${GZIP} "${fileName}"`);
-        })
-        .then((rsp) => {
-            const stats = fs.statSync(`${fileName}.gz`);
-            measurement.push(stats.size);
-            fs.unlinkSync(`${fileName}.gz`);
-            return BBPromise.resolve(measurement);
-        })
-        .catch((err) => {
-            process.stderr.write(`ERROR getting parsoid ${page.title}: ${err}`);
-        });
+	const requestTitle = fixTitleForRequest(page.title);
+	const uri = `${baseUri}/${requestTitle}/${page.rev}`;
+	const fileName = requestTitle;
+	const cmd = `curl -s "${uri}" -o "${fileName}"`;
+	return exec(cmd)
+		.then((rsp) => {
+			const stats = fs.statSync(fileName);
+			measurement.push(stats.size);
+			return exec(`${GZIP} "${fileName}"`);
+		})
+		.then((rsp) => {
+			const stats = fs.statSync(`${fileName}.gz`);
+			measurement.push(stats.size);
+			fs.unlinkSync(`${fileName}.gz`);
+			return BBPromise.resolve(measurement);
+		})
+		.catch((err) => {
+			process.stderr.write(`ERROR getting parsoid ${page.title}: ${err}`);
+		});
 };
 
 const processParsoid = (page, measurement) => {
-    return processEndpoint('parsoid', PARSOID_BASE_URI, page, measurement);
+	return processEndpoint('parsoid', PARSOID_BASE_URI, page, measurement);
 };
 
 const processReadHtml = (page, measurement) => {
-    return processEndpoint('mobile-html', LOCAL_MCS_BASE_URI, page, measurement);
+	return processEndpoint('mobile-html', LOCAL_MCS_BASE_URI, page, measurement);
 };
 
 const printResultSummary = () => {
-    process.stdout.write(`\n\n${headers.join('\t')}\n`);
-    measurements.forEach((measurement) => {
-        process.stdout.write(`${measurement.join('\t')}\n`);
-    });
+	process.stdout.write(`\n\n${headers.join('\t')}\n`);
+	measurements.forEach((measurement) => {
+		process.stdout.write(`${measurement.join('\t')}\n`);
+	});
 };
 
 const processAllPages = () => {
-    const pages = require(TOP_PAGES_FILE).items;
-    BBPromise.map(pages, (page) => {
-        const measurement = [ page.title ];
-        return processParsoid(page, measurement)
-            .then(() => {
-                return processReadHtml(page, measurement);
-            })
-            .then(() => {
-                process.stdout.write('.');
-                measurements.push(measurement);
-                return measurement;
-            });
-    }, { concurrency: 1 })
-        .then(() => {
-            printResultSummary();
-        });
+	const pages = require(TOP_PAGES_FILE).items;
+	BBPromise.map(pages, (page) => {
+		const measurement = [ page.title ];
+		return processParsoid(page, measurement)
+			.then(() => {
+				return processReadHtml(page, measurement);
+			})
+			.then(() => {
+				process.stdout.write('.');
+				measurements.push(measurement);
+				return measurement;
+			});
+	}, { concurrency: 1 })
+		.then(() => {
+			printResultSummary();
+		});
 };
 
 // MAIN
 const arg = process.argv[2];
 if (arg) {
-    process.stderr.write('Error: unrecognized parameter!');
-    // eslint-disable-next-line no-process-exit
-    process.exit(-1);
+	process.stderr.write('Error: unrecognized parameter!');
+	// eslint-disable-next-line no-process-exit
+	process.exit(-1);
 } else {
-    processAllPages();
+	processAllPages();
 }

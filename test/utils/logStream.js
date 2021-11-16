@@ -4,65 +4,65 @@ const bunyan = require('bunyan');
 
 function logStream(logStdout) {
 
-    const log = [];
-    const parrot = bunyan.createLogger({
-        name: 'test-logger',
-        level: 'warn'
-    });
+	const log = [];
+	const parrot = bunyan.createLogger({
+		name: 'test-logger',
+		level: 'warn'
+	});
 
-    function write(chunk, encoding, callback) {
-        try {
-            const entry = JSON.parse(chunk);
-            const levelMatch = /^(\w+)/.exec(entry.levelPath);
-            if (logStdout && levelMatch) {
-                const level = levelMatch[1];
-                if (parrot[level]) {
-                    parrot[level](entry);
-                }
-            }
-        } catch (e) {
-            console.error('something went wrong trying to parrot a log entry', e, chunk);
-        }
+	function write(chunk, encoding, callback) {
+		try {
+			const entry = JSON.parse(chunk);
+			const levelMatch = /^(\w+)/.exec(entry.levelPath);
+			if (logStdout && levelMatch) {
+				const level = levelMatch[1];
+				if (parrot[level]) {
+					parrot[level](entry);
+				}
+			}
+		} catch (e) {
+			console.error('something went wrong trying to parrot a log entry', e, chunk);
+		}
 
-        log.push(chunk);
-    }
+		log.push(chunk);
+	}
 
-    // to implement the stream writer interface
-    function end(chunk, encoding, callback) {
-    }
+	// to implement the stream writer interface
+	function end(chunk, encoding, callback) {
+	}
 
-    function get() {
-        return log;
-    }
+	function get() {
+		return log;
+	}
 
-    function slice() {
+	function slice() {
 
-        const begin = log.length;
-        let endPos = null;
+		const begin = log.length;
+		let endPos = null;
 
-        function halt() {
-            if (endPos === null) {
-                endPos = log.length;
-            }
-        }
+		function halt() {
+			if (endPos === null) {
+				endPos = log.length;
+			}
+		}
 
-        function getInner() {
-            return log.slice(begin, endPos);
-        }
+		function getInner() {
+			return log.slice(begin, endPos);
+		}
 
-        return {
-            halt: halt,
-            get: getInner
-        };
+		return {
+			halt: halt,
+			get: getInner
+		};
 
-    }
+	}
 
-    return {
-        write: write,
-        end: end,
-        slice: slice,
-        get: get
-    };
+	return {
+		write: write,
+		end: end,
+		slice: slice,
+		get: get
+	};
 }
 
 module.exports = logStream;

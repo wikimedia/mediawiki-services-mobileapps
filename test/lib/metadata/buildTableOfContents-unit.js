@@ -18,13 +18,13 @@ const doc = `
 `;
 
 describe('lib:metadata buildTableOfContents', () => {
-    it('should have same form as MediaWiki parser-generated TOC', () => {
-        const result = buildTocEntries(domino.createDocument(doc), {});
-        const expectedNumbers = ['1', '1.1', '1.1.1', '1.2', '1.2.1', '1.3', '2'];
-        assert.deepEqual(result.length, 7, 'result should have 7 entries (3 excluded)');
-        assert.deepEqual(result.length, expectedNumbers.length);
-        for (let i = 0; i < expectedNumbers.length; i++) {
-            assert.deepEqual(result[i].number, expectedNumbers[i]);
-        }
-    });
+	it('should have same form as MediaWiki parser-generated TOC', () => {
+		const result = buildTocEntries(domino.createDocument(doc), {});
+		const expectedNumbers = ['1', '1.1', '1.1.1', '1.2', '1.2.1', '1.3', '2'];
+		assert.deepEqual(result.length, 7, 'result should have 7 entries (3 excluded)');
+		assert.deepEqual(result.length, expectedNumbers.length);
+		for (let i = 0; i < expectedNumbers.length; i++) {
+			assert.deepEqual(result[i].number, expectedNumbers[i]);
+		}
+	});
 });

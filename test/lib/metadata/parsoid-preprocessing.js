@@ -15,34 +15,34 @@ const html = '<h2 id="Presidency_(2009–2017)">' +
 
 describe('metadata:preprocessing', () => {
 
-    let script;
+	let script;
 
-    before(() => {
-        const processing = path.join(__dirname, '../../../processing/metadata.yaml');
-        script = yaml.safeLoad(fs.readFileSync(processing));
-    });
+	before(() => {
+		const processing = path.join(__dirname, '../../../processing/metadata.yaml');
+		script = yaml.safeLoad(fs.readFileSync(processing));
+	});
 
-    it('strips comments', () => {
-        const doc = domino.createDocument(html);
-        preprocessParsoidHtml(doc, [ script ])
-            .then((res) => {
-                assert.notContains(res.body.textContent, '<!--Do not remove "20", per MOS-->');
-            });
-    });
+	it('strips comments', () => {
+		const doc = domino.createDocument(html);
+		preprocessParsoidHtml(doc, [ script ])
+			.then((res) => {
+				assert.notContains(res.body.textContent, '<!--Do not remove "20", per MOS-->');
+			});
+	});
 
-    it('strips span[typeof=mw:FallbackId]', () => {
-        const doc = domino.createDocument(html);
-        preprocessParsoidHtml(doc, [ script ])
-            .then((res) => {
-                assert.selectorDoesNotExist(res, 'span[typeof=mw:FallbackId]');
-            });
-    });
+	it('strips span[typeof=mw:FallbackId]', () => {
+		const doc = domino.createDocument(html);
+		preprocessParsoidHtml(doc, [ script ])
+			.then((res) => {
+				assert.selectorDoesNotExist(res, 'span[typeof=mw:FallbackId]');
+			});
+	});
 
-    it('strips span:empty', () => {
-        const doc = domino.createDocument(html);
-        preprocessParsoidHtml(doc, [ script ])
-            .then((res) => {
-                assert.selectorDoesNotExist(doc, 'span:empty');
-            });
-    });
+	it('strips span:empty', () => {
+		const doc = domino.createDocument(html);
+		preprocessParsoidHtml(doc, [ script ])
+			.then((res) => {
+				assert.selectorDoesNotExist(doc, 'span:empty');
+			});
+	});
 });

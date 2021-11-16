@@ -9,42 +9,42 @@ const ENWIKI_SITEINFO = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../.
 
 describe('lib:metadata', () => {
 
-    describe('augmentLangLinks', () => {
+	describe('augmentLangLinks', () => {
 
-        it('handles undefined langlinks', () => {
-            assert.deepEqual(lib.augmentLangLinks(), undefined);
-        });
+		it('handles undefined langlinks', () => {
+			assert.deepEqual(lib.augmentLangLinks(), undefined);
+		});
 
-        it('bails out if an empty title is found', () => {
-            assert.deepEqual(lib.augmentLangLinks([{ lang: 'test', title: '' }]), undefined);
-        });
+		it('bails out if an empty title is found', () => {
+			assert.deepEqual(lib.augmentLangLinks([{ lang: 'test', title: '' }]), undefined);
+		});
 
-        it('bails out if an empty title is found (and nonempty title exists)', () => {
-            assert.deepEqual(lib.augmentLangLinks([
-                { lang: 'test', title: 'Foo' },
-                { lang: 'test2', title: '' }
-            ]), undefined);
-        });
+		it('bails out if an empty title is found (and nonempty title exists)', () => {
+			assert.deepEqual(lib.augmentLangLinks([
+				{ lang: 'test', title: 'Foo' },
+				{ lang: 'test2', title: '' }
+			]), undefined);
+		});
 
-        it('creates augmented langlink if input is good', () => {
-            assert.deepEqual(lib.augmentLangLinks([
-                { lang: 'test', title: 'Foo' },
-            ], 'en.wikipedia.org', ENWIKI_SITEINFO), [
-                {
-                    lang: 'test',
-                    summary_url: 'https://test.wikipedia.org/api/rest_v1/page/summary/Foo',
-                    titles: {
-                        canonical: 'Foo',
-                        normalized: 'Foo'
-                    }
-                }
-            ]);
-        });
+		it('creates augmented langlink if input is good', () => {
+			assert.deepEqual(lib.augmentLangLinks([
+				{ lang: 'test', title: 'Foo' },
+			], 'en.wikipedia.org', ENWIKI_SITEINFO), [
+				{
+					lang: 'test',
+					summary_url: 'https://test.wikipedia.org/api/rest_v1/page/summary/Foo',
+					titles: {
+						canonical: 'Foo',
+						normalized: 'Foo'
+					}
+				}
+			]);
+		});
 
-    });
+	});
 
-    it('augmentCategories handles undefined categories', () => {
-        assert.doesNotThrow(() => lib.augmentCategories());
-    });
+	it('augmentCategories handles undefined categories', () => {
+		assert.doesNotThrow(() => lib.augmentCategories());
+	});
 
 });

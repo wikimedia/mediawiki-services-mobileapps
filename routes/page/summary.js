@@ -23,40 +23,40 @@ let app;
  * Extracts a summary of a given wiki page limited to one paragraph of text
  */
 router.get('/summary/:title/:revision?/:tid?', (req, res) => {
-    return BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(resolvedTitle => {
-        req.params.title = resolvedTitle;
-        return BBPromise.join(
-            parsoid.getParsoidHtml(req),
-            mwapi.getMetadataForSummary(req, mwapiConstants.LEAD_IMAGE_S),
-            mwapi.getSiteInfo(req),
-            (html, meta, siteinfo) => {
-                const revTid = parsoid.getRevAndTidFromEtag(html.headers);
-                return lib.buildSummary(req.params.domain, req.params.title,
-                    html.body, revTid, meta, siteinfo, app.conf.processing_scripts.summary)
-                    .then((summary) => {
-                        res.status(summary.code);
-                        if (summary.code === 200) {
-                            delete summary.code;
-                            // Don't pass revTid.tid - this response depends on more than
-                            // parsoid output. For example, if a wikidata description is edited,
-                            // this response will be regenerated, which should trigger a change
-                            // in the ETag
-                            mUtil.setETag(res, revTid.revision);
-                            mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
-                            mUtil.setLanguageHeaders(res, html.headers);
-                            res.send(summary);
-                        }
-                        res.end();
-                    });
-            });
-    });
+	return BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(resolvedTitle => {
+		req.params.title = resolvedTitle;
+		return BBPromise.join(
+			parsoid.getParsoidHtml(req),
+			mwapi.getMetadataForSummary(req, mwapiConstants.LEAD_IMAGE_S),
+			mwapi.getSiteInfo(req),
+			(html, meta, siteinfo) => {
+				const revTid = parsoid.getRevAndTidFromEtag(html.headers);
+				return lib.buildSummary(req.params.domain, req.params.title,
+					html.body, revTid, meta, siteinfo, app.conf.processing_scripts.summary)
+					.then((summary) => {
+						res.status(summary.code);
+						if (summary.code === 200) {
+							delete summary.code;
+							// Don't pass revTid.tid - this response depends on more than
+							// parsoid output. For example, if a wikidata description is edited,
+							// this response will be regenerated, which should trigger a change
+							// in the ETag
+							mUtil.setETag(res, revTid.revision);
+							mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
+							mUtil.setLanguageHeaders(res, html.headers);
+							res.send(summary);
+						}
+						res.end();
+					});
+			});
+	});
 });
 
 module.exports = function(appObj) {
-    app = appObj;
-    return {
-        path: '/page',
-        api_version: 1,
-        router
-    };
+	app = appObj;
+	return {
+		path: '/page',
+		api_version: 1,
+		router
+	};
 };
