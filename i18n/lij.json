@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"N. Longo"
+		]
+	},
+	"description-add-link-title": "Azónzi 'na descriçión da vôxe",
+	"article-read-more-title": "Lêzi de ciù",
+	"table-title-other": "Ciù informaçioîn",
+	"page-edit-history": "Véddi a cronologîa de modìfiche",
+	"info-box-close-text": "Særa",
+	"page-talk-page-subtitle": "Discùtti pe megioâ a vôxe",
+	"page-issues-subtitle": "Avîsi in scî contegnûi sùb-paralélli ò problemàtichi",
+	"page-talk-page": "Véddi a pàgina de discusción",
+	"info-box-title": "Fæti in brêve",
+	"view-in-browser-footer-link": "Véddi a vôxe into motô de riçèrca",
+	"page-location": "Véddi in sciâ màppa",
+	"page-similar-titles": "Pàgine scìmili",
+	"page-last-edited": "Agiornâ {{PLURAL:$1|vêi|$1 giórni fa|0=ancheu}}",
+	"article-about-title": "Informaçioîn in sce 'sta vôxe chi",
+	"page-issues": "Problêmi da pàgina",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "O contegnûo o l'é disponìbile in sciâ bâze da licénsa $1, se o no l'é diversaménte specificòu.",
+	"page-read-in-other-languages": "Disponìbile in {{PLURAL:$1|'n'âtra léngoa|âtre $1 léngoe}}",
+	"article-edit-button": "Modìfica seçión",
+	"article-edit-protected-button": "Modìfica seçión da pàgina protètta",
+	"article-section-expand": "Espàndi seçión",
+	"article-section-collapse": "Conprìmmi seçión",
+	"table-expand": "Espàndi tabélla",
+	"table-collapse": "Conprìmmi tabélla",
+	"references-preview-header": "Anteprìmma de nòtte"
+}
