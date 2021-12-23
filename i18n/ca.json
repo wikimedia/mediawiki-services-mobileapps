@@ -17,7 +17,7 @@
 	"view-in-browser-footer-link": "Mostra l'article al navegador",
 	"page-location": "Mostra en un mapa",
 	"page-similar-titles": "Pàgines similars",
-	"page-last-edited": "S’ha actualitzat {{PLURAL:$1|0=avui|1=ahir|fa $1 dies}}",
+	"page-last-edited": "S’ha actualitzat {{PLURAL:$1|ahir|fa $1 dies|0=avui}}",
 	"article-about-title": "Sobre aquest article",
 	"page-issues": "Problemes de la pàgina",
 	"license-footer-name": "CC-BY-SA 3.0",
