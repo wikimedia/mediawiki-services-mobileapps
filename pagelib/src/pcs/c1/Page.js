@@ -93,7 +93,7 @@ const setup = (optionalSettings, onSuccess) => {
       metaTags = getMetaTags()
     }
     const protection = getProtectionFromMetaTags(metaTags)
-    const isEditable = true
+    const isEditable = settings.isEditable !== undefined ? settings.isEditable : true
     let isProtected = false
     if (protection.edit) {
       isProtected = true
@@ -411,6 +411,7 @@ const onBodyStart = () => {
       theme: document.pcsSetupSettings.theme,
       platform: document.pcsSetupSettings.platform,
       bodyFont: document.pcsSetupSettings.bodyFont,
+      isEditable: document.pcsSetupSettings.isEditable,
       loadImages: false,
       setupTableEventHandling: false
     }
