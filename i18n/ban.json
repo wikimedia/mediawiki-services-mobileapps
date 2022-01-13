@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joseagush"
+		]
+	},
+	"description-add-link-title": "Wewehin déskripsi suratan",
+	"article-read-more-title": "Wacén malih",
+	"table-title-other": "Pidarta lianan",
+	"page-edit-history": "Cingak lelintihan uahan",
+	"info-box-close-text": "Sineb",
+	"page-talk-page-subtitle": "Sangkepan uahan indik suratan niki",
+	"page-issues-subtitle": "Pangeling indik daging sané gelah kualitas rendah utawi ngelah masalah",
+	"page-talk-page": "Cingak kaca pablibagan",
+	"info-box-title": "Indik bawak",
+	"view-in-browser-footer-link": "Cingak suratan ring peramban",
+	"page-location": "Cingak ring peta",
+	"page-similar-titles": "Kaca sarupa",
+	"page-last-edited": "{{PLURAL:$1|0=Kauahin mangkin|1=Kauahin dibi|Kauahin $1 dina kaping untat}}",
+	"article-about-title": "Indik suratan puniki",
+	"page-issues": "Pikobet kaca",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Daging kasayagayang ring sor $1 yéning ten wénten cutetan.",
+	"page-read-in-other-languages": "Cumawis ing {{PLURAL:$1|$1 basa liyané}}",
+	"article-edit-button": "Uah pah-pahan:",
+	"article-edit-protected-button": "Uah wagian ring kaca sané kalindungin",
+	"article-section-expand": "Kembangkan wagian",
+	"article-section-collapse": "Engkebang wagian",
+	"table-expand": "Kembangkan tabel",
+	"table-collapse": "Ciutkan tabel",
+	"references-preview-header": "Pracingak pustaka"
+}
