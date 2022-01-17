@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Chinamoonroll",
 			"Joseagush"
 		]
 	},
@@ -10,7 +11,7 @@
 	"page-edit-history": "Cingak lelintihan uahan",
 	"info-box-close-text": "Sineb",
 	"page-talk-page-subtitle": "Sangkepan uahan indik suratan niki",
-	"page-issues-subtitle": "Pangeling indik daging sané gelah kualitas rendah utawi ngelah masalah",
+	"page-issues-subtitle": "Pakeling indik daging sané ngelah kualitas kirang utawi ngelah pikobet",
 	"page-talk-page": "Cingak kaca pablibagan",
 	"info-box-title": "Indik bawak",
 	"view-in-browser-footer-link": "Cingak suratan ring peramban",
@@ -21,12 +22,12 @@
 	"page-issues": "Pikobet kaca",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Daging kasayagayang ring sor $1 yéning ten wénten cutetan.",
-	"page-read-in-other-languages": "Cumawis ing {{PLURAL:$1|$1 basa liyané}}",
+	"page-read-in-other-languages": "Cumawis ring {{PLURAL:$1|$1 basa liyané}}",
 	"article-edit-button": "Uah pah-pahan:",
 	"article-edit-protected-button": "Uah wagian ring kaca sané kalindungin",
-	"article-section-expand": "Kembangkan wagian",
+	"article-section-expand": "Kembangang wagian",
 	"article-section-collapse": "Engkebang wagian",
-	"table-expand": "Kembangkan tabel",
-	"table-collapse": "Ciutkan tabel",
+	"table-expand": "Kembangang tabel",
+	"table-collapse": "Alitang tabel",
 	"references-preview-header": "Pracingak pustaka"
 }

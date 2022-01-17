@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Les Meloures",
 			"Robby"
 		]
 	},
@@ -28,5 +29,5 @@
 	"article-section-collapse": "Abschnitt zesummeklappen",
 	"table-expand": "Tabell opklappen",
 	"table-collapse": "Tabellen zesummeklappen",
-	"references-preview-header": "Ausgesinn vun de Referenzen"
+	"references-preview-header": "Ausgesi vun de Referenzen"
 }
