@@ -162,7 +162,7 @@
       "language": "English",
       "definitions": [
         {
-          "definition": "Any of a variety of earth-moving <a rel=\"mw:WikiLink\" href=\"/wiki/machine\" title=\"machine\">machines</a>. (from their manufacturer <a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/Caterpillar%20Inc.\" title=\"wikipedia:Caterpillar Inc.\" about=\"#mwt_present\" typeof=\"mw:Transclusion\">Caterpillar Inc.</a>)"
+          "definition": "Any of a variety of earth-moving <a rel=\"mw:WikiLink\" href=\"/wiki/machine\" title=\"machine\">machines</a>. (from their manufacturer <a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/Caterpillar%20Inc.\" title=\"wikipedia:Caterpillar Inc.\" about=\"#mwt_present\" typeof=\"mw:Transclusion\" class=\"extiw\">Caterpillar Inc.</a>)"
         },
         {
           "definition": "A <span class=\"new\">caterpillar drive</span> vehicle (a ground vehicle which uses <a rel=\"mw:WikiLink\" href=\"/wiki/caterpillar_track\" title=\"caterpillar track\">caterpillar tracks</a>), especially tractors, trucks, minibuses, and snow groomers."
@@ -232,7 +232,7 @@
           "definition": "<span class=\"Latn\" lang=\"en\" about=\"#mwt_present\" typeof=\"mw:Transclusion\"><a rel=\"mw:WikiLink\" href=\"/wiki/cat#English\" title=\"cat\">cat</a></span>"
         },
         {
-          "definition": "<a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/common%20dab\" title=\"w:common dab\" about=\"#mwt_present\" typeof=\"mw:Transclusion\">common dab</a><link rel=\"mw:PageProp/Category\" href=\"./Category:Entries_missing_English_vernacular_names_of_taxa#common%20dab\" about=\"#mwt_present\"> (<span class=\"biota\" about=\"#mwt_present\" typeof=\"mw:Transclusion\"><a rel=\"mw:WikiLink/Interwiki\" href=\"https://species.wikimedia.org/wiki/Limanda%20limanda\" title=\"wikispecies:Limanda limanda\"><i>Limanda limanda</i></a><link rel=\"mw:PageProp/Category\" href=\"./Category:Entries_using_missing_taxonomic_name_(species)#Limanda%20limanda\"></span>)"
+          "definition": "<a rel=\"mw:WikiLink/Interwiki\" href=\"https://en.wikipedia.org/wiki/en:common%20dab\" title=\"w:en:common dab\" about=\"#mwt_present\" typeof=\"mw:Transclusion\" class=\"extiw\">common dab</a><link rel=\"mw:PageProp/Category\" href=\"./Category:Entries_missing_English_vernacular_names_of_taxa#common%20dab\" about=\"#mwt_present\"> (<span class=\"biota\" about=\"#mwt_present\" typeof=\"mw:Transclusion\"><a rel=\"mw:WikiLink/Interwiki\" href=\"https://species.wikimedia.org/wiki/Limanda%20limanda\" title=\"wikispecies:Limanda limanda\" class=\"extiw\"><i>Limanda limanda</i></a><link rel=\"mw:PageProp/Category\" href=\"./Category:Entries_using_missing_taxonomic_name_(species)#Limanda%20limanda\"></span>)"
         }
       ]
     }

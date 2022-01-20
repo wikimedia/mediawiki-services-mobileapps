@@ -4,6 +4,7 @@
 	"items": [
 		{
 			"title": "File:Trinidad_and_Tobago_hummingbirds_composite.jpg",
+			"leadImage": true,
 			"section_id": 0,
 			"type": "image",
 			"showInGallery": true,
@@ -24,6 +25,7 @@
 		},
 		{
 			"title": "File:Purple-throated_carib_hummingbird_feeding.jpg",
+			"leadImage": false,
 			"section_id": 3,
 			"type": "image",
 			"caption": {
@@ -48,6 +50,7 @@
 		},
 		{
 			"title": "File:Haeckel_Trochilidae.jpg",
+			"leadImage": false,
 			"section_id": 5,
 			"type": "image",
 			"caption": {
@@ -72,9 +75,10 @@
 		},
 		{
 			"title": "File:Hummingbird_Incubating3.jpg",
+			"leadImage": false,
 			"section_id": 15,
 			"type": "image",
-			"gallery_id": "mwAf0",
+			"gallery_id": "mwAf4",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -93,9 +97,10 @@
 		},
 		{
 			"title": "File:Hummingbird_nest_with_two_chicks_in_Santa_Monica,_CA._Photo_taken_June_26,_2006.jpg",
+			"leadImage": false,
 			"section_id": 15,
 			"type": "image",
-			"gallery_id": "mwAf0",
+			"gallery_id": "mwAf4",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -114,9 +119,10 @@
 		},
 		{
 			"title": "File:Calliope-nest_edit.jpg",
+			"leadImage": false,
 			"section_id": 15,
 			"type": "image",
-			"gallery_id": "mwAf0",
+			"gallery_id": "mwAf4",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -135,9 +141,10 @@
 		},
 		{
 			"title": "File:AnnasHummingbird-NestCollage.png",
+			"leadImage": false,
 			"section_id": 15,
 			"type": "image",
-			"gallery_id": "mwAf0",
+			"gallery_id": "mwAf4",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -156,6 +163,7 @@
 		},
 		{
 			"title": "File:AnnasHummingbirdPaloAltoNorvig.jpg",
+			"leadImage": false,
 			"section_id": 16,
 			"type": "image",
 			"caption": {
@@ -172,6 +180,7 @@
 		},
 		{
 			"title": "File:Hummingbird_Aerodynamics_of_flight.jpg",
+			"leadImage": false,
 			"section_id": 17,
 			"type": "image",
 			"caption": {
@@ -196,6 +205,7 @@
 		},
 		{
 			"title": "File:Hummingbird_wake_Pengo.svg",
+			"leadImage": false,
 			"section_id": 17,
 			"type": "image",
 			"caption": {
@@ -212,6 +222,7 @@
 		},
 		{
 			"title": "File:Hummingbird_feeding_closeup_2000fps.webm",
+			"leadImage": false,
 			"section_id": 17,
 			"type": "video",
 			"caption": {
@@ -344,6 +355,7 @@
 		},
 		{
 			"title": "File:Velvet-purple_coronets_sequence.tif",
+			"leadImage": false,
 			"section_id": 17,
 			"type": "image",
 			"caption": {
@@ -368,6 +380,7 @@
 		},
 		{
 			"title": "File:Colibri-thalassinus-001-edit.jpg",
+			"leadImage": false,
 			"section_id": 23,
 			"type": "image",
 			"caption": {
@@ -392,6 +405,7 @@
 		},
 		{
 			"title": "File:Hummingbird.ogv",
+			"leadImage": false,
 			"section_id": 23,
 			"type": "video",
 			"caption": {
@@ -524,6 +538,7 @@
 		},
 		{
 			"title": "File:Hummingbirds_at_feeder.jpg",
+			"leadImage": false,
 			"section_id": 26,
 			"type": "image",
 			"caption": {
@@ -544,6 +559,7 @@
 		},
 		{
 			"title": "File:Huitzilopochtli,_the_Principal_Aztec_God_WDL6725.png",
+			"leadImage": false,
 			"section_id": 29,
 			"type": "image",
 			"caption": {
@@ -568,6 +584,7 @@
 		},
 		{
 			"title": "File:Nazca_colibri.jpg",
+			"leadImage": false,
 			"section_id": 29,
 			"type": "image",
 			"caption": {
@@ -592,6 +609,7 @@
 		},
 		{
 			"title": "File:Caribbean_Airlines_logo-600x270.png",
+			"leadImage": false,
 			"section_id": 29,
 			"type": "image",
 			"caption": {
@@ -608,9 +626,10 @@
 		},
 		{
 			"title": "File:Humming_birds_feeding_at_1500fps.webm",
+			"leadImage": false,
 			"section_id": 30,
 			"type": "video",
-			"gallery_id": "mwBDc",
+			"gallery_id": "mwBDk",
 			"sources": [
 				{
 					"url": "//upload.wikimedia.org/wikipedia/commons/f/fe/Humming_birds_feeding_at_1500fps.webm",
@@ -737,9 +756,10 @@
 		},
 		{
 			"title": "File:Hummingbird_feeding.jpg",
+			"leadImage": false,
 			"section_id": 30,
 			"type": "image",
-			"gallery_id": "mwBDc",
+			"gallery_id": "mwBDk",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -758,9 +778,10 @@
 		},
 		{
 			"title": "File:Hummingbird_headshot.jpg",
+			"leadImage": false,
 			"section_id": 30,
 			"type": "image",
-			"gallery_id": "mwBDc",
+			"gallery_id": "mwBDk",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -779,9 +800,10 @@
 		},
 		{
 			"title": "File:Eugenes-fulgens-001.jpg",
+			"leadImage": false,
 			"section_id": 30,
 			"type": "image",
-			"gallery_id": "mwBDc",
+			"gallery_id": "mwBDk",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -800,9 +822,10 @@
 		},
 		{
 			"title": "File:Hummingbird.jpg",
+			"leadImage": false,
 			"section_id": 30,
 			"type": "image",
-			"gallery_id": "mwBDc",
+			"gallery_id": "mwBDk",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -820,31 +843,33 @@
 			]
 		},
 		{
-			"title": "File:Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
+			"title": "File:Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Sarah_Stierch_-_E.jpg",
+			"leadImage": false,
 			"section_id": 30,
 			"type": "image",
-			"gallery_id": "mwBDc",
+			"gallery_id": "mwBDk",
 			"showInGallery": true,
 			"srcset": [
 				{
-					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg/120px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Sarah_Stierch_-_E.jpg/120px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Sarah_Stierch_-_E.jpg",
 					"scale": "1x"
 				},
 				{
-					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg/180px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Sarah_Stierch_-_E.jpg/180px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Sarah_Stierch_-_E.jpg",
 					"scale": "1.5x"
 				},
 				{
-					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg/240px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Stierch_-_E.jpg",
+					"src": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Sarah_Stierch_-_E.jpg/240px-Juvenile_Annas_Hummingbird_at_San_Francisco_Botanical_Garden_-_Sarah_Stierch_-_E.jpg",
 					"scale": "2x"
 				}
 			]
 		},
 		{
 			"title": "File:Hummingbird_Calypte_anna_in_ggp_15n.jpg",
+			"leadImage": false,
 			"section_id": 30,
 			"type": "image",
-			"gallery_id": "mwBDc",
+			"gallery_id": "mwBDk",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -863,9 +888,10 @@
 		},
 		{
 			"title": "File:Nano_Hummingbird.jpg",
+			"leadImage": false,
 			"section_id": 30,
 			"type": "image",
-			"gallery_id": "mwBDc",
+			"gallery_id": "mwBDk",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -884,9 +910,10 @@
 		},
 		{
 			"title": "File:Hummingbird_Chicks_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
+			"leadImage": false,
 			"section_id": 30,
 			"type": "image",
-			"gallery_id": "mwBDc",
+			"gallery_id": "mwBDk",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -905,9 +932,10 @@
 		},
 		{
 			"title": "File:Hummingbird_Adult_in_Nest_in_Cactus_in_Mesa,_Arizona.jpg",
+			"leadImage": false,
 			"section_id": 30,
 			"type": "image",
-			"gallery_id": "mwBDc",
+			"gallery_id": "mwBDk",
 			"showInGallery": true,
 			"srcset": [
 				{
@@ -926,9 +954,10 @@
 		},
 		{
 			"title": "File:Female_Anna's_Hummingbird.JPG",
+			"leadImage": false,
 			"section_id": 30,
 			"type": "image",
-			"gallery_id": "mwBDc",
+			"gallery_id": "mwBDk",
 			"showInGallery": true,
 			"srcset": [
 				{

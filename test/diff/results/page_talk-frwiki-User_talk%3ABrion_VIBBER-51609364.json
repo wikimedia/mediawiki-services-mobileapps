@@ -225,14 +225,14 @@
 					"html": "Bonjour, Brion. J'ai apporté une ou deux modifs à ta page. Dans ta phrase \"Je suis californien; j'étudie le cinéma et m'amuse par les langues.\", \"m'amuse par les langues\" m'a beaucoup plus ; ce n'est pas \"du français\", mais on comprend de suite de quoi il retourne. \"M'amuse par des langues\", ça ne va pas, je ne sais pas purquoi. Il y aurait bien \"m'amuse des langues\" mais ça ne dirait rien à personne. Bon, je m'arrête ici. À bientôt <a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a>"
 				},
 				{
-					"sha": "daa709805dec3084f72f5d4cdd0197ee1dfad76816b0ca54612a417186950ac2",
+					"sha": "8044334944ef28232b6f2662387c48019672e9a6e0bfea0cc392859f2238b751",
 					"depth": 1,
-					"html": "<ul><li>moi, j'aime bcp les expressions françaises de Brion; y compris le \"m'amuse des langues\" :-) C'est très parlant, c'est sympa</li></ul><a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a> : moi aussi, ”{\"m'amuse par les langues\" m'a beaucoup plu”} (cf ci-dessus) (avec un \"s\" en trop dans la vo ;(<br><br>French version :<br><br>Salut Brion, je te remercie pour tes explications sur les adresses IP. Je crois que mon mauvais anglais a fait que mon message initial n'a pas bien été compris. Ce n'est pas grave, j'ai l'information, maintenant. <a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a> 23 mai 2003 ・01:39 (CEST)"
+					"html": "<ul><li>moi, j'aime bcp les expressions françaises de Brion; y compris le \"m'amuse des langues\" :-) C'est très parlant, c'est sympa</li></ul><a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a> : moi aussi, ”{\"m'amuse par les langues\" m'a beaucoup plu”} (cf ci-dessus) (avec un \"s\" en trop dans la vo ;(<br><br><u>French version : </u><br><br>Salut Brion, je te remercie pour tes explications sur les adresses IP. Je crois que mon mauvais anglais a fait que mon message initial n'a pas bien été compris. Ce n'est pas grave, j'ai l'information, maintenant. <a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a> 23 mai 2003 ・01:39 (CEST)"
 				},
 				{
-					"sha": "93ebec4601d5e431371b4ec0f89829a663d3bf52a21434e8d28fa2eb3c358ca0",
+					"sha": "aad2a591fe0ab466e15ba594da613bae1f2edc201d368849b39033298a5028d2",
 					"depth": 0,
-					"html": "Version anglaise (?) :<br><br>Hello Brion, I thank you for your explanations on IP addresses. I think my english is so bad that my initial message was misunderstood. No worry, I have the information, now. <a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a> 23 mai 2003 ・01:39 (CEST)"
+					"html": "<u>Version anglaise (?) : </u><br><br>Hello Brion, I thank you for your explanations on IP addresses. I think my english is so bad that my initial message was misunderstood. No worry, I have the information, now. <a href=\"./Utilisateur:Alvaro\" title=\"Utilisateur:Alvaro\">Alvaro</a> 23 mai 2003 ・01:39 (CEST)"
 				},
 				{
 					"sha": "e35e8da32281dd649b5589f1e96402fc8d34217f74b1ce993993ada4f3ec41c8",
@@ -249,7 +249,7 @@
 			"html": "",
 			"shas": {
 				"html": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
-				"indicator": "76405f83ced0c59f5c2b0f4e7b9a6cac55faf4d087196b80080d42c34d4e8f91"
+				"indicator": "c8201f4046cbe88668d267d55c368dde15278ee3dea780d186894e606ecf7a01"
 			}
 		},
 		{
