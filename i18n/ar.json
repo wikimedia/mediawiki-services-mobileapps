@@ -20,7 +20,7 @@
 	"view-in-browser-footer-link": "اعرض المقالة في المتصفح",
 	"page-location": "شاهده على خريطة",
 	"page-similar-titles": "صفحات مشابهة",
-	"page-last-edited": "{{PLURAL:$1|0=حُدِثَت اليوم|1=حُدِثَت بالأمس|حُدِثَت قبل $1 أيام}}",
+	"page-last-edited": "{{PLURAL:$1|0=حُدِثَت اليوم|1=حُدِثَت أمس|حُدِثَت قبل $1 أيام}}",
 	"article-about-title": "حول المقالة",
 	"page-issues": "مشاكل في الصفحة",
 	"license-footer-name": "CC BY-SA 3.0",
