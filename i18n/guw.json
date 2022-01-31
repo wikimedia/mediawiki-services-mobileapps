@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Misteld",
+			"Samatics"
+		]
+	},
+	"description-add-link-title": "Yi zẹẹmẹ hosọ tọn dogọ",
+	"article-read-more-title": "Hìa dogọ",
+	"table-title-other": "Nudọnamẹ dogọ",
+	"page-edit-history": "Do kandai jlado tọn hia edit",
+	"info-box-close-text": "Súnudo",
+	"page-talk-page-subtitle": "Dọho do nukọnyiyi hosọ ehe lẹ tọn ji",
+	"page-issues-subtitle": "linlin lẹ gando hosọ tukladomẹnu tọn go",
+	"page-talk-page": "Pọn weda hodọdopọtẹn",
+	"info-box-title": "Nudọnamẹ Kleun",
+	"view-in-browser-footer-link": "Pọn hosọ to intẹnẹt ji",
+	"page-location": "Pọn ẹn to aliho dohiamẹnu dé ji",
+	"page-similar-titles": "Weda mọnkọ lẹ",
+	"page-last-edited": "{{PLURAL:$1|Yin vivọjlado to osọ he wayi|Yin vivọjlado sọn azan $1 die gbọn|0=Yin vivọjlado to egbehe}}",
+	"article-about-title": "Gando hosọ ehe go",
+	"page-issues": "Nuhahun weda ehe tọn lẹ",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Nuhe tin tofi lẹpo tin to $1 glọ adavo eyin mí dọdọ e ma yinmọ.",
+	"page-read-in-other-languages": "E tin to  {{PLURAL:$1|ogbè $1 devo|ogbè $1 devo lẹ}} mẹ",
+	"article-edit-button": "Jla adà do",
+	"article-edit-protected-button": "Jla adà he to weda he yin hihọbasina lẹ ji do",
+	"article-section-expand": "Vlọ́n adà",
+	"article-section-collapse": "Bọ̀ adà",
+	"table-expand": "Vlọ́n todowhinnu",
+	"table-collapse": "Bọ̀ todowhinnu",
+	"references-preview-header": "Bladopọ alọdlẹndonu lẹ tọn"
+}
