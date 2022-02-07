@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Karapananguasú Kururú Teremembé"
+		]
+	},
+	"description-add-link-title": "Umburipíri kuatiara mupukatuaçawa",
+	"article-read-more-title": "Umũgitá píri",
+	"table-title-other": "Kuauçawa'etá píri",
+	"page-edit-history": "Umaã murupiawa marãduwapawa",
+	"info-box-close-text": "Usikĩdá",
+	"page-talk-page-subtitle": "Umurũgetá katupíriçawa'etá kuá kuatiara arã",
+	"page-issues-subtitle": "Mbeuçawa'etá pupeçawa awianaĩma ã pupeçawa urikú waá yepé yepé yawiçawa.",
+	"page-talk-page": "Umaã murũgetaçawa sowa",
+	"info-box-title": "Çupiçawa'etá Kutara",
+	"view-in-browser-footer-link": "Umaã kuatiara browser rupí",
+	"page-location": "Umaã mapa rupí",
+	"page-similar-titles": "Sowa'etá yawé",
+	"page-last-edited": "{{PLURAL:$1|Umukuiriwara'ana kueçé|Umukuiriwara'ana $1 ara'etá tenũdé|0=Umukuiriwara'ana uye}}",
+	"article-about-title": "Kuá kuatiara reçé",
+	"page-issues": "Sowa yawiçawa'etá",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Pupeçawa uyukuawa $1 wiripe. Muaparaçana rupí, nhũtu umereçé ramẽ mupikaçawa amũrupí.",
+	"page-read-in-other-languages": "Yawá uyukuawa uikú {{PLURAL:$1|$1 amũ nhẽẽga|$1 amũ nhẽẽga'etá}} rupí",
+	"article-edit-button": "Umurupiawa mukũgawa",
+	"article-edit-protected-button": "Umurupiawa mukũgawa sowa çupirũ'ana upé",
+	"article-section-expand": "Umuçaĩ mukũgawa",
+	"article-section-collapse": "Umumirĩ mukũgawa",
+	"table-expand": "Umuçaĩ kamakaçawa",
+	"table-collapse": "Umumirĩ kamakaçawa",
+	"references-preview-header": "Purawakaçawa maãgawa enũdé"
+}
