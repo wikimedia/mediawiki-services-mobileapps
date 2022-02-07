@@ -304,11 +304,6 @@ describe('Swagger spec', function() {
 			return assertValidSchema(uri, '#/components/schemas/summary');
 		});
 
-		it('metadata response should conform to schema', () => {
-			const uri = `${baseUri}page/metadata/Hummingbird`;
-			return assertValidSchema(uri, '#/components/schemas/metadata');
-		});
-
 		it('media-list response should conform to schema', () => {
 			const uri = `${baseUri}page/media-list/Hummingbird`;
 			return assertValidSchema(uri, '#/components/schemas/media_list');
