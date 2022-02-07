@@ -111,7 +111,9 @@ const setup = (optionalSettings, onSuccess) => {
     const isInitiallyCollapsed = settings.areTablesInitiallyExpanded !== true
     CollapseTable.setupEventHandling(window,
       document,
-      isInitiallyCollapsed)
+      isInitiallyCollapsed, (container) => {
+        window.scrollTo(0, container.offsetTop - window.innerHeight / 2)
+      })
   }
 
   if (settings.textSizeAdjustmentPercentage !== undefined) {
