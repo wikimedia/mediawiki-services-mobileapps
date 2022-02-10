@@ -137,7 +137,6 @@ const postMessageForLink = (target, href) => {
  * @param {!string} href url for the image
  * @return {!string} canonicalized file href
  */
-const canonicalFileHref = href => href && href.replace(/^\.\/.+:/g, './File:')
 
 /**
  * Posts message for an image click.
@@ -146,9 +145,8 @@ const canonicalFileHref = href => href && href.replace(/^\.\/.+:/g, './File:')
  * @return {void}
  */
 const postMessageForImage = (target, href) => {
-  const canonicalHref = canonicalFileHref(href)
   postMessage(new Interaction(Actions.ImageClicked, {
-    href: canonicalHref,
+    href: href,
     src: target.getAttribute('src'),
     'data-file-width': target.getAttribute('data-file-width'),
     'data-file-height': target.getAttribute('data-file-height')
@@ -163,9 +161,8 @@ const postMessageForImage = (target, href) => {
  */
 const postMessageForImagePlaceholder = (innerPlaceholderSpan, href) => {
   const outerSpan = innerPlaceholderSpan.parentElement
-  const canonicalHref = canonicalFileHref(href)
   postMessage(new Interaction(Actions.ImageClicked, {
-    href: canonicalHref,
+    href: href,
     src: outerSpan.getAttribute('data-src'),
     'data-file-width': outerSpan.getAttribute('data-data-file-width'),
     'data-file-height': outerSpan.getAttribute('data-data-file-height')
