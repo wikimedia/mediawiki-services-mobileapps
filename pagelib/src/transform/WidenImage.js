@@ -8,9 +8,20 @@ import './WidenImage.less'
 const ancestorsToWiden = element => {
   const widenThese = []
   let el = element
+  let isSetSliderWrapper = false
   while (el.parentElement) {
     el = el.parentElement
-    // No need to walk above the section.
+    // Prevent parent element for slideshow class from adding 'pcs-widen-image-ancestor' class (T294037)
+    if (el.hasChildNodes() && !isSetSliderWrapper) {
+      for (let i = 0; i < el.children.length; i++) {
+        if (el.children[i].className && el.children[i].className.includes('randomSlideshow-container')) {
+          el.classList.add('randomSlideshow-container-wrapper')
+          isSetSliderWrapper = true
+        }
+      }
+    }
+
+    // No need to walk above the section
     if (el.tagName === 'SECTION') {
       break
     }
@@ -28,7 +39,11 @@ const ancestorsToWiden = element => {
  * @return {void}
  */
 const widenAncestors = element => {
-  ancestorsToWiden(element).forEach(e => e.classList.add('pcs-widen-image-ancestor'))
+  ancestorsToWiden(element).forEach(e => {
+    if (!e.className.includes('randomSlideshow-container-wrapper')) {
+      e.classList.add('pcs-widen-image-ancestor')
+    }
+  })
 }
 
 /**
