@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chadyka"
+		]
+	},
+	"description-add-link-title": "Дадаць апісанне артыкула",
+	"article-read-more-title": "Чытаць больш",
+	"table-title-other": "Больш інфармацыі",
+	"page-edit-history": "Прагляд гісторыі правак",
+	"info-box-close-text": "Закрыць",
+	"page-talk-page-subtitle": "Абмеркаваць паляпшэнне гэтага артыкулу",
+	"page-issues-subtitle": "Апавяшчэнні пра няякасны ці праблематычны змест",
+	"page-talk-page": "Гл. старонку размоў",
+	"info-box-title": "Хуткія факты",
+	"view-in-browser-footer-link": "Паглядзець артыкул у браўзеры",
+	"page-location": "Паказаць на карце",
+	"page-similar-titles": "Падобныя старонкі",
+	"page-last-edited": "{{PLURAL:$1|Абноўлена $1 дзень таму|Абноўлена $1 дні таму|Абноўлена $1 дзён таму|0=Абноўлена сёння|1=Абноўлена ўчора}}",
+	"article-about-title": "Пра гэты артыкул",
+	"page-issues": "Праблемы старонкі",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Матэрыял даступны на ўмовах $1, калі не пазначана іншае.",
+	"page-read-in-other-languages": "Даступнае на {{PLURAL:$1|$1 іншай мове|$1 іншых мовах}}",
+	"article-edit-button": "Правіць раздзел",
+	"article-edit-protected-button": "Правіць раздзел ахаванай старонкі",
+	"article-section-expand": "Разгарнуць раздзел",
+	"article-section-collapse": "Згарнуць раздзел",
+	"table-expand": "Разгарнуць табліцу",
+	"table-collapse": "Згарнуць табліцу",
+	"references-preview-header": "Перадпрагляд зносак"
+}
