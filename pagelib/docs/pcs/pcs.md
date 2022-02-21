@@ -277,6 +277,16 @@ Example:
 pcs.c1.Page.setEditButtons(true, false)
 ```
 
+#### setTalkPageButton(isVisible)
+
+Enables or disables talk icon in the header
+
+Example:
+
+```javascript
+pcs.c1.Page.setTalkPageButton(true)
+```
+
 #### prepareForScrollToAnchor(anchor, options)
 
 Prepares the page to scroll to the given anchor by ensuring the content is completely loaded and the table or section that contains it isn't collapsed.
