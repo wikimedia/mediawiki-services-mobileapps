@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Keresturec"
+		]
+	},
+	"description-add-link-title": "Додац опис статї",
+	"article-read-more-title": "Пречитайце вецей",
+	"table-title-other": "Вецей информациї",
+	"page-edit-history": "Прикаж историю пременкох",
+	"info-box-close-text": "Заври",
+	"page-talk-page-subtitle": "Розгварка о злєпшаню статї",
+	"page-issues-subtitle": "Спозоренє о нєквалитетним або проблематичним змисту",
+	"page-talk-page": "Приказац бок за розгварки",
+	"info-box-title": "Кратки факти",
+	"view-in-browser-footer-link": "Прикаж статю у браузеру",
+	"page-location": "Приказац на мапи",
+	"page-similar-titles": "Подобни боки",
+	"page-last-edited": "{{PLURAL:$1|0=Ажурироване нєшка|1=Ажурироване вчера|Ажурирано пре $1 днями}}",
+	"article-about-title": "О тим напису",
+	"page-issues": "Проблем зоз боком",
+	"license-footer-text": "Змист доступни под лиценцу $1, кед же иншак нє назначене.",
+	"page-read-in-other-languages": "Доступне и на {{PLURAL:$1|$1 другим язику|$1 других язикох}}",
+	"article-edit-button": "Ушор оддзельок",
+	"article-edit-protected-button": "Ушор оддзельок на защиценим боку",
+	"article-section-expand": "Прешир оддзельок",
+	"article-section-collapse": "Колапсуй оддзельок",
+	"table-expand": "Прешир таблїчку",
+	"table-collapse": "Колапсуй таблїчку",
+	"references-preview-header": "Предходни препатрунок заувагох"
+}
