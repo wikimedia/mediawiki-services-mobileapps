@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Base",
 			"DDPAT",
 			"Ice bulldog",
 			"Movses",
@@ -20,7 +21,7 @@
 	"view-in-browser-footer-link": "Переглянути статтю в браузері",
 	"page-location": "Переглянути на мапі",
 	"page-similar-titles": "Подібні сторінки",
-	"page-last-edited": "{{PLURAL:$1|one=Оновлено $1 день тому|few=Оновлено $1 дні тому|many=Оновлено $1 днів тому|0=Оновлено сьогодні}}",
+	"page-last-edited": "{{PLURAL:$1|Оновлено $1 день тому|Оновлено $1 дні тому|Оновлено $1 днів тому|0=Оновлено сьогодні|1=Оновлено вчора}}",
 	"article-about-title": "Про цю статтю",
 	"page-issues": "Проблеми сторінки",
 	"license-footer-name": "CC BY-SA 3.0",
