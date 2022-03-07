@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Albertoleoncio",
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad"
 		]
@@ -17,7 +18,7 @@
 	"view-in-browser-footer-link": "Ver artigo no navegador",
 	"page-location": "Ver no mapa",
 	"page-similar-titles": "Páginas similares",
-	"page-last-edited": "{{PLURAL:$1|0=Atualizado hoje|1=Atualizado ontem|Atualizado $1 dia atrás}}",
+	"page-last-edited": "{{PLURAL:$1|Atualizado ontem|Atualizado há $1 dias|0=Atualizado hoje}}",
 	"article-about-title": "Sobre este artigo",
 	"page-issues": "Problemas da página",
 	"license-footer-name": "CC BY-SA 3.0",

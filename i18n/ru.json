@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"DDPAT",
 			"Ice bulldog",
 			"Okras"
@@ -18,7 +19,7 @@
 	"view-in-browser-footer-link": "Просмотреть статью в браузере",
 	"page-location": "Посмотреть на карте",
 	"page-similar-titles": "Похожие страницы",
-	"page-last-edited": "{{PLURAL:$1|1=Обновлено вчера|few=Обновлено $1 дня назад|many=Обновлено $1 дней назад|0=Обновлено сегодня}}",
+	"page-last-edited": "{{PLURAL:$1|Обновлено $1 день назад|Обновлено $1 дня назад|Обновлено $1 дней назад|0=Обновлено сегодня|1=Обновлено вчера}}",
 	"article-about-title": "Об этой статье",
 	"page-issues": "Вопросы по странице",
 	"license-footer-name": "CC BY-SA 3.0",

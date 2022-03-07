@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Malikxan"
+		]
+	},
+	"description-add-link-title": "Maqola tavsifini qoʻshish",
+	"article-read-more-title": "Batafsil",
+	"table-title-other": "Batafsil maʼlumot",
+	"page-edit-history": "Tahrir tarixini koʻrish",
+	"info-box-close-text": "Yopish",
+	"page-talk-page-subtitle": "Bu maqoladagi yaxshilanishlarni muhokama qilish",
+	"page-issues-subtitle": "Sifatsiz yoki muammoli kontent haqida xabarnomalar",
+	"page-talk-page": "Munozara sahifani koʻrish",
+	"info-box-title": "Tezkor faktlar",
+	"view-in-browser-footer-link": "Maqolani brauzerda koʻrish",
+	"page-location": "Xaritada koʻrish",
+	"page-similar-titles": "Oʻxshash sahifalar",
+	"page-last-edited": "{{PLURAL:$1|Kecha yangilandi|$1 kun avval yangilandi|0=Bugun yangilandi}}",
+	"article-about-title": "Bu maqola haqida",
+	"page-issues": "Sahifa muammolari",
+	"license-footer-text": "Matndan $1 litsenziyasi boʻyicha foydalanish mumkin (agar aksi koʻrsatilmagan boʻlsa).",
+	"page-read-in-other-languages": "Yana {{PLURAL:$1|$1 ta tilda}} mavjud",
+	"article-edit-button": "Boʻlimni tahrirlash",
+	"article-edit-protected-button": "Himoyalangan sahifadagi boʻlimni tahrirlash",
+	"article-section-expand": "Boʻlimni yoyish",
+	"article-section-collapse": "Boʻlimni yigʻish",
+	"table-expand": "Jadvalni yoyish",
+	"table-collapse": "Jadvalni yigʻish",
+	"references-preview-header": "Manbalarni koʻrib chiqish"
+}

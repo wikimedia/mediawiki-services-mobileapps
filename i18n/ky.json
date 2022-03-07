@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aakhmedova"
+		]
+	},
+	"description-add-link-title": "Макаланын сүрөттөмөсүн кошуу",
+	"article-read-more-title": "Кененирээк окуу",
+	"table-title-other": "Көбүрөөк маалымат",
+	"page-edit-history": "Түзөтүү тарыхын көрүү",
+	"info-box-close-text": "Жабуу",
+	"page-talk-page-subtitle": "Бул макаланы жакшыртуу жөнүндө талкуулаңыз",
+	"page-talk-page": "Талкуу барагын көрүү",
+	"info-box-title": "Ыкчам фактылар",
+	"view-in-browser-footer-link": "Макаланы браузерден көрүү",
+	"page-location": "Картадан көрүү",
+	"page-similar-titles": "Окшош барактар",
+	"page-last-edited": "{{PLURAL:$1|Кечээ жаңыртылган|$1 күн мурун жаңыртылган|0=Бүгүн жаңыртылган}}",
+	"article-about-title": "Бул макала жөнүндө",
+	"page-issues": "Барак маселелери",
+	"article-edit-button": "Бөлүмдү түзөтүү",
+	"article-edit-protected-button": "Корголгон беттеги бөлүмдү түзөтүү",
+	"article-section-expand": "Бөлүмдү кеңейтүү",
+	"table-expand": "Жадыбалды кеңейтүү"
+}
