@@ -50,6 +50,16 @@ describe('extractLeadIntroduction', () => {
                   "transcluded.</p><p>Second paragraph, we don't want this!</p>",
 				'<p about="#mwt1">Here is a <b>good first paragraph</b> that happens to be' +
                   'transcluded.</p>'
+			],
+			// If initial P has nested <style> and text is empty/not trimmed, omit element
+			[
+				'<p><style>.mw-parser-output { display: inherit }</style>   </p>',
+				''
+			],
+			// If initial P has nested <style> and text, keep this node
+			[
+				'<p><style>.mw-parser-output { display: inherit }</style>First paragraph content </p>',
+				'<p><style>.mw-parser-output { display: inherit }</style>First paragraph content </p>'
 			]
 		];
 
