@@ -192,6 +192,15 @@ const setEditButtons = (isEditable, isProtected) => {
 }
 
 /**
+ * Enables header title icon buttons to be shown.
+ * @param {?boolean} isVisible true if the title icon should be shown
+ * @return {void}
+ */
+const setTalkPageButton = (isVisible) => {
+  EditTransform.setTalkPageButton(document, isVisible)
+}
+
+/**
  * Gets the revision of the current mobile-html page.
  * @return {?string}
  */
@@ -508,6 +517,7 @@ export default {
   setMaxWidth,
   setTextSizeAdjustmentPercentage,
   setEditButtons,
+  setTalkPageButton,
   getLeadImage,
   getProtection,
   getRevision,

@@ -33,6 +33,20 @@ describe('EditTransform', () => {
       assert.ok(document.documentElement.classList.contains(protection.PROTECTED))
     })
   })
+  
+  describe('setTalkPageButton()', () => {
+    const hidden = editTransform.CLASS.TITLE_TALK_BUTTON_VISIBILITY
+    let document
+
+    before(() => {
+      document = fixtureIO.documentFromFixtureFile('HeaderTalkIcon.html')
+    })
+
+    it('hide talk page icon in the header', () => {
+      editTransform.setTalkPageButton(document, false)
+      assert.ok(document.documentElement.classList.contains(hidden))
+    })
+  })
 
   describe('.newEditSectionHeader(0, 2)', () => {
     let document
