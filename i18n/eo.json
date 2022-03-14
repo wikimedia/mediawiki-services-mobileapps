@@ -5,7 +5,7 @@
 			"Robin van der Vliet"
 		]
 	},
-	"description-add-link-title": "Aldoni titolan priskribon",
+	"description-add-link-title": "Aldoni artikolan priskribon",
 	"article-read-more-title": "Legi plu",
 	"table-title-other": "Pliaj informoj",
 	"page-edit-history": "Montri redakto-historion",
@@ -20,5 +20,6 @@
 	"page-issues": "Problemoj pri paĝo",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "La enhavo estas disponebla laŭ $1, se ne estas alia indiko.",
-	"page-read-in-other-languages": "Havebla en {{PLURAL:$1|$1 alia lingvo|$1 aliaj lingvoj}}"
+	"page-read-in-other-languages": "Havebla en {{PLURAL:$1|$1 alia lingvo|$1 aliaj lingvoj}}",
+	"article-edit-button": "Redakti sekcion"
 }
