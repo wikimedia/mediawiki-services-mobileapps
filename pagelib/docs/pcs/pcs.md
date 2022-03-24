@@ -102,6 +102,7 @@ pcs.c1.Page.setup({
   margins: { top: '2em', right: 'auto', bottom: '0', left: 'auto' },
   leadImageHeight: '100px',
   areTablesInitiallyExpanded: true,
+  talkPageButton: false,
   textSizeAdjustmentPercentage: '100%',
   scrollTop: 64,
   loadImages: true,
@@ -275,6 +276,16 @@ Example:
 
 ```javascript
 pcs.c1.Page.setEditButtons(true, false)
+```
+
+#### setTalkPageButton(isVisible)
+
+Enables or disables talk icon in the header
+
+Example:
+
+```javascript
+pcs.c1.Page.setTalkPageButton(true)
 ```
 
 #### prepareForScrollToAnchor(anchor, options)

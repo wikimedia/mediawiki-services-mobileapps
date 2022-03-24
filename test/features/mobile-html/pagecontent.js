@@ -55,7 +55,7 @@ describe('mobile-html', function() {
 		return preq.get({ uri })
 			.then((res) => {
 				const document = domino.createDocument(res.body);
-				assert.selectorDoesNotExist(document, 'div.navbox', 'Document contain navboxes');
+				assert.selectorDoesNotExist(document, 'div.navbox', 'Document contains navboxes');
 			});
 	});
 
@@ -77,6 +77,15 @@ describe('mobile-html', function() {
 			const meta = document.querySelector('meta[property=mw:pageProtection:edit]');
 			assert.deepEqual(meta.getAttribute('content'), 'autoconfirmed');
 		});
+	});
+
+	it('mobile-html should not enable edit talk page button by default', () => {
+		const uri = localUri('Cat');
+		return preq.get({ uri })
+			.then((res) => {
+				const document = domino.createDocument(res.body);
+				assert.selectorDoesNotExist(document, '.pcs-title-icon-talk-page', 'Document contains talk page button by default');
+			});
 	});
 
 });

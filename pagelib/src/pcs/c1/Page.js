@@ -127,6 +127,9 @@ const setup = (optionalSettings, onSuccess) => {
     lazyLoader.collectExistingPlaceholders(document.body)
     lazyLoader.loadPlaceholders()
   }
+  if (settings.talkPageButton) {
+    setTalkPageButton(settings.talkPageButton)
+  }
   if (settings.footer) {
     DemoMode.addFooter(new URL(document.location))
   }
@@ -191,6 +194,15 @@ const setTextSizeAdjustmentPercentage = textSize => {
  */
 const setEditButtons = (isEditable, isProtected) => {
   EditTransform.setEditButtons(document, isEditable, isProtected)
+}
+
+/**
+ * Enables header title icon buttons to be shown.
+ * @param {?boolean} isVisible true if the title icon should be shown
+ * @return {void}
+ */
+const setTalkPageButton = (isVisible) => {
+  EditTransform.setTalkPageButton(document, isVisible)
 }
 
 /**
@@ -373,7 +385,7 @@ const getLeadImage = () => getLeadImageFromMetaTags(getMetaTags())
  * Executes pagelib functionality intended to run before any content has loaded
  * @return {void}
  */
-const onBodyStart = () => {  
+const onBodyStart = () => {
   if (!document) {
     return
   }
@@ -488,6 +500,7 @@ const onBodyEnd = () => {
     setup({
       setupTableEventHandling: true,
       areTablesInitiallyExpanded: true,
+      talkPageButton: false,
       footer
     }, finalSetupComplete)
   }
@@ -510,6 +523,7 @@ export default {
   setMaxWidth,
   setTextSizeAdjustmentPercentage,
   setEditButtons,
+  setTalkPageButton,
   getLeadImage,
   getProtection,
   getRevision,

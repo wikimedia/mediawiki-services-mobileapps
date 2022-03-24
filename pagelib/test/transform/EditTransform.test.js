@@ -33,6 +33,25 @@ describe('EditTransform', () => {
       assert.ok(document.documentElement.classList.contains(protection.PROTECTED))
     })
   })
+  
+  describe('setTalkPageButton()', () => {
+    let document
+
+    before(() => {
+      document = fixtureIO.documentFromFixtureFile('HeaderTalkIcon.html')
+    })
+
+    it('remove talk page icon in the header', () => {
+      editTransform.setTalkPageButton(document, false)
+      assert.equal(!!document.documentElement.getElementsByClassName(editTransform.CLASS.TITLE_TALK_BUTTON_WRAPPER)[0], false)
+    })
+
+    it('add talk page icon in the header', () => {
+      editTransform.setTalkPageButton(document, true)
+      assert.equal(!!document.documentElement.getElementsByClassName(editTransform.CLASS.TITLE_TALK_BUTTON_WRAPPER)[0], true)
+    })
+
+  })
 
   describe('.newEditSectionHeader(0, 2)', () => {
     let document

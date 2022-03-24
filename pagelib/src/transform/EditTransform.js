@@ -6,7 +6,9 @@ const CLASS = {
   TITLE: 'pcs-edit-section-title',
   LINK_CONTAINER: 'pcs-edit-section-link-container',
   LINK: 'pcs-edit-section-link',
-  PROTECTION: { UNPROTECTED: '', PROTECTED: 'page-protected', FORBIDDEN: 'no-editing' }
+  PROTECTION: { UNPROTECTED: '', PROTECTED: 'page-protected', FORBIDDEN: 'no-editing' },
+  TITLE_TALK_BUTTON: 'pcs-title-icon-talk-page',
+  TITLE_TALK_BUTTON_WRAPPER: 'pcs-title-icon-talk-page-container',
 }
 
 const IDS = {
@@ -47,6 +49,36 @@ const setEditButtons = (document, isEditable = false, isProtected = false) => {
     classList.add(CLASS.PROTECTION.PROTECTED)
   } else {
     classList.remove(CLASS.PROTECTION.PROTECTED)
+  }
+}
+
+/**
+ * Enables header title icon buttons to be shown.
+ * @param {!Document} document
+ * @param {?boolean} isVisible true if the title icon should be shown
+ * @return {void}
+ */
+const setTalkPageButton = (document, isVisible = false) => {
+  const header = document.getElementsByTagName('header')[0],
+    headerTitle = header.getElementsByTagName('h1')[0],
+    isRendered = header.getElementsByClassName(CLASS.TITLE_TALK_BUTTON)[0]
+              && header.getElementsByClassName(CLASS.TITLE_TALK_BUTTON_WRAPPER)[0]
+
+  if (isVisible) {
+    if (!isRendered) {
+      let talkButtonWrapper = document.createElement('span'),
+      talkButton = document.createElement('a')
+
+      talkButton.setAttribute('href', '/')
+      talkButton.classList.add(CLASS.TITLE_TALK_BUTTON)
+      talkButtonWrapper.classList.add(CLASS.TITLE_TALK_BUTTON_WRAPPER)
+      headerTitle.parentNode.insertBefore(talkButtonWrapper, headerTitle.nextSibling)
+      talkButtonWrapper.appendChild(talkButton)
+    }
+  } else {
+    if (isRendered) {
+      header.getElementsByClassName(CLASS.TITLE_TALK_BUTTON_WRAPPER)[0].remove()
+    }
   }
 }
 
@@ -239,6 +271,7 @@ export default {
   IDS,
   DATA_ATTRIBUTE,
   setEditButtons,
+  setTalkPageButton,
   setARIAEditButtons,
   newEditSectionHeader,
   newEditSectionButton,

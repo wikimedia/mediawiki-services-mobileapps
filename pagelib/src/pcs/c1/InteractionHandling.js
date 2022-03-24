@@ -17,6 +17,7 @@ const Actions = {
   ReferenceClicked: 'reference',
   BackLink: 'back_link',
   EditSection: 'edit_section',
+  HeaderItemSelected: 'header_item',
   AddTitleDescription: 'add_title_description',
   PronunciationClicked: 'pronunciation',
   ScrollToAnchor: 'scroll_to_anchor',
@@ -238,6 +239,15 @@ const handleClickEvent = event => {
 
   // "View article in browser" handled in `browserLinkClickHandler`. Need to ignore it here.
   if (anchorForTarget.className === "pcs-footer-browser-link") {
+    return
+  }
+
+  if (anchorForTarget.className === "pcs-title-icon-talk-page") {
+    const data = {
+      itemType: "talkPage",
+      payload: []
+    }
+    postMessage(new Interaction(Actions.HeaderItemSelected, data))
     return
   }
 

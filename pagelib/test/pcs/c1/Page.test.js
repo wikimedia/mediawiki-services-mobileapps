@@ -120,6 +120,69 @@ describe('pcs.c1.Page', () => {
     })
   })
 
+  describe('setTalkPageButton()', () => {
+    it('add talk page button' ,() => {
+      window = domino.createWindow(`
+        <html lang="en">
+          <header>
+            <div class="pcs-edit-section-header v2">
+              <h1 data-id="0" class="pcs-edit-section-title">Polar bear</h1>
+            </div>
+          </header>
+        </html>
+      `)
+      document = window.document
+
+      Page.setTalkPageButton(true)
+
+      assert.equal(!!document.documentElement.getElementsByClassName('pcs-title-icon-talk-page-container')[0], true)
+    })
+  })
+
+  describe('setTalkPageButton()', () => {
+    it('hide talk page button' ,() => {
+      window = domino.createWindow(`
+        <html lang="en">
+          <header>
+            <div class="pcs-edit-section-header v2">
+              <h1 data-id="0" class="pcs-edit-section-title">Polar bear</h1>
+              <span class="pcs-title-icon-talk-page-container">
+                <a href="/" class="pcs-title-icon-talk-page"></a>
+              </span>
+            </div>
+          </header>
+        </html>
+      `)
+      document = window.document
+
+      Page.setTalkPageButton(false)
+
+      assert.equal(!!document.documentElement.getElementsByClassName('pcs-title-icon-talk-page-container')[0], false)
+    })
+  })
+
+  describe('setTalkPageButton()', () => {
+    it('prevent adding additional talk page button' ,() => {
+      window = domino.createWindow(`
+        <html lang="en">
+          <header>
+            <div class="pcs-edit-section-header v2">
+              <h1 data-id="0" class="pcs-edit-section-title">Polar bear</h1>
+              <span class="pcs-title-icon-talk-page-container">
+                <a href="/" class="pcs-title-icon-talk-page"></a>
+              </span>
+            </div>
+          </header>
+        </html>
+      `)
+      document = window.document
+
+      Page.setTalkPageButton(true)
+
+      assert.equal(document.documentElement.getElementsByClassName('pcs-title-icon-talk-page-container').length, 1)
+    })
+  })
+
   describe('.getRevision()', () => {
     it('all', () => {
       window = domino.createWindow(
