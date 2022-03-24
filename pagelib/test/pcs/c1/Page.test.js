@@ -120,28 +120,6 @@ describe('pcs.c1.Page', () => {
     })
   })
 
-  describe('setTalkPageButton()', () => {
-    it('talk page button for mobile html should be hidden' ,() => {
-      window = domino.createWindow(`
-        <html lang="en">
-          <header>
-            <div class="pcs-edit-section-header v2">
-              <h1 data-id="0" class="pcs-edit-section-title">Polar bear</h1>
-              <span class="pcs-title-icon-talk-page-container">
-                <a href="/" class="pcs-title-icon-talk-page"></a>
-              </span>
-            </div>
-          </header>
-        </html>
-      `)
-      document = window.document
-
-      Page.setTalkPageButton(false)
-
-      assert.ok(document.documentElement.classList.contains('no-visible'))
-    })
-  })
-
   describe('.getRevision()', () => {
     it('all', () => {
       window = domino.createWindow(
