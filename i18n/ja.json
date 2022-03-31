@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Omotecho",
-			"Shirayuki"
+			"Shirayuki",
+			"Yamagata Yusuke"
 		]
 	},
 	"description-add-link-title": "記事の説明を追加",
@@ -17,7 +18,7 @@
 	"view-in-browser-footer-link": "ブラウザで記事を表示する",
 	"page-location": "地図で見る",
 	"page-similar-titles": "類似したページ",
-	"page-last-edited": "{{PLURAL:$1|0=今日編集|1=昨日編集|$1日前に編集}}",
+	"page-last-edited": "{{PLURAL:$1|1=昨日更新|$1日前に更新|0=今日更新}}",
 	"article-about-title": "この記事について",
 	"page-issues": "ページの問題点",
 	"license-footer-name": "クリエイティブ・コモンズ 表示-継承 3.0",
