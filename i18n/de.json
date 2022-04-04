@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"ManuelFranz"
+			"ManuelFranz",
+			"Wnme"
 		]
 	},
 	"description-add-link-title": "Artikelbeschreibung hinzufügen",
@@ -9,7 +10,7 @@
 	"table-title-other": "Weitere Informationen",
 	"page-edit-history": "Vollständige Versionsgeschichte",
 	"info-box-close-text": "Schließen",
-	"page-talk-page-subtitle": "Diskutieren Sie Verbesserungen zu diesem Artikel",
+	"page-talk-page-subtitle": "Diskutiere Verbesserungen zu diesem Artikel",
 	"page-talk-page": "Diskussionsseite ansehen",
 	"info-box-title": "Schnelle Fakten",
 	"view-in-browser-footer-link": "Artikel im Browser ansehen",
