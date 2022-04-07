@@ -20,7 +20,7 @@ router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
 		return parsoid.getParsoidHtml(req).then(parsoidRsp => {
 			return mUtil.createDocument(parsoidRsp.body).then(doc => {
 				return BBPromise.props({
-					pageMediaList: lib.resolveTitleRedirects(req, lib.getMediaItemInfoFromDoc(doc)),
+					pageMediaList: lib.getMediaItemInfoFromDoc(doc),
 					mw: mwapi.getMetadataForMobileHtml(req)
 				}).then((response) => {
 					// T269312 - Set the leadImage flag to true if
