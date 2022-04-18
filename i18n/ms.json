@@ -16,7 +16,7 @@
 	"view-in-browser-footer-link": "Lihat rencana dalam penyemak imbas",
 	"page-location": "Paparkan di peta",
 	"page-similar-titles": "Laman-laman serupa",
-	"page-last-edited": "{{PLURAL:$1|0=Disunting hari ini|1=Disunting semalam|Disunting $1 hari lalu}}",
+	"page-last-edited": "{{PLURAL:$1|Dikemas kini kelmarin|Dikemas kini $1 hari lalu|0=Dikemas kini hari ini}}",
 	"article-about-title": "Mengenai rencana ini",
 	"page-issues": "Isu-isu laman",
 	"license-footer-name": "CC BY-SA 3.0",
