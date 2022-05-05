@@ -1,8 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Sveinn í Felli"
+		]
 	},
-	"description-add-link-title": "Bæta við lýsingu á titli",
+	"description-add-link-title": "Bæta við lýsingu á grein",
 	"article-read-more-title": "Lesa meira",
 	"table-title-other": "Nánari upplýsingar",
 	"page-edit-history": "Öll breytingaskráin",
@@ -12,7 +14,7 @@
 	"view-in-browser-footer-link": "Skoða grein í vafra",
 	"page-location": "Skoða á korti",
 	"page-similar-titles": "Áþekkar síður",
-	"page-last-edited": "{{PLURAL:$1|0=Breytt í dag|1=Breytt í gær|Breytt fyrir $1 dögum síðan}}",
+	"page-last-edited": "{{PLURAL:$1|Uppfært í gær|Uppfært fyrir $1 dögum síðan|0=Uppfært í dag}}",
 	"article-about-title": "Um þessa grein",
 	"page-issues": "Vandamál varðandi síðu",
 	"license-footer-name": "CC BY-SA 3.0",
