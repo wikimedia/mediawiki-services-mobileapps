@@ -1,6 +1,7 @@
 import assert from 'assert'
 import domino from 'domino'
 import pagelib from '../../build/wikimedia-page-library-transform'
+import fixtureIO from '../utilities/FixtureIO'
 
 describe('CollapseTable', () => {
 
@@ -825,6 +826,29 @@ describe('CollapseTable', () => {
             this.window.document.querySelector('.pcs-collapse-table-collapsed-bottom')
           assert.deepEqual(footer.innerHTML, 'footerTitle')
         })
+      })
+    })
+
+    describe('tables should exist in the References list', () => {
+      let documentSingleTable, documentMultipleTables
+
+      before(() => {
+        documentSingleTable = fixtureIO.documentFromFixtureFile('ReferencesWithTable.html')
+        documentMultipleTables = fixtureIO.documentFromFixtureFile('ReferencesWithTables.html')
+      })
+
+      it('Parse single table in the References list', () => {
+        collapseTables(window, documentSingleTable, 'pageTitle')
+        const table = documentSingleTable.querySelector('table')
+        assert.ok(table.parentNode.parentNode.classList.contains('pcs-collapse-table-container'))
+      })
+
+      it('Parse multiple tables in the References list', () => {
+        collapseTables(window, documentMultipleTables, 'pageTitle')
+        const tables = documentMultipleTables.querySelectorAll('table')
+        Array.from(tables).forEach(table => {
+          assert.ok(table.parentNode.parentNode.classList.contains('pcs-collapse-table-container'))
+        });
       })
     })
 

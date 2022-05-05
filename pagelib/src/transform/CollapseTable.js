@@ -414,8 +414,23 @@ const replaceNodeInSection = (nodeToReplace, replacementNode) => {
     childOfSectionTag = nodeToReplace
     sectionTag = nodeToReplace.parentNode
   }
-  sectionTag.insertBefore(replacementNode, childOfSectionTag)
-  sectionTag.removeChild(childOfSectionTag)
+  // T279432 - Handle the case when the table is inside References list
+  let nextNode
+  const findListElem = (elem) => {
+    if (elem && elem.tagName === 'OL' && elem.classList.contains('mw-references')) {
+        const nodeToReplaceParent = nodeToReplace.parentNode
+        replacementNode.appendChild(nodeToReplace)
+        nodeToReplaceParent.appendChild(replacementNode)
+    } else {
+      if (elem && elem.parentElement) {
+        nextNode = elem.parentElement
+        findListElem(nextNode)
+      }
+    }
+  }
+
+  findListElem(nodeToReplace)
+
 }
 
 /**
