@@ -7,6 +7,11 @@ const extractLeadIntroduction = require('./../../../../lib/transforms').extractL
 describe('extractLeadIntroduction', () => {
 	it('matches the spec', () => {
 		const testCases = [
+			// Skip empty paragraph
+			[
+				'<p></p>',
+				''
+			],
 			// Only the first paragraph is selected
 			[
 				'<p>One</p><p>Two</p>',
@@ -60,6 +65,60 @@ describe('extractLeadIntroduction', () => {
 			[
 				'<p><style>.mw-parser-output { display: inherit }</style>First paragraph content </p>',
 				'<p><style>.mw-parser-output { display: inherit }</style>First paragraph content </p>'
+			],
+			// If initial P has nested <style> and text along with <b> and <i> tags, keep this node
+			[
+				'<p><style>.mw-parser-output { display: inherit }</style><i>First</i> <b>paragraph</b> content </p>',
+				'<p><style>.mw-parser-output { display: inherit }</style><i>First</i> <b>paragraph</b> content </p>'
+			],
+			// If initial P has only nested element with text, keep this node
+			[
+				'<p><b>Simply bold text</b></p>',
+				'<p><b>Simply bold text</b></p>'
+			],
+			/*
+				If initial P has <style>, empty next sibling and
+				contains elements with the text, keep it
+			*/
+			[
+				'<p><style>.mw-parser-output { display: inherit }</style><span>   </span>' +
+				'<b><a href="/">Bold link</a></b>with text</p>',
+				'<p><style>.mw-parser-output { display: inherit }</style><span>   </span>' +
+				'<b><a href="/">Bold link</a></b>with text</p>'
+			],
+			// If initial P has <style> and empty sibling(s), skip it
+			[
+				'<p><style>.mw-parser-output { display: inherit }</style><span>   </span></p>',
+				''
+			],
+			// If initial P has multiple nested <style> tags without text, skip it
+			[
+				'<p><style>.mw-parser-output { display: inherit }</style>   <span><style>.mw-parser' +
+				' { display: inherit }</style><b></b></span></p>',
+				''
+			],
+			// If initial P has multiple nested <style> tags and text, keep the node
+			[
+				'<p><style>.mw-parser-output { display: inherit }</style>   <span><style>.mw-parser' +
+				' { display: inherit }</style><b>Foobar</b></span></p>',
+				'<p><style>.mw-parser-output { display: inherit }</style>   <span><style>.mw-parser' +
+				' { display: inherit }</style><b>Foobar</b></span></p>'
+			],
+			// Test more subsequent <style> tags and text
+			[
+				'<p><style>.mw-parser-output { display: inherit }</style>   <span><style>.mw-parser' +
+				' { display: inherit }</style><b><style>.mw-parser-output { display: inherit }</style></b></span></p>',
+				''
+			],
+			[
+				'<p><style>.mw-parser-output { display: inherit }</style>   <span><style>.mw-parser' +
+				' { display: inherit }</style><b><i>Foobar</i><style>.mw-parser-output { display: inherit }</style></b></span></p>',
+				'<p><style>.mw-parser-output { display: inherit }</style>   <span><style>.mw-parser' +
+				' { display: inherit }</style><b><i>Foobar</i><style>.mw-parser-output { display: inherit }</style></b></span></p>'
+			],
+			[
+				'<p><b><style>.mw-parser-output { display: inherit }</style></b>345</p>',
+				'<p><b><style>.mw-parser-output { display: inherit }</style></b>345</p>'
 			]
 		];
 
