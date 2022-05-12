@@ -3,6 +3,7 @@
 		"authors": [
 			"Rail",
 			"Rainbow P",
+			"Strebski",
 			"WaldiSt"
 		]
 	},
@@ -18,7 +19,7 @@
 	"view-in-browser-footer-link": "Zobacz artykuł w przeglądarce",
 	"page-location": "Zobacz na mapie",
 	"page-similar-titles": "Podobne strony",
-	"page-last-edited": "{{PLURAL:$1|0=Edytowane dzisiaj|1=Edytowane wczoraj|Edytowane $1 dni temu}}",
+	"page-last-edited": "{{PLURAL:$1|Edytowane wczoraj|Edytowane $1 dni temu|0=Edytowane dzsiaj}}",
 	"article-about-title": "O tym artykule",
 	"page-issues": "Problemy ze stroną",
 	"license-footer-name": "CC BY-SA 3.0",
