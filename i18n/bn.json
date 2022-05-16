@@ -16,12 +16,14 @@
 	"view-in-browser-footer-link": "ব্রাউজারে নিবন্ধ দেখুন",
 	"page-location": "একটি মানচিত্রে দেখুন",
 	"page-similar-titles": "অনুরূপ পাতাগুলি",
-	"page-last-edited": "$1 দিন আগে সম্পাদিত",
+	"page-last-edited": "{{PLURAL:$1|গতকাল|$1 দিন আগে|0=আজ}} সম্পাদিত",
 	"article-about-title": "এই নিবন্ধ সম্পর্কে",
 	"page-issues": "পাতার সমস্যা",
 	"license-footer-name": "সিসি বাই-এসএ ৩.০",
 	"license-footer-text": "বিষয়বস্তু $1-এর আওতায় প্রকাশিত যদি না অন্য কিছু নির্ধারিত থাকে।",
 	"page-read-in-other-languages": "আরো $1টি ভাষায় উপলব্ধ",
 	"article-edit-button": "অনুচ্ছেদ সম্পাদনা",
+	"article-section-expand": "অনুচ্ছেদ বিস্তৃত করুন",
+	"article-section-collapse": "অনুচ্ছেদ সঙ্কুচিত করুন",
 	"references-preview-header": "তথ্যসূত্রের প্রাকদর্শন"
 }

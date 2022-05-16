@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fulup"
+			"Fulup",
+			"Huñvreüs"
 		]
 	},
 	"description-add-link-title": "Ouzhpennañ deskrivadur ar pennad",
@@ -16,7 +17,7 @@
 	"view-in-browser-footer-link": "Gwelet ar pennad er merdeer",
 	"page-location": "Diskwel war ur gartenn",
 	"page-similar-titles": "Pajennoù damheñvel",
-	"page-last-edited": "Kemmet $1 deiz zo",
+	"page-last-edited": "{{PLURAL:$1|Kemmet dec’h|Kemmet $1 deiz zo|0=Kemmet hiziv}}",
 	"article-about-title": "Diwar-benn ar pennad-mañ",
 	"page-issues": "Kudennoù war ar bajenn",
 	"license-footer-name": "CC-BY-SA 3.0",

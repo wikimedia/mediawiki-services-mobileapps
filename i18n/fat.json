@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ebenoffen1",
+			"Suzieturkson"
+		]
+	},
+	"description-add-link-title": "Fa nkerɛkyerɛmu ka atekel ho",
+	"article-read-more-title": "Kenkan bi ka ho",
+	"table-title-other": "Nsɛm pii",
+	"page-edit-history": "Hwɛ nsesa abakɔsɛm",
+	"info-box-close-text": "Tow mu",
+	"page-talk-page-subtitle": "Twetwe nkɔmbɔ fa dɛm atekel yi mpontu ho",
+	"page-issues-subtitle": "Sɛ ɔhaw bi wɔ biribi ho a bɔ me nkae",
+	"page-talk-page": "Hwɛ kasa kratafa",
+	"info-box-title": "Nokwar ntsɛm",
+	"view-in-browser-footer-link": "Hwɛ atekel wɔ brawsa mu",
+	"page-location": "Hwɛ wɔ akyerɛkyerɛkwan no do",
+	"page-similar-titles": "Nkratafa a wɔsɛ",
+	"page-last-edited": "{{PLURAL:$1|Wɔdze bi kaa ho ndeda|wɔdze bi kaa ho $1 da yi a abɛsen kɔ|0=wɔdze bi kaa ho ndɛ}}",
+	"article-about-title": "Dza ɔfa dɛm atekel yi ho",
+	"page-issues": "Kratafa mu nsɛnsɛm",
+	"license-footer-text": "Ndzɛmba yi hyɛ $1 ase gyedɛ ebia inyim dada.",
+	"page-read-in-other-languages": "Ibenya wɔ  {{PLURAL:$1|$1 kasa fofor mu}}",
+	"article-edit-button": "Nsesabea",
+	"article-edit-protected-button": "Nsesabea a ɔwɔ kratafa a wɔabɔ ho ban",
+	"article-section-expand": "Bue ɔfa mu",
+	"article-section-collapse": "Sɛɛ ɔfa",
+	"table-expand": "Bue pon mu",
+	"table-collapse": "Sɛɛ pon",
+	"references-preview-header": "San hwɛ mboadze"
+}
