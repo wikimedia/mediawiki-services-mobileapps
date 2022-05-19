@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"আফতাবুজ্জামান"
+			"আফতাবুজ্জামান",
+			"মোঃ মারুফ হাসান24"
 		]
 	},
 	"description-add-link-title": "নিবন্ধের বিবরণ যোগ করুন",
@@ -23,7 +24,7 @@
 	"license-footer-text": "বিষয়বস্তু $1-এর আওতায় প্রকাশিত যদি না অন্য কিছু নির্ধারিত থাকে।",
 	"page-read-in-other-languages": "আরো $1টি ভাষায় উপলব্ধ",
 	"article-edit-button": "অনুচ্ছেদ সম্পাদনা",
-	"article-section-expand": "অনুচ্ছেদ বিস্তৃত করুন",
-	"article-section-collapse": "অনুচ্ছেদ সঙ্কুচিত করুন",
+	"article-section-expand": "অনুচ্ছেদটি বিস্তৃত করুন",
+	"article-section-collapse": "অনুচ্ছেদ সংকুচিত করুন",
 	"references-preview-header": "তথ্যসূত্রের প্রাকদর্শন"
 }
