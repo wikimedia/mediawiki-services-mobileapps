@@ -5,7 +5,14 @@
 - rewriteUrlAttribute:
     a: href # format links like the MW parser 
 - addClassTo:
+    # FIXME: This no longer seems necessary, T58756 has been closed for years
     a[rel~=mw:ExtLink]: external # add class for external link icon
+    # FIXME: The legacy parser only adds the "image" class if the link is
+    # to the file description page, so applying this to all links doesn't
+    # seem right.  Parsoid, for its part, add an .mw-file-description class
+    # on the same links.  The css can just be retargetted at that.
+    '*[typeof^=mw:File] > a': image # add 'image' class for correct display
+    # TODO: Remove mw:Image when version 2.4.0 of the content is no longer supported
     '*[typeof^=mw:Image] > a': image # add 'image' class for correct display
 - fixVideoAnchor
 - flattenElements:
