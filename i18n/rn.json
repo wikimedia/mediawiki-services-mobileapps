@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gilbert Ndihokubwayo"
+		]
+	},
+	"description-add-link-title": "Ongerako indondoro",
+	"article-read-more-title": "Menya vyinshi",
+	"table-title-other": "Ayandi makuru",
+	"page-edit-history": "Raba impinyanyuro",
+	"info-box-close-text": "Ugara",
+	"page-talk-page-subtitle": "Ganira kumpinyanyuro z'iyi ngingo",
+	"page-issues-subtitle": "Igabisha kubirimwo biteye amakenga",
+	"page-talk-page": "Raba urupapuro rw'ikiyago",
+	"info-box-title": "Muburyo bwihuse",
+	"view-in-browser-footer-link": "Ugurura iyi ngigno",
+	"page-location": "Raba kw'ikarata",
+	"page-similar-titles": "Impapuro zisa n'uru",
+	"page-last-edited": "Ivyahinyanyuwe {{PLURAL:$1|ejo|mumisi $1 iheze|0=uno musi}}",
+	"article-about-title": "Ibijanye n'ino ngingo",
+	"page-issues": "Intambamyi z'urupapuro",
+	"license-footer-text": "Ibirimwo biboneka kuri $1 kiretse ibitandukanye.",
+	"page-read-in-other-languages": "Biboneka mu {{PLURAL:$1|$1 urundi rurimi|$1 izindi ndimi}}",
+	"article-edit-button": "Hinyanyura igice",
+	"article-edit-protected-button": "Hinyanyura igice k'urupapuro rurinzwe",
+	"article-section-expand": "Agura igice",
+	"article-section-collapse": "Ubika igice",
+	"table-expand": "Agura ameza",
+	"table-collapse": "Ubika ameza",
+	"references-preview-header": "Ishushanyo ry'ivyisunzwe"
+}
