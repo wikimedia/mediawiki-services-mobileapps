@@ -4,6 +4,8 @@ import { ARIA } from './HTMLUtilities'
 const CLASS = {
   SECTION_HEADER: 'pcs-edit-section-header',
   TITLE: 'pcs-edit-section-title',
+  HEADER_INNER_LEFT: 'pcs-header-inner-left',
+  HEADER_INNER_RIGHT: 'pcs-header-inner-right',
   LINK_CONTAINER: 'pcs-edit-section-link-container',
   LINK: 'pcs-edit-section-link',
   PROTECTION: { UNPROTECTED: '', PROTECTED: 'page-protected', FORBIDDEN: 'no-editing' },
@@ -60,7 +62,7 @@ const setEditButtons = (document, isEditable = false, isProtected = false) => {
  */
 const setTalkPageButton = (document, isVisible = false) => {
   const header = document.getElementsByTagName('header')[0],
-    headerTitle = header.getElementsByTagName('h1')[0],
+    rightWrapElem = header.getElementsByClassName(CLASS.HEADER_INNER_RIGHT)[0],
     isRendered = header.getElementsByClassName(CLASS.TITLE_TALK_BUTTON)[0]
               && header.getElementsByClassName(CLASS.TITLE_TALK_BUTTON_WRAPPER)[0]
 
@@ -72,7 +74,7 @@ const setTalkPageButton = (document, isVisible = false) => {
       talkButton.setAttribute('href', '/')
       talkButton.classList.add(CLASS.TITLE_TALK_BUTTON)
       talkButtonWrapper.classList.add(CLASS.TITLE_TALK_BUTTON_WRAPPER)
-      headerTitle.parentNode.insertBefore(talkButtonWrapper, headerTitle.nextSibling)
+      rightWrapElem.appendChild(talkButtonWrapper)
       talkButtonWrapper.appendChild(talkButton)
     }
   } else {
@@ -250,17 +252,28 @@ const newPageHeader = (document, pageDisplayTitle, titleDescription, titleDescri
 
   container.appendChild(header)
 
+  const leftWrapElem = document.createElement('div'),
+  rightWrapElem = document.createElement('div')
+
+  leftWrapElem.classList.add(CLASS.HEADER_INNER_LEFT)
+  rightWrapElem.classList.add(CLASS.HEADER_INNER_RIGHT)
+
+  const headerTitle = header.getElementsByTagName('h1')[0]
+  headerTitle.parentNode.insertBefore(leftWrapElem, headerTitle)
+  leftWrapElem.appendChild(headerTitle)
+  header.appendChild(rightWrapElem)
+
   const descriptionElements = titleDescriptionElements(document, titleDescription,
     titleDescriptionSource, wikidataEntityID, addTitleDescriptionString,
     isTitleDescriptionEditable)
 
   if (descriptionElements) {
-    container.appendChild(descriptionElements)
+    leftWrapElem.appendChild(descriptionElements)
   }
 
   const divider = document.createElement('hr')
   divider.id = IDS.DIVIDER
-  container.appendChild(divider)
+  leftWrapElem.appendChild(divider)
 
   return container
 }
