@@ -10,18 +10,18 @@ const getStructuredArtistInfo = imageInfo.getStructuredArtistInfo;
 const makeResults = imageInfo.testing.makeResults;
 
 const imageWithCaption =
-    '<figure typeof="mw:Image">' +
+    '<figure typeof="mw:File">' +
         '<img resource="./File:Foo"/ width="100" height="100">' +
         '<figcaption>An <i>example</i> image</figcaption>' +
     '</figure>';
 
 const videoWithMetadata =
-    '<figure typeof="mw:Video" data-mw=\'{"starttime": "1", "thumbtime": "2", "endtime": "3"}\'>' +
+    '<figure typeof="mw:File" data-mw=\'{"starttime": "1", "thumbtime": "2", "endtime": "3"}\'>' +
         '<video resource="./File:Foo"/>' +
     '</figure>';
 
 const videoWithDerivative =
-    '<figure typeof="mw:Video">' +
+    '<figure typeof="mw:File">' +
         '<video resource="./File:Foo">' +
             '<source src="https://example.com/Foo.ogv"' +
                 ' type=\'video/ogg; codecs="theora, vorbis"\'' +
@@ -42,7 +42,7 @@ const videoWithDerivative =
 
 const spokenWikipedia =
     '<div class="spoken-wikipedia">' +
-        '<figure typeof="mw:Audio"><audio resource="./File:Foo"/></figure>' +
+        '<figure typeof="mw:File"><audio resource="./File:Foo"/></figure>' +
     '</div>';
 
 const pronunciationAudio =
@@ -53,13 +53,13 @@ const pronunciationAudio =
 
 const imageWithSection =
     '<section data-mw-section-id="0">' +
-        '<figure typeof="mw:Image">' +
+        '<figure typeof="mw:File">' +
             '<img resource="./File:Foo"/ width="100" height="100">' +
         '</figure>' +
     '</section>';
 
 const imageWithPercentEncodedTitle =
-    '<figure typeof="mw:Image">' +
+    '<figure typeof="mw:File">' +
         '<img resource="./File:What%3F.jpg" width="100" height="100">' +
     '</figure>';
 
