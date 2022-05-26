@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kambai Akau"
+		]
+	},
+	"description-add-link-title": "Mbeang wa̱i a̱lyiat ati̱kut",
+	"article-read-more-title": "Fang nkyang njhyang",
+	"table-title-other": "Nkhang njhyang",
+	"page-edit-history": "Nwuan nkhang jhyuk",
+	"info-box-close-text": "Nyim",
+	"page-talk-page-subtitle": "Bwuo nkhang tazwa njhyuk mi̱ ati̱kut wuni",
+	"page-issues-subtitle": "A̱yaalama tazwa subpar ku kyangmami ku byia̱ a̱bung a̱ni",
+	"page-talk-page": "Nwuan wat a̱lyiat hu",
+	"info-box-title": "A̱tsotswat kiki",
+	"view-in-browser-footer-link": "Nwuan ati̱kut tazwa bi̱ra̱uza",
+	"page-location": "Nwuan tazwa ta̱si̱la",
+	"page-similar-titles": "Ngwat na̱ yet mi̱ kyang nyiung a̱ni",
+	"page-last-edited": "{{PLURAL:$1|Á̱ tyia̱ a̱fai Á̱ tyia̱ a̱fai mmam $1 na̱ ku swak a̱ni|0=Á̱ tyia̱ a̱fai a̱fwun}}",
+	"article-about-title": "Tazwa ati̱kut wuni",
+	"page-issues": "A̱ka̱bung wat na",
+	"license-footer-text": "Kyangmami shyia̱ tafa $1 si̱ nang á̱ tak nyia̱ da̱ a̱nia wa bah.",
+	"page-read-in-other-languages": "A̱ shyia̱ {{PLURAL:$1|da̱ a̱lyem $1 a̱ghyang|di̱ lilyem $1 ghyáng}}",
+	"article-edit-button": "Jhyuk tamm",
+	"article-edit-protected-button": "Jhyuk tamm tazwa wat nang á̱ cok a̱ni",
+	"article-section-expand": "Ngaat tamm",
+	"article-section-collapse": "Ta̱luk tamm",
+	"table-expand": "Ngaat a̱tyii",
+	"table-collapse": "Ta̱luk a̱tyii",
+	"references-preview-header": "Nwuan-a̱son ya̱fang"
+}
