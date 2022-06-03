@@ -24,7 +24,7 @@ describe('lib:app-transforms', () => {
 
 	it('fixVideoAnchor should transform actual videos', () => {
 		const doc = domino.createDocument(`
-<figure typeof="mw:Video/Thumb mw:Placeholder" id="mwBw"><span id="mwCA">
+<figure typeof="mw:File/Thumb mw:Placeholder" id="mwBw"><span id="mwCA">
     <video resource="https://upload.wikimedia.org/wikipedia/commons/9/96/Curiosity%27s_Seven_Minutes_of_Terror.ogv">
         <source src="https://upload.wikimedia.org/wikipedia/commons/9/96/Curiosity%27s_Seven_Minutes_of_Terror.ogv"
         type='video/ogg; codecs="theora, vorbis"' />
