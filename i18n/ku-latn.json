@@ -16,7 +16,7 @@
 	"view-in-browser-footer-link": "Gotarê di gerokê de bibîne",
 	"page-location": "Li ser nexşeyekê bibîne",
 	"page-similar-titles": "Peyamên wek hev",
-	"page-last-edited": "Berî $1 hate guherandin",
+	"page-last-edited": "{{PLURAL:$1|Do hate nûkirin|Berî $1 rojan hate nûkirin|0=Îro hate nûkirin}}",
 	"article-about-title": "Di derbarê vê gotarê de",
 	"page-issues": "Pirsgirêkên rûpelê",
 	"license-footer-name": "CC BY-SA 3.0",
