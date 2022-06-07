@@ -26,6 +26,20 @@ describe('lib:mobileview-html', () => {
 			assert.deepEqual(result.outerHTML,
 				'<section data-mw-section-id="1"><h2 id="heading_anchor">My section heading</h2><p>Foo Bar</p></section>');
 		});
+		// T306876 - Test anchor in Chinese wiki
+		it('Chinese heading', () => {
+			const document = domino.createDocument('');
+			const result = lib.testing.buildSection(document,
+				{
+					id: 2,
+					toclevel: 1,
+					line: '交通',
+					anchor: '交通',
+					text: '<ul><li>开平市内现有「開平市公共汽車」。</li></ul>'
+				});
+			assert.deepEqual(result.outerHTML,
+				'<section data-mw-section-id="2"><h2 id="交通">交通</h2><ul><li>开平市内现有「開平市公共汽車」。</li></ul></section>');
+		});
 	});
 
 	describe('rewriteWikiLinks', () => {
