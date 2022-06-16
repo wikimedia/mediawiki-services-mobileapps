@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ezagren"
+		]
+	},
+	"description-add-link-title": "Tambah diskripsi artikal",
+	"article-read-more-title": "Baca labih lanjut",
+	"table-title-other": "Maklumat labih lanjut",
+	"page-edit-history": "Tiringi riwayat babakan",
+	"info-box-close-text": "Tukup",
+	"page-talk-page-subtitle": "Cangkurahakan pambaikan gasan artikal ngini",
+	"page-issues-subtitle": "Paringatan pasal isi nang bakualitas randah atawa bamasalah",
+	"page-talk-page": "Tiringi laman pamandiran",
+	"info-box-title": "Fakta Singkat",
+	"view-in-browser-footer-link": "Tiringi artikal di paramban",
+	"page-location": "Tiringi di kar",
+	"page-similar-titles": "Laman mirip",
+	"page-last-edited": "{{PLURAL:$1|0=Dibabak hari ngini|1=Dibabak samalam|Dibabak $1 hari nang halam}}",
+	"article-about-title": "Pasal artikal ngini",
+	"page-issues": "Masalah laman",
+	"license-footer-text": "Isi tasadia di bawah $1 kacuali dinyataakan lain.",
+	"page-read-in-other-languages": "Tasadia dalam {{PLURAL:$1|$1 basa lain}}",
+	"article-edit-button": "Babak bagian",
+	"article-edit-protected-button": "Babak bagian di laman nang dilindungi",
+	"article-section-expand": "Kembangakan bagian",
+	"article-section-collapse": "Halusi bagian",
+	"table-expand": "Kambangakan tabel",
+	"table-collapse": "Halusi tabel"
+}
