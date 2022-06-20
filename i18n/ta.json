@@ -1,19 +1,32 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Siddhan"
+		]
 	},
+	"description-add-link-title": "கட்டுரை விளக்கத்தைச் சேர்க்கவும்",
 	"article-read-more-title": "மேலும் படிக்க",
 	"table-title-other": "மேலதிகத் தகவல்கள்",
 	"page-edit-history": "முழு தொகுப்பு வரலாறு",
 	"info-box-close-text": "மூடு",
+	"page-talk-page-subtitle": "இந்தக் கட்டுரையின் மேம்பாடுகளைப் பற்றி விவாதிக்கவும்",
+	"page-issues-subtitle": "துணை அல்லது சிக்கலான உள்ளடக்கம் பற்றிய விழிப்பூட்டல்கள்",
 	"page-talk-page": "பேச்சுப் பக்கத்தைக் காண்க",
 	"info-box-title": "விரைவு காரணி",
+	"view-in-browser-footer-link": "உலாவியில் கட்டுரையைப் பார்க்கவும்",
 	"page-location": "நிலப்படத்தில் காட்டுக",
 	"page-similar-titles": "ஒத்த பக்கங்கள்",
-	"page-last-edited": "{{PLURAL:$1|0=இன்று தொகுக்கப்பட்டது|1=நேற்று தொகுக்கப்பட்டது|$1 நாட்களுக்கு முன் தொகுக்கப்பட்டது}}",
+	"page-last-edited": "{{PLURAL:$1|நேற்று புதுப்பிக்கப்பட்டது|$1 நாட்களுக்கு முன் புதுப்பிக்கப்பட்டது|0=இன்று புதுப்பிக்கப்பட்டது}}",
 	"article-about-title": "இந்தக் கட்டுரையைப் பற்றி",
 	"page-issues": "பக்க சிக்கல்கள்",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "வேறுவகையாகக் குறிப்பிடப்பட்டிருந்தாலன்றி இவ்வுள்ளடக்கம் $1 இல் கீழ் கிடைக்கும்.",
-	"page-read-in-other-languages": "{{PLURAL:$1|$1 மற்ற மொழியில்|$1 மற்ற மொழிகளில்}} கிடைக்கத்தக்கது"
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 மற்ற மொழியில்|$1 மற்ற மொழிகளில்}} கிடைக்கத்தக்கது",
+	"article-edit-button": "பகுதியைத் திருத்தவும்",
+	"article-edit-protected-button": "பாதுகாக்கப்பட்ட பக்கத்தில் பிரிவைத் திருத்தவும்",
+	"article-section-expand": "பகுதியை விரிவாக்கு",
+	"article-section-collapse": "பிரிவைச் சுருக்கவும்",
+	"table-expand": "அட்டவணையை விரிவாக்கு",
+	"table-collapse": "அட்டவணையை சுருக்கவும்",
+	"references-preview-header": "குறிப்புகளின் முன்னோட்டம்"
 }
