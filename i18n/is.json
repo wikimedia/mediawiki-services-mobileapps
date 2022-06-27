@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Sveinki",
 			"Sveinn í Felli"
 		]
 	},
@@ -9,6 +10,8 @@
 	"table-title-other": "Nánari upplýsingar",
 	"page-edit-history": "Öll breytingaskráin",
 	"info-box-close-text": "Loka",
+	"page-talk-page-subtitle": "Umræður um endurbætur á þessari grein",
+	"page-issues-subtitle": "Aðvaranir vegna efnis sem ekki stenst gæðakröfur eða veldur vandamálum",
 	"page-talk-page": "Skoða spjallsíðu",
 	"info-box-title": "Staðreyndir strax",
 	"view-in-browser-footer-link": "Skoða grein í vafra",
@@ -19,5 +22,12 @@
 	"page-issues": "Vandamál varðandi síðu",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Efni má nota samkvæmt $1 nema annað komi fram.",
-	"page-read-in-other-languages": "Aðgengilegt á {{PLURAL:$1|$1 öðru tungumáli|$1 öðrum tungumálum}}"
+	"page-read-in-other-languages": "Aðgengilegt á {{PLURAL:$1|$1 öðru tungumáli|$1 öðrum tungumálum}}",
+	"article-edit-button": "Breyta hluta",
+	"article-edit-protected-button": "Breyta hluta á verndaðri síðu",
+	"article-section-expand": "Fletta út hluta",
+	"article-section-collapse": "Fella hluta saman",
+	"table-expand": "Fletta út töflu",
+	"table-collapse": "Fella töflu saman",
+	"references-preview-header": "Forskoðun heimilda"
 }
