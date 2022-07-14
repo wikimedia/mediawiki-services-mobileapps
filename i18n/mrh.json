@@ -16,7 +16,7 @@
 	"view-in-browser-footer-link": "Browser liata châpaw moh teih",
 	"page-location": "Râh nohthlahpa sâkha liata moh teih",
 	"page-similar-titles": "A lyupa châhmiazy",
-	"page-last-edited": "{{PLURAL:$1|Zâhhnia ta patheih hawpa|Noh $1 nota patheihpa|0=Tanoh ta patheihpa}}",
+	"page-last-edited": "{{PLURAL:$1|Zâhhnia ta pa thiehpa|Noh $1 nota pathiehpa|tanoh 0=pathiehpa}}",
 	"article-about-title": "He châpaw thâtih",
 	"page-issues": "Châhmia buanazy",
 	"license-footer-name": "CC BY-SA 3.0",
