@@ -111,15 +111,3 @@ sub {
     }
   }
 }
-
-/* T305357 */
-figure {
-  /* table is a block element which sizes to its contents (the enclosed img/video etc) */
-  display: table;
-}
-
-figcaption {
-  /* Caption size is limited to that of the adjacent table */
-  display: table-caption;
-  caption-side: bottom;
-}
