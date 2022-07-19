@@ -283,15 +283,10 @@ const handleClickEvent = event => {
   }
   let pageTitle
   const linkElement = document.head.querySelector('link[rel="dc:isVersionOf"]')
-  if (linkElement) {
-    const linkHref = linkElement.href
-    if (linkHref) {
-      const components = linkHref.split('/')
-      pageTitle = components.pop()
-      if (pageTitle === '') {
-        pageTitle = components.pop
-      }
-    }
+  const baseElement = document.head.querySelector('base')
+  if (baseElement && linkElement) {
+    // T301007 - Fix titles with forward slash in the name
+    pageTitle = linkElement.href.substring(baseElement.href.length)
   }
   postMessageForClickedItem(new ClickedItem(target, href, pageTitle))
 }
