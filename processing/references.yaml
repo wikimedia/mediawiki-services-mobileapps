@@ -7,7 +7,7 @@
 - rmComments
 - rmAttributes:
     a: ['about', 'data-mw', 'typeof']
-    a:not([rel=nofollow],[rel~=mw:ExtLink],[rel~=mw:referencedBy]): ['rel']
+    a:not([rel~=nofollow],[rel~=mw:ExtLink],[rel~=mw:referencedBy]): ['rel']
     abbr: ['title']
     b: ['about', 'data-mw', 'typeof']
     blockquote: ['about', 'data-mw', 'typeof']
