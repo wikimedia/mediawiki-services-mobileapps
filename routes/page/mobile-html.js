@@ -87,7 +87,7 @@ function getMobileHtmlFromMobileview(req, res) {
 router.get('/page/mobile-html/:title/:revision?/:tid?', (req, res) => {
 	BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(resolvedTitle => {
 		req.params.title = resolvedTitle;
-		if (!mobileviewHtml.shouldUseMobileview(req)) {
+		if (!mobileviewHtml.shouldUseMobileview(req, app.conf.mobile_view_languages)) {
 			return getMobileHtmlFromParsoid(req, res);
 		} else {
 			return getMobileHtmlFromMobileview(req, res);
