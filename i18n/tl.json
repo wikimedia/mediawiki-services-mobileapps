@@ -1,9 +1,31 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"GinawaSaHapon"
+		]
 	},
+	"description-add-link-title": "Maglarawan",
 	"article-read-more-title": "Magbasa pa",
-	"table-title-other": "Higit pang kabatiran (impormasyon)",
+	"table-title-other": "Karagdagang impormasyon",
+	"page-edit-history": "Tingnan ang nakaraan",
 	"info-box-close-text": "Isara",
-	"info-box-title": "Madaliang kabatiran"
+	"page-talk-page-subtitle": "Pag-usapan ang pagpapahusay sa artikulong ito",
+	"page-issues-subtitle": "Mga abiso tungkol sa nilalaman na subpar o may problema",
+	"page-talk-page": "Tingnan ang usapan",
+	"info-box-title": "Agarang impormasyon",
+	"view-in-browser-footer-link": "Basahin ang artikulo sa browser",
+	"page-location": "Tingnan sa mapa",
+	"page-similar-titles": "Katulad na pahina",
+	"page-last-edited": "{{PLURAL:$1|In-update kahapon|In-update $1 (na) ang lumipas|0=In-update ngayon}}",
+	"article-about-title": "Tungkol sa artikulong ito",
+	"page-issues": "Mga isyu sa pahina",
+	"license-footer-text": "Magagamit ang nilalaman sa ilalim ng $1 maliban lang kung nakasaad.",
+	"page-read-in-other-languages": "Mababasa rin sa {{PLURAL:$1|isang wika|$1 (na) wika}}",
+	"article-edit-button": "I-edit ang bahagi",
+	"article-edit-protected-button": "I-edit ang bahagi ng protektadong pahina",
+	"article-section-expand": "Palawakin ang bahagi",
+	"article-section-collapse": "Paliitin ang bahagi",
+	"table-expand": "Palawakin ang table",
+	"table-collapse": "Paliitin ang table",
+	"references-preview-header": "Pasilip sa mga sanggunian"
 }
