@@ -54,7 +54,7 @@ describe('mobile-sections', function() {
 				const prot = lead.protection;
 				assert.equal(res.status, 200);
 				assert.ok(lastMod.startsWith('20'), `${lastMod} should start with 20`); // 2015-
-				assert.equal(lead.displaytitle, 'Sections/deep');
+				assert.equal(lead.displaytitle, '<span class="mw-page-title-main">Sections/deep</span>');
 				assert.equal(lead.wikibase_item, undefined);
 				assert.equal(lead.description, undefined);
 				assert.ok(prot.constructor === Object, 'lead.protection should be an Object');
@@ -74,7 +74,7 @@ describe('mobile-sections', function() {
 				const lastMod = lead.lastmodified;
 				assert.equal(res.status, 200);
 				assert.ok(lastMod.startsWith('20'), `${lastMod} should start with 20`); // 2015-
-				assert.equal(lead.displaytitle, 'Main Page');
+				assert.equal(lead.displaytitle, '<span class="mw-page-title-main">Main Page</span>');
 				assert.equal(lead.normalizedtitle, 'Main Page');
 				assert.equal(lead.wikibase_item, 'Q5296');
 				assert.deepEqual(lead.protection, {
@@ -113,7 +113,7 @@ describe('mobile-sections', function() {
 				const lastMod = lead.lastmodified;
 				assert.equal(res.status, 200);
 				assert.ok(lastMod.startsWith('20'), `${lastMod} should start with 20`); // 2015-
-				assert.equal(lead.displaytitle, 'Sunn O)))');
+				assert.equal(lead.displaytitle, '<span class="mw-page-title-main">Sunn O)))</span>');
 				assert.equal(lead.normalizedtitle, 'Sunn O)))');
 				assert.ok(lead.sections.length > 0, 'Expected at least one section element');
 				assert.equal(lead.sections[0].id, 0);
