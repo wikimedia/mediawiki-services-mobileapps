@@ -1,9 +1,11 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Bada Kaji"
+		]
 	},
 	"description-add-link-title": "शीर्षकमा विवरण थप्नुहोस्",
-	"article-read-more-title": "थप पढ्ने",
+	"article-read-more-title": "थप पढ्नुहोस्",
 	"table-title-other": "थप जानकारी",
 	"page-edit-history": "सम्पादन इतिहास हेर्नुहोस्",
 	"info-box-close-text": "बन्द गर्नुहोस्",

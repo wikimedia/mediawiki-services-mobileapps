@@ -16,7 +16,7 @@
 	"view-in-browser-footer-link": "Ogled članka v brskalniku",
 	"page-location": "Prikaži na karti",
 	"page-similar-titles": "Podobne strani",
-	"page-last-edited": "{{PLURAL:$1|Zadnje urejanje včeraj|Zadnje urejanje pred $1 dnevom|Zadnje urejanje pred $1 dnevi|0=Zadnje urejanje danes}}",
+	"page-last-edited": "{{PLURAL:$1|Zadnje urejanje včeraj|Zadnje urejanje pred $1 dnevom|Zadnje urejanje pred $1 dnevi|0=Posodobljeno danes}}",
 	"article-about-title": "O tem članku",
 	"page-issues": "Težave strani",
 	"license-footer-name": "CC BY-SA 3.0",
