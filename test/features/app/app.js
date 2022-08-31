@@ -85,13 +85,16 @@ describe('express app', function() {
 	it('should not follow redirects', () => {
 		// The following page has a redirect but we don't want MCS to follow it
 		// since RESTBase already takes care of redirects.
-		const title = 'User:BSitzmann_%28WMF%29%2FMCS%2FTest%2Fredirect_test2';
-		const normalizedTitle = 'User:BSitzmann (WMF)/MCS/Test/redirect test2';
+		const title = 'User:BSitzmann_%28WMF%29%2FMCS%2FTest%2Fredirect_test2',
+			normalizedTitle = 'User:BSitzmann (WMF)/MCS/Test/redirect test2',
+			displayTitle = '<span class="mw-page-title-namespace">User</span>' +
+		'<span class="mw-page-title-separator">:</span><span class="mw-page-title-main">' +
+		'BSitzmann (WMF)/MCS/Test/redirect test2</span>';
 		return preq.get(`${server.config.uri}test.wikipedia.org/v1/page/mobile-sections/${title}`)
 			.then((res) => {
 				assert.equal(res.status, 200);
 				assert.equal(res.body.lead.normalizedtitle, normalizedTitle);
-				assert.equal(res.body.lead.displaytitle, normalizedTitle);
+				assert.equal(res.body.lead.displaytitle, displayTitle);
 				assert.ok(res.body.lead.redirect === true);
 			});
 	});

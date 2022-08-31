@@ -22,7 +22,7 @@ describe('mobile-sections-lead', function() {
 				const prot = lead.protection;
 				assert.equal(res.status, 200);
 				assert.ok(lastMod.startsWith('20'), `${lastMod} should start with 20`); // 2015-
-				assert.equal(lead.displaytitle, 'Sections/deep');
+				assert.equal(lead.displaytitle, '<span class="mw-page-title-main">Sections/deep</span>');
 				assert.ok(prot.constructor === Object, 'lead.protection should be an Object');
 				assert.ok(!Object.keys(lead.protection).length, 'Page should not be protected');
 				assert.equal(lead.editable, true);
@@ -97,7 +97,7 @@ describe('mobile-sections-lead', function() {
 	});
 	it('Enwiki Uranus loads successfully (no pronunciation parsing TypeErrors)', () => {
 		const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Uranus`;
-		const exp = '//upload.wikimedia.org/wikipedia/commons/1/1c/En-us-Uranus.ogg';
+		const exp = '//upload.wikimedia.org/wikipedia/commons/7/71/En-us-Uranus%282%29.oga';
 		return preq.get({ uri })
 			.then((res) => {
 				const lead = res.body;
