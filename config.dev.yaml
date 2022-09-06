@@ -79,6 +79,10 @@ services:
       mobile_html_local_rest_api_base_uri_template: '//{{host}}/{{domain}}/v1/'
       # max JSON POST body size limit
       # max_body_size: 100kb
+      # the wiki languages to fallback to MW mobile view for language variant support
+      mobile_view_languages:
+        - zh
+        - kk
       # the template used for contacting the MW API
       mwapi_req:
         method: post
