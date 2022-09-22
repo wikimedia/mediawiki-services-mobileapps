@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Justman10000",
 			"ManuelFranz",
 			"Wnme"
 		]
@@ -11,12 +12,13 @@
 	"page-edit-history": "Vollständige Versionsgeschichte",
 	"info-box-close-text": "Schließen",
 	"page-talk-page-subtitle": "Diskutiere Verbesserungen zu diesem Artikel",
+	"page-issues-subtitle": "Benachrichtigungen über unterdurchschnittliche oder problematische Inhalte",
 	"page-talk-page": "Diskussionsseite ansehen",
 	"info-box-title": "Schnelle Fakten",
 	"view-in-browser-footer-link": "Artikel im Browser ansehen",
 	"page-location": "Auf einer Karte ansehen",
 	"page-similar-titles": "Ähnliche Seiten",
-	"page-last-edited": "{{PLURAL:$1|0=Heute|1=Gestern|Vor $1 Tagen}} bearbeitet",
+	"page-last-edited": "{{PLURAL:$1|Gestern aktualisiert|Vor $1 Tagen aktualisiert|0=Heute aktualisiert}}",
 	"article-about-title": "Über diesen Artikel",
 	"page-issues": "Seitenprobleme",
 	"license-footer-name": "CC-BY-SA 3.0",
