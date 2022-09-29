@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"GinawaSaHapon"
+			"GinawaSaHapon",
+			"Jojit fb"
 		]
 	},
 	"description-add-link-title": "Maglarawan",
@@ -21,8 +22,8 @@
 	"page-issues": "Mga isyu sa pahina",
 	"license-footer-text": "Magagamit ang nilalaman sa ilalim ng $1 maliban lang kung nakasaad.",
 	"page-read-in-other-languages": "Mababasa rin sa {{PLURAL:$1|isang wika|$1 (na) wika}}",
-	"article-edit-button": "I-edit ang bahagi",
-	"article-edit-protected-button": "I-edit ang bahagi ng protektadong pahina",
+	"article-edit-button": "Baguhin ang seksyon",
+	"article-edit-protected-button": "Baguhin ang seksyon sa protektadong pahina",
 	"article-section-expand": "Palawakin ang bahagi",
 	"article-section-collapse": "Paliitin ang bahagi",
 	"table-expand": "Palawakin ang table",

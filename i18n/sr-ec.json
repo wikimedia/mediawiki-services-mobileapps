@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"BadDog",
+			"Kizule",
 			"Obsuser"
 		]
 	},
-	"description-add-link-title": "Додај опис наслова",
+	"description-add-link-title": "Додај опис чланка",
 	"article-read-more-title": "Прочитајте више",
 	"table-title-other": "Више информација",
 	"page-edit-history": "Прикажи историју измена",
@@ -28,5 +29,6 @@
 	"article-section-expand": "Прошири одељак",
 	"article-section-collapse": "Скупи одељак",
 	"table-expand": "Прошири табелу",
-	"table-collapse": "Скупи табелу"
+	"table-collapse": "Скупи табелу",
+	"references-preview-header": "Преглед референци"
 }
