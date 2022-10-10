@@ -1,18 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"Abbas dhothar"
+			"Abbas dhothar",
+			"Bgo eiu"
 		]
 	},
+	"description-add-link-title": "لیکھ دی تفصیل پایو",
 	"article-read-more-title": "ہور پڑھو",
 	"table-title-other": "ہور جانکاری",
+	"page-edit-history": "سودھیاں دا اتیت ویکھو",
 	"info-box-close-text": "بند کرو",
 	"page-talk-page": "گل بات آلا صفحہ ویکھو",
+	"info-box-title": "وشیش تتھ",
+	"view-in-browser-footer-link": "براؤزر تے ویکھیو",
 	"page-location": "نقشے تے دیکھو",
 	"page-similar-titles": "اکوجہے صفحے",
 	"page-last-edited": "{{PLURAL:$1|کل اپڈیٹ ہویا|اپڈیٹ ہویا$1 دن پہلے|0=اج اپڈیٹ ہویا}}",
 	"article-about-title": "اس لیکھ بارے",
 	"page-issues": "صفحے دے مسئلے",
 	"license-footer-text": "لکھت $1 لسنس تھلے ہیگا اے۔",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 ہور بولی وچ اُپلبدھ|$1 ہور بولیاں وچ اُپلبدھ}}",
 	"article-edit-button": "حصہ لکھو"
 }
