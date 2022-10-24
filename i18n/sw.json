@@ -1,9 +1,32 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Wangombe"
+		]
 	},
+	"description-add-link-title": "Ongeza maelezo ya makala",
 	"article-read-more-title": "Soma zaidi",
 	"table-title-other": "Maelezo zaidi",
+	"page-edit-history": "Tazama historia ya uhariri",
 	"info-box-close-text": "Funga",
-	"license-footer-name": "CC BY-SA 3.0"
+	"page-talk-page-subtitle": "Jadili maboresho ya makala hii",
+	"page-issues-subtitle": "Tahadhari kuhusu maudhui madogo au yenye matatizo",
+	"page-talk-page": "Tazama ukurasa wa mazungumzo",
+	"info-box-title": "Ukweli wa haraka",
+	"view-in-browser-footer-link": "Soma makala kwenye kivinjari",
+	"page-location": "Tazama kwenye ramani",
+	"page-similar-titles": "Kurasa zifananazo",
+	"page-last-edited": "{{PLURAL:$1| Ilisasishwa jana|Ilisasishwa siku $1 zilizopita|0=Ilisasishwa leo}}",
+	"article-about-title": "Kuhusu makala hii",
+	"page-issues": "Masuala ya ukurasa",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-text": "Maudhui yanapatikana kwa chini ya $1 isipokuwa iwe imebainishwa vinginevyo.",
+	"page-read-in-other-languages": "Inapatikana katika {{PLURAL:$1| Lugha nyingine $1 | $1 lugha zingine}}",
+	"article-edit-button": "Hariri sehemu",
+	"article-edit-protected-button": "Hariri sehemu kwenye ukurasa uliolindwa",
+	"article-section-expand": "Panua sehemu",
+	"article-section-collapse": "Kunja sehemu",
+	"table-expand": "Panua jedwali",
+	"table-collapse": "Kunja jedwali",
+	"references-preview-header": "Hakiki ya marejeleo"
 }
