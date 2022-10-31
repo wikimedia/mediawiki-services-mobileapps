@@ -1,11 +1,31 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Akbarali"
+		]
 	},
-	"description-add-link-title": "തലക്കെട്ട് വിവരണം ചേർക്കുക",
+	"description-add-link-title": "ലേഖനത്തിന്റെ വിവരണം ചേർക്കുക",
 	"article-read-more-title": "കൂടുതൽ വായിക്കുക",
 	"table-title-other": "കൂടുതൽ വിവരങ്ങൾ",
+	"page-edit-history": "നാൾവഴി കാണുക",
 	"info-box-close-text": "അടയ്ക്കുക",
+	"page-talk-page-subtitle": "ഈ ലേഖനത്തിന്റെ മെച്ചപ്പെടുത്തലുകൾ ചർച്ച ചെയ്യുക",
+	"page-issues-subtitle": "നിലവാരമില്ലാത്ത അല്ലെങ്കിൽ പ്രശ്‌നകരമായ ഉള്ളടക്കത്തെക്കുറിച്ചുള്ള മുന്നറിയിപ്പുകൾ",
+	"page-talk-page": "സംവാദത്താൾ കാണുക",
 	"info-box-title": "വസ്തുതകൾ",
-	"article-about-title": "ഈ ലേഖനത്തെക്കുറിച്ച്"
+	"view-in-browser-footer-link": "ബ്രൗസറിൽ ലേഖനം കാണുക",
+	"page-location": "ഭൂപടത്തിൽ കാണുക",
+	"page-similar-titles": "സമാന പേജുകൾ",
+	"page-last-edited": "{{PLURAL:$1| ഇന്നലെ അപ്ഡേറ്റ് ചെയ്തു| $1 ദിവസം മുമ്പ് അപ്ഡേറ്റ് ചെയ്തു|0=ഇന്ന് അപ്ഡേറ്റ് ചെയ്തു}}",
+	"article-about-title": "ഈ ലേഖനത്തെക്കുറിച്ച്",
+	"page-issues": "താളിലെ പ്രശ്നങ്ങൾ",
+	"license-footer-text": "പ്രത്യേകം പറയാത്ത പക്ഷം ഉള്ളടക്കം $1 പ്രകാരം ലഭ്യം.",
+	"page-read-in-other-languages": "{{PLURAL:$1| ലഭ്യമാണ് $1 മറ്റ് ഭാഷ| $1 മറ്റ് ഭാഷകൾ}}",
+	"article-edit-button": "വിഭാഗം എഡിറ്റ് ചെയ്യുക",
+	"article-edit-protected-button": "സംരക്ഷിത പേജിലെ തിരുത്തൽ വിഭാഗം",
+	"article-section-expand": "വിഭാഗം വികസിപ്പിക്കുക",
+	"article-section-collapse": "വിഭാഗം ചുരുക്കുക",
+	"table-expand": "പട്ടിക വികസിപ്പിക്കുക",
+	"table-collapse": "പട്ടിക ചുരുക്കുക",
+	"references-preview-header": "അവലംബങ്ങൾ എങ്ങനെയുണ്ടെന്ന് കാണുക"
 }
