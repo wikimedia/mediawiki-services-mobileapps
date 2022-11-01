@@ -14,4 +14,5 @@ pipelines:
       - name: production
         build: production
         publish:
-          image: true
+          image:
+            tag: '${setup.timestamp}-${.stage}-${setup.branch}'
