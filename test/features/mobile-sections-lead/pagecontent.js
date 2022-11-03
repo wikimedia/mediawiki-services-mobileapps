@@ -193,7 +193,7 @@ describe('mobile-sections-lead', function() {
 					'Disambiguation flag is present in meta data.');
 			});
 	});
-	it('Content model present in response for non-wikitext content', () => {
+	it.skip('Content model present in response for non-wikitext content', () => {
 		const title = 'Schema:RelatedArticles';
 		const uri = `${server.config.uri}meta.wikimedia.org/v1/page/mobile-sections-lead/${title}`;
 		return preq.get({ uri })

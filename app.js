@@ -135,6 +135,9 @@ function initApp(options) {
 	// set up the user agent header string to use for requests
 	app.conf.user_agent = app.conf.user_agent || app.info.name;
 
+	// set up default endpoint for parsoid to be restbase
+	app.conf.use_coreparsoid_endpoint = app.conf.use_coreparsoid_endpoint || false;
+
 	// disable the X-Powered-By header
 	app.set('x-powered-by', false);
 	// disable the ETag header - users should provide them!

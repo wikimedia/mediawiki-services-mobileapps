@@ -6,6 +6,7 @@ const yaml = require('js-yaml');
 const assert = require('../../utils/assert');
 const mwapi = require('../../../lib/mwapi');
 const api = require('../../../lib/api-util').test;
+const { isExplicitCoreParsoidReq } = require('../../../lib/core-api-compat');
 const Template = require('swagger-router').Template;
 
 const logger = require('bunyan').createLogger({
@@ -65,4 +66,34 @@ describe('lib:apiUtil', () => {
 		});
 		assert.deepEqual(req.headers['accept-language'], 'zh-hant');
 	});
+
+	it('Checks header for explicit parsoid backend exists and its false', () => {
+		const testReq = {
+			headers: {
+				'Content-type': 'application/json',
+				'X-Use-MW-REST-Parsoid': 'false'
+			}
+		};
+		assert.deepEqual(isExplicitCoreParsoidReq(testReq), false);
+	});
+
+	it('Checks header for explicit parsoid backend exists and its true', () => {
+		const testReq = {
+			headers: {
+				'Content-type': 'application/json',
+				'X-Use-MW-REST-Parsoid': 'true'
+			}
+		};
+		assert.deepEqual(isExplicitCoreParsoidReq(testReq), true);
+	});
+
+	it('Checks header for explicit parsoid backend doesnt exist', () => {
+		const testReq = {
+			headers: {
+				'Content-type': 'application/json',
+			}
+		};
+		assert.deepEqual(isExplicitCoreParsoidReq(testReq), false);
+	});
+
 });
