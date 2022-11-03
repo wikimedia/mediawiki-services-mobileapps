@@ -15,4 +15,4 @@ pipelines:
         build: production
         publish:
           image:
-            tag: '${setup.timestamp}-${.stage}-${ZUUL_BRANCH}'
+            tag: '${setup.timestamp}-${.stage}-${setup.branch}'
