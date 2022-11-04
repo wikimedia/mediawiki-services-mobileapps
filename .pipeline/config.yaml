@@ -15,4 +15,4 @@ pipelines:
         build: production
         publish:
           image:
-            tag: '${setup.timestamp}-${.stage}-${setup.branch}'
+            tag: '${setup.timestamp}-${.stage}-restbase-sunset'
