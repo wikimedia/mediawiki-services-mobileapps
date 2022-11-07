@@ -1,7 +1,31 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Къарачайлы"
+		]
 	},
+	"description-add-link-title": "Статьяны ачыкълауун къош",
+	"article-read-more-title": "Энтда окъу",
+	"table-title-other": "Къошакъ билги",
+	"page-edit-history": "Тюзетиу тарихни кёргюз",
 	"info-box-close-text": "Джаб",
-	"info-box-title": "Къысха фактла"
+	"page-talk-page-subtitle": "Бу статьяны маджаллашдырыуун сюз",
+	"page-issues-subtitle": "Агъачы аман эмда проблемалы контенти юсюнден билдириуле",
+	"page-talk-page": "Сюзюу бетни кёргюз",
+	"info-box-title": "Къысха фактла",
+	"view-in-browser-footer-link": "Статьяны браузерде кёргюз",
+	"page-location": "Картада кёргюз",
+	"page-similar-titles": "Ушаш бетле",
+	"page-last-edited": "{{PLURAL:$1|Тюнене джангыртылды|$1 кюн алгъа джангыртылды|0=Бюгюн джангыртылды}}",
+	"article-about-title": "Бу статьяны юсюнден",
+	"page-issues": "Бетни соруулары",
+	"license-footer-text": "Ичиндегиси, $1 лицензиягъа кёре бериледи.",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 башха тилде}} барды",
+	"article-edit-button": "Бёлюмню тюрлендир",
+	"article-edit-protected-button": "Къорууланнган бетдеги бёлюмню тюзет",
+	"article-section-expand": "Бёлюмню ач",
+	"article-section-collapse": "Бёлюмню джаб",
+	"table-expand": "Таблицаны ач",
+	"table-collapse": "Таблицаны джаб",
+	"references-preview-header": "Эсгертиулени ал къарауу"
 }

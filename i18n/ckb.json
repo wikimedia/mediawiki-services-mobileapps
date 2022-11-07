@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Aram",
+			"Sarchia",
 			"ئارام بکر"
 		]
 	},
@@ -11,12 +12,13 @@
 	"page-edit-history": "بینینی مێژووی دەستکاری",
 	"info-box-close-text": "دایخە",
 	"page-talk-page-subtitle": "وتووێژی چاکسازییەکان بۆ ئەم وتارە بکە",
+	"page-issues-subtitle": "ئاگادارکردنەوە سەبارەت بە ناوەڕۆکی ئاست نزم یان کێشەدار",
 	"page-talk-page": "بینینی پەڕەی وتووێژ",
 	"info-box-title": "زانیاریی خێرا",
 	"view-in-browser-footer-link": "بینینی وتار لە وێبگەڕدا",
 	"page-location": "بینین لەسەر نەخشە",
 	"page-similar-titles": "پەڕە لێکچووەکان",
-	"page-last-edited": "{{PLURAL:$1|دوێنێ نوێ کراوەتەوە|$1 لەمەوپێش نوێ کراوەتەوە|0=ئەمڕۆ نوێ کراوەتەوە}}",
+	"page-last-edited": "{{PLURAL:$1|دوێنێ نوێ کراوەتەوە|$1 لەمەوبەر نوێ کراوەتەوە|0=ئەمڕۆ نوێ کراوەتەوە}}",
 	"article-about-title": "دەربارەی ئەم وتارە",
 	"page-issues": "گرفتەکانی پەڕە",
 	"license-footer-name": "CC BY-SA 3.0",
