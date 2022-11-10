@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80"
+			"Amire80",
+			"Kitanago"
 		]
 	},
 	"description-add-link-title": "Ajoute deskripsyon atik la",
@@ -10,16 +11,16 @@
 	"page-edit-history": "Wè istwa modifikasyon",
 	"info-box-close-text": "Fèmen",
 	"page-talk-page-subtitle": "Diskite sou amelyorasyon nan atik sa a",
-	"page-issues-subtitle": "Notifikasyon yo sou kontni pa bon oswa pwoblematik",
+	"page-issues-subtitle": "Notifikasyon sou kontni ki move kalite oswa ki chaje ak pwoblèm",
 	"page-talk-page": "Wè paj diskisyon",
 	"info-box-title": "Bagay rapid yo",
 	"view-in-browser-footer-link": "Wè atik la nan navigatè a",
 	"page-location": "Wè sou yon kat",
-	"page-similar-titles": "Paj menm jan an",
+	"page-similar-titles": "Paj ki sanble yo",
 	"page-last-edited": "Mizajou {{PLURAL:$1|yè|$1 jou de sa|0=jodi a}}",
 	"article-about-title": "Apwopo atik sa a",
 	"page-issues": "Pwoblèm paj yo",
-	"license-footer-text": "Kontni disponib selon lisans $1 sof si gen lòt endikasyon.",
+	"license-footer-text": "Kontni an disponib sou lisans $1 sof si gen lòt endikasyon.",
 	"page-read-in-other-languages": "Disponib nan {{PLURAL:$1|$1 lòt lang}}",
 	"article-edit-button": "Modifye seksyon",
 	"article-edit-protected-button": "Edit seksyon sou paj pwoteje",
