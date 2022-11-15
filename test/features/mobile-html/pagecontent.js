@@ -60,7 +60,7 @@ describe('mobile-html', function() {
 	});
 
 	it('mobile-html should have meta tags indicating page protection', () => {
-		const uri = localUri('Elmo/916610952', 'en.wikipedia.org');
+		const uri = localUri('Elon Musk', 'en.wikipedia.org');
 		return preq.get(uri).then((res) => {
 			const document = domino.createDocument(res.body);
 			const edit = document.querySelector('meta[property=mw:pageProtection:edit]');

@@ -207,7 +207,7 @@ const titleDescriptionElements = (document, titleDescription, titleDescriptionSo
     p.setAttribute(DATA_ATTRIBUTE.DESCRIPTION_SOURCE, titleDescriptionSource)
     p.setAttribute(DATA_ATTRIBUTE.WIKIDATA_ENTITY_ID, wikidataEntityID)
     p.id = IDS.TITLE_DESCRIPTION
-    p.innerHTML = titleDescription
+    p.textContent = titleDescription
     return p
   }
   if (isTitleDescriptionEditable) {
