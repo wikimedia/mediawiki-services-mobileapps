@@ -109,3 +109,5 @@ services:
       # whether to print extra debug info
       debug: true
       use_coreparsoid_endpoint: true
+      restbase_compatibility:
+        security_headers: false

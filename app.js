@@ -15,6 +15,7 @@ const packageInfo = require('./package.json');
 const yaml = require('js-yaml');
 const addShutdown = require('http-shutdown');
 const path = require('path');
+const { isRestbaseCompatReq } = require('./lib/restbase-compat');
 
 /**
  * Creates an express app and initialises it
@@ -131,6 +132,13 @@ function initApp(options) {
 			res.header('x-content-type-options', 'nosniff');
 			res.header('x-frame-options', 'SAMEORIGIN');
 			mUtil.setContentSecurityPolicy(res, app.conf.csp);
+		}
+		// restbase compatibility layer for security headers
+		if (
+			app.conf.restbase_compatibility.security_headers ||
+			isRestbaseCompatReq(req) // bypass config feature flag with request header
+		) {
+			mUtil.setRestBaseCompatSecurityHeaders(res);
 		}
 		sUtil.initAndLogRequest(req, app);
 		next();

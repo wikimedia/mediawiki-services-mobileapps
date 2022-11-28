@@ -20,15 +20,19 @@ if (!server.stopHookAdded) {
 	after(() => server.stop());
 }
 
+function getServiceConfig() {
+	return server.config.conf.services[server.config.conf.services.length - 1].conf;
+}
+
 function staticSpecLoad() {
 
-	const myService = server.config.conf.services[server.config.conf.services.length - 1].conf;
+	const myService = getServiceConfig();
 	const specPath = `${__dirname}/../../../${myService.spec ? myService.spec : 'spec'}`;
 
 	return refParser.dereference(specLib.load(specPath, {}), function (err, schema) {
 		if (err) {
 			// this error will be detected later, so ignore it
-			return { paths: {}, 'x-default-params': {} };
+			return { paths: {}, 'x-default-params': {}, 'x-restbase-compatibility-headers': {} };
 		} else {
 			return schema;
 		}
@@ -71,7 +75,6 @@ function validateExamples(pathStr, defParams, mSpec) {
 }
 
 function constructTestCase(title, path, method, request, response) {
-
 	return {
 		title,
 		request: {
@@ -92,7 +95,7 @@ function constructTestCase(title, path, method, request, response) {
 }
 
 
-function constructTests(paths, defParams) {
+function constructTests(paths, defParams, defHeaders) {
 
 	const ret = [];
 
@@ -109,12 +112,13 @@ function constructTests(paths, defParams) {
 					uri.toString({ params: defParams }),
 					method,
 					{},
-					{}
+					{ headers: defHeaders }
 				));
 				return;
 			}
 			p['x-amples'].forEach((ex) => {
 				ex.request = ex.request || {};
+				ex.response.headers = Object.assign(ex.response.headers || {}, defHeaders);
 				ret.push(constructTestCase(
 					ex.title,
 					uri.toString({
@@ -237,10 +241,20 @@ function validateTestResponse(testCase, res) {
 
 describe('Swagger spec', function() {
 
+	const serviceConfig = getServiceConfig();
 	// the variable holding the spec
 	const spec = staticSpecLoad();
 	// default params, if given
 	let defParams = spec['x-default-params'] || {};
+	let defHeaders = {};
+
+	if (
+		serviceConfig.restbase_compatibility &&
+		serviceConfig.restbase_compatibility.security_headers
+	) {
+		// default headers, if given
+		defHeaders = spec['x-restbase-compatibility-headers'] || {};
+	}
 
 	this.timeout(20000);
 
@@ -261,6 +275,9 @@ describe('Swagger spec', function() {
 	it('spec validation', () => {
 		if (spec['x-default-params']) {
 			defParams = spec['x-default-params'];
+		}
+		if (spec['x-restbase-compatibility-headers']) {
+			defHeaders = spec['x-restbase-compatibility-headers'];
 		}
 		// check the high-level attributes
 		['info', 'openapi', 'paths'].forEach((prop) => {
@@ -326,7 +343,7 @@ describe('Swagger spec', function() {
 			description: 'Missing upstream implementation of language variants',
 		};
 
-		constructTests(spec.paths, defParams).forEach((testCase) => {
+		constructTests(spec.paths, defParams, defHeaders).forEach((testCase) => {
 			it(testCase.title, function () {
 
 				return preq(testCase.request)
