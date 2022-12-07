@@ -23,7 +23,7 @@ paths:
               etag: /^"[^/"]+/[^/"]+"$/
               access-control-allow-origin: '*'
               access-control-allow-headers: accept, x-requested-with, content-type
-              content-security-policy: default-src
-              x-content-security-policy: default-src
+              content-security-policy: default-src 'none'; frame-ancestors 'none'
+              x-content-security-policy: default-src 'none'; frame-ancestors 'none'
               x-frame-options: SAMEORIGIN
             body: /.+/

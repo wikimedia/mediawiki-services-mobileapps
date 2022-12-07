@@ -120,7 +120,6 @@ router.post('/transform/html/to/mobile-html/:title', (req, res) => {
 router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, res) => {
 	res.status(200);
 	mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtmlOfflineResources);
-	mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
 
 	// Get external API URI
 	const externalApiUri = apiUtilConstants.getExternalRestApiUri(req.params.domain);
