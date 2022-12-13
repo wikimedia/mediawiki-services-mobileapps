@@ -19,9 +19,11 @@ let app;
 
 /**
  * GET {domain}/v1/page/metadata/{title}{/revision}{/tid}
+ * Title redirection status: redirects based on parsoid output
  * Gets extended metadata for a given wiki page.
  */
 router.get('/metadata/:title/:revision?/:tid?', (req, res) => {
+	req.getTitleRedirectLocation = (title) => title;
 	return BBPromise.join(
 		parsoid.getParsoidHtml(req),
 		mwapi.getMetadataForMetadata(req),

@@ -12,9 +12,11 @@ const wikiLanguage = require('../../lib/wikiLanguage');
 let app;
 /**
  * GET {domain}/v1/page/talk/{title}{/revision}{/tid}
+ * Title redirection status: redirects based on parsoid output
  * Gets talk page info.
  */
 router.get('/talk/:title/:revision?/:tid?', (req, res) => {
+	req.getTitleRedirectLocation = (title) => title;
 	const lang = wikiLanguage.getLanguageCode(req.params.domain);
 	return parsoidApi.getParsoidHtml(req)
 		.then(parsoidRsp => mUtil.createDocument(parsoidRsp.body)

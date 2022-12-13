@@ -9,6 +9,7 @@ const fs = BBPromise.promisifyAll(require('fs'));
 const sUtil = require('./lib/util');
 const specLib = require('./lib/spec');
 const apiUtil = require('./lib/api-util');
+const coreApiCompat = require('./lib/core-api-compat');
 const mUtil = require('./lib/mobile-util');
 const packageInfo = require('./package.json');
 const yaml = require('js-yaml');
@@ -84,6 +85,9 @@ function initApp(options) {
 	app.conf.log_header_allowlist = new RegExp(`^(?:${app.conf.log_header_allowlist.map((item) => {
 		return item.trim();
 	}).join('|')})$`, 'i');
+
+	// set up default strategy for handling redirects
+	app.conf.pcs_handles_redirects = app.conf.pcs_handles_redirects || false;
 
 	// set up the request templates for the APIs
 	apiUtil.setupApiTemplates(app);
@@ -201,6 +205,10 @@ function loadRoutes(app, dir) {
 			app.use(route.path, route.router);
 		});
 	}).then(() => {
+		// handle title redirects
+		if (app.conf.pcs_handles_redirects) {
+			app.use(coreApiCompat.httpTitleRedirectErrorMiddleware);
+		}
 		// catch errors
 		sUtil.setErrorHandler(app);
 		// route loading is now complete, return the app object

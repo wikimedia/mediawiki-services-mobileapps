@@ -12,11 +12,13 @@ let app;
 
 /**
  * GET {domain}/v1/page/media-list/{title}{/revision}{/tid}
+ * Title redirection status: Redirects based on parsoid output
  * Returns the non-UI media files used on the given page.
  */
 router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
-	return BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(resolvedTitle => {
-		req.params.title = resolvedTitle;
+	req.getTitleRedirectLocation = (title) => title;
+	const buildMediaList = (title) => {
+		req.params.title = title;
 		return parsoid.getParsoidHtml(req).then(parsoidRsp => {
 			return mUtil.createDocument(parsoidRsp.body).then(doc => {
 				return BBPromise.props({
@@ -47,7 +49,12 @@ router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
 				});
 			});
 		});
-	});
+	};
+
+	if (app.conf.pcs_handles_redirects) {
+		return buildMediaList(req.params.title);
+	}
+	return BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(buildMediaList);
 });
 
 module.exports = function(appObj) {

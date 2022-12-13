@@ -302,25 +302,31 @@ function buildLeadResponse(application, req, res) {
 
 /**
  * GET {domain}/v1/page/mobile-sections/{title}{/revision}{/tid}
+ * Title redirection status: redirects based on parsoid output
  * Gets the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections/:title/:revision?/:tid?', (req, res) => {
+	req.getTitleRedirectLocation = (title) => title;
 	return buildAllResponse(app, req, res);
 });
 
 /**
  * GET {domain}/v1/page/mobile-sections-lead/{title}{/revision}{/tid}
+ * Title redirection status: redirects based on parsoid output
  * Gets the lead section for the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections-lead/:title/:revision?/:tid?', (req, res) => {
+	req.getTitleRedirectLocation = (title) => title;
 	return buildLeadResponse(app, req, res);
 });
 
 /**
  * GET {domain}/v1/page/mobile-sections-remaining/{title}{/revision}{/tid}
+ * Title redirection status: redirects based on parsoid output
  * Gets the remaining sections for the mobile app version of a given wiki page.
  */
 router.get('/mobile-sections-remaining/:title/:revision?/:tid?', (req, res) => {
+	req.getTitleRedirectLocation = (title) => title;
 	return BBPromise.props({
 		page: parsoid.pageJsonPromise(app, req)
 	}).then((response) => {

@@ -20,11 +20,13 @@ let app;
 
 /**
  * GET {domain}/v1/page/summary/{title}{/revision?}{/tid?}
+ * Title redirection status: redirects based on parsoid output
  * Extracts a summary of a given wiki page limited to one paragraph of text
  */
 router.get('/summary/:title/:revision?/:tid?', (req, res) => {
-	return BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(resolvedTitle => {
-		req.params.title = resolvedTitle;
+	req.getTitleRedirectLocation = (title) => title;
+	const buildSummary = (title) => {
+		req.params.title = title;
 		// Check flagged revision for wikis that have enabled FlaggedRevs extension
 		return BBPromise.resolve(mwapi.getFlaggedOrLatestRevision(req)).then(revision => {
 			req.params.revision = revision;
@@ -53,7 +55,11 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
 						});
 				});
 		});
-	});
+	};
+	if (app.conf.pcs_handles_redirects) {
+		return buildSummary(req.params.title);
+	}
+	return BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(buildSummary);
 });
 
 module.exports = function(appObj) {

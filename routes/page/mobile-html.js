@@ -81,28 +81,42 @@ function getMobileHtmlFromMobileview(req, res) {
 
 /**
  * GET {domain}/v1/page/mobile-html/{title}{/revision}{/tid}
+ * Title redirection status: redirects based on parsoid output
  * Gets page content in HTML. This is a more optimized for direct consumption by reading
  * clients.
  */
 router.get('/page/mobile-html/:title/:revision?/:tid?', (req, res) => {
-	BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(resolvedTitle => {
-		req.params.title = resolvedTitle;
+	req.getTitleRedirectLocation = (title) => title;
+	const buildMobileHtml = (title) => {
+		req.params.title = title;
 		if (!mobileviewHtml.shouldUseMobileview(req, app.conf.mobile_view_languages)) {
 			return getMobileHtmlFromParsoid(req, res);
 		} else {
 			return getMobileHtmlFromMobileview(req, res);
 		}
-	});
+	};
+
+	if (app.conf.pcs_handles_redirects) {
+		return buildMobileHtml(req.params.title);
+	}
+	return BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(buildMobileHtml);
 });
 
 /**
  * POST {domain}/v1/transform/html/to/mobile-html/{title}
+ * Title redirection status: POST requests should not be redirected
  * Previews page content in HTML. POST body should be Parsoid HTML
  */
 router.post('/transform/html/to/mobile-html/:title', (req, res) => {
 	return getMobileHtmlFromPOST(req, res);
 });
 
+/**
+ * GET {domain}/v1/page/mobile-html-offline-resources/{title}/{revision}/{tid}
+ * Request params are placeholders, title/revision/tid not used
+ * Title redirection status: Doesn't redirect content is static
+ * Returns the URLs for offline resources
+ */
 router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, res) => {
 	res.status(200);
 	mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtmlOfflineResources);

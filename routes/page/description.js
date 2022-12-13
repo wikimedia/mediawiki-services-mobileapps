@@ -29,6 +29,8 @@ function isEnWiki(domain) {
 let app;
 
 /**
+ * Get page description
+ * Title redirection status: not handled
  * GET {domain}/v1/page/description/{title}
  */
 router.get('/description/:title', (req, res) => {
@@ -43,6 +45,8 @@ router.get('/description/:title', (req, res) => {
 });
 
 /**
+ * Update page description
+ * Title redirection status: not handled
  * PUT {domain}/v1/page/description/{title}
  */
 router.put('/description/:title', (req, res) => {
@@ -71,6 +75,8 @@ router.put('/description/:title', (req, res) => {
 });
 
 /**
+ * Delete page description
+ * Title redirection status: not handled
  * DELETE {domain}/v1/page/description/{title}
  */
 router.delete('/description/:title', (req, res) => {
