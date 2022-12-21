@@ -37,7 +37,7 @@ describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 
 	const domain = 'test2.wikipedia.org';
 	it('Test non-flagged article from test2.wikipedia.org ', () => {
-		const title = 'Test';
+		const title = 'FlaggedRevsTest';
 		const uri = `https://${domain}/api/rest_v1/page/title/${title}`;
 		const getLatestRevision = () => preq.get({ uri })
 			.then((res) => {
