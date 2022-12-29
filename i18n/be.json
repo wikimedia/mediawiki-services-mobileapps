@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chadyka"
+			"Chadyka",
+			"Maksim L."
 		]
 	},
 	"description-add-link-title": "Дадаць апісанне артыкула",
@@ -9,7 +10,7 @@
 	"table-title-other": "Больш інфармацыі",
 	"page-edit-history": "Прагляд гісторыі правак",
 	"info-box-close-text": "Закрыць",
-	"page-talk-page-subtitle": "Абмеркаваць паляпшэнне гэтага артыкулу",
+	"page-talk-page-subtitle": "Абмеркаваць паляпшэнні гэтага артыкула",
 	"page-issues-subtitle": "Апавяшчэнні пра няякасны ці праблематычны змест",
 	"page-talk-page": "Гл. старонку размоў",
 	"info-box-title": "Хуткія факты",

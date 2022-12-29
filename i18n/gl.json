@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Maria zaos"
+			"Maria zaos",
+			"Toliño"
 		]
 	},
 	"description-add-link-title": "Engadir unha descrición do artigo",
@@ -9,12 +10,14 @@
 	"table-title-other": "Máis información",
 	"page-edit-history": "Historial de edición completo",
 	"info-box-close-text": "Pechar",
+	"page-talk-page-subtitle": "Conversar sobre as melloras neste artigo",
+	"page-issues-subtitle": "Avisa sobre o contido problemático ou de baixa calidade",
 	"page-talk-page": "Ver a páxina de conversa",
 	"info-box-title": "Datos rápidos",
 	"view-in-browser-footer-link": "Ver artigo no navegador",
 	"page-location": "Ver nun mapa",
 	"page-similar-titles": "Páxinas similares",
-	"page-last-edited": "{{PLURAL:$1|0=Editado hoxe|1=Editado onte|Editado hai $1 días}}",
+	"page-last-edited": "{{PLURAL:$1|Actualizado onte|Actualizado hai $1 días|0=Actualizado hoxe}}",
 	"article-about-title": "Acerca deste artigo",
 	"page-issues": "Problemas na páxina",
 	"license-footer-name": "CC BY-SA 3.0",
