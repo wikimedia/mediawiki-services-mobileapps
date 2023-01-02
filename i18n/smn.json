@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Seipinne"
+			"Seipinne",
+			"Yupik"
 		]
 	},
+	"description-add-link-title": "Lasseet artikkâl kuvvim",
 	"article-read-more-title": "Luuvâ lase",
 	"table-title-other": "Lasetiäđuh",
 	"page-edit-history": "Keejâ hammimhistorjá",
