@@ -60,11 +60,11 @@ describe('mobile-html', function() {
 	});
 
 	it('mobile-html should have meta tags indicating page protection', () => {
-		const uri = localUri('Elon Musk', 'en.wikipedia.org');
+		const uri = localUri('Protected_page', 'test.wikipedia.org');
 		return preq.get(uri).then((res) => {
 			const document = domino.createDocument(res.body);
 			const edit = document.querySelector('meta[property=mw:pageProtection:edit]');
-			assert.deepEqual(edit.getAttribute('content'), 'autoconfirmed');
+			assert.deepEqual(edit.getAttribute('content'), 'sysop');
 			const move = document.querySelector('meta[property=mw:pageProtection:move]');
 			assert.deepEqual(move.getAttribute('content'), 'sysop');
 		});
