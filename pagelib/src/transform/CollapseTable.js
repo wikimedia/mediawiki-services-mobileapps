@@ -420,8 +420,12 @@ const replaceNodeInSection = (nodeToReplace, replacementNode) => {
     replacementNode.appendChild(nodeToReplace)
     nodeToReplaceParent.appendChild(replacementNode)
   } else {
-    sectionTag.insertBefore(replacementNode, childOfSectionTag)
-    sectionTag.removeChild(childOfSectionTag)
+    if (sectionTag.tagName === 'TABLE') {
+      sectionTag.insertBefore(replacementNode, childOfSectionTag)
+      sectionTag.removeChild(childOfSectionTag)
+    } else {
+      sectionTag.insertBefore(replacementNode, childOfSectionTag)
+    }
   }
 
 }
