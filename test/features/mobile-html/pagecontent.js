@@ -24,6 +24,68 @@ describe('mobile-html', function() {
 			});
 	});
 
+	it('mobile-html headers not compatible with restbase output', () => {
+		const uri = localUri('Foobar/788941783');
+		const defaultHeaders = [
+			'access-control-allow-origin',
+			'access-control-allow-headers',
+			'access-control-expose-headers',
+			'x-xss-protection',
+			'x-content-type-options',
+			'x-frame-options',
+			'content-security-policy',
+			'x-content-security-policy',
+			'content-type',
+			'etag',
+			'vary',
+			'date',
+			'connection',
+			'keep-alive',
+			'transfer-encoding',
+			'x-webkit-csp',
+		];
+
+		return preq.get({ uri })
+			.then((res) => {
+				assert.deepEqual(defaultHeaders.length, Object.keys(res.headers).length);
+				defaultHeaders.forEach((header) => {
+					assert.deepEqual(!!res.headers[header], true, `Header ${header} not present`);
+				});
+			});
+	});
+
+	it('mobile-html headers compatible with restbase output', () => {
+		const uri = localUri('Foobar/788941783');
+		const restbaseHeaders = [
+			'access-control-allow-origin',
+			'access-control-allow-methods',
+			'access-control-allow-headers',
+			'access-control-expose-headers',
+			'x-xss-protection',
+			'x-content-type-options',
+			'x-frame-options',
+			'referrer-policy',
+			'content-security-policy',
+			'x-content-security-policy',
+			'content-type',
+			'etag',
+			'vary',
+			'date',
+			'connection',
+			'keep-alive',
+			'transfer-encoding',
+			'x-webkit-csp',
+		];
+
+		return preq.get({ uri, headers: { 'X-RESTBase-Compat': true } })
+			.then((res) => {
+				assert.deepEqual(restbaseHeaders.length, Object.keys(res.headers).length);
+				restbaseHeaders.forEach((header) => {
+					assert.deepEqual(!!res.headers[header], true, `Header ${header} not present`);
+				});
+			});
+	});
+
 	it('mobile-html should have css links + viewport set', () => {
 		const uri = localUri('Foobar/788941783');
 		return preq.get({ uri })

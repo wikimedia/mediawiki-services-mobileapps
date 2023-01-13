@@ -115,3 +115,5 @@ services:
         headers: '{{request.headers}}'
         body: '{{request.body}}'
         timeout: 60000 # 60 * 1000
+      restbase_compatibility:
+        security_headers: false
