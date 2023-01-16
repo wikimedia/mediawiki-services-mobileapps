@@ -273,6 +273,10 @@ describe('lib:summarize regex fun', () => {
 		assert.ok(lib.testing.reProbableFormulaPresent.test('Zn<sup>+</sup>'));
 		assert.ok(lib.testing.reProbableFormulaPresent.test('10<sup>14</sup>'));
 	});
+	it('detects single character with italic symbols inside parentheses', () => {
+		assert.ok(lib.testing.reParenthesesMathExpressionPresent.test('(<i>X</i>, <i>d</i>)'));
+		assert.ok(lib.testing.reParenthesesMathExpressionPresent.test('( <i>y</i> + <i>x</i>'));
+	});
 	it('but skips areas', () => {
 		assert.ok(!lib.testing.reProbableFormulaPresent.test('km<sub>2</sub>'));
 	});
