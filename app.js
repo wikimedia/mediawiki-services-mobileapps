@@ -48,7 +48,7 @@ function initApp(options) {
 		app.conf.cors = '*';
 	}
 	if (app.conf.csp === undefined) {
-		app.conf.csp = "default-src 'none'";
+		app.conf.csp = "default-src 'none'; frame-ancestors 'none'";
 	}
 
 	// better to have these values in the config

@@ -354,6 +354,8 @@ describe('Swagger spec', function() {
 							if (expectedFailure.forTest(testCase) &&
 								expectedFailure.withErr(testErr)) {
 								this.skip(expectedFailure.description);
+							} else {
+								throw testErr;
 							}
 						}
 					}, (err) => {
@@ -363,6 +365,8 @@ describe('Swagger spec', function() {
 							if (expectedFailure.forTest(testCase) &&
 								expectedFailure.withErr(testErr)) {
 								this.skip(expectedFailure.description);
+							} else {
+								throw testErr;
 							}
 						}
 					});
