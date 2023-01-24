@@ -510,6 +510,12 @@ const onBodyEnd = () => {
     for (let i = 1; i < sections.length; i++) {
       sections[i].style.display = ''
     }
+    /*
+      T325623 - Dispatch event that will trigger lazy-load image rendering on first load
+      when no scroll or resize events happened
+    */
+    window.dispatchEvent(new CustomEvent('onBodyEnd'))
+
   }, remainingContentTimeout)
 }
 

@@ -4,7 +4,8 @@ import LazyLoadTransform from './LazyLoadTransform'
 import Polyfill from './Polyfill'
 import Throttle from './Throttle'
 
-const EVENT_TYPES = ['scroll', 'resize', CollapseTable.SECTION_TOGGLED_EVENT_TYPE]
+// T325623 - add custom 'onBodyEnd' event, remove when finished T328943 
+const EVENT_TYPES = ['scroll', 'resize', CollapseTable.SECTION_TOGGLED_EVENT_TYPE, 'onBodyEnd']
 const THROTTLE_PERIOD_MILLISECONDS = 100
 
 /**
