@@ -23,7 +23,7 @@
 	"license-footer-text": "Содржината е достапна под условите на $1 освен ако не е поинаку наведено.",
 	"page-read-in-other-languages": "Достапно на {{PLURAL:$1|уште $1 јазик|уште $1 јазици}}",
 	"article-edit-button": "Уреди поднасов",
-	"article-edit-protected-button": "Уреди поднаслов на заштитена страница",
+	"article-edit-protected-button": "Уреди оддел на заштитена страница",
 	"article-section-expand": "Расклопи го одделот",
 	"article-section-collapse": "Склопи го одделот",
 	"table-expand": "Расклопи ја табелата",
