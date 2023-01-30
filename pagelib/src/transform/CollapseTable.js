@@ -445,6 +445,12 @@ const replaceNodeInSection = (nodeToReplace, replacementNode) => {
 const prepareTable = (table, document, pageTitle, tableTitle,
   tableClass, headerTextArray, footerTitle, collapseText, expandText) => {
 
+  if (table.parentElement &&
+    table.parentElement.tagName === 'BLOCKQUOTE' &&
+    table.parentElement.classList.contains('quotebox-quote')) {
+    return;
+  }
+
   // create the container div that will contain both the original table
   // and the collapsed version.
   const containerDiv = document.createElement('div')
