@@ -5,7 +5,6 @@ import DemoMode from './DemoMode'
 import DimImagesTransform from '../../transform/DimImagesTransform'
 import EditTransform from '../../transform/EditTransform'
 import InteractionHandling from './InteractionHandling'
-import LazyLoadTransformer from '../../transform/LazyLoadTransformer'
 import NodeUtilities from '../../transform/NodeUtilities'
 import PlatformTransform from '../../transform/PlatformTransform'
 import SectionUtilities from '../../transform/SectionUtilities'
@@ -121,11 +120,6 @@ const setup = (optionalSettings, onSuccess) => {
       document.body,
       settings.textSizeAdjustmentPercentage
     )
-  }
-  if (settings.loadImages === undefined || settings.loadImages === true) {
-    const lazyLoader = new LazyLoadTransformer(window, 2)
-    lazyLoader.collectExistingPlaceholders(document.body)
-    lazyLoader.loadPlaceholders()
   }
   if (settings.talkPageButton) {
     setTalkPageButton(settings.talkPageButton)

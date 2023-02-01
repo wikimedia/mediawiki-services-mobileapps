@@ -31,13 +31,6 @@
     width: 100% !important;
     max-width: 100% !important;
   }
-  .pcs-widen-image-override.pcs-lazy-load-placeholder {
-    /* This is necessary to avoid collapsed flexbox behavior on .thumbinner on Android KitKat 4.4.2
-       (API 19), e.g. Verizon Samsung Galaxy Note II (SCH-I605).
-       https://stackoverflow.com/a/23754080/970346
-       https://stackoverflow.com/a/33503864/970346 */
-      min-width: 100%;
-  }
 
   /* Tablet override */
   @media (min-device-width: @width-breakpoint-tablet) {
@@ -52,9 +45,6 @@
     img.pcs-widen-image-override {
       width: 60% !important;
       max-width: 60% !important;
-    }
-    .pcs-widen-image-override.pcs-lazy-load-placeholder {
-      min-width: 60%;
     }
   }
 }
@@ -71,9 +61,6 @@
   img.pcs-widen-image-override {
     width: 50% !important;
     max-width: 50% !important;
-  }
-  .pcs-widen-image-override.pcs-lazy-load-placeholder {
-    min-width: 50%;
   }
 }
 
