@@ -23,9 +23,9 @@
 	"page-read-in-other-languages": "Disponibile in $1 altere lingua{{PLURAL:$1||s}}",
 	"article-edit-button": "Modificar section",
 	"article-edit-protected-button": "Modificar section sur pagina protegite",
-	"article-section-expand": "Displicar section",
-	"article-section-collapse": "Plicar section",
-	"table-expand": "Displicar tabella",
-	"table-collapse": "Plicar tabella",
+	"article-section-expand": "Expander section",
+	"article-section-collapse": "Contraher section",
+	"table-expand": "Expander tabella",
+	"table-collapse": "Contraher tabella",
 	"references-preview-header": "Previsualisation de referentias"
 }
