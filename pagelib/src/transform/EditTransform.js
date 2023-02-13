@@ -235,7 +235,7 @@ const titleDescriptionElements = (document, titleDescription, titleDescriptionSo
  * @param {?string} pronunciationURL URL for the pronunciation - will show the speaker when provided.
  * @return {!HTMLElement}
  */
-const newPageHeader = (document, pageDisplayTitle, titleDescription, titleDescriptionSource, wikidataEntityID,
+const newPageHeader = (document, namespace, pageDisplayTitle, titleDescription, titleDescriptionSource, wikidataEntityID,
   addTitleDescriptionString, isTitleDescriptionEditable, pronunciationURL) => {
 
   const container = document.createDocumentFragment()
@@ -263,12 +263,14 @@ const newPageHeader = (document, pageDisplayTitle, titleDescription, titleDescri
   leftWrapElem.appendChild(headerTitle)
   header.appendChild(rightWrapElem)
 
-  const descriptionElements = titleDescriptionElements(document, titleDescription,
-    titleDescriptionSource, wikidataEntityID, addTitleDescriptionString,
-    isTitleDescriptionEditable)
+  if (namespace === 0) {
+    const descriptionElements = titleDescriptionElements(document, titleDescription,
+      titleDescriptionSource, wikidataEntityID, addTitleDescriptionString,
+      isTitleDescriptionEditable)
 
-  if (descriptionElements) {
-    leftWrapElem.appendChild(descriptionElements)
+    if (descriptionElements) {
+      leftWrapElem.appendChild(descriptionElements)
+    }
   }
 
   const divider = document.createElement('hr')

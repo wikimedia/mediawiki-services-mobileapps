@@ -16,7 +16,7 @@ describe('lib:addPageHeader', () => {
 				description_source: 'central',
 			},
 			pronunciation: { url: 'foo' }
-		});
+		}, 0);
 
 		const header = document.body.querySelector('header');
 		assert.ok(header);
@@ -32,7 +32,7 @@ describe('lib:addPageHeader', () => {
 		const doc = domino.createDocument();
 		const meta = { mw: {} };
 		try {
-			addPageHeader(doc, meta);
+			addPageHeader(doc, meta, 0);
 			assert.ok(true);
 		} catch (e) {
 			assert.fail(e);
