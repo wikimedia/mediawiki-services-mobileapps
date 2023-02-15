@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/ElementGeometry
+ */
+
 // separate this out so it is only compiled once
 const styleRegex = /(-?\d*\.?\d*)(\D+)?/
 

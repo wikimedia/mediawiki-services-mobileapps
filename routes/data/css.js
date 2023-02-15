@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/data/css
+ */
+
 const sUtil = require('../../lib/util');
 const lib = require('../../lib/css');
 const fetchBaseCss = lib.fetchBaseCss;

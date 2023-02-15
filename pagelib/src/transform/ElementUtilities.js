@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/ElementUtilities
+ */
+
 import Polyfill from './Polyfill'
 
 // todo: drop ancestor consideration and move to Polyfill.closest().

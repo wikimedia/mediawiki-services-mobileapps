@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/DimImagesTransform
+ */
+
 import './DimImagesTransform.less'
 const CLASS = 'pcs-dim-images'
 

@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/pcs/c1/DemoMode
+ */
+
 import Footer from './Footer'
 
 /**

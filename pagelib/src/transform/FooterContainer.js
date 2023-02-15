@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/FooterContainer
+ */
+
 import './FooterContainer.less'
 
 /**

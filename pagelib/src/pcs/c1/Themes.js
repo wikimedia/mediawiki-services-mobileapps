@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/pcs/c1/Themes
+ */
+
 import ThemeTransform from '../../transform/ThemeTransform'
 
 const Themes = ThemeTransform.THEME

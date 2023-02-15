@@ -2,6 +2,10 @@
 
 'use strict';
 
+/**
+ * @module scripts/compare-sections
+ */
+
 /*
   Setup notes before running this script:
   * Start two local Parsoid instances on ports 8000 and 8001. The latter would get the new code.

@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/page/mobile-sections
+ */
+
 const BBPromise = require('bluebird');
 const domino = require('domino');
 const mwapi = require('../../lib/mwapi');

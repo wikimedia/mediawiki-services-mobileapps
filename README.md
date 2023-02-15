@@ -147,6 +147,15 @@ To skip the cached fixtures, run the tests with an unexpected VCR_MODE value (e.
 
 See [sepia](https://www.npmjs.com/package/sepia) for more documentation.
 
+### Generate JSDoc documentation
+To generate JSDoc documentation locally, run this command from the root folder:
+
+```
+npm run build-app-docs
+```
+
+It will generate static html files in `/docs/jsdoc` directory that can be opened using `file://` protocol. Also, a folder named `js-pcs-notated` will be created with the dev version of pcs bundle. A list of all modules and classes can be found in `/docs/jsdoc/index.html`.
+
 ### Troubleshooting
 
 In a lot of cases when there is an issue with node it helps to recreate the

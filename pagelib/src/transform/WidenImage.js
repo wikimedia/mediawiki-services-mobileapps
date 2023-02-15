@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/WidenImage
+ */
+
 import './WidenImage.less'
 
 /**

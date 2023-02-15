@@ -2,6 +2,10 @@
 
 'use strict';
 
+/**
+ * @module scripts/server
+ */
+
 // Service entry point. Try node server --help for commandline options.
 
 // Start the service by running service-runner, which in turn loads the config

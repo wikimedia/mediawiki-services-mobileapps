@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/EditTransform
+ */
+
 import './EditTransform.less'
 import { ARIA } from './HTMLUtilities'
 

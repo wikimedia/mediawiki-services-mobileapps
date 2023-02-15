@@ -2,6 +2,10 @@
 
 'use strict';
 
+/**
+ * @module scripts/measure-payload
+ */
+
 const BBPromise = require('bluebird');
 const exec = BBPromise.promisify(require('child_process').exec);
 const fs = require('fs');

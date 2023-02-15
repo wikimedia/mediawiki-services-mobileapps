@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/ReferenceCollection
+ */
+
 import ElementUtilities from './ElementUtilities'
 import NodeUtilities from './NodeUtilities'
 import Polyfill from './Polyfill'
@@ -7,6 +11,9 @@ const CITE_FRAGMENT_PREFIX = '#cite_note-'
 const BACK_LINK_FRAGMENT_PREFIX = '#pcs-ref-back-link-'
 const BACK_LINK_ATTRIBUTE = 'pcs-back-links'
 
+/**
+ * @tupe {!Object}
+ */
 const CLASS = {
   BACK_LINK_ANCHOR: 'pcs-ref-back-link',
   BACK_LINK_CONTAINER: 'pcs-ref-backlink-container',

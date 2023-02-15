@@ -1,0 +1,17 @@
+@startuml
+title Mobile-html endpoint
+participant AppClient
+participant RESTBase
+AppClient -> MobileappsService: request to /mobile-html endpoint
+activate MobileappsService
+note over MobileappsService : getMobileHtmlFromParsoid()\nCreate response with the raw Parsoid html along with metadata from action API
+MobileappsService -> ActionAPI: action=query
+note over MobileappsService : mwapi.getMetadataForMobileHtml()
+ActionAPI -> MobileappsService: response with article metadata
+MobileappsService -> RESTBase: request to the MediaWiki REST API rest.php/v1/page endpoint
+note over MobileappsService : parsoidApi.mobileHTMLPromise()
+RESTBase -> Parsoid
+Parsoid -> MobileappsService: Parsoid raw HTML output
+MobileappsService -> AppClient: build mobile-html response
+deactivate MobileappsService
+@enduml

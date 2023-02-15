@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/FooterReadMore
+ */
+
 import './FooterReadMore.less'
 import HTMLUtil from '../transform/HTMLUtilities'
 

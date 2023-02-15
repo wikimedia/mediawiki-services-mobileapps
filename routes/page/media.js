@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/page/media
+ */
+
 const BBPromise = require('bluebird');
 const mUtil = require('../../lib/mobile-util');
 const parsoid = require('../../lib/parsoid-access');

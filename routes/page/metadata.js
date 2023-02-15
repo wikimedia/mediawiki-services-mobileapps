@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/page/metadata
+ */
+
 const BBPromise = require('bluebird');
 const sUtil = require('../../lib/util');
 const mUtil = require('../../lib/mobile-util');

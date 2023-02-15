@@ -1,4 +1,8 @@
 /**
+ * @module pagelib/src/transform/Polyfill
+ */
+
+/**
  * Polyfill function that tells whether a given element matches a selector.
  * @param {!Element} el Element
  * @param {!string} selector Selector to look for

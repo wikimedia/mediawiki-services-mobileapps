@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/CollapseTable
+ */
+
 import './CollapseTable.less'
 import ElementUtilities from './ElementUtilities'
 import NodeUtilities from './NodeUtilities'
@@ -5,10 +9,16 @@ import Polyfill from './Polyfill'
 import SectionUtilities from './SectionUtilities'
 import { ARIA } from './HTMLUtilities'
 
+/** @type {Object} */
 const NODE_TYPE = NodeUtilities.NODE_TYPE
 
+/** @type {string} */
 const SECTION_TOGGLED_EVENT_TYPE = 'section-toggled'
+
+/** @type {string} */
 const BREAKING_SPACE = ' '
+
+/** @type {Object} */
 const CLASS = {
   ICON: 'pcs-collapse-table-icon',
   CONTAINER: 'pcs-collapse-table-container',
@@ -22,11 +32,14 @@ const CLASS = {
   TABLE_OTHER: 'pcs-table-other',
   TABLE: 'pcs-collapse-table'
 }
+
+/** @type {Object} */
 const ID = {
   ARIA_COLLAPSE: 'pcs-collapse-table-aria-collapse',
   ARIA_EXPAND: 'pcs-collapse-table-aria-expand'
 }
 
+/** @type {RegExp} */
 const MATH_IMG_URL_PATH_REGEX = /\/math\/render\/svg\//;
 
 /**

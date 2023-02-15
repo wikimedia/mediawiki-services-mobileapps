@@ -1,0 +1,20 @@
+@startuml
+title Summary endpoint
+participant AppClient
+participant RESTBase
+AppClient -> MobileappsService: request to /summary endpoint
+activate MobileappsService
+note over MobileappsService : lib.buildSummary()\nCreate response object with article metadata along with lead paragraph section
+MobileappsService -> ActionAPI: action=query
+note over MobileappsService : mwapi.getMetadataForSummary()
+ActionAPI -> MobileappsService: response with article metadata
+MobileappsService -> ActionAPI: action=query
+note over MobileappsService : mwapi.getSiteInfo()
+ActionAPI -> MobileappsService: response with article siteinfo
+MobileappsService -> RESTBase: request to the page/html endpoint
+note over MobileappsService : parsoid.getParsoidHtml()
+RESTBase -> Parsoid
+Parsoid -> MobileappsService: Parsoid HTML output
+MobileappsService -> AppClient: build summary response
+deactivate MobileappsService
+@enduml

@@ -1,0 +1,28 @@
+{
+	"source": {
+		"include": [
+			"./app.js",
+			"./server.js",
+			"./routes",
+			"./lib",
+			"./pagelib",
+			"./js-pcs-notated/*.js"
+		],
+		"exclude": ["./pagelib/build"],
+		"includePattern": ".+\\.(js|ts)$",
+		"excludePattern": "(node_modules/|docs)",
+		"recurse": true
+	},
+	"plugins": [
+		"jsdoc-mermaid",
+		"plugin/markdown"
+	],
+	"templates": {
+		"cleverLinks": true,
+		"monospaceLinks": true
+	},
+	"opts": {
+		"recurse": true,
+		"destination": "./docs/jsdoc/"
+	}
+}

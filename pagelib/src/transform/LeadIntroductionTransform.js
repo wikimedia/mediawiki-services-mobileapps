@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/LeadIntroductionTransform
+ */
+
 const ELEMENT_NODE = 1
 
 /**

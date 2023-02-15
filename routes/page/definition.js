@@ -4,6 +4,10 @@
 
 'use strict';
 
+/**
+ * @module routes/page/definition
+ */
+
 const mUtil = require('../../lib/mobile-util');
 const sUtil = require('../../lib/util');
 const getDefinitions = require('../../lib/definition');

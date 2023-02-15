@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/pcs/c1/Sections
+ */
+
 import SectionUtilities from '../../transform/SectionUtilities'
 
 /**

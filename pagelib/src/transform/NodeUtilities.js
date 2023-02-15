@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/NodeUtilities
+ */
+
 // Node is undefined in Node.js
 const NODE_TYPE = {
   ELEMENT_NODE: 1,
