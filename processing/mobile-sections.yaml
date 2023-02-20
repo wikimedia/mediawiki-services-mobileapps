@@ -48,7 +48,7 @@
     # FIXME(T266143): 'figure-inline' is being deprecated
     figure-inline: ['about', 'data-file-type', 'data-mw', 'itemscope', 'itemtype', 'lang', 'rel', 'title', 'typeof']
     i: ['about', 'data-mw', 'typeof']
-    img: ['about', 'alt', 'resource']
+    img: ['about', 'resource']
     li: ['about']
     link: ['data-mw', 'typeof']
     ol: ['about', 'data-mw', 'typeof']
