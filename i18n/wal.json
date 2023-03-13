@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ella Lachow"
+		]
+	},
+	"description-add-link-title": "Xaafo qonccettaa gujja",
+	"article-read-more-title": "Aaruwaa nabbaba",
+	"table-title-other": "Aaro naqaashaa",
+	"page-edit-history": "Giigissuwaa haydaa be'a",
+	"info-box-close-text": "Gordda",
+	"page-talk-page-subtitle": "Ha xaafuwaassi loyttiyoobata tobba",
+	"page-issues-subtitle": "Subpar woykko moto oyqettaa hassayissuwaa",
+	"page-talk-page": "Haasaya sinttaa be'a",
+	"info-box-title": "Eeso tumabata",
+	"view-in-browser-footer-link": "Xaafota bessiyaagan be'a",
+	"page-location": "Katttam be'a",
+	"page-similar-titles": "Malatiyaa sinttata",
+	"page-last-edited": "{{PLURAL:$1|Zino ooraxxiis|$1 gallassatuppe kase ooraxxiis|0=hachi ooraxxiis}}",
+	"article-about-title": "Ha xuufiyaabaa",
+	"page-issues": "Sinttaa allaaleta",
+	"license-footer-text": "Hara ogiyan hassayissetana xayikko xaafoy $ de'ees.",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 hara doonan|$1 hara doonatun}} de'ees",
+	"article-edit-button": "Shaahuwaa giigissa",
+	"article-edit-protected-button": "Naagettida sinttan shaahuwaa giigissa",
+	"article-section-expand": "Shaahuwaa aassa",
+	"article-section-collapse": "Shaahuwaa laala",
+	"table-expand": "Zaraa aassa",
+	"table-collapse": "Zaraa laala",
+	"references-preview-header": "Naqaashata zaara be'a"
+}
