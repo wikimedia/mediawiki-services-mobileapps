@@ -19,7 +19,7 @@
 	"page-last-edited": "{{PLURAL:$1|Zino ooraxxiis|$1 gallassatuppe kase ooraxxiis|0=hachi ooraxxiis}}",
 	"article-about-title": "Ha xuufiyaabaa",
 	"page-issues": "Sinttaa allaaleta",
-	"license-footer-text": "Hara ogiyan hassayissetana xayikko xaafoy $ de'ees.",
+	"license-footer-text": "Hara ogiyan hassayissetana xayikko xaafoy $1 de'ees.",
 	"page-read-in-other-languages": "{{PLURAL:$1|$1 hara doonan|$1 hara doonatun}} de'ees",
 	"article-edit-button": "Shaahuwaa giigissa",
 	"article-edit-protected-button": "Naagettida sinttan shaahuwaa giigissa",
