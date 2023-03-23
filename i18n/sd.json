@@ -1,12 +1,15 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Mehtab ahmed"
+		]
 	},
-	"description-add-link-title": "عنوان جي تشريح وجھو",
+	"description-add-link-title": "مضمون جي تشريح وجهو",
 	"article-read-more-title": "وڌيڪ پڙهو",
 	"table-title-other": "وڌيڪ معلومات",
 	"page-edit-history": "پوري سنوار جي سوانح",
 	"info-box-close-text": "بند ڪريو",
+	"page-talk-page-subtitle": "هن مضمون ۾ بھتري تي بحث ڪريو",
 	"page-talk-page": "بحث صفحو ڏسو",
 	"info-box-title": "ترت ڄاڻ",
 	"view-in-browser-footer-link": "مضمون کي جھانگوءَ ۾ ڏسو",
