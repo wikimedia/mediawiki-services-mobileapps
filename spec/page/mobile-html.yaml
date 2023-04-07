@@ -17,7 +17,6 @@ paths:
         * Additional classes are added to img elements to fix issues with non-white backgrounds.
           See Theme support below for instructions on how to enable that.
         * Pagelib CSS files needed to display the content are referenced.
-        * LazyLoadTransform: server-side portion/prep for lazy loading of images.
 
         What's not included? What parts of the PageLibrary does a client still have to do?
         Details for this can be found at https://github.com/wikimedia/wikimedia-page-library/blob/master/docs/pcs/pcs.md#interface
@@ -64,7 +63,6 @@ paths:
         * Additional classes are added to img elements to fix issues with non-white backgrounds.
           See Theme support below for instructions on how to enable that.
         * Pagelib CSS files needed to display the content are referenced.
-        * LazyLoadTransform: server-side portion/prep for lazy loading of images.
 
         What's not included? What parts of the PageLibrary does a client still have to do?
         Details for this can be found at https://github.com/wikimedia/wikimedia-page-library/blob/master/docs/pcs/pcs.md#interface
