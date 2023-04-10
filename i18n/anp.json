@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Proabscorp!"
+		]
+	},
+	"description-add-link-title": "लेख विवरण जोड़ौ",
+	"article-read-more-title": "आरू पढ़ौ",
+	"table-title-other": "बेसी जानकारी",
+	"page-edit-history": "संपादन इतिहास देखौ",
+	"info-box-close-text": "बंद करौ",
+	"page-talk-page-subtitle": "हैय लेख मँ सुधार क चर्चा करौ",
+	"page-issues-subtitle": "सबपार या समस्याग्रस्त सामग्री केरौ बारै मँ अलर्ट",
+	"page-talk-page": "वार्ता पन्ना देखौ",
+	"info-box-title": "सामान्य तथ्य",
+	"view-in-browser-footer-link": "ब्राउज़र मँ लेख देखौ",
+	"page-location": "मानचित्र प देखौ",
+	"page-similar-titles": "समान पृष्ठ",
+	"page-last-edited": "{{PLURAL:$1|काल अपडेट करलौ गेलै|$1 दिन पहिलअ अपडेट करलौ गेलै|0=आय अपडेट करलौ गेलै}}",
+	"article-about-title": "हैय लेख केरौ बारै मँ",
+	"page-issues": "पेज समस्या",
+	"license-footer-text": "जबअ तक बतैलौ नाय गेलौ हुअ, सामग्री $1 केरौ अंतर्गत उपलब्ध छै",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 आरू भाषा}} मँ उपलब्ध छै",
+	"article-edit-button": "अनुभाग सम्पादन",
+	"article-edit-protected-button": "संरक्षित पृष्ठ प अनुभाग संपादित करौ",
+	"article-section-expand": "खंड क विस्तार करौ",
+	"article-section-collapse": "खंड संक्षिप्त करौ",
+	"table-expand": "तालिका क विस्तार करौ",
+	"table-collapse": "तालिका संक्षिप्त करौ",
+	"references-preview-header": "संदर्भ क पूर्वावलोकन"
+}
