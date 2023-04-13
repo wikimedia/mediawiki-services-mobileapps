@@ -1,20 +1,31 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Nokeoo"
+		]
 	},
+	"description-add-link-title": "Pridėti straipsnio aprašymą",
 	"article-read-more-title": "Skaityti daugiau",
 	"table-title-other": "Daugiau informacijos",
 	"page-edit-history": "Pilna keitimų istorija",
 	"info-box-close-text": "Uždaryti",
+	"page-talk-page-subtitle": "Aptarkite šio straipsnio patobulinimus",
 	"page-talk-page": "Žiūrėti aptarimo puslapį",
 	"info-box-title": "Trumpi faktai",
 	"view-in-browser-footer-link": "Rodyti straipsnį naršyklėje",
 	"page-location": "Žiūrėti žemėlapyje",
 	"page-similar-titles": "Panašūs puslapiai",
-	"page-last-edited": "{{PLURAL:$1|0=Redaguota šiandien|1=Redaguota vakar|Redaguota prieš $1 dienas}}",
+	"page-last-edited": "{{PLURAL:$1|Atnaujinta vakar|Atnaujinta prieš $1 diennas|0=Atnaujinta šiandien}}",
 	"article-about-title": "Apie šį straipsnį",
 	"page-issues": "Puslapio klausimai",
 	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Turinys pateikiamas pagal $1, jei nėra nurodyta kitaip.",
-	"page-read-in-other-languages": "Prieinama {{PLURAL:$1|$1 kita kalba|$1 kitų kalbų}}"
+	"page-read-in-other-languages": "Prieinama {{PLURAL:$1|$1 kita kalba|$1 kitų kalbų}}",
+	"article-edit-button": "Redaguoti skyrių",
+	"article-edit-protected-button": "Redaguoti skyrių apsaugotame puslapyje",
+	"article-section-expand": "Išskleisti skyrių",
+	"article-section-collapse": "Suskleisti skyrių",
+	"table-expand": "Išskleisti lentelę",
+	"table-collapse": "Suskleisti lentelę",
+	"references-preview-header": "Nuorodų peržiūra"
 }
