@@ -25,6 +25,7 @@
 	"license-footer-text": "Sisältö on käytettävissä $1 -lisenssin ehtojen mukaisesti ellei toisin mainita.",
 	"page-read-in-other-languages": "Saatavilla {{PLURAL:$1|$1 muulla kielellä|$1 muulla kielellä}}",
 	"article-edit-button": "Muokkaa osiota",
+	"article-edit-protected-button": "Muokkaa osiota suojatulla sivulla",
 	"article-section-expand": "Laajenna osio",
 	"article-section-collapse": "Tiivistä osio",
 	"table-expand": "Laajenna taulukko",
