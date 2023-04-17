@@ -1,6 +1,7 @@
 import CollapseTable from '../../transform/CollapseTable'
 import EditTransform from '../../transform/EditTransform'
 import Footer from './Footer'
+import LazyLoadTransform from '../../transform/LazyLoadTransform'
 import ReferenceCollection from '../../transform/ReferenceCollection'
 import SectionUtilities from '../../transform/SectionUtilities'
 
@@ -50,8 +51,9 @@ const ItemType = {
   unknown: 0,
   link: 1,
   image: 2,
-  reference: 3,
-  backLink: 4
+  imagePlaceholder: 3,
+  reference: 4,
+  backLink: 5
 }
 
 /**
@@ -82,10 +84,18 @@ class ClickedItem {
     } if (ReferenceCollection.isBackLink(this.href, this.pageLinkTitle)) {
       return ItemType.backLink
     } else if (this.target.tagName === 'IMG'
+      && (this.target.classList.contains(LazyLoadTransform.CLASSES.IMAGE_LOADED_CLASS)
+          || this.target.classList.contains(LazyLoadTransform.CLASSES.IMAGE_LOADING_CLASS))
       // FIXME(T266143): 'figure-inline' is being deprecated
       && (this.target.closest('figure') || this.target.closest('figure-inline') || this.target.closest('span'))
     ) {
       return ItemType.image
+    } else if (this.target.tagName === 'SPAN'
+      && this.target.classList.contains(LazyLoadTransform.CLASSES.PLACEHOLDER_CLASS)
+      // FIXME(T266143): 'figure-inline' is being deprecated
+      && (this.target.closest('figure') || this.target.closest('figure-inline') || this.target.closest('span'))
+    ) {
+      return ItemType.imagePlaceholder
     } else if (this.href) {
       return ItemType.link
     }
@@ -145,6 +155,22 @@ const postMessageForImage = (target, href) => {
 }
 
 /**
+ * Posts a message for a lazy load image placeholder click.
+ * @param {!Element} innerPlaceholderSpan
+ * @param {!string} href url for the image
+ * @return {void}
+ */
+const postMessageForImagePlaceholder = (innerPlaceholderSpan, href) => {
+  const outerSpan = innerPlaceholderSpan.parentElement
+  postMessage(new Interaction(Actions.ImageClicked, {
+    href: href,
+    src: outerSpan.getAttribute('data-src'),
+    'data-file-width': outerSpan.getAttribute('data-data-file-width'),
+    'data-file-height': outerSpan.getAttribute('data-data-file-height')
+  }))
+}
+
+/**
  * Posts a message for a reference click.
  * @param {!Element} target an anchor element
  * @param {?string} href
@@ -179,6 +205,9 @@ const postMessageForClickedItem = item => {
     break
   case ItemType.image:
     postMessageForImage(item.target, item.href)
+    break
+  case ItemType.imagePlaceholder:
+    postMessageForImagePlaceholder(item.target, item.href)
     break
   case ItemType.reference:
     postMessageForReferenceWithTarget(item.target, item.href)

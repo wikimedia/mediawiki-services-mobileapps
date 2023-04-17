@@ -9,10 +9,11 @@ The wikimedia-page-library-pcs output is an abstraction layer of the page librar
 - a high level abstraction layer of wikimedia-page-library
 - is an adapter of client side to server side mobile-html functionality
 - providing an interface for manipulating the presentation of page content (theme, dim images, margins, ...)
-- providing an interface for setting up expected event handling on the client side to complement server side DOM transformations (table collapsing, ...)
+- providing an interface for setting up expected event handling on the client side to complement server side DOM transformations (lazy loading, table collapsing, ...)
 - providing an interface for retrieving metadata directly from the PCS page (lead image URL, page revision, description, ...)
 - A specific major version knows which DOM transformations have been applied server side on a given page (by including the version in the URL for this adapter) and executes the corresponding client side functionality if and when needed (registering events).
   Examples:
+  - Lazy Loading: server side we replace `<img>` tags with `<span>` placeholder elements. Then on the client side (here) we need to replace the placeholders back to the original `<img>` tags when appropriate.
   - Collapse / expand tables
   - Collapse / expand reference list sections
 

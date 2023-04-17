@@ -24,7 +24,7 @@ describe('metadata:preprocessing', () => {
 
 	it('strips comments', () => {
 		const doc = domino.createDocument(html);
-		preprocessParsoidHtml(doc, script)
+		preprocessParsoidHtml(doc, [ script ])
 			.then((res) => {
 				assert.notContains(res.body.textContent, '<!--Do not remove "20", per MOS-->');
 			});
@@ -32,7 +32,7 @@ describe('metadata:preprocessing', () => {
 
 	it('strips span[typeof=mw:FallbackId]', () => {
 		const doc = domino.createDocument(html);
-		preprocessParsoidHtml(doc, script)
+		preprocessParsoidHtml(doc, [ script ])
 			.then((res) => {
 				assert.selectorDoesNotExist(res, 'span[typeof=mw:FallbackId]');
 			});
@@ -40,7 +40,7 @@ describe('metadata:preprocessing', () => {
 
 	it('strips span:empty', () => {
 		const doc = domino.createDocument(html);
-		preprocessParsoidHtml(doc, script)
+		preprocessParsoidHtml(doc, [ script ])
 			.then((res) => {
 				assert.selectorDoesNotExist(doc, 'span:empty');
 			});
