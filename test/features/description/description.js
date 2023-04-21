@@ -313,13 +313,13 @@ describe('description', function() {
 				value: 'Test description',
 				summary: 'Test comment',
 				site: 'srwiki',
-				language: 'sr-el',
+				language: 'sr-Latn',
 			}, {
 				entity: {
 					descriptions: {
-						'sr-el': {
+						'sr-Latn': {
 							value: 'Test description really',
-							language: 'sr-el'
+							language: 'sr-Latn'
 						}
 					}
 				}
@@ -330,7 +330,7 @@ describe('description', function() {
 				headers: {
 					'content-type': 'application/json',
 					authorization: 'Basic Auth Header',
-					'content-language': 'sr-el'
+					'content-language': 'sr-Latn'
 				},
 				body: {
 					description: 'Test description',
@@ -341,7 +341,7 @@ describe('description', function() {
 					assert.status(res, 201);
 					assert.contentType(res, 'application/json');
 					assert.ok('content-language' in res.headers);
-					assert.deepEqual('sr-el', res.headers['content-language']);
+					assert.deepEqual('sr-Latn', res.headers['content-language']);
 					assert.deepEqual({
 						description: 'Test description really'
 					}, res.body);

@@ -45,22 +45,22 @@ describe('lib:wikiLanguage', () => {
 
 	it('returns relevant srwiki language codes', () => {
 		let relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('en-US, sr-Latn;q=0.8, zh-Hans-CN; q=0.9', 'sr');
-		assert.deepEqual(relevantCodes, ['sr-el', 'sr']);
+		assert.deepEqual(relevantCodes, ['sr-Latn', 'sr']);
 		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('en-US,sr-Latn;q=0.8,sr-Cyrl;q=0.9', 'sr');
-		assert.deepEqual(relevantCodes, ['sr-ec', 'sr-el', 'sr']);
+		assert.deepEqual(relevantCodes, ['sr-Cyrl', 'sr-Latn', 'sr']);
 	});
 
 	it('returns relevant zhwiki language codes', () => {
 		let relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('en-US,sr-Latn;q=0.8,zh-Hans-CN;q=0.9', 'zh');
-		assert.deepEqual(relevantCodes, ['zh-cn', 'zh']);
+		assert.deepEqual(relevantCodes, ['zh-CN', 'zh']);
 		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('sr-Cyrl', 'zh');
 		assert.deepEqual(relevantCodes, ['zh']);
 		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('zh-Hans,zh-Hant;q=0.9,zh-cn;q=0.8', 'zh');
-		assert.deepEqual(relevantCodes, ['zh-hans', 'zh-hant', 'zh-cn', 'zh']);
+		assert.deepEqual(relevantCodes, ['zh-Hans', 'zh-Hant', 'zh-CN', 'zh']);
 		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('zh-Invalid-ok', 'zh');
 		assert.deepEqual(relevantCodes, ['zh']);
-		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('zh-hans-notarealcode', 'zh');
-		assert.deepEqual(relevantCodes, ['zh-hans', 'zh']);
+		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('zh-Hans-notarealcode', 'zh');
+		assert.deepEqual(relevantCodes, ['zh-Hans', 'zh']);
 	});
 
 	it('falls back on the provided language code', () => {
@@ -70,7 +70,7 @@ describe('lib:wikiLanguage', () => {
 
 	it('removes duplicates', () => {
 		const relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('zh-Hans,zh-Hans;q=0.9', 'zh');
-		assert.deepEqual(relevantCodes, ['zh-hans', 'zh']);
+		assert.deepEqual(relevantCodes, ['zh-Hans', 'zh']);
 	});
 
 	it('handles invalid input', () => {
@@ -85,14 +85,14 @@ describe('lib:wikiLanguage', () => {
 	});
 
 	it('handles legacy input', () => {
-		let relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('sr-el', 'sr');
-		assert.deepEqual(relevantCodes, ['sr-el', 'sr']);
-		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('sr-ec', 'sr');
-		assert.deepEqual(relevantCodes, ['sr-ec', 'sr']);
-		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('zh-tw', 'zh');
-		assert.deepEqual(relevantCodes, ['zh-tw', 'zh']);
-		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('zh-mo', 'zh');
-		assert.deepEqual(relevantCodes, ['zh-mo', 'zh']);
+		let relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('sr-Latn', 'sr');
+		assert.deepEqual(relevantCodes, ['sr-Latn', 'sr']);
+		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('sr-Cyrl', 'sr');
+		assert.deepEqual(relevantCodes, ['sr-Cyrl', 'sr']);
+		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('zh-TW', 'zh');
+		assert.deepEqual(relevantCodes, ['zh-TW', 'zh']);
+		relevantCodes = wikiLanguage.relevantWikiLanguageCodesFromAcceptLanguageHeader('zh-MO', 'zh');
+		assert.deepEqual(relevantCodes, ['zh-MO', 'zh']);
 	});
 
 	it('identifies languages with variants', () => {
@@ -125,7 +125,7 @@ describe('lib:wikiLanguage', () => {
 			}
 		};
 
-		assert.equal(wikiLanguage.relevantLanguageVariantOrCode(req), 'zh-cn');
+		assert.equal(wikiLanguage.relevantLanguageVariantOrCode(req), 'zh-CN');
 	});
 
 	it('falls back to language code when accept-language invalid', () => {
