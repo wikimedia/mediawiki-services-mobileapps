@@ -10,6 +10,7 @@
 	"page-edit-history": "پوري سنوار جي سوانح",
 	"info-box-close-text": "بند ڪريو",
 	"page-talk-page-subtitle": "هن مضمون ۾ بھتري تي بحث ڪريو",
+	"page-issues-subtitle": "ضمني يا مشڪلاتي مواد بابت خبرداري",
 	"page-talk-page": "بحث صفحو ڏسو",
 	"info-box-title": "ترت ڄاڻ",
 	"view-in-browser-footer-link": "مضمون کي جھانگوءَ ۾ ڏسو",
@@ -18,7 +19,14 @@
 	"page-last-edited": "{{PLURAL:$1|0=اڄ سنواريل|1=ڪالھ سنواريل|$1 ڏينھن اڳ سنواريل}}",
 	"article-about-title": "هن مضمون بابت",
 	"page-issues": "صفحي جا مسئلا",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-text": "مواد $1 ھيٺ موجود آهي نہ تہ ٻي صورت واضع ڪيل آھي.",
-	"page-read-in-other-languages": "{{PLURAL:$1|$1 ٻي ٻولي|$1 ٻين ٻولين}} ۾ موجود"
+	"license-footer-name": "ڪڪ بو-سا 3.0",
+	"license-footer-text": "مواد $1 ھيٺ موجود آھي جيسيتائين ٻي صورت واضع نہ ڪئي وڃي.",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 ٻي ٻولي|$1 ٻين ٻولين}} ۾ موجود",
+	"article-edit-button": "سنوارڻ جو سيڪشن",
+	"article-edit-protected-button": "تحفظيل صفحي تي سنوارڻ جو سيڪشن",
+	"article-section-expand": "سيڪشن پکيڙيو",
+	"article-section-collapse": "سيڪشن کي ويڙھيو",
+	"table-expand": "جدول پکيڙيو",
+	"table-collapse": "جدول ويڙھيو",
+	"references-preview-header": "حوالن جو پيشِ-نگاھ"
 }
