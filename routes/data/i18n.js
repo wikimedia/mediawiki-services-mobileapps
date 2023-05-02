@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/data/i18n
+ */
+
 const sUtil = require('../../lib/util');
 const Localizer = require('../../lib/mobile/Localizer');
 const mUtil = require('../../lib/mobile-util');

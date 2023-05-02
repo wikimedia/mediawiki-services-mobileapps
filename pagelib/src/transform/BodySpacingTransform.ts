@@ -1,4 +1,8 @@
-interface Spacing {
+/**
+ * @module pagelib/src/transform/BodySpacingTransform
+ */
+
+type Spacing = {
   top?: string
   right?: string
   bottom?: string
@@ -8,7 +12,7 @@ interface Spacing {
 /**
  * Sets the margins on an element via inline styles.
  * @param {!HTMLBodyElement} bodyElement the element that needs the margins adjusted.
- *   For the apps this is usually the body element.
+ * For the apps this is usually the body element.
  * @param {Spacing} values { top, right, bottom, left }
  *   Use value strings with units, e.g. '16px'. Undefined values are ignored.
  * @return {void}

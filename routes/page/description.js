@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/page/description
+ */
+
 const BBPromise = require('bluebird');
 const sUtil = require('../../lib/util');
 const HTTPError = sUtil.HTTPError;

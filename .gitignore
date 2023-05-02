@@ -11,3 +11,5 @@ tmp/
 .nyc_output/
 .vscode/
 docker-compose.override.yml
+docs/jsdoc
+js-pcs-notated

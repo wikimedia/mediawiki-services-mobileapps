@@ -1,0 +1,100 @@
+@startuml
+
+package lib {
+    class MobileHTML extends DocumentWorker {
+    + prepareElement(element);
+    + prepareEquationDiv(element);
+    + prepareFigcaption(element);
+    + performNoLazyLoadImg(element);
+    + finalizeStep();
+    + {static} get OutputMode() : Object;
+    - nodesToRemove: array;
+    - lazyLoadableImages: array;
+    - redLinks: array;
+    - infoboxes: array;
+    - references: array;
+    - headers: map<string,string>;
+    - sections: map<string,string>;
+    - currentSectionId: string;
+    - referenceSections: map<string,string>;
+    - referenceAnchors: map<string,string>;
+    - metadata: object;
+    - outputMode: MobileHTML.OutputMode;
+    - localizer: any;
+    + MobileHTML(doc: Document, metadata: object, outputMode?: MobileHTML.OutputMode, localizer?: any)
+    + addMediaWikiMetadata(mw): Object;
+    + {static} promise(): Promise;
+    + process(node: DOMNode): void;
+    + markForRemoval(node: DOMNode): void;
+    + isHeader(tagName: string): boolean;
+    + isIndicatorOfAReferenceSection(element, classList): boolean;
+    + isTopLevelSection(tagName: string, element: Element): boolean;
+    + get hasReferenceSections(): boolean;
+    + checkForReferenceSection(): boolean;
+    + checkElementForThemeExclusion(element: Element): void;
+    + stringHasNoThemeClass(string: string): boolean;
+    + shouldEnforceThemeExclusion(element: Element): boolean;
+    + tdHasParentMarkedForThemeExclusion(element: Element): boolean;
+    + siblingTrIsMarkedForThemeExclusion(element: Element): boolean;
+    + trParentsAreMarkedForThemeExclusion(element: Element): boolean|any;
+    + isNotEligibleForThemeExclusion(element: Element): boolean;
+    + tdNotEligibleForThemeExclusion(element: Element): boolean;
+    + thSpanInfoboxTemplateNotEligibleForThemeExclusion(element: Element): boolean;
+    + figCaptionsNotEligibleForThemeExclusion(element: Element): boolean;
+    + equationBoxNotEligibleForThemeExclusion(element: Element): boolean;
+    + prepareReference(reference: Element): void;
+    + prepareSection(sectionId: string): void;
+    + prepareSectionForCompleteOrContentOutput(sectionId: string): void;
+    + moveLeadParagraphUp(section: Element): void;
+    + addLeadSectionButton(sectionId: string, section: Element): void;
+    + prepareRemainingSection(sectionId: string, section: Element): void;
+    + prepareSectionForReferenceOutput(sectionId: string): void;
+    + prepareDoc(doc: Document): void;
+    + prepareRedLink(element: Element, doc: Document): void;
+    + prepareSectionHeader(header: Element, section: Element, sectionId: string, isReferenceSection: boolean, doc: Document): void;
+    + prepareEditButton(doc: Document, setionId: string): void;
+    + isRemovableSpan(span: Element, classList: string): boolean;
+    + isRemovableDiv(div: Element, classList: string): boolean;
+    + isRemovableLink(element: Element): boolean;
+    + isRemovableElement(element: Element, tagName: string, id: string|null, classList: string): boolean;
+    + makeSchemeless(element: Element, attrib: string, val: string): void;
+    + isGalleryImage(image: Element): boolean;
+    + prepareImage(image: Element): void;
+    + prepareAnchor(element: Element, cls: string): void;
+    + prepareOrderedList(element: Element, cls: string): void;
+    + prepareListItem(element: Element, id: string): void;
+    + prepareSpan(element: Element, cls: string): void;
+    + prepareInfobox(infobox: Element): void;
+    + markInfobox(element: Element, cls: string, isDiv: boolean): void;
+    + prepareGalleryUnorderedList(element: Element): void;
+    + prepareDiv(element: Element, cls: string): void;
+    + prepareTable(element: Element, cls: string): void;
+    + removeStyleOverridingClasses(element: Element, classString: string): void;
+    + prepareSupLinks(element: Element): void;
+    + i18n(phrase: string): string
+    }
+}
+
+package routes {
+ class route.post('/transform/html/to/mobile-html/:title') {
+   MobileHTML.getMobileHtmlFromPOST() : mobileHTML.doc.outerHTML
+ }
+ class route.get('/page/mobile-html/:title/:revision?/:tid?') {
+  if (!mobileviewHtml.shouldUseMobileview(args)) then (true)
+    MobileHTML.getMobileHtmlFromParsoid : res.send(mobileHTML.doc.outerHTML);
+  else (false)
+    MobileHTML.getMobileHtmlFromMobileview : res.send(mobileHTML.doc.outerHTML);
+ }
+}
+
+note bottom of route
+  If no language codes that matches 'zh' and 'kk', retrieve HTML from Parsoid. Otherwise - from mobile view (see mwapi.getPageFromMobileview)
+end note
+
+package Client <<Rectangle>> {
+ route -> WebView : response;
+}
+
+lib -> routes : MobileHTML.<methods>
+
+@enduml

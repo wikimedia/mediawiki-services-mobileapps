@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/page/summary
+ */
+
 const lib = require('../../lib/summary');
 const BBPromise = require('bluebird');
 const mwapi = require('../../lib/mwapi');

@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/page/talk
+ */
+
 const router = require('../../lib/util').router();
 const mUtil = require('../../lib/mobile-util');
 const parsoidApi = require('../../lib/parsoid-access');

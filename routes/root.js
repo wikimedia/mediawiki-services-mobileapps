@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/root
+ */
+
 const sUtil = require('../lib/util');
 const swaggerUi = require('../lib/swagger-ui');
 

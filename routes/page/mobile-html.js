@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/page/mobile-html
+ */
+
 const BBPromise = require('bluebird');
 const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
@@ -19,6 +23,12 @@ const router = sUtil.router();
  */
 let app;
 
+/**
+ *
+ * @param {!Object} req
+ * @param {!Object} res
+ * @return {Promise}
+ */
 function getMobileHtmlFromPOST(req, res) {
 	const html = req.body && req.body.html || req.body;
 	const outputHeader = req.header('output-mode');
@@ -42,6 +52,12 @@ function getMobileHtmlFromPOST(req, res) {
 	});
 }
 
+/**
+ *
+ * @param {!Object} req
+ * @param {!Object} res
+ * @return {Promise}
+ */
 function getMobileHtmlFromParsoid(req, res) {
 	return BBPromise.props({
 		mobileHTML: parsoidApi.mobileHTMLPromise(app, req),
@@ -62,6 +78,12 @@ function getMobileHtmlFromParsoid(req, res) {
 	});
 }
 
+/**
+ *
+ * @param {!Object} req
+ * @param {!Object} res
+ * @return {Promise}
+ */
 function getMobileHtmlFromMobileview(req, res) {
 	const scripts = [];
 	const baseURI = mUtil.getMetaWikiRESTBaseAPIURI(app, req);

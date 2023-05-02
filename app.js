@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module app
+ */
+
 const http = require('http');
 const BBPromise = require('bluebird');
 const express = require('express');
@@ -310,6 +314,11 @@ module.exports = (options) => {
 		.then((app) => {
 			// serve static files from static/
 			app.use('/static', express.static(`${__dirname}/static`));
+			const setJsdocHeaders = (req, res, next) => {
+				res.removeHeader('Content-Security-Policy');
+				next();
+			};
+			app.use('/jsdoc', setJsdocHeaders, express.static(`${__dirname}/docs/jsdoc`));
 			return app;
 		}).then(createServer);
 

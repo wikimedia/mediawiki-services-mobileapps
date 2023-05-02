@@ -2,6 +2,10 @@
 
 'use strict';
 
+/**
+ * @module scripts/multi-lang
+ */
+
 const BBPromise = require('bluebird');
 const execSync = BBPromise.promisify(require('child_process').execSync);
 const underscore = require('underscore');

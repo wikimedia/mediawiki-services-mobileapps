@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/info
+ */
+
 const sUtil = require('../lib/util');
 
 /**

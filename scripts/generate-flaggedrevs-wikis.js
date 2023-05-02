@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module scripts/generate-flaggedrevs-wikis
+ */
+
 const _ = require('underscore');
 const fs = require('fs');
 const preq = require('preq');

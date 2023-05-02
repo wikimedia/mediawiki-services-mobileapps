@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/pcs/c1/Footer
+ */
+
 import Banana from 'banana-i18n'
 import FooterContainer from '../../transform/FooterContainer'
 import FooterLegal from '../../transform/FooterLegal'

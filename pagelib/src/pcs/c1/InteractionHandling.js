@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/pcs/c1/InteractionHandling
+ */
+
 import CollapseTable from '../../transform/CollapseTable'
 import EditTransform from '../../transform/EditTransform'
 import Footer from './Footer'
@@ -31,6 +35,7 @@ let interactionHandler
 
 /**
  * Model of an Interaction.
+ * @class
  */
 class Interaction {
   /**
@@ -357,7 +362,7 @@ const getSelectionInfo = optionalWindow => {
 
 /**
  * Sets the interaction handler function.
- * @param {!~Function} myHandlerFunction a platform specific bridge function.
+ * @param {Function} myHandlerFunction a platform specific bridge function.
  * On iOS consider using something like:
  *   (interaction) => { window.webkit.messageHandlers.interaction.postMessage(interaction) }
  * On Android consider using something like:

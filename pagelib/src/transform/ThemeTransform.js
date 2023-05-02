@@ -1,7 +1,18 @@
+/**
+ * @module pagelib/src/transform/ThemeTransform
+ */
+
 import './ThemeTransform.less'
 
+/**
+ * @type {string}
+ */
 const CLASS_PREFIX = 'pcs-theme-'
-// Theme to CSS classes.
+
+/**
+ * Theme to CSS classes.
+ * @type {!Object}
+ */
 const THEME = {
   DEFAULT: `${CLASS_PREFIX}default`,
   DARK: `${CLASS_PREFIX}dark`,

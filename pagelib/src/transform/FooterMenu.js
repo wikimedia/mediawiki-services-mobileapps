@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/FooterMenu
+ */
+
 import './FooterMenu.less'
 import CollectionUtilities from './CollectionUtilities'
 import HTMLUtil from '../transform/HTMLUtilities'

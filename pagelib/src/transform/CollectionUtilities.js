@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/CollectionUtilities
+ */
+
 import Polyfill from './Polyfill'
 
 /**

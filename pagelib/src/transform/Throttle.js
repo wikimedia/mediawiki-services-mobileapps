@@ -1,4 +1,11 @@
+/**
+ * @module pagelib/src/transform/Throttle
+ */
+
 /** Function rate limiter. */
+/**
+ * @class
+ */
 export default class Throttle {
   /**
    * The function to invoke when not throttled.

@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/PlatformTransform
+ */
+
 const CLASS_PREFIX = 'pcs-platform-'
 const VERSION_PREFIX = 'pcs-v'
 const CLASS = { ANDROID: `${CLASS_PREFIX}android`, IOS:  `${CLASS_PREFIX}ios` }

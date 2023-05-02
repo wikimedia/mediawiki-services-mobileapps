@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/SectionUtilities
+ */
+
 import {ARIA} from  './HTMLUtilities'
 
 const Polyfill = require('./Polyfill').default
@@ -79,6 +83,9 @@ const isMediaWikiSectionElement = (element: Element): boolean => {
     return false
 }
 
+/**
+ * @type {!Object}
+ */
 const CLASS = {
     CONTROL: {
         BASE: 'pcs-section-control',
@@ -93,6 +100,9 @@ const CLASS = {
     }
 }
 
+/**
+ * @type {!Object}
+ */
 const ID = {
     PREFIX: {
         CONTENT: 'pcs-section-content-',
@@ -102,13 +112,22 @@ const ID = {
     ARIA_EXPAND: 'pcs-section-aria-expand'
 }
 
+/**
+ * @param sectionId
+ * @return {string}
+ */
 const getControlIdForSectionId = (sectionId: string): string => {
     return ID.PREFIX.CONTROL + sectionId
 }
 
+/**
+ * @param sectionId 
+ * @return {string}
+ */
 const getContentIdForSectionId = (sectionId: string): string => {
     return ID.PREFIX.CONTENT + sectionId
 }
+
 /**
  * @param {!Document} document - document for the control
  * @param {!string} sectionId - sectionId for the control
@@ -122,6 +141,15 @@ const getControl = (document: Document, sectionId: string): Element => {
     return control
 }
 
+/**
+ * @param {!Document} document
+ * @param {!string} sectionId
+ * @param {!Element} section
+ * @param {!Element} headerWrapper
+ * @param {!Element} header
+ * @param {string} expandText
+ * @param {string} collapseText
+ */
 const prepareForHiding = (document: Document, sectionId: string, section: Element, headerWrapper: Element, header: Element, expandText: string, collapseText: string) => {
     const control: Element = getControl(document, sectionId)
 
@@ -162,6 +190,11 @@ const prepareForHiding = (document: Document, sectionId: string, section: Elemen
     section.appendChild(div)
 }
 
+/**
+ * @param {!Document} document 
+ * @param {!string} sectionId 
+ * @param {!boolean} hidden
+ */
 const setHidden = (document: Document, sectionId: string, hidden: boolean = true) => {
     const controlId: string = getControlIdForSectionId(sectionId)
     const contentId: string = getContentIdForSectionId(sectionId)
@@ -188,6 +221,10 @@ const setHidden = (document: Document, sectionId: string, hidden: boolean = true
     header.setAttribute('onclick', `pcs.c1.Sections.setHidden('${sectionId}', ${!hidden});`)
 }
 
+/**
+ * @param {!Element} element
+ * @return {string|void}
+ */
 const getTopLevelSectionIdForElement = (element: Element): string | undefined => {
     let parent: Element | null = element
     while ((parent = parent.parentElement)) {
@@ -206,6 +243,10 @@ const getTopLevelSectionIdForElement = (element: Element): string | undefined =>
     return
 }
 
+/**
+ * @param {!Document} document 
+ * @param {!Element} element
+ */
 const expandCollapsedSectionIfItContainsElement = (document: Document, element: Element) => {
     const sectionId = getTopLevelSectionIdForElement(element)
     if (!sectionId) {
@@ -214,8 +255,14 @@ const expandCollapsedSectionIfItContainsElement = (document: Document, element: 
     setHidden(document, sectionId, false)
 }
 
-// Adds a HR before the indicated section
-// Used to separate article content from collapsed sections
+/**
+ * Adds a HR before the indicated section
+ * Used to separate article content from collapsed sections
+ * 
+ * @param {!Document} document 
+ * @param {!Element} section 
+ * @return {void}
+ */
 const createFoldHR = (document: Document, section: Element) => {
     if (!section.parentElement) {
         return

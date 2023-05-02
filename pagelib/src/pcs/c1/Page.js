@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/pcs/c1/Page
+ */
+
 import AdjustTextSize from '../../transform/AdjustTextSize'
 import BodySpacingTransform from '../../transform/BodySpacingTransform'
 import CollapseTable from '../../transform/CollapseTable'

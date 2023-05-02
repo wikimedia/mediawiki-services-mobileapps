@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/FooterLegal
+ */
+
 import './FooterLegal.less'
 import HTMLUtil from '../transform/HTMLUtilities'
 

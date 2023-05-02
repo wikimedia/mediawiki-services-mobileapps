@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module routes/data/javascript
+ */
+
 const sUtil = require('../../lib/util');
 const js = require('../../lib/javascript');
 const router = sUtil.router();

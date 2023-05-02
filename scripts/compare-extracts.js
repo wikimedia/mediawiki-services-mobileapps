@@ -2,6 +2,10 @@
 
 'use strict';
 
+/**
+ * @module scripts/compare-extracts
+ */
+
 /*
   Notes:
   * Start one local MCS instance for the "new" version before running this script.

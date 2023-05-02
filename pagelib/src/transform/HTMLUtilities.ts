@@ -1,3 +1,7 @@
+/**
+ * @module pagelib/src/transform/HTMLUtilities
+ */
+
 export const ARIA = {
     LABEL: 'aria-label',
     LABELED_BY: 'aria-labelledby'

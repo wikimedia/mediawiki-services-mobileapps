@@ -1,3 +1,7 @@
+/**
+ * @module private/extracts/static/compare-table
+ */
+
 'use strict';
 
 /* eslint-env browser */
