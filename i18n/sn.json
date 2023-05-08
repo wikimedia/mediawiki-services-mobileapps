@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Masiziva"
+		]
+	},
+	"description-add-link-title": "Wedzera mutsananguro we sipwi",
+	"article-read-more-title": "Werenga zvakadzama",
+	"table-title-other": "Imwe horokodzwa",
+	"page-edit-history": "Ringa nhoroondo yekuchinjirudza",
+	"info-box-close-text": "Vhura",
+	"page-talk-page-subtitle": "Kurukura nezvimichenjemekwa ye sipwi rino",
+	"page-talk-page": "Ringa zanhi rekuereketa",
+	"info-box-title": "Chidi Chekukasika",
+	"view-in-browser-footer-link": "Ringa sipwi mumutsvakairo",
+	"page-location": "Ringa pamuvarachisi",
+	"page-similar-titles": "Mazanhi akafanana",
+	"article-about-title": "Nezvesipwi inoi",
+	"page-read-in-other-languages": "Zvinowanikwa mu{{PLURAL:$1|$1 mumwe mutauro|$ mimwe mitauro}}",
+	"article-edit-button": "Chinjirudza chikamu",
+	"article-edit-protected-button": "Chinjirudza chikamu pazanhi rakadzivirirwa",
+	"article-section-expand": "Tandaudza chikamu",
+	"table-expand": "Tandaudza tafura",
+	"references-preview-header": "Chipandwa chemabviro eruzivo"
+}
