@@ -1,7 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Умар"
+		]
 	},
+	"page-edit-history": "Хийцамийн истори хьажар",
 	"info-box-close-text": "ДӀачӀагӀа",
-	"license-footer-name": "CC-BY-SA 3.0"
+	"page-talk-page-subtitle": "ХӀара йаззам кечбар дийца",
+	"page-last-edited": "{{PLURAL:$1|Карлайаьккхина $1 де хьалха|0=Карлайаьккхина тахана|1=Карлайаьккхина селхана}}",
+	"license-footer-name": "CC-BY-SA 3.0",
+	"license-footer-text": "Чулацам тӀекхочу $1 лицензица"
 }
