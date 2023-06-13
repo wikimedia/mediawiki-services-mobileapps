@@ -15,3 +15,5 @@ pipelines:
         build: production
         publish:
           image: true
+        promote:
+          - chart: mobileapps
