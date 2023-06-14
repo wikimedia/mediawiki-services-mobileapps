@@ -15,7 +15,7 @@ paths:
           in: header
           description: |
             The desired language variant code for wikis where LanguageConverter is enabled.
-            Example: `sr-el` for Latin transcription of the Serbian language.
+            Example: `sr-Latn` for Latin transcription of the Serbian language.
           schema:
             type: string
       responses:
