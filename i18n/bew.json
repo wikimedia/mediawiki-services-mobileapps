@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bangrapip"
+		]
+	},
+	"description-add-link-title": "Tambah jabaran makalah",
+	"article-read-more-title": "Baca lebi lanjut",
+	"table-title-other": "Inpormasi lebi lanjut",
+	"page-edit-history": "Deleng riwayat permakan",
+	"info-box-close-text": "Tutup",
+	"page-talk-page-subtitle": "Riungin perbaèkan bakal ni makalah",
+	"page-issues-subtitle": "Pemberitauan pasal isi nyang kualitètnya ampas atawa ada masalah",
+	"page-talk-page": "Deleng halaman obrolan",
+	"info-box-title": "Pakta Singket",
+	"view-in-browser-footer-link": "Deleng makalah di pengorag",
+	"page-location": "Deleng di péta",
+	"page-similar-titles": "Halaman numbras",
+	"page-last-edited": "{{PLURAL:$1|Diperbaruin kemarèn|Diperbaruin $1 ari nyang liwat|0=Diperbaruin ni ari}}",
+	"article-about-title": "Pasal ni makalah",
+	"page-issues": "Masalah halaman",
+	"license-footer-text": "Isi kesedia di bawah $1, kecuali ada catetan tambahan.",
+	"page-read-in-other-languages": "Kesedia dalem {{PLURAL:$1|$1 basa laènnya}}",
+	"article-edit-button": "Permak bagèan",
+	"article-edit-protected-button": "Permak bagèan di halaman nyang dilindungin",
+	"article-section-expand": "Bèntangin bagèan",
+	"article-section-collapse": "Ciutin bagèan",
+	"table-expand": "Bèntangin tabèl",
+	"table-collapse": "Ciutin tabèl",
+	"references-preview-header": "Pradeleng ruju'an"
+}
