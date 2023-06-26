@@ -4,15 +4,25 @@
 			"Saraiki"
 		]
 	},
-	"description-add-link-title": "عنوان دی تفصیل لکھو",
+	"description-add-link-title": "مضمون دی تفصیل شامل کرو",
 	"article-read-more-title": "ٻیا پڑھو",
 	"table-title-other": "ٻیاں معلومات",
+	"page-edit-history": " تبدیلی دا تاریخچہ ݙیکھو",
 	"info-box-close-text": "بند کرو",
 	"page-talk-page": "ڳالھ مہاڑ ورقہ ݙیکھو",
+	"info-box-title": "فوری حقائق",
+	"view-in-browser-footer-link": "مضمون براؤزر وچ ݙیکھو",
+	"page-location": "نقشے تے ݙیکھو",
+	"page-similar-titles": "ہکوجہے ورقے",
 	"article-about-title": "ایں مضمون بارے",
 	"page-issues": "ورقے دے مسئلے",
 	"license-footer-name": " کریئیٹیو کامنز انتساب / یکساں-شراکت اجازت نامہ 3.0",
 	"license-footer-text": "مواد $1 دے تحت مل سڳدے، جے تائیں کوئی ٻئی ڳالھ نہ ہوسے۔",
 	"article-edit-button": "حصے وچ لکھو",
-	"article-edit-protected-button": "محفوظ ورقے دے حصے وچ تبدیلی کرو"
+	"article-edit-protected-button": "محفوظ ورقے دے حصے وچ تبدیلی کرو",
+	"article-section-expand": "حصہ کھنڈاؤ",
+	"article-section-collapse": "حصہ ولھیٹو",
+	"table-expand": "ٹیبل کھنڈاؤ",
+	"table-collapse": "ٹیبل ولھیٹو",
+	"references-preview-header": "حوالیاں دا پیشگی ݙکھالا"
 }
