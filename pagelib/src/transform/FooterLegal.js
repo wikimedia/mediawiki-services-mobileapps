@@ -23,7 +23,7 @@ import HTMLUtil from '../transform/HTMLUtilities'
 const buildLicenseHtml = (licenseString, linkText) => {
   const halves = licenseString.split('$1')
   /* DOM sink status: sanitized - content can be changed by users */
-  return `${HTMLUtil.escape(halves[0])}<a class="external text" rel="mw:ExtLink" href="https://creativecommons.org/licenses/by-sa/3.0/">${HTMLUtil.escape(linkText)}</a>${HTMLUtil.escape(halves[1])}`
+  return `${HTMLUtil.escape(halves[0])}<a class="external text" rel="mw:ExtLink" href="https://creativecommons.org/licenses/by-sa/4.0/">${HTMLUtil.escape(linkText)}</a>${HTMLUtil.escape(halves[1])}`
 }
 
 /**

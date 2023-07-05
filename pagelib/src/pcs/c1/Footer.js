@@ -149,7 +149,7 @@ const add = params => {
     FooterLegal.add(
       document,
       banana.i18n('license-footer-text'),
-      banana.i18n('license-footer-name'),
+      banana.i18n('license-footer-name-cc4'),
       'pcs-footer-container-legal',
       banana.i18n('view-in-browser-footer-link'),
       viewInBrowserLinkClickHandler
