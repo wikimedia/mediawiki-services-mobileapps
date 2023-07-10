@@ -20,7 +20,7 @@
 	"view-in-browser-footer-link": "הצגת הערך בדפדפן",
 	"page-location": "הצגה על מפה",
 	"page-similar-titles": "דפים דומים",
-	"page-last-edited": "{{PLURAL:$1|עודכן אתמול|עודכן שלשום|עודכן לפני $1 ימים|0=עודכן היום}}",
+	"page-last-edited": "{{PLURAL:$1|עודכן אתמול|עודכן שלשום|עודכן לפני $1 ימים|2=עודכן לפני יומיים|0=עודכן היום}}",
 	"article-about-title": "מידע על הערך הזה",
 	"page-issues": "בעיות בדף",
 	"license-footer-name": "CC-BY-SA 3.0",
