@@ -19,7 +19,6 @@
 	"page-last-edited": "{{PLURAL:$1|Oppdatert i går|Oppdatert for $1 dager siden|0=Oppdatert i dag}}",
 	"article-about-title": "Om artikkelen",
 	"page-issues": "Merknader for siden",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Innholdet er tilgjengelig under $1 med mindre annet er angitt.",
 	"page-read-in-other-languages": "Tilgjengelig på {{PLURAL:$1|$1 annet språk|$1 andre språk}}",
 	"article-edit-button": "Rediger seksjon",

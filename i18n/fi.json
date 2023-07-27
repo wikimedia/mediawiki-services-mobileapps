@@ -21,7 +21,6 @@
 	"page-last-edited": "{{PLURAL:$1|Päivitetty eilen|Päivitetty $1 päivää sitten|0=Päivitetty tänään}}",
 	"article-about-title": "Tietoja tästä artikkelista",
 	"page-issues": "Sivun ongelmat",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Sisältö on käytettävissä $1 -lisenssin ehtojen mukaisesti ellei toisin mainita.",
 	"page-read-in-other-languages": "Saatavilla {{PLURAL:$1|$1 muulla kielellä|$1 muulla kielellä}}",
 	"article-edit-button": "Muokkaa osiota",

@@ -19,7 +19,6 @@
 	"page-last-edited": "{{PLURAL:$1|Zadnje urejanje včeraj|Zadnje urejanje pred $1 dnevom|Zadnje urejanje pred $1 dnevi|0=Posodobljeno danes}}",
 	"article-about-title": "O tem članku",
 	"page-issues": "Težave strani",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Vsebna je na voljo pod licenco $1, razen če je navedeno drugače.",
 	"page-read-in-other-languages": "Na voljo v {{PLURAL:$1|$1 drugem jeziku|$1 drugih jezikih}}",
 	"article-edit-button": "Uredi razdelek",

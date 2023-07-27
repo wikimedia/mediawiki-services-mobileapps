@@ -17,7 +17,6 @@
 	"page-last-edited": "{{PLURAL:$1|0=แก้ไขเมื่อวันนี้|1=แก้ไขเมื่อวาน|แก้ไขเมื่อ $1 วันที่ผ่านมา}}",
 	"article-about-title": "เกี่ยวกับบทความนี้",
 	"page-issues": "ปัญหาในหน้า",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "เนื้อหาอนุญาตให้เผยแพร่ภายใต้ $1 เว้นแต่ระบุไว้เป็นอย่างอื่น",
 	"page-read-in-other-languages": "มีใน {{PLURAL:$1|$1 ภาษาอื่น}}"
 }

@@ -21,7 +21,6 @@
 	"page-last-edited": "Mis à jour {{PLURAL:$1|hier|il y a $1 jours|0=aujourd’hui}}",
 	"article-about-title": "À propos de cet article",
 	"page-issues": "Problèmes de page",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Le contenu est disponible sous $1 sauf mention contraire.",
 	"page-read-in-other-languages": "Disponible dans $1 autre{{PLURAL:$1||s}} langue{{PLURAL:$1||s}}",
 	"article-edit-button": "Modifier la section",

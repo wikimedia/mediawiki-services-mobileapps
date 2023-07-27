@@ -17,7 +17,6 @@
 	"page-last-edited": "Szerkesztve {{PLURAL:$1|0=ma|1=tegnap|$1 napja}}",
 	"article-about-title": "Erről a szócikkről",
 	"page-issues": "A lap problémái",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "A tartalom további jelölés hiányában a(z) $1 feltételei szerint használható fel.",
 	"page-read-in-other-languages": "Elérhető $1 további nyelven"
 }

@@ -18,7 +18,6 @@
 	"page-last-edited": "{{PLURAL:$1|Atnaujinta vakar|Atnaujinta prieš $1 diennas|0=Atnaujinta šiandien}}",
 	"article-about-title": "Apie šį straipsnį",
 	"page-issues": "Puslapio klausimai",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Turinys pateikiamas pagal $1, jei nėra nurodyta kitaip.",
 	"page-read-in-other-languages": "Prieinama {{PLURAL:$1|$1 kita kalba|$1 kitų kalbų}}",
 	"article-edit-button": "Redaguoti skyrių",

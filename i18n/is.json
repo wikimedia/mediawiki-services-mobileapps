@@ -20,7 +20,6 @@
 	"page-last-edited": "{{PLURAL:$1|Uppfært í gær|Uppfært fyrir $1 dögum síðan|0=Uppfært í dag}}",
 	"article-about-title": "Um þessa grein",
 	"page-issues": "Vandamál varðandi síðu",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Efnið má nota samkvæmt $1 nema annað komi fram.",
 	"page-read-in-other-languages": "Aðgengilegt á {{PLURAL:$1|$1 öðru tungumáli|$1 öðrum tungumálum}}",
 	"article-edit-button": "Breyta hluta",

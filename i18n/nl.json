@@ -22,7 +22,6 @@
 	"page-last-edited": "{{PLURAL:$1|1=Gisteren bijgewerkt|$1 dagen geleden bijgewerkt|0=Vandaag bijgewerkt}}",
 	"article-about-title": "Over deze pagina",
 	"page-issues": "Paginaproblemen",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "De inhoud is beschikbaar onder de licentie $1 tenzij anders aangegeven.",
 	"page-read-in-other-languages": "Beschikbaar in {{PLURAL:$1|$1 andere taal|$1 andere talen}}",
 	"article-edit-button": "Sectie bewerken",

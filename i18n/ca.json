@@ -20,7 +20,6 @@
 	"page-last-edited": "S’ha actualitzat {{PLURAL:$1|ahir|fa $1 dies|0=avui}}",
 	"article-about-title": "Sobre aquest article",
 	"page-issues": "Problemes de la pàgina",
-	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "Contingut disponible sota $1 a menys que s'indiqui el contrari.",
 	"page-read-in-other-languages": "Disponible en {{PLURAL:$1|$1 altra llengua|$1 altres llengües}}",
 	"article-edit-button": "Editar la secció",

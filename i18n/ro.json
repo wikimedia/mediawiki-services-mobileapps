@@ -19,7 +19,6 @@
 	"page-last-edited": "{{PLURAL:$1|Actualizat ieri|Actualizat acum $1 zile|Actualizat acum $1 de zile|0=Actualizat azi}}",
 	"article-about-title": "Despre acest articol",
 	"page-issues": "Problemele paginii",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Conținutul este disponibil sub $1, exceptând cazurile în care se specifică altfel.",
 	"page-read-in-other-languages": "Disponibil în alte $1 limbi",
 	"article-edit-button": "Modificare secțiune",

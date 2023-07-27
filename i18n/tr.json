@@ -20,7 +20,6 @@
 	"page-last-edited": "{{PLURAL:$1|Dün güncellendi|$1 gün önce güncellendi|0=Bugün güncellendi}}",
 	"article-about-title": "Bu madde hakkında",
 	"page-issues": "Sayfa sorunları",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "İçerik, aksi belirtilmedikçe $1 lisansı altında kullanılabilir",
 	"page-read-in-other-languages": "{{PLURAL:$1|$1 farklı dilde|$1 farklı dilde}} mevcut",
 	"article-edit-button": "Bölümü düzenle",

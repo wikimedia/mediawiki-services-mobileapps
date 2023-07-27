@@ -19,7 +19,6 @@
 	"page-last-edited": "{{PLURAL:$1|0=Абноўлена сёньня|one=Абноўлена ўчора|few=Абноўлена $1 дні таму|many=Абноўлена $1 дзён таму}}",
 	"article-about-title": "Пра гэты артыкул",
 	"page-issues": "Хібы старонкі",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Зьмест даступны на ўмовах $1, калі не пазначанае іншае.",
 	"page-read-in-other-languages": "Даступнае на {{PLURAL:$1|$1 іншай мове|$1 іншых мовах}}",
 	"article-edit-button": "Рэдагаваць сэкцыю",

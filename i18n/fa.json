@@ -21,7 +21,6 @@
 	"page-last-edited": "{{PLURAL:$1|دیروز روزآمد شده|$1 روز پیش روزآمد شده|0=امروز روزآمد شده}}",
 	"article-about-title": "دربارهٔ این مقاله",
 	"page-issues": "موضوعات صفحه",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "محتوا تحت $1 در دسترس است، مگر اینکه خلافش ذکر شده‌باشد.",
 	"page-read-in-other-languages": "موجود به {{PLURAL:$1|$1 زیان دیگر|$1 زبان دیگر}}",
 	"article-edit-button": "ویرایش بخش",

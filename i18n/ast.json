@@ -15,7 +15,6 @@
 	"page-last-edited": "{{PLURAL:$1|0=Editáu güei|1=Editáu ayeri|Editáu hai $1 díes}}",
 	"article-about-title": "Tocante a esti artículu",
 	"page-issues": "Problemes de la páxina",
-	"license-footer-name": "CC-BY-SA 3.0",
 	"license-footer-text": "El conteníu ta disponible baxo llicencia $1 si nun s'indica otra cosa.",
 	"page-read-in-other-languages": "Disponible'n {{PLURAL:$1|$1 idioma más|$1 idiomes más}}"
 }

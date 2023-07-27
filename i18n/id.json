@@ -20,7 +20,6 @@
 	"page-last-edited": "{{PLURAL:$1|0=Disunting hari ini|1=Disunting kemarin|Disunting $1 hari yang lalu}}",
 	"article-about-title": "Mengenai artikel ini",
 	"page-issues": "Masalah halaman",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Konten tersedia di bawah $1 kecuali dinyatakan lain.",
 	"page-read-in-other-languages": "Tersedia dalam {{PLURAL:$1|$1 bahasa lain|$1 bahasa lain}}",
 	"article-edit-button": "Sunting bagian",

@@ -17,7 +17,6 @@
 	"page-last-edited": "{{PLURAL:$1|0=Aktualizováno dnes|1=Aktualizováno včera|2=Aktualizováno předevčírem|Aktualizováno před $1 dny}}",
 	"article-about-title": "O tomto článku",
 	"page-issues": "Nedostatky stránky",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Obsah je dostupný pod $1, pokud není uvedeno jinak.",
 	"page-read-in-other-languages": "Dostupné v {{PLURAL:$1|$1 dalším jazyce|$1 dalších jazycích}}",
 	"article-edit-button": "Upravit sekci"

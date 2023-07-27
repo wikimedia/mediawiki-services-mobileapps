@@ -21,7 +21,6 @@
 	"page-last-edited": "{{PLURAL:$1|0=Ажурирано данас|1=Ажурирано јуче|Ажурирано пре $1 дана}}",
 	"article-about-title": "О овом чланку",
 	"page-issues": "Проблеми са страницом",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Садржај је доступан под лиценцом $1, осим ако је другачије наведено.",
 	"page-read-in-other-languages": "Доступно на још $1 језика",
 	"article-edit-button": "Уреди одељак",

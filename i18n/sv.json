@@ -20,7 +20,6 @@
 	"page-last-edited": "{{PLURAL:$1|Uppdaterades igår|Uppdaterades $1 dygn sedan|0=Uppdaterades idag}}",
 	"article-about-title": "Om den här artikeln",
 	"page-issues": "Sidproblem",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Innehållet är tillgängligt under $1 om ingenting annat anges.",
 	"page-read-in-other-languages": "Tillgänglig på {{PLURAL:$1|$1 annat|$1 andra}} språk",
 	"article-edit-button": "Redigera avsnitt",

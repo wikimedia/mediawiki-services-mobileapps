@@ -15,7 +15,6 @@
 	"page-last-edited": "{{PLURAL:$1|0=Uređeno danas|1=Uređeno juče|Uređeno pre $1 dana}}",
 	"article-about-title": "O ovom članku",
 	"page-issues": "Problemi sa stranicom",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Sadržaj je dostupan pod licencom $1, osim ako je drugačije navedeno.",
 	"page-read-in-other-languages": "Dostupno na još $1 jezika"
 }

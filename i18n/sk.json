@@ -20,7 +20,6 @@
 	"page-last-edited": "{{PLURAL:$1|0=Aktualizované dnes|1=Aktualizované včera|Aktualizované pred $1 dňami}}",
 	"article-about-title": "O tomto článku",
 	"page-issues": "Problémy stránky",
-	"license-footer-name": "CC BY-SA 3.0",
 	"license-footer-text": "Pokiaľ nie je uvedené inak, je obsah dostupný v rámci licencie $1.",
 	"page-read-in-other-languages": "Dostupné v {{PLURAL:$1|$1 ďalšom jazyku|$1 ďalších jazykoch}}",
 	"article-edit-button": "Upraviť odsek",
