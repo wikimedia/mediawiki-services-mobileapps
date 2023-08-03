@@ -1,11 +1,15 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Geraki"
+		]
 	},
+	"description-add-link-title": "Προσθήκη περιγραφής λήμματος",
 	"article-read-more-title": "Διαβάστε περισσότερα",
 	"table-title-other": "Περισσότερες πληροφορίες",
 	"page-edit-history": "Πλήρες ιστορικό επεξεργασίας",
 	"info-box-close-text": "Κλείσιμο",
+	"page-talk-page-subtitle": "Συζητήστε βελτιώσεις σε αυτό το λήμμα",
 	"page-talk-page": "Προβολή σελίδας συζήτησης",
 	"info-box-title": "Γρήγορες Πληροφορίες",
 	"view-in-browser-footer-link": "Προβολή άρθρου στο φυλλομετρητή",

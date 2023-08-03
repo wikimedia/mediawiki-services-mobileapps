@@ -19,8 +19,6 @@
 	"page-last-edited": "Actualisate {{PLURAL:$1|heri|$1 dies retro|0=hodie}}",
 	"article-about-title": "A proposito de iste articulo",
 	"page-issues": "Problemas con le pagina",
-	"license-footer-name": "CC BY-SA 3.0",
-	"license-footer-name-cc4": "CC BY-SA 4.0",
 	"license-footer-text": "Le contento es disponibile sub $1 salvo indication contrari.",
 	"page-read-in-other-languages": "Disponibile in $1 altere lingua{{PLURAL:$1||s}}",
 	"article-edit-button": "Modificar section",
