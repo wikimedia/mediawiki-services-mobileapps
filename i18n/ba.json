@@ -1,16 +1,18 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"З. ӘЙЛЕ"
+		]
 	},
-	"article-read-more-title": "Тулыраҡ уҡырға",
-	"table-title-other": "Тулыраҡ",
-	"page-edit-history": "Мөхәррирләүҙең тулы тарихы",
+	"article-read-more-title": "Ентеклерәк уҡырға",
+	"table-title-other": "Ентеклерәк мәғлүмәт",
+	"page-edit-history": "Үҙгәртеүҙәр тарихын ҡарарға",
 	"info-box-close-text": "Ябырға",
 	"info-box-title": "Ҡыҫҡа факттар",
 	"page-similar-titles": "Оҡшаш биттәр",
 	"page-last-edited": "$1 көн элек мөхәррирләнгән",
 	"article-about-title": "Был мәҡәлә тураһында",
 	"page-issues": "Бит буйынса һорауҙар",
-	"license-footer-text": "$1 лицензияһына ярашлы, эстәлеге менән һәр кем файҙалана ала (башҡаһы күрһәтелмәһә)",
-	"page-read-in-other-languages": "$1 телдәргә аңлайышлы"
+	"license-footer-text": "Эстәлек $1 лицензияһы буйынса ҡулланылышта.",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 башҡа телдә|$1 башҡа телдәрҙә}} лә бар"
 }
