@@ -5,14 +5,18 @@
 			"Ranveig"
 		]
 	},
+	"description-add-link-title": "Legg til artikkelskildring",
 	"article-read-more-title": "Les meir",
 	"table-title-other": "Meir informasjon",
 	"page-edit-history": "Sjå endringshistorikk",
 	"page-talk-page-subtitle": "Drøft betringar for denne artikkelen",
+	"page-talk-page": "Sjå diskusjonsside",
 	"info-box-title": "Kjappe fakta",
 	"view-in-browser-footer-link": "Vis artikkelen i nettlesaren",
 	"page-similar-titles": "Liknande sider",
+	"page-last-edited": "{{PLURAL:$1|Oppdatert i går|Oppdatert for $1 dagar sidan|0=Oppdatert i dag}}",
 	"article-about-title": "Om artikkelen",
 	"page-issues": "Sidevanskar",
-	"license-footer-text": "Innhald er tilgjengeleg under $1 minder anna er oppgjeve."
+	"license-footer-text": "Innhald er tilgjengeleg under $1 minder anna er oppgjeve.",
+	"article-edit-button": "Endra bolk"
 }
