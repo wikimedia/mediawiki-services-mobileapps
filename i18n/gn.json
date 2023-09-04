@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"P. S. F. Freitas"
+		]
+	},
+	"description-add-link-title": "Emoĩ kuatia ñemombe'umi",
+	"article-read-more-title": "Emoñe'ẽve",
+	"table-title-other": "Ehechave",
+	"page-edit-history": "Ehecha ñemoambue rembiasakue",
+	"info-box-close-text": "Emboty",
+	"page-talk-page-subtitle": "Eñe'ẽ umi mba'e ikatúvare oñemoporã ko kuatiápe",
+	"page-issues-subtitle": "Oremombe'u oĩrõ mba'e ojejavýva térã naiporãiva",
+	"page-talk-page": "Ehecha ñemongeta kuatia",
+	"info-box-title": "Marandumi",
+	"view-in-browser-footer-link": "Ehecha ko kuatia kundahárape",
+	"page-location": "Ehecha peteĩ mápape",
+	"page-similar-titles": "Umi kuatia ojoguáva",
+	"page-last-edited": "{{PLURAL:$1|Oñembopyahu kuehe ára|Oñembopyahu ojapo kuri $1 ára|0=Ko ára oñembopyahu}}",
+	"article-about-title": "Ko kuatia rehegua",
+	"page-issues": "Kuatia apañuái",
+	"license-footer-text": "Kuatia retepy ojeguereko $1 guýpe, ndaha'éiramo oje'éva ambue mba'e.",
+	"page-read-in-other-languages": "Ojeguereko {{PLURAL:$1|$1 ñe'ẽ ambuévape}}",
+	"article-edit-button": "Emoambue",
+	"article-edit-protected-button": "Emoambue kuatia oñeñangarekóva vorekue",
+	"article-section-expand": "Embotuichave ko vorekue",
+	"references-preview-header": "Mandu'apy jehechaukarã"
+}

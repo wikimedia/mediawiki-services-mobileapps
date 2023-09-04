@@ -19,6 +19,8 @@
 	"page-last-edited": "{{PLURAL:$1|Подновено вчера|Подновено пред $1 дена|0=Подновено денес}}",
 	"article-about-title": "Уреди ја статијава",
 	"page-issues": "Проблеми со страницата",
+	"license-footer-name": "CC BY-SA 3.0",
+	"license-footer-name-cc4": "CC BY-SA 4.0",
 	"license-footer-text": "Содржината е достапна под условите на $1 освен ако не е поинаку наведено.",
 	"page-read-in-other-languages": "Достапно на {{PLURAL:$1|уште $1 јазик|уште $1 јазици}}",
 	"article-edit-button": "Уреди поднасов",
