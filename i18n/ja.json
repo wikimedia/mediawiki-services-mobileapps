@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amayus",
 			"Omotecho",
 			"Shirayuki",
 			"Yamagata Yusuke"
@@ -22,6 +23,7 @@
 	"article-about-title": "この記事について",
 	"page-issues": "ページの問題点",
 	"license-footer-name": "クリエイティブ・コモンズ 表示-継承 3.0",
+	"license-footer-name-cc4": "クリエイティブ・コモンズ 表示-継承 4.0 国際 パブリック・ライセンス",
 	"license-footer-text": "特に記載がない限り、コンテンツは$1のライセンスで利用できます。",
 	"page-read-in-other-languages": "他に{{PLURAL:$1|$1 言語}}で利用可能",
 	"article-edit-button": "節を編集",
