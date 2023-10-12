@@ -4,9 +4,25 @@
 			"Умар"
 		]
 	},
+	"description-add-link-title": "Боца хаам тӀебузар",
+	"article-read-more-title": "Ма-дарра",
+	"table-title-other": "Ма-дарра",
 	"page-edit-history": "Хийцамийн истори хьажар",
 	"info-box-close-text": "ДӀачӀагӀа",
 	"page-talk-page-subtitle": "ХӀара йаззам кечбар дийца",
+	"page-talk-page": "Дийцарийн агӀо",
+	"info-box-title": "Доца факташ",
+	"view-in-browser-footer-link": "Браузер чохь йаззаме хьажа",
+	"page-location": "Картин тӀехь хьажа",
+	"page-similar-titles": "Тера агӀонаш",
 	"page-last-edited": "{{PLURAL:$1|Карлайаьккхина $1 де хьалха|0=Карлайаьккхина тахана|1=Карлайаьккхина селхана}}",
-	"license-footer-text": "Чулацам тӀекхочу $1 лицензица"
+	"article-about-title": "ХӀокху агӀонах лаьцна",
+	"page-issues": "АгӀонах хаттарш",
+	"license-footer-text": "Чулацам тӀекхочу $1 лицензица",
+	"page-read-in-other-languages": "ТӀекхочу {{PLURAL:$1|$1 кхечу маттахь}}",
+	"article-edit-button": "Нисде дакъа",
+	"article-section-expand": "Схьадела дакъа",
+	"article-section-collapse": "ДӀачӀагӀа дакъа",
+	"table-expand": "Схьайелла таблица",
+	"table-collapse": "ДӀачӀагӀа таблица"
 }
