@@ -2,19 +2,28 @@
 	"@metadata": {
 		"authors": []
 	},
-	"description-add-link-title": "Dodaj opis naslova",
+	"description-add-link-title": "Dodaj opis članka",
 	"article-read-more-title": "Pročitajte više",
 	"table-title-other": "Više informacija",
-	"page-edit-history": "Celokupna istorija izmena",
+	"page-edit-history": "Prikaži istoriju izmena",
 	"info-box-close-text": "Zatvori",
+	"page-talk-page-subtitle": "Razgovor o poboljšanjima članka",
+	"page-issues-subtitle": "Upozorenja o nekvalitetnom ili problematičnom sadržaju",
 	"page-talk-page": "Prikaži stranicu za razgovor",
 	"info-box-title": "Kratke činjenice",
 	"view-in-browser-footer-link": "Prikaži članak u pregledaču",
 	"page-location": "Prikaži na mapi",
 	"page-similar-titles": "Slične stranice",
-	"page-last-edited": "{{PLURAL:$1|0=Uređeno danas|1=Uređeno juče|Uređeno pre $1 dana}}",
+	"page-last-edited": "{{PLURAL:$1|0=Ažurirano danas|1=Ažurirano juče|Ažurirano pre $1 dana}}",
 	"article-about-title": "O ovom članku",
 	"page-issues": "Problemi sa stranicom",
 	"license-footer-text": "Sadržaj je dostupan pod licencom $1, osim ako je drugačije navedeno.",
-	"page-read-in-other-languages": "Dostupno na još $1 jezika"
+	"page-read-in-other-languages": "Dostupno na još $1 jezika",
+	"article-edit-button": "Uredi odeljak",
+	"article-edit-protected-button": "Uredi odeljak na zaštićenoj stranici",
+	"article-section-expand": "Proširi odeljak",
+	"article-section-collapse": "Skupi odeljak",
+	"table-expand": "Proširi tabelu",
+	"table-collapse": "Skupi tabelu",
+	"references-preview-header": "Pregled referenci"
 }
