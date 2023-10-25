@@ -35,6 +35,12 @@ cd mobileapps
 npm install
 ```
 
+### Cassandra schema initialization
+
+```
+$ cqlsh -f scripts/schema/cassandra_schema.cql
+```
+
 ### Docker setup
 
 It's also possible to engage in development with a docker setup, take a look at this [guide](/docs/develop/docker.md) on how to setup a docker-compose environment for mobileapps.
