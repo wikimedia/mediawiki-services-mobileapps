@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Алия"
+		]
+	},
+	"description-add-link-title": "Өгүллин товч тодрхаллт",
+	"article-read-more-title": "Делгрңгү умшх",
+	"table-title-other": "Делгрңгү",
+	"page-edit-history": "Ясврин түүкиг үзх",
+	"info-box-close-text": "Хаах",
+	"page-talk-page-subtitle": "Эн өгүллин сәәҗрүллтиг келлцх",
+	"page-issues-subtitle": "Чинр муута эс гиҗ асудлта контентын таларк санулмҗ",
+	"page-talk-page": "Күүндәнә халх",
+	"info-box-title": "Товчхн бәрмтс",
+	"view-in-browser-footer-link": "Көтчд орҗ өгүллиг үзх",
+	"page-location": "Һазрин зург деер үзх",
+	"page-similar-titles": "Иҗлхн халхс",
+	"page-last-edited": "{{PLURAL:$1 өдрин өмн шинрүлгдв||$1 өдрин өмн шинрүлгдв|0=Эндр шинрүлгдв|1=Өцклдүр шинрүлгдв}}",
+	"article-about-title": "Эн өгүллин туск",
+	"page-issues": "Халхин асудлмуд",
+	"license-footer-text": "Аһулһнь $1 лицензин даху ашглх болмҗта.",
+	"table-collapse": "Көснгтиг хүмх"
+}
