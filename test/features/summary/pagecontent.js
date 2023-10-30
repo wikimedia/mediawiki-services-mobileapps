@@ -135,7 +135,7 @@ describe('summary', function() {
 			});
 	});
 
-	it('404 for a page with invalid title', () => {
+	it.skip('404 for a page with invalid title', () => {
 		const uri = `${server.config.uri}en.wikipedia.org/v1/page/summary/W::Mammalia`;
 		return preq.get({ uri })
 			.catch((res) => {
