@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Mainframe98",
+			"McDutchie",
 			"Optilete",
 			"PonkoSasuke",
 			"Siebrand"
@@ -22,6 +23,7 @@
 	"page-last-edited": "{{PLURAL:$1|1=Gisteren bijgewerkt|$1 dagen geleden bijgewerkt|0=Vandaag bijgewerkt}}",
 	"article-about-title": "Over deze pagina",
 	"page-issues": "Paginaproblemen",
+	"license-footer-name-cc4": "CC BY-SA 4.0",
 	"license-footer-text": "De inhoud is beschikbaar onder de licentie $1 tenzij anders aangegeven.",
 	"page-read-in-other-languages": "Beschikbaar in {{PLURAL:$1|$1 andere taal|$1 andere talen}}",
 	"article-edit-button": "Sectie bewerken",
