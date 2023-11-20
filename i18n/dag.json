@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Issahiddris98"
+		]
+	},
+	"description-add-link-title": "Pahimi atikili maa buɣisibu",
+	"article-read-more-title": "Karimi mi ma",
+	"table-title-other": "Lahabali pam",
+	"page-edit-history": "Lihimi maliniŋ tarihi",
+	"info-box-close-text": "Kparima",
+	"page-talk-page-subtitle": "Malimi sawara zaŋ chaŋ atikili maa kpaʋsibu",
+	"page-issues-subtitle": "Che ka bɛ baŋ lahabali maa yɛlimuɣisrili",
+	"page-talk-page": "Yulimi yɛltɔɣa maa paaji",
+	"info-box-title": "Yomyom shɛhira",
+	"view-in-browser-footer-link": "Lihimi atikili maa pɔhim zuɣu",
+	"page-location": "Lihimi ŋa mapu zuɣu",
+	"page-similar-titles": "Paajinima din ŋmani taba",
+	"page-last-edited": "{{PLURAL:$1|Updated yesterday|Updated $1 days ago|0=Updated today}}",
+	"article-about-title": "Zaŋ kpa atikili ŋɔ polo",
+	"page-issues": "Paaji yɛlimuɣisira",
+	"license-footer-text": "Din be di puuni maa bɛni la $1 naɣila binshɛli zuɣu",
+	"page-read-in-other-languages": "Di be {{PLURAL:$1|$1 Zuliya shɛŋa ni|$1 zuliya shɛŋa ni}}",
+	"article-edit-button": "Maliniŋ yaɣili",
+	"article-edit-protected-button": "Maliniŋ yaɣili maa nyɛla ŋan mali gulibu paaji maa zuɣu",
+	"article-section-expand": "Yɛligimi yaɣa",
+	"article-section-collapse": "Kumi yaɣili",
+	"table-expand": "Yɛligimi teebuli maa",
+	"table-collapse": "Wurimi teebuli maa",
+	"references-preview-header": "Labi yuli kundivihira"
+}

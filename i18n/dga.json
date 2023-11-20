@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joachim Yirkang"
+		]
+	},
+	"description-add-link-title": "Eŋ Aatikel mannoo",
+	"article-read-more-title": "Kanne yaga",
+	"table-title-other": "Yɛlɛ yaga",
+	"page-edit-history": "Kaa yɛlɛ maalbo yipɔge",
+	"info-box-close-text": "Pɔge",
+	"page-talk-page-subtitle": "Yeli yɛlɛ kyaare ne Aatikle naŋ taa tɔnɔ",
+	"page-issues-subtitle": "Baŋ neŋ yelfaare bee yelzuri naŋ waana neŋ yɛlɛ",
+	"page-talk-page": "Kaa yɛlɛ gampɛle",
+	"info-box-title": "Yɛlɛ weoŋ",
+	"view-in-browser-footer-link": "Kaa Aatikle a yɛlɛ bommaala",
+	"page-location": "Kaa a yɛlɛ daga",
+	"page-similar-titles": "Gaŋpɛle naŋ peɛle",
+	"page-last-edited": "{{PLURAL:$1|Zaameŋ maale emmbo|Updated $1 beri naŋ pare|0=zenɛ maalbo}}",
+	"article-about-title": "Yɛlɛ naŋ kyaare neŋ a Aatekel",
+	"page-issues": "Gsmpɛle Yɔlɛ",
+	"license-footer-text": "Yelzu be la $1 sɛɛ see ka",
+	"page-read-in-other-languages": "Be la {{PLURAL:$1|$1 kɔkɔɛ mine poɔŋ|$1 Kɔkɔɛ mine}}",
+	"article-edit-button": "Maalbo zie",
+	"article-edit-protected-button": "Maalbo zie taa la gampɛle guobu",
+	"article-section-expand": "Yaare zie",
+	"article-section-collapse": "Page zie",
+	"table-expand": "Yaare a tablo",
+	"table-collapse": "Page a tablo",
+	"references-preview-header": "Puori sommbo yizie"
+}

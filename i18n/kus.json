@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Alalbila george amadu",
-			"Amire80"
+			"Amire80",
+			"Mozanky"
 		]
 	},
 	"description-add-link-title": "Paasim sɔb labaar la an si'em",
@@ -13,5 +14,19 @@
 	"page-talk-page-subtitle": "Sɔnsimi dine na mɔr tiakir ki sɔb labaar kaŋa ni na",
 	"page-issues-subtitle": "Dɛŋim ɛnbigi piazud bane mɔr yɛla la",
 	"page-talk-page": "Gɔsim piand lakir zik",
-	"info-box-title": "Tɔ' sida"
+	"info-box-title": "Tɔ' sida",
+	"view-in-browser-footer-link": "Gɔsim labaar bɛ ieeb dɔɔgin",
+	"page-location": "Gɔsim bɛ mappin",
+	"page-similar-titles": "Lakir nam banɛ nwɛn",
+	"page-last-edited": "{{PLURAL :$1 yinɛ su'os na|yina $1 dabisa nya'aŋ |0=yi zina}}",
+	"article-about-title": "Kat wa'ae nɛ labakaŋa yɛla",
+	"page-issues": "Lakir yɛlbibis",
+	"page-read-in-other-languages": "Di bɛnɛ {{PLURAL:$1|$1 buudi pian'ʋk ayinne|$1 buudi pian'ad namin}}",
+	"article-edit-button": "Dɛmisim yakkim",
+	"article-edit-protected-button": "Dɛmisim yakkim bɛ gu'ur lakirin",
+	"article-section-expand": "Yadigim yakkim",
+	"article-section-collapse": "Kpiisim yakkim",
+	"table-expand": "Yadigim teebul",
+	"table-collapse": "Kpiisim teebul",
+	"references-preview-header": "Amalig-gɔs kasɛta nam"
 }
