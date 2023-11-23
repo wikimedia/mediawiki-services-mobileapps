@@ -3,6 +3,7 @@
 		"authors": [
 			"Alalbila george amadu",
 			"Amire80",
+			"Awinimi",
 			"Mozanky"
 		]
 	},
@@ -18,9 +19,10 @@
 	"view-in-browser-footer-link": "Gɔsim labaar bɛ ieeb dɔɔgin",
 	"page-location": "Gɔsim bɛ mappin",
 	"page-similar-titles": "Lakir nam banɛ nwɛn",
-	"page-last-edited": "{{PLURAL :$1 yinɛ su'os na|yina $1 dabisa nya'aŋ |0=yi zina}}",
+	"page-last-edited": "{{PLURAL:$1|Yinɛ su'os na|Yina $1 dabisa nya'aŋ|0=Updated today}}",
 	"article-about-title": "Kat wa'ae nɛ labakaŋa yɛla",
 	"page-issues": "Lakir yɛlbibis",
+	"license-footer-text": "Malisim bɛnɛ $1 ni ya'a ka'a nɛ yɛlsi'a paasɛ",
 	"page-read-in-other-languages": "Di bɛnɛ {{PLURAL:$1|$1 buudi pian'ʋk ayinne|$1 buudi pian'ad namin}}",
 	"article-edit-button": "Dɛmisim yakkim",
 	"article-edit-protected-button": "Dɛmisim yakkim bɛ gu'ur lakirin",
