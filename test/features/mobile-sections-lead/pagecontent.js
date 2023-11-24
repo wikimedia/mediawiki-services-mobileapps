@@ -78,7 +78,7 @@ describe('mobile-sections-lead', function() {
 	it('Barack Obama should have a pronunciation', () => {
 		const title = 'Barack_Obama';
 		const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/${title}`;
-		const exp = '//upload.wikimedia.org/wikipedia/commons/8/82/En-us-Barack-Hussein-Obama.ogg';
+		const exp = '//upload.wikimedia.org/wikipedia/commons/transcoded/8/82/En-us-Barack-Hussein-Obama.ogg/En-us-Barack-Hussein-Obama.ogg.mp3';
 		return preq.get({ uri })
 			.then((res) => {
 				const lead = res.body;
@@ -97,7 +97,7 @@ describe('mobile-sections-lead', function() {
 	});
 	it('Enwiki Uranus loads successfully (no pronunciation parsing TypeErrors)', () => {
 		const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Uranus`;
-		const exp = '//upload.wikimedia.org/wikipedia/commons/7/71/En-us-Uranus%282%29.oga';
+		const exp = '//upload.wikimedia.org/wikipedia/commons/transcoded/7/71/En-us-Uranus%282%29.oga/En-us-Uranus%282%29.oga.mp3';
 		return preq.get({ uri })
 			.then((res) => {
 				const lead = res.body;
@@ -119,8 +119,8 @@ describe('mobile-sections-lead', function() {
 	});
 	it('Enwiki Yazidis loads successfully (no pronunciation parsing TypeErrors)', () => {
 		const uri = `${server.config.uri}en.wikipedia.org/v1/page/mobile-sections-lead/Yazidis`;
-		const path = '//upload.wikimedia.org/wikipedia/commons/8/8d';
-		const exp = `${path}/En-us-Yazidis_from_Iraq_pronunciation_%28Voice_of_America%29.ogg`;
+		let exp = '//upload.wikimedia.org/wikipedia/commons/transcoded/8/8d/En-us-Yazidis_from_Iraq_pronunciation_%28Voice_of_America%29.ogg/';
+		exp += 'En-us-Yazidis_from_Iraq_pronunciation_%28Voice_of_America%29.ogg.mp3';
 		return preq.get({ uri })
 			.then((res) => {
 				const lead = res.body;
