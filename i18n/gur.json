@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amoramah"
+		]
+	},
+	"description-add-link-title": "Pa'asɛ gɔŋɔ la pa'alegɔ",
+	"article-read-more-title": "Kaalɛ zo'e zo'e",
+	"table-title-other": "Lasebaarɛ zo'e zo'e",
+	"page-edit-history": "Bisɛ demesego tuusum",
+	"info-box-close-text": "Yu",
+	"page-talk-page-subtitle": "Sɔsɛ gɔnkuna nɛŋa tɔlega yele",
+	"page-talk-page": "Bisɛ tɔgum pɛgerɛ",
+	"info-box-title": "Atɔtɔ yɛla",
+	"view-in-browser-footer-link": "Bisɛ gɔŋɔ intanɛti puan",
+	"page-location": "Bisɛ mapi puan",
+	"page-similar-titles": "Pɛgera n ŋwɔni bala",
+	"page-last-edited": "{{PLURAL:$1|Updated yesterday|Updated $1 days ago|0=Updated today}}",
+	"article-about-title": "Gɔnkuna wa yele",
+	"page-issues": "Pɛgerɛ yɛla",
+	"license-footer-text": "Gulesegɔ boi la $1 sãn dagena la ba daalɛ mɛ",
+	"page-read-in-other-languages": "Boi la  {{PLURAL:$1|$1 other language|$1 other languages}}",
+	"article-edit-button": "Demesego yeleŋɔ",
+	"article-edit-protected-button": "Demesego yeleŋɔ n gãi gu'a pɛgerɛ",
+	"article-section-expand": "Yalegerɛ yeleŋɔ",
+	"article-section-collapse": "Gbiregere yeleŋɔ",
+	"table-expand": "Yalegerɛ tee uɔe",
+	"table-collapse": "Gbiregere teebule",
+	"references-preview-header": "Viisegɔ lɔgerɔ maleje bisɛ"
+}
