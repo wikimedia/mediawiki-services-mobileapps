@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Abdul Fatawu 352"
+		]
+	},
+	"description-add-link-title": "Paas gʋlsg bilgr",
+	"article-read-more-title": "Karmẽ n paase",
+	"table-title-other": "Kibay m paase",
+	"page-edit-history": "Ges-y gʋlsg-tekr kibare",
+	"info-box-close-text": "Page",
+	"page-talk-page-subtitle": "Sõs-y sõs-kãngã pʋgẽ sẽn yaa sõma n paase",
+	"page-issues-subtitle": "Sõng-n-taag sẽn pa tar yõodã la zu-loees yell b sẽn yetã",
+	"page-talk-page": "Ges sõsgã seb-neng",
+	"info-box-title": "Kibay sẽn be zĩig pʋgẽ",
+	"view-in-browser-footer-link": "Ges-y sõsgã m be tʋʋmda pʋgẽ",
+	"page-location": "Ges-y mapã zugu",
+	"page-similar-titles": "Nense n wõnd taaba",
+	"page-last-edited": "{{PLURAL:$1 |malga zaame|malgame $1 rasma n looga|0=malga runda}}",
+	"article-about-title": "Sõs-kãngã wɛɛngẽ",
+	"page-issues": "Sõse yɛla",
+	"license-footer-text": "Gʋlsga be ne $1 pʋgẽ, sã n ka bũmb a ton be sẽn wilgd.",
+	"page-read-in-other-languages": "Be ne {{PLURAL:$1|$1 ne buud-gomd a to|$1 la buud-goam a taaba}}",
+	"article-edit-button": "Malg gʋlsg zĩ-kanga"
+}
