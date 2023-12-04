@@ -21,5 +21,11 @@
 	"page-issues": "Sõse yɛla",
 	"license-footer-text": "Gʋlsga be ne $1 pʋgẽ, sã n ka bũmb a ton be sẽn wilgd.",
 	"page-read-in-other-languages": "Be ne {{PLURAL:$1|$1 ne buud-gomd a to|$1 la buud-goam a taaba}}",
-	"article-edit-button": "Malg gʋlsg zĩ-kanga"
+	"article-edit-button": "Malg gʋlsg zĩ-kanga",
+	"article-edit-protected-button": "Tek-y nenga zĩig n ya n gũ-wã",
+	"article-section-expand": "Yalg-y zĩiga",
+	"article-section-collapse": "Zĩig n sãamẽ",
+	"table-expand": "Yalg-y tabela",
+	"table-collapse": "Tabele n sãame",
+	"references-preview-header": "Rẽng-ges-y sebtiisa"
 }
