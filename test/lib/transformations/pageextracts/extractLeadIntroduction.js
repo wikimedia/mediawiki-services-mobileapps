@@ -5,8 +5,39 @@ const assert = require('./../../../utils/assert');
 const extractLeadIntroduction = require('./../../../../lib/transforms').extractLeadIntroduction;
 
 describe('extractLeadIntroduction', () => {
+	it('isEmptyChild', () => {
+		const testCases = [
+			// noexcerpt elements are treated as empty nodes and ignored.
+			[
+				'<p><span class="noexcerpt">A</span>Okay</p>',
+				false
+			],
+			// Elements with noexcerpt children are treated as empty.
+			[
+				'<p><span class="noexcerpt">B</span></p>',
+				true
+			]
+		];
+
+		testCases.forEach((test, i) => {
+			const doc = domino.createDocument(test[0]);
+			const isEmpty = extractLeadIntroduction.test.isEmptyChild(doc.querySelector('p'));
+			assert.equal(isEmpty, test[1], `test ${i}`);
+		});
+	});
 	it('matches the spec', () => {
 		const testCases = [
+			// noexcerpt elements are treated as empty nodes and ignored.
+			[
+				'<p><span class="noexcerpt">Fail</span></p><p>Pass</p>',
+				'<p>Pass</p>'
+			],
+			// Elements with noexcerpt children and others are retained.
+			// The noexcerpt will be filtered out from the paragraph later.
+			[
+				'<p><span class="noexcerpt">Hidden</span>Pass2</p><p>Fail3</p>',
+				'<p><span class="noexcerpt">Hidden</span>Pass2</p>'
+			],
 			// Skip empty paragraph
 			[
 				'<p></p>',
