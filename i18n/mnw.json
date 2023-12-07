@@ -1,8 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"咽頭べさ"
+		]
 	},
-	"description-add-link-title": "စုတ် က္ဍိုပ်လိက် မဗမံက်ထ္ၜး",
+	"description-add-link-title": "စုတ် ပရူပရာ လိက်ပရေၚ်",
 	"article-read-more-title": "ဆက် ဗှ်",
 	"table-title-other": "ဆက်ကဵု ပရိုင်တင်ဂၞင်",
 	"page-edit-history": "ဗဵု လၟေင် မပလေဝ်ကၠုင်လဝ်",
@@ -12,9 +14,10 @@
 	"view-in-browser-footer-link": "ဗဵု လိက်ပရေင် ပ္ဍဲ browser",
 	"page-location": "ဗဵု ပ္ဍဲ ဗီုတိ",
 	"page-similar-titles": "မုက်လိက် မတုပ်သၟဟ်",
-	"page-last-edited": "ပလေဝ်ဒါန်လဝ် နူကဵု $1 တ္ၚဲမတုဲကၠုင်",
+	"page-last-edited": "{{PLURAL:$1|ပလေဝ်ဒါန်လဝ်နူကနေံ|ပလေဝ်ဒါန်လဝ် နူကဵု $1 တ္ၚဲမတုဲကၠုၚ်|0=ပလေဝ်ဒါန်လဝ်တ္ၚဲတဏအ်}}",
 	"article-about-title": "ပရူ လိက်ပရေင် ဏအ်",
 	"page-issues": "မုက်လိက် ပတိတ်တြး",
 	"license-footer-text": "လိက်ဂှ် မံက် ပ္ဍဲ $1 ယဝ်ရတင်ယောင်ယာ မွဲမွဲ ဟွံမွဲမ္ဂး၊၊",
-	"page-read-in-other-languages": "ဟွံမွဲဏီ ပ္ဍဲ $1 ဘာသာတၞဟ်"
+	"page-read-in-other-languages": "ဟွံမွဲဏီ ပ္ဍဲ $1 ဘာသာတၞဟ်",
+	"article-edit-button": "ပလေဝ်ဒါန်ဒကုတ်ကၞာတ်"
 }
