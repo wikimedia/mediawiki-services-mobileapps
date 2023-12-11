@@ -49,18 +49,43 @@ const _getPageLastEditedString = (banana, editedDaysAgo) => {
 const _getArticleTitleFromLocation = (location) => location.pathname.split('/page/mobile-html/')[1]
 
 /**
- * Adds footer to the end of the document
+ * Insert suggested articles for further reading into the footer container.
+ * @param {!Object.<any>} params parameters as follows
+ *   {!map} readMore
+ *       {!number} itemCount number of Read More items to add
+ *       {!string} apiBaseURL base url for MW API to fetch Read More items
+ * @return {void}
+ */
+const appendReadMore = params => {
+  const { readMore: { itemCount: readMoreItemCount, apiBaseURL: readMoreBaseURL } } = params
+  FooterReadMore.fetchAndAdd(
+    _getArticleTitleFromLocation(window.location),
+    readMoreItemCount,
+    'pcs-footer-container-readmore',
+    'pcs-footer-container-readmore-pages',
+    readMoreBaseURL,
+    document
+  )
+}
+
+/**
+ * Adds footer to the end of the document, with optional "Read More" suggestions.
+ * The Read More items are added automatically by default. If you want to add them
+ * lazily, set the readMoreLazy parameter to true, and call the appendReadMore()
+ * function when desired.
  * @param {!Object.<any>} params parameters as follows
  *   {!map} menu
  *       {!array<string>} items menu items to add
  *   {!map} readMore
- *       {!number} itemCount number of read more items to add
- *       {!string} baseURL base url for RESTBase to fetch read more
+ *       {!number} itemCount number of Read More items to add
+ *       {!string} apiBaseURL base url for MW API to fetch Read More items
+ *       {!boolean} readMoreLazy whether the Read More items will be loaded lazily
  * @return {void}
  */
 const add = params => {
   const { menu: { items: menuItems, editedDaysAgo },
-    readMore: { itemCount: readMoreItemCount, baseURL: readMoreBaseURL } } = params
+    readMore: { itemCount: readMoreItemCount, apiBaseURL: readMoreBaseURL,
+      readMoreLazy: readMoreLazy } } = params
 
   // Add container
   if (FooterContainer.isContainerAttached(document) === false) {
@@ -126,15 +151,13 @@ const add = params => {
     })
 
     if (readMoreItemCount && readMoreItemCount > 0) {
-      FooterReadMore.fetchAndAdd(
-        _getArticleTitleFromLocation(window.location),
-        banana.i18n('article-read-more-title'),
-        readMoreItemCount,
-        'pcs-footer-container-readmore',
-        'pcs-footer-container-readmore-pages',
-        readMoreBaseURL,
+      FooterReadMore.setHeading(banana.i18n('article-read-more-title'),
+        'pcs-footer-container-readmore-heading',
         document
       )
+      if (!readMoreLazy) {
+        appendReadMore(params)
+      }
     }
 
     /**
@@ -197,6 +220,7 @@ const add = params => {
 export default {
   MenuItemType: FooterMenu.MenuItemType,
   add,
+  appendReadMore,
   // to be used internally or for unit testing only:
   _connectHandlers,
   _getPageLastEditedString

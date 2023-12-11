@@ -59,14 +59,12 @@ class ReadMorePage {
    * @param {!string} displayTitle
    * @param {?string} thumbnail
    * @param {?string} description
-   * @param {?string} extract
    */
-  constructor(title, displayTitle, thumbnail, description, extract) {
+  constructor(title, displayTitle, thumbnail, description) {
     this.title = title
     this.displayTitle = displayTitle
     this.thumbnail = thumbnail
     this.description = description
-    this.extract = extract
   }
 }
 
@@ -116,19 +114,12 @@ const documentFragmentForReadMorePage = (readMorePage, index, document) => {
     innerDivContainer.appendChild(title)
   }
 
-  let description
   if (readMorePage.description) {
-    description = readMorePage.description
-  }
-  if ((!description || description.length < 10) && readMorePage.extract) {
-    description = cleanExtract(readMorePage.extract)
-  }
-  if (description) {
     const descriptionEl = document.createElement('div')
     descriptionEl.id = index
     descriptionEl.className = 'pcs-footer-readmore-page-description'
     /* DOM sink status: safe - content from read more query endpoint */
-    descriptionEl.innerHTML = description
+    descriptionEl.innerHTML = readMorePage.description
     innerDivContainer.appendChild(descriptionEl)
   }
 
@@ -139,19 +130,13 @@ const documentFragmentForReadMorePage = (readMorePage, index, document) => {
 /**
  * @type {ShowReadMorePagesHandler}
  */
-const showReadMorePages = (pages, heading, sectionContainerId, pageContainerId,
-  document) => {
+const showReadMorePages = (pages, sectionContainerId, pageContainerId, document) => {
   const sectionContainer = document.getElementById(sectionContainerId)
   const pageContainer = document.getElementById(pageContainerId)
-  setHeading(
-    heading,
-    'pcs-footer-container-readmore-heading',
-    document
-  )
   pages.forEach((page, index) => {
-    const title = page.titles.normalized
-    const pageModel = new ReadMorePage(title, page.titles.display, page.thumbnail,
-      page.description, page.extract)
+    const displayTitle = page.pageprops ? page.pageprops.displaytitle : page.title
+    const pageModel = new ReadMorePage(page.title, displayTitle, page.thumbnail,
+      page.description)
     const pageFragment = documentFragmentForReadMorePage(pageModel, index, document)
     pageContainer.appendChild(pageFragment)
   })
@@ -166,13 +151,31 @@ const showReadMorePages = (pages, heading, sectionContainerId, pageContainerId,
  * @param {?string} baseURL
  * @return {!string}
  */
-const readMoreQueryURL = (title, count, baseURL) =>
-  `${baseURL || ''}/page/related/${title}`
+const readMoreQueryURL = (title, count, baseURL) => {
+  const queryObj = {
+    format: 'json',
+    formatversion: 2,
+    origin: '*',
+    action: 'query',
+    prop: 'pageimages|description',
+    piprop: 'thumbnail',
+    pithumbsize: 160,
+    pilimit: count,
+    generator: 'search',
+    gsrsearch: `morelike:${title}`,
+    gsrnamespace: 0,
+    gsrlimit: count,
+    gsrqiprofile: 'classic_noboostlinks',
+    uselang: 'content',
+    smaxage: 86400,
+    maxage: 86400
+  }
+  return `${baseURL || ''}/w/api.php?${new URLSearchParams(queryObj).toString()}`
+}
 
 /**
  * Fetches 'Read more' pages and adds them if found.
  * @param {!string} title
- * @param {!string} heading
  * @param {!number} count
  * @param {!string} sectionContainerId
  * @param {!string} pageContainerId
@@ -180,14 +183,14 @@ const readMoreQueryURL = (title, count, baseURL) =>
  * @param {!Document} document
  * @return {void}
  */
-const fetchAndAdd = (title, heading, count, sectionContainerId, pageContainerId, baseURL,
+const fetchAndAdd = (title, count, sectionContainerId, pageContainerId, baseURL,
   document) => {
   const xhr = new XMLHttpRequest() // eslint-disable-line no-undef
   xhr.open('GET', readMoreQueryURL(title, count, baseURL), true)
   xhr.onload = () => {
     let pages
     try {
-      pages = JSON.parse(xhr.responseText).pages
+      pages = JSON.parse(xhr.responseText).query.pages
     } catch (e) { }
     if (!(pages && pages.length)) {
       return
@@ -201,7 +204,6 @@ const fetchAndAdd = (title, heading, count, sectionContainerId, pageContainerId,
     }
     showReadMorePages(
       results,
-      heading,
       sectionContainerId,
       pageContainerId,
       document
@@ -229,6 +231,7 @@ export default {
   setHeading,
   test: {
     cleanExtract,
-    safelyRemoveEnclosures
+    safelyRemoveEnclosures,
+    showReadMorePages
   }
 }

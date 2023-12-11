@@ -1,4 +1,5 @@
 import assert from 'assert'
+import domino from 'domino';
 import Banana from 'banana-i18n'
 import pcs from '../../../build/wikimedia-page-library-pcs'
 
