@@ -111,3 +111,17 @@ services:
       use_coreparsoid_endpoint: true
       restbase_compatibility:
         security_headers: false
+      cassandra:
+        hosts: ["127.0.0.1"]
+        port: 9042
+        local_dc: "datacenter1"
+        authentication:
+          username: "cassandra"
+          password: "cassandra"
+      caching:
+        enabled: false
+        # Never expire cache for development
+        ttl: 0
+        cassandra:
+          keyspace: "tests"
+          storageTable: "storage"
