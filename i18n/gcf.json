@@ -5,7 +5,7 @@
 			"Istwalezanti"
 		]
 	},
-	"description-add-link-title": "Ajouté dèskripsyon a awtik-la",
+	"description-add-link-title": "Ajouté on dèskripsyon a awtik-la",
 	"article-read-more-title": "Li plis",
 	"table-title-other": "Dòt kanmo",
 	"page-edit-history": "Vwè istorik a modifikasyon",
@@ -14,5 +14,6 @@
 	"page-talk-page": "Vwè paj a bokantaj",
 	"view-in-browser-footer-link": "Vwè awtik-la an navigatè-la",
 	"page-location": "Montré-y asi on kat",
-	"page-similar-titles": "Kotéfèy toupré menmjan"
+	"page-similar-titles": "Kotéfèy toupré menmjan",
+	"article-edit-button": "Séksyon a modifikasyon"
 }
