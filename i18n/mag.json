@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"ऐक्टिवेटेड्"
+		]
+	},
+	"description-add-link-title": "लेख बिवरण जोड़ी",
+	"article-read-more-title": "आउ पढ़ी",
+	"table-title-other": "अधिक जानकारी",
+	"page-edit-history": "सम्पादन इतिहास देखी",
+	"info-box-close-text": "बन्द करी",
+	"page-talk-page-subtitle": "ई लेखमे सुधारके चर्चा करी",
+	"page-issues-subtitle": "कम वा समस्याग्रस्त सामग्रीके बारेमे चेतावनी",
+	"page-talk-page": "बार्तापन्ना देखी",
+	"info-box-title": "त्वरित तथ्य",
+	"view-in-browser-footer-link": "ब्राउजर् मँ लेख देखी",
+	"page-location": "मानचित्रपर देखी",
+	"page-similar-titles": "समान पन्ना",
+	"page-last-edited": "{{PLURAL:$1|कल अपडेट् होएल|$1 दिन पहिले अपडेट् होएल|0=आज अपडेट् होएल}}",
+	"article-about-title": "ई लेखके बारेमे",
+	"page-issues": "पन्ना समस्या",
+	"license-footer-text": "जखनितक न बतावल जाये, सामग्री $1 के अन्तर्गत उपलब्ध हे",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 अन्य भाषा}}मे उपलब्ध",
+	"article-edit-button": "खण्ड सम्पादन",
+	"article-edit-protected-button": "संरक्षित पन्नापर खण्ड सम्पादित करी",
+	"article-section-expand": "खण्ड बिस्तारित करी",
+	"article-section-collapse": "खण्ड सङ्क्षिप्त करी",
+	"table-expand": "तालिका बिस्तारित करी",
+	"table-collapse": "तालिका सङ्क्षिप्त करी",
+	"references-preview-header": "सन्दर्भ पूर्बावलोकन"
+}
