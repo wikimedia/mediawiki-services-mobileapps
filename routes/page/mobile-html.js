@@ -12,6 +12,7 @@ const mobileviewHtml = require('../../lib/mobileview-html');
 const apiUtilConstants = require('../../lib/api-util-constants');
 const parsoidApi = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
+const caching = require('../../lib/caching');
 
 /**
  * The main router object
@@ -107,7 +108,7 @@ function getMobileHtmlFromMobileview(req, res) {
  * Gets page content in HTML. This is a more optimized for direct consumption by reading
  * clients.
  */
-router.get('/page/mobile-html/:title/:revision?/:tid?', (req, res) => {
+router.get('/page/mobile-html/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (req, res) => {
 	req.getTitleRedirectLocation = (title) => title;
 	const buildMobileHtml = (title) => {
 		req.params.title = title;

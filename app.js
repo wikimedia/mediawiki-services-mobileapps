@@ -20,6 +20,7 @@ const yaml = require('js-yaml');
 const addShutdown = require('http-shutdown');
 const path = require('path');
 const { isRestbaseCompatReq } = require('./lib/restbase-compat');
+const { initCache } = require('./lib/caching');
 
 /**
  * Creates an express app and initialises it
@@ -166,6 +167,11 @@ function initApp(options) {
 	app.use(bodyParser.urlencoded({ extended: true }));
 	// use text for text/html
 	app.use(bodyParser.text({ type: 'text/html', limit: '10MB' }));
+
+	// Initialize cache backend
+	if (app.conf.caching && app.conf.caching.enabled) {
+		initCache(app);
+	}
 
 	return BBPromise.resolve(app);
 

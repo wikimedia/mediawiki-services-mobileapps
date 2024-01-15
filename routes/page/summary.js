@@ -11,6 +11,7 @@ const mwapiConstants = require('../../lib/mwapi-constants');
 const mUtil = require('../../lib/mobile-util');
 const parsoid = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
+const caching = require('../../lib/caching');
 
 /**
  * The main router object
@@ -27,7 +28,7 @@ let app;
  * Title redirection status: redirects based on parsoid output
  * Extracts a summary of a given wiki page limited to one paragraph of text
  */
-router.get('/summary/:title/:revision?/:tid?', (req, res) => {
+router.get('/summary/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (req, res) => {
 	req.getTitleRedirectLocation = (title) => title;
 	const buildSummary = (title) => {
 		req.params.title = title;
@@ -53,7 +54,7 @@ router.get('/summary/:title/:revision?/:tid?', (req, res) => {
 								mUtil.setETag(res, revTid.revision);
 								mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
 								mUtil.setLanguageHeaders(res, html.headers);
-								res.send(summary);
+								res.json(summary);
 							}
 							res.end();
 						});
