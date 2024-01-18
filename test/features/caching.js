@@ -5,11 +5,49 @@ const assert = require('../utils/assert.js');
 const server = require('../utils/server');
 const sinon = require('sinon');
 const cassandra = require('@wikimedia/cassandra-storage');
+const { initCache } = require('../../lib/caching.js');
 const { isObject } = require('underscore');
 
 const localUri = (endpoint, title, domain = 'en.wikipedia.org') => {
 	return `${server.config.uri}${domain}/v1/page/${endpoint}/${title}`;
 };
+
+describe('Cache config', function () {
+	it('should parse config and adapt ca value', function () {
+		const mockApp = {
+			conf: {
+				cassandra: {
+					hosts: ['127.0.0.1'],
+					port: 9042,
+					local_dc: 'datacenter1',
+					authentication: {
+						username: 'cassandra',
+						password: 'cassandra',
+					},
+					tls: {
+						ca: '/path/to/file'
+					}
+				},
+				caching: {
+					enabled: true,
+					ttl: 0,
+					cassandra: {
+						keyspace: 'tests',
+						storageTable: 'storage',
+					},
+				},
+			},
+		};
+		const engineStubbedInstance = sinon.createStubInstance(cassandra.Engine);
+		sinon.stub(cassandra, 'Engine').returns(engineStubbedInstance);
+		sinon.stub(cassandra, 'middlewareFactory');
+		initCache(mockApp);
+		assert.ok(cassandra.Engine.called);
+		const initArgs = cassandra.Engine.getCall(0).args[0];
+		assert.deepEqual(initArgs.tls.ca, ['/path/to/file']);
+		sinon.restore();
+	});
+});
 
 describe('Cached endpoints', function () {
 	this.timeout(20000);
