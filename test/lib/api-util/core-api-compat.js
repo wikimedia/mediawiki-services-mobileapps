@@ -3,7 +3,7 @@
 const assert = require('../../utils/assert');
 const sinon = require('sinon');
 const server = require('../../utils/server');
-const { HTTPTitleRedirectError, httpTitleRedirectErrorMiddleware } = require('../../../lib/core-api-compat');
+const { HTTPTitleRedirectError, httpTitleRedirectErrorMiddleware, addContentLangFromMeta } = require('../../../lib/core-api-compat');
 const preq = require('preq');
 
 describe('lib:core-api-compat unit tests', () => {
@@ -116,5 +116,13 @@ describe('PCS configured to not redirect', function () {
 		const path = `test.wikipedia.org/v1/page/mobile-html/${title}`;
 		const res = await preq.get({ uri: buildUri(path), followRedirect: false });
 		assert.equal(res.status, 200);
+	});
+
+	it('should fixup missing content-language header', async function() {
+		const title = 'Erde';
+		const path = `de.wikipedia.org/v1/page/mobile-html/${title}`;
+		const res = await preq.get({ uri: buildUri(path) });
+		assert.equal(res.status, 200);
+		assert.equal(res.headers['content-language'], 'de');
 	});
 });

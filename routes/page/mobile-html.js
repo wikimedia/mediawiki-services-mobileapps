@@ -13,6 +13,7 @@ const apiUtilConstants = require('../../lib/api-util-constants');
 const parsoidApi = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
 const caching = require('../../lib/caching');
+const { addContentLangFromMeta } = require('../../lib/core-api-compat');
 
 /**
  * The main router object
@@ -68,6 +69,7 @@ function getMobileHtmlFromParsoid(req, res) {
 		return response.mobileHTML;
 	}).then((mobileHTML) => {
 		res.status(200);
+		addContentLangFromMeta(res, mobileHTML.doc);
 		mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
 		mUtil.setETag(res, mobileHTML.metadata.revision);
 		mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
