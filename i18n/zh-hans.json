@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"500000000006城",
+			"Diskdance",
 			"Shizhao",
 			"VulpesVulpes825",
 			"列维劳德",
@@ -14,11 +15,11 @@
 	"table-title-other": "更多信息",
 	"page-edit-history": "查看编辑历史",
 	"info-box-close-text": "关闭",
-	"page-talk-page-subtitle": "讨论本条目的改进",
+	"page-talk-page-subtitle": "讨论改进本条目",
 	"page-issues-subtitle": "有关低于标准或有问题内容的警告",
 	"page-talk-page": "查看讨论页",
-	"info-box-title": "速览",
-	"view-in-browser-footer-link": "在浏览器查看条目",
+	"info-box-title": "事实速览",
+	"view-in-browser-footer-link": "在浏览器中查看条目",
 	"page-location": "在地图上查看",
 	"page-similar-titles": "类似页面",
 	"page-last-edited": "{{PLURAL:$1|更新于昨天|更新于$1天前|0=更新于今天}}",

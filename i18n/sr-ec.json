@@ -3,17 +3,18 @@
 		"authors": [
 			"BadDog",
 			"Kizule",
+			"Milicevic01",
 			"Obsuser"
 		]
 	},
 	"description-add-link-title": "Додај опис чланка",
 	"article-read-more-title": "Прочитајте више",
 	"table-title-other": "Више информација",
-	"page-edit-history": "Прикажи историју измена",
+	"page-edit-history": "Историја",
 	"info-box-close-text": "Затвори",
-	"page-talk-page-subtitle": "Разговор о побољшањима чланка",
+	"page-talk-page-subtitle": "Разговор о унапређењу овог чланка",
 	"page-issues-subtitle": "Упозорења о неквалитетном или проблематичном садржају",
-	"page-talk-page": "Прикажи страницу за разговор",
+	"page-talk-page": "Разговор",
 	"info-box-title": "Кратке чињенице",
 	"view-in-browser-footer-link": "Прикажи чланак у прегледачу",
 	"page-location": "Прикажи на мапи",
