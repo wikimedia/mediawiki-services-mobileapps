@@ -51,6 +51,11 @@ router.get('/summary/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (
 								// parsoid output. For example, if a wikidata description is edited,
 								// this response will be regenerated, which should trigger a change
 								// in the ETag
+
+								// RESTBase compatibility
+								// Required by RESTBase handling of page/summary
+								res.setHeader('content-language', meta.lang);
+
 								mUtil.setETag(res, revTid.revision);
 								mUtil.setContentType(res, mUtil.CONTENT_TYPES.summary);
 								mUtil.setLanguageHeaders(res, html.headers);

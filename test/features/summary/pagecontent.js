@@ -45,6 +45,15 @@ describe('summary', function() {
 			});
 	});
 
+	it('should respond with content-language header', () => {
+		const uri = localUri('Dog');
+		return preq.get({ uri })
+			.then((res) => {
+				assert.deepEqual(res.status, 200);
+				assert.deepEqual(res.headers['content-language'], 'en');
+			});
+	});
+
 	it('empty summary should be sent for empty page', () => {
 		const uri = localUri('Empty', 'test.wikipedia.org');
 		return preq.get({ uri })
