@@ -8,6 +8,7 @@ const mwapi = require('../../../lib/mwapi');
 const api = require('../../../lib/api-util').test;
 const { isExplicitCoreParsoidReq } = require('../../../lib/core-api-compat');
 const Template = require('swagger-router').Template;
+const MockExpressRequest = require('mock-express-request');
 
 const logger = require('bunyan').createLogger({
 	name: 'test-logger',
@@ -68,31 +69,41 @@ describe('lib:apiUtil', () => {
 	});
 
 	it('Checks header for explicit parsoid backend exists and its false', () => {
-		const testReq = {
+		const testReq = new MockExpressRequest({
 			headers: {
 				'Content-type': 'application/json',
 				'X-Use-MW-REST-Parsoid': 'false'
 			}
-		};
+		});
 		assert.deepEqual(isExplicitCoreParsoidReq(testReq), false);
 	});
 
 	it('Checks header for explicit parsoid backend exists and its true', () => {
-		const testReq = {
+		const testReq = new MockExpressRequest({
 			headers: {
 				'Content-type': 'application/json',
 				'X-Use-MW-REST-Parsoid': 'true'
 			}
-		};
+		});
+		assert.deepEqual(isExplicitCoreParsoidReq(testReq), true);
+	});
+
+	it('Checks header for explicit parsoid backend true (case insensitive)', () => {
+		const testReq = new MockExpressRequest({
+			headers: {
+				'Content-type': 'application/json',
+				'x-use-mw-rest-parsoid': 'true'
+			}
+		});
 		assert.deepEqual(isExplicitCoreParsoidReq(testReq), true);
 	});
 
 	it('Checks header for explicit parsoid backend doesnt exist', () => {
-		const testReq = {
+		const testReq = new MockExpressRequest({
 			headers: {
 				'Content-type': 'application/json',
 			}
-		};
+		});
 		assert.deepEqual(isExplicitCoreParsoidReq(testReq), false);
 	});
 
