@@ -170,4 +170,13 @@ describe('summary', function() {
 				assert.ok(res.body.extract_html.length);
 			});
 	});
+
+	it('Non wikitext content model should have timestamp in summary', () => {
+		const uri = localUri('Page%3AThe_story_of_the_flute_%28IA_storyofflute1914fitz%29.djvu%2F23', 'en.wikisource.org');
+		return preq.get(uri)
+			.then((res) => {
+				assert.ok(res.body.timestamp);
+				assert.ok(Date.parse(res.body.timestamp));
+			});
+	});
 });

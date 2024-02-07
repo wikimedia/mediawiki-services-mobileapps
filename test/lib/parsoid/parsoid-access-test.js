@@ -61,10 +61,6 @@ describe('lib:parsoid-access etag handling', () => {
 			assert.deepEqual(parsoid.getModified(domino.createDocument(html)), expected);
 		});
 
-		it('parses timestamp from HTML string', () => {
-			assert.deepEqual(parsoid.getModifiedFromHtml(html), expected);
-		});
-
 	});
 
 });
