@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ekminarin",
 			"Horus"
 		]
 	},
@@ -14,9 +15,15 @@
 	"view-in-browser-footer-link": "ดูบทความในเบราว์เซอร์",
 	"page-location": "ดูบนแผนที่",
 	"page-similar-titles": "หน้าที่คล้ายกัน",
-	"page-last-edited": "{{PLURAL:$1|0=แก้ไขเมื่อวันนี้|1=แก้ไขเมื่อวาน|แก้ไขเมื่อ $1 วันที่ผ่านมา}}",
+	"page-last-edited": "{{PLURAL:$1|อัปเดตเมื่อวาน|อัปเดตเมื่อ $1 วันที่แล้ว|0=อัปเดตวันนี้}}",
 	"article-about-title": "เกี่ยวกับบทความนี้",
 	"page-issues": "ปัญหาในหน้า",
 	"license-footer-text": "เนื้อหาอนุญาตให้เผยแพร่ภายใต้ $1 เว้นแต่ระบุไว้เป็นอย่างอื่น",
-	"page-read-in-other-languages": "มีใน {{PLURAL:$1|$1 ภาษาอื่น}}"
+	"page-read-in-other-languages": "มีใน {{PLURAL:$1|$1 ภาษาอื่น}}",
+	"article-edit-button": "แก้ไขส่วน",
+	"article-edit-protected-button": "แก้ไขส่วนในหน้าที่ถูกป้องกัน",
+	"article-section-expand": "ขยายส่วน",
+	"article-section-collapse": "ยุบส่วน",
+	"table-expand": "ขยายตาราง",
+	"table-collapse": "ยุบตาราง"
 }
