@@ -10,6 +10,7 @@ const parsoid = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
 const mwapi = require('../../lib/mwapi');
 const lib = require('../../lib/media');
+const caching = require('../../lib/caching');
 
 const router = sUtil.router();
 let app;
@@ -19,7 +20,7 @@ let app;
  * Title redirection status: Redirects based on parsoid output
  * Returns the non-UI media files used on the given page.
  */
-router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
+router.get('/media-list/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (req, res) => {
 	req.getTitleRedirectLocation = (title) => title;
 	const buildMediaList = (title) => {
 		req.params.title = title;
@@ -45,7 +46,7 @@ router.get('/media-list/:title/:revision?/:tid?', (req, res) => {
 					mUtil.setETag(res, revTid.revision, revTid.tid);
 					mUtil.setContentType(res, mUtil.CONTENT_TYPES.mediaList);
 					mUtil.setLanguageHeaders(res, parsoidRsp.headers);
-					res.send({
+					res.json({
 						revision: revTid.revision,
 						tid: revTid.tid,
 						items: response.pageMediaList
