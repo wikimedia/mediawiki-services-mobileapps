@@ -57,4 +57,14 @@ describe('definition', function() {
 				assert.ok(Object.keys(res).length !== 0);
 			});
 	});
+
+	it('sets content-language header', () => {
+		const uri = `${server.config.uri}en.wiktionary.org/v1/page/definition/Dog`;
+		return preq.get({ uri })
+			.then((res) => {
+				assert.status(res, 200);
+				assert.deepEqual(res.headers['content-language'], 'en');
+			});
+	});
+
 });
