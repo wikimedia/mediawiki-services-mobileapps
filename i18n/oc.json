@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"BrennodAloisi"
+			"BrennodAloisi",
+			"Lhanars"
 		]
 	},
 	"article-read-more-title": "Ne saber mai",
@@ -12,7 +13,7 @@
 	"page-similar-titles": "Paginas similaras",
 	"page-last-edited": "Modificat i a $1 jorns",
 	"article-about-title": "A prepaus d'aqueste article",
-	"page-issues": "Problèmas de pagina",
+	"page-issues": "Problèmas de la pagina",
 	"page-read-in-other-languages": "Disponible dins $1 autras lengas",
 	"references-preview-header": "Previsualizacion de las referéncias"
 }
