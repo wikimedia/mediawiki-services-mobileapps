@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.base.styles/content/images.less@cbe85237
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.base.styles/content/images.less@7ea5db0
 
 // Full-size images
 //
@@ -19,6 +19,9 @@
 @import '../../minerva.less/minerva.variables.less';
 @import '../../minerva.less/minerva.mixins.less';
 
+@margin-floatright: 0 0 0.6em 0.6em;
+@margin-floatleft: 0 0.6em 0.6em 0;
+
 .content {
   img {
     // Matches commonElements.css
@@ -32,7 +35,7 @@
     /* @noflip */
     float: right;
     /* @noflip */
-    margin: 0 0 0.6em 0.6em;
+    margin: @margin-floatright;
   }
 
   // Applied to divs containing aligned, full-size images
@@ -42,7 +45,7 @@
     /* @noflip */
     float: left;
     /* @noflip */
-    margin: 0 0.6em 0.6em 0;
+    margin: @margin-floatleft;
   }
 
   // Prevent inline styles on images in wikitext
@@ -67,6 +70,46 @@
 
     a > img {
       max-width: none !important;
+    }
+  }
+
+  figure[ typeof~='mw:File' ],
+  figure[ typeof~='mw:File/Frameless' ] {
+    display: table;
+    border-collapse: collapse;
+
+    &.mw-halign-right {
+      /* @noflip */
+      margin: @margin-floatright;
+      /* @noflip */
+      clear: right;
+      /* @noflip */
+      float: right;
+    }
+
+    &.mw-halign-left {
+      /* @noflip */
+      margin: @margin-floatleft;
+      /* @noflip */
+      clear: left;
+      /* @noflip */
+      float: left;
+    }
+
+    &.mw-halign-none {
+      clear: none;
+      float: none;
+    }
+
+    &.mw-halign-center {
+      margin: 0 auto;
+      clear: none;
+      float: none;
+    }
+
+    > figcaption {
+      // Hide the caption for frameless and plain floated images
+      display: none;
     }
   }
 }

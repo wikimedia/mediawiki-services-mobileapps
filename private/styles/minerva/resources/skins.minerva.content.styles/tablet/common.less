@@ -1,4 +1,4 @@
-// mediawiki/skins/MinervaNeue/resources/skins.minerva.base.styles/content/tablet/common.less@cbe85237
+// mediawiki/skins/MinervaNeue/resources/skins.minerva.base.styles/content/tablet/common.less@7ea5db0
 
 /*
 A file for css that optimises the Minerva skin on larger devices.
@@ -31,22 +31,60 @@ A file for css that optimises the Minerva skin on larger devices.
   // FIXME: Have a class that identifies all of these selectors
   .pre-content,
   /* Form only pages e.g. Special:MobileOptions */
+  .minerva-anon-talk-message,
   #mw-content-text > form,
   .content,
+  .content-unstyled,
   .post-content {
-    max-width: @contentMaxWidthTablet;
-    margin: 0 @contentPaddingTablet;
+    max-width: @max-width-content-tablet;
+    margin: 0 @padding-content-tablet;
   }
   // stylelint-enable selector-max-id
+
+  figure[ typeof~='mw:File/Thumb' ],
+  figure[ typeof~='mw:File/Frame' ] {
+    // Default where page content language is not set
+    // Allow to flip
+    clear: right;
+    float: right;
+    margin-left: 1.4em;
+    margin-right: 0;
+
+    // Defaults for page content language
+    // These will be overriden below when explicit classes are set
+
+    .mw-content-ltr & {
+      /* @noflip */
+      float: right;
+      /* @noflip */
+      clear: right;
+      /* @noflip */
+      margin-left: 1.4em;
+      /* @noflip */
+      margin-right: 0;
+    }
+
+    .mw-content-rtl & {
+      /* @noflip */
+      float: left;
+      /* @noflip */
+      clear: left;
+      /* @noflip */
+      margin-left: 0;
+      /* @noflip */
+      margin-right: 1.4em;
+    }
+  }
 
   .content {
     // Classes added by thumbnails
     // e.g. [[File:Scholars mate animation.gif|frame|left|"[[Scholar's mate]]"]]
     // We use @noflip because we still want .tleft to be on the left and
     // .tright to be on the right in RTL languages.
-    figure,
+    figure[ typeof~='mw:File/Thumb' ],
+    figure[ typeof~='mw:File/Frame' ],
     .thumb {
-      max-width: @width-breakpoint-tablet - @contentMargin;
+      max-width: @width-breakpoint-tablet - @margin-content;
 
       &.mw-halign-left,
       &.tleft {
@@ -55,10 +93,11 @@ A file for css that optimises the Minerva skin on larger devices.
         /* @noflip */
         clear: left;
         /* @noflip */
+        margin-left: 0;
+        /* @noflip */
         margin-right: 1.4em;
       }
 
-      &.mw-default-size,
       &.mw-halign-right,
       &.tright {
         /* @noflip */
@@ -67,6 +106,22 @@ A file for css that optimises the Minerva skin on larger devices.
         clear: right;
         /* @noflip */
         margin-left: 1.4em;
+        /* @noflip */
+        margin-right: 0;
+      }
+
+      &.mw-halign-none {
+        float: none;
+        clear: none;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      &.mw-halign-center {
+        float: none;
+        clear: none;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
@@ -107,12 +162,12 @@ A file for css that optimises the Minerva skin on larger devices.
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-    max-width: @contentMaxWidthTablet;
+    max-width: @max-width-content-tablet;
   }
 
   .header {
     // Make sure the main menu and secondary button icon images are aligned
     // with the content.
-    max-width: @contentMaxWidthTablet + 2 * @iconGutterWidth;
+    max-width: @max-width-content-tablet + 2 * @iconGutterWidth;
   }
 }

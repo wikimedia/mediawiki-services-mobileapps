@@ -69,8 +69,8 @@
 @fontSizeH3: 1.2em;
 
 // Content
-@contentPadding: 16px;
-@contentMargin: 16px;
+@padding-content: 16px;
+@margin-content: 16px;
 
 // Header
 @siteHeaderHeight: unit( 54 / @font-size-browser, em );
@@ -118,10 +118,10 @@
 @padding-vertical-blockquote: 8px;
 
 // custom tablet styling
-@contentPaddingTablet: 3.35em;
+@padding-content-tablet: 3.35em;
 
 // note since content does not use view border box we have to include padding.
-@contentMaxWidthTablet: @width-breakpoint-desktop - ( 2 * @contentPaddingTablet );
+@max-width-content-tablet: @width-breakpoint-desktop - ( 2 * @padding-content-tablet );
 
 // Wiki specific variables
 @infoboxWidth: 320px;
