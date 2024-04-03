@@ -31,5 +31,5 @@ variants:
   production:
     copies: [prep]
     node: { env: production }
-    apt: { packages: [ca-certificates] }
+    apt: { packages: [ca-certificates, wmf-certificates] }
     entrypoint: [node, server.js]
