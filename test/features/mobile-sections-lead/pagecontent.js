@@ -46,8 +46,8 @@ describe('mobile-sections-lead', function() {
 		return preq.get({ uri })
 			.then((res) => {
 				const lead = res.body;
-				assert.equal(lead.geo.latitude, 61.86666667);
-				assert.equal(lead.geo.longitude, 28.88305556);
+				assert.equal(lead.geo.latitude, 61.86805556);
+				assert.equal(lead.geo.longitude, 28.88611111);
 			});
 	});
 	it('Wikivoyage en Paris should have a lead object with a geo property', () => {
