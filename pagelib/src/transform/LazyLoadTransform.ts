@@ -27,9 +27,9 @@ const CLASSES = {
 
 // Attributes copied from images to placeholders via data-* attributes for later restoration. The
 // image's classes and dimensions are also set on the placeholder.
-// The 3 data-* items are used by iOS.
+// The 4 data-* items are used by iOS.
 const COPY_ATTRIBUTES = ['class', 'style', 'src', 'srcset', 'width', 'height', 'alt',
-  'usemap', 'data-file-width', 'data-file-height', 'data-image-gallery'
+  'usemap', 'data-file-width', 'data-file-height', 'data-image-gallery', 'data-file-original-src'
 ]
 
 // Small images, especially icons, are quickly downloaded and may appear in many places. Lazily

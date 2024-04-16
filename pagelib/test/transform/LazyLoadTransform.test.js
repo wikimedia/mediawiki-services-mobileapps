@@ -105,6 +105,7 @@ describe('LazyLoadTransform', () => {
         beforeEach(() => {
           const html = `<img class=classes style='width: 300em; height: 400em' width=100 height=200
             src=/src srcset=/srcset alt=text data-file-width=1 data-file-height=2
+            data-file-original-src=/originalsrc
             data-image-gallery=true>`
           this.document = domino.createDocument(html)
           const images = LazyLoadTransform.queryLazyLoadableImages(this.document.documentElement)
@@ -128,6 +129,7 @@ describe('LazyLoadTransform', () => {
             () => assert.ok(this.placeholder.getAttribute('data-data-file-height') === '2'))
           it('data-image-gallery',
             () => assert.ok(this.placeholder.getAttribute('data-data-image-gallery') === 'true'))
+          it('data-file-original-src', () => assert.ok(this.placeholder.getAttribute('data-data-file-original-src') === '/originalsrc'))
         })
 
         it('the placeholder is a pending class member', () =>
