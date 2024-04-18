@@ -49,6 +49,55 @@ describe('LeadIntroductionTransform', () => {
       const pWithCoordinates = document.getElementById('p1')
       assert.equal(isParagraphEligible(pWithCoordinates), true)
     })
+    it('reject p with inline styles and not enough text', () => {
+      const document = domino.createDocument(`
+        <p id="p1">
+          <style>
+            html.skin-theme-clientpref-night .mw-parser-output .infobox.biota tr{
+              background:transparent!important
+            }
+            html.skin-theme-clientpref-night .mw-parser-output .infobox.biota img{
+              background:white
+            }
+            @media(prefers-color-scheme:dark){
+              html.skin-theme-clientpref-os .mw-parser-output .infobox.biota tr{
+                background:transparent!important
+              }
+              html.skin-theme-clientpref-os .mw-parser-output .infobox.biota img{
+                background:white
+              }
+            }
+          </style>
+        </p>
+      `)
+      const pWithStyle = document.getElementById('p1')
+      assert.equal(isParagraphEligible(pWithStyle), false)
+    })
+    it('reject p with inline styles and enough text', () => {
+      const document = domino.createDocument(`
+        <p id="p1">
+          <style>
+            html.skin-theme-clientpref-night .mw-parser-output .infobox.biota tr{
+              background:transparent!important
+            }
+            html.skin-theme-clientpref-night .mw-parser-output .infobox.biota img{
+              background:white
+            }
+            @media(prefers-color-scheme:dark){
+              html.skin-theme-clientpref-os .mw-parser-output .infobox.biota tr{
+                background:transparent!important
+              }
+              html.skin-theme-clientpref-os .mw-parser-output .infobox.biota img{
+                background:white
+              }
+            }
+          </style>
+          This should be enough text.
+        </p>
+      `)
+      const pWithStyle = document.getElementById('p1')
+      assert.equal(isParagraphEligible(pWithStyle), true)
+    })
   })
   describe('extractLeadIntroductionNodes()', () => {
     it('grabs accepted p and other elements before next p', () => {
