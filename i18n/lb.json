@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Les Meloures",
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"description-add-link-title": "Beschreiwung vum Artikel derbäisetzen",
@@ -17,7 +18,7 @@
 	"view-in-browser-footer-link": "Artikel am Browser kucken",
 	"page-location": "Op enger Kaart weisen",
 	"page-similar-titles": "Änlech Säiten",
-	"page-last-edited": "{{PLURAL:$1|Gëschter aktualiséiert|Viru(n) $1 Deeg geännert|0=Haut geànnert}}",
+	"page-last-edited": "{{PLURAL:$1|Gëschter geännert|Viru(n) $1 Deeg geännert|0=Haut geännert}}",
 	"article-about-title": "Iwwer dësen Artikel",
 	"page-issues": "Problemer mat der Säit",
 	"license-footer-text": "Den Inhalt ass ënner der $1 disponibel wann et net anescht uginn ass.",
