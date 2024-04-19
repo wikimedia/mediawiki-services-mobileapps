@@ -1,0 +1,31 @@
+{
+	"extends": "wikimedia/server",
+	"rules": {
+		"array-bracket-spacing": "off",
+		"arrow-parens": "off",
+		"camelcase": "off",
+		"comma-dangle": "off",
+		"comma-spacing": "off",
+		"computed-property-spacing": "off",
+		"key-spacing": "off",
+		"max-statements-per-line": "off",
+		"no-multi-spaces": "off",
+		"no-underscore-dangle": "off",
+		"no-unused-expressions": "off",
+		"no-restricted-syntax": "off",
+		"no-unused-vars": "off",
+		"one-var": "off",
+		"operator-linebreak": "off",
+		"space-before-function-paren": "off",
+		"space-in-parens": "off",
+		"jsdoc/no-undefined-types": "off",
+		"jsdoc/valid-types": "off",
+		"jsdoc/check-access": "off",
+		"jsdoc/check-param-names": "off",
+		"jsdoc/check-types": "off",
+		"jsdoc/require-param": "off",
+		"jsdoc/require-param-type": "off",
+		"jsdoc/require-returns": "off",
+		"jsdoc/require-returns-check": "off"
+	}
+}
