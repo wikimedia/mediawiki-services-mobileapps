@@ -28,16 +28,25 @@ const isParagraphEligible = paragraphElement => {
   // heuristic has dual effect of P's containing only coordinates being rejected, and P's containing
   // coordinates but also other elements meeting the eligible P min textContent length being
   // accepted.
-  const coordElement = paragraphElement.querySelector('[id="coordinates"]')
-  const coordTextLength = !coordElement ? 0 : trimTextContent(coordElement.textContent).length
+
+  // Don't count inline styles in the eligible text
+
+  // Helper function to count text length
+  const countTextLength = (nodeList) => Array.from(nodeList).reduce(
+    (acc, elem) => acc + trimTextContent(elem.textContent).length, 0
+  )
+
+  const ignoredTextLength =
+    countTextLength(paragraphElement.querySelectorAll('[id="coordinates"]')) +
+    countTextLength(paragraphElement.querySelectorAll("style"));
 
   // Ensures the paragraph has at least a little text. Otherwise silly things like a empty P or P
   // which only contains a BR tag will get pulled up. See enwiki 'Hawaii', 'United States',
   // 'Academy (educational institution)', 'Lovászpatona'
   const minEligibleTextLength = 10
-  const hasEnoughEligibleText =
-    trimTextContent(paragraphElement.textContent).length - coordTextLength >= minEligibleTextLength
-    return hasEnoughEligibleText
+  const eligibleTextLength = trimTextContent(paragraphElement.textContent).length - ignoredTextLength;
+  const hasEnoughEligibleText = eligibleTextLength >= minEligibleTextLength
+  return hasEnoughEligibleText
 }
 
 /**
