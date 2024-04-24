@@ -2,17 +2,17 @@ version: "3.7"
 services:
   mobileapps:
     build:
+      target: development
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: .pipeline/blubber.yaml
     ports:
-    - 8888:8888
+      - 8888:8888
     volumes:
-    - .:/srv/service
-    - /srv/service/node_modules
+      - .:/srv/service
   pagelib:
     build:
-      context: ./pagelib
-      dockerfile: Dockerfile.dev
+      target: development
+      context: ./pagelib/
+      dockerfile: ../.pipeline/blubber.yaml
     volumes:
-    - ./pagelib:/srv/app
-    - /srv/app/node_modules
+      - ./pagelib:/srv/app
