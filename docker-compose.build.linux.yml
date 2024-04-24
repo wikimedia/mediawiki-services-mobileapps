@@ -2,5 +2,5 @@ version: "3.7"
 services:
   pagelib:
     user: "${MW_DOCKER_UID}:${MW_DOCKER_GID}"
-    environment: 
+    environment:
       - BABEL_DISABLE_CACHE=1

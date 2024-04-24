@@ -22,7 +22,7 @@ describe('extractLeadIntroduction', () => {
 		testCases.forEach((test, i) => {
 			const doc = domino.createDocument(test[0]);
 			const isEmpty = extractLeadIntroduction.test.isEmptyChild(doc.querySelector('p'));
-			assert.equal(isEmpty, test[1], `test ${i}`);
+			assert.equal(isEmpty, test[1], `test ${ i }`);
 		});
 	});
 	it('matches the spec', () => {

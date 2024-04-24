@@ -29,13 +29,15 @@ class Performance {
 		const perfPromise = new P(res => {
 			const start = process.hrtime();
 			Performance.checkEventLoopBlockingTime(promise, 0, start, (ns, blockns) => {
-				assert.ok(ns < max * MS_PER_NS, `Should take less than ${max}ms. It took ${Math.round(ns / MS_PER_NS)}ms`);
-				assert.ok(blockns < maxblock * MS_PER_NS, `Shouldn't block the event loop for more than ${maxblock}ms.
-          It was blocked for ${Math.round(blockns / MS_PER_NS)}ms`);
+				assert.ok(ns < max * MS_PER_NS, `Should take less than ${ max }ms. It took ${ Math.round(ns / MS_PER_NS) }ms`);
+				assert.ok(blockns < maxblock * MS_PER_NS, `Shouldn't block the event loop for more than ${ maxblock }ms.
+          It was blocked for ${ Math.round(blockns / MS_PER_NS) }ms`);
 				res();
 			});
 		});
-		return P.join(promise, perfPromise).then(results => { return results[0]; });
+		return P.join(promise, perfPromise).then(results => {
+			return results[0];
+		});
 	}
 
 	// Marks the start and returns the object to send to finish

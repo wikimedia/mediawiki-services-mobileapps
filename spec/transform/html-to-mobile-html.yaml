@@ -10,8 +10,8 @@ paths:
         changes if `output-mode` header is sent as `editPreview` - that removes page headers (article
         title and description) and edit UI elements (edit pencils, etc.), and has no collapsed sections.
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
+        - $ref: "#/components/parameters/domainParam"
+        - $ref: "#/components/parameters/title"
         - in: body
           name: html
           required: true
@@ -30,9 +30,9 @@ paths:
               - references
       responses:
         200:
-          $ref: '#/components/responses/success'
+          $ref: "#/components/responses/success"
         default:
-          $ref: '#/components/responses/problem'
+          $ref: "#/components/responses/problem"
       x-amples:
         - title: Get preview mobile HTML for test page
           request:

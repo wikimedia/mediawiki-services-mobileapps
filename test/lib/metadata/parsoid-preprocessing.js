@@ -19,7 +19,7 @@ describe('metadata:preprocessing', () => {
 
 	before(() => {
 		const processing = path.join(__dirname, '../../../processing/metadata.yaml');
-		script = yaml.safeLoad(fs.readFileSync(processing));
+		script = yaml.load(fs.readFileSync(processing));
 	});
 
 	it('strips comments', () => {

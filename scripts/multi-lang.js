@@ -23,13 +23,13 @@ function isWikipediaLanguage(lang) {
 	return wikipediaLanguages.includes(lang);
 }
 
-function processOneLanguage(script, lang) {
-	const cmd = `${script} ${lang}`;
+function processOneLanguage(_script, lang) {
+	const cmd = `${ _script } ${ lang }`;
 	return execSync(cmd, { stdio: [ 0, 1, 2 ] })
 		.then((rsp) => {
 			return BBPromise.resolve();
 		}).catch((err) => {
-			process.stderr.write(`ERROR processing language ${lang}: ${err}`);
+			process.stderr.write(`ERROR processing language ${ lang }: ${ err }`);
 			return BBPromise.resolve();
 		});
 }
@@ -39,9 +39,9 @@ const [,, script, ...languages] = process.argv; // skip over first two items
 
 BBPromise.each(languages, (lang) => {
 	if (isWikipediaLanguage(lang)) {
-		process.stdout.write(`${lang}\n`);
+		process.stdout.write(`${ lang }\n`);
 		processOneLanguage(script, lang);
 	} else {
-		process.stderr.write(`ERROR: ${lang} not a Wikipedia project code\n`);
+		process.stderr.write(`ERROR: ${ lang } not a Wikipedia project code\n`);
 	}
 });

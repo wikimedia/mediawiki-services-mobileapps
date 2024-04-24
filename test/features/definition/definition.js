@@ -8,40 +8,44 @@ describe('definition', function() {
 
 	this.timeout(20000);
 
-	before(() => server.start());
+	let svc;
+	before(async () => {
+		svc = await server.start();
+	});
+	after(async () => await svc.stop());
 
 	it('missing definitions', () => {
-		const uri = `${server.config.uri}en.wiktionary.org/v1/page/definition/Dssjbkrt`;
+		const uri = `${ server.config.uri }en.wiktionary.org/v1/page/definition/Dssjbkrt`;
 		return preq.get({ uri })
 			.then((res) => {
-				throw new Error(`Expected an error, but got status: ${res.status}`);
+				throw new Error(`Expected an error, but got status: ${ res.status }`);
 			}, (err) => {
 				assert.status(err, 404);
 			});
 	});
 
 	it('non-term page', () => {
-		const uri = `${server.config.uri}en.wiktionary.org/v1/page/definition/Main_page`;
+		const uri = `${ server.config.uri }en.wiktionary.org/v1/page/definition/Main_page`;
 		return preq.get({ uri })
 			.then((res) => {
-				throw new Error(`Expected an error, but got status: ${res.status}`);
+				throw new Error(`Expected an error, but got status: ${ res.status }`);
 			}, (err) => {
 				assert.status(err, 404);
 			});
 	});
 
 	it('unsupported language', () => {
-		const uri = `${server.config.uri}ru.wiktionary.org/v1/page/definition/Baba`;
+		const uri = `${ server.config.uri }ru.wiktionary.org/v1/page/definition/Baba`;
 		return preq.get({ uri })
 			.then((res) => {
-				throw new Error(`Expected an error, but got status: ${res.status}`);
+				throw new Error(`Expected an error, but got status: ${ res.status }`);
 			}, (err) => {
 				assert.status(err, 501);
 			});
 	});
 
 	it('non-English term on English Wiktionary returns valid results', () => {
-		const uri = `${server.config.uri}en.wiktionary.org/v1/page/definition/%E4%B8%AD%E5%9B%BD`;
+		const uri = `${ server.config.uri }en.wiktionary.org/v1/page/definition/%E4%B8%AD%E5%9B%BD`;
 		return preq.get({ uri })
 			.then((res) => {
 				assert.status(res, 200);
@@ -50,7 +54,7 @@ describe('definition', function() {
 	});
 
 	it('translingual term', () => {
-		const uri = `${server.config.uri}en.wiktionary.org/v1/page/definition/Toxicodendron`;
+		const uri = `${ server.config.uri }en.wiktionary.org/v1/page/definition/Toxicodendron`;
 		return preq.get({ uri })
 			.then((res) => {
 				assert.status(res, 200);
@@ -59,7 +63,7 @@ describe('definition', function() {
 	});
 
 	it('sets content-language header', () => {
-		const uri = `${server.config.uri}en.wiktionary.org/v1/page/definition/Dog`;
+		const uri = `${ server.config.uri }en.wiktionary.org/v1/page/definition/Dog`;
 		return preq.get({ uri })
 			.then((res) => {
 				assert.status(res, 200);

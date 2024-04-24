@@ -10,10 +10,14 @@ describe('diff', function() {
 
 	this.timeout(20000);
 
-	before(() => server.start());
+	let svc;
+	before(async () => {
+		svc = await server.start();
+	});
+	after(async () => await svc.stop());
 
 	const buildUri = (path) => {
-		return `${server.config.uri}${path}`;
+		return `${ server.config.uri }${ path }`;
 	};
 
 	/**
@@ -49,7 +53,7 @@ describe('diff', function() {
 
 	if (testSpec.UPDATE_EXPECTED_RESULTS) {
 		for (const spec of testSpec.TEST_SPECS) {
-			it(`Update expected result for ${spec.testName()}`, () => {
+			it(`Update expected result for ${ spec.testName() }`, () => {
 				const requestParams = buildRequestParams(buildUri, spec);
 				switch (spec.getHttpMethod()) {
 					case 'GET':
@@ -63,7 +67,7 @@ describe('diff', function() {
 								return writeExpectedResultsToFile(spec, rsp, formatOutput);
 							});
 					default:
-						assert.fail(`http method ${spec.getHttpMethod()} not implemented`);
+						assert.fail(`http method ${ spec.getHttpMethod() } not implemented`);
 				}
 			});
 		}
@@ -73,13 +77,13 @@ describe('diff', function() {
 			for (const spec of testSpec.TEST_SPECS) {
 				console.log(spec.generator());
 			}
-			/* eslint-enable no-console */
+
 		});
 
 	} else {
 		// Verify step:
 		for (const spec of testSpec.TEST_SPECS) {
-			it(`${spec.testName()}`, () => {
+			it(`${ spec.testName() }`, () => {
 				const requestParams = buildRequestParams(buildUri, spec);
 				switch (spec.getHttpMethod()) {
 					case 'GET':
@@ -93,7 +97,7 @@ describe('diff', function() {
 								return verifyResult(spec, rsp);
 							});
 					default:
-						assert.fail(`http method ${spec.getHttpMethod()} not implemented`);
+						assert.fail(`http method ${ spec.getHttpMethod() } not implemented`);
 				}
 			});
 		}

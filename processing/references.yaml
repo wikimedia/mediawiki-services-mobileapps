@@ -1,32 +1,32 @@
 # strip unneeded markup
 
 - rmElements:
-  - span.Z3988
-  - span:empty
+    - span.Z3988
+    - span:empty
 - rmBracketSpans
 - rmComments
 - rmAttributes:
-    a: ['about', 'data-mw', 'typeof']
-    a:not([rel~=nofollow],[rel~=mw:ExtLink],[rel~=mw:referencedBy]): ['rel']
-    abbr: ['title']
-    b: ['about', 'data-mw', 'typeof']
-    blockquote: ['about', 'data-mw', 'typeof']
-    br: ['about', 'data-mw', 'typeof']
-    cite: ['about', 'data-mw', 'typeof']
-    code: ['about', 'data-mw', 'typeof']
-    div: ['data-mw', 'typeof']
-    figure: ['typeof']
+    a: [ about, data-mw, typeof ]
+    a:not([rel~=nofollow],[rel~=mw:ExtLink],[rel~=mw:referencedBy]): [ rel ]
+    abbr: [ title ]
+    b: [ about, data-mw, typeof ]
+    blockquote: [ about, data-mw, typeof ]
+    br: [ about, data-mw, typeof ]
+    cite: [ about, data-mw, typeof ]
+    code: [ about, data-mw, typeof ]
+    div: [ data-mw, typeof ]
+    figure: [ typeof ]
     # FIXME(T266143): 'figure-inline' is being deprecated
-    figure-inline: ['about', 'data-file-type', 'data-mw', 'itemscope', 'itemtype', 'lang', 'title', 'typeof']
-    i: ['about', 'data-mw', 'typeof']
-    img: ['about', 'alt', 'resource']
-    li: ['about']
-    link: ['data-mw', 'typeof']
-    ol: ['data-mw']
-    p: ['data-mw', 'typeof']
-    span: ['about', 'data-file-type', 'data-mw', 'itemscope', 'itemtype', 'lang', 'title', 'typeof']
-    style: ['about', 'data-mw']
-    sup: ['about', 'data-mw', 'rel', 'typeof']
-    table: ['about', 'data-mw', 'typeof']
-    ul: ['about', 'data-mw', 'typeof']
+    figure-inline: [ about, data-file-type, data-mw, itemscope, itemtype, lang, title, typeof ]
+    i: [ about, data-mw, typeof ]
+    img: [ about, alt, resource ]
+    li: [ about ]
+    link: [ data-mw, typeof ]
+    ol: [ data-mw ]
+    p: [ data-mw, typeof ]
+    span: [ about, data-file-type, data-mw, itemscope, itemtype, lang, title, typeof ]
+    style: [ about, data-mw ]
+    sup: [ about, data-mw, rel, typeof ]
+    table: [ about, data-mw, typeof ]
+    ul: [ about, data-mw, typeof ]
 - rmMwIdAttributes

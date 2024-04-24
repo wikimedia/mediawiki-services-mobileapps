@@ -21,7 +21,7 @@ describe('lib:core-api-compat unit tests', () => {
 			redirect: sinon.stub()
 		};
 		const req = {
-			getTitleRedirectLocation: (title) => `/test/path/${title}`
+			getTitleRedirectLocation: (title) => `/test/path/${ title }`
 		};
 		const next = sinon.stub();
 
@@ -36,7 +36,7 @@ describe('lib:core-api-compat unit tests', () => {
 			redirect: sinon.stub()
 		};
 		const req = {
-			getTitleRedirectLocation: (title) => `/test/path/${title}`
+			getTitleRedirectLocation: (title) => `/test/path/${ title }`
 		};
 		const next = sinon.stub();
 
@@ -68,22 +68,23 @@ describe('lib:core-api-compat unit tests', () => {
 
 describe('PCS configured to redirect', function () {
 	const buildUri = (path) => {
-		return `${server.config.uri}${path}`;
+		return `${ server.config.uri }${ path }`;
 	};
 
-	before(() => {
+	let svc;
+	before(async () => {
 		const options = {
 			pcs_handles_redirects: true,
 			use_coreparsoid_endpoint: true
 		};
-		server.start(options);
+		svc = await server.start(options);
 	});
 
-	after(() => server.stop());
+	after(async () => await svc.stop());
 
 	it('mobile-html should redirect to the resolved page', async function () {
 		const title = 'TestPCSRedirect';
-		const path = `test.wikipedia.org/v1/page/mobile-html/${title}`;
+		const path = `test.wikipedia.org/v1/page/mobile-html/${ title }`;
 		const res = await preq.get({ uri: buildUri(path), followRedirect: false });
 		assert.equal(res.status, 302);
 		assert.equal(res.headers.location, 'TestPCSRedirectDestination');
@@ -91,7 +92,7 @@ describe('PCS configured to redirect', function () {
 
 	it('mobile-html-offline-resources should not redirect to the resolved page', async function () {
 		const title = 'TestPCSRedirect';
-		const path = `test.wikipedia.org/v1/page/mobile-html-offline-resources/${title}`;
+		const path = `test.wikipedia.org/v1/page/mobile-html-offline-resources/${ title }`;
 		const res = await preq.get({ uri: buildUri(path), followRedirect: false });
 		assert.equal(res.status, 200);
 	});
@@ -99,28 +100,29 @@ describe('PCS configured to redirect', function () {
 
 describe('PCS configured to not redirect', function () {
 	const buildUri = (path) => {
-		return `${server.config.uri}${path}`;
+		return `${ server.config.uri }${ path }`;
 	};
 
-	before(() => {
+	let svc;
+	before(async () => {
 		const options = {
 			use_coreparsoid_endpoint: true
 		};
-		server.start(options);
+		svc = await server.start(options);
 	});
 
-	after(() => server.stop());
+	after(async () => await svc.stop());
 
 	it('mobile-html should not redirect and should parse the resolved response', async function () {
 		const title = 'TestPCSRedirect';
-		const path = `test.wikipedia.org/v1/page/mobile-html/${title}`;
+		const path = `test.wikipedia.org/v1/page/mobile-html/${ title }`;
 		const res = await preq.get({ uri: buildUri(path), followRedirect: false });
 		assert.equal(res.status, 200);
 	});
 
 	it('should fixup missing content-language header', async function() {
 		const title = 'Erde';
-		const path = `de.wikipedia.org/v1/page/mobile-html/${title}`;
+		const path = `de.wikipedia.org/v1/page/mobile-html/${ title }`;
 		const res = await preq.get({ uri: buildUri(path) });
 		assert.equal(res.status, 200);
 		assert.equal(res.headers['content-language'], 'de');

@@ -9,10 +9,14 @@ describe('mobile-html', function() {
 
 	this.timeout(20000);
 
-	before(() => server.start());
+	let svc;
+	before(async () => {
+		svc = await server.start();
+	});
+	after(async () => await svc.stop());
 
 	const localUri = (title, domain = 'en.wikipedia.org') => {
-		return `${server.config.uri}${domain}/v1/page/mobile-html/${title}`;
+		return `${ server.config.uri }${ domain }/v1/page/mobile-html/${ title }`;
 	};
 
 	it('HTML should be sectioned', () => {
@@ -50,7 +54,7 @@ describe('mobile-html', function() {
 			.then((res) => {
 				assert.deepEqual(defaultHeaders.length, Object.keys(res.headers).length);
 				defaultHeaders.forEach((header) => {
-					assert.deepEqual(!!res.headers[header], true, `Header ${header} not present`);
+					assert.deepEqual(!!res.headers[header], true, `Header ${ header } not present`);
 				});
 			});
 	});
@@ -83,7 +87,7 @@ describe('mobile-html', function() {
 			.then((res) => {
 				assert.deepEqual(restbaseHeaders.length, Object.keys(res.headers).length);
 				restbaseHeaders.forEach((header) => {
-					assert.deepEqual(!!res.headers[header], true, `Header ${header} not present`);
+					assert.deepEqual(!!res.headers[header], true, `Header ${ header } not present`);
 				});
 			});
 	});

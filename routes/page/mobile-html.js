@@ -26,7 +26,6 @@ const router = sUtil.router();
 let app;
 
 /**
- *
  * @param {!Object} req
  * @param {!Object} res
  * @return {Promise}
@@ -55,7 +54,6 @@ function getMobileHtmlFromPOST(req, res) {
 }
 
 /**
- *
  * @param {!Object} req
  * @param {!Object} res
  * @return {Promise}
@@ -82,7 +80,6 @@ function getMobileHtmlFromParsoid(req, res) {
 }
 
 /**
- *
  * @param {!Object} req
  * @param {!Object} res
  * @return {Promise}
@@ -152,11 +149,11 @@ router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, 
 	const localApiUri = mUtil.getLocalRESTBaseAPIURI(app, req);
 
 	const offlineResources = [
-		`${metawikiApiUri}data/css/mobile/base`,
-		`${metawikiApiUri}data/css/mobile/pcs`,
-		`${metawikiApiUri}data/javascript/mobile/pcs`,
-		`${externalApiUri}data/css/mobile/site`,
-		`${localApiUri}data/i18n/pcs`
+		`${ metawikiApiUri }data/css/mobile/base`,
+		`${ metawikiApiUri }data/css/mobile/pcs`,
+		`${ metawikiApiUri }data/javascript/mobile/pcs`,
+		`${ externalApiUri }data/css/mobile/site`,
+		`${ localApiUri }data/i18n/pcs`
 	];
 
 	// Enable caching since this endpoint is heavily requested

@@ -11,49 +11,49 @@ describe('Local description template editing', () => {
 		{
 			name: 'Simple param, only template',
 			wikitext: '{{Short description|test}}',
-			expected_replaced: `{{Short description|${NEW_DESCRIPTION}}}`,
+			expected_replaced: `{{Short description|${ NEW_DESCRIPTION }}}`,
 			expected_deleted: ''
 		},
 		{
 			name: 'Simple param, in the beginning',
 			wikitext: '{{Short description|test}}\n==Section 1==\n{{Other template|a|b}}',
-			expected_replaced: `{{Short description|${NEW_DESCRIPTION}}}\n==Section 1==\n{{Other template|a|b}}`,
+			expected_replaced: `{{Short description|${ NEW_DESCRIPTION }}}\n==Section 1==\n{{Other template|a|b}}`,
 			expected_deleted: '\n==Section 1==\n{{Other template|a|b}}'
 		},
 		{
 			name: 'Simple param, in the middle',
 			wikitext: '==Section 1==\n{{Short description|test}}\n{{Other template|a|b}}',
-			expected_replaced: `==Section 1==\n{{Short description|${NEW_DESCRIPTION}}}\n{{Other template|a|b}}`,
+			expected_replaced: `==Section 1==\n{{Short description|${ NEW_DESCRIPTION }}}\n{{Other template|a|b}}`,
 			expected_deleted: '==Section 1==\n\n{{Other template|a|b}}'
 		},
 		{
 			name: 'Named param',
 			wikitext: '==Section 1==\n{{Short description|1=test}}\n{{Other template|a|b}}',
-			expected_replaced: `==Section 1==\n{{Short description|1=${NEW_DESCRIPTION}}}\n{{Other template|a|b}}`,
+			expected_replaced: `==Section 1==\n{{Short description|1=${ NEW_DESCRIPTION }}}\n{{Other template|a|b}}`,
 			expected_deleted: '==Section 1==\n\n{{Other template|a|b}}'
 		},
 		{
 			name: 'Unnamed param, multiple params, unnamed',
 			wikitext: '==Section 1==\n{{Short description|test|nowiki}}\n{{Other template|a|b}}',
-			expected_replaced: `==Section 1==\n{{Short description|${NEW_DESCRIPTION}|nowiki}}\n{{Other template|a|b}}`,
+			expected_replaced: `==Section 1==\n{{Short description|${ NEW_DESCRIPTION }|nowiki}}\n{{Other template|a|b}}`,
 			expected_deleted: '==Section 1==\n\n{{Other template|a|b}}'
 		},
 		{
 			name: 'Unnamed param, multiple params, named',
 			wikitext: '==Section 1==\n{{Short description|test|2=nowiki}}\n{{Other template|a|b}}',
-			expected_replaced: `==Section 1==\n{{Short description|${NEW_DESCRIPTION}|2=nowiki}}\n{{Other template|a|b}}`,
+			expected_replaced: `==Section 1==\n{{Short description|${ NEW_DESCRIPTION }|2=nowiki}}\n{{Other template|a|b}}`,
 			expected_deleted: '==Section 1==\n\n{{Other template|a|b}}'
 		},
 		{
 			name: 'named param, multiple params, unnamed',
 			wikitext: '==Section 1==\n{{Short description|1=test|nowiki}}\n{{Other template|a|b}}',
-			expected_replaced: `==Section 1==\n{{Short description|1=${NEW_DESCRIPTION}|nowiki}}\n{{Other template|a|b}}`,
+			expected_replaced: `==Section 1==\n{{Short description|1=${ NEW_DESCRIPTION }|nowiki}}\n{{Other template|a|b}}`,
 			expected_deleted: '==Section 1==\n\n{{Other template|a|b}}'
 		},
 		{
 			name: 'named param, multiple params, named',
 			wikitext: '==Section 1==\n{{Short description|1=test|2=nowiki}}\n{{Other template|a|b}}',
-			expected_replaced: `==Section 1==\n{{Short description|1=${NEW_DESCRIPTION}|2=nowiki}}\n{{Other template|a|b}}`,
+			expected_replaced: `==Section 1==\n{{Short description|1=${ NEW_DESCRIPTION }|2=nowiki}}\n{{Other template|a|b}}`,
 			expected_deleted: '==Section 1==\n\n{{Other template|a|b}}'
 		}
 	];

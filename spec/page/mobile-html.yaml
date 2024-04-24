@@ -22,11 +22,11 @@ paths:
         What's not included? What parts of the PageLibrary does a client still have to do?
         Details for this can be found at https://github.com/wikimedia/wikimedia-page-library/blob/master/docs/pcs/pcs.md#interface
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
+        - $ref: "#/components/parameters/domainParam"
+        - $ref: "#/components/parameters/title"
       responses:
         200:
-          $ref: '#/components/responses/success'
+          $ref: "#/components/responses/success"
         default:
           $ref: "#/components/responses/problem"
       x-amples:
@@ -41,7 +41,7 @@ paths:
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
+              access-control-allow-origin: "*"
               access-control-allow-headers: accept, x-requested-with, content-type
               content-security-policy: /^(default\-src).*(connect\-src).*(media\-src).*(img\-src).*(object\-src).*(script\-src).*(style\-src).*(frame\-ancestor).*$/
               x-content-security-policy: /^(default\-src).*(connect\-src).*(media\-src).*(img\-src).*(object\-src).*(script\-src).*(style\-src).*(frame\-ancestor).*$/
@@ -69,12 +69,12 @@ paths:
         What's not included? What parts of the PageLibrary does a client still have to do?
         Details for this can be found at https://github.com/wikimedia/wikimedia-page-library/blob/master/docs/pcs/pcs.md#interface
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
-        - $ref: '#/components/parameters/revision'
+        - $ref: "#/components/parameters/domainParam"
+        - $ref: "#/components/parameters/title"
+        - $ref: "#/components/parameters/revision"
       responses:
         200:
-          $ref: '#/components/responses/success'
+          $ref: "#/components/responses/success"
         default:
           $ref: "#/components/responses/problem"
       x-monitor: false

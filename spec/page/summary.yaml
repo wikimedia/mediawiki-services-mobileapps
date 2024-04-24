@@ -10,17 +10,17 @@ paths:
         and HTML as well as the type of page. This is useful for page previews (fka. Hovercards,
         aka. Popups) on the web and link previews in the apps.
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
+        - $ref: "#/components/parameters/domainParam"
+        - $ref: "#/components/parameters/title"
       responses:
         200:
-          $ref: '#/components/responses/summary'
+          $ref: "#/components/responses/summary"
         404:
           description: Unknown page title or revision
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/problem'
+                $ref: "#/components/schemas/problem"
         default:
           $ref: "#/components/responses/problem"
       x-amples:
@@ -35,7 +35,7 @@ paths:
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
+              access-control-allow-origin: "*"
               access-control-allow-headers: accept, x-requested-with, content-type
               content-security-policy: default-src 'none'; frame-ancestors 'none'
               x-content-security-policy: default-src 'none'; frame-ancestors 'none'
@@ -94,18 +94,18 @@ paths:
         and HTML as well as the type of page. This is useful for page previews (fka. Hovercards,
         aka. Popups) on the web and link previews in the apps.
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
-        - $ref: '#/components/parameters/revision'
+        - $ref: "#/components/parameters/domainParam"
+        - $ref: "#/components/parameters/title"
+        - $ref: "#/components/parameters/revision"
       responses:
         200:
-          $ref: '#/components/responses/summary'
+          $ref: "#/components/responses/summary"
         404:
           description: Unknown page title or revision
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/problem'
+                $ref: "#/components/schemas/problem"
         default:
           $ref: "#/components/responses/problem"
       x-monitor: false
@@ -122,7 +122,7 @@ components:
       content:
         'application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.5.0"':
           schema:
-            $ref: '#/components/schemas/summary'
+            $ref: "#/components/schemas/summary"
   schemas:
     # see also RB v1/common_schemas.yaml
     summary:
@@ -137,7 +137,7 @@ components:
             - no-extract
             - mainpage
         titles:
-          $ref: '#/components/schemas/titles_set'
+          $ref: "#/components/schemas/titles_set"
         title:
           deprecated: true
           type: string
@@ -180,9 +180,9 @@ components:
           type: string
           description: First several sentences of an article in simple HTML format
         thumbnail:
-          $ref: '#/components/schemas/image_props'
+          $ref: "#/components/schemas/image_props"
         originalimage:
-          $ref: '#/components/schemas/image_props'
+          $ref: "#/components/schemas/image_props"
         lang:
           type: string
           description: The page language code
@@ -197,7 +197,7 @@ components:
           type: string
           format: date-time
           description: The time when the page was last edited in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
-          example: '1970-01-01T00:00:00.000Z'
+          example: "1970-01-01T00:00:00.000Z"
         description:
           type: string
           description: short description for the page
@@ -206,9 +206,9 @@ components:
           type: object
           properties:
             desktop:
-              $ref: '#/components/schemas/content_urls'
+              $ref: "#/components/schemas/content_urls"
             mobile:
-              $ref: '#/components/schemas/content_urls'
+              $ref: "#/components/schemas/content_urls"
         coordinates:
           type: object
           description: The coordinates of the item
@@ -219,7 +219,7 @@ components:
             lon:
               type: number
               description: The longitude
-          required: [ 'lat', 'lon' ]
+          required: [ lat, lon ]
       required:
         - type
         - titles

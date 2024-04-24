@@ -210,7 +210,7 @@ function handleFilePagePromise(req, res) {
 }
 
 function isSubpage(title) {
-	return title.indexOf('/') > -1;
+	return title.includes('/');
 }
 
 /**

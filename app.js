@@ -88,9 +88,9 @@ function initApp(options) {
 			'user-agent', 'x-request-id'
 		];
 	}
-	app.conf.log_header_allowlist = new RegExp(`^(?:${app.conf.log_header_allowlist.map((item) => {
+	app.conf.log_header_allowlist = new RegExp(`^(?:${ app.conf.log_header_allowlist.map((item) => {
 		return item.trim();
-	}).join('|')})$`, 'i');
+	}).join('|') })$`, 'i');
 
 	// set up default strategy for handling redirects
 	app.conf.pcs_handles_redirects = app.conf.pcs_handles_redirects || false;
@@ -100,13 +100,13 @@ function initApp(options) {
 
 	// set up the spec
 	if (!app.conf.spec) {
-		app.conf.spec = specLib.load(`${__dirname}/spec`, {});
+		app.conf.spec = specLib.load(`${ __dirname }/spec`, {});
 	}
 	if (app.conf.spec.constructor !== Object) {
 		try {
-			app.conf.spec = yaml.safeLoad(fs.readFileSync(app.conf.spec));
+			app.conf.spec = yaml.load(fs.readFileSync(app.conf.spec));
 		} catch (e) {
-			app.logger.log('warn/spec', `Could not load the spec: ${e}`);
+			app.logger.log('warn/spec', `Could not load the spec: ${ e }`);
 			app.conf.spec = {};
 		}
 	}
@@ -195,7 +195,7 @@ function loadRoutes(app, dir) {
 				loadRoutes(app, resolvedPath);
 			} else if (/\.js$/.test(fname)) {
 				// import the route file
-				const route = require(`${dir}/${fname}`);
+				const route = require(`${ dir }/${ fname }`);
 				return route(app);
 			}
 		}).then((route) => {
@@ -205,17 +205,17 @@ function loadRoutes(app, dir) {
 			// check that the route exports the object we need
 			if (route.constructor !== Object || !route.path || !route.router ||
                 !(route.api_version || route.skip_domain)) {
-				throw new TypeError(`routes/${fname} does not export the correct object!`);
+				throw new TypeError(`routes/${ fname } does not export the correct object!`);
 			}
 			// normalise the path to be used as the mount point
 			if (route.path[0] !== '/') {
-				route.path = `/${route.path}`;
+				route.path = `/${ route.path }`;
 			}
 			if (route.path[route.path.length - 1] !== '/') {
-				route.path = `${route.path}/`;
+				route.path = `${ route.path }/`;
 			}
 			if (!route.skip_domain) {
-				route.path = `/:domain/v${route.api_version}${route.path}`;
+				route.path = `/:domain/v${ route.api_version }${ route.path }`;
 			}
 			// wrap the route handlers with Promise.try() blocks
 			sUtil.wrapRouteHandlers(route, app);
@@ -260,11 +260,11 @@ function loadPreProcessingScripts(app, dir) {
 	app.conf.processing_scripts = {};
 	return fs.readdirAsync(dir).map(filename => BBPromise.try(() => {
 		const name = filename.split('.')[0];
-		const script = yaml.safeLoad(fs.readFileSync(`${dir}/${filename}`));
+		const script = yaml.load(fs.readFileSync(`${ dir }/${ filename }`));
 		_validate(script);
 		app.conf.processing_scripts[name] = script;
 	})
-		.catch(e => app.logger.log('warn/loading', `Error loading processing scripts: ${e}`)))
+		.catch(e => app.logger.log('warn/loading', `Error loading processing scripts: ${ e }`)))
 		.then(() => BBPromise.resolve(app));
 }
 
@@ -289,7 +289,7 @@ function createServer(app) {
 		server = addShutdown(server);
 	}).then(() => {
 		app.logger.log('info',
-			`Worker ${process.pid} listening on ${app.conf.interface || '*'}:${app.conf.port}`);
+			`Worker ${ process.pid } listening on ${ app.conf.interface || '*' }:${ app.conf.port }`);
 
 		// Don't delay incomplete packets for 40ms (Linux default) on
 		// pipelined HTTP sockets. We write in large chunks or buffers, so
@@ -315,14 +315,14 @@ function createServer(app) {
 module.exports = (options) => {
 
 	return initApp(options)
-		.then(app => loadRoutes(app, `${__dirname}/routes`))
-		.then(app => loadPreProcessingScripts(app, `${__dirname}/processing`))
+		.then(app => loadRoutes(app, `${ __dirname }/routes`))
+		.then(app => loadPreProcessingScripts(app, `${ __dirname }/processing`))
 		.then((app) => {
 			const setJsdocHeaders = (req, res, next) => {
 				res.removeHeader('Content-Security-Policy');
 				next();
 			};
-			app.use('/jsdoc', setJsdocHeaders, express.static(`${__dirname}/docs/jsdoc`));
+			app.use('/jsdoc', setJsdocHeaders, express.static(`${ __dirname }/docs/jsdoc`));
 			return app;
 		}).then(createServer);
 

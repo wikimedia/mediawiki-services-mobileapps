@@ -15,7 +15,7 @@ describe('lib:sanitizeSummary', () => {
 		return result;
 	};
 	const eightyChars = makeLongString();
-	const eightyOneChars = `${eightyChars}a`;
+	const eightyOneChars = `${ eightyChars }a`;
 
 	describe('regular expressions', () => {
 		it('ANY_REGEX matches', () => {

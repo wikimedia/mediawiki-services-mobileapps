@@ -45,11 +45,11 @@ let oldDirName;
 let newDirName;
 
 const uriForOldMobileSections = (title, rev, lang) => {
-	return `http://localhost:8888/${lang}.wikipedia.org/v1/page/mobile-sections/${encodeURIComponent(title)}/${rev}`;
+	return `http://localhost:8888/${ lang }.wikipedia.org/v1/page/mobile-sections/${ encodeURIComponent(title) }/${ rev }`;
 };
 
 const uriForNewSections = (title, rev, lang) => {
-	return `http://localhost:8898/${lang}.wikipedia.org/v1/page/mobile-sections/${encodeURIComponent(title)}/${rev}`;
+	return `http://localhost:8898/${ lang }.wikipedia.org/v1/page/mobile-sections/${ encodeURIComponent(title) }/${ rev }`;
 };
 
 /**
@@ -80,21 +80,21 @@ const simplifyExtractValue = (value) => {
 
 const getExtractHtml = (response) => {
 	if (response.status !== 200) {
-		return `!! STATUS = ${response.status} !!\n`;
+		return `!! STATUS = ${ response.status } !!\n`;
 	}
 	return simplifyExtractValue(JSON.stringify(response.body, null, 2));
 };
 
 const writeFile = (dir, title, rev, value) => {
-	const file = fs.createWriteStream(`${dir}_${encodeURIComponent(title)}-${rev}.json`,
+	const file = fs.createWriteStream(`${ dir }_${ encodeURIComponent(title) }-${ rev }.json`,
 		{ flags: 'w' });
-	file.write(`${value}\n`);
+	file.write(`${ value }\n`);
 	file.end();
 };
 
 const compareExtracts = (filePrefix, oldExtract, newExtract, counter, title, rev) => {
-	writeFile(`${oldDirName}/${filePrefix}`, title, rev, oldExtract);
-	writeFile(`${newDirName}/${filePrefix}`, title, rev, newExtract);
+	writeFile(`${ oldDirName }/${ filePrefix }`, title, rev, oldExtract);
+	writeFile(`${ newDirName }/${ filePrefix }`, title, rev, newExtract);
 };
 
 const fetchExtract = (uri) => {
@@ -102,7 +102,7 @@ const fetchExtract = (uri) => {
 		.then((response) => {
 			return BBPromise.delay(DELAY, getExtractHtml(response));
 		}).catch((err) => {
-			return BBPromise.resolve(`!!! ${err} "${uri}" !!!`);
+			return BBPromise.resolve(`!!! ${ err } "${ uri }" !!!`);
 		});
 };
 
@@ -121,7 +121,7 @@ const fetchAndVerify = (filePrefix, title, rev, counter, lang) => {
 const processOneLanguage = (lang) => {
 	let counter = 0;
 	BBPromise.each(topPages, (page) => {
-		const filePrefix = (`0000${++counter}`).slice(-4); // 0-pad
+		const filePrefix = (`0000${ ++counter }`).slice(-4); // 0-pad
 		return fetchAndVerify(filePrefix, page.title, page.rev.split('/', 1)[0], counter, lang);
 	});
 };
@@ -129,9 +129,9 @@ const processOneLanguage = (lang) => {
 // MAIN
 const arg = process.argv[2];
 if (arg) {
-	topPages = require(`${topPagesDir}/top-pages.${arg}.json`).items;
-	oldDirName = `${outDir}/v1/${arg}`;
-	newDirName = `${outDir}/v2/${arg}`;
+	topPages = require(`${ topPagesDir }/top-pages.${ arg }.json`).items;
+	oldDirName = `${ outDir }/v1/${ arg }`;
+	newDirName = `${ outDir }/v2/${ arg }`;
 
 	mkdir.sync(oldDirName);
 	mkdir.sync(newDirName);
@@ -139,6 +139,7 @@ if (arg) {
 	processOneLanguage(arg);
 } else {
 	process.stderr.write('Error: supply one language parameter (e.g. en)!\n');
-	// eslint-disable-next-line no-process-exit
+
+	// eslint-disable-next-line n/no-process-exit
 	process.exit(-1);
 }

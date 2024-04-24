@@ -24,8 +24,8 @@ describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 	];
 
 	tests.forEach(({ args, expected }) => {
-		const domain = `${args[2]}.${args[3]}.org`;
-		it(`Test ${domain} ${args[0]} flagged revision extension`, () => {
+		const domain = `${ args[2] }.${ args[3] }.org`;
+		it(`Test ${ domain } ${ args[0] } flagged revision extension`, () => {
 			const req = util.getMockedServiceReq({
 				params: { title: args[1], domain },
 			});
@@ -35,15 +35,15 @@ describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 		});
 	});
 
-	const domain = 'test2.wikipedia.org';
 	it('Test non-flagged article from test2.wikipedia.org ', () => {
+		const domain = 'test2.wikipedia.org';
 		const title = 'FlaggedRevsTest';
-		const uri = `https://${domain}/api/rest_v1/page/title/${title}`;
+		const uri = `https://${ domain }/api/rest_v1/page/title/${ title }`;
 		const getLatestRevision = () => preq.get({ uri })
 			.then((res) => {
 				return res.body.items[0].rev;
 			}, (err) => {
-				throw new Error(`Error fetching latest revision for ${title}: ${err}`);
+				throw new Error(`Error fetching latest revision for ${ title }: ${ err }`);
 			});
 
 		const req = util.getMockedServiceReq({
@@ -59,13 +59,14 @@ describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 	});
 
 	it('Test pending change article from test2.wikipedia.org', () => {
+		const domain = 'test2.wikipedia.org';
 		const title = 'PendingChangeFlaggedRevsTest';
-		const uri = `https://${domain}/api/rest_v1/page/title/${title}`;
+		const uri = `https://${ domain }/api/rest_v1/page/title/${ title }`;
 		const getLatestRevision = () => preq.get({ uri })
 			.then((res) => {
 				return res.body.items[0].rev;
 			}, (err) => {
-				throw new Error(`Error fetching latest revision for ${title}: ${err}`);
+				throw new Error(`Error fetching latest revision for ${ title }: ${ err }`);
 			});
 		const req = util.getMockedServiceReq({
 			params: { title, domain },

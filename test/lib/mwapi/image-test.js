@@ -7,7 +7,7 @@ const scale = require('../../../lib/thumbnail').scaleURL;
 const path = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0';
 
 // https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Foo.jpg/2000px-Foo.jpg
-const thumb = (width, file = 'Foo.jpg', prefix = '') => `${path}/${file}/${prefix}${width}px-${file}`;
+const thumb = (width, file = 'Foo.jpg', prefix = '') => `${ path }/${ file }/${ prefix }${ width }px-${ file }`;
 
 describe('lib:mwapi', () => {
 	it('scaled thumb URL returned if initial URL is a thumb URL and original width > desired width', () => {

@@ -5,6 +5,6 @@ services:
       context: ./pagelib
       dockerfile: Dockerfile.dev
     volumes:
-    - ./pagelib:/srv/app
-    - /srv/app/node_modules
+      - ./pagelib:/srv/app
+      - /srv/app/node_modules
     entrypoint: npm run build

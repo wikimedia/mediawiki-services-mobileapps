@@ -6,11 +6,11 @@ paths:
       summary: Get non-lead sections of a page.
       description: Gets the remaining sections of a given wiki page for the Android app.
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
+        - $ref: "#/components/parameters/domainParam"
+        - $ref: "#/components/parameters/title"
       responses:
         200:
-          $ref: '#/components/responses/mobile-sections'
+          $ref: "#/components/responses/mobile-sections"
         default:
           $ref: "#/components/responses/problem"
       x-monitor: false
@@ -21,12 +21,12 @@ paths:
       summary: Get non-lead sections of a page.
       description: Gets the remaining sections of a given wiki page for the Android app.
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
-        - $ref: '#/components/parameters/revision'
+        - $ref: "#/components/parameters/domainParam"
+        - $ref: "#/components/parameters/title"
+        - $ref: "#/components/parameters/revision"
       responses:
         200:
-          $ref: '#/components/responses/mobile-sections'
+          $ref: "#/components/responses/mobile-sections"
         default:
           $ref: "#/components/responses/problem"
       x-monitor: false

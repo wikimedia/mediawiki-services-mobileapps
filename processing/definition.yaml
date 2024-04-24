@@ -1,12 +1,12 @@
 # strip unneeded markup
 
 - rmElements: # special unwanted content from wiktionary
-  - .ib-brac
-  - .ib-content
-  - .defdate
-  - sup
+    - .ib-brac
+    - .ib-content
+    - .defdate
+    - sup
 - rmAttributes:
-    '*': ['data-mw']
+    "*": [ data-mw ]
 - rmMwIdAttributes
 - pcsHideRedLinks
 

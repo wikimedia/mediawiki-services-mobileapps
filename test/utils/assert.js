@@ -8,8 +8,8 @@ function deepEqual(result, expected, message) {
 	try {
 		assert.deepEqual(result, expected, message);
 	} catch (e) {
-		console.log(`Expected:\n${JSON.stringify(expected, null, 2)}`);
-		console.log(`Result:\n${JSON.stringify(result, null, 2)}`);
+		console.log(`Expected:\n${ JSON.stringify(expected, null, 2) }`);
+		console.log(`Result:\n${ JSON.stringify(result, null, 2) }`);
 		throw e;
 	}
 
@@ -21,7 +21,7 @@ function deepEqual(result, expected, message) {
 function status(res, expected) {
 
 	deepEqual(res.status, expected,
-		`Expected status to be ${expected}, but was ${res.status}`);
+		`Expected status to be ${ expected }, but was ${ res.status }`);
 
 }
 
@@ -32,7 +32,7 @@ function contentType(res, expectedRegexString) {
 
 	const actual = res.headers['content-type'];
 	assert.ok(RegExp(expectedRegexString).test(actual),
-		`Expected content-type to match ${expectedRegexString}, but was ${actual}`);
+		`Expected content-type to match ${ expectedRegexString }, but was ${ actual }`);
 
 }
 
@@ -52,22 +52,22 @@ function notDeepEqual(result, expected, message) {
 	try {
 		assert.notDeepEqual(result, expected, message);
 	} catch (e) {
-		console.log(`Not expected:\n${JSON.stringify(expected, null, 2)}`);
-		console.log(`Result:\n${JSON.stringify(result, null, 2)}`);
+		console.log(`Not expected:\n${ JSON.stringify(expected, null, 2) }`);
+		console.log(`Result:\n${ JSON.stringify(result, null, 2) }`);
 		throw e;
 	}
 
 }
 
 function property(object, prop) {
-	const msg = `expected property="${prop}"`;
+	const msg = `expected property="${ prop }"`;
 	assert.ok(object, msg);
 	assert.ok({}.hasOwnProperty.call(object, prop), msg);
 }
 
 function notProperty(object, prop) {
 	assert.ok(!object || !{}.hasOwnProperty.call(object, prop),
-		`unexpected property="${prop}"`);
+		`unexpected property="${ prop }"`);
 }
 
 function fails(promise, onRejected) {
@@ -97,23 +97,23 @@ function fails(promise, onRejected) {
  */
 function closeTo(result, expected, delta, message) {
 	assert.ok(_.isNumber(result) && Math.abs(result - expected) <= delta,
-		message || `Result is ${result}; expected ${expected} ± ${delta}`);
+		message || `Result is ${ result }; expected ${ expected } ± ${ delta }`);
 }
 
 function contains(result, sub, message) {
 	assert.ok(result.includes(sub),
-		message || `'${sub}' not in:\n${result}`);
+		message || `'${ sub }' not in:\n${ result }`);
 }
 
 function notContains(result, sub, message) {
 	assert.ok(!(result.includes(sub)),
-		message || `Unexpected substring '${sub}' found in:\n${result}`);
+		message || `Unexpected substring '${ sub }' found in:\n${ result }`);
 }
 
 function selectorExistsNTimes(doc, selector, n, message) {
 
 	if (!message) {
-		message = `querySelectorAll('${selector}')`;
+		message = `querySelectorAll('${ selector }')`;
 	}
 	deepEqual(doc.querySelectorAll(selector).length, n, message);
 
@@ -134,7 +134,7 @@ function selectorDoesNotExist(doc, selector, message) {
 function selectorHasValue(doc, selector, expected, message) {
 
 	if (!message) {
-		message = `querySelector('${selector}').innerHTML value is not ${expected}`;
+		message = `querySelector('${ selector }').innerHTML value is not ${ expected }`;
 	}
 	deepEqual(doc.querySelector(selector).innerHTML, expected, message);
 
@@ -143,7 +143,7 @@ function selectorHasValue(doc, selector, expected, message) {
 function selectorContainsValue(doc, selector, expected, message) {
 
 	if (!message) {
-		message = `querySelector('${selector}').innerHTML value does not contain ${expected}`;
+		message = `querySelector('${ selector }').innerHTML value does not contain ${ expected }`;
 	}
 	assert.ok(doc.querySelector(selector).innerHTML.includes(expected), message);
 
@@ -152,7 +152,7 @@ function selectorContainsValue(doc, selector, expected, message) {
 function attributeNotContainsValue(doc, selector, attribute, expected, message) {
 
 	if (!message) {
-		message = `querySelector('${selector}').getAttribute('${attribute}') value contains ${expected}`;
+		message = `querySelector('${ selector }').getAttribute('${ attribute }') value contains ${ expected }`;
 	}
 	assert.ok(!doc.querySelector(selector).getAttribute(attribute).includes(expected), message);
 

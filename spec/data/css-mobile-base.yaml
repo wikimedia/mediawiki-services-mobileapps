@@ -6,10 +6,10 @@ paths:
       summary: Get base page styles
       description: Gets the base styles used for viewing all pages in the mobile apps
       parameters:
-        - $ref: '#/components/parameters/domainParam'
+        - $ref: "#/components/parameters/domainParam"
       responses:
         200:
-          $ref: '#/components/responses/success'
+          $ref: "#/components/responses/success"
         default:
           $ref: "#/components/responses/problem"
       x-amples:
@@ -20,7 +20,7 @@ paths:
               content-type: text/css; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/CSS/2.0.0"
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
+              access-control-allow-origin: "*"
               access-control-allow-headers: accept, x-requested-with, content-type
               content-security-policy: default-src 'none'; frame-ancestors 'none'
               x-content-security-policy: default-src 'none'; frame-ancestors 'none'

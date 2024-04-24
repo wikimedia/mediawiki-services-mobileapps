@@ -11,11 +11,11 @@ worker_heap_limit_mb: 500
 logging:
   level: warn
   streams:
-  - type: stdout # log to stdout
-    named_levels: true # emit log level name instead of index. e.g. INFO vs 30
-  - type: gelf
-    host: logstash1003.eqiad.wmnet
-    port: 12201
+    - type: stdout # log to stdout
+      named_levels: true # emit log level name instead of index. e.g. INFO vs 30
+    - type: gelf
+      host: logstash1003.eqiad.wmnet
+      port: 12201
 
 # Statsd metrics reporter
 metrics:
@@ -37,7 +37,7 @@ services:
       # the location of the spec, defaults to spec.yaml if not specified
       # spec: ./spec.template.yaml
       # allow cross-domain requests to the API (default '*')
-      cors: '*'
+      cors: "*"
       # to disable use:
       # cors: false
       # to restrict to a particular domain, use:
@@ -45,18 +45,18 @@ services:
       # content for the CSP headers
       # csp: false  # uncomment this line to disable sending them
       # CSP for mobile-html
-      ## Documentation for mobile-html CSP policy directives:
-      ## img-src
-      ##   We need to specifically allow data: URIs for the buttons from pagelib.
-      ##   We need to specifically allow wikimedia.org URIs for Mathoid images.
-      ##   *.wikimedia.org also includes upload.wikimedia.org for Commons images.
-      ## script-src
-      ##   The pagelib JavaScript bundle is served on meta.wikimedia.org.
-      ##   We also add a small piece of inline JS to the end of the body to trigger lazy-loading.
-      ## style-src
-      ##   The site CSS bundle is served from the current domain (TODO: currently assumes WP).
-      ##   The base CSS bundle is served on meta.wikimedia.org.
-      ##   The pages also have some inline styles.
+      # # Documentation for mobile-html CSP policy directives:
+      # # img-src
+      # #   We need to specifically allow data: URIs for the buttons from pagelib.
+      # #   We need to specifically allow wikimedia.org URIs for Mathoid images.
+      # #   *.wikimedia.org also includes upload.wikimedia.org for Commons images.
+      # # script-src
+      # #   The pagelib JavaScript bundle is served on meta.wikimedia.org.
+      # #   We also add a small piece of inline JS to the end of the body to trigger lazy-loading.
+      # # style-src
+      # #   The site CSS bundle is served from the current domain (TODO: currently assumes WP).
+      # #   The base CSS bundle is served on meta.wikimedia.org.
+      # #   The pages also have some inline styles.
       mobile_html_csp: "default-src 'none';
         connect-src app://*.wikipedia.org https://*.wikipedia.org;
         media-src app://upload.wikimedia.org https://upload.wikimedia.org 'self';
@@ -85,8 +85,8 @@ services:
       # the user agent to use when issuing requests
       user_agent: WMF Mobile Content Service
       # REST API base URIs
-      mobile_html_rest_api_base_uri: '//meta.wikimedia.org/api/rest_v1/'
-      mobile_html_local_rest_api_base_uri_template: '//{{domain}}/api/rest_v1/'
+      mobile_html_rest_api_base_uri: //meta.wikimedia.org/api/rest_v1/
+      mobile_html_local_rest_api_base_uri_template: "//{{domain}}/api/rest_v1/"
       # the template used for contacting the MW API
       #
       # # Max JSON POST body size limit.
@@ -95,25 +95,25 @@ services:
         method: post
         uri: http://api.svc.eqiad.wmnet/w/api.php
         headers:
-          host: '{{request.params.domain}}'
-          user-agent: '{{user-agent}}'
-          accept-language: '{{accept-language}}'
-        body: '{{ default(request.query, {}) }}'
+          host: "{{request.params.domain}}"
+          user-agent: "{{user-agent}}"
+          accept-language: "{{accept-language}}"
+        body: "{{ default(request.query, {}) }}"
       # the template used for requesting ResourceLoader module content from load.php
       mw_resource_loader_req:
         method: post
         uri: http://appservers-rw.discovery.wmnet/w/load.php
         headers:
-          host: '{{request.params.domain}}'
-          user-agent: '{{user-agent}}'
-        body: '{{ default(request.query, {}) }}'
+          host: "{{request.params.domain}}"
+          user-agent: "{{user-agent}}"
+        body: "{{ default(request.query, {}) }}"
       # the template used for contacting RESTBase
       restbase_req:
-        method: '{{request.method}}'
+        method: "{{request.method}}"
         uri: http://restbase.svc.eqiad.wmnet/{{domain}}/v1/{+path}
-        query: '{{ default(request.query, {}) }}'
-        headers: '{{request.headers}}'
-        body: '{{request.body}}'
+        query: "{{ default(request.query, {}) }}"
+        headers: "{{request.headers}}"
+        body: "{{request.body}}"
         timeout: 60000 # 60 * 1000
       restbase_compatibility:
         security_headers: false

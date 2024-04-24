@@ -12,7 +12,7 @@ describe('lib:summary', () => {
 
 		before(() => {
 			const processing = path.join(__dirname, '../../../processing/summary.yaml');
-			script = yaml.safeLoad(fs.readFileSync(processing));
+			script = yaml.load(fs.readFileSync(processing));
 		});
 
 		function test(inputString, expected, message) {

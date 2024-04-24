@@ -65,14 +65,14 @@ class TestSpec {
 	 * @return {!string} name of this test to print to the console
 	 */
 	testName() {
-		return TestSpec.fsName(`${this._route}-${this.project()}-${this._parameters.join('-')}`);
+		return TestSpec.fsName(`${ this._route }-${ this.project() }-${ this._parameters.join('-') }`);
 	}
 
 	/**
 	 * @return {!string} folder to store expected result in
 	 */
 	dir() {
-		return `${__dirname}/results/`;
+		return `${ __dirname }/results/`;
 	}
 
 	/**
@@ -86,7 +86,7 @@ class TestSpec {
 	 * @return {!string} file path to store expected result in
 	 */
 	filePath() {
-		return `${this.dir()}${this.fileName()}.${this._options.suffix}`;
+		return `${ this.dir() }${ this.fileName() }.${ this._options.suffix }`;
 	}
 
 	/**
@@ -114,10 +114,10 @@ class TestSpec {
 	 * @return {!string} path portion of the request URI
 	 */
 	uriPath() {
-		let path = `${this._domain}/v1/${this._route}`;
+		let path = `${ this._domain }/v1/${ this._route }`;
 		if (this._parameters) {
 			for (const param of this._parameters) {
-				path += `/${encodeURIComponent(param)}`;
+				path += `/${ encodeURIComponent(param) }`;
 			}
 		}
 		return path;
@@ -157,7 +157,7 @@ class TestSpec {
 			}
 
 			if (ENABLE_HTML_DEBUG) {
-				htmlDebug.htmlPostProcessing(input, `${this.dir()}/${this.fileName()}/`);
+				htmlDebug.htmlPostProcessing(input, `${ this.dir() }/${ this.fileName() }/`);
 			}
 		}
 
@@ -216,7 +216,7 @@ class TestSpec {
 	 * @return {!string} a string of JS code to make a array of strings
 	 */
 	static toStringArrayCode(array) {
-		return `['${array.join("', '")}']`;
+		return `['${ array.join("', '") }']`;
 	}
 
 	/**
@@ -226,9 +226,9 @@ class TestSpec {
 	 */
 	generator() {
 		if (this._parameters) {
-			return `    new TestSpec('${this._domain}', '${this._route}', ${TestSpec.toStringArrayCode(this._parameters)}),`;
+			return `    new TestSpec('${ this._domain }', '${ this._route }', ${ TestSpec.toStringArrayCode(this._parameters) }),`;
 		} else {
-			return `    new TestSpec('${this._domain}', '${this._route}'),`;
+			return `    new TestSpec('${ this._domain }', '${ this._route }'),`;
 		}
 	}
 }
@@ -255,7 +255,6 @@ const TEST_SPECS = [
 	new TestSpec('en.wikipedia.org', 'page/talk', ['User_talk:Montehurd', '899425787']),
 	new TestSpec('fr.wikipedia.org', 'page/talk', ['User_talk:Brion_VIBBER', '51609364'])
 ];
-/* eslint-enable max-len */
 
 module.exports = {
 	UPDATE_EXPECTED_RESULTS,

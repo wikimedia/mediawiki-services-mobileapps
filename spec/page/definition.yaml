@@ -7,8 +7,8 @@ paths:
       summary: Get Wiktionary definitions for a word.
       description: Gets definitions for a word parsed from an article in Wiktionary.
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
+        - $ref: "#/components/parameters/domainParam"
+        - $ref: "#/components/parameters/title"
       responses:
         200:
           description: Structured definition for the term
@@ -27,13 +27,13 @@ paths:
               content-language: en
               vary: /.+/
               etag: /^"[^/"]+/[^/"]+"$/
-              access-control-allow-origin: '*'
+              access-control-allow-origin: "*"
               access-control-allow-headers: accept, x-requested-with, content-type
               content-security-policy: default-src 'none'; frame-ancestors 'none'
               x-content-security-policy: default-src 'none'; frame-ancestors 'none'
               x-frame-options: SAMEORIGIN
             body: /.+/
-  
+
   /{domain}/v1/page/definition/{title}/{revision}:
     get:
       tags:
@@ -41,9 +41,9 @@ paths:
       summary: Get Wiktionary definitions for a word.
       description: Gets definitions for a word parsed from an article in Wiktionary.
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
-        - $ref: '#/components/parameters/revision'
+        - $ref: "#/components/parameters/domainParam"
+        - $ref: "#/components/parameters/title"
+        - $ref: "#/components/parameters/revision"
       responses:
         200:
           description: Structured definition for the term

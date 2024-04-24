@@ -1,48 +1,48 @@
 # strip unneeded markup
 
 - rmElements:
-  - span:empty
+    - span:empty
 - stripGermanIPA
 - rmElements:
-  - span[data-mw*="target":{"wt":"IPA"]
-  - figure-inline[data-mw*="target":{"wt":"IPA"]
-  - span[style="display:none"]
-  - span[class*=error]
-  - span.Z3988
-  - link
-  - '#coordinates'
-  - table.navbox
-  - .geo-nondefault
-  - .geo-multi-punct
-  - .hide-when-compact
-  - div.infobox
-  - div.magnify
-  - sup.mw-ref
-  - .noprint
+    - span[data-mw*="target":{"wt":"IPA"]
+    - figure-inline[data-mw*="target":{"wt":"IPA"]
+    - span[style="display:none"]
+    - span[class*=error]
+    - span.Z3988
+    - link
+    - "#coordinates"
+    - table.navbox
+    - .geo-nondefault
+    - .geo-multi-punct
+    - .hide-when-compact
+    - div.infobox
+    - div.magnify
+    - sup.mw-ref
+    - .noprint
 - rmBracketSpans
 - rmComments
 - rmAttributes:
-    a: ['about', 'data-mw', 'typeof']
-    a:not([rel~=nofollow],[rel~=mw:ExtLink]): ['rel']
-    abbr: ['title']
-    b: ['about', 'data-mw', 'typeof']
-    blockquote: ['about', 'data-mw', 'typeof']
-    br: ['about', 'data-mw', 'typeof']
-    cite: ['about', 'data-mw', 'typeof']
-    code: ['about', 'data-mw', 'typeof']
-    div: ['data-mw', 'typeof']
-    figure: ['typeof']
+    a: [ about, data-mw, typeof ]
+    a:not([rel~=nofollow],[rel~=mw:ExtLink]): [ rel ]
+    abbr: [ title ]
+    b: [ about, data-mw, typeof ]
+    blockquote: [ about, data-mw, typeof ]
+    br: [ about, data-mw, typeof ]
+    cite: [ about, data-mw, typeof ]
+    code: [ about, data-mw, typeof ]
+    div: [ data-mw, typeof ]
+    figure: [ typeof ]
     # FIXME(T266143): 'figure-inline' is being deprecated
-    figure-inline: ['about', 'data-file-type', 'data-mw', 'itemscope', 'itemtype', 'lang', 'rel', 'title', 'typeof']
-    i: ['about', 'data-mw', 'typeof']
-    img: ['about', 'alt', 'resource']
-    li: ['about']
-    link: ['data-mw', 'typeof']
-    ol: ['about', 'data-mw', 'typeof']
-    p: ['data-mw', 'typeof']
-    span: ['about', 'data-file-type', 'data-mw', 'itemscope', 'itemtype', 'lang', 'rel', 'title', 'typeof']
-    style: ['about', 'data-mw']
-    sup: ['about', 'data-mw', 'rel', 'typeof']
-    table: ['about', 'data-mw', 'typeof']
-    ul: ['about', 'data-mw', 'typeof']
+    figure-inline: [ about, data-file-type, data-mw, itemscope, itemtype, lang, rel, title, typeof ]
+    i: [ about, data-mw, typeof ]
+    img: [ about, alt, resource ]
+    li: [ about ]
+    link: [ data-mw, typeof ]
+    ol: [ about, data-mw, typeof ]
+    p: [ data-mw, typeof ]
+    span: [ about, data-file-type, data-mw, itemscope, itemtype, lang, rel, title, typeof ]
+    style: [ about, data-mw ]
+    sup: [ about, data-mw, rel, typeof ]
+    table: [ about, data-mw, typeof ]
+    ul: [ about, data-mw, typeof ]
 - rmMwIdAttributes

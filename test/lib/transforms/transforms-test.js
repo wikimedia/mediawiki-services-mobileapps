@@ -12,17 +12,17 @@ describe('lib:transforms', () => {
 	const buildHtml = title => domino.createDocument('<html>'
         + '<head>'
         + '<base href="//en.wikipedia.org/wiki/"/>'
-        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${encodeURIComponent(title)}">`
+        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${ encodeURIComponent(title) }">`
         + '</head>'
         + '<body>'
         + '<sup class="mw-ref">'
-        + `<a href="${title}#cite_note-foo"><span>[1]</span></a>`
+        + `<a href="${ title }#cite_note-foo"><span>[1]</span></a>`
         + '</sup>'
         + '<sup class="mw-ref">'
-        + `<a href="${title}#cite_note-foo"><span>[2]</span></a>`
+        + `<a href="${ title }#cite_note-foo"><span>[2]</span></a>`
         + '</sup>'
         + '<sup class="mw-ref">'
-        + `<a href="anythingElse${title}#cite_note-foo"><span>[2]</span></a>`
+        + `<a href="anythingElse${ title }#cite_note-foo"><span>[2]</span></a>`
         + '</sup>'
         + '</body>'
         + '</html>');
@@ -30,7 +30,7 @@ describe('lib:transforms', () => {
 	const buildHtml2 = title => domino.createDocument('<html>'
         + '<head>'
         + '<base href="//en.wikipedia.org/wiki/"/>'
-        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${encodeURIComponent(title)}">`
+        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${ encodeURIComponent(title) }">`
         + '</head>'
         + '<body>'
         + '<sup class="mw-ref">'
@@ -48,7 +48,7 @@ describe('lib:transforms', () => {
 	const buildHtml3 = title => domino.createDocument('<html>'
         + '<head>'
         + '<base href="//en.wikipedia.org/wiki/"/>'
-        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${encodeURIComponent(title)}">`
+        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${ encodeURIComponent(title) }">`
         + '</head>'
         + '<body>'
         + '<span class="mw-reference-text">'
@@ -61,11 +61,11 @@ describe('lib:transforms', () => {
         + '</html>');
 
 	const testShortenPageInternalLinks = (doc, selectorTitle) => {
-		assert.selectorExistsNTimes(doc, `a[href^=${selectorTitle}]`, 2,
-			`before: did not find href starting with '${selectorTitle}' in ${doc.innerHTML}`);
+		assert.selectorExistsNTimes(doc, `a[href^=${ selectorTitle }]`, 2,
+			`before: did not find href starting with '${ selectorTitle }' in ${ doc.innerHTML }`);
 		transforms.shortenPageInternalLinks(doc);
 		assert.selectorExistsNTimes(doc, 'a[href=#cite_note-foo]', 2,
-			`after: did not find href starting with '#cite_note-foo' in ${doc.innerHTML}`);
+			`after: did not find href starting with '#cite_note-foo' in ${ doc.innerHTML }`);
 	};
 
 	it('shortenPageInternalLinks should remove the title in the href', () => {
@@ -106,7 +106,7 @@ describe('lib:transforms', () => {
 
 		before(() => {
 			const processing = path.join(__dirname, '../../../processing/summary.yaml');
-			script = yaml.safeLoad(fs.readFileSync(processing));
+			script = yaml.load(fs.readFileSync(processing));
 		});
 
 		function test(input, expected) {

@@ -1,46 +1,42 @@
-/* eslint-disable no-multiple-empty-lines */
-
 'use strict';
 
-const preq                   = require('preq');
-const refParser              = require('json-schema-ref-parser-sync');
-const assert                 = require('../../utils/assert.js');
-const server                 = require('../../utils/server.js');
-const URI                    = require('swagger-router').URI;
-const specLib                = require('../../../lib/spec.js');
+const preq = require('preq');
+const refParser = require('@apidevtools/json-schema-ref-parser');
+const assert = require('../../utils/assert.js');
+const server = require('../../utils/server.js');
+const URI = require('swagger-router').URI;
+const specLib = require('../../../lib/spec.js');
 const OpenAPISchemaValidator = require('openapi-schema-validator').default;
 
 const validator = new OpenAPISchemaValidator({ version: 3 });
-const Ajv    = require('ajv');
+const Ajv = require('ajv');
+const addFormats = require('ajv-formats');
 
-const baseUri = `${server.config.uri}en.wikipedia.org/v1/`;
-
-if (!server.stopHookAdded) {
-	server.stopHookAdded = true;
-	after(() => server.stop());
-}
+const baseUri = `${ server.config.uri }en.wikipedia.org/v1/`;
 
 function getServiceConfig() {
-	return server.config.conf.services[server.config.conf.services.length - 1].conf;
+	return server.config.conf.services[server.config.conf.services.length - 1]
+		.conf;
 }
 
-function staticSpecLoad() {
-
+async function staticSpecLoad() {
 	const myService = getServiceConfig();
-	const specPath = `${__dirname}/../../../${myService.spec ? myService.spec : 'spec'}`;
+	const specPath = `${ __dirname }/../../../${
+		myService.spec ? myService.spec : 'spec'
+	}`;
 
-	return refParser.dereference(specLib.load(specPath, {}), function (err, schema) {
-		if (err) {
-			// this error will be detected later, so ignore it
-			return { paths: {}, 'x-default-params': {}, 'x-restbase-compatibility-headers': {} };
-		} else {
-			return schema;
-		}
-	});
+	try {
+		return await refParser.dereference(specLib.load(specPath, {}));
+	} catch (err) {
+		return {
+			paths: {},
+			'x-default-params': {},
+			'x-restbase-compatibility-headers': {},
+		};
+	}
 }
 
 function validateExamples(pathStr, defParams, mSpec) {
-
 	const uri = new URI(pathStr, {}, true);
 
 	if (!mSpec) {
@@ -48,55 +44,51 @@ function validateExamples(pathStr, defParams, mSpec) {
 			uri.expand(defParams);
 			return true;
 		} catch (e) {
-			throw new Error(`Missing parameter for route ${pathStr} : ${e.message}`);
+			throw new Error(`Missing parameter for route ${ pathStr } : ${ e.message }`);
 		}
 	}
 
 	if (!Array.isArray(mSpec)) {
-		throw new Error(`Route ${pathStr} : x-amples must be an array!`);
+		throw new Error(`Route ${ pathStr } : x-amples must be an array!`);
 	}
 
 	mSpec.forEach((ex, idx) => {
 		if (!ex.title) {
-			throw new Error(`Route ${pathStr}, example ${idx}: title missing!`);
+			throw new Error(`Route ${ pathStr }, example ${ idx }: title missing!`);
 		}
 		ex.request = ex.request || {};
 		try {
 			uri.expand(Object.assign({}, defParams, ex.request.params || {}));
 		} catch (e) {
 			throw new Error(
-				`Route ${pathStr}, example ${idx} (${ex.title}): missing parameter: ${e.message}`
+				`Route ${ pathStr }, example ${ idx } (${ ex.title }): missing parameter: ${ e.message }`
 			);
 		}
 	});
 
 	return true;
-
 }
 
 function constructTestCase(title, path, method, request, response) {
 	return {
 		title,
 		request: {
-			uri: server.config.uri + (path[0] === '/' ? path.substr(1) : path),
+			uri: server.config.uri + (path[0] === '/' ? path.slice(1) : path),
 			method,
 			headers: request.headers || {},
 			query: request.query,
 			body: request.body,
-			followRedirect: false
+			followRedirect: false,
 		},
 		response: {
 			status: response.status || 200,
 			headers: response.headers || {},
-			body: response.body
-		}
+			body: response.body,
+		},
 	};
-
 }
 
-
 function constructTests(paths, defParams, defHeaders) {
-
 	const ret = [];
 
 	Object.keys(paths).forEach((pathStr) => {
@@ -107,40 +99,42 @@ function constructTests(paths, defParams, defHeaders) {
 			}
 			const uri = new URI(pathStr, {}, true);
 			if (!p['x-amples']) {
-				ret.push(constructTestCase(
-					pathStr,
-					uri.toString({ params: defParams }),
-					method,
-					{},
-					{ headers: defHeaders }
-				));
+				ret.push(
+					constructTestCase(
+						pathStr,
+						uri.toString({ params: defParams }),
+						method,
+						{},
+						{ headers: defHeaders }
+					)
+				);
 				return;
 			}
 			p['x-amples'].forEach((ex) => {
 				ex.request = ex.request || {};
-				ex.response.headers = Object.assign(ex.response.headers || {}, defHeaders);
-				ret.push(constructTestCase(
-					ex.title,
-					uri.toString({
-						params: Object.assign({},
-							defParams,
-							ex.request.params || {})
-					}),
-					method,
-					ex.request,
-					ex.response || {}
-				));
+				ex.response.headers = Object.assign(
+					ex.response.headers || {},
+					defHeaders
+				);
+				ret.push(
+					constructTestCase(
+						ex.title,
+						uri.toString({
+							params: Object.assign({}, defParams, ex.request.params || {}),
+						}),
+						method,
+						ex.request,
+						ex.response || {}
+					)
+				);
 			});
 		});
 	});
 
 	return ret;
-
 }
 
-
 function cmp(result, expected, errMsg) {
-
 	if (expected === null || expected === undefined) {
 		// nothing to expect, so we can return
 		return true;
@@ -152,9 +146,12 @@ function cmp(result, expected, errMsg) {
 	if (expected.constructor === Object) {
 		Object.keys(expected).forEach((key) => {
 			const val = expected[key];
-			assert.deepEqual({}.hasOwnProperty.call(result, key), true,
-				`Body field ${key} not found in response!`);
-			cmp(result[key], val, `${key} body field mismatch!`);
+			assert.deepEqual(
+				{}.hasOwnProperty.call(result, key),
+				true,
+				`Body field ${ key } not found in response!`
+			);
+			cmp(result[key], val, `${ key } body field mismatch!`);
 		});
 		return true;
 	} else if (expected.constructor === Array) {
@@ -180,8 +177,12 @@ function cmp(result, expected, errMsg) {
 		return true;
 	}
 
-	if (expected.length > 1 && expected[0] === '/' && expected[expected.length - 1] === '/') {
-		if ((new RegExp(expected.slice(1, -1))).test(result)) {
+	if (
+		expected.length > 1 &&
+    expected[0] === '/' &&
+    expected[expected.length - 1] === '/'
+	) {
+		if (new RegExp(expected.slice(1, -1)).test(result)) {
 			return true;
 		}
 	} else if (expected.length === 0 && result.length === 0) {
@@ -192,12 +193,9 @@ function cmp(result, expected, errMsg) {
 
 	assert.deepEqual(result, expected, errMsg);
 	return true;
-
 }
 
-
 function validateTestResponse(testCase, res) {
-
 	const expRes = testCase.response;
 
 	// check the status
@@ -205,9 +203,12 @@ function validateTestResponse(testCase, res) {
 	// check the headers
 	Object.keys(expRes.headers).forEach((key) => {
 		const val = expRes.headers[key];
-		assert.deepEqual({}.hasOwnProperty.call(res.headers, key), true,
-			`Header ${key} not found in response!`);
-		cmp(res.headers[key], val, `${key} header mismatch!`);
+		assert.deepEqual(
+			{}.hasOwnProperty.call(res.headers, key),
+			true,
+			`Header ${ key } not found in response!`
+		);
+		cmp(res.headers[key], val, `${ key } header mismatch!`);
 	});
 	// check the body
 	if (!expRes.body) {
@@ -227,7 +228,7 @@ function validateTestResponse(testCase, res) {
 	// check that the body type is the same
 	if (expRes.body.constructor !== res.body.constructor) {
 		throw new Error(
-			`Expected body type ${expRes.body.constructor} but got ${res.body.constructor}`
+			`Expected body type ${ expRes.body.constructor } but got ${ res.body.constructor }`
 		);
 	}
 
@@ -235,61 +236,59 @@ function validateTestResponse(testCase, res) {
 	cmp(res.body, expRes.body, 'Body mismatch!');
 
 	return true;
-
 }
 
+describe('Swagger spec', function () {
+	let spec, defParams;
+	this.timeout(30000);
 
-describe('Swagger spec', function() {
+	let svc;
+	before(async function () {
+		spec = await staticSpecLoad();
+		svc = await server.start();
+	});
 
-	const serviceConfig = getServiceConfig();
-	// the variable holding the spec
-	const spec = staticSpecLoad();
-	// default params, if given
-	let defParams = spec['x-default-params'] || {};
-	let defHeaders = {};
-
-	if (
-		serviceConfig.restbase_compatibility &&
-		serviceConfig.restbase_compatibility.security_headers
-	) {
-		// default headers, if given
-		defHeaders = spec['x-restbase-compatibility-headers'] || {};
-	}
-
-	this.timeout(20000);
-
-	before(() => {
-		return server.start();
+	after(async function () {
+		await svc.stop();
 	});
 
 	it('get the spec', () => {
-		return preq.get(`${server.config.uri}?spec`)
-			.then((res) => {
-				assert.status(200);
-				assert.contentType(res, 'application/json');
-				assert.notDeepEqual(res.body, undefined, 'No body received!');
-				assert.deepEqual({ errors: [] }, validator.validate(res.body), 'Spec must have no validation errors');
-			});
+		return preq.get(`${ server.config.uri }?spec`).then((res) => {
+			assert.status(200);
+			assert.contentType(res, 'application/json');
+			assert.notDeepEqual(res.body, undefined, 'No body received!');
+			assert.deepEqual(
+				{ errors: [] },
+				validator.validate(res.body),
+				'Spec must have no validation errors'
+			);
+		});
 	});
 
 	it('spec validation', () => {
+		defParams = {};
 		if (spec['x-default-params']) {
 			defParams = spec['x-default-params'];
 		}
-		if (spec['x-restbase-compatibility-headers']) {
-			defHeaders = spec['x-restbase-compatibility-headers'];
-		}
 		// check the high-level attributes
 		['info', 'openapi', 'paths'].forEach((prop) => {
-			assert.deepEqual(!!spec[prop], true, `No ${prop} field present!`);
+			assert.deepEqual(!!spec[prop], true, `No ${ prop } field present!`);
 		});
 		// no paths - no love
-		assert.deepEqual(!!Object.keys(spec.paths), true, 'No paths given in the spec!');
+		assert.deepEqual(
+			!!Object.keys(spec.paths),
+			true,
+			'No paths given in the spec!'
+		);
 		// now check each path
 		Object.keys(spec.paths).forEach((pathStr) => {
 			assert.deepEqual(!!pathStr, true, 'A path cannot have a length of zero!');
 			const path = spec.paths[pathStr];
-			assert.deepEqual(!!Object.keys(path), true, `No methods defined for path: ${pathStr}`);
+			assert.deepEqual(
+				!!Object.keys(path),
+				true,
+				`No methods defined for path: ${ pathStr }`
+			);
 			Object.keys(path).forEach((method) => {
 				const mSpec = path[method];
 				if ({}.hasOwnProperty.call(mSpec, 'x-monitor') && !mSpec['x-monitor']) {
@@ -299,79 +298,109 @@ describe('Swagger spec', function() {
 			});
 		});
 	});
+});
 
-	describe('validate responses against schema', () => {
-		const ajv = new Ajv({});
+describe('validate responses against schema', function () {
+	this.timeout(30000);
+	let svc, spec;
+	const ajv = new Ajv({});
+	addFormats(ajv, { formats: ['date-time'] });
+	ajv.addKeyword({ keyword: 'example', type: 'string' });
+	const assertValidSchema = (uri, schemaPath) => {
+		return preq.get({ uri }).then((res) => {
+			if (!ajv.validate(schemaPath, res.body)) {
+				throw new assert.AssertionError({ message: ajv.errorsText() });
+			}
+		});
+	};
 
-		const assertValidSchema = (uri, schemaPath) => {
-			return preq.get({ uri })
-				.then((res) => {
-					if (!ajv.validate(schemaPath, res.body)) {
-						throw new assert.AssertionError({ message: ajv.errorsText() });
-					}
-				});
-		};
-
+	before(async () => {
+		spec = await staticSpecLoad();
 		Object.keys(spec.components.schemas).forEach((defName) => {
-			ajv.addSchema(spec.components.schemas[defName], `#/components/schemas/${defName}`);
+			ajv.addSchema(
+				spec.components.schemas[defName],
+				`#/components/schemas/${ defName }`
+			);
 		});
-
-		it('summary response should conform to schema', () => {
-			const uri = `${baseUri}page/summary/Dubai/808803658`;
-			return assertValidSchema(uri, '#/components/schemas/summary');
-		});
-
-		it('media-list response should conform to schema', () => {
-			const uri = `${baseUri}page/media-list/Hummingbird`;
-			return assertValidSchema(uri, '#/components/schemas/media_list');
-		});
-
+		svc = await server.start();
 	});
 
-	describe('validate spec examples', () => {
-		const expectedFailureTests = [
-			"retrieve en-wiktionary definitions for 'cat'",
-			'retrieve test page via mobile-sections',
-			'Get media list from test page',
-			'Get page content HTML for test page',
-			'Get summary for test page',
-		];
+	after(async function () {
+		await svc.stop();
+	});
 
-		const expectedFailure = {
-			withErr: (err) => err.message === 'Header content-language not found in response!',
-			forTest: (testCase) => expectedFailureTests.includes(testCase.title),
-			description: 'Missing upstream implementation of language variants',
-		};
+	it('summary response should conform to schema', () => {
+		const uri = `${ baseUri }page/summary/Dubai/808803658`;
+		return assertValidSchema(uri, '#/components/schemas/summary');
+	});
+	it('media-list response should conform to schema', () => {
+		const uri = `${ baseUri }page/media-list/Hummingbird`;
+		return assertValidSchema(uri, '#/components/schemas/media_list');
+	});
+});
 
-		constructTests(spec.paths, defParams, defHeaders).forEach((testCase) => {
-			it(testCase.title, function () {
+describe('validate spec examples', () => {
+	let spec, svc, defParams, defHeaders;
+	const expectedFailureTests = [
+		"retrieve en-wiktionary definitions for 'cat'",
+		'retrieve test page via mobile-sections',
+		'Get media list from test page',
+		'Get page content HTML for test page',
+		'Get summary for test page',
+	];
 
-				return preq(testCase.request)
-					.then((res) => {
-						try {
-							validateTestResponse(testCase, res);
-						} catch (testErr) {
-							if (expectedFailure.forTest(testCase) &&
-								expectedFailure.withErr(testErr)) {
-								this.skip(expectedFailure.description);
-							} else {
-								throw testErr;
-							}
-						}
-					}, (err) => {
-						try {
-							validateTestResponse(testCase, err);
-						} catch (testErr) {
-							if (expectedFailure.forTest(testCase) &&
-								expectedFailure.withErr(testErr)) {
-								this.skip(expectedFailure.description);
-							} else {
-								throw testErr;
-							}
-						}
-					});
-			});
-		});
+	const expectedFailure = {
+		withErr: (err) => err.message === 'Header content-language not found in response!',
+		forTest: (testCase) => expectedFailureTests.includes(testCase.title),
+		description: 'Missing upstream implementation of language variants',
+	};
 
+	before(async function () {
+		this.timeout(20000);
+		spec = await staticSpecLoad();
+		svc = await server.start();
+		defParams = spec['x-default-params'] || {};
+		defHeaders = {};
+		if (
+			svc._impl.config.services[0].conf.restbase_compatibility &&
+			svc._impl.config.services[0].conf.restbase_compatibility.security_headers
+		) {
+			// default headers, if given
+			defHeaders = spec['x-restbase-compatibility-headers'] || {};
+		}
+	});
+
+	after(async function () {
+		await svc.stop();
+	});
+
+	it('Should validate tests', async function (done) {
+		for (const testCase of constructTests(spec.paths, defParams, defHeaders)) {
+			try {
+				const res = await preq(testCase.request);
+				try {
+					validateTestResponse(testCase, res);
+				} catch (testErr) {
+					if (expectedFailure.forTest(testCase) &&
+						expectedFailure.withErr(testErr)) {
+						this.skip(expectedFailure.description);
+					} else {
+						throw testErr;
+					}
+				}
+			} catch (err) {
+				try {
+					validateTestResponse(testCase, err);
+				} catch (testErr) {
+					if (expectedFailure.forTest(testCase) &&
+							expectedFailure.withErr(testErr)) {
+						this.skip(expectedFailure.description);
+					} else {
+						throw testErr;
+					}
+				}
+			}
+		}
+		done();
 	});
 });

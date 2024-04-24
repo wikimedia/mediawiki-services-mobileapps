@@ -67,7 +67,7 @@ router.all('/home', (req, res) => {
 		res.redirect(301, home);
 	} else {
 		// no URI defined for the home page, error out
-		res.status(404).end(`No home page URL defined for ${app.info.name}`);
+		res.status(404).end(`No home page URL defined for ${ app.info.name }`);
 	}
 
 });

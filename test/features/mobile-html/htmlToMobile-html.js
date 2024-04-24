@@ -8,10 +8,14 @@ describe('transform/html/to/mobile-html', function() {
 
 	this.timeout(20000);
 
-	before(() => server.start());
+	let svc;
+	before(async () => {
+		svc = await server.start();
+	});
+	after(async () => await svc.stop());
 
 	const localUri = (title, domain = 'en.wikipedia.org') => {
-		return `${server.config.uri}${domain}/v1/transform/html/to/mobile-html/${title}`;
+		return `${ server.config.uri }${ domain }/v1/transform/html/to/mobile-html/${ title }`;
 	};
 
 	it('simple html convertion should work properly', () => {

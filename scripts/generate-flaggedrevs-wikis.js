@@ -13,7 +13,7 @@ const flaggedWikisUrl = 'https://noc.wikimedia.org/conf/dblists/flaggedrevs.dbli
 const wikiSitesListUrl = 'https://en.wikipedia.org/w/api.php?action=sitematrix&format=json';
 
 const writeFile = (data) => {
-	const file = fs.createWriteStream(`${__dirname}/../lib/flaggedWikisList.json`,
+	const file = fs.createWriteStream(`${ __dirname }/../lib/flaggedWikisList.json`,
 		{ flags: 'w' });
 	file.write(JSON.stringify(data, null, 4));
 	file.end();
@@ -24,7 +24,7 @@ const fetchUrl = (url) => {
 		.then((response) => {
 			return response;
 		}).catch((err) => {
-			return BBPromise.resolve(`!!! ${err} "${url}" !!!`);
+			return BBPromise.resolve(`!!! ${ err } "${ url }" !!!`);
 		});
 };
 

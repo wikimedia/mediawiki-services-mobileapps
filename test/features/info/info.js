@@ -7,19 +7,18 @@ const preq   = require('preq');
 const assert = require('../../utils/assert.js');
 const server = require('../../utils/server.js');
 
-if (!server.stopHookAdded) {
-	server.stopHookAdded = true;
-	after(() => server.stop());
-}
-
 describe('service information', function() {
 
 	this.timeout(20000);
 
-	before(() => server.start());
+	let svc;
+	before(async () => {
+		svc = await server.start();
+	});
+	after(async () => await svc.stop());
 
 	// common URI prefix for info tests
-	const infoUri = `${server.config.uri}_info/`;
+	const infoUri = `${ server.config.uri }_info/`;
 
 	// common function used for generating requests
 	// and checking their return values
@@ -33,7 +32,7 @@ describe('service information', function() {
 			assert.status(res, 200);
 			// finally, check the body has the specified field
 			assert.notDeepEqual(res.body, undefined, 'No body returned!');
-			assert.notDeepEqual(res.body[fieldName], undefined, `No ${fieldName} field returned!`);
+			assert.notDeepEqual(res.body[fieldName], undefined, `No ${ fieldName } field returned!`);
 		});
 	}
 
@@ -47,7 +46,7 @@ describe('service information', function() {
 
 	it('should redirect to the service home page', () => {
 		return preq.get({
-			uri: `${infoUri}home`,
+			uri: `${ infoUri }home`,
 			followRedirect: false
 		}).then((res) => {
 			// check the status

@@ -13,7 +13,7 @@ describe('lib:parsoid-sections (section elements)', function() {
 
 	function assertSection0(sections, extraText = '') {
 		assert.deepEqual(sections[0].id, 0);
-		assert.deepEqual(sections[0].text, `text0${extraText}`, JSON.stringify(sections[0], null, 2));
+		assert.deepEqual(sections[0].text, `text0${ extraText }`, JSON.stringify(sections[0], null, 2));
 	}
 
 	function assertSection1(sections, extraText = '') {
@@ -21,7 +21,7 @@ describe('lib:parsoid-sections (section elements)', function() {
 		assert.deepEqual(sections[1].toclevel, 1);
 		assert.deepEqual(sections[1].line, 'foo');
 		assert.deepEqual(sections[1].anchor, 'foo');
-		assert.deepEqual(sections[1].text, `text1${extraText}`);
+		assert.deepEqual(sections[1].text, `text1${ extraText }`);
 	}
 
 	function assertSection2(sections) {

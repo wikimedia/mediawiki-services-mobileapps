@@ -29,10 +29,14 @@ describe('summary', function() {
 
 	this.timeout(20000);
 
-	before(() => server.start());
+	let svc;
+	before(async () => {
+		svc = await server.start();
+	});
+	after(async () => await svc.stop());
 
 	const localUri = (title, domain = 'en.wikipedia.org') => {
-		return `${server.config.uri}${domain}/v1/page/summary/${title}`;
+		return `${ server.config.uri }${ domain }/v1/page/summary/${ title }`;
 	};
 
 	it('should respond with expected properties in payload', () => {
@@ -137,7 +141,7 @@ describe('summary', function() {
 	});
 
 	it("404 for a page that doesn't exist", () => {
-		const uri = `${server.config.uri}en.wikipedia.org/v1/page/summary/ashsahahash`;
+		const uri = `${ server.config.uri }en.wikipedia.org/v1/page/summary/ashsahahash`;
 		return preq.get({ uri })
 			.catch((res) => {
 				assert.ok(res.status === 404, 'Pages that do not exist 404');
@@ -145,7 +149,7 @@ describe('summary', function() {
 	});
 
 	it.skip('404 for a page with invalid title', () => {
-		const uri = `${server.config.uri}en.wikipedia.org/v1/page/summary/W::Mammalia`;
+		const uri = `${ server.config.uri }en.wikipedia.org/v1/page/summary/W::Mammalia`;
 		return preq.get({ uri })
 			.catch((res) => {
 				assert.ok(res.status === 404, 'Invalid page titles 404');

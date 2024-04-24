@@ -7,17 +7,20 @@ const server = require('../../utils/server.js');
 describe('mobile-sections', function() {
 
 	this.timeout(20000);
-
-	before(() => server.start());
+	let svc;
+	before(async () => {
+		svc = await server.start();
+	});
+	after(async () => await svc.stop());
 
 	const localUri = (title, domain = 'en.wikipedia.org') => {
-		return `${server.config.uri}${domain}/v1/page/mobile-sections/${title}`;
+		return `${ server.config.uri }${ domain }/v1/page/mobile-sections/${ title }`;
 	};
 
 	it('Mismatched title and revision id give 404', () => {
 		const title = '%2Fr%2FThe_Donald';
 		const rev = 752758357; // belongs to Roald Dahl
-		const uri = localUri(`${title}/${rev}`);
+		const uri = localUri(`${ title }/${ rev }`);
 		return preq.get({ uri })
 			.catch((res) => {
 				assert.equal(res.status, 404);
@@ -27,7 +30,7 @@ describe('mobile-sections', function() {
 	it('Malformed revision id gives bad request', () => {
 		const title = '%2Fr%2FThe_Donald'; // belongs to Roald Dahl
 		const rev = 'Reddit';
-		const uri = localUri(`${title}/${rev}`);
+		const uri = localUri(`${ title }/${ rev }`);
 		return preq.get({ uri })
 			.catch((res) => {
 				assert.equal(res.status, 400, 'Should be integer');
@@ -53,7 +56,7 @@ describe('mobile-sections', function() {
 				const lastMod = lead.lastmodified;
 				const prot = lead.protection;
 				assert.equal(res.status, 200);
-				assert.ok(lastMod.startsWith('20'), `${lastMod} should start with 20`); // 2015-
+				assert.ok(lastMod.startsWith('20'), `${ lastMod } should start with 20`); // 2015-
 				assert.equal(lead.displaytitle, '<span class="mw-page-title-main">Sections/deep</span>');
 				assert.equal(lead.wikibase_item, undefined);
 				assert.equal(lead.description, undefined);
@@ -73,7 +76,7 @@ describe('mobile-sections', function() {
 				const lead = res.body.lead;
 				const lastMod = lead.lastmodified;
 				assert.equal(res.status, 200);
-				assert.ok(lastMod.startsWith('20'), `${lastMod} should start with 20`); // 2015-
+				assert.ok(lastMod.startsWith('20'), `${ lastMod } should start with 20`); // 2015-
 				assert.equal(lead.displaytitle, '<span class="mw-page-title-main">Main Page</span>');
 				assert.equal(lead.normalizedtitle, 'Main Page');
 				assert.equal(lead.wikibase_item, 'Q5296');
@@ -112,7 +115,7 @@ describe('mobile-sections', function() {
 				const lead = res.body.lead;
 				const lastMod = lead.lastmodified;
 				assert.equal(res.status, 200);
-				assert.ok(lastMod.startsWith('20'), `${lastMod} should start with 20`); // 2015-
+				assert.ok(lastMod.startsWith('20'), `${ lastMod } should start with 20`); // 2015-
 				assert.equal(lead.displaytitle, '<span class="mw-page-title-main">Sunn O)))</span>');
 				assert.equal(lead.normalizedtitle, 'Sunn O)))');
 				assert.ok(lead.sections.length > 0, 'Expected at least one section element');
@@ -159,12 +162,12 @@ describe('mobile-sections', function() {
 			.then((res) => {
 				assert.equal(res.status, 200);
 				res.body.remaining.sections.forEach((section) => {
-					if (sections.indexOf(section.line) > -1) {
+					if (sections.includes(section.line)) {
 						const ref = section.isReferenceSection === true;
-						assert.ok(ref, `${section.line} should have a reference flag`);
+						assert.ok(ref, `${ section.line } should have a reference flag`);
 					} else {
 						const noRef = section.isReferenceSection === undefined;
-						assert.ok(noRef, `${section.line} should have no reference flag`);
+						assert.ok(noRef, `${ section.line } should have no reference flag`);
 					}
 				});
 			});
@@ -176,12 +179,12 @@ describe('mobile-sections', function() {
 			.then((res) => {
 				assert.equal(res.status, 200);
 				res.body.remaining.sections.forEach((section) => {
-					if ([ 'References' ].indexOf(section.line) > -1) {
+					if ([ 'References' ].includes(section.line)) {
 						const ref = section.isReferenceSection === true;
-						assert.ok(ref, `${section.line} should have a reference flag`);
+						assert.ok(ref, `${ section.line } should have a reference flag`);
 					} else {
 						const noRef = section.isReferenceSection === undefined;
-						assert.ok(noRef, `${section.line} should have no reference flag`);
+						assert.ok(noRef, `${ section.line } should have no reference flag`);
 					}
 				});
 			});

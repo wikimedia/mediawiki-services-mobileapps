@@ -40,7 +40,7 @@ const NEW_VERSION_INFO = '';
 const OLD_PORT = 0;
 const OLD_VERSION_INFO = '';
 const PROJECT = 'wikipedia';
-const topPagesDir = path.join(__dirname, `../private/page-lists/top-pages/${PROJECT}`);
+const topPagesDir = path.join(__dirname, `../private/page-lists/top-pages/${ PROJECT }`);
 const pagesListsDir = path.join(__dirname, '../private/page-lists');
 const outDir = path.join(__dirname, '../private/extracts');
 const UNKNOWN_LANGUAGE = 'various';
@@ -89,27 +89,27 @@ function getLanguageLinks() {
 		'uk',
 		'vi',
 		'zh'
-	].map(lang => `<a href="./${lang}.html">${lang}</a>`).join(' ');
+	].map(_lang => `<a href="./${ _lang }.html">${ _lang }</a>`).join(' ');
 }
 
 const uriForWikiLink = (domain, title, rev) => {
-	return `https://${domain}/wiki/${title}?oldid=${rev}`;
+	return `https://${ domain }/wiki/${ title }?oldid=${ rev }`;
 };
 
 const uriForParsoidLink = (domain, title, rev) => {
-	return `https://${domain}/api/rest_v1/page/html/${title}/${rev}`;
+	return `https://${ domain }/api/rest_v1/page/html/${ title }/${ rev }`;
 };
 
 const uriForProd = (domain, title) => {
-	return `https://${domain}/api/rest_v1/${ENDPOINT}/${encodeURIComponent(title)}`;
+	return `https://${ domain }/api/rest_v1/${ ENDPOINT }/${ encodeURIComponent(title) }`;
 };
 
 const uriForLocal = (domain, title, rev, port = NEW_PORT) => {
-	const suffix = rev ? `/${rev}` : '';
-	return `http://localhost:${port}/${domain}/v1/${ENDPOINT}/${encodeURIComponent(title)}${suffix}`;
+	const suffix = rev ? `/${ rev }` : '';
+	return `http://localhost:${ port }/${ domain }/v1/${ ENDPOINT }/${ encodeURIComponent(title) }${ suffix }`;
 };
 
-const outputStart = (type, lang) => {
+const outputStart = (type, _lang) => {
 	const file = type.overviewFile;
 	file.write('<html>\n');
 	file.write('<head>\n');
@@ -118,28 +118,28 @@ const outputStart = (type, lang) => {
 	file.write('</head>\n');
 	file.write('<body>\n');
 	file.write('<script type="text/javascript" src="../static/compare-table.js" charset="utf-8"></script>\n');
-	file.write(`<h2>Extract comparison for top pages in ${lang}.${PROJECT}.org</h2>\n`);
+	file.write(`<h2>Extract comparison for top pages in ${ _lang }.${ PROJECT }.org</h2>\n`);
 	file.write('<nav>\n');
-	if (lang !== UNKNOWN_LANGUAGE) {
-		file.write(`${getLanguageLinks()}\n<br/>\n`);
+	if (_lang !== UNKNOWN_LANGUAGE) {
+		file.write(`${ getLanguageLinks() }\n<br/>\n`);
 	}
-	file.write(`<a href="../html/${lang}.html">html</a> |\n`);
-	file.write(`<a href="../plain/${lang}.html">plain</a> |\n`);
-	file.write(`<a href="../other/${lang}.html">other</a> |\n`);
+	file.write(`<a href="../html/${ _lang }.html">html</a> |\n`);
+	file.write(`<a href="../plain/${ _lang }.html">plain</a> |\n`);
+	file.write(`<a href="../other/${ _lang }.html">other</a> |\n`);
 	file.write('<form>\n');
 	file.write('<input type="checkbox" id="showSameCB" onchange="toggleShow();">\n');
 	file.write('<label for="showSameCB">Show same</label>\n');
 	file.write('</form>\n');
 	file.write('</nav>\n');
-	file.write(`<p>old version on port ${OLD_PORT}: ${OLD_VERSION_INFO}<br/>\n`);
-	file.write(`new version on port ${NEW_PORT}: ${NEW_VERSION_INFO}</p>\n`);
+	file.write(`<p>old version on port ${ OLD_PORT }: ${ OLD_VERSION_INFO }<br/>\n`);
+	file.write(`new version on port ${ NEW_PORT }: ${ NEW_VERSION_INFO }</p>\n`);
 	file.write('<table>\n');
 	file.write('<tr>\n');
 	file.write('<th class="titleColumn">Title</th>\n');
-	file.write(`<th class="valueColumn">Old (:${OLD_PORT})</th>\n`);
-	file.write(`<th class="valueColumn">New (:${NEW_PORT})</th>\n`);
+	file.write(`<th class="valueColumn">Old (:${ OLD_PORT })</th>\n`);
+	file.write(`<th class="valueColumn">New (:${ NEW_PORT })</th>\n`);
 	file.write('</tr>\n');
-	/* eslint-enable max-len */
+
 };
 
 const outputEnd = (type) => {
@@ -164,16 +164,16 @@ const compareExtractsHTML = (file, oldExtractValue, newExtractValue,
 
 	const displayTitle = title.replace(/_/g, ' ');
 	const same = (oldExtractValue === newExtractValue) ? ' class="same"' : '';
-	const positionLink = `<a id="${counter}" href="#${counter}">${counter}</a>`;
-	file.write(`<tr${same}><td class="titleColumn">${positionLink}\n`);
-	file.write(`<a href="${uriForWikiLink(domain, title, rev)}">${displayTitle}</a>\n`);
-	file.write(`[<a href="${uriForParsoidLink(domain, title, rev)}">parsoid</a>]\n`);
-	file.write(`<br/>[${ENDPOINT}:\n`);
-	file.write(`<a href="${uriForProd(domain, title)}">prod</a>\n`);
-	file.write(`<a href="${uriForLocal(domain, title, rev)}">local</a>]\n`);
+	const positionLink = `<a id="${ counter }" href="#${ counter }">${ counter }</a>`;
+	file.write(`<tr${ same }><td class="titleColumn">${ positionLink }\n`);
+	file.write(`<a href="${ uriForWikiLink(domain, title, rev) }">${ displayTitle }</a>\n`);
+	file.write(`[<a href="${ uriForParsoidLink(domain, title, rev) }">parsoid</a>]\n`);
+	file.write(`<br/>[${ ENDPOINT }:\n`);
+	file.write(`<a href="${ uriForProd(domain, title) }">prod</a>\n`);
+	file.write(`<a href="${ uriForLocal(domain, title, rev) }">local</a>]\n`);
 	file.write('</td>\n');
-	file.write(`<td class="valueColumn" dir="auto">${oldExtractValue}</td>\n`);
-	file.write(`<td class="valueColumn" dir="auto">${newExtractValue}</td>\n`);
+	file.write(`<td class="valueColumn" dir="auto">${ oldExtractValue }</td>\n`);
+	file.write(`<td class="valueColumn" dir="auto">${ newExtractValue }</td>\n`);
 	file.write('</tr>\n');
 };
 
@@ -191,15 +191,15 @@ const fixImgSources = (value) => {
 
 const getExtract = (response) => {
 	if (response.status !== 200) {
-		return `!! STATUS = ${response.status} !!\n`;
+		return `!! STATUS = ${ response.status } !!\n`;
 	}
 	fixImgSources(response.body.extract_html);
 	return response.body;
 };
 
 const writeFile = (file, title, rev, value) => {
-	file.write(`== ${title}/${rev}\n`);
-	file.write(`${value}\n`);
+	file.write(`== ${ title }/${ rev }\n`);
+	file.write(`${ value }\n`);
 };
 
 const OTHER_PROPS = [ 'title', 'displaytitle', 'pageid', 'thumbnail', 'originalimage',
@@ -236,7 +236,7 @@ const fetchExtract = (uri) => {
 		.then((response) => {
 			return BBPromise.delay(DELAY, getExtract(response));
 		}).catch((err) => {
-			return BBPromise.resolve(`!!! ${err} "${uri}" !!!`);
+			return BBPromise.resolve(`!!! ${ err } "${ uri }" !!!`);
 		});
 };
 
@@ -259,9 +259,9 @@ const fetchAndVerify = (page, counter) => {
 		});
 };
 
-const iteratePages = (pageList, defaultDomain, pageFunction) => {
+const iteratePages = (_pageList, defaultDomain, pageFunction) => {
 	let counter = 0;
-	return BBPromise.each(pageList, (page) => {
+	return BBPromise.each(_pageList, (page) => {
 		if (!page.domain) {
 			page.domain = defaultDomain;
 		}
@@ -269,8 +269,8 @@ const iteratePages = (pageList, defaultDomain, pageFunction) => {
 	});
 };
 
-const processOneList = (defaultDomain, pageList) => {
-	iteratePages(pageList, defaultDomain, (page, counter) => {
+const processOneList = (defaultDomain, _pageList) => {
+	iteratePages(_pageList, defaultDomain, (page, counter) => {
 		return fetchAndVerify(page, counter);
 	})
 		.then(() => {
@@ -281,25 +281,26 @@ const processOneList = (defaultDomain, pageList) => {
 		});
 };
 
-const setupFiles = (type, lang) => {
-	type.dir = `${outDir}/${type.name}`;
+const setupFiles = (type, _lang) => {
+	type.dir = `${ outDir }/${ type.name }`;
 	mkdir.sync(type.dir);
-	type.oldFileName = `${type.dir}/${lang}.v1.txt`;
-	type.newFileName = `${type.dir}/${lang}.v2.txt`;
-	type.overviewFileName = `${type.dir}/${lang}.html`;
+	type.oldFileName = `${ type.dir }/${ _lang }.v1.txt`;
+	type.newFileName = `${ type.dir }/${ _lang }.v2.txt`;
+	type.overviewFileName = `${ type.dir }/${ _lang }.html`;
 
 	type.oldFile = fs.createWriteStream(type.oldFileName, { flags: 'w' });
 	type.newFile = fs.createWriteStream(type.newFileName, { flags: 'w' });
 	type.overviewFile = fs.createWriteStream(type.overviewFileName, { flags: 'w' });
 
-	outputStart(type, lang);
+	outputStart(type, _lang);
 };
 
 // MAIN
 const arg = process.argv[2];
 if (process.argv.length > 3) {
 	process.stderr.write('Error: supply only 0 or 1 language parameter (e.g. en)!\n');
-	// eslint-disable-next-line no-process-exit
+
+	// eslint-disable-next-line n/no-process-exit
 	process.exit(-1);
 }
 
@@ -308,12 +309,12 @@ let pageList;
 
 if (arg) {
 	lang = arg;
-	pageList = require(`${topPagesDir}/top-pages.${lang}.json`).items;
+	pageList = require(`${ topPagesDir }/top-pages.${ lang }.json`).items;
 } else {
 	lang = UNKNOWN_LANGUAGE;
-	pageList = require(`${pagesListsDir}/summary-test-pages.json`).items;
+	pageList = require(`${ pagesListsDir }/summary-test-pages.json`).items;
 }
 setupFiles(html, lang);
 setupFiles(plain, lang);
 setupFiles(other, lang);
-processOneList(`${lang}.${PROJECT}.org`, pageList);
+processOneList(`${ lang }.${ PROJECT }.org`, pageList);

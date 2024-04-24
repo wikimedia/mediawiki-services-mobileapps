@@ -53,7 +53,7 @@ describe('lib:apiUtil', () => {
 	});
 
 	it('MW API request expanded from template includes Accept-Language header', () => {
-		const config = yaml.safeLoad(fs.readFileSync(`${__dirname}/../../../config.yaml`));
+		const config = yaml.load(fs.readFileSync(`${ __dirname }/../../../config.yaml`));
 		const template = new Template(config.services[0].conf.mwapi_req);
 		const req = template.expand({
 			request: {

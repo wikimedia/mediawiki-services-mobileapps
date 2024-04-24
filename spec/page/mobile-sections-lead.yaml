@@ -7,17 +7,17 @@ paths:
       description: |
         Gets the lead section and general metadata of a given wiki page for the Android app.
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
+        - $ref: "#/components/parameters/domainParam"
+        - $ref: "#/components/parameters/title"
       responses:
         200:
-          $ref: '#/components/responses/mobile-sections'
+          $ref: "#/components/responses/mobile-sections"
         default:
           description: Error
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/problem'
+                $ref: "#/components/schemas/problem"
       x-monitor: false
   /{domain}/v1/page/mobile-sections-lead/{title}/{revision}:
     get:
@@ -27,16 +27,16 @@ paths:
       description: |
         Gets the lead section and general metadata of a given wiki page for the Android app.
       parameters:
-        - $ref: '#/components/parameters/domainParam'
-        - $ref: '#/components/parameters/title'
-        - $ref: '#/components/parameters/revision'
+        - $ref: "#/components/parameters/domainParam"
+        - $ref: "#/components/parameters/title"
+        - $ref: "#/components/parameters/revision"
       responses:
         200:
-          $ref: '#/components/responses/mobile-sections'
+          $ref: "#/components/responses/mobile-sections"
         default:
           description: Error
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/problem'
+                $ref: "#/components/schemas/problem"
       x-monitor: false

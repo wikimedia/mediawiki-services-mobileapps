@@ -17,10 +17,10 @@ logging:
 #    port: 12201
 
 # Statsd metrics reporter
-metrics:
-  #type: log
-  #host: localhost
-  #port: 8125
+# metrics:
+# type: log
+# host: localhost
+# port: 8125
 
 services:
   - name: mobileapps
@@ -36,7 +36,7 @@ services:
       # the location of the spec, defaults to spec.yaml if not specified
       # spec: ./spec.yaml
       # allow cross-domain requests to the API (default '*')
-      cors: '*'
+      cors: "*"
       # to disable use:
       # cors: false
       # to restrict to a particular domain, use:
@@ -64,14 +64,14 @@ services:
       # the template used for contacting the MW API
       mwapi_req:
         method: post
-        uri: '{env(MWAPI_URI,http://localhost/w/api.php)}'
+        uri: "{env(MWAPI_URI,http://localhost/w/api.php)}"
         headers:
-          user-agent: '{{user-agent}}'
-        body: '{{ default(request.query, {}) }}'
+          user-agent: "{{user-agent}}"
+        body: "{{ default(request.query, {}) }}"
       # the template used for contacting RESTBase
       restbase_req:
-        method: '{{request.method}}'
-        uri: '{env(RESTBASE_URI,https://{{domain}}/api/rest_v1/{+path})}'
-        query: '{{ default(request.query, {}) }}'
-        headers: '{{request.headers}}'
-        body: '{{request.body}}'
+        method: "{{request.method}}"
+        uri: "{env(RESTBASE_URI,https://{{domain}}/api/rest_v1/{+path})}"
+        query: "{{ default(request.query, {}) }}"
+        headers: "{{request.headers}}"
+        body: "{{request.body}}"

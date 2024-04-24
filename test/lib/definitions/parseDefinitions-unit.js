@@ -8,7 +8,7 @@ const fs = require('fs');
 const parseDefinitions = require('../../../lib/definitions/parseDefinitions');
 
 function parse(name) {
-	const data = fs.readFileSync(path.resolve(__dirname, `../../fixtures/wiktionary/${name}.htm`),
+	const data = fs.readFileSync(path.resolve(__dirname, `../../fixtures/wiktionary/${ name }.htm`),
 		'utf8');
 	return parseDefinitions(createDocument(data), 'en.wiktionary.org', name);
 }

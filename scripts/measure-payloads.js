@@ -13,10 +13,10 @@ const path = require('path');
 
 const lang = 'en'; // prepped for 'en' and 'zh'
 const TOP_PAGES_DIR = path.join(__dirname, '../private/page-lists/top-pages/wikipedia');
-const TOP_PAGES_FILE = path.join(TOP_PAGES_DIR, `top-pages.${lang}.json`);
+const TOP_PAGES_FILE = path.join(TOP_PAGES_DIR, `top-pages.${ lang }.json`);
 const GZIP = 'gzip -6';
-const PARSOID_BASE_URI = `https://${lang}.wikipedia.org/api/rest_v1/page/html`;
-const LOCAL_MCS_BASE_URI = `http://localhost:8888/${lang}.wikipedia.org/v1/page/mobile-html`;
+const PARSOID_BASE_URI = `https://${ lang }.wikipedia.org/api/rest_v1/page/html`;
+const LOCAL_MCS_BASE_URI = `http://localhost:8888/${ lang }.wikipedia.org/v1/page/mobile-html`;
 
 const headers = ['title', 'parsoid', 'parsoid-gz', 'mobile-html', 'mobile-html-gz'];
 const measurements = [];
@@ -27,23 +27,23 @@ const fixTitleForRequest = (pageTitle) => {
 
 const processEndpoint = (endpointLabel, baseUri, page, measurement) => {
 	const requestTitle = fixTitleForRequest(page.title);
-	const uri = `${baseUri}/${requestTitle}/${page.rev}`;
+	const uri = `${ baseUri }/${ requestTitle }/${ page.rev }`;
 	const fileName = requestTitle;
-	const cmd = `curl -s "${uri}" -o "${fileName}"`;
+	const cmd = `curl -s "${ uri }" -o "${ fileName }"`;
 	return exec(cmd)
 		.then((rsp) => {
 			const stats = fs.statSync(fileName);
 			measurement.push(stats.size);
-			return exec(`${GZIP} "${fileName}"`);
+			return exec(`${ GZIP } "${ fileName }"`);
 		})
 		.then((rsp) => {
-			const stats = fs.statSync(`${fileName}.gz`);
+			const stats = fs.statSync(`${ fileName }.gz`);
 			measurement.push(stats.size);
-			fs.unlinkSync(`${fileName}.gz`);
+			fs.unlinkSync(`${ fileName }.gz`);
 			return BBPromise.resolve(measurement);
 		})
 		.catch((err) => {
-			process.stderr.write(`ERROR getting parsoid ${page.title}: ${err}`);
+			process.stderr.write(`ERROR getting parsoid ${ page.title }: ${ err }`);
 		});
 };
 
@@ -56,9 +56,9 @@ const processReadHtml = (page, measurement) => {
 };
 
 const printResultSummary = () => {
-	process.stdout.write(`\n\n${headers.join('\t')}\n`);
+	process.stdout.write(`\n\n${ headers.join('\t') }\n`);
 	measurements.forEach((measurement) => {
-		process.stdout.write(`${measurement.join('\t')}\n`);
+		process.stdout.write(`${ measurement.join('\t') }\n`);
 	});
 };
 
@@ -85,7 +85,8 @@ const processAllPages = () => {
 const arg = process.argv[2];
 if (arg) {
 	process.stderr.write('Error: unrecognized parameter!');
-	// eslint-disable-next-line no-process-exit
+
+	// eslint-disable-next-line n/no-process-exit
 	process.exit(-1);
 } else {
 	processAllPages();

@@ -90,7 +90,7 @@ components:
           type: array
           description: a list of media items
           items:
-            $ref: '#/components/schemas/media_item'
+            $ref: "#/components/schemas/media_item"
       required:
         - items
         - revision

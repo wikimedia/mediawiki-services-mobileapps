@@ -7,7 +7,7 @@ const aUtil    = require('../../lib/api-util');
 const fixtures = require('./fixtures');
 const preq = require('preq');
 const mockReq = require('sinon-express-mock').mockReq;
-const uuidv1 = require('uuid/v1');
+const uuidv1 = require('uuid').v1;
 const HTTPError = require('../../lib/util').HTTPError;
 
 const testUtil = {};
@@ -20,9 +20,9 @@ const testUtil = {};
  * @return {!string} formatted date string
  */
 testUtil.constructTestDate = function(dateObj) {
-	return `${dateObj.getUTCFullYear()}/${
-		dateUtil.pad(dateObj.getUTCMonth() + 1)}/${
-		dateUtil.pad(dateObj.getUTCDate())}`;
+	return `${ dateObj.getUTCFullYear() }/${
+		dateUtil.pad(dateObj.getUTCMonth() + 1) }/${
+		dateUtil.pad(dateObj.getUTCDate()) }`;
 };
 
 testUtil.rbTemplate = new Template({

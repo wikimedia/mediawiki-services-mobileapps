@@ -11,7 +11,7 @@ const writeFilePrettifiedHtml = (html, baseFilePath, filePart2) => {
 
 	const prettyHtml = beautifyHtml(html,
 		{ indent_size: 2, html: { end_with_newline: true } });
-	fs.writeFileSync(`${baseFilePath}${filePart2}.html`, prettyHtml, 'utf8');
+	fs.writeFileSync(`${ baseFilePath }${ filePart2 }.html`, prettyHtml, 'utf8');
 };
 
 const leadPostProcessing = (lead, baseFilePath) => {
@@ -29,7 +29,7 @@ const leadPostProcessing = (lead, baseFilePath) => {
 const remainingPostProcessing = (remaining, baseFilePath) => {
 	for (const section of remaining.sections) {
 		if (section.text) {
-			writeFilePrettifiedHtml(section.text, baseFilePath, `section${section.id}-text`);
+			writeFilePrettifiedHtml(section.text, baseFilePath, `section${ section.id }-text`);
 		}
 	}
 };

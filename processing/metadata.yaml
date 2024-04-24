@@ -2,5 +2,5 @@
 # and can pollute the table of contents
 
 - rmElements:
-  - span[typeof=mw:FallbackId]
-  - span:empty
+    - span[typeof=mw:FallbackId]
+    - span:empty
