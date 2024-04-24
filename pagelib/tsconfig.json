@@ -1,21 +1,21 @@
 {
-  "compileOnSave": true,
+	"compileOnSave": true,
 
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["es2017", "dom"],
-    "module": "commonjs",
+	"compilerOptions": {
+		"target": "es5",
+		"lib": [ "es2017", "dom" ],
+		"module": "commonjs",
 
-    "sourceMap": true,
+		"sourceMap": true,
 
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noEmitOnError": true,
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"noEmitOnError": true,
 
-    "newLine": "LF",
-    "forceConsistentCasingInFileNames": true
-  }
+		"newLine": "LF",
+		"forceConsistentCasingInFileNames": true
+	}
 }

@@ -2,102 +2,105 @@
  * @module pagelib/src/transform/EditTransform
  */
 
-import './EditTransform.less'
-import { ARIA } from './HTMLUtilities'
+import './EditTransform.less';
+import { ARIA } from './HTMLUtilities';
 
 const CLASS = {
-  SECTION_HEADER: 'pcs-edit-section-header',
-  TITLE: 'pcs-edit-section-title',
-  HEADER_INNER_LEFT: 'pcs-header-inner-left',
-  HEADER_INNER_RIGHT: 'pcs-header-inner-right',
-  LINK_CONTAINER: 'pcs-edit-section-link-container',
-  LINK: 'pcs-edit-section-link',
-  PROTECTION: { UNPROTECTED: '', PROTECTED: 'page-protected', FORBIDDEN: 'no-editing' },
-  TITLE_TALK_BUTTON: 'pcs-title-icon-talk-page',
-  TITLE_TALK_BUTTON_WRAPPER: 'pcs-title-icon-talk-page-container',
-}
+	SECTION_HEADER: 'pcs-edit-section-header',
+	TITLE: 'pcs-edit-section-title',
+	HEADER_INNER_LEFT: 'pcs-header-inner-left',
+	HEADER_INNER_RIGHT: 'pcs-header-inner-right',
+	LINK_CONTAINER: 'pcs-edit-section-link-container',
+	LINK: 'pcs-edit-section-link',
+	PROTECTION: { UNPROTECTED: '', PROTECTED: 'page-protected', FORBIDDEN: 'no-editing' },
+	TITLE_TALK_BUTTON: 'pcs-title-icon-talk-page',
+	TITLE_TALK_BUTTON_WRAPPER: 'pcs-title-icon-talk-page-container'
+};
 
 const IDS = {
-  TITLE_DESCRIPTION: 'pcs-edit-section-title-description',
-  ADD_TITLE_DESCRIPTION: 'pcs-edit-section-add-title-description',
-  DIVIDER: 'pcs-edit-section-divider',
-  PRONUNCIATION: 'pcs-edit-section-title-pronunciation',
-  ARIA_EDIT_PROTECTED: 'pcs-edit-section-aria-protected',
-  ARIA_EDIT_NORMAL: 'pcs-edit-section-aria-normal'
-}
+	TITLE_DESCRIPTION: 'pcs-edit-section-title-description',
+	ADD_TITLE_DESCRIPTION: 'pcs-edit-section-add-title-description',
+	DIVIDER: 'pcs-edit-section-divider',
+	PRONUNCIATION: 'pcs-edit-section-title-pronunciation',
+	ARIA_EDIT_PROTECTED: 'pcs-edit-section-aria-protected',
+	ARIA_EDIT_NORMAL: 'pcs-edit-section-aria-normal'
+};
 
 const DATA_ATTRIBUTE = {
-  SECTION_INDEX: 'data-id',
-  ACTION: 'data-action',
-  PRONUNCIATION_URL: 'data-pronunciation-url',
-  DESCRIPTION_SOURCE: 'data-description-source',
-  WIKIDATA_ENTITY_ID: 'data-wikdata-entity-id'
-}
-const ACTION_EDIT_SECTION = 'edit_section'
-const ACTION_TITLE_PRONUNCIATION = 'title_pronunciation'
-const ACTION_ADD_TITLE_DESCRIPTION = 'add_title_description'
+	SECTION_INDEX: 'data-id',
+	ACTION: 'data-action',
+	PRONUNCIATION_URL: 'data-pronunciation-url',
+	DESCRIPTION_SOURCE: 'data-description-source',
+	WIKIDATA_ENTITY_ID: 'data-wikdata-entity-id'
+};
+const ACTION_EDIT_SECTION = 'edit_section';
+const ACTION_TITLE_PRONUNCIATION = 'title_pronunciation';
+const ACTION_ADD_TITLE_DESCRIPTION = 'add_title_description';
 
 /**
  * Enables edit buttons to be shown (and which ones: protected or regular).
+ *
  * @param {!HTMLDocument} document
  * @param {?boolean} isEditable true if edit buttons should be shown
  * @param {?boolean} isProtected true if the protected edit buttons should be shown
  * @return {void}
  */
-const setEditButtons = (document, isEditable = false, isProtected = false) => {
-  const classList = document.documentElement.classList
-  if (isEditable) {
-    classList.remove(CLASS.PROTECTION.FORBIDDEN)
-  } else {
-    classList.add(CLASS.PROTECTION.FORBIDDEN)
-  }
-  if (isProtected) {
-    classList.add(CLASS.PROTECTION.PROTECTED)
-  } else {
-    classList.remove(CLASS.PROTECTION.PROTECTED)
-  }
-}
+const setEditButtons = ( document, isEditable = false, isProtected = false ) => {
+	const classList = document.documentElement.classList;
+	if ( isEditable ) {
+		classList.remove( CLASS.PROTECTION.FORBIDDEN );
+	} else {
+		classList.add( CLASS.PROTECTION.FORBIDDEN );
+	}
+	if ( isProtected ) {
+		classList.add( CLASS.PROTECTION.PROTECTED );
+	} else {
+		classList.remove( CLASS.PROTECTION.PROTECTED );
+	}
+};
 
 /**
  * Enables header title icon buttons to be shown.
+ *
  * @param {!Document} document
  * @param {?boolean} isVisible true if the title icon should be shown
  * @return {void}
  */
-const setTalkPageButton = (document, isVisible = false) => {
-  const header = document.getElementsByTagName('header')[0],
-    rightWrapElem = header.getElementsByClassName(CLASS.HEADER_INNER_RIGHT)[0],
-    isRendered = header.getElementsByClassName(CLASS.TITLE_TALK_BUTTON)[0]
-              && header.getElementsByClassName(CLASS.TITLE_TALK_BUTTON_WRAPPER)[0]
+const setTalkPageButton = ( document, isVisible = false ) => {
+	const header = document.getElementsByTagName( 'header' )[ 0 ],
+		rightWrapElem = header.getElementsByClassName( CLASS.HEADER_INNER_RIGHT )[ 0 ],
+		isRendered = header.getElementsByClassName( CLASS.TITLE_TALK_BUTTON )[ 0 ] &&
+              header.getElementsByClassName( CLASS.TITLE_TALK_BUTTON_WRAPPER )[ 0 ];
 
-  if (isVisible) {
-    if (!isRendered) {
-      let talkButtonWrapper = document.createElement('span'),
-      talkButton = document.createElement('a')
+	if ( isVisible ) {
+		if ( !isRendered ) {
+			const talkButtonWrapper = document.createElement( 'span' ),
+				talkButton = document.createElement( 'a' );
 
-      talkButton.setAttribute('href', '/')
-      talkButton.classList.add(CLASS.TITLE_TALK_BUTTON)
-      talkButtonWrapper.classList.add(CLASS.TITLE_TALK_BUTTON_WRAPPER)
-      rightWrapElem.appendChild(talkButtonWrapper)
-      talkButtonWrapper.appendChild(talkButton)
-    }
-  } else {
-    if (isRendered) {
-      header.getElementsByClassName(CLASS.TITLE_TALK_BUTTON_WRAPPER)[0].remove()
-    }
-  }
-}
+			talkButton.setAttribute( 'href', '/' );
+			talkButton.classList.add( CLASS.TITLE_TALK_BUTTON );
+			talkButtonWrapper.classList.add( CLASS.TITLE_TALK_BUTTON_WRAPPER );
+			rightWrapElem.appendChild( talkButtonWrapper );
+			talkButtonWrapper.appendChild( talkButton );
+		}
+	} else {
+		if ( isRendered ) {
+			header.getElementsByClassName( CLASS.TITLE_TALK_BUTTON_WRAPPER )[ 0 ].remove();
+		}
+	}
+};
 
 /**
  * Sets appropriate label for VoiceOver to read for edit buttons. Defaults to normal, so only need to check if it's protected.
+ *
  * @param {!HTMLDocument} document
  * @return {void}
  */
-const setARIAEditButtons = document => {
-  if (document.documentElement.classList.contains(CLASS.PROTECTION.PROTECTED)) {
-    Array.from(document.getElementsByClassName(CLASS.LINK)).forEach(link => link.setAttribute(ARIA.LABELED_BY, IDS.ARIA_EDIT_PROTECTED))
-  }
-}
+const setARIAEditButtons = ( document ) => {
+	if ( document.documentElement.classList.contains( CLASS.PROTECTION.PROTECTED ) ) {
+		Array.from( document.getElementsByClassName( CLASS.LINK ) ).forEach( ( link ) => link.setAttribute( ARIA.LABELED_BY, IDS.ARIA_EDIT_PROTECTED ) );
+	}
+};
 
 /**
  * @param {!Document} document
@@ -105,15 +108,15 @@ const setARIAEditButtons = document => {
  * @param {!string} href The href for the link
  * @return {!HTMLAnchorElement}
  */
-const newEditSectionLink = (document, index, href = '') => {
-  const link = document.createElement('a')
-  link.href = href
-  link.setAttribute(DATA_ATTRIBUTE.SECTION_INDEX, index)
-  link.setAttribute(DATA_ATTRIBUTE.ACTION, ACTION_EDIT_SECTION)
-  link.setAttribute(ARIA.LABELED_BY, IDS.ARIA_EDIT_NORMAL)
-  link.classList.add(CLASS.LINK)
-  return link
-}
+const newEditSectionLink = ( document, index, href = '' ) => {
+	const link = document.createElement( 'a' );
+	link.href = href;
+	link.setAttribute( DATA_ATTRIBUTE.SECTION_INDEX, index );
+	link.setAttribute( DATA_ATTRIBUTE.ACTION, ACTION_EDIT_SECTION );
+	link.setAttribute( ARIA.LABELED_BY, IDS.ARIA_EDIT_NORMAL );
+	link.classList.add( CLASS.LINK );
+	return link;
+};
 
 /**
  * @param {!Document} document
@@ -123,56 +126,55 @@ const newEditSectionLink = (document, index, href = '') => {
  * @param {?string} protectedAriaLabel
  * @return {!HTMLSpanElement}
  */
-const newEditSectionButton = (document, index, link, normalAriaLabel, protectedAriaLabel) => {
-  const container = document.createElement('span')
-  container.classList.add(CLASS.LINK_CONTAINER)
+const newEditSectionButton = ( document, index, link, normalAriaLabel, protectedAriaLabel ) => {
+	const container = document.createElement( 'span' );
+	container.classList.add( CLASS.LINK_CONTAINER );
 
-  if (document.getElementById(IDS.ARIA_EDIT_NORMAL) === null && normalAriaLabel) {
-    const ariaDescriptionNormal = document.createElement('span')
-    ariaDescriptionNormal.setAttribute('id', IDS.ARIA_EDIT_NORMAL)
-    ariaDescriptionNormal.setAttribute(ARIA.LABEL, normalAriaLabel)
-    container.appendChild(ariaDescriptionNormal)
-  }
+	if ( document.getElementById( IDS.ARIA_EDIT_NORMAL ) === null && normalAriaLabel ) {
+		const ariaDescriptionNormal = document.createElement( 'span' );
+		ariaDescriptionNormal.setAttribute( 'id', IDS.ARIA_EDIT_NORMAL );
+		ariaDescriptionNormal.setAttribute( ARIA.LABEL, normalAriaLabel );
+		container.appendChild( ariaDescriptionNormal );
+	}
 
-  if (document.getElementById(IDS.ARIA_EDIT_PROTECTED) === null && protectedAriaLabel) {
-    const ariaDescriptionProtected = document.createElement('span')
-    ariaDescriptionProtected.setAttribute('id', IDS.ARIA_EDIT_PROTECTED)
-    ariaDescriptionProtected.setAttribute(ARIA.LABEL, protectedAriaLabel)
-    container.appendChild(ariaDescriptionProtected)
-  }
+	if ( document.getElementById( IDS.ARIA_EDIT_PROTECTED ) === null && protectedAriaLabel ) {
+		const ariaDescriptionProtected = document.createElement( 'span' );
+		ariaDescriptionProtected.setAttribute( 'id', IDS.ARIA_EDIT_PROTECTED );
+		ariaDescriptionProtected.setAttribute( ARIA.LABEL, protectedAriaLabel );
+		container.appendChild( ariaDescriptionProtected );
+	}
 
-  let actualLink = link
-  if (!actualLink) {
-    actualLink = newEditSectionLink(document, index)
-  }
-  /* DOM sink status: safe - content transform with no user interference */
-  container.appendChild(actualLink)
+	let actualLink = link;
+	if ( !actualLink ) {
+		actualLink = newEditSectionLink( document, index );
+	}
+	/* DOM sink status: safe - content transform with no user interference */
+	container.appendChild( actualLink );
 
-  return container
-}
+	return container;
+};
 
 /**
  * @param {!Document} document
- * @param {!number} index The zero-based index of the section.
  * @return {!HTMLDivElement}
  */
-const newEditSectionWrapper = (document, index) => {
-  const element = document.createElement('div')
-  element.classList.add(CLASS.SECTION_HEADER)
-  element.classList.add('v2')
-  return element
-}
+const newEditSectionWrapper = ( document ) => {
+	const element = document.createElement( 'div' );
+	element.classList.add( CLASS.SECTION_HEADER );
+	element.classList.add( 'v2' );
+	return element;
+};
 
 /**
  * @param {!HTMLDivElement} wrapper
  * @param {!HTMLElement} header The header element.
  * @return {void}
  */
-const appendEditSectionHeader = (wrapper, header) => {
-  header.classList.add(CLASS.TITLE)
-  /* DOM sink status: safe - content transform with no user interference */
-  wrapper.appendChild(header)
-}
+const appendEditSectionHeader = ( wrapper, header ) => {
+	header.classList.add( CLASS.TITLE );
+	/* DOM sink status: safe - content transform with no user interference */
+	wrapper.appendChild( header );
+};
 
 /**
  * @param {!Document} document
@@ -181,20 +183,21 @@ const appendEditSectionHeader = (wrapper, header) => {
  * @param {?string} titleHTML Title of this section header.
  * @return {!HTMLElement}
  */
-const newEditSectionHeader = (document, index, level, titleHTML) => {
+const newEditSectionHeader = ( document, index, level, titleHTML ) => {
 
-  const element = newEditSectionWrapper(document, index)
-  const title = document.createElement(`h${level}`)
-  /* DOM sink status: safe - Displaytitle is sanitized in CoreParserHooks::displaytitle by MW
+	const element = newEditSectionWrapper( document, index );
+	const title = document.createElement( `h${ level }` );
+	/* DOM sink status: safe - Displaytitle is sanitized in CoreParserHooks::displaytitle by MW
     OBS: if titleHTML is escaped it will cause a regression of T242028 */
-  title.innerHTML = titleHTML || ''
-  title.setAttribute(DATA_ATTRIBUTE.SECTION_INDEX, index)
-  appendEditSectionHeader(element, title)
-  return element
-}
+	title.innerHTML = titleHTML || '';
+	title.setAttribute( DATA_ATTRIBUTE.SECTION_INDEX, index );
+	appendEditSectionHeader( element, title );
+	return element;
+};
 
 /**
  * Elements needed to show or add page title description.
+ *
  * @param {!Document} document
  * @param {?string} titleDescription Page title description.
  * @param {?string} titleDescriptionSource
@@ -203,33 +206,35 @@ const newEditSectionHeader = (document, index, level, titleHTML) => {
  * @param {?boolean} isTitleDescriptionEditable Whether title description is editable.
  * @return {?HTMLElement}
  */
-const titleDescriptionElements = (document, titleDescription, titleDescriptionSource, wikidataEntityID, addTitleDescriptionString,
-  isTitleDescriptionEditable) => {
-  const descriptionExists = titleDescription !== undefined && titleDescription.length > 0
-  if (descriptionExists) {
-    const p = document.createElement('p')
-    p.setAttribute(DATA_ATTRIBUTE.DESCRIPTION_SOURCE, titleDescriptionSource)
-    p.setAttribute(DATA_ATTRIBUTE.WIKIDATA_ENTITY_ID, wikidataEntityID)
-    p.id = IDS.TITLE_DESCRIPTION
-    p.textContent = titleDescription
-    return p
-  }
-  if (isTitleDescriptionEditable) {
-    const a = document.createElement('a')
-    a.href = '#'
-    a.setAttribute(DATA_ATTRIBUTE.ACTION, ACTION_ADD_TITLE_DESCRIPTION)
-    const p = document.createElement('p')
-    p.id = IDS.ADD_TITLE_DESCRIPTION
-    p.innerHTML = addTitleDescriptionString
-    a.appendChild(p)
-    return a
-  }
-  return null
-}
+const titleDescriptionElements = ( document, titleDescription, titleDescriptionSource, wikidataEntityID, addTitleDescriptionString,
+	isTitleDescriptionEditable ) => {
+	const descriptionExists = titleDescription !== undefined && titleDescription.length > 0;
+	if ( descriptionExists ) {
+		const p = document.createElement( 'p' );
+		p.setAttribute( DATA_ATTRIBUTE.DESCRIPTION_SOURCE, titleDescriptionSource );
+		p.setAttribute( DATA_ATTRIBUTE.WIKIDATA_ENTITY_ID, wikidataEntityID );
+		p.id = IDS.TITLE_DESCRIPTION;
+		p.textContent = titleDescription;
+		return p;
+	}
+	if ( isTitleDescriptionEditable ) {
+		const a = document.createElement( 'a' );
+		a.href = '#';
+		a.setAttribute( DATA_ATTRIBUTE.ACTION, ACTION_ADD_TITLE_DESCRIPTION );
+		const p = document.createElement( 'p' );
+		p.id = IDS.ADD_TITLE_DESCRIPTION;
+		p.innerHTML = addTitleDescriptionString;
+		a.appendChild( p );
+		return a;
+	}
+	return null;
+};
 
 /**
  * Adds page title, description, and optional pronunciation. The description can be editable.
+ *
  * @param {!Document} document
+ * @param namespace
  * @param {?string} pageDisplayTitle Page display title.
  * @param {?string} titleDescription Page title description.
  * @param {?string} titleDescriptionSource Page title description source - "central" or "local".
@@ -239,62 +244,62 @@ const titleDescriptionElements = (document, titleDescription, titleDescriptionSo
  * @param {?string} pronunciationURL URL for the pronunciation - will show the speaker when provided.
  * @return {!HTMLElement}
  */
-const newPageHeader = (document, namespace, pageDisplayTitle, titleDescription, titleDescriptionSource, wikidataEntityID,
-  addTitleDescriptionString, isTitleDescriptionEditable, pronunciationURL) => {
+const newPageHeader = ( document, namespace, pageDisplayTitle, titleDescription, titleDescriptionSource, wikidataEntityID,
+	addTitleDescriptionString, isTitleDescriptionEditable, pronunciationURL ) => {
 
-  const container = document.createDocumentFragment()
+	const container = document.createDocumentFragment();
 
-  const header = newEditSectionHeader(document, 0, 1, pageDisplayTitle)
+	const header = newEditSectionHeader( document, 0, 1, pageDisplayTitle );
 
-  if (pronunciationURL) {
-    const a = document.createElement('a')
-    a.setAttribute(DATA_ATTRIBUTE.ACTION, ACTION_TITLE_PRONUNCIATION)
-    a.setAttribute(DATA_ATTRIBUTE.PRONUNCIATION_URL, pronunciationURL)
-    a.id = IDS.PRONUNCIATION
-    header.querySelector('h1').appendChild(a)
-  }
+	if ( pronunciationURL ) {
+		const a = document.createElement( 'a' );
+		a.setAttribute( DATA_ATTRIBUTE.ACTION, ACTION_TITLE_PRONUNCIATION );
+		a.setAttribute( DATA_ATTRIBUTE.PRONUNCIATION_URL, pronunciationURL );
+		a.id = IDS.PRONUNCIATION;
+		header.querySelector( 'h1' ).appendChild( a );
+	}
 
-  container.appendChild(header)
+	container.appendChild( header );
 
-  const leftWrapElem = document.createElement('div'),
-  rightWrapElem = document.createElement('div')
+	const leftWrapElem = document.createElement( 'div' ),
+		rightWrapElem = document.createElement( 'div' );
 
-  leftWrapElem.classList.add(CLASS.HEADER_INNER_LEFT)
-  rightWrapElem.classList.add(CLASS.HEADER_INNER_RIGHT)
+	leftWrapElem.classList.add( CLASS.HEADER_INNER_LEFT );
+	rightWrapElem.classList.add( CLASS.HEADER_INNER_RIGHT );
 
-  const headerTitle = header.getElementsByTagName('h1')[0]
-  headerTitle.parentNode.insertBefore(leftWrapElem, headerTitle)
-  leftWrapElem.appendChild(headerTitle)
-  header.appendChild(rightWrapElem)
+	const headerTitle = header.getElementsByTagName( 'h1' )[ 0 ];
+	headerTitle.parentNode.insertBefore( leftWrapElem, headerTitle );
+	leftWrapElem.appendChild( headerTitle );
+	header.appendChild( rightWrapElem );
 
-  if (namespace === 0) {
-    const descriptionElements = titleDescriptionElements(document, titleDescription,
-      titleDescriptionSource, wikidataEntityID, addTitleDescriptionString,
-      isTitleDescriptionEditable)
+	if ( namespace === 0 ) {
+		const descriptionElements = titleDescriptionElements( document, titleDescription,
+			titleDescriptionSource, wikidataEntityID, addTitleDescriptionString,
+			isTitleDescriptionEditable );
 
-    if (descriptionElements) {
-      leftWrapElem.appendChild(descriptionElements)
-    }
-  }
+		if ( descriptionElements ) {
+			leftWrapElem.appendChild( descriptionElements );
+		}
+	}
 
-  const divider = document.createElement('hr')
-  divider.id = IDS.DIVIDER
-  leftWrapElem.appendChild(divider)
+	const divider = document.createElement( 'hr' );
+	divider.id = IDS.DIVIDER;
+	leftWrapElem.appendChild( divider );
 
-  return container
-}
+	return container;
+};
 
 export default {
-  appendEditSectionHeader,
-  CLASS,
-  IDS,
-  DATA_ATTRIBUTE,
-  setEditButtons,
-  setTalkPageButton,
-  setARIAEditButtons,
-  newEditSectionHeader,
-  newEditSectionButton,
-  newEditSectionWrapper,
-  newEditSectionLink,
-  newPageHeader
-}
+	appendEditSectionHeader,
+	CLASS,
+	IDS,
+	DATA_ATTRIBUTE,
+	setEditButtons,
+	setTalkPageButton,
+	setARIAEditButtons,
+	newEditSectionHeader,
+	newEditSectionButton,
+	newEditSectionWrapper,
+	newEditSectionLink,
+	newPageHeader
+};

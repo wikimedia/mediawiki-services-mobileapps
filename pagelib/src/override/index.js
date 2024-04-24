@@ -2,4 +2,4 @@
 // packaged in the override CSS build product.
 
 // todo: delete Empty.css when other overrides exist
-import './Empty.css'
+import './Empty.css';

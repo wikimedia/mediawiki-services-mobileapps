@@ -2,22 +2,23 @@
  * @module pagelib/src/pcs/c1/Sections
  */
 
-import SectionUtilities from '../../transform/SectionUtilities'
+import SectionUtilities from '../../transform/SectionUtilities';
 
 /**
  * Hide or unhide a section.
+ *
  * @param {!string} sectionId
  * @param {?boolean} hidden
  * @return {void}
  */
-const setHidden = (sectionId, hidden) => {
-  if (!document) {
-    return
-  }
-  SectionUtilities.setHidden(document, sectionId, hidden)
-}
+const setHidden = ( sectionId, hidden ) => {
+	if ( !document ) {
+		return;
+	}
+	SectionUtilities.setHidden( document, sectionId, hidden );
+};
 
 export default {
-  getOffsets: SectionUtilities.getSectionOffsets,
-  setHidden
-}
+	getOffsets: SectionUtilities.getSectionOffsets,
+	setHidden
+};

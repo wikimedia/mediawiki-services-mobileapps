@@ -2,8 +2,8 @@
 // of accessing the other JS functionality directly.
 // c1 stands for PCS client version 1.
 
-import c1 from './c1'
+import c1 from './c1';
 
 export default {
-  c1
-}
+	c1
+};

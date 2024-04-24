@@ -1,0 +1,26 @@
+{
+	"root": true,
+	"extends": [ "wikimedia/server", "plugin:import/recommended" ],
+	"plugins": [ "html", "jsdoc", "import" ],
+	"env": { "browser": true },
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"rules": {
+		"n/no-missing-import": "off",
+		"no-underscore-dangle": "off",
+		"no-use-before-define": "off"
+	},
+	"settings": {
+		"import/resolver": {
+			"webpack": {
+				"config": {
+					"resolve": {
+						"extensions": [ ".js", ".ts" ]
+					}
+				}
+			}
+		}
+	}
+}
