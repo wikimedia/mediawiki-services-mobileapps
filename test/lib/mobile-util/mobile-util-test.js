@@ -2,7 +2,6 @@
 
 const assert = require('../../utils/assert');
 const mUtil = require('../../../lib/mobile-util');
-const domino = require('domino');
 const MockResponse = require('mock-express-response');
 const fixtures = require('../../utils/fixtures');
 const perf = require('../../utils/performance');

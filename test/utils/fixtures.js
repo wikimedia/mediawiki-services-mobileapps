@@ -6,7 +6,6 @@ const path = require('path');
 const FIXTURES = 'test/fixtures/';
 const yaml = require('js-yaml');
 const PROCESSING = 'processing';
-const P = require('bluebird');
 
 /**
  * @param {!string} fileName name of the fixture file to load
