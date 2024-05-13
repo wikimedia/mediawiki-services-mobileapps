@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Aey Tai Nuea",
+			"AeyTaiNuea",
 			"咽頭べさ"
 		]
 	},
@@ -17,5 +18,5 @@
 	"article-about-title": "ᥘᥩᥒᥲᥙᥩᥒᥲᥘᥤᥐᥲᥟᥢᥴᥢᥭᥳ",
 	"page-issues": "ᥑᥩᥲᥑᥢᥴ ᥢᥣᥲᥘᥤᥐᥲ",
 	"license-footer-text": "ᥓᥫᥰᥑᥝᥲᥙᥣᥰᥝᥭᥳᥢᥭᥳ ᥛᥢᥰᥖᥥᥴᥓᥣᥒᥲᥓᥬᥳᥘᥭᥲ ᥐᥣᥲᥖᥤᥲ ᥝᥬᥴ $1",
-	"page-read-in-other-languages": "ᥖᥨᥭᥰᥘᥭᥲ ᥐᥣᥲᥖᥤᥲ {{PLURAL:$1|ᥚᥣᥱᥔᥣᥱᥐᥣᥛᥰ $1 ᥟᥢ|ᥚᥣᥱᥔᥣᥱᥐᥣᥛᥰᥖᥣᥒᥱᥓᥫᥰ  $1 ᥟᥢᥴ}}"
+	"page-read-in-other-languages": "ᥖᥨᥭᥰ ᥘᥭᥲ ᥐᥣ ᥖᥤ {{PLURAL:$1|ᥚᥣᥱ ᥔᥣᥱ ᥑᥣᥛᥰ $1 ᥟᥢ|ᥚᥣᥱ ᥔᥣᥱ ᥑᥣᥛᥰ ᥖᥣᥒᥱ ᥓᥫᥰ  $1 ᥟᥢ}}"
 }
