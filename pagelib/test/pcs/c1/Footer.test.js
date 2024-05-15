@@ -42,7 +42,7 @@ describe('pcs.c1.Footer', () => {
     })
 
     it('2 days ago', () => {
-      assert.strictEqual(pcs.c1.Footer._getPageLastEditedString(banana, 2), '')
+      assert.strictEqual(pcs.c1.Footer._getPageLastEditedString(banana, 2), 'Vor 2 Tagen bearbeitet')
     })
   })
 })

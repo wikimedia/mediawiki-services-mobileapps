@@ -123,12 +123,28 @@ describe('pcs.c1.Page', () => {
   describe('setTalkPageButton()', () => {
     it('add talk page button' ,() => {
       window = domino.createWindow(`
-        <html lang="en">
-          <header>
+        <html>
+          <head>
+          </head>
+          <body>
+           <header>
             <div class="pcs-edit-section-header v2">
-              <h1 data-id="0" class="pcs-edit-section-title">Polar bear</h1>
+             <div class="pcs-header-inner-left">
+              <h1 data-id="0" class="pcs-edit-section-title">
+               <span class="mw-page-title-main">
+                Moon
+               </span>
+               <div class="pcs-header-inner-right">
+               </div>
+              </h1>
+              <p data-description-source="local" data-wikdata-entity-id="Q405" id="pcs-edit-section-title-description">
+               Natural satellite orbiting Earth
+              </p>
+              <hr id="pcs-edit-section-divider">
+             </div>
             </div>
-          </header>
+           </header>
+          </body>
         </html>
       `)
       document = window.document
