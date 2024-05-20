@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Hakimi97",
 			"Tofeiku"
 		]
 	},
@@ -27,5 +28,5 @@
 	"article-section-collapse": "Runtuhkan bahagian",
 	"table-expand": "Kembangkan jadual",
 	"table-collapse": "Runtuhkan jadual",
-	"references-preview-header": "Pralihat rujukan"
+	"references-preview-header": "Pratayang rujukan"
 }
