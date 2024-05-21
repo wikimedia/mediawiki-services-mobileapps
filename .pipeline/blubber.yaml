@@ -22,6 +22,8 @@ variants:
     includes: [build]
     apt: { packages: [ca-certificates] }
     entrypoint: [node, server.js]
+    runs:
+      insecurely: true
   test:
     includes: [build]
     apt: { packages: [ca-certificates] }

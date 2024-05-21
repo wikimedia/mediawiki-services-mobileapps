@@ -5,14 +5,24 @@ services:
       target: development
       context: .
       dockerfile: .pipeline/blubber.yaml
+      args:
+        LIVES_UID: $MW_DOCKER_UID
+        LIVES_GID: $MW_DOCKER_GID
     ports:
       - 8888:8888
     volumes:
       - .:/srv/service
+    command: npm start
+    entrypoint: ""
   pagelib:
     build:
       target: development
       context: ./pagelib/
       dockerfile: ../.pipeline/blubber.yaml
+      args:
+        LIVES_UID: $MW_DOCKER_UID
+        LIVES_GID: $MW_DOCKER_GID
     volumes:
       - ./pagelib:/srv/app
+    command: npm run dev
+    entrypoint: ""

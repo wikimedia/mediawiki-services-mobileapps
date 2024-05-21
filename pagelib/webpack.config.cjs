@@ -83,10 +83,17 @@ const config = {
 	devtool: PRODUCTION ? undefined : 'source-map',
 
 	devServer: PRODUCTION ? undefined : {
-		clientLogLevel: 'warning',
-		progress: false,
-		overlay: { warnings: true, errors: true },
-		stats: STATS
+		client: {
+			logging: 'warn',
+			overlay: {
+				warnings: true,
+				errors: true
+			},
+			progress: false
+		},
+		devMiddleware: {
+			stats: STATS
+		}
 	},
 	optimization: {
 		minimizer: [ new TerserJSPlugin( {} ), new CSSMinimizerPlugin( {} ) ]
