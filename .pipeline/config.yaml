@@ -2,8 +2,11 @@ pipelines:
   test:
     blubberfile: blubber.yaml
     stages:
-      - name: test
+      - name: test-backend
         build: test
+        run: true
+      - name: test-pagelib
+        build: test-pagelib
         run: true
   publish:
     blubberfile: blubber.yaml
