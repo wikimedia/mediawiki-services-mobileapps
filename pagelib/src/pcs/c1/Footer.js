@@ -48,7 +48,7 @@ const _getPageLastEditedString = ( banana, editedDaysAgo ) => {
 	}
 };
 
-const _getArticleTitleFromLocation = ( location ) => location.pathname.split( '/page/mobile-html/' )[ 1 ];
+const _getArticleTitleFromPathName = ( pathname ) => decodeURIComponent( pathname.split( '/page/mobile-html/' )[ 1 ] );
 
 /**
  * Insert suggested articles for further reading into the footer container.
@@ -62,7 +62,7 @@ const _getArticleTitleFromLocation = ( location ) => location.pathname.split( '/
 const appendReadMore = ( params ) => {
 	const { readMore: { itemCount: readMoreItemCount, apiBaseURL: readMoreBaseURL } } = params;
 	FooterReadMore.fetchAndAdd(
-		_getArticleTitleFromLocation( window.location ),
+		_getArticleTitleFromPathName( window.location.pathname ),
 		readMoreItemCount,
 		'pcs-footer-container-readmore',
 		'pcs-footer-container-readmore-pages',
@@ -227,5 +227,6 @@ export default {
 	appendReadMore,
 	// to be used internally or for unit testing only:
 	_connectHandlers,
-	_getPageLastEditedString
+	_getPageLastEditedString,
+	_getArticleTitleFromPathName
 };

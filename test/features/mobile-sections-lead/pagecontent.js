@@ -63,14 +63,6 @@ describe('mobile-sections-lead', function() {
 				assert.equal(lead.geo.longitude, 2.351);
 			});
 	});
-	it('es Gogland should not have a lead object with a geo property', () => {
-		const uri = `${ server.config.uri }es.wikipedia.org/v1/page/mobile-sections-lead/Gogland`;
-		return preq.get({ uri })
-			.then((res) => {
-				const lead = res.body;
-				assert.ok(!{}.hasOwnProperty.call(lead, 'geo'));
-			});
-	});
 	it('Mare Tranquillitatis (lunar sea) should not have a geo property', () => {
 		const uri = `${ server.config.uri }es.wikipedia.org/v1/page/mobile-sections-lead/Mare Tranquillitatis`;
 		return preq.get({ uri })

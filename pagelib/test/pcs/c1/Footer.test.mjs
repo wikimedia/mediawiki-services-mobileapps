@@ -44,5 +44,12 @@ describe( 'pcs.c1.Footer', () => {
 		it( '2 days ago', () => {
 			assert.strictEqual( pcs.c1.Footer._getPageLastEditedString( banana, 2 ), 'Vor 2 Tagen bearbeitet' );
 		} );
+
+		it( '._getArticleTitleFromPathName() does not return urlencoded title', () => {
+			let pathname = '/api/rest_v1/page/mobile-html/Phobos_(moon)';
+			assert.strictEqual( pcs.c1.Footer._getArticleTitleFromPathName( pathname ), 'Phobos_(moon)' );
+			pathname = '/api/rest_v1/page/mobile-html/%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80';
+			assert.strictEqual( pcs.c1.Footer._getArticleTitleFromPathName( pathname ), 'Война_и_мир' );
+		} );
 	} );
 } );
