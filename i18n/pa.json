@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cabal",
 			"Kuldeepburjbhalaike",
 			"ਗੁਰਪ੍ਰੀਤ ਹੁੰਦਲ"
 		]
@@ -16,14 +17,14 @@
 	"info-box-title": "ਵਿਸ਼ੇਸ਼ ਤੱਥ",
 	"view-in-browser-footer-link": "ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਲੇਖ ਦੇਖੋ",
 	"page-location": "ਨਕਸ਼ੇ 'ਤੇ ਦੇਖੋ",
-	"page-similar-titles": "ੲਿੱਕੋ ਜਿਹੇ ਪੰਨੇ",
+	"page-similar-titles": "ਮਿਲਦੇ-ਜੁਲਦੇ ਸਫ਼ੇ",
 	"page-last-edited": "{{PLURAL:$1|ਕੱਲ੍ਹ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ|$1 ਦਿਨ ਪਹਿਲਾਂ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ|0=ਅੱਜ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ}}",
 	"article-about-title": "ਇਸ ਲੇਖ ਬਾਰੇ",
 	"page-issues": "ਸਫ਼ੇ ਸੰਬੰਧੀ ਮੁੱਦੇ",
 	"license-footer-text": "ਇਹ ਸਮੱਗਰੀ $1 ਹੇਠ ਮੌਜੂਦ ਹੈ। ਅਜਿਹਾ ਨਾ ਹੋਣ ਉੱਤੇ ਵਿਸ਼ੇਸ਼ ਤੌਰ ਉੱਤੇ ਦੱਸਿਆ ਜਾਵੇਗਾ।",
 	"page-read-in-other-languages": "$1 ਹੋਰ ਭਾਸ਼ਾਵਾੰ ਵਿੱਚ ਉਪਲਬਧ",
 	"article-edit-button": "ਭਾਗ ਸੋਧੋ",
-	"article-edit-protected-button": "ਸੁਰੱਖਿਅਤ ਪੰਨੇ 'ਤੇ ਭਾਗ ਸੋਧੋ",
+	"article-edit-protected-button": "ਸੁਰੱਖਿਅਤ ਸਫ਼ੇ ਤੇ ਭਾਗ ਸੋਧੋ",
 	"article-section-expand": "ਭਾਗ ਦਾ ਵਿਸਤਾਰ ਕਰੋ",
 	"article-section-collapse": "ਭਾਗ ਸਮੇਟੋ",
 	"table-expand": "ਸਾਰਣੀ ਦਾ ਵਿਸਤਾਰ ਕਰੋ",
