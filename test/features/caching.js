@@ -1,11 +1,14 @@
 'use strict';
 
+const Ajv = require('ajv');
+const addFormats = require('ajv-formats');
+const yaml = require('js-yaml');
 const preq = require('preq');
 const assert = require('../utils/assert.js');
 const server = require('../utils/server');
 const sinon = require('sinon');
 const cassandra = require('@wikimedia/cassandra-storage');
-const { initCache } = require('../../lib/caching.js');
+const { initCache, purgeEvents  } = require('../../lib/caching.js');
 const { isObject } = require('underscore');
 
 const localUri = (endpoint, title, domain = 'en.wikipedia.org') => {
@@ -107,4 +110,62 @@ describe('Cached endpoints', function () {
 			});
 		});
 	}
+});
+
+describe('Caching events', function() {
+	it('should generate resource change and purge events', function() {
+		const exampleReq = {
+			app: {
+				conf: {
+					caching: {
+						event: {
+							stream: {
+								change: 'example_change',
+								purge: 'example_purge'
+							}
+						}
+					}
+
+				}
+			},
+			headers: {
+				'x-request-id': '1234-abcd'
+			},
+			params: {
+				domain: 'en.wikipedia.org'
+			},
+			purgePaths: [
+				'/example/path/1',
+				'/example/path/2'
+			]
+		};
+
+		// Assert that uri/stream are properly set
+		const events = purgeEvents(exampleReq);
+		assert.equal(events.length, 4);
+		assert.equal(events[0].meta.uri, 'en.wikipedia.org/api/rest_v1/example/path/1');
+		assert.equal(events[0].meta.stream, 'example_change');
+		assert.equal(events[1].meta.uri, 'en.wikipedia.org/api/rest_v1/example/path/2');
+		assert.equal(events[1].meta.stream, 'example_change');
+		assert.equal(events[2].meta.uri, 'en.wikipedia.org/api/rest_v1/example/path/1');
+		assert.equal(events[2].meta.stream, 'example_purge');
+		assert.equal(events[3].meta.uri, 'en.wikipedia.org/api/rest_v1/example/path/2');
+		assert.equal(events[3].meta.stream, 'example_purge');
+
+		// Assert that events are validate against resource change schema
+		const schemaURL = 'https://schema.wikimedia.org/repositories/primary/jsonschema/resource_change/latest.yaml';
+		preq.get(schemaURL).then(function(res) {
+			const ajv = new Ajv();
+			addFormats(ajv);
+			const schema = yaml.load(res.body);
+			// Fixup schema identifier as ajv expects it
+			schema.$schema = 'http://json-schema.org/draft-07/schema';
+			ajv.addSchema(schema, 'resource_change');
+			const validate = ajv.getSchema('resource_change');
+			assert.ok(validate(events[0]));
+			assert.ok(validate(events[1]));
+			assert.ok(validate(events[2]));
+			assert.ok(validate(events[3]));
+		});
+	});
 });

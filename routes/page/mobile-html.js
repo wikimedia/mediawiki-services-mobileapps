@@ -109,6 +109,11 @@ function getMobileHtmlFromMobileview(req, res) {
  */
 router.get('/page/mobile-html/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (req, res) => {
 	req.getTitleRedirectLocation = (title) => title;
+	req.purgePaths = [
+		`/page/mobile-html/${ encodeURIComponent(req.params.title) }`,
+		...(req.params.revision ? [`/page/mobile-html/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
+	];
+
 	const buildMobileHtml = (title) => {
 		req.params.title = title;
 		if (!mobileviewHtml.shouldUseMobileview(req, app.conf.mobile_view_languages)) {

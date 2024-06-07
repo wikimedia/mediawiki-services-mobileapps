@@ -119,6 +119,10 @@ services:
           username: cassandra
           password: cassandra
       caching:
+        event:
+          stream:
+            change: resource_change
+            purge: resource_purge
         enabled: false
         # Never expire cache for development
         ttl: 0
