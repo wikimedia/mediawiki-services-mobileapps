@@ -138,7 +138,7 @@ describe('mobile-html', function() {
 		});
 	});
 
-	it('mobile-html from mobileview should have meta tags indicating page protection', () => {
+	it('mobile-html from parse should have meta tags indicating page protection', () => {
 		const uri = localUri('%E9%97%87%E5%BD%B1%E4%B9%8B%E5%BF%83/54664518', 'zh.wikipedia.org');
 		return preq.get(uri).then((res) => {
 			const document = domino.createDocument(res.body);

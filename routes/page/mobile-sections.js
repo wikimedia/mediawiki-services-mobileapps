@@ -25,7 +25,7 @@ const router = sUtil.router();
  */
 let app;
 
-/** Returns a promise to retrieve the page content from MW API mobileview */
+/** Returns a promise to retrieve the page content from MW API parse */
 function pageContentForMainPagePromise(req) {
 	return mwapi.getPageFromMobileview(req)
 		.then((response) => {
