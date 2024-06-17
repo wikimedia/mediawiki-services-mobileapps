@@ -30,6 +30,11 @@ let app;
  */
 router.get('/summary/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (req, res) => {
 	req.getTitleRedirectLocation = (title) => title;
+	req.purgePaths = [
+		`/page/summary/${ encodeURIComponent(req.params.title) }`,
+		...(req.params.revision ? [`/page/summary/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
+	];
+
 	const buildSummary = (title) => {
 		req.params.title = title;
 		// Check flagged revision for wikis that have enabled FlaggedRevs extension

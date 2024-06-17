@@ -356,7 +356,6 @@ describe('validate spec examples', () => {
 	};
 
 	before(async function () {
-		this.timeout(20000);
 		spec = await staticSpecLoad();
 		svc = await server.start();
 		defParams = spec['x-default-params'] || {};
@@ -375,6 +374,7 @@ describe('validate spec examples', () => {
 	});
 
 	it('Should validate tests', async function (done) {
+		this.timeout(20000);
 		for (const testCase of constructTests(spec.paths, defParams, defHeaders)) {
 			try {
 				const res = await preq(testCase.request);
