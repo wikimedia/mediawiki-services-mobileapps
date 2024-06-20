@@ -82,8 +82,8 @@ describe('Cached endpoints', function () {
 			const uri = localUri(endpoint, 'Cat');
 			const setStub = sinon.stub();
 			const engineStubbedInstance = sinon.createStubInstance(cassandra.Engine, {
-				get: sinon.stub().returns(Promise.resolve(null)),
-				set: setStub,
+				get: sinon.stub().resolves(null),
+				set: setStub.resolves(null),
 			});
 
 			sinon.stub(cassandra, 'Engine').returns(engineStubbedInstance);
