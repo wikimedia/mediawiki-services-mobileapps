@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Jaroslav.micek",
+			"Oujon",
 			"Yardom78"
 		]
 	},
 	"description-add-link-title": "Pridať popis článku",
 	"article-read-more-title": "Prečítajte si viac",
 	"table-title-other": "Viac informácií",
-	"page-edit-history": "Zobraziť históriu úprav",
+	"page-edit-history": "Zobraziť jediný úprav",
 	"info-box-close-text": "Zavrieť",
 	"page-talk-page-subtitle": "Diskutovať o vylepšeniach tohto článku",
 	"page-issues-subtitle": "Upozornenia o nekvalitnom alebo problematickom obsahu",
