@@ -10,6 +10,7 @@
 	"page-edit-history": "Хийцамийн истори хьажар",
 	"info-box-close-text": "ДӀачӀагӀа",
 	"page-talk-page-subtitle": "ХӀара йаззам кечбар дийца",
+	"page-issues-subtitle": "Лахара дикалла йолчу йа проблемаш йолчу чулацамах лаьцна дӀахаийтарш.",
 	"page-talk-page": "Дийцарийн агӀо",
 	"info-box-title": "Доца факташ",
 	"view-in-browser-footer-link": "Браузер чохь йаззаме хьажа",
@@ -21,8 +22,10 @@
 	"license-footer-text": "Чулацам тӀекхочу $1 лицензица",
 	"page-read-in-other-languages": "ТӀекхочу {{PLURAL:$1|$1 кхечу маттахь}}",
 	"article-edit-button": "Нисде дакъа",
+	"article-edit-protected-button": "Ларйина агӀонан тӀехь дакъа хийца",
 	"article-section-expand": "Схьадела дакъа",
 	"article-section-collapse": "ДӀачӀагӀа дакъа",
 	"table-expand": "Схьайелла таблица",
-	"table-collapse": "ДӀачӀагӀа таблица"
+	"table-collapse": "ДӀачӀагӀа таблица",
+	"references-preview-header": "Билгалдахаршка хьалххе хьажар"
 }
