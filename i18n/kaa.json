@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Inabat Allanova"
+		]
+	},
+	"description-add-link-title": "Maqala táriypin qosıw",
+	"article-read-more-title": "Kóbirek oqıw",
+	"table-title-other": "Tolıǵıraq maǵlıwmat",
+	"page-edit-history": "Redaktorlawlar tariyxın kóriw",
+	"info-box-close-text": "Jabıw",
+	"page-talk-page-subtitle": "Maqalanı jaqsılaw boyınsha talqılama",
+	"page-issues-subtitle": "Sapasız yamasa mashqalalı kontent haqqındaǵı xabarnamalar",
+	"page-talk-page": "Talqılaw betin kóriw",
+	"info-box-title": "Qısqa faktler",
+	"view-in-browser-footer-link": "Maqalanı brauzer arqalı kóriw",
+	"page-location": "Kartada kóriw",
+	"page-similar-titles": "Uqsas betler",
+	"page-last-edited": "{{PLURAL:$1|Keshe jańalandı|$1 kún aldın jańalandı|0=Búgin jańalandı}}",
+	"article-about-title": "Bul maqala haqqında",
+	"page-issues": "Bet mashqalaları",
+	"license-footer-text": "Tesktten $1 licenziyası boyınsha paydalanıw múmkin (eger kerisinshe kórsetilmese).",
+	"page-read-in-other-languages": "Jáne basqa {{PLURAL:$1|$1 basqa til|$1 tillerde}} de bar",
+	"article-edit-button": "Bólimdi redaktorlaw",
+	"article-edit-protected-button": "Qorǵalǵan bettegi bólimdi redaktorlaw",
+	"article-section-expand": "Bólimdi keńeytiw",
+	"article-section-collapse": "Bólimdi jıynaw",
+	"table-expand": "Kesteni keńeytiw",
+	"table-collapse": "Kesteni jıynaw",
+	"references-preview-header": "Dereklerdi kórip shıǵıw"
+}
