@@ -4,20 +4,20 @@
 			"Ella Lachow"
 		]
 	},
-	"description-add-link-title": "Xaafo qonccettaa gujja",
+	"description-add-link-title": "Xaafidobaassi qonccissuwa gujja",
 	"article-read-more-title": "Aaruwaa nabbaba",
 	"table-title-other": "Aaro naqaashaa",
-	"page-edit-history": "Giigissuwaa haydaa be'a",
+	"page-edit-history": "Goyduwa haydaa be'a",
 	"info-box-close-text": "Gordda",
-	"page-talk-page-subtitle": "Ha xaafuwaassi loyttiyoobata tobba",
-	"page-issues-subtitle": "Subpar woykko moto oyqettaa hassayissuwaa",
-	"page-talk-page": "Haasaya sinttaa be'a",
+	"page-talk-page-subtitle": "Ha xaafuwa murutissanawu tobba",
+	"page-issues-subtitle": "Subpar woykko meto xaafuwabaa hassayissuwaa",
+	"page-talk-page": "Tobbiyo sinttaa be'a",
 	"info-box-title": "Eeso naqaashata",
 	"view-in-browser-footer-link": "Xaafota bessiyaagan be'a",
-	"page-location": "Katttam be'a",
-	"page-similar-titles": "Malatiyaa sinttata",
+	"page-location": "Katttan be'a",
+	"page-similar-titles": "Malatiya sinttata",
 	"page-last-edited": "{{PLURAL:$1|Zino ooraxxiis|$1 gallassatuppe kase ooraxxiis|0=hachi ooraxxiis}}",
-	"article-about-title": "Ha xuufiyaabaa",
+	"article-about-title": "Ha xuufiyabaa",
 	"page-issues": "Sinttaa allaaleta",
 	"license-footer-text": "Hara ogiyan hassayissetana xayikko xaafoy $1 de'ees.",
 	"page-read-in-other-languages": "{{PLURAL:$1|$1 hara doonan|$1 hara doonatun}} de'ees",
@@ -27,5 +27,5 @@
 	"article-section-collapse": "Shaahuwaa laala",
 	"table-expand": "Zaraa aassa",
 	"table-collapse": "Zaraa laala",
-	"references-preview-header": "Naqaashata zaara be'a"
+	"references-preview-header": "Naqaashata zaaretta be'a"
 }
