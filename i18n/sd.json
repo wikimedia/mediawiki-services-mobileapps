@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Charoo",
 			"Mehtab ahmed"
 		]
 	},
@@ -20,7 +21,7 @@
 	"article-about-title": "هن مضمون بابت",
 	"page-issues": "صفحي جا مسئلا",
 	"license-footer-name": "ڪڪ بو-سا 3.0",
-	"license-footer-text": "مواد $1 ھيٺ موجود آھي جيسيتائين ٻي صورت واضع نہ ڪئي وڃي.",
+	"license-footer-text": "مواد $1 تحت موجود آھي جيسيتائين ٻي صورت واضع نہ ڪئي وڃي.",
 	"page-read-in-other-languages": "{{PLURAL:$1|$1 ٻي ٻولي|$1 ٻين ٻولين}} ۾ موجود",
 	"article-edit-button": "سنوارڻ جو سيڪشن",
 	"article-edit-protected-button": "تحفظيل صفحي تي سنوارڻ جو سيڪشن",
