@@ -25,19 +25,7 @@ You can also use `pip`, your OS package manager, or even run it in a container, 
 
 ## Quickstart
 
-### MacOS & Windows prerequisites
-
-Hopefully, this should Just Work™.
-
-### Linux prerequisites
-
-If you are developing on a Linux system, copy the override settings to the default override file:
-
-```
-cp docker-compose.linux.yml docker-compose.override.yml
-```
-
-Next, ensure that `$MW_DOCKER_UID` and `$MW_DOCKER_GID` are set in your environment:
+Ensure that `$MW_DOCKER_UID` and `$MW_DOCKER_GID` are set in your environment:
 
 ```
 export MW_DOCKER_UID=$(id -u)
@@ -45,6 +33,12 @@ export MW_DOCKER_GID=$(id -g)
 ```
 
 The above lines may be added to your `.bashrc` or other shell configuration.
+You can also define them in `.env` in the root of the mobileapps project.
+
+```
+echo "MW_DOCKER_GID=$(id -g)" >> .env
+echo "MW_DOCKER_UID=$(id -u)" >> .env
+```
 
 If you are using fish shell, make sure to set the environment variables like this:
 
@@ -53,12 +47,21 @@ set -gx MW_DOCKER_UID (id -u)
 set -gx MW_DOCKER_GID (id -g)
 ```
 
-### Start environment
-
-Start the environment:
+### Install dependencies
+Install npm dependencies if not already installed:
 
 ```sh
-docker-compose up
+docker compose run mobileapps npm install
+```
+
+```sh
+docker compose run pagelib npm install
+```
+
+### Start environment
+
+```sh
+docker-compose up -d
 ```
 
 With the container up you can execute any command that you would normaly do:
@@ -74,23 +77,14 @@ docker-compose exec pagelib npm run build
 If you don't want to execute the dev environment but still want to run the build command, you can run the following commmand:
 
 ```sh
-docker-compose -f docker-compose.build.yml up --build
+docker-compose run pagelib npm run build
 ```
 
-For linux users execute the following command:
+### Running tests
+
+If you don't want to execute the dev environment but still want to run the test command, you can run the following commmand:
 
 ```sh
-docker-compose -f docker-compose.build.yml -f docker-compose.build.linux.yml up --build
-```
-
-### Installing dependencies
-
-Because node_modules is skipped in the volume, the container uses node_modules installed during the container build.
-
-To install a new dependency you should ssh into the container and install the package:
-
-```sh
-docker-compose exec pagelib npm install
-# or
-docker-compose exec mobileapps npm install
+docker-compose run mobileapps npm run test
+docker-compose run pagelib npm run test
 ```

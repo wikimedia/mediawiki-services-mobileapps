@@ -1,7 +1,0 @@
-version: v4
-base: docker-registry.wikimedia.org/nodejs18-devel
-variants:
-  dev:
-    apt: { packages: [git, build-essential] }
-    node: { requirements: [package.json, package-lock.json] }
-    entrypoint: [npm, run, dev]

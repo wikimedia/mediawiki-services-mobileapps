@@ -21,18 +21,18 @@
 	"main": "build/wikimedia-page-library-transform.js",
 	"scripts": {
 		"dev": "NODE_ENV=production webpack -w --mode production",
-		"dev:debug": "webpack -dw --devtool source-map --mode development",
+		"dev:debug": "webpack -w --devtool source-map --mode development",
 		"lint": "eslint -c .eslintrc.json --cache --max-warnings 0 --ext .js --ext .json --ext .html",
 		"lint:fix": "eslint -c .eslintrc.json --cache --max-warnings 0 --ext .js --ext .json --ext .html --fix",
 		"lint:all": "npm run -s lint .",
 		"lint:fix:all": "npm run -s lint:fix .",
 		"build": "NODE_ENV=production webpack --mode production",
-		"build:debug": "NODE_ENV=development webpack --debug --output-pathinfo --mode=development",
-		"serve:watch": "webpack-dev-server -dw",
+		"build:debug": "NODE_ENV=development webpack --output-pathinfo --mode=development",
+		"serve:watch": "NODE_ENV=development webpack-dev-server",
 		"test:size": "bundlesize",
 		"pretest": "npm run -s build",
 		"test": "mocha --recursive test && bundlesize",
-		"start": "run-p -s serve:watch serve:demo"
+		"start": "serve:watch"
 	},
 	"pre-commit": [
 		"lint:all"
