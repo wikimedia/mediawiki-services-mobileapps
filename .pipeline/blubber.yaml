@@ -28,6 +28,14 @@ variants:
     includes: [build]
     apt: { packages: [ca-certificates] }
     entrypoint: [npm, test]
+  test-pagelib:
+    includes: [dev]
+    copies:
+      - from: local
+        source: ./pagelib
+        destination: ./pagelib
+    node: { requirements: [./pagelib/package.json, ./pagelib/package-lock.json, ./pagelib] }
+    entrypoint: [npm, test]
   prep:
     includes: [build]
     node: { env: production }
