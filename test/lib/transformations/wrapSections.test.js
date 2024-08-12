@@ -1,25 +1,30 @@
 'use strict';
 
 const assert = require('../../utils/assert');
+const axios = require('axios');
 const fixtures = require('../../utils/fixtures');
 const lib = require('../../../lib/transformations/wrapSections');
 
 describe('lib:wrapSections', () => {
-	describe('process output from action=parse (en)', () => {
-		const html = fixtures.readFileSync('parse_contents_en.html');
-
-		it('should expand into multiple sections', () => {
+	it('should expand into multiple sections when action=parse (en)', () => {
+		const baseURL = 'https://en.wikipedia.org/w/api.php';
+		const query = 'action=parse&page=User%3AJGiannelos_(WMF)%2Ftest-sections&format=json';
+		const url = `${ baseURL }?${ query }`;
+		return axios.get(url).then((response) => {
+			const html = response.data.parse.text['*'];
 			const sections = lib.makeSections(html);
-			assert.ok(sections.length === 14);
+			assert.equal(sections.length, 5);
 		});
 	});
 
-	describe('process output from action=parse (zh)', () => {
-		const html = fixtures.readFileSync('parse_contents_zh.html');
-
-		it('should expand into multiple sections', () => {
+	it('should expand into multiple sections when action=parse (zh)', () => {
+		const baseURL = 'https://zh.wikipedia.org/w/api.php';
+		const query = 'action=parse&page=User%3AJGiannelos_(WMF)%2Ftest-sections&format=json';
+		const url = `${ baseURL }?${ query }`;
+		return axios.get(url).then((response) => {
+			const html = response.data.parse.text['*'];
 			const sections = lib.makeSections(html);
-			assert.ok(sections.length === 19);
+			assert.equal(sections.length, 5);
 		});
 	});
 });
