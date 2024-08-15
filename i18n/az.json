@@ -1,19 +1,33 @@
 {
 	"@metadata": {
 		"authors": [
+			"Nemoralis",
 			"Serkanland",
 			"Şeyx Şamil"
 		]
 	},
+	"description-add-link-title": "Məqalə açıqlaması əlavə edin",
 	"article-read-more-title": "Daha çox oxu",
 	"table-title-other": "Əlavə məlumat",
 	"page-edit-history": "Redaktə tarixçəsini göstər",
 	"info-box-close-text": "Bağla",
+	"page-talk-page-subtitle": "Bu məqalədəki təkmilləşdirmələri müzakirə edin",
+	"page-issues-subtitle": "Aşağı və ya problemli məzmun haqqında xəbərdarlıqlar",
+	"page-talk-page": "Müzakirə səhifəsinə bax",
 	"info-box-title": "Cəld faktlar",
+	"view-in-browser-footer-link": "Məqaləni brauzerdə aç",
 	"page-location": "Xəritədə göstər",
 	"page-similar-titles": "Oxşar səhifələr",
+	"page-last-edited": "{{PLURAL:$1|Dünən yenilənib|$1 gün əvvəl yenilənib|0=Bugün yenilənib}}",
 	"article-about-title": "Bu məqalə haqqında",
+	"page-issues": "Səhifə problemləri",
+	"license-footer-text": "Əksi qeyd olunmayıbsa, bu məzmun $1 çərçivəsində yayımlanır.",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 digər dildə}} mövcuddur",
 	"article-edit-button": "Bölməni reaktə et",
+	"article-edit-protected-button": "Mühafizə olunan səhifədəki bölməni redaktə edin",
 	"article-section-expand": "Bölməni genişləndir",
-	"table-expand": "Cədvəli genişləndir"
+	"article-section-collapse": "Bölməni bağla",
+	"table-expand": "Cədvəli genişləndir",
+	"table-collapse": "Cədvəli bağla",
+	"references-preview-header": "İstinadlara ön baxış"
 }
