@@ -19,7 +19,7 @@
 	"page-last-edited": "{{PLURAL:$1|0=اتحدثت اليوم|1=اتحدثت امس|اتحدثت قبل $1 ايام}}",
 	"article-about-title": "على طاري المقاله",
 	"page-issues": "مشاكل بالصفحه",
-	"license-footer-text": "المحتوى موجود بموجب رخصة $1 إلا بحالة ذكر خلافه.",
+	"license-footer-text": "المحتوه موجود بموجب رخصه $1 إلا بحاله ذكر خلافه.",
 	"page-read-in-other-languages": "موجوده {{PLURAL:$1|بـ$1 لغه|بـ$1 لغات}}",
 	"article-edit-button": "عدل هاذ القسم",
 	"article-edit-protected-button": "عدل القسم عالصفحه المحمية",
