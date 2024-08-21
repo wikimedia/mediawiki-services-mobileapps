@@ -108,7 +108,7 @@ function getMobileHtmlFromMobileview(req, res) {
  * clients.
  */
 router.get('/page/mobile-html/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (req, res) => {
-	req.getTitleRedirectLocation = (title) => title;
+	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/mobile-html/${ title }`;
 	req.purgePaths = [
 		`/page/mobile-html/${ encodeURIComponent(req.params.title) }`,
 		...(req.params.revision ? [`/page/mobile-html/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])

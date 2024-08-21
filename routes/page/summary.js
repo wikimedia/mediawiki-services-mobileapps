@@ -29,7 +29,7 @@ let app;
  * Extracts a summary of a given wiki page limited to one paragraph of text
  */
 router.get('/summary/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (req, res) => {
-	req.getTitleRedirectLocation = (title) => title;
+	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/summary/${ title }`;
 	req.purgePaths = [
 		`/page/summary/${ encodeURIComponent(req.params.title) }`,
 		...(req.params.revision ? [`/page/summary/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])

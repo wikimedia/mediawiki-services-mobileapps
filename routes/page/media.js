@@ -21,7 +21,7 @@ let app;
  * Returns the non-UI media files used on the given page.
  */
 router.get('/media-list/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (req, res) => {
-	req.getTitleRedirectLocation = (title) => title;
+	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/media-list/${ title }`;
 	req.purgePaths = [
 		`/page/media-list/${ encodeURIComponent(req.params.title) }`,
 		...(req.params.revision ? [`/page/media-list/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])

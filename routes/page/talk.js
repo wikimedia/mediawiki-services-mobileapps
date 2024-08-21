@@ -20,7 +20,7 @@ let app;
  * Gets talk page info.
  */
 router.get('/talk/:title/:revision?/:tid?', (req, res) => {
-	req.getTitleRedirectLocation = (title) => title;
+	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/talk/${ title }`;
 	const lang = wikiLanguage.getLanguageCode(req.params.domain);
 	return parsoidApi.getParsoidHtml(req)
 		.then(parsoidRsp => mUtil.createDocument(parsoidRsp.body)

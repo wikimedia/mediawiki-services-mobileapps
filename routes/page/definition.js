@@ -23,12 +23,12 @@ const router = sUtil.router();
 let app;
 
 /**
- * GET {domain}/v1/definition/{title}{/revision}{/tid}
+ * GET {domain}/v1/page/definition/{title}{/revision}{/tid}
  * Title redirection status: redirects based on parsoid output
  * Gets the Wiktionary definition for a given term (and optional revision and tid).
  */
 router.get('/definition/:title/:revision?/:tid?', (req, res) => {
-	req.getTitleRedirectLocation = (title) => title;
+	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/definition/${ title }`;
 	return getDefinitions(app, req)
 		.then((response) => {
 			res.status(200);
