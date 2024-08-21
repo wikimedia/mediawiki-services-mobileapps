@@ -90,6 +90,14 @@ describe('PCS configured to redirect', function () {
 		assert.equal(res.headers.location, 'TestPCSRedirectDestination');
 	});
 
+	it('mobile-html should redirect to the resolved page when using action=parse', async function () {
+		const title = 'User%3AJGiannelos_%28WMF%29%2Ftest_redirect';
+		const path = `zh.wikipedia.org/v1/page/mobile-html/${ title }`;
+		const res = await preq.get({ uri: buildUri(path), followRedirect: false });
+		assert.equal(res.status, 302);
+		assert.equal(res.headers.location, '%E7%8A%AC');
+	});
+
 	it('mobile-html-offline-resources should not redirect to the resolved page', async function () {
 		const title = 'TestPCSRedirect';
 		const path = `test.wikipedia.org/v1/page/mobile-html-offline-resources/${ title }`;
