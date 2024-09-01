@@ -44,39 +44,34 @@ let topPages;
 let oldDirName;
 let newDirName;
 
-const uriForOldMobileSections = (title, rev, lang) => {
-	return `http://localhost:8888/${ lang }.wikipedia.org/v1/page/mobile-sections/${ encodeURIComponent(title) }/${ rev }`;
-};
+const uriForOldMobileSections = (title, rev, lang) => `http://localhost:8888/${ lang }.wikipedia.org/v1/page/mobile-sections/${ encodeURIComponent(title) }/${ rev }`;
 
-const uriForNewSections = (title, rev, lang) => {
-	return `http://localhost:8898/${ lang }.wikipedia.org/v1/page/mobile-sections/${ encodeURIComponent(title) }/${ rev }`;
-};
+const uriForNewSections = (title, rev, lang) => `http://localhost:8898/${ lang }.wikipedia.org/v1/page/mobile-sections/${ encodeURIComponent(title) }/${ rev }`;
 
 /**
  * Remove some values which vary between implementation but don't have anything to do with
  * sectioning.
  */
-const simplifyExtractValue = (value) => {
-	return value && value
-		.replace(/"revision": "\w+",/, '"revision": "ZZZ",')
-		.replace(/"lastmodified": "\w+",/, '"lastmodified": "ZZZ",')
-		.replace(/"user": "\w+",/, '"user": "ZZZ",')
-		.replace(/"gender": "\w+",/, '"gender": "ZZZ",')
-		.replace(/#ImageMap_\d+_\d+/g, '#ImageMap_0_000')
-		.replace(/<img src="\/\//g, '<img src="https://')
-		.replace(/ srcset=\\".+?\\"/g, '')
-		.replace(/ class=\\"mw-redirect\\"/g, '')
-		.replace(/ id=\\"mw[-\w]+\\"/g, '')
-		.replace(/#mwt\d{1,4}/g, '#mwt000')
-		.replace(/ data-mw=\\"\\.+?\\}\\"/g, ' data-mw="{}"')
+const simplifyExtractValue = (value) => value && value
+	.replace(/"revision": "\w+",/, '"revision": "ZZZ",')
+	.replace(/"lastmodified": "\w+",/, '"lastmodified": "ZZZ",')
+	.replace(/"user": "\w+",/, '"user": "ZZZ",')
+	.replace(/"gender": "\w+",/, '"gender": "ZZZ",')
+	.replace(/#ImageMap_\d+_\d+/g, '#ImageMap_0_000')
+	.replace(/<img src="\/\//g, '<img src="https://')
+	.replace(/ srcset=\\".+?\\"/g, '')
+	.replace(/ class=\\"mw-redirect\\"/g, '')
+	.replace(/ id=\\"mw[-\w]+\\"/g, '')
+	.replace(/#mwt\d{1,4}/g, '#mwt000')
+	.replace(/ data-mw=\\"\\.+?\\}\\"/g, ' data-mw="{}"')
 	// break lines for easier diffing:
-		.replace(/(<h\d)/g, '\n$1')
-		.replace(/(<\/h\d>)/g, '$1\n')
-		.replace(/(<section)/g, '\n$1')
-		.replace(/(<\/section>)/g, '$1\n')
-		.replace(/(.{50}[^<>]{0,50}>?)/g, '$1\n');
-	// ^ keep lines to a reasonable width (try to break near HTML tags)
-};
+	.replace(/(<h\d)/g, '\n$1')
+	.replace(/(<\/h\d>)/g, '$1\n')
+	.replace(/(<section)/g, '\n$1')
+	.replace(/(<\/section>)/g, '$1\n')
+	.replace(/(.{50}[^<>]{0,50}>?)/g, '$1\n')
+// ^ keep lines to a reasonable width (try to break near HTML tags)
+;
 
 const getExtractHtml = (response) => {
 	if (response.status !== 200) {
@@ -97,14 +92,8 @@ const compareExtracts = (filePrefix, oldExtract, newExtract, counter, title, rev
 	writeFile(`${ newDirName }/${ filePrefix }`, title, rev, newExtract);
 };
 
-const fetchExtract = (uri) => {
-	return preq.get({ uri })
-		.then((response) => {
-			return BBPromise.delay(DELAY, getExtractHtml(response));
-		}).catch((err) => {
-			return BBPromise.resolve(`!!! ${ err } "${ uri }" !!!`);
-		});
-};
+const fetchExtract = (uri) => preq.get({ uri })
+	.then((response) => BBPromise.delay(DELAY, getExtractHtml(response))).catch((err) => BBPromise.resolve(`!!! ${ err } "${ uri }" !!!`));
 
 const fetchAndVerify = (filePrefix, title, rev, counter, lang) => {
 	process.stdout.write('.');

@@ -40,9 +40,7 @@ describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 		const title = 'FlaggedRevsTest';
 		const uri = `https://${ domain }/api/rest_v1/page/title/${ title }`;
 		const getLatestRevision = () => preq.get({ uri })
-			.then((res) => {
-				return res.body.items[0].rev;
-			}, (err) => {
+			.then((res) => res.body.items[0].rev, (err) => {
 				throw new Error(`Error fetching latest revision for ${ title }: ${ err }`);
 			});
 
@@ -63,9 +61,7 @@ describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 		const title = 'PendingChangeFlaggedRevsTest';
 		const uri = `https://${ domain }/api/rest_v1/page/title/${ title }`;
 		const getLatestRevision = () => preq.get({ uri })
-			.then((res) => {
-				return res.body.items[0].rev;
-			}, (err) => {
+			.then((res) => res.body.items[0].rev, (err) => {
 				throw new Error(`Error fetching latest revision for ${ title }: ${ err }`);
 			});
 		const req = util.getMockedServiceReq({

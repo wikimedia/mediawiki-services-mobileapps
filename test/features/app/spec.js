@@ -243,27 +243,25 @@ describe('Swagger spec', function () {
 	this.timeout(30000);
 
 	let svc;
-	before(async function () {
+	before(async () => {
 		spec = await staticSpecLoad();
 		svc = await server.start();
 	});
 
-	after(async function () {
+	after(async () => {
 		await svc.stop();
 	});
 
-	it('get the spec', () => {
-		return preq.get(`${ server.config.uri }?spec`).then((res) => {
-			assert.status(200);
-			assert.contentType(res, 'application/json');
-			assert.notDeepEqual(res.body, undefined, 'No body received!');
-			assert.deepEqual(
-				{ errors: [] },
-				validator.validate(res.body),
-				'Spec must have no validation errors'
-			);
-		});
-	});
+	it('get the spec', () => preq.get(`${ server.config.uri }?spec`).then((res) => {
+		assert.status(200);
+		assert.contentType(res, 'application/json');
+		assert.notDeepEqual(res.body, undefined, 'No body received!');
+		assert.deepEqual(
+			{ errors: [] },
+			validator.validate(res.body),
+			'Spec must have no validation errors'
+		);
+	}));
 
 	it('spec validation', () => {
 		defParams = {};
@@ -306,13 +304,11 @@ describe('validate responses against schema', function () {
 	const ajv = new Ajv({});
 	addFormats(ajv, { formats: ['date-time'] });
 	ajv.addKeyword({ keyword: 'example', type: 'string' });
-	const assertValidSchema = (uri, schemaPath) => {
-		return preq.get({ uri }).then((res) => {
-			if (!ajv.validate(schemaPath, res.body)) {
-				throw new assert.AssertionError({ message: ajv.errorsText() });
-			}
-		});
-	};
+	const assertValidSchema = (uri, schemaPath) => preq.get({ uri }).then((res) => {
+		if (!ajv.validate(schemaPath, res.body)) {
+			throw new assert.AssertionError({ message: ajv.errorsText() });
+		}
+	});
 
 	before(async () => {
 		spec = await staticSpecLoad();
@@ -325,7 +321,7 @@ describe('validate responses against schema', function () {
 		svc = await server.start();
 	});
 
-	after(async function () {
+	after(async () => {
 		await svc.stop();
 	});
 
@@ -355,7 +351,7 @@ describe('validate spec examples', () => {
 		description: 'Missing upstream implementation of language variants',
 	};
 
-	before(async function () {
+	before(async () => {
 		spec = await staticSpecLoad();
 		svc = await server.start();
 		defParams = spec['x-default-params'] || {};
@@ -369,7 +365,7 @@ describe('validate spec examples', () => {
 		}
 	});
 
-	after(async function () {
+	after(async () => {
 		await svc.stop();
 	});
 

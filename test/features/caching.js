@@ -11,12 +11,10 @@ const cassandra = require('@wikimedia/cassandra-storage');
 const { initCache, purgeEvents  } = require('../../lib/caching.js');
 const { isObject } = require('underscore');
 
-const localUri = (endpoint, title, domain = 'en.wikipedia.org') => {
-	return `${ server.config.uri }${ domain }/v1/page/${ endpoint }/${ title }`;
-};
+const localUri = (endpoint, title, domain = 'en.wikipedia.org') => `${ server.config.uri }${ domain }/v1/page/${ endpoint }/${ title }`;
 
-describe('Cache config', function () {
-	it('should parse config and adapt ca value', function () {
+describe('Cache config', () => {
+	it('should parse config and adapt ca value', () => {
 		const mockApp = {
 			conf: {
 				cassandra: {
@@ -112,8 +110,8 @@ describe('Cached endpoints', function () {
 	}
 });
 
-describe('Caching events', function() {
-	it('should generate resource change and purge events', function() {
+describe('Caching events', () => {
+	it('should generate resource change and purge events', () => {
 		const exampleReq = {
 			app: {
 				conf: {
@@ -154,7 +152,7 @@ describe('Caching events', function() {
 
 		// Assert that events are validate against resource change schema
 		const schemaURL = 'https://schema.wikimedia.org/repositories/primary/jsonschema/resource_change/latest.yaml';
-		preq.get(schemaURL).then(function(res) {
+		preq.get(schemaURL).then((res) => {
 			const ajv = new Ajv();
 			addFormats(ajv);
 			const schema = yaml.load(res.body);

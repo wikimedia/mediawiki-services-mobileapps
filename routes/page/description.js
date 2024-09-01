@@ -37,16 +37,14 @@ let app;
  * Title redirection status: not handled
  * GET {domain}/v1/page/description/{title}
  */
-router.get('/description/:title', (req, res) => {
-	return mwapi.getMetadataForDescription(req)
-		.then((description) => {
-			res.status(200);
-			mUtil.setContentType(res, mUtil.CONTENT_TYPES.description);
-			res.set('Content-Language', description.lang);
-			res.send({ description: description.value });
-			res.end();
-		});
-});
+router.get('/description/:title', (req, res) => mwapi.getMetadataForDescription(req)
+	.then((description) => {
+		res.status(200);
+		mUtil.setContentType(res, mUtil.CONTENT_TYPES.description);
+		res.set('Content-Language', description.lang);
+		res.send({ description: description.value });
+		res.end();
+	}));
 
 /**
  * Update page description

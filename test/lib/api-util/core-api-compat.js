@@ -8,14 +8,14 @@ const preq = require('preq');
 
 describe('lib:core-api-compat unit tests', () => {
 
-	it('should create a HTTPTitleRedirectError', function () {
+	it('should create a HTTPTitleRedirectError', () => {
 		const error = new HTTPTitleRedirectError('test');
 		assert.equal(error.title, 'test');
 		assert.equal(error.name, 'HTTPTitleRedirectError');
 		assert.equal(error.message, 'HTTP response redirects to location: test');
 	});
 
-	it('redirect middleware should redirect if configured', function () {
+	it('redirect middleware should redirect if configured', () => {
 		const error = new HTTPTitleRedirectError('test');
 		const res = {
 			redirect: sinon.stub()
@@ -30,7 +30,7 @@ describe('lib:core-api-compat unit tests', () => {
 		assert.equal(res.redirect.args, '/test/path/test');
 	});
 
-	it('redirect middleware should not redirect if error not matching', function () {
+	it('redirect middleware should not redirect if error not matching', () => {
 		const error = new Error('not redirect');
 		const res = {
 			redirect: sinon.stub()
@@ -48,7 +48,7 @@ describe('lib:core-api-compat unit tests', () => {
 		}, Error);
 	});
 
-	it('redirect middleware should not redirect if not reverse url defined', function () {
+	it('redirect middleware should not redirect if not reverse url defined', () => {
 		const error = new HTTPTitleRedirectError('test');
 		const res = {
 			redirect: sinon.stub()
@@ -66,10 +66,8 @@ describe('lib:core-api-compat unit tests', () => {
 
 });
 
-describe('PCS configured to redirect', function () {
-	const buildUri = (path) => {
-		return `${ server.config.uri }${ path }`;
-	};
+describe('PCS configured to redirect', () => {
+	const buildUri = (path) => `${ server.config.uri }${ path }`;
 
 	let svc;
 	before(async () => {
@@ -82,7 +80,7 @@ describe('PCS configured to redirect', function () {
 
 	after(async () => await svc.stop());
 
-	it('mobile-html should redirect to the resolved page', async function () {
+	it('mobile-html should redirect to the resolved page', async () => {
 		const title = 'TestPCSRedirect';
 		const path = `test.wikipedia.org/v1/page/mobile-html/${ title }`;
 		const res = await preq.get({ uri: buildUri(path), followRedirect: false });
@@ -90,7 +88,7 @@ describe('PCS configured to redirect', function () {
 		assert.equal(res.headers.location, 'TestPCSRedirectDestination');
 	});
 
-	it('mobile-html should redirect to the resolved page when using action=parse', async function () {
+	it('mobile-html should redirect to the resolved page when using action=parse', async () => {
 		const title = 'User%3AJGiannelos_%28WMF%29%2Ftest_redirect';
 		const path = `zh.wikipedia.org/v1/page/mobile-html/${ title }`;
 		const res = await preq.get({ uri: buildUri(path), followRedirect: false });
@@ -98,7 +96,7 @@ describe('PCS configured to redirect', function () {
 		assert.equal(res.headers.location, '%E7%8A%AC');
 	});
 
-	it('mobile-html-offline-resources should not redirect to the resolved page', async function () {
+	it('mobile-html-offline-resources should not redirect to the resolved page', async () => {
 		const title = 'TestPCSRedirect';
 		const path = `test.wikipedia.org/v1/page/mobile-html-offline-resources/${ title }`;
 		const res = await preq.get({ uri: buildUri(path), followRedirect: false });
@@ -106,10 +104,8 @@ describe('PCS configured to redirect', function () {
 	});
 });
 
-describe('PCS configured to not redirect', function () {
-	const buildUri = (path) => {
-		return `${ server.config.uri }${ path }`;
-	};
+describe('PCS configured to not redirect', () => {
+	const buildUri = (path) => `${ server.config.uri }${ path }`;
 
 	let svc;
 	before(async () => {
@@ -121,14 +117,14 @@ describe('PCS configured to not redirect', function () {
 
 	after(async () => await svc.stop());
 
-	it('mobile-html should not redirect and should parse the resolved response', async function () {
+	it('mobile-html should not redirect and should parse the resolved response', async () => {
 		const title = 'TestPCSRedirect';
 		const path = `test.wikipedia.org/v1/page/mobile-html/${ title }`;
 		const res = await preq.get({ uri: buildUri(path), followRedirect: false });
 		assert.equal(res.status, 200);
 	});
 
-	it('should fixup missing content-language header', async function() {
+	it('should fixup missing content-language header', async () => {
 		const title = 'Erde';
 		const path = `de.wikipedia.org/v1/page/mobile-html/${ title }`;
 		const res = await preq.get({ uri: buildUri(path) });

@@ -25,9 +25,7 @@ describe('mobile-html-offline-resources', function() {
 		.replace('{{host}}', 'localhost:8888')
 		.replace('{{domain}}', domain);
 
-	const localUri = (title, dmn = 'en.wikipedia.org') => {
-		return `${ server.config.uri }${ dmn }/v1/page/mobile-html-offline-resources/${ title }`;
-	};
+	const localUri = (title, dmn = 'en.wikipedia.org') => `${ server.config.uri }${ dmn }/v1/page/mobile-html-offline-resources/${ title }`;
 
 	it('Response should be array with JS and CSS resources', () => {
 		const uri = localUri('Foobar/788941783', domain);

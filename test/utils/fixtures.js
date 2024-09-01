@@ -11,9 +11,7 @@ const PROCESSING = 'processing';
  * @param {!string} fileName name of the fixture file to load
  * @return {!string}
  */
-const readFileSync = (fileName) => {
-	return fs.readFileSync(path.resolve(FIXTURES, fileName), 'utf8');
-};
+const readFileSync = (fileName) => fs.readFileSync(path.resolve(FIXTURES, fileName), 'utf8');
 
 /**
  * @param {!string} fileName name of the fixture file to load

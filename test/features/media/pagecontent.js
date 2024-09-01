@@ -26,9 +26,7 @@ describe('media', function () {
 			}).then((mobileHtmlRes) => {
 				const expectedTitle = 'File:Olympic_rings.svg';
 				const body = domino.createDocument(mobileHtmlRes.body);
-				const mediaListImg = mediaListItems.filter(item => {
-					return item.title === expectedTitle;
-				});
+				const mediaListImg = mediaListItems.filter(item => item.title === expectedTitle);
 				assert.ok(mediaListImg.length > 0);
 				const expectedURL = '//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Olympic_rings_without_rims.svg/320px-Olympic_rings_without_rims.svg.png';
 				assert.ok(mediaListImg[0].srcset[0].src === expectedURL);

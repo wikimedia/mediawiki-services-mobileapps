@@ -11,10 +11,10 @@ describe('express app', function () {
 	beforeEach(async () => {
 		svc = await server.start();
 	});
-	afterEach(async function () {
+	afterEach(async () => {
 		await svc.stop();
 	});
-	it('should get robots.txt', function (done) {
+	it('should get robots.txt', (done) => {
 		preq.get({
 			uri: `${ server.config.uri }robots.txt`
 		}).then((res) => {
@@ -24,7 +24,7 @@ describe('express app', function () {
 		});
 	});
 
-	it('should set CORS headers', function (done) {
+	it('should set CORS headers', (done) => {
 		if (server.config.service.conf.cors === false) {
 			return true;
 		}
@@ -39,7 +39,7 @@ describe('express app', function () {
 		});
 	});
 
-	it('should set CSP headers', function (done) {
+	it('should set CSP headers', (done) => {
 		if (server.config.service.conf.csp === false) {
 			return true;
 		}
@@ -57,7 +57,7 @@ describe('express app', function () {
 		});
 	});
 
-	it('should not follow redirects', function (done) {
+	it('should not follow redirects', (done) => {
 		// The following page has a redirect but we don't want MCS to follow it
 		// since RESTBase already takes care of redirects.
 		const title = 'User:BSitzmann_%28WMF%29%2FMCS%2FTest%2Fredirect_test2',

@@ -15,9 +15,7 @@ describe('mobile-html', function() {
 	});
 	after(async () => await svc.stop());
 
-	const localUri = (title, domain = 'en.wikipedia.org') => {
-		return `${ server.config.uri }${ domain }/v1/page/mobile-html/${ title }`;
-	};
+	const localUri = (title, domain = 'en.wikipedia.org') => `${ server.config.uri }${ domain }/v1/page/mobile-html/${ title }`;
 
 	it('HTML should be sectioned', () => {
 		const uri = localUri('Foobar/788941783');

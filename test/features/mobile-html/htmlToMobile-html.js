@@ -14,9 +14,7 @@ describe('transform/html/to/mobile-html', function() {
 	});
 	after(async () => await svc.stop());
 
-	const localUri = (title, domain = 'en.wikipedia.org') => {
-		return `${ server.config.uri }${ domain }/v1/transform/html/to/mobile-html/${ title }`;
-	};
+	const localUri = (title, domain = 'en.wikipedia.org') => `${ server.config.uri }${ domain }/v1/transform/html/to/mobile-html/${ title }`;
 
 	it('simple html convertion should work properly', () => {
 		const uri = localUri('Presidency_of_George_Washington');

@@ -4,14 +4,12 @@ const assert = require('../../utils/assert.js');
 const queryForMetadata = require('../../../lib/mwapi').queryForMetadata;
 const util = require('../../utils/testUtil');
 
-const responseBuilder = (page, siteinfo, title, description) => {
-	return {
-		page,
-		siteinfo,
-		title,
-		description,
-	};
-};
+const responseBuilder = (page, siteinfo, title, description) => ({
+	page,
+	siteinfo,
+	title,
+	description,
+});
 
 describe('lib:mwapi:queryForMetadata', () => {
 	it('ensure that displaytitle is always requested', () => {

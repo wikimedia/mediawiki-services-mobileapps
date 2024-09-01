@@ -134,9 +134,7 @@ router.get('/page/mobile-html/:title/:revision?/:tid?', caching.defaultCacheMidd
  * Title redirection status: POST requests should not be redirected
  * Previews page content in HTML. POST body should be Parsoid HTML
  */
-router.post('/transform/html/to/mobile-html/:title', (req, res) => {
-	return getMobileHtmlFromPOST(req, res);
-});
+router.post('/transform/html/to/mobile-html/:title', (req, res) => getMobileHtmlFromPOST(req, res));
 
 /**
  * GET {domain}/v1/page/mobile-html-offline-resources/{title}/{revision}/{tid}

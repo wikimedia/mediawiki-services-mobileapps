@@ -247,9 +247,7 @@ function _collectRawPageData(application, req) {
 			page: parsoid.pageJsonPromise(application, req),
 			meta: mwapi.getMetadataForMobileSections(req, mwapiConstants.LEAD_IMAGE_XL),
 			title: mwapi.getTitleObj(req.params.title, si)
-		})).then((interimState) => {
-			return _handleNamespaceAndSpecialCases(req, interimState);
-		});
+		})).then((interimState) => _handleNamespaceAndSpecialCases(req, interimState));
 }
 
 /**
@@ -282,9 +280,7 @@ function buildAllResponse(application, req, res) {
  * @return {!BBPromise}
  */
 function buildLeadObject(application, req) {
-	return _collectRawPageData(application, req).then((lead) => {
-		return buildLead(lead);
-	});
+	return _collectRawPageData(application, req).then((lead) => buildLead(lead));
 }
 
 /**

@@ -21,9 +21,7 @@ const LOCAL_MCS_BASE_URI = `http://localhost:8888/${ lang }.wikipedia.org/v1/pag
 const headers = ['title', 'parsoid', 'parsoid-gz', 'mobile-html', 'mobile-html-gz'];
 const measurements = [];
 
-const fixTitleForRequest = (pageTitle) => {
-	return encodeURIComponent(pageTitle);
-};
+const fixTitleForRequest = (pageTitle) => encodeURIComponent(pageTitle);
 
 const processEndpoint = (endpointLabel, baseUri, page, measurement) => {
 	const requestTitle = fixTitleForRequest(page.title);
@@ -47,13 +45,9 @@ const processEndpoint = (endpointLabel, baseUri, page, measurement) => {
 		});
 };
 
-const processParsoid = (page, measurement) => {
-	return processEndpoint('parsoid', PARSOID_BASE_URI, page, measurement);
-};
+const processParsoid = (page, measurement) => processEndpoint('parsoid', PARSOID_BASE_URI, page, measurement);
 
-const processReadHtml = (page, measurement) => {
-	return processEndpoint('mobile-html', LOCAL_MCS_BASE_URI, page, measurement);
-};
+const processReadHtml = (page, measurement) => processEndpoint('mobile-html', LOCAL_MCS_BASE_URI, page, measurement);
 
 const printResultSummary = () => {
 	process.stdout.write(`\n\n${ headers.join('\t') }\n`);
@@ -67,9 +61,7 @@ const processAllPages = () => {
 	BBPromise.map(pages, (page) => {
 		const measurement = [ page.title ];
 		return processParsoid(page, measurement)
-			.then(() => {
-				return processReadHtml(page, measurement);
-			})
+			.then(() => processReadHtml(page, measurement))
 			.then(() => {
 				process.stdout.write('.');
 				measurements.push(measurement);

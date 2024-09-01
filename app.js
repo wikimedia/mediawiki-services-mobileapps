@@ -88,9 +88,7 @@ function initApp(options) {
 			'user-agent', 'x-request-id'
 		];
 	}
-	app.conf.log_header_allowlist = new RegExp(`^(?:${ app.conf.log_header_allowlist.map((item) => {
-		return item.trim();
-	}).join('|') })$`, 'i');
+	app.conf.log_header_allowlist = new RegExp(`^(?:${ app.conf.log_header_allowlist.map((item) => item.trim()).join('|') })$`, 'i');
 
 	// set up default strategy for handling redirects
 	app.conf.pcs_handles_redirects = app.conf.pcs_handles_redirects || false;
@@ -187,42 +185,40 @@ function initApp(options) {
 function loadRoutes(app, dir) {
 
 	// recursively load routes from .js files under routes/
-	return fs.readdirAsync(dir).map((fname) => {
-		return BBPromise.try(() => {
-			const resolvedPath = path.resolve(dir, fname);
-			const isDirectory = fs.statSync(resolvedPath).isDirectory();
-			if (isDirectory) {
-				loadRoutes(app, resolvedPath);
-			} else if (/\.js$/.test(fname)) {
-				// import the route file
-				const route = require(`${ dir }/${ fname }`);
-				return route(app);
-			}
-		}).then((route) => {
-			if (route === undefined) {
-				return undefined;
-			}
-			// check that the route exports the object we need
-			if (route.constructor !== Object || !route.path || !route.router ||
+	return fs.readdirAsync(dir).map((fname) => BBPromise.try(() => {
+		const resolvedPath = path.resolve(dir, fname);
+		const isDirectory = fs.statSync(resolvedPath).isDirectory();
+		if (isDirectory) {
+			loadRoutes(app, resolvedPath);
+		} else if (/\.js$/.test(fname)) {
+			// import the route file
+			const route = require(`${ dir }/${ fname }`);
+			return route(app);
+		}
+	}).then((route) => {
+		if (route === undefined) {
+			return undefined;
+		}
+		// check that the route exports the object we need
+		if (route.constructor !== Object || !route.path || !route.router ||
                 !(route.api_version || route.skip_domain)) {
-				throw new TypeError(`routes/${ fname } does not export the correct object!`);
-			}
-			// normalise the path to be used as the mount point
-			if (route.path[0] !== '/') {
-				route.path = `/${ route.path }`;
-			}
-			if (route.path[route.path.length - 1] !== '/') {
-				route.path = `${ route.path }/`;
-			}
-			if (!route.skip_domain) {
-				route.path = `/:domain/v${ route.api_version }${ route.path }`;
-			}
-			// wrap the route handlers with Promise.try() blocks
-			sUtil.wrapRouteHandlers(route, app);
-			// all good, use that route
-			app.use(route.path, route.router);
-		});
-	}).then(() => {
+			throw new TypeError(`routes/${ fname } does not export the correct object!`);
+		}
+		// normalise the path to be used as the mount point
+		if (route.path[0] !== '/') {
+			route.path = `/${ route.path }`;
+		}
+		if (route.path[route.path.length - 1] !== '/') {
+			route.path = `${ route.path }/`;
+		}
+		if (!route.skip_domain) {
+			route.path = `/:domain/v${ route.api_version }${ route.path }`;
+		}
+		// wrap the route handlers with Promise.try() blocks
+		sUtil.wrapRouteHandlers(route, app);
+		// all good, use that route
+		app.use(route.path, route.router);
+	})).then(() => {
 		// handle title redirects
 		if (app.conf.pcs_handles_redirects) {
 			app.use(coreApiCompat.httpTitleRedirectErrorMiddleware);
@@ -250,9 +246,7 @@ function loadPreProcessingScripts(app, dir) {
 	 * @throws error if script format is invalid
 	 */
 	function _validate(script) {
-		if (script.filter((i) => {
-			return typeof i === 'object' && Object.keys(i).length !== 1;
-		}).length) {
+		if (script.filter((i) => typeof i === 'object' && Object.keys(i).length !== 1).length) {
 			throw new Error('Invalid processing script format');
 		}
 	}
@@ -312,18 +306,14 @@ function createServer(app) {
  * @param {Object} options the options to initialise the app with
  * @return {bluebird} HTTP server
  */
-module.exports = (options) => {
-
-	return initApp(options)
-		.then(app => loadRoutes(app, `${ __dirname }/routes`))
-		.then(app => loadPreProcessingScripts(app, `${ __dirname }/processing`))
-		.then((app) => {
-			const setJsdocHeaders = (req, res, next) => {
-				res.removeHeader('Content-Security-Policy');
-				next();
-			};
-			app.use('/jsdoc', setJsdocHeaders, express.static(`${ __dirname }/docs/jsdoc`));
-			return app;
-		}).then(createServer);
-
-};
+module.exports = (options) => initApp(options)
+	.then(app => loadRoutes(app, `${ __dirname }/routes`))
+	.then(app => loadPreProcessingScripts(app, `${ __dirname }/processing`))
+	.then((app) => {
+		const setJsdocHeaders = (req, res, next) => {
+			res.removeHeader('Content-Security-Policy');
+			next();
+		};
+		app.use('/jsdoc', setJsdocHeaders, express.static(`${ __dirname }/docs/jsdoc`));
+		return app;
+	}).then(createServer);

@@ -1,4 +1,5 @@
 {
+	"root": true,
 	"extends": "wikimedia/server",
 	"rules": {
 		"array-bracket-spacing": "off",
@@ -26,6 +27,10 @@
 		"jsdoc/require-param": "off",
 		"jsdoc/require-param-type": "off",
 		"jsdoc/require-returns": "off",
-		"jsdoc/require-returns-check": "off"
+		"jsdoc/require-returns-check": "off",
+		"n/no-unsupported-features/node-builtins": "warn",
+		"implicit-arrow-linebreak": "warn",
+		"no-mixed-spaces-and-tabs": "warn",
+		"semi-style": "warn"
 	}
 }

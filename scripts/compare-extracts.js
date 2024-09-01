@@ -92,17 +92,11 @@ function getLanguageLinks() {
 	].map(_lang => `<a href="./${ _lang }.html">${ _lang }</a>`).join(' ');
 }
 
-const uriForWikiLink = (domain, title, rev) => {
-	return `https://${ domain }/wiki/${ title }?oldid=${ rev }`;
-};
+const uriForWikiLink = (domain, title, rev) => `https://${ domain }/wiki/${ title }?oldid=${ rev }`;
 
-const uriForParsoidLink = (domain, title, rev) => {
-	return `https://${ domain }/api/rest_v1/page/html/${ title }/${ rev }`;
-};
+const uriForParsoidLink = (domain, title, rev) => `https://${ domain }/api/rest_v1/page/html/${ title }/${ rev }`;
 
-const uriForProd = (domain, title) => {
-	return `https://${ domain }/api/rest_v1/${ ENDPOINT }/${ encodeURIComponent(title) }`;
-};
+const uriForProd = (domain, title) => `https://${ domain }/api/rest_v1/${ ENDPOINT }/${ encodeURIComponent(title) }`;
 
 const uriForLocal = (domain, title, rev, port = NEW_PORT) => {
 	const suffix = rev ? `/${ rev }` : '';
@@ -182,12 +176,10 @@ const compareExtractsHTML = (file, oldExtractValue, newExtractValue,
  * Only needed if the HTML files are viewed locally (=base URL protocol is file) and you care
  * about seeing the images.
  */
-const fixImgSources = (value) => {
-	return value && value
-		.replace(/<img src="\/\//g, '<img src="https://')
-		.replace(/srcset="\/\//g, 'srcset="https://')
-		.replace(/ 2x, \/\//g, ' 2x, https://');
-};
+const fixImgSources = (value) => value && value
+	.replace(/<img src="\/\//g, '<img src="https://')
+	.replace(/srcset="\/\//g, 'srcset="https://')
+	.replace(/ 2x, \/\//g, ' 2x, https://');
 
 const getExtract = (response) => {
 	if (response.status !== 200) {
@@ -231,14 +223,8 @@ const compareExtracts = (oldExtract, newExtract, counter, domain, title, rev) =>
 		buildOtherPropString(newExtract), counter, domain, title, rev);
 };
 
-const fetchExtract = (uri) => {
-	return preq.get({ uri })
-		.then((response) => {
-			return BBPromise.delay(DELAY, getExtract(response));
-		}).catch((err) => {
-			return BBPromise.resolve(`!!! ${ err } "${ uri }" !!!`);
-		});
-};
+const fetchExtract = (uri) => preq.get({ uri })
+	.then((response) => BBPromise.delay(DELAY, getExtract(response))).catch((err) => BBPromise.resolve(`!!! ${ err } "${ uri }" !!!`));
 
 const fetchAndVerify = (page, counter) => {
 	const domain = page.domain;
@@ -270,9 +256,7 @@ const iteratePages = (_pageList, defaultDomain, pageFunction) => {
 };
 
 const processOneList = (defaultDomain, _pageList) => {
-	iteratePages(_pageList, defaultDomain, (page, counter) => {
-		return fetchAndVerify(page, counter);
-	})
+	iteratePages(_pageList, defaultDomain, (page, counter) => fetchAndVerify(page, counter))
 		.then(() => {
 			outputEnd(html);
 			outputEnd(plain);

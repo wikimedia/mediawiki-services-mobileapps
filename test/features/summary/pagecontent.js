@@ -35,9 +35,7 @@ describe('summary', function() {
 	});
 	after(async () => await svc.stop());
 
-	const localUri = (title, domain = 'en.wikipedia.org') => {
-		return `${ server.config.uri }${ domain }/v1/page/summary/${ title }`;
-	};
+	const localUri = (title, domain = 'en.wikipedia.org') => `${ server.config.uri }${ domain }/v1/page/summary/${ title }`;
 
 	it('should respond with expected properties in payload', () => {
 		const uri = localUri('Foobar/798652007');

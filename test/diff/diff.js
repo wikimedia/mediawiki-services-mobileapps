@@ -16,17 +16,13 @@ describe('diff', function() {
 	});
 	after(async () => await svc.stop());
 
-	const buildUri = (path) => {
-		return `${ server.config.uri }${ path }`;
-	};
+	const buildUri = (path) => `${ server.config.uri }${ path }`;
 
 	/**
 	 * @param {!Object} rsp response object
 	 * @return {!string} pretty-printed JSON with some properties removed
 	 */
-	const formatOutput = (rsp) => {
-		return rsp.body;
-	};
+	const formatOutput = (rsp) => rsp.body;
 
 	function buildRequestParams(build, spec) {
 		const requestParams = {
@@ -58,14 +54,10 @@ describe('diff', function() {
 				switch (spec.getHttpMethod()) {
 					case 'GET':
 						return preq.get(requestParams)
-							.then((rsp) => {
-								return writeExpectedResultsToFile(spec, rsp, formatOutput);
-							});
+							.then((rsp) => writeExpectedResultsToFile(spec, rsp, formatOutput));
 					case 'POST':
 						return preq.post(requestParams)
-							.then((rsp) => {
-								return writeExpectedResultsToFile(spec, rsp, formatOutput);
-							});
+							.then((rsp) => writeExpectedResultsToFile(spec, rsp, formatOutput));
 					default:
 						assert.fail(`http method ${ spec.getHttpMethod() } not implemented`);
 				}
@@ -88,14 +80,10 @@ describe('diff', function() {
 				switch (spec.getHttpMethod()) {
 					case 'GET':
 						return preq.get(requestParams)
-							.then((rsp) => {
-								return verifyResult(spec, rsp);
-							});
+							.then((rsp) => verifyResult(spec, rsp));
 					case 'POST':
 						return preq.post(requestParams)
-							.then((rsp) => {
-								return verifyResult(spec, rsp);
-							});
+							.then((rsp) => verifyResult(spec, rsp));
 					default:
 						assert.fail(`http method ${ spec.getHttpMethod() } not implemented`);
 				}

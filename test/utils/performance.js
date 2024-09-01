@@ -35,9 +35,7 @@ class Performance {
 				res();
 			});
 		});
-		return P.join(promise, perfPromise).then(results => {
-			return results[0];
-		});
+		return P.join(promise, perfPromise).then(results => results[0]);
 	}
 
 	// Marks the start and returns the object to send to finish

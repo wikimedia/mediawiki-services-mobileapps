@@ -40,9 +40,7 @@ sepia.filter({
 	forceLive: true
 });
 
-module.exports.stop = () => {
-	return BBPromise.resolve();
-};
+module.exports.stop = () => BBPromise.resolve();
 let options = null;
 const runner = new ServiceRunner();
 
