@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Song GK"
+		]
+	},
+	"description-add-link-title": "Tambah penerang artikel",
+	"article-read-more-title": "Bacha silik agi",
+	"table-title-other": "Penerang ti silik agi",
+	"page-edit-history": "Peda sejarah edit",
+	"info-box-close-text": "Tutup",
+	"page-talk-page-subtitle": "Berandauka chara ngemanahka agi artikel tu",
+	"page-issues-subtitle": "Pemadah pasal isi ti enda manah tauka bepenanggul",
+	"page-talk-page": "Peda lambar randau",
+	"info-box-title": "Fakta Jampat",
+	"view-in-browser-footer-link": "Peda artikel ba browser",
+	"page-location": "Peda ba kar",
+	"page-similar-titles": "Lambar ti sebaka",
+	"page-last-edited": "{{PLURAL:$1|Diupdate kemari|Diupdate $1 hari ke udah|0=Diupdate sehari tu}}",
+	"article-about-title": "Pasal artikel tu",
+	"page-issues": "Isu-isu lambar",
+	"license-footer-text": "Isi bisi ba baruh $1 entu enda dipadah ke bukai.",
+	"page-read-in-other-languages": "Bisi dalam {{PLURAL:$1|$1 jaku bukai}}",
+	"article-edit-button": "Edit bagi",
+	"article-edit-protected-button": "Edit bagi ba lambar ti diibun",
+	"article-section-expand": "Ngerembaika bagi",
+	"article-section-collapse": "Runtuhka bagi",
+	"table-expand": "Ngerembaika jadual",
+	"table-collapse": "Runtuhka jadual",
+	"references-preview-header": "Prapeda referens"
+}
