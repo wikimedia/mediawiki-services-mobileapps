@@ -1,22 +1,32 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ewithu",
 			"Tacsipacsi"
 		]
 	},
-	"description-add-link-title": "Adj meg egy címleírást",
+	"description-add-link-title": "Szócikkleírás megadása",
 	"article-read-more-title": "További információ",
 	"table-title-other": "További információk",
 	"page-edit-history": "Laptörténet megtekintése",
 	"info-box-close-text": "Bezárás",
+	"page-talk-page-subtitle": "Vitasd meg ennek a szócikknek a javításait.",
+	"page-issues-subtitle": "Figyelmeztetések alacsonyabb színvonalú vagy problémás tartalomról",
 	"page-talk-page": "Vitalap megtekintése",
 	"info-box-title": "Gyors adatok",
 	"view-in-browser-footer-link": "Szócikk olvasása böngészőben",
 	"page-location": "Megtekintés térképen",
 	"page-similar-titles": "Hasonló lapok",
-	"page-last-edited": "Szerkesztve {{PLURAL:$1|0=ma|1=tegnap|$1 napja}}",
+	"page-last-edited": "{{PLURAL:$1|Tegnap frissítve|$1 napja frissítve|0=Ma frissítve}}",
 	"article-about-title": "Erről a szócikkről",
 	"page-issues": "A lap problémái",
 	"license-footer-text": "A tartalom további jelölés hiányában a(z) $1 feltételei szerint használható fel.",
-	"page-read-in-other-languages": "Elérhető $1 további nyelven"
+	"page-read-in-other-languages": "Elérhető $1 további nyelven",
+	"article-edit-button": "Szakasz szerkesztése",
+	"article-edit-protected-button": "Szakasz szerkesztése védett lapon",
+	"article-section-expand": "Szakasz kinyitása",
+	"article-section-collapse": "Szakasz becsukása",
+	"table-expand": "Táblázat kinyitása",
+	"table-collapse": "Táblázat becsukása",
+	"references-preview-header": "Források előnézete"
 }
