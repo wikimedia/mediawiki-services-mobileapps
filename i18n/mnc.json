@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"MiiCii"
+		]
+	},
+	"description-add-link-title": "Justan -i nirume fisembun be nonggibure",
+	"article-read-more-title": "Elei labdu hūlara",
+	"table-title-other": "Elei labdu mejige",
+	"page-edit-history": "Banjibume arara suduri be baicara",
+	"info-box-close-text": "Yaksire",
+	"page-talk-page-subtitle": "Ere afaha be halame ibebure be leolere",
+	"page-issues-subtitle": "Kemnen ci fangkala eici fonjin bisire baktambun de daljingga targacun",
+	"page-talk-page": "Leolere afaha be baicara",
+	"info-box-title": "Yargiyan be hūdun tuwara",
+	"view-in-browser-footer-link": "Muwašame tuwara tetun de justan be baicara",
+	"page-location": "Banai nirugan de baicara",
+	"page-similar-titles": "Adališara afaha",
+	"page-last-edited": "{{PLURAL:$1|Cimari icemlehe|$1 inenggi -i onggolo icemlehe|0=enenggi icemlehe}}",
+	"article-about-title": "Ere justan de daljingga",
+	"page-issues": "Justan -i fonjin",
+	"license-footer-text": "Gūwa getukelere gisun bisireci tulgiyen, ere asui tatan -i baktambun $1 toose bubure be baitalambi.",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 hacin -i gūwa gisun}} de baitalaci ojoro",
+	"article-edit-button": "Fiyelen be banjibume arara",
+	"article-edit-protected-button": "Karmabuha afaha -i dorgi fiyelen be banjibume arara",
+	"article-section-expand": "Fiyelen be sarara",
+	"article-section-collapse": "Fiyelen be bukdara",
+	"table-expand": "Iletun be sarara",
+	"table-collapse": "Iletun be bukdara",
+	"references-preview-header": "Aisilara bithe cagan be doigomšome tuwara"
+}
