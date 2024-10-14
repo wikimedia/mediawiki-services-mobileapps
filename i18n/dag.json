@@ -1,15 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Issahiddris98"
+			"Issahiddris98",
+			"Kalakpagh"
 		]
 	},
-	"description-add-link-title": "Pahimi atikili maa buɣisibu",
-	"article-read-more-title": "Karimi mi ma",
+	"description-add-link-title": "Pahimi gbaŋbiɛlinli buɣisibu",
+	"article-read-more-title": "Karim pam",
 	"table-title-other": "Lahabali pam",
-	"page-edit-history": "Lihimi maliniŋ tarihi",
+	"page-edit-history": "Lihimi maliniŋ taarihi",
 	"info-box-close-text": "Kparima",
-	"page-talk-page-subtitle": "Malimi sawara zaŋ chaŋ atikili maa kpaʋsibu",
+	"page-talk-page-subtitle": "Malimi sawara zaŋ chaŋ gbaŋbiɛlinli ŋɔ kpaŋsibu",
 	"page-issues-subtitle": "Che ka bɛ baŋ lahabali maa yɛlimuɣisrili",
 	"page-talk-page": "Yulimi yɛltɔɣa maa paaji",
 	"info-box-title": "Yomyom shɛhira",
@@ -27,5 +28,5 @@
 	"article-section-collapse": "Kumi yaɣili",
 	"table-expand": "Yɛligimi teebuli maa",
 	"table-collapse": "Wurimi teebuli maa",
-	"references-preview-header": "Labi yuli kundivihira"
+	"references-preview-header": "daŋ yuli kundivihira"
 }
