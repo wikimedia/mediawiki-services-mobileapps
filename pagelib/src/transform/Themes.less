@@ -1,4 +1,5 @@
-@import './Constants.less';
+@import (reference) '~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less';
+@import (reference) '~@wikimedia/codex-design-tokens/theme-wikimedia-ui-mixin-dark.less';
 
 /*
 
@@ -29,16 +30,6 @@ https://phabricator.wikimedia.org/T256277#6297683
 https://phabricator.wikimedia.org/T236137
 
 */
-
-// This mixin applies the given CSS rules to any theme other than the default theme
-// @rules - the CSS rules to apply for non-default themes
-.nonDefaultThemesUniversal(@rules) {
-    .pcs-theme-sepia &,
-    .pcs-theme-dark &,
-    .pcs-theme-black & {
-        @rules();
-    }
-}
 
 // This mixin applies the given CSS rules to any theme other than the default theme
 // and only when not in a "no theme portal".
@@ -76,26 +67,8 @@ https://phabricator.wikimedia.org/T236137
 
 :root,
 .notheme {
-    // Base Values
-    --mid-background: @wmui-color-base90;
-    --paper-background: @wmui-color-base100;
-    --sub-cell-background: @wmui-color-base100;
-    --primary-text-color: @wmui-color-base10;
-    --secondary-text-color: @wmui-color-base30;
-    --link-color: @wmui-color-accent50;
-    --border-color: @wmui-color-base70;
-    --card-background: @wmui-color-base100;
-
-    // Customizations
-    --footer-title-text-color: @wmui-color-base0;
-    --footer-text-color: @wmui-color-base30;
-    --placeholder-background: @wmui-color-base80;
-    --placeholder-error-background: @wmui-color-base70;
-    --android-active-edit-link-background: @wmui-color-base80;
+    --color-text-highlight: #edaa0066;
     --box-shadow-table: 0 1px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.18);
-    --footer-heading-text-color: @wmui-color-base30;
-    --footer-license-text-color: @wmui-color-base30;
-    --footer-readmore-description-text-color: @wmui-color-base30;
     --edit-section-link-container-opacity: 0.54;
     --external-link-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z' fill='%2336c'/%3E%3Cpath d='M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z' fill='%2336c'/%3E%3C/svg%3E");
     --rtl-external-link-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3 12H1v5c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2h-5v2h5v14H3z' fill='%2336c'/%3E%3Cpath d='M1 9l3.3-3.3 5.7 5.7 1.4-1.4-5.7-5.7L9 1H1z' fill='%2336c'/%3E%3C/svg%3E");
@@ -117,22 +90,12 @@ https://phabricator.wikimedia.org/T236137
 }
 
 .pcs-theme-sepia {
-    // Base Values
-    --mid-background: @wmui-color-sepia-base90;
-    --paper-background: @wmui-color-sepia-base100;
-    --sub-cell-background: @wmui-color-sepia-base90;
-    --primary-text-color: @wmui-color-base10;
-    --secondary-text-color: @wmui-color-sepia-gray40;
-    --border-color: @wmui-color-sepia-gray80;
-    --card-background: @wmui-color-sepia-base90;
-
-    // Customizations
-    --footer-text-color: @wmui-color-sepia-gray50;
+    --background-color-base: #f8f1e3;
+    --background-color-neutral: #e1dad1;
+    --background-color-neutral-subtle: #f0e6d6;
+    --color-placeholder: #646059;
+    --border-color-subtle: #cbc8c1;
     --box-shadow-table: none;
-    --collapse-table-background: @wmui-color-sepia-base85;
-    --caption-background: @wmui-color-sepia-gray80;
-    --footer-license-text-color: @wmui-color-sepia-gray50;
-    --footer-readmore-description-text-color: @wmui-color-sepia-gray40;
     --edit-section-link-container-opacity: 0.7;
     --collapse-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z' fill='%23222'/%3E%3C/svg%3E");
     --expand-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z' fill='%23222'/%3E%3C/svg%3E");
@@ -144,59 +107,16 @@ https://phabricator.wikimedia.org/T236137
 }
 
 .pcs-theme-dark {
-    // Base Values
-    --mid-background: @wmui-color-dark-base10;
-    --paper-background: @wmui-color-dark-base20;
-    --sub-cell-background: @wmui-color-dark-base20;
-    --primary-text-color: @wmui-color-base90;
-    --secondary-text-color: @wmui-color-base70;
-    --link-color: @wmui-color-accent70;
-    --border-color: @wmui-color-dark-base30;
-    --card-background: @wmui-color-dark-base10;
+    .cdx-mode-dark();
+    color-scheme: dark;
 
-    // Customizations
-    --footer-title-text-color: @wmui-color-base90;
-    --placeholder-background: @wmui-color-base30;
-    --placeholder-error-background: @wmui-color-base20;
-    --android-active-edit-link-background: @wmui-color-dark-base5;
     --box-shadow-collapse-table: none;
-    --collapse-table-background: @wmui-color-base10;
-    --footer-heading-text-color: @wmui-color-base90;
-    --caption-background: @wmui-color-dark-base30;
-    --footer-license-text-color: @wmui-color-base50;
-    --footer-readmore-description-text-color: @wmui-color-base50;
     --edit-section-link-container-opacity: 0.7;
-    --glossary-link-color: var(--primary-text-color);
-    --collapse-table-text-color: var(--primary-text-color);
-    --figcaption-text-color: var(--primary-text-color);
 }
 
-.pcs-theme-black {
-    // Base Values
-    --mid-background: @wmui-color-base10;
-    --paper-background: @wmui-color-base0;
-    --sub-cell-background: @wmui-color-base10;
-    --primary-text-color: @wmui-color-base90;
-    --secondary-text-color: @wmui-color-base70;
-    --link-color: @wmui-color-accent70;
-    --border-color: @wmui-color-dark-base30;
-    --card-background: @wmui-color-base0;
-
-    // Customizations
-    --footer-title-text-color: @wmui-color-base90;
-    --placeholder-background: @wmui-color-dark-base30;
-    --placeholder-error-background: @wmui-color-dark-base10;
-    --android-active-edit-link-background: @wmui-color-dark-base5;
+.pcs-theme-black:extend(.pcs-theme-dark) {
+    --background-color-base: #000;
     --box-shadow-table: none;
-    --collapse-table-background: @wmui-color-base10;
-    --footer-heading-text-color: @wmui-color-base90;
-    --caption-background: @wmui-color-dark-base20;
-    --footer-license-text-color: @wmui-color-base50;
-    --footer-readmore-description-text-color: @wmui-color-base50;
-    --edit-section-link-container-opacity: 0.7;
-    --glossary-link-color: var(--primary-text-color);
-    --collapse-table-text-color: var(--primary-text-color);
-    --figcaption-text-color: var(--primary-text-color);
 }
 
 // Sometimes all the dark themes have the same styling. To minimize CSS size,

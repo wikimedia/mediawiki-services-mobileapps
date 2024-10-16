@@ -1,8 +1,8 @@
-@import './Constants.less';
+@import './Themes.less';
 
 .pcs-image-wrapper,
 .pcs-widen-image-wrapper {
-  background-color: @wmui-color-base30 !important;
+  background-color: @background-color-neutral-subtle !important;
   margin: 0 auto;
 }
 
@@ -40,7 +40,7 @@
   }
 
   /* Tablet override */
-  @media (min-device-width: @width-breakpoint-tablet) {
+  @media (min-device-width: @min-width-breakpoint-tablet) {
     .pcs-widen-image-wrapper {
       width: 60% !important;
       max-width: 60% !important;

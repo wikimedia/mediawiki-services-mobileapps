@@ -1,5 +1,4 @@
 @import './Themes.less';
-@import './Constants.less';
 
 .pcs-footer-readmore-page {
   padding: 11px 0;
@@ -8,7 +7,7 @@
 }
 
 .pcs-footer-readmore-page-title {
-  color: var(--primary-text-color);
+  color: @color-base;
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -17,7 +16,7 @@
 }
 
 .pcs-footer-readmore-page-description {
-  color: var(--footer-readmore-description-text-color);
+  color: @color-subtle;
   display: block;
   font-size: 0.875em; /*14px @16px*/
   line-height: 1.1428571429; /*16px @14px*/

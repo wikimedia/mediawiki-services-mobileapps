@@ -9,14 +9,14 @@
       data-height=4 data-src=/ data-srcset=/ data-alt=bar>
       <span style='padding-top: 200%'></span>
     </span>
+*/
 
-@import './Constants.less';
 @import './Themes.less';
 
 /* LazyLoadTransform.PLACEHOLDER_CLASS. Present in all placeholder states. Image is not shown. */
 .pcs-lazy-load-placeholder {
   display: inline-block;
   max-width: 100%;
-  background-color: var(--placeholder-background);
-  border: var(--border-color) solid 1px;
+  background-color: @background-color-interactive;
+  border: @border-color-subtle solid 1px;
 }

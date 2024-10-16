@@ -1,5 +1,4 @@
 @import './Themes.less';
-@import './Constants.less';
 
 #pcs-footer-container-menu-items {
   width: 100%;
@@ -11,7 +10,6 @@
   padding: 13px 0 17px;
   background-size: 20px 20px;
   background-repeat: no-repeat;
-  background-color: var(--sub-cell-background);
   background-origin: content-box;
   position: relative;
 }
@@ -27,7 +25,7 @@ body[dir='rtl'] .pcs-footer-menu-item {
 }
 
 .pcs-footer-menu-item-title {
-  color: var(--footer-title-text-color);
+  color: @color-emphasized;
   min-height: 1.38em;
 }
 
@@ -42,7 +40,7 @@ body[dir='rtl'] .pcs-footer-menu-item-title {
 }
 
 .pcs-footer-menu-item-subtitle {
-  color: var(--footer-text-color);
+  color: @color-subtle;
   font-size: 0.875em; /*14px @16px*/
   line-height: 1.1428571429; /*16px @14px*/
 }

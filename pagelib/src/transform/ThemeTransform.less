@@ -1,4 +1,3 @@
-@import './Constants.less';
 @import './Themes.less';
 /*
 The styles referred to as 'baseline' in the comments below are critical because they ensure
@@ -14,23 +13,23 @@ be found here: https://phabricator.wikimedia.org/T236137
 
 /* baseline */
 
-.nonDefaultThemesUniversal({
-  color: var(--primary-text-color);
-  background: var(--paper-background);
-});
+body {
+  color: @color-base;
+  background: @background-color-base;
+}
 
 .notheme {
-  color: @wmui-color-base0;
+  color: @color-base-fixed;
 }
 
 a.notheme {
-  color: @wmui-color-accent50;
+  color: @color-progressive;
 }
 
 /* baseline anchor */
 a {
   .nonDefaultThemes({
-    color: var(--link-color);
+    color: @color-progressive;
   });
 }
 
@@ -51,9 +50,9 @@ tr,
 th,
 li.gallerybox div.thumb {
   .nonDefaultThemes({
-    background: var(--mid-background) !important;
-    color: var(--primary-text-color);
-    border-color: var(--border-color);
+    background: @background-color-neutral-subtle !important;
+    color: @color-base;
+    border-color: @border-color-subtle;
   });
 }
 
@@ -65,8 +64,8 @@ ol,
 li {
   .nonDefaultThemes({
     background-color: inherit;
-    color: var(--primary-text-color);
-    border-color: var(--border-color);
+    color: @color-base;
+    border-color: @border-color-subtle;
   });
 }
 
@@ -76,7 +75,7 @@ li {
 blockquote,
 div.quotebox {
   .nonDefaultThemes({
-    background: var(--card-background);
+    background: @background-color-neutral-subtle;
   });
 }
 
@@ -93,18 +92,18 @@ blockquote {
 hr:not(.notheme) {
   border: none;
   height: 1px;
-  background-color: var(--border-color);
+  background-color: @border-color-subtle;
 }
 
 /* figcaption color */
 figcaption:not(.notheme) {
-  color: var(--secondary-text-color);
+  color: @color-subtle;
 }
 
 /* caption background */
 caption {
   .nonDefaultThemes({
-    background: var(--caption-background);
+    background: @background-color-neutral-subtle;
   });
 }
 
@@ -112,7 +111,7 @@ caption {
 /* compatibility transform */
 img.mwe-math-fallback-image-inline {
   .darkThemesOnlyUniversal({
-    background: @wmui-color-base70;
+    background: @background-color-interactive;
     padding: 2px;
   }, true);
 }
@@ -127,8 +126,8 @@ img.mwe-math-fallback-image-inline {
 }
 
 .pcs-element-highlight {
-  background-color: rgba(@wmui-color-yellow50, 0.4) !important;
-  color: @wmui-color-base0 !important;
+  background-color: var(--color-text-highlight) !important;
+  color: @color-emphasized !important;
   border-radius: 2px !important;
 }
 
@@ -136,7 +135,7 @@ img.mwe-math-fallback-image-inline {
 #pcs .hatnote,
 #pcs .rellink {
     padding: 5px 0;
-    color: var(--secondary-text-color);
+    color: @color-subtle;
     font-size: .875em;
     background-color: initial;
     margin-bottom: 1px;
@@ -145,25 +144,25 @@ img.mwe-math-fallback-image-inline {
 }
 
 .mw-highlight {
-  background-color: var(--mid-background);
+  background-color: @background-color-neutral-subtle;
 }
 
 span.glossary-link-internal {
   .darkThemesOnly({
-    color: var(--glossary-link-color) !important;
+    color: @color-base !important;
   });
 }
 
 .pcs-collapse-table-container td {
   .darkThemesOnly({
-    color: var(--collapse-table-text-color);
+    color: @color-base;
     background: unset;
   });
 }
 
 figcaption div span {
   .darkThemesOnly({
-    color: var(--figcaption-text-color);
+    color: @color-base;
     background: unset;
   });
 }

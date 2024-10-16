@@ -107,6 +107,6 @@
 		}
 	],
 	"dependencies": {
-		"wikimedia-ui-base": "^0.15.0"
+		"@wikimedia/codex-design-tokens": "1.23.0"
 	}
 }

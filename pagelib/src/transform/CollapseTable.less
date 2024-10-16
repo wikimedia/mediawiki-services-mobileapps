@@ -72,7 +72,6 @@
 */
 
 @import './Themes.less';
-@import './Constants.less';
 
 .content table.infobox,
 .content .infobox_v3 {
@@ -106,9 +105,7 @@ div.pcs-collapse-table-container {
   border-radius: 2px;
   box-shadow: var(--box-shadow-collapse-table);
   clear: both;
-  .nonDefaultThemesUniversal({
-    background-color: var(--collapse-table-background) !important;
-  })
+  background-color: @background-color-neutral-subtle !important;
 }
 
 .pcs-collapse-table {
@@ -120,7 +117,7 @@ div.pcs-collapse-table-container {
 
 /* The outermost table container header's subcaption text. */
 .pcs-collapse-table-collapse-text {
-  color: var(--secondary-text-color);
+  color: @color-subtle;
 }
 
 /* Temporary fix to prevent right side of collapsed tables from extending
@@ -139,22 +136,15 @@ div.pcs-collapse-table-container {
   width: 100%;
   padding: 12px 48px 12px 12px;
   line-height: 120%;
-  background-color: var(--mid-background);
   background-repeat: no-repeat;
   background-position: 95% 50%;
   background-size: 1em 1em;
-
-  .nonDefaultThemesUniversal({
-    // For all non-default themes, we're forcing the mid-background.
-    // Otherwise, it tends to get the "inherit" value from the div:not(.notheme)
-    // rule in the ThemeTransform file.
-    background-color: var(--mid-background) !important;
-  })
+  background-color: @background-color-neutral-subtle !important;
 }
 
 /* The outermost table container's footer. */
 .pcs-collapse-table-collapsed-bottom {
-  color: @wmui-color-base30;
+  color: @color-subtle;
   border-radius: 0 0 2px 2px;
 }
 

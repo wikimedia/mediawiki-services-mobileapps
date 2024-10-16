@@ -1,5 +1,4 @@
 @import './Themes.less';
-@import './Constants.less';
 
 .pcs-footer-legal-contents {
   margin-top: 27px;
@@ -24,14 +23,14 @@ html[dir='rtl'] .pcs-footer-legal-contents,
 }
 
 .pcs-footer-legal-license {
-  color: var(--footer-license-text-color);
+  color: @color-subtle;
   font-size: 0.75em;
   line-height: 1.5;
   display: block;
 }
 
 a.pcs-footer-legal-license-link, a.pcs-footer-browser-link {
-  color: var(--link-color);
+  color: @color-progressive;
 }
 
 .pcs-footer-browser {
@@ -41,5 +40,5 @@ a.pcs-footer-legal-license-link, a.pcs-footer-browser-link {
 hr.pcs-footer-legal-divider {
   height: 1px;
   border: none;
-  background-color: var(--border-color);
+  background-color: @border-color-subtle;
 }
