@@ -58,6 +58,7 @@ FIXME: Review all of these hacks to see if they still apply.
     flex-flow: column nowrap;
     width: 100% !important;
     max-width: 100% !important;
+    text-align: start;
 
     caption {
       padding: 10px 10px 0;
@@ -99,18 +100,6 @@ FIXME: Review all of these hacks to see if they still apply.
       flex-flow: row nowrap;
     }
   }
-
-  // Hack to assign info boxes properly when using RTL languages on LTR wiki
-  .mw-content-ltr .infobox {
-    /* @noflip */
-    text-align: left;
-  }
-
-    // Hack to assign info boxes properly when using LTR languages on RTL wiki
-  .mw-content-rtl .infobox {
-      /* @noflip */
-      text-align: right;
-    }
 }
 
 // FIXME: Remove when filetoc is stripped from file pages a la table of contents (toc)
