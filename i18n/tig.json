@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bbeshir"
+			"Bbeshir",
+			"Kassala"
 		]
 	},
 	"article-read-more-title": "ዚያደት ቅራእ",
-	"table-title-other": "ዚያደት ሐብሬ",
-	"page-edit-history": "ታሪኽ ኣርትዖት ረኤ",
-	"info-box-close-text": "ድባእ",
+	"table-title-other": "ወሰክ ሐብሬ",
+	"page-edit-history": "ታሪክ አስንዮት ረኤ",
+	"info-box-close-text": "ድበእ",
 	"page-talk-page": "ገጽላ ህድግ ርኤ",
-	"page-similar-titles": "ላልመሳሰላ ገጻት",
-	"page-issues": "ጸገማት ገጽ"
+	"page-similar-titles": "ለልትመሳሰል አገጸት",
+	"page-issues": "መጻግም ገጽ"
 }
