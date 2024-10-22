@@ -55,7 +55,7 @@
 	},
 	"homepage": "https://www.mediawiki.org/wiki/RESTBase_services_for_apps",
 	"dependencies": {
-		"@wikimedia/cassandra-storage": "1.0.2",
+		"@wikimedia/cassandra-storage": "^1.0.3",
 		"axios-wmf-service-mesh": "https://gitlab.wikimedia.org/repos/content-transform/axios-wmf-service-mesh/-/archive/main/axios-wmf-service-mesh-main.tar.gz",
 		"banana-i18n": "^2.3.3",
 		"bluebird": "^3.7.2",

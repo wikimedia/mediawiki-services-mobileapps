@@ -167,3 +167,70 @@ describe('Caching events', () => {
 		});
 	});
 });
+
+describe('Caching hooks', () => {
+
+	it('should call hit hook on content hit', async () => {
+		const mockUpdateHook = sinon.mock();
+		const mockHitHook = sinon.mock();
+		const middleware = cassandra.middlewareFactory(
+			(req) => req.originalUrl,
+			(req) => req.params.domain,
+			mockUpdateHook,
+			mockHitHook
+		);
+
+		const engine = sinon.createStubInstance(cassandra.Engine, {
+			get: sinon.stub().returns(
+				Promise.resolve({
+					headers: {},
+					value: Buffer.from('Mocked content get'),
+					cached: new Date(),
+				})
+			),
+		});
+		sinon.stub(cassandra, 'Engine').returns(engine);
+		sinon.stub(cassandra, 'middlewareFactory').returns(middleware);
+		const svc = await server.start({ caching: { enabled: true } });
+		const uri = localUri('mobile-html', 'Cat');
+		return preq.get({ uri }).then((res) => {
+			sinon.assert.notCalled(mockUpdateHook);
+			sinon.assert.calledOnce(mockHitHook);
+			assert.equal(mockHitHook.args[0][0].url, '/page/mobile-html/Cat');
+			sinon.restore();
+			svc.stop();
+		});
+	});
+
+	it('should call update hook on content update', async () => {
+		const mockUpdateHook = sinon.mock();
+		const mockHitHook = sinon.mock();
+		const middleware = cassandra.middlewareFactory(
+			(req) => req.originalUrl,
+			(req) => req.params.domain,
+			mockUpdateHook,
+			mockHitHook
+		);
+
+		const engine = sinon.createStubInstance(cassandra.Engine, {
+			get: sinon.stub().returns(
+				Promise.resolve(false)
+			),
+			set: sinon.stub().returns(
+				Promise.resolve({})
+			)
+		});
+		sinon.stub(cassandra, 'Engine').returns(engine);
+		sinon.stub(cassandra, 'middlewareFactory').returns(middleware);
+		const svc = await server.start({ caching: { enabled: true } });
+		const uri = localUri('mobile-html', 'Cat');
+		return preq.get({ uri }).then((res) => {
+			sinon.assert.notCalled(mockHitHook);
+			sinon.assert.calledOnce(mockUpdateHook);
+			assert.equal(mockUpdateHook.args[0][0].url, '/page/mobile-html/Cat');
+			sinon.restore();
+			svc.stop();
+		});
+	});
+
+});
