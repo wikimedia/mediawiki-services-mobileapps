@@ -30,6 +30,8 @@ variants:
     entrypoint: [npm, test]
   test-pagelib:
     includes: [dev]
+    runs:
+      insecurely: true
     copies:
       - from: local
         source: ./pagelib
