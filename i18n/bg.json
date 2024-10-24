@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"StanProg"
+		]
+	},
+	"description-add-link-title": "Добавяне на описание на статията",
+	"article-read-more-title": "Прочетете повече",
+	"table-title-other": "Повече информация",
+	"page-edit-history": "Преглед на историята на редакциите",
+	"info-box-close-text": "Затваряне",
+	"page-talk-page-subtitle": "Обсъдете подобряването на статията",
+	"page-issues-subtitle": "Сигнали за некачествено или проблемно съдържание",
+	"page-talk-page": "Преглед на беседата",
+	"info-box-title": "Бързи факти",
+	"view-in-browser-footer-link": "Преглед на статията в браузър",
+	"page-location": "Преглед на картата",
+	"page-similar-titles": "Подобни страници",
+	"page-last-edited": "{{PLURAL:$1|0=Обновено днес|1=Обновено вчера|Обновено преди $1 дни}}",
+	"article-about-title": "Относно статията",
+	"page-issues": "Проблеми на страницата",
+	"license-footer-text": "Съдържанието е достъпно под условията на лиценза $1, освен ако не е посочено друго.",
+	"page-read-in-other-languages": "Предлага се на {{PLURAL:$1|още един език|$1 други езика}}",
+	"article-edit-button": "Редактиране на раздел",
+	"article-edit-protected-button": "Редактиране на раздел на защитена страница",
+	"article-section-expand": "Разширяване на раздела",
+	"article-section-collapse": "Свиване на раздела",
+	"table-expand": "Разширяване на таблицата",
+	"table-collapse": "Свиване на таблицата",
+	"references-preview-header": "Преглед на източниците"
+}
