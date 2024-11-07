@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ajeje Brazorf"
+			"Ajeje Brazorf",
+			"Gmelfi"
 		]
 	},
 	"description-add-link-title": "Agghiunci na discrizzioni dâ vuci",
@@ -9,7 +10,10 @@
 	"table-title-other": "Chiossai nfurmazzioni",
 	"page-edit-history": "Talìa la crunuluggìa dî canciamenti",
 	"info-box-close-text": "Chiudi",
+	"page-talk-page-subtitle": "Discurrissi dî l'ammegghiurata di stu artìculu",
+	"page-issues-subtitle": "Avvisu supra cuntinuta di mala qualitati o prubblimàticu",
 	"page-talk-page": "Talìa la pàggina di discussioni",
+	"info-box-title": "Fatti m'prescia",
 	"view-in-browser-footer-link": "Talìa la vuci ntû browser",
 	"page-location": "Talìa supra la mappa",
 	"page-similar-titles": "Pàggini sìmili",
