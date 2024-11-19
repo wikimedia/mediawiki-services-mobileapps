@@ -13,6 +13,7 @@ import HTMLUtil from '../transform/HTMLUtilities';
  * @param {!string} heading
  * @param {!string} sectionContainerId
  * @param {!string} pageContainerId
+ * @param {!string} langCode
  * @param {!Document} document
  * @return {void}
  */
@@ -134,11 +135,14 @@ const documentFragmentForReadMorePage = ( readMorePage, index, document ) => {
 /**
  * @type {ShowReadMorePagesHandler}
  */
-const showReadMorePages = ( pages, sectionContainerId, pageContainerId, document ) => {
+const showReadMorePages = ( pages, sectionContainerId, pageContainerId, langCode, document ) => {
 	const sectionContainer = document.getElementById( sectionContainerId );
 	const pageContainer = document.getElementById( pageContainerId );
 	pages.forEach( ( page, index ) => {
-		const displayTitle = page.pageprops ? page.pageprops.displaytitle : page.title;
+		let displayTitle = page.pageprops ? page.pageprops.displaytitle : page.title;
+		if (page.varianttitles && langCode) {
+            displayTitle = page.varianttitles[langCode] || displayTitle;
+		}
 		const pageModel = new ReadMorePage( page.title, displayTitle, page.thumbnail,
 			page.description );
 		const pageFragment = documentFragmentForReadMorePage( pageModel, index, document );
@@ -162,7 +166,8 @@ const readMoreQueryURL = ( title, count, baseURL ) => {
 		formatversion: 2,
 		origin: '*',
 		action: 'query',
-		prop: 'pageimages|description',
+		prop: 'pageimages|description|info',
+		inprop: 'varianttitles',
 		piprop: 'thumbnail',
 		pithumbsize: 160,
 		pilimit: count,
@@ -186,11 +191,12 @@ const readMoreQueryURL = ( title, count, baseURL ) => {
  * @param {!string} sectionContainerId
  * @param {!string} pageContainerId
  * @param {?string} baseURL
+ * @param {!string} langCode
  * @param {!Document} document
  * @return {void}
  */
 const fetchAndAdd = ( title, count, sectionContainerId, pageContainerId, baseURL,
-	document ) => {
+	langCode, document ) => {
 	const xhr = new XMLHttpRequest();
 	xhr.open( 'GET', readMoreQueryURL( title, count, baseURL ), true );
 	xhr.onload = () => {
@@ -212,6 +218,7 @@ const fetchAndAdd = ( title, count, sectionContainerId, pageContainerId, baseURL
 			results,
 			sectionContainerId,
 			pageContainerId,
+			langCode,
 			document
 		);
 	};

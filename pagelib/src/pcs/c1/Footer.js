@@ -57,16 +57,18 @@ const _getArticleTitleFromPathName = ( pathname ) => decodeURIComponent( pathnam
  *   {!map} readMore
  *       {!number} itemCount number of Read More items to add
  *       {!string} apiBaseURL base url for MW API to fetch Read More items
+ *       {!string} langCode language code for matching the correct title in varianttitles
  * @return {void}
  */
 const appendReadMore = ( params ) => {
-	const { readMore: { itemCount: readMoreItemCount, apiBaseURL: readMoreBaseURL } } = params;
+	const { readMore: { itemCount: readMoreItemCount, apiBaseURL: readMoreBaseURL, langCode: readMoreLangCode } } = params;
 	FooterReadMore.fetchAndAdd(
 		_getArticleTitleFromPathName( window.location.pathname ),
 		readMoreItemCount,
 		'pcs-footer-container-readmore',
 		'pcs-footer-container-readmore-pages',
 		readMoreBaseURL,
+		readMoreLangCode,
 		document
 	);
 };
@@ -84,12 +86,13 @@ const appendReadMore = ( params ) => {
  *       {!number} itemCount number of Read More items to add
  *       {!string} apiBaseURL base url for MW API to fetch Read More items
  *       {!boolean} readMoreLazy whether the Read More items will be loaded lazily
+ *       {!string} langCode language code for getting the correct title from the varianttitles
  * @return {void}
  */
 const add = ( params ) => {
 	const { menu: { items: menuItems, editedDaysAgo },
 		readMore: { itemCount: readMoreItemCount, apiBaseURL: readMoreBaseURL,
-			readMoreLazy: readMoreLazy } } = params;
+			readMoreLazy: readMoreLazy, langCode: langCode } } = params;
 
 	// Add container
 	if ( FooterContainer.isContainerAttached( document ) === false ) {

@@ -61,7 +61,17 @@ describe( 'FooterReadMore', () => {
 					height: 151
 				},
 				description: 'Largest and innermost moon of Mars',
-				descriptionsource: 'local'
+				descriptionsource: 'local',
+				contentmodel: 'wikitext',
+				pagelanguage: 'en',
+				pagelanguagehtmlcode: 'en',
+				pagelanguagedir: 'ltr',
+				touched: '2024-11-12T17:45:44Z',
+				lastrevid: 1254994398,
+				length: 73802,
+				varianttitles: {
+					en: 'Phobos (moon)'
+				}
 			},
 			{
 				pageid: 988372,
@@ -74,7 +84,17 @@ describe( 'FooterReadMore', () => {
 					height: 160
 				},
 				description: 'Hemisphere of the Moon that always faces away from Earth',
-				descriptionsource: 'local'
+				descriptionsource: 'local',
+				contentmodel: 'wikitext',
+				pagelanguage: 'en',
+				pagelanguagehtmlcode: 'en',
+				pagelanguagedir: 'ltr',
+				touched: '2024-11-19T20:27:40Z',
+				lastrevid: 1256903522,
+				length: 40255,
+				varianttitles: {
+					en: 'Far side of the Moon'
+				}
 			},
 			{
 				pageid: 1580280,
@@ -87,7 +107,17 @@ describe( 'FooterReadMore', () => {
 					height: 154
 				},
 				description: 'Presence of water on the Moon',
-				descriptionsource: 'local'
+				descriptionsource: 'local',
+				contentmodel: 'wikitext',
+				pagelanguage: 'en',
+				pagelanguagehtmlcode: 'en',
+				pagelanguagedir: 'ltr',
+				touched: '2024-11-19T20:28:07Z',
+				lastrevid: 1247982366,
+				length: 60127,
+				varianttitles: {
+					en: 'Lunar water'
+				}
 			}
 		];
 		assert.equal( document.getElementsByClassName( 'pcs-footer-readmore-page' ).length, 0 );
@@ -95,6 +125,7 @@ describe( 'FooterReadMore', () => {
 			res,
 			'pcs-footer-container-readmore',
 			'pcs-footer-container-readmore-pages',
+			'en',
 			document
 		);
 		assert.equal( document.getElementsByClassName( 'pcs-footer-readmore-page' ).length, 3 );
