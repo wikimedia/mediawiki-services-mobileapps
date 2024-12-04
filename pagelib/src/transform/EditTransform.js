@@ -208,7 +208,7 @@ const newEditSectionHeader = ( document, index, level, titleHTML ) => {
  */
 const titleDescriptionElements = ( document, titleDescription, titleDescriptionSource, wikidataEntityID, addTitleDescriptionString,
 	isTitleDescriptionEditable ) => {
-	const descriptionExists = titleDescription !== undefined && titleDescription.length > 0;
+	const descriptionExists = titleDescription !== undefined;
 	if ( descriptionExists ) {
 		const p = document.createElement( 'p' );
 		p.setAttribute( DATA_ATTRIBUTE.DESCRIPTION_SOURCE, titleDescriptionSource );
