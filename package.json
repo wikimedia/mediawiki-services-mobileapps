@@ -57,7 +57,7 @@
 	"dependencies": {
 		"@wikimedia/cassandra-storage": "^1.0.3",
 		"axios-wmf-service-mesh": "https://gitlab.wikimedia.org/repos/content-transform/axios-wmf-service-mesh/-/archive/main/axios-wmf-service-mesh-main.tar.gz",
-		"banana-i18n": "^2.3.3",
+		"banana-i18n": "^2.4.0",
 		"bluebird": "^3.7.2",
 		"body-parser": "^1.20.2",
 		"bunyan": "^1.8.15",
