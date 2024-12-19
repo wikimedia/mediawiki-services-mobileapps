@@ -24,6 +24,8 @@
 	"page-last-edited": "{{PLURAL:$1|0=حُدِثَت اليوم|1=حُدِثَت أمس|حُدِثَت قبل $1 أيام}}",
 	"article-about-title": "حول المقالة",
 	"page-issues": "مشاكل في الصفحة",
+	"license-footer-name": "النسبة-الترخيص بالمثل 3.0",
+	"license-footer-name-cc4": "المشاع الإبداعي النسبة-الترخيص بالمثل 4.0",
 	"license-footer-text": "المحتوى متاح بموجب رخصة $1 إلا في حالة ذكر خلاف ذلك.",
 	"page-read-in-other-languages": "متاحة {{PLURAL:$1|بـ$1 لغة أخرى|بـ$1 لغات أخرى}}",
 	"article-edit-button": "عدل هذا القسم",
