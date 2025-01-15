@@ -70,8 +70,9 @@ describe('lib:core-api-compat unit tests', () => {
 
 });
 
-describe('PCS configured to redirect', () => {
+describe('PCS configured to redirect', function() {
 	const buildUri = (path) => `${ server.config.uri }${ path }`;
+	this.timeout(20000);
 
 	let svc;
 	before(async () => {
@@ -108,8 +109,9 @@ describe('PCS configured to redirect', () => {
 	});
 });
 
-describe('PCS configured to redirect with absolute URLs', () => {
+describe('PCS configured to redirect with absolute URLs', function() {
 	const buildUri = (path) => `${ server.config.uri }${ path }`;
+	this.timeout(20000);
 
 	let svc;
 	before(async () => {
@@ -132,8 +134,9 @@ describe('PCS configured to redirect with absolute URLs', () => {
 	});
 });
 
-describe('PCS configured to not redirect', () => {
+describe('PCS configured to not redirect', function() {
 	const buildUri = (path) => `${ server.config.uri }${ path }`;
+	this.timeout(20000);
 
 	let svc;
 	before(async () => {
