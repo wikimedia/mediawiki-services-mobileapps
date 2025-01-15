@@ -236,9 +236,6 @@ class TestSpec {
 const TEST_SPECS = [
 	new TestSpec('en.wikipedia.org', 'data/css/mobile', ['site'], { suffix: 'css' }),
 
-	new TestSpec('en.wikipedia.org', 'page/mobile-sections', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682']),
-	new TestSpec('en.wikipedia.org', 'page/mobile-sections', ['User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613']),
-
 	new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'], { suffix: 'html' }),
 	new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'], { suffix: 'html' }),
 	new TestSpec('en.wikipedia.org', 'transform/html/to/mobile-html', ['Dog'], { suffix: 'html', method: 'POST', headers: { 'Content-Type': 'text/html' }, payloadFile: 'test/fixtures/Dog.html' }),

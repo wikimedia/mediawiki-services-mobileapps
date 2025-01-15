@@ -81,11 +81,6 @@ Next generation routes for page content. See [Page_Content_Service](https://www.
 
 #### Mobile Content Service routes
 
-The first generation mobile content route (mainly for Android app):
-* `http://localhost:8888/{domain}/v1/page/mobile-sections/{title}`
-
-* Example: `http://localhost:8888/en.wikipedia.org/v1/page/mobile-sections/Cat`
-
 There is also a endpoint for definitions from Wiktionary the Android app uses:
 * `http://localhost:8888/{language code}.wiktionary.org/v1/page/definition/{title}`
 
