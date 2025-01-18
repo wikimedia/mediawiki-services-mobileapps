@@ -94,7 +94,7 @@
 		"eslint-config-wikimedia": "0.28.2",
 		"extend": "^3.0.2",
 		"js-beautify": "^1.15.1",
-		"jsdoc": "^4.0.3",
+		"jsdoc": "4.0.4",
 		"less": "^4.2.0",
 		"mkdirp": "^3.0.1",
 		"mocha": "^10.4.0",
