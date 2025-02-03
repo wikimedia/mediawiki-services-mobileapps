@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
+			"GianAntonucci",
 			"Gmelfi"
 		]
 	},
@@ -17,7 +18,7 @@
 	"view-in-browser-footer-link": "Talìa la vuci ntû browser",
 	"page-location": "Talìa supra la mappa",
 	"page-similar-titles": "Pàggini sìmili",
-	"page-last-edited": "{{PLURAL:$1|Aggiurnata aieri|Aggiurnata $1 jorna fa|0=Aggiurnata oi}}",
+	"page-last-edited": "{{PLURAL:$1|Attualizzata ajeri|Attualizzata $1 jorna arrè|0=Attualizzata oji}}",
 	"article-about-title": "Nfurmazzioni supra sta vuci",
 	"page-issues": "Prubbremi dâ pàggina",
 	"license-footer-text": "Lu cuntinutu è utilizzàbbili secunnu la $1, sarvu minzioni cuntraria.",
