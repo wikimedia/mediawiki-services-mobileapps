@@ -35,6 +35,9 @@ router.get('/summary/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (
 		...(req.params.revision ? [`/page/summary/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
 	];
 
+	// Configure cache headers
+	res.setHeader('Cache-Control', req.app.conf.cache_headers['page-summary']);
+
 	const buildSummary = (title) => {
 		req.params.title = title;
 		// Check flagged revision for wikis that have enabled FlaggedRevs extension

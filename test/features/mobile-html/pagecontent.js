@@ -46,6 +46,7 @@ describe('mobile-html', function() {
 			'keep-alive',
 			'transfer-encoding',
 			'x-webkit-csp',
+			'cache-control'
 		];
 
 		return preq.get({ uri })
@@ -79,6 +80,7 @@ describe('mobile-html', function() {
 			'keep-alive',
 			'transfer-encoding',
 			'x-webkit-csp',
+			'cache-control'
 		];
 
 		return preq.get({ uri, headers: { 'X-RESTBase-Compat': true } })

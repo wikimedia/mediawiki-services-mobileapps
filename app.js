@@ -171,6 +171,14 @@ function initApp(options) {
 		initCache(app);
 	}
 
+	// Default cache headers
+	const default_cache_headers = {
+		'mobile-html': 's-maxage=1209600, max-age=0',
+		'media-list': 's-maxage=1209600, max-age=0',
+		'page-summary': 's-maxage=1209600, max-age=300'
+	};
+	app.conf.cache_headers = app.conf.cache_headers || default_cache_headers;
+
 	return BBPromise.resolve(app);
 
 }

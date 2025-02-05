@@ -114,6 +114,9 @@ router.get('/page/mobile-html/:title/:revision?/:tid?', caching.defaultCacheMidd
 		...(req.params.revision ? [`/page/mobile-html/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
 	];
 
+	// Configure cache headers
+	res.setHeader('Cache-Control', req.app.conf.cache_headers['mobile-html']);
+
 	const buildMobileHtml = (title) => {
 		req.params.title = title;
 		if (!mobileviewHtml.shouldUseMobileview(req, app.conf.mobile_view_languages)) {

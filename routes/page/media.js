@@ -27,6 +27,9 @@ router.get('/media-list/:title/:revision?/:tid?', caching.defaultCacheMiddleware
 		...(req.params.revision ? [`/page/media-list/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
 	];
 
+	// Configure cache headers
+	res.setHeader('Cache-Control', req.app.conf.cache_headers['media-list']);
+
 	const buildMediaList = (title) => {
 		req.params.title = title;
 		return parsoid.getParsoidHtml(req).then(parsoidRsp => mUtil.createDocument(parsoidRsp.body).then(doc => BBPromise.props({
