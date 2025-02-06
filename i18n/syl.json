@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"এম আবু সাঈদ",
+			"ꠢꠣꠍꠘ ꠞꠣꠎꠣ"
+		]
+	},
+	"description-add-link-title": "ꠙꠣꠔꠣꠞ ꠛꠞꠘꠘꠣ ꠎꠥꠉ ꠇꠞꠂꠘ",
+	"article-read-more-title": "ꠀꠞꠅ ꠙꠠꠂꠘ",
+	"table-title-other": "ꠀꠞꠅ ꠔꠁꠔ꠆ꠔ",
+	"page-edit-history": "ꠄꠒꠤꠐꠞ ꠁꠔꠤꠀꠍ ꠖꠦꠈꠂꠘ",
+	"info-box-close-text": "ꠛꠘ",
+	"page-talk-page-subtitle": "ꠅꠃ ꠙꠣꠔꠣꠞ ꠃꠘ꠆ꠘꠄꠅꠘ ꠟꠂꠀ ꠝꠣꠔ꠆‌ꠘ",
+	"page-issues-subtitle": "ꠇꠣꠌꠞꠣ ꠘꠣꠄ ꠡꠝ꠆‌ꠡ꠆ꠡꠣꠀꠟꠣ ꠤꠘꠤꠡꠣꠁꠘ ꠡꠝ꠆ꠝꠘ꠆ꠗꠦ ꠡꠔꠞ꠆ꠇ ꠇꠞꠂꠘ",
+	"page-talk-page": "ꠡꠣꠁꠎ꠆ꠎꠞ ꠙꠣꠔꠣ ꠖꠦꠈꠂꠘ",
+	"info-box-title": "ꠎꠟꠖꠤ ꠔꠂꠔ꠆ꠔ",
+	"view-in-browser-footer-link": "ꠙꠣꠔꠣꠁꠈꠣꠘ ꠛꠦꠞꠣꠃꠎꠣꠞꠅ ꠖꠦꠈꠂꠘ",
+	"page-location": "ꠄꠉꠥ ꠝꠦꠙꠅ ꠖꠦꠈꠂꠘ",
+	"page-similar-titles": "ꠅꠟꠣꠈꠣꠘ ꠙꠣꠔꠣꠁꠘ",
+	"page-last-edited": "{{PLURAL:$1|ꠉꠦꠍꠦꠇꠣꠁꠟ ꠀꠙꠒꠦꠐ ꠅꠁꠍꠦ|$1 ꠖꠤꠘ ꠀꠉꠦ ꠀꠙꠒꠦꠐ ꠅꠁꠍꠦ|0=ꠀꠁꠎꠇꠥꠥ ꠀꠙꠒꠦꠐ ꠅꠁꠍꠦ}}",
+	"article-about-title": "ꠅꠃ ꠙꠣꠔꠣ ꠟꠂꠀ",
+	"page-issues": "ꠙꠣꠔꠣꠞ ꠡꠝꠂꠡ꠆ꠡꠣꠁꠘ",
+	"license-footer-text": "ꠁ ꠎꠤꠘꠤꠡꠁꠈꠣꠘ ꠙꠣꠅꠀ ꠎꠣꠞ $1 ꠀꠘꠝꠣꠘ ꠎꠥꠖꠤꠘꠣ ꠀꠞꠇꠥꠘ꠆ꠔꠣ ꠇꠁꠀ ꠖꠦꠅꠀ ꠅꠄ ⁕",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 ꠀꠞ ꠜꠣꠡꠣꠄ|$1 ꠀꠞ ꠜꠣꠡꠣꠁꠘ꠆ꠔ}} ꠙꠣꠅꠀ ꠎꠣꠄ",
+	"article-edit-button": "ꠅꠘꠥꠌꠍꠦꠖ ꠟꠦꠈꠂꠘ",
+	"article-edit-protected-button": "ꠡꠋꠞꠇ꠆ꠇꠘ ꠇꠞꠣ ꠙꠣꠔꠣꠞ ꠍꠦꠇꠡꠘ ꠛꠣꠇ ꠇꠞꠂꠘ",
+	"article-section-expand": "ꠍꠦꠇꠡꠘ ꠛꠟꠣꠁꠘ",
+	"article-section-collapse": "ꠍꠦꠇꠡꠘ ꠇꠝꠣꠁꠘ",
+	"table-expand": "ꠐꠦꠛꠥꠟ ꠛꠟꠣꠁꠘ",
+	"table-collapse": "ꠐꠦꠛꠥꠟ ꠇꠝꠣꠁꠘ",
+	"references-preview-header": "ꠟꠇꠣꠁꠘ ꠖꠦꠈꠣꠘꠤ ꠅꠞ"
+}
