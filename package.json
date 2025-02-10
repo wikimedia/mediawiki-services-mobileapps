@@ -21,7 +21,7 @@
 		"docker-test": "service-runner docker-test",
 		"test-build": "service-runner docker-test && service-runner build --deploy-repo --force",
 		"coverage": "nyc --reporter=lcov _mocha",
-		"build:css": "lessc private/styles/index.less private/base.css --plugin=@wikimedia/less-plugin-clean-css --math=always",
+		"build:css": "node scripts/basecss.js",
 		"build-app-docs": "cd pagelib && ./node_modules/webpack/bin/webpack.js --config webpack.config.js --output-path ../js-pcs-notated --mode=development && cd .. && jsdoc -c jsdoc.json"
 	},
 	"pre-commit": [

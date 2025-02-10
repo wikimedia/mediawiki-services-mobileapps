@@ -42,16 +42,6 @@ describe('lib:MobileHTML', () => {
 		assert(!constants.bracketSpanRegex.test('[]'));
 		assert(!constants.bracketSpanRegex.test('a'));
 	});
-	it('detects inline background styles', () => {
-		assert(constants.inlineBackgroundStyleRegex.test('width: 100px; background: #fff; height:50px;'));
-		assert(constants.inlineBackgroundStyleRegex.test('background-color: blue'));
-		assert(constants.inlineBackgroundStyleRegex.test('background-color: unset'));
-		assert(constants.inlineBackgroundStyleRegex.test('width: 50px; background-color: #3366ff'));
-		assert(!constants.inlineBackgroundStyleRegex.test('background-color: transparent; height:50px;'));
-		assert(!constants.inlineBackgroundStyleRegex.test('width: 100px; height:50px;'));
-		assert(!constants.inlineBackgroundStyleRegex.test('color: #3366ff; height:50px;'));
-		assert(!constants.inlineBackgroundStyleRegex.test('color: inherit'));
-	});
 	it('detects infobox classes', () => {
 		assert(constants.infoboxClassRegex.test('pcs-class infobox'));
 		assert(constants.infoboxClassRegex.test('some-class infobox another-class'));
@@ -109,9 +99,6 @@ describe('lib:MobileHTML', () => {
 		assert(!constants.forbiddenElementIDRegex.test('notcoordinates'));
 		assert(!constants.forbiddenElementIDRegex.test('COORDINATES'));
 	});
-	it('detects style overriding classes', () => {
-		assert(constants.styleOverridingClasses.test('whitebg'));
-	});
 	it('was worth it to write these regexes', () => {
 		const doc = fixtures.readIntoDocument('United_States.html');
 		const element = doc.getElementById('mwFA');
@@ -143,34 +130,5 @@ describe('lib:MobileHTML', () => {
 		assert.strictEqual(Reference.truncateLinkText('[999]'), '[999]');
 		assert.strictEqual(Reference.truncateLinkText('[1001]'), '[..01]');
 		assert.strictEqual(Reference.truncateLinkText('[10001]'), '[...01]');
-	});
-	it('detects text under divs with about attribute', () => {
-		const doc = fixtures.readIntoDocument('NATO_cs_black_theme.html');
-		const MobileHTMLObj = new MobileHTML(doc);
-		const figcaption = doc.querySelector('figcaption');
-		MobileHTMLObj.prepareFigcaption(figcaption);
-		const spans = figcaption.querySelectorAll('span');
-
-		Array.from(spans).forEach((span) => {
-			assert.strictEqual(MobileHTMLObj.figCaptionsNotEligibleForThemeExclusion(span), true);
-		});
-	});
-	it('detects specific HTML structure when "notheme" class adding is to be skipped from <span> inside <th>', () => {
-		const doc = fixtures.readIntoDocument('Mobile_Michael_Lewis_Infobox.html');
-		const MobileHTMLObj = new MobileHTML(doc);
-		const spanElement = doc.querySelector('span[id="Mobile_Michael_Lewis_Span"]');
-		assert(MobileHTMLObj.thSpanInfoboxTemplateNotEligibleForThemeExclusion(spanElement));
-	});
-	it('detects all elements inside <div> with class "equation-box-elem"', () => {
-		const doc = fixtures.readIntoDocument('Mass_Energy_en_black_theme.html');
-		const MobileHTMLObj = new MobileHTML(doc);
-		const equationBox = doc.querySelector('.equation-box');
-		MobileHTMLObj.prepareEquationDiv(equationBox);
-		const elems = equationBox.querySelectorAll('*');
-
-		Array.from(elems).forEach((elem) => {
-			assert.strictEqual(MobileHTMLObj.equationBoxNotEligibleForThemeExclusion(elem), true);
-		});
-
 	});
 });

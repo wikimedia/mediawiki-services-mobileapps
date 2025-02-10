@@ -31,17 +31,6 @@ package lib {
     + isTopLevelSection(tagName: string, element: Element): boolean;
     + get hasReferenceSections(): boolean;
     + checkForReferenceSection(): boolean;
-    + checkElementForThemeExclusion(element: Element): void;
-    + stringHasNoThemeClass(string: string): boolean;
-    + shouldEnforceThemeExclusion(element: Element): boolean;
-    + tdHasParentMarkedForThemeExclusion(element: Element): boolean;
-    + siblingTrIsMarkedForThemeExclusion(element: Element): boolean;
-    + trParentsAreMarkedForThemeExclusion(element: Element): boolean|any;
-    + isNotEligibleForThemeExclusion(element: Element): boolean;
-    + tdNotEligibleForThemeExclusion(element: Element): boolean;
-    + thSpanInfoboxTemplateNotEligibleForThemeExclusion(element: Element): boolean;
-    + figCaptionsNotEligibleForThemeExclusion(element: Element): boolean;
-    + equationBoxNotEligibleForThemeExclusion(element: Element): boolean;
     + prepareReference(reference: Element): void;
     + prepareSection(sectionId: string): void;
     + prepareSectionForCompleteOrContentOutput(sectionId: string): void;
@@ -69,7 +58,6 @@ package lib {
     + prepareGalleryUnorderedList(element: Element): void;
     + prepareDiv(element: Element, cls: string): void;
     + prepareTable(element: Element, cls: string): void;
-    + removeStyleOverridingClasses(element: Element, classString: string): void;
     + prepareSupLinks(element: Element): void;
     + i18n(phrase: string): string
     }

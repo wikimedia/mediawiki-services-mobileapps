@@ -42,7 +42,7 @@ const containerFragment = ( document ) => {
  * @param {!Document} document
  * @return {boolean}
  */
-const isContainerAttached = ( document ) => Boolean( document.querySelector( '#pcs-footer-container' ) );
+const isContainerAttached = ( document ) => Boolean( document.querySelector( '#pcs-footer-container-menu' ) );
 
 export default {
 	containerFragment,

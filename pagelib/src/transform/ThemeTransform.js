@@ -49,6 +49,22 @@ const setThemeOnElement = ( el, theme ) => {
 const setTheme = ( document, theme ) => {
 	const body = document.body;
 	setThemeOnElement( body, theme );
+
+	// These classes are now applied on the server side by MobileHTML, but let's
+	// also apply them here (when setting the Theme on the client side), to make
+	// it compatible with existing unpurged articles.
+	// (See comments in MobileHTML.js for explanations of these classes.)
+	// (This can be removed after a sufficient time, when enough articles have been purged.)
+	body.classList.add( 'mw-hide-empty-elt' );
+	body.classList.add( 'skin--responsive' );
+
+	// Set the theme on the html element, too.
+	setThemeOnElement( document.documentElement, theme );
+
+	if ( theme === THEME.DARK || theme === THEME.BLACK ) {
+		document.documentElement.classList.add( 'skin-theme-clientpref-night' );
+	}
+
 	// the pcs element is necessary to allow
 	// template editors to theme templates by
 	// declaring styles for .themeclass .templateclass {

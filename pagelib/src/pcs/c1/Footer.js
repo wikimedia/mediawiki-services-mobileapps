@@ -96,8 +96,7 @@ const add = ( params ) => {
 
 	// Add container
 	if ( FooterContainer.isContainerAttached( document ) === false ) {
-		const pcs = document.getElementById( 'pcs' );
-		pcs.appendChild( FooterContainer.containerFragment( document ) );
+		document.body.appendChild( FooterContainer.containerFragment( document ) );
 	}
 
 	/**

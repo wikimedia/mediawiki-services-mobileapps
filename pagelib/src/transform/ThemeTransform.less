@@ -11,26 +11,8 @@ background color or should otherwise be excluded from themeing. More information
 be found here: https://phabricator.wikimedia.org/T236137
 */
 
-/* baseline */
-
-body {
-  color: @color-base;
-  background: @background-color-base;
-}
-
-.notheme {
-  color: @color-base-fixed;
-}
-
-a.notheme {
-  color: @color-progressive;
-}
-
-/* baseline anchor */
-a {
-  .nonDefaultThemes({
-    color: @color-progressive;
-  });
+html, body {
+  height: unset !important;
 }
 
 /* External link -- LTR */
@@ -56,73 +38,10 @@ li.gallerybox div.thumb {
   });
 }
 
-/* baseline div, span, ul, li */
-div,
-span,
-ul,
-ol,
-li {
-  .nonDefaultThemes({
-    background-color: inherit;
-    color: @color-base;
-    border-color: @border-color-subtle;
-  });
-}
-
-/* quotebox and blockquote */
-/* en > Audioslave > 793042679 */
-/* es > Arte > 100819823 */
-blockquote,
-div.quotebox {
-  .nonDefaultThemes({
-    background: @background-color-neutral-subtle;
-  });
-}
-
-blockquote {
-  overflow: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-}
-
 hr:not(.notheme) {
   border: none;
   height: 1px;
   background-color: @border-color-subtle;
-}
-
-/* figcaption color */
-figcaption:not(.notheme) {
-  color: @color-subtle;
-}
-
-/* caption background */
-caption {
-  .nonDefaultThemes({
-    background: @background-color-neutral-subtle;
-  });
-}
-
-/* images */
-/* compatibility transform */
-img.mwe-math-fallback-image-inline {
-  .darkThemesOnlyUniversal({
-    background: @background-color-interactive;
-    padding: 2px;
-  }, true);
-}
-
-/* en > Quadratic equation > 793685454 */
-img.mwe-math-fallback-image-display,
-img.mwe-math-fallback-image-inline {
-  .darkThemesOnly({
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
-  });
 }
 
 .pcs-element-highlight {
@@ -137,20 +56,10 @@ img.mwe-math-fallback-image-inline {
     padding: 5px 0;
     color: @color-subtle;
     font-size: .875em;
-    background-color: initial;
+    background-color: @background-color-base !important;
     margin-bottom: 1px;
     overflow: hidden;
     font-style: italic;
-}
-
-.mw-highlight {
-  background-color: @background-color-neutral-subtle;
-}
-
-span.glossary-link-internal {
-  .darkThemesOnly({
-    color: @color-base !important;
-  });
 }
 
 .pcs-collapse-table-container td {
@@ -160,24 +69,52 @@ span.glossary-link-internal {
   });
 }
 
-figcaption div span {
-  .darkThemesOnly({
-    color: @color-base;
-    background: unset;
-  });
-}
-
-span.org {
-  color: #fff !important;
-}
-
 sup>a.reference-link {
   display: inherit;
 }
 
-.mw-parser-output {
-  blockquote,
-  dl dd {
-    overflow: unset;
+// Imported styles that used to live in the MobileApp extension.
+
+.default-touch-area {
+  margin: -4px -16px -16px -16px;
+  padding: 4px 16px 16px 16px !important;
+}
+
+.left-touch-area {
+  margin: -4px 0 -16px -16px;
+  padding: 4px 2px 16px 16px !important;
+}
+
+.right-touch-area {
+  margin: -4px -16px -16px 0;
+  padding: 4px 16px 16px 2px !important;
+}
+
+.middle-touch-area {
+  padding: 4px 2px 16px 2px !important;
+}
+
+.overlap-touch-area {
+  margin: -4px 0 -16px 0;
+  padding: 4px 2px 16px 4px !important;
+}
+
+/* Hide (listen) parenthetical in IPAs | T189715 */
+span.IPA + small {
+  display: none;
+}
+
+/* Styles to prevent wide images from causing unwanted horizontal page scrolling. */
+.image_overflow_x_container {
+  max-width: 100%;
+  overflow: auto;
+}
+
+// Overrides of styles from Minerva or MW itself
+@media (min-width: @min-width-breakpoint-tablet) {
+  body.skin-minerva.skin--responsive .mw-parser-output .infobox {
+    margin: inherit !important;
+    max-width: inherit !important;
+    width: 100% !important;
   }
 }

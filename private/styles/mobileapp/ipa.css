@@ -1,6 +1,0 @@
-/* mediawiki/extensions/Mobileapp/styles/ipa.less@94120cf */
-
-/* Hide (listen) parenthetical in IPAs | T189715 */
-span.IPA + small {
-    display: none;
-}
