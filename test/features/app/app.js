@@ -57,4 +57,16 @@ describe('express app', function () {
 		});
 	});
 
+	it('should set x-request-id in response headers', (done) => {
+		preq.get({
+			uri: `${ server.config.uri }robots.txt`,
+			headers: {
+				'x-request-id': 'example-id-123'
+			}
+		}).then((res) => {
+			assert.deepEqual(res.status, 200);
+			assert.deepEqual(res.headers['x-request-id'], 'example-id-123');
+			done();
+		});
+	});
 });

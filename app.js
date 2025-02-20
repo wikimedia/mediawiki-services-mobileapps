@@ -144,6 +144,10 @@ function initApp(options) {
 			mUtil.setRestBaseCompatSecurityHeaders(res);
 		}
 		sUtil.initAndLogRequest(req, app);
+
+		// add x-request-id in response headers
+		res.header('x-request-id', req.context.reqId);
+
 		next();
 	});
 
