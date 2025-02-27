@@ -1,16 +1,31 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"شاه زمان پټان"
+		]
 	},
+	"description-add-link-title": "ليکنې سپيناوی ورگډول",
 	"article-read-more-title": "نور لوستل",
 	"table-title-other": "نور مالومات",
 	"page-edit-history": "د سمون بشپړ پېښليک",
 	"info-box-close-text": "تړل",
+	"page-talk-page-subtitle": "د دې ليکنې ښه والي په اړه اند ورکول",
+	"page-issues-subtitle": "بې ارزښته يا ستونزمنو منځپانگو په اړخ خبرتياوې",
+	"page-talk-page": "خبرو اترو مخ کتل",
 	"info-box-title": "چټک مالومات",
+	"view-in-browser-footer-link": "ښوونگر کې ليکنه کتل",
+	"page-location": "نخچه کې کتل",
 	"page-similar-titles": "ورته مخونه",
-	"page-last-edited": "$1 ورځې مخکې سم شوی",
+	"page-last-edited": "{{PLURAL:$1|پرون تازه شوی|$1 ورځې مخکې تازه شوی|0=نن تازه شوی}}",
 	"article-about-title": "د دې ليکنې په اړه",
 	"page-issues": "د مخ ستونزې",
-	"license-footer-text": "دا مېنځپانگه د $1 سره سم ستاسې لاسرسي کې ده، خو چې مخالف يې وييل شوی وي.",
-	"page-read-in-other-languages": "په $1 ژبو کې شته"
+	"license-footer-text": "دا منځپانگه د $1 سره سم ستاسې لاسرسي کې ده، خو چې مخالف يې وييل شوی وي.",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 بله ژبه|$1 نورو ژبو}} کې د لاسرسي وړ ده",
+	"article-edit-button": "سمون برخه",
+	"article-edit-protected-button": "ژغورل شوي مخ کې سمون برخه",
+	"article-section-expand": "غځولو برخه",
+	"article-section-collapse": "پرځولو برخه",
+	"table-expand": "جدول غځول",
+	"table-collapse": "جدول پرځول",
+	"references-preview-header": "سرچينو مخکتنه"
 }
