@@ -1,10 +1,14 @@
 'use strict';
 
 const assert = require('../../utils/assert');
+const express = require('express');
 const sinon = require('sinon');
 const server = require('../../utils/server');
-const { HTTPTitleRedirectError, httpTitleRedirectErrorMiddleware, addContentLangFromMeta } = require('../../../lib/core-api-compat');
+const testUtil = require('../../utils/testUtil');
+const { HTTPTitleRedirectError, httpTitleRedirectErrorMiddleware, followRequest } = require('../../../lib/core-api-compat');
 const preq = require('preq');
+const { Template } = require('swagger-router');
+const { HTTPError } = require('../../../lib/util');
 
 describe('lib:core-api-compat unit tests', () => {
 
@@ -162,4 +166,68 @@ describe('PCS configured to not redirect', function() {
 		assert.equal(res.status, 200);
 		assert.equal(res.headers['content-language'], 'de');
 	});
+});
+
+describe('Following redirects should stop after max redirects', async () => {
+	let testServer, redirectCount;
+
+	const app = express();
+	app.get('/v1/page/Foo/with_html', (req, res) => {
+		res.redirect('/v1/page/Foo/with_html');
+		redirectCount += 1;
+	});
+
+	app.get('/v1/page/Bar/with_html', (req, res) => {
+		if ( redirectCount === 5 ) {
+			res.json({ title: 'bar' } );
+		} else {
+			res.redirect('/v1/page/Bar/with_html');
+			redirectCount += 1;
+		}
+	});
+
+	beforeEach( async () => {
+		const port = 8888;
+		redirectCount = 0;
+		testServer = app.listen(port, () => {});
+	});
+
+	afterEach( () => {
+		testServer.close();
+	});
+
+	it('should raise a max redirects error', async () => {
+		const incomingRequest = testUtil.getMockedServiceReq();
+		incomingRequest.app.conf.maxRedirects = 10;
+		incomingRequest.app.conf.corepagehtml_req = {
+			method: 'GET',
+			uri: 'http://localhost:8888/v1/page/{{title}}/with_html',
+		};
+		incomingRequest.app.corepagehtml_tpl = new Template(
+			incomingRequest.app.conf.corepagehtml_req
+		);
+		try {
+			await followRequest(incomingRequest, { params: { title: 'Foo' } });
+		} catch (err) {
+			assert.ok( err instanceof HTTPError );
+			assert.ok( err.title === 'Max redirects exceeded' );
+			assert.ok( redirectCount === incomingRequest.app.conf.maxRedirects + 1 );
+		}
+	});
+
+	it('should follow 5 redirects', async () => {
+		const incomingRequest = testUtil.getMockedServiceReq();
+		incomingRequest.app.conf.maxRedirects = 10;
+		incomingRequest.app.conf.corepagehtml_req = {
+			method: 'GET',
+			uri: 'http://localhost:8888/v1/page/{{title}}/with_html',
+		};
+		incomingRequest.app.corepagehtml_tpl = new Template(
+			incomingRequest.app.conf.corepagehtml_req
+		);
+		const res = await followRequest(incomingRequest, { params: { title: 'Bar' } });
+		assert.ok( res.status === 200 );
+		assert.ok( redirectCount === 5);
+	});
+
 });
