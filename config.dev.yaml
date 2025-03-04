@@ -128,6 +128,7 @@ services:
         enabled: false
         # Never expire cache for development
         ttl: 0
+        maxJitter: 0
         cassandra:
           keyspace: tests
           storageTable: storage
