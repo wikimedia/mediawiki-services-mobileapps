@@ -3,7 +3,8 @@
 		"authors": [
 			"Nemoralis",
 			"Serkanland",
-			"Şeyx Şamil"
+			"Şeyx Şamil",
+			"Əkrəm"
 		]
 	},
 	"description-add-link-title": "Məqalə açıqlaması əlavə et",
@@ -18,7 +19,7 @@
 	"view-in-browser-footer-link": "Məqaləni brauzerdə aç",
 	"page-location": "Xəritədə göstər",
 	"page-similar-titles": "Oxşar səhifələr",
-	"page-last-edited": "{{PLURAL:$1|Dünən yenilənib|$1 gün əvvəl yenilənib|0=Bugün yenilənib}}",
+	"page-last-edited": "{{PLURAL:$1|Dünən yenilənib|$1 gün əvvəl yenilənib|0=Bu gün yenilənib}}",
 	"article-about-title": "Bu məqalə haqqında",
 	"page-issues": "Səhifə problemləri",
 	"license-footer-text": "Əksi qeyd olunmayıbsa, bu məzmun $1 çərçivəsində yayımlanır.",
