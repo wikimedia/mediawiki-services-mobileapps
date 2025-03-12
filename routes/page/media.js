@@ -11,6 +11,7 @@ const sUtil = require('../../lib/util');
 const mwapi = require('../../lib/mwapi');
 const lib = require('../../lib/media');
 const caching = require('../../lib/caching');
+const { defaultDomainsAllow } = require('../../lib/wmf-projects');
 
 const router = sUtil.router();
 let app;
@@ -20,7 +21,7 @@ let app;
  * Title redirection status: Redirects based on parsoid output
  * Returns the non-UI media files used on the given page.
  */
-router.get('/media-list/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (req, res) => {
+router.get('/media-list/:title/:revision?/:tid?', defaultDomainsAllow, caching.defaultCacheMiddleware, (req, res) => {
 	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/media-list/${ title }`;
 	req.purgePaths = [
 		`/page/media-list/${ encodeURIComponent(req.params.title) }`,
