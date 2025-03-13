@@ -14,6 +14,7 @@ const parsoidApi = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
 const caching = require('../../lib/caching');
 const { addContentLangFromMeta } = require('../../lib/core-api-compat');
+const { defaultDomainsAllow } = require('../../lib/wmf-projects');
 
 /**
  * The main router object
@@ -107,7 +108,7 @@ function getMobileHtmlFromMobileview(req, res) {
  * Gets page content in HTML. This is a more optimized for direct consumption by reading
  * clients.
  */
-router.get('/page/mobile-html/:title/:revision?/:tid?', caching.defaultCacheMiddleware, (req, res) => {
+router.get('/page/mobile-html/:title/:revision?/:tid?', defaultDomainsAllow, caching.defaultCacheMiddleware, (req, res) => {
 	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/mobile-html/${ title }`;
 	req.purgePaths = [
 		`/page/mobile-html/${ encodeURIComponent(req.params.title) }`,
