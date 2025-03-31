@@ -10,6 +10,8 @@ const sinon = require('sinon');
 const cassandra = require('@wikimedia/cassandra-storage');
 const { initCache, purgeEvents  } = require('../../lib/caching.js');
 const { isObject } = require('underscore');
+const testUtil = require('../utils/testUtil.js');
+const { purgeLanguageVariants } = require('../../lib/caching');
 
 const localUri = (endpoint, title, domain = 'en.wikipedia.org') => `${ server.config.uri }${ domain }/v1/page/${ endpoint }/${ title }`;
 
@@ -231,6 +233,219 @@ describe('Caching hooks', () => {
 			sinon.restore();
 			svc.stop();
 		});
+	});
+
+});
+
+describe('Language variants - cache GET', async () => {
+	let svc, sandbox, engineStubbedInstance;
+
+	beforeEach(async () => {
+		sandbox = sinon.createSandbox();
+		engineStubbedInstance = sandbox.createStubInstance(cassandra.Engine, {
+			get: sandbox.stub().returns(
+				Promise.resolve({
+					headers: {},
+					value: Buffer.from('Mocked response'),
+					cached: new Date(),
+				})
+			),
+		});
+		sandbox.stub(cassandra, 'Engine').returns(engineStubbedInstance);
+		svc = await server.start({ caching: { enabled: true } });
+	});
+
+	afterEach(async () => {
+		sandbox.restore();
+		await svc.stop();
+	});
+
+	it('should call cache GET without language variants for language without variants', async () => {
+		const uri = localUri('mobile-html', 'Cat', 'en.wikipedia.org');
+		await preq.get({ uri });
+		sandbox.assert.calledOnce(engineStubbedInstance.get);
+		sandbox.assert.calledWith(
+			engineStubbedInstance.get,
+			'/en.wikipedia.org/v1/page/mobile-html/Cat',
+			'en.wikipedia.org'
+		);
+	});
+
+	it('should call cache GET without language variants for language without variants with bogus accept-language', async () => {
+		const uri = localUri('mobile-html', 'Cat', 'en.wikipedia.org');
+		const headers = { 'accept-language': 'en-bogus-xxx' };
+		await preq.get({ uri, headers });
+		sandbox.assert.calledOnce(engineStubbedInstance.get);
+		sandbox.assert.calledWith(
+			engineStubbedInstance.get,
+			'/en.wikipedia.org/v1/page/mobile-html/Cat',
+			'en.wikipedia.org'
+		);
+	});
+
+	it('should call cache GET with language variants for language with variants', async () => {
+		const uri = localUri('mobile-html', 'PHP', 'sr.wikipedia.org');
+		const res = await preq.get({ uri });
+		sinon.assert.calledOnce(engineStubbedInstance.get);
+		sinon.assert.calledWith(
+			engineStubbedInstance.get,
+			'/sr.wikipedia.org/v1/page/mobile-html/PHP',
+			'sr.wikipedia.org-sr'
+		);
+	});
+
+	it('should call cache GET with language variants for language with variants with valid accept-language', async () => {
+		const uri = localUri('mobile-html', 'PHP', 'sr.wikipedia.org');
+		const headers = { 'accept-language': 'sr-latn' };
+		await preq.get({ uri, headers });
+		sinon.assert.calledOnce(engineStubbedInstance.get);
+		sinon.assert.calledWith(
+			engineStubbedInstance.get,
+			'/sr.wikipedia.org/v1/page/mobile-html/PHP',
+			'sr.wikipedia.org-sr-Latn'
+		);
+	});
+
+	it('should call cache GET with default language variants for language with variants with bogus accept-language', async () => {
+		const uri = localUri('mobile-html', 'PHP', 'sr.wikipedia.org');
+		const headers = { 'accept-language': 'sr-bogus-xxx' };
+		await preq.get({ uri, headers });
+		sinon.assert.calledOnce(engineStubbedInstance.get);
+		sinon.assert.calledWith(
+			engineStubbedInstance.get,
+			'/sr.wikipedia.org/v1/page/mobile-html/PHP',
+			'sr.wikipedia.org-sr-Cyrl'
+		);
+	});
+});
+
+describe('Language variants - cache DELETE', async () => {
+	let svc, sandbox, engineStubbedInstance;
+
+	beforeEach(async () => {
+		sandbox = sinon.createSandbox();
+		engineStubbedInstance = sandbox.createStubInstance(cassandra.Engine, {
+			delete: sandbox.stub().returns(
+				Promise.resolve({})
+			),
+		});
+		sandbox.stub(cassandra, 'Engine').returns(engineStubbedInstance);
+		svc = await server.start({ caching: { enabled: true } });
+	});
+
+	afterEach(async () => {
+		sandbox.restore();
+		await svc.stop();
+	});
+
+	it('should not call delete for language without variants', async () => {
+		const mockReq = testUtil.getMockedServiceReq({
+			params: { title: 'Cat', domain: 'en.wikipedia.org' },
+			headers: {
+				'cache-control': 'no-cache'
+			},
+		});
+		purgeLanguageVariants(mockReq);
+		sinon.assert.notCalled(engineStubbedInstance.delete);
+	});
+
+	it('should call delete for language with variants', async () => {
+		const mockReq = testUtil.getMockedServiceReq({
+			params: { title: 'PHP', domain: 'sr.wikipedia.org' },
+			headers: {
+				'cache-control': 'no-cache'
+			},
+		});
+		mockReq.originalUrl = '/bogus-path';
+		mockReq.get.returns('no-cache');
+		mockReq.app.cache = engineStubbedInstance;
+		purgeLanguageVariants(mockReq);
+		sinon.assert.calledTwice(engineStubbedInstance.delete);
+		sinon.assert.calledWith(
+			engineStubbedInstance.delete,
+			'/bogus-path',
+			'sr.wikipedia.org-sr-Cyrl'
+		);
+		sinon.assert.calledWith(
+			engineStubbedInstance.delete,
+			'/bogus-path',
+			'sr.wikipedia.org-sr-Latn'
+		);
+	});
+
+	it('should call delete for language with variants with accept-language', async () => {
+		const mockReq = testUtil.getMockedServiceReq({
+			params: { title: 'PHP', domain: 'sr.wikipedia.org' },
+			headers: {
+				'cache-control': 'no-cache',
+				'accept-language': 'sr-Latn'
+			},
+		});
+		mockReq.originalUrl = '/bogus-path';
+		mockReq.get.returns('no-cache');
+		mockReq.app.cache = engineStubbedInstance;
+		purgeLanguageVariants(mockReq);
+		sinon.assert.calledTwice(engineStubbedInstance.delete);
+		sinon.assert.calledWith(
+			engineStubbedInstance.delete,
+			'/bogus-path',
+			'sr.wikipedia.org-sr'
+		);
+		sinon.assert.calledWith(
+			engineStubbedInstance.delete,
+			'/bogus-path',
+			'sr.wikipedia.org-sr-Cyrl'
+		);
+	});
+
+	it('should call delete for language with variants with bogus accept-language', async () => {
+		const mockReq = testUtil.getMockedServiceReq({
+			params: { title: 'PHP', domain: 'sr.wikipedia.org' },
+			headers: {
+				'cache-control': 'no-cache',
+				'accept-language': 'xxx'
+			},
+		});
+		mockReq.originalUrl = '/bogus-path';
+		mockReq.get.returns('no-cache');
+		mockReq.app.cache = engineStubbedInstance;
+		purgeLanguageVariants(mockReq);
+		sinon.assert.calledTwice(engineStubbedInstance.delete);
+		sinon.assert.calledWith(
+			engineStubbedInstance.delete,
+			'/bogus-path',
+			'sr.wikipedia.org-sr-Latn'
+		);
+		sinon.assert.calledWith(
+			engineStubbedInstance.delete,
+			'/bogus-path',
+			'sr.wikipedia.org-sr-Cyrl'
+		);
+	});
+
+	it('should call delete for language with variants with valid prefix accept-language', async () => {
+		const mockReq = testUtil.getMockedServiceReq({
+			params: { title: 'PHP', domain: 'sr.wikipedia.org' },
+			headers: {
+				'cache-control': 'no-cache',
+				'accept-language': 'sr-xxx'
+			},
+		});
+		mockReq.originalUrl = '/bogus-path';
+		mockReq.get.returns('no-cache');
+		mockReq.app.cache = engineStubbedInstance;
+		purgeLanguageVariants(mockReq);
+		sinon.assert.calledTwice(engineStubbedInstance.delete);
+		sinon.assert.calledWith(
+			engineStubbedInstance.delete,
+			'/bogus-path',
+			'sr.wikipedia.org-sr'
+		);
+		sinon.assert.calledWith(
+			engineStubbedInstance.delete,
+			'/bogus-path',
+			'sr.wikipedia.org-sr-Latn'
+		);
 	});
 
 });
