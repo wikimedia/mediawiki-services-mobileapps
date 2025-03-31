@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"King ChristLike"
+		]
+	},
+	"description-add-link-title": "Tinye nkọwa akụkọ",
+	"article-read-more-title": "Gụkwuo",
+	"table-title-other": "Ozi ndị ọzọ",
+	"page-edit-history": "Lelee akụkọ ndezi",
+	"info-box-close-text": "Mechie",
+	"page-talk-page-subtitle": "Kwurịtanụ mmelite maka akụkọ a",
+	"page-issues-subtitle": "Mkpu maka ọdịnaya subpar ma ọ bụ nsogbu",
+	"page-talk-page": "Lelee ibe okwu",
+	"info-box-title": "Eziokwu ngwa ngwa",
+	"view-in-browser-footer-link": "Lelee edemede na ihe nchọgharị",
+	"page-location": "Lelee na maapụ",
+	"page-similar-titles": "Ibe ndị eyitere",
+	"page-last-edited": "{{PLURAL:$1|Emelitere ụnyahụ|Emelitere ụbọchị $1 gara aga|0=Emelitere taa}}",
+	"article-about-title": "Banyere edemede a",
+	"page-issues": "mbipụta ibe",
+	"license-footer-text": "Ọdịnaya dị n'okpuru $1 ma ọ bụrụ na edeghị ya ọzọ.",
+	"page-read-in-other-languages": "Dị na {{PLURAL:$1|$1 asụsụ ọzọ|$1 asụsụ ndị ọzọ}}",
+	"article-edit-button": "dezie ngalaba",
+	"article-edit-protected-button": "Dezie ngalaba na ibe echedoro",
+	"article-section-expand": "Gbasaa ngalaba",
+	"article-section-collapse": "Daa ngalaba",
+	"table-expand": "Gbasaa tebụl",
+	"table-collapse": "Daa tebụl",
+	"references-preview-header": "Nhụchalụ nke ntụnyere aka"
+}
