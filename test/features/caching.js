@@ -449,3 +449,26 @@ describe('Language variants - cache DELETE', async () => {
 	});
 
 });
+
+describe('Caching headers - vary', async () => {
+	let svc;
+	beforeEach(async () => {
+		svc = await server.start();
+	});
+
+	afterEach(async () => {
+		await svc.stop();
+	});
+
+	it('should not add accept-language in vary header for domain without language variants', async () => {
+		const res = await preq.get(localUri('mobile-html', 'Cat', 'en.wikipedia.org'));
+		assert.ok('vary' in res.headers);
+		assert.ok(!res.headers.vary.includes('accept-language'));
+	});
+
+	it('should add accept-language in vary header for domain with language variants', async () => {
+		const res = await preq.get(localUri('mobile-html', 'PHP', 'sr.wikipedia.org'));
+		assert.ok('vary' in res.headers);
+		assert.ok(res.headers.vary.includes('accept-language'));
+	});
+});
