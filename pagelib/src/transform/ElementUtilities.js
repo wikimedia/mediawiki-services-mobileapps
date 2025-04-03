@@ -4,6 +4,8 @@
 
 import Polyfill from './Polyfill';
 
+const DATA_PREFIX = 'data-'
+
 // todo: drop ancestor consideration and move to Polyfill.closest().
 /**
  * Returns closest ancestor of element which matches selector.
@@ -77,13 +79,16 @@ const isVisible = ( element ) =>
  *
  * @param {!HTMLElement} source
  * @param {!HTMLElement} destination
- * @param {!Array.<string>} attributes
  * @return {void}
  */
-const copyAttributesToDataAttributes = ( source, destination, attributes ) => {
-	attributes.filter( ( attribute ) => source.hasAttribute( attribute ) )
-		.forEach( ( attribute ) =>
-			destination.setAttribute( `data-${ attribute }`, source.getAttribute( attribute ) ) );
+const copyAttributesToDataAttributes = ( source, destination ) => {
+	if (source && source.attributes && destination) {
+		const attributes = source.attributes;
+		for ( let i = 0; i < attributes.length; i++ ) {
+			const attribute = attributes[ i ];
+			destination.setAttribute( `${ DATA_PREFIX }${ attribute.name }`, attribute.value );
+		}
+	}
 };
 
 /**
@@ -91,13 +96,18 @@ const copyAttributesToDataAttributes = ( source, destination, attributes ) => {
  *
  * @param {!HTMLElement} source
  * @param {!HTMLElement} destination
- * @param {!Array.<string>} attributes
  * @return {void}
  */
-const copyDataAttributesToAttributes = ( source, destination, attributes ) => {
-	attributes.filter( ( attribute ) => source.hasAttribute( `data-${ attribute }` ) )
-		.forEach( ( attribute ) =>
-			destination.setAttribute( attribute, source.getAttribute( `data-${ attribute }` ) ) );
+const copyDataAttributesToAttributes = ( source, destination ) => {
+	if (source && source.attributes && destination) {
+		const attributes = source.attributes;
+		for ( let i = 0; i < attributes.length; i++ ) {
+			const attribute = attributes[ i ];
+			if ( attribute.name.startsWith( DATA_PREFIX ) ) {
+				destination.setAttribute( attribute.name.substring( DATA_PREFIX.length ), attribute.value );
+			}
+		}
+	}
 };
 
 export default {

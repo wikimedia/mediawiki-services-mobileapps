@@ -3,34 +3,12 @@
 - Original:
     <img class=foo style='width: 100px; height: 200px' width=3 height=4 src=/ srcset=/ alt=bar>
 
-- Pending:
-    <span class='foo pcs-lazy-load-placeholder pcs-lazy-load-placeholder-pending'
+- Placeholder:
+    <span class='foo pcs-lazy-load-placeholder'
       style='width: 100px' data-class=foo data-style='width: 100px; height: 200px' data-width=3
       data-height=4 data-src=/ data-srcset=/ data-alt=bar>
       <span style='padding-top: 200%'></span>
     </span>
-
-- Loading:
-    <span class='foo pcs-lazy-load-placeholder pcs-lazy-load-placeholder-loading'
-      style='width: 100px' data-class=foo data-style='width: 100px; height: 200px' data-width=3
-      data-height=4 data-src=/ data-srcset=/ data-alt=bar>
-      <span style='padding-top: 200%'></span>
-    </span>
-
-    <!-- Detached. -->
-    <img class='foo pcs-lazy-load-image-loading' style='width: 100px; height: 200px' width=3
-      height=4 src=/ srcset=/ alt=bar>
-
-- Error:
-    <span class='foo pcs-lazy-load-placeholder pcs-lazy-load-placeholder-error'
-      style='width: 100px' data-class=foo data-style='width: 100px; height: 200px' data-width=3
-      data-height=4 data-src=/ data-srcset=/ data-alt=bar>
-      <span style='padding-top: 200%'></span>
-    </span>
-
-- Loaded:
-    <img class='foo pcs-lazy-load-image-loaded' style='width: 100px; height: 200px' width=3
-      height=4 src=/ srcset=/ alt=bar> */
 
 @import './Constants.less';
 @import './Themes.less';
@@ -39,82 +17,6 @@
 .pcs-lazy-load-placeholder {
   display: inline-block;
   max-width: 100%;
-  /* width is an inline style. */
-}
-
-.pcs-lazy-load-placeholder span {
-  display: block;
-  width: 100%;
-  /* padding-top is an inline style. */
-}
-
-/* LazyLoadTransform.PLACEHOLDER_PENDING_CLASS. Download pending, image is not shown. */
-.pcs-lazy-load-placeholder-pending {
   background-color: var(--placeholder-background);
-}
-
-/* LazyLoadTransform.PLACEHOLDER_LOADING_CLASS. Download started, image is not shown. */
-.pcs-lazy-load-placeholder-loading {
-  -webkit-animation: pcs-lazy-load-placeholder-pulse 1s infinite;
-  animation: pcs-lazy-load-placeholder-pulse 1s infinite;
-
-  .darkThemesOnlyUniversal({
-    -webkit-animation: pcs-lazy-load-placeholder-pulse-dark 1s infinite;
-    animation: pcs-lazy-load-placeholder-pulse-dark 1s infinite;
-  })
-}
-
-/* LazyLoadTransform.PLACEHOLDER_ERROR_CLASS. Download failure, image is not shown. */
-.pcs-lazy-load-placeholder-error {
-  background-color: var(--placeholder-error-background);
-}
-
-/* LazyLoadTransform.IMAGE-LOADING_CLASS. Download started, image is not shown. */
-.pcs-lazy-load-image-loading {
-  opacity: 0;
-}
-
-/* LazyLoadTransform.IMAGE-LOADED_CLASS. Download completed, placeholder is removed. */
-.pcs-lazy-load-image-loaded {
-  -webkit-animation: pcs-lazy-load-image-fade-in .3s ease-in;
-  animation: pcs-lazy-load-image-fade-in .3s ease-in;
-  background-color: @wmui-color-base100;
-}
-
-/* Many images, such as the Barack Obama infobox image, expect middle alignment.
-   https://en.m.wikipedia.org/wiki/Barack-Obama?oldid=789232530 */
-.pcs-lazy-load-placeholder {
-  vertical-align: middle;
-}
-
-// T190847 - make sure that updated images will receive relevant styles after loading
-.mw-image-border .pcs-image-wrapper {
-  > img,
-  > video {
-    display: block;
-  }
-}
-
-@-webkit-keyframes pcs-lazy-load-placeholder-pulse {
-  0%, 100% { background-color: @wmui-color-base80; } 50% { background-color: @wmui-color-base70; }
-}
-
-@keyframes pcs-lazy-load-placeholder-pulse {
-  0%, 100% { background-color: @wmui-color-base80; } 50% { background-color: @wmui-color-base70; }
-}
-
-@-webkit-keyframes pcs-lazy-load-placeholder-pulse-dark {
-  0%, 100% { background-color: @wmui-color-base30; } 50% { background-color: @wmui-color-base50; }
-}
-
-@keyframes pcs-lazy-load-placeholder-pulse-dark {
-  0%, 100% { background-color: @wmui-color-base30; } 50% { background-color: @wmui-color-base50; }
-}
-
-@-webkit-keyframes pcs-lazy-load-image-fade-in {
-  from { opacity: 0; } to { opacity: 1; }
-}
-
-@keyframes pcs-lazy-load-image-fade-in {
-  from { opacity: 0; } to { opacity: 1; }
+  border: var(--border-color) solid 1px;
 }

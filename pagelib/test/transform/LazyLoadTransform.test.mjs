@@ -134,8 +134,6 @@ describe( 'LazyLoadTransform', () => {
 					it( 'data-file-original-src', () => assert.ok( this.placeholder.getAttribute( 'data-data-file-original-src' ) === '/originalsrc' ) );
 				} );
 
-				it( 'the placeholder is a pending class member', () =>
-					assert.ok( this.placeholder.classList.contains( 'pcs-lazy-load-placeholder-pending' ) ) );
 				it( 'the classes are otherwise unchanged', () =>
 					assert.ok( this.placeholder.classList.contains( 'classes' ) ) );
 
@@ -167,7 +165,7 @@ describe( 'LazyLoadTransform', () => {
           </span>`;
 				this.document = domino.createDocument( html );
 				this.placeholder = this.document.querySelector( '.pcs-lazy-load-placeholder' );
-				this.image = LazyLoadTransform.loadPlaceholder( this.document, this.placeholder );
+				this.image = LazyLoadTransform.convertPlaceholderToImage( this.document, this.placeholder );
 			} );
 
 			describe( 'the image attributes are restored:', () => {
@@ -192,61 +190,25 @@ describe( 'LazyLoadTransform', () => {
 			it( 'the image is not in the DOM', () => assert.ok( !this.document.querySelector( 'img' ) ) );
 			it( 'the image is an orphan', () => assert.ok( !this.image.parentNode ) );
 
-			it( 'the placeholder is no longer a pending class member', () =>
-				assert.ok( !this.placeholder.classList.contains( 'pcs-lazy-load-placeholder-pending' ) ) );
-			it( 'the placeholder is a loading class member', () =>
-				assert.ok( this.placeholder.classList.contains( 'pcs-lazy-load-placeholder-loading' ) ) );
 			it( 'the placeholder classes are otherwise unchanged', () =>
 				assert.ok( this.placeholder.classList.contains( 'classes' ) ) );
-
-			it( 'the image is a loading class member', () =>
-				assert.ok( this.image.classList.contains( 'pcs-lazy-load-image-loading' ) ) );
 			it( 'the image classes are otherwise unchanged', () =>
 				assert.ok( this.image.classList.contains( 'classes' ) ) );
 
 			const andCompletesLoading = () => {
-				beforeEach( () => this.image.dispatchEvent( new domino.impl.Event( 'load' ) ) );
+				beforeEach( () => {
+					this.image.dispatchEvent( new domino.impl.Event( 'load' ) );
+					LazyLoadTransform.convertPlaceholdersToImages( this.document );
+				});
 
-				it( 'the image is no longer a loading class member', () =>
-					assert.ok( !this.image.classList.contains( 'pcs-lazy-load-image-loading' ) ) );
-				it( 'the image is a loaded class member', () =>
-					assert.ok( this.image.classList.contains( 'pcs-lazy-load-image-loaded' ) ) );
-
-				it( 'the image is added to the the DOM', () =>
-					assert.ok( this.document.querySelector( '.pcs-lazy-load-image-loaded' ) ) );
 				it( 'the placeholder is not clickable', () =>
 					assert.ok( !( this.placeholder._listeners || {} ).click ) );
-				it( 'the placeholder is not in the DOM', () =>
-					assert.ok( !this.document.querySelector( '.pcs-lazy-load-placeholder' ) ) );
+				it( 'the placeholder is now an image with the placeholder class', () =>
+					assert.ok( this.document.querySelector( 'img.pcs-lazy-load-placeholder' ) ) );
 				it( 'the placeholder is an orphan', () => assert.ok( !this.placeholder.parentNode ) );
 			};
 
-			const andLoadingFails = () => {
-				beforeEach( () => this.image.dispatchEvent( new domino.impl.Event( 'error' ) ) );
-
-				it( 'the placeholder is no longer a loading class member', () =>
-					assert.ok( !this.placeholder.classList.contains( 'pcs-lazy-load-placeholder-loading' ) ) );
-				it( 'the placeholder is an error class member', () =>
-					assert.ok( this.placeholder.classList.contains( 'pcs-lazy-load-placeholder-error' ) ) );
-
-				it( 'the placeholder is still in the DOM', () =>
-					assert.ok( this.document.querySelector( '.pcs-lazy-load-placeholder' ) ) );
-				it( 'the placeholder is clickable', () => assert.ok( this.placeholder._listeners.click ) );
-				it( 'the image is not in the DOM', () => assert.ok( !this.document.querySelector( 'img' ) ) );
-			};
-
 			describe( 'and completes loading', andCompletesLoading );
-
-			describe( 'and loading fails', () => {
-				andLoadingFails();
-
-				describe( 'and loading is retried', () => {
-					beforeEach( () => this.placeholder.click() );
-
-					describe( 'and completes loading', andCompletesLoading );
-					describe( 'and loading fails', andLoadingFails );
-				} );
-			} );
 		} );
 	} );
 } );
