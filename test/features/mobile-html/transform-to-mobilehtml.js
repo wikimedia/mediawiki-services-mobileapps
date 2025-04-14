@@ -53,3 +53,50 @@ describe('transform/html/to/mobile-html', function() {
 			});
 	});
 });
+
+describe('transform/wikitext/to/mobile-html', () => {
+	let svc;
+	before(async () => {
+		svc = await server.start();
+	});
+	after(async () => await svc.stop());
+
+	const localUri = (title, domain = 'en.wikipedia.org') => `${ server.config.uri }${ domain }/v1/transform/wikitext/to/mobile-html/${ title }`;
+
+	it('simple wikitext conversion should work properly', async () => {
+		const req = {
+			uri: localUri('Main_Page'),
+			headers: {
+				'output-mode': 'contentAndReferences'
+			},
+			body: {
+				wikitext: `== Heading ==
+                hello world`
+			}
+		};
+		const res = await preq.post(req);
+		assert.ok(res.status === 200);
+		assert.ok(/private/.test(res.headers['cache-control']));
+		assert.ok(/<h2 id="Heading".*class="(:?[^"]+)">Heading<\/h2>/.test(res.body));
+		assert.ok(/pcs-edit-section-link-container/.test(res.body));
+	});
+
+	it('should transform wikitext to mobile-html, propagating output flags', async () => {
+		const req = {
+			uri: localUri('Main_Page'),
+			headers: {
+				'output-mode': 'editPreview'
+			},
+			body: {
+				wikitext: `== Heading ==
+                hello world`
+			}
+		};
+		const res = await preq.post(req);
+		assert.ok(res.status === 200);
+		assert.ok(/private/.test(res.headers['cache-control']));
+		assert.ok(/<h2 id="Heading".*class="(:?[^"]+)">Heading<\/h2>/.test(res.body));
+		assert.ok(!/pcs-edit-section-link-container/.test(res.body));
+	});
+
+});

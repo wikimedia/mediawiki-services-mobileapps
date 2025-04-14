@@ -15,6 +15,7 @@ const sUtil = require('../../lib/util');
 const caching = require('../../lib/caching');
 const { addContentLangFromMeta } = require('../../lib/core-api-compat');
 const { defaultDomainsAllow } = require('../../lib/wmf-projects');
+const { makeOutgoingRequest } = require('axios-wmf-service-mesh');
 
 /**
  * The main router object
@@ -139,6 +140,33 @@ router.get('/page/mobile-html/:title/:revision?/:tid?', defaultDomainsAllow, cac
  * Previews page content in HTML. POST body should be Parsoid HTML
  */
 router.post('/transform/html/to/mobile-html/:title', (req, res) => getMobileHtmlFromPOST(req, res));
+
+/**
+ * POST {domain}/v1/transform/wikitext/to/mobile-html/{title}
+ * Title redirection status: POST requests should not be redirected
+ * Previews page content in HTML. POST body should be wikitext
+ */
+router.post('/transform/wikitext/to/mobile-html/:title', (req, res) => {
+	// Set cache control headers
+	res.setHeader('Cache-Control', req.app.conf.cache_headers['wikitext-to-mobile-html']);
+
+	// 1st step: Request wikitext to html conversion from MW REST
+	const restReq = req.app.wikitexttohtml_tpl.expand({
+		request: {
+			headers: {
+				'accept-language': req.get('accept-language')
+			},
+			body: req.body,
+			params: req.params
+		}
+	});
+	return makeOutgoingRequest(restReq, req).then((htmlRes) => {
+		req.headers['content-type'] = htmlRes.headers['content-type'];
+		req.body = htmlRes.data;
+		res.set('content-language', htmlRes.headers['content-language']);
+		getMobileHtmlFromPOST(req, res);
+	});
+});
 
 /**
  * GET {domain}/v1/page/mobile-html-offline-resources/{title}/{revision}/{tid}
