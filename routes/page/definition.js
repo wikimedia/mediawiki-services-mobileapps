@@ -28,6 +28,7 @@ let app;
  * Gets the Wiktionary definition for a given term (and optional revision and tid).
  */
 router.get('/definition/:title/:revision?/:tid?', (req, res) => {
+	res.setHeader('Cache-Control', req.app.conf.cache_headers['word-definition']);
 	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/definition/${ title }`;
 	return getDefinitions(app, req)
 		.then((response) => {

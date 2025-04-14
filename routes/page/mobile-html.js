@@ -164,7 +164,7 @@ router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, 
 	];
 
 	// Enable caching since this endpoint is heavily requested
-	res.setHeader('cache-control', 's-maxage=1209600, max-age=86400');
+	res.setHeader('cache-control', req.app.conf.cache_headers['mobile-html-offline-resources']);
 	res.send(offlineResources).end();
 });
 
