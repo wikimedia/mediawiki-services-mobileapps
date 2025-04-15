@@ -1,6 +1,6 @@
 'use strict';
 const sinon = require('sinon');
-const { defaultDomainsAllow, summaryDomainsAllow } = require('../../lib/wmf-projects');
+const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
 
 describe('Default wmf projects middleware', () => {
 	it('should allow an allowed domain', () => {
@@ -17,7 +17,7 @@ describe('Default wmf projects middleware', () => {
 
 		const next = sinon.stub();
 
-		defaultDomainsAllow(req, res, next);
+		projectAllowMiddlewares['mobile-html'](req, res, next);
 		sinon.assert.calledOnce(next);
 		sinon.assert.notCalled(res.status);
 		sinon.assert.notCalled(res.send);
@@ -37,7 +37,7 @@ describe('Default wmf projects middleware', () => {
 
 		const next = sinon.stub();
 
-		defaultDomainsAllow(req, res, next);
+		projectAllowMiddlewares['mobile-html'](req, res, next);
 		sinon.assert.notCalled(next);
 		sinon.assert.calledOnce(res.status);
 		sinon.assert.calledWith(res.status, 404);
@@ -61,7 +61,7 @@ describe('Summary wmf projects middleware', () => {
 
 		const next = sinon.stub();
 
-		summaryDomainsAllow(req, res, next);
+		projectAllowMiddlewares['page-summary'](req, res, next);
 		sinon.assert.calledOnce(next);
 		sinon.assert.notCalled(res.status);
 		sinon.assert.notCalled(res.send);
@@ -81,7 +81,7 @@ describe('Summary wmf projects middleware', () => {
 
 		const next = sinon.stub();
 
-		summaryDomainsAllow(req, res, next);
+		projectAllowMiddlewares['page-summary'](req, res, next);
 		sinon.assert.notCalled(next);
 		sinon.assert.calledOnce(res.status);
 		sinon.assert.calledWith(res.status, 404);

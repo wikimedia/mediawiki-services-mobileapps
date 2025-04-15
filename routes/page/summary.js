@@ -12,7 +12,7 @@ const mUtil = require('../../lib/mobile-util');
 const parsoid = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
 const caching = require('../../lib/caching');
-const { summaryDomainsAllow } = require('../../lib/wmf-projects');
+const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
 
 /**
  * The main router object
@@ -29,7 +29,7 @@ let app;
  * Title redirection status: redirects based on parsoid output
  * Extracts a summary of a given wiki page limited to one paragraph of text
  */
-router.get('/summary/:title/:revision?/:tid?', summaryDomainsAllow, caching.defaultCacheMiddleware, (req, res) => {
+router.get('/summary/:title/:revision?/:tid?', projectAllowMiddlewares['page-summary'], caching.defaultCacheMiddleware, (req, res) => {
 	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/summary/${ title }`;
 	req.purgePaths = [
 		`/page/summary/${ encodeURIComponent(req.params.title) }`,

@@ -7,9 +7,10 @@
 const sUtil = require('../../lib/util');
 const Localizer = require('../../lib/mobile/Localizer');
 const mUtil = require('../../lib/mobile-util');
+const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
 const router = sUtil.router();
 
-router.get('/pcs', (req, res) => {
+router.get('/pcs', projectAllowMiddlewares['static-assets'], (req, res) => {
 	const locales = Localizer.getLocalesFromReq(req);
 	Localizer.getMessagesAndFallbacksForLocales(locales).then(messages => {
 		const result = { locale: locales[0], messages };

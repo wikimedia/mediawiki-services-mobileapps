@@ -10,6 +10,7 @@ const fetchBaseCss = lib.fetchBaseCss;
 const fetchMobileSiteCss = lib.fetchMobileSiteCss;
 const fetchPageLibCss = lib.fetchPageLibCss;
 const fetchLegacyPageLibCss = lib.fetchLegacyPageLibCss;
+const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
 
 const router = sUtil.router();
 
@@ -18,22 +19,22 @@ let app;
 /**
  * Gets the base CSS for the mobile apps
  */
-router.get('/base', (req, res) => fetchBaseCss(res));
+router.get('/base', projectAllowMiddlewares['static-assets'], (req, res) => fetchBaseCss(res));
 
 /**
  * Gets the pagelib CSS for the mobile apps
  */
-router.get('/pagelib', (req, res) => fetchLegacyPageLibCss(res));
+router.get('/pagelib', projectAllowMiddlewares['static-assets'], (req, res) => fetchLegacyPageLibCss(res));
 
 /**
  * Gets the pcs CSS for mobile-html
  */
-router.get('/pcs', (req, res) => fetchPageLibCss(res));
+router.get('/pcs', projectAllowMiddlewares['static-assets'], (req, res) => fetchPageLibCss(res));
 
 /**
  * Gets the site-specific mobile styles defined in MediaWiki:Mobile.css
  */
-router.get('/site', (req, res) => fetchMobileSiteCss(req, res));
+router.get('/site', projectAllowMiddlewares['static-assets'], (req, res) => fetchMobileSiteCss(req, res));
 
 module.exports = function(appObj) {
 	app = appObj;
