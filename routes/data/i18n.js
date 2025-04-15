@@ -17,7 +17,7 @@ router.get('/pcs', (req, res) => {
 		res.status(200);
 		mUtil.setContentType(res, mUtil.CONTENT_TYPES.i18n);
 		mUtil.setETag(res, mUtil.hashCode(resultString));
-		res.set('Cache-Control', 'public, max-age=86400, s-maxage=86400');
+		res.set('Cache-Control', req.app.conf.cache_headers['static-assets']);
 		res.end(resultString);
 	});
 });

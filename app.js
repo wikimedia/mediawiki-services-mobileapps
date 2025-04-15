@@ -179,7 +179,12 @@ function initApp(options) {
 	const default_cache_headers = {
 		'mobile-html': 's-maxage=1209600, max-age=0',
 		'media-list': 's-maxage=1209600, max-age=0',
-		'page-summary': 's-maxage=1209600, max-age=300'
+		'page-summary': 's-maxage=1209600, max-age=300',
+		'page-talk': 'public, max-age=86400, s-maxage=86400',
+		'word-definition': 's-maxage=1209600, max-age=0, must-revalidate',
+		'mobile-html-offline-resources': 's-maxage=1209600, max-age=86400',
+		'wikitext-to-mobile-html': 'private, max-age=0, s-maxage=0, must-revalidate',
+		'static-assets': 'public, max-age=86400, s-maxage=86400'
 	};
 	app.conf.cache_headers = app.conf.cache_headers || default_cache_headers;
 
