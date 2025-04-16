@@ -11,7 +11,7 @@ const cassandra = require('@wikimedia/cassandra-storage');
 const { initCache, purgeEvents  } = require('../../lib/caching.js');
 const { isObject } = require('underscore');
 const testUtil = require('../utils/testUtil.js');
-const { purgeLanguageVariants } = require('../../lib/caching');
+const { purgeLanguageVariants, isPregenerationRequest } = require('../../lib/caching');
 
 const localUri = (endpoint, title, domain = 'en.wikipedia.org') => `${ server.config.uri }${ domain }/v1/page/${ endpoint }/${ title }`;
 
@@ -471,4 +471,27 @@ describe('Caching headers - vary', async () => {
 		assert.ok('vary' in res.headers);
 		assert.ok(res.headers.vary.includes('accept-language'));
 	});
+});
+
+describe('Pregeneration request headers', () => {
+	it('should return true for cache-control no-cache', () => {
+		const req = testUtil.getMockedServiceReq({
+			headers: {
+				cacheControl: 'no-cache'
+			}
+		});
+		req.get.withArgs('cache-control').returns('no-cache');
+		assert.ok(isPregenerationRequest(req) === true);
+	});
+
+	it('should return false for cache-control other than no-cache', () => {
+		const req = testUtil.getMockedServiceReq({
+			headers: {
+				cacheControl: 'public'
+			}
+		});
+		req.get.withArgs('cache-control').returns('public');
+		assert.ok(isPregenerationRequest(req) === false);
+	});
+
 });
