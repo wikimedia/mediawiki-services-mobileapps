@@ -9,17 +9,19 @@ const mUtil = require('../../lib/mobile-util');
 const parsoidApi = require('../../lib/parsoid-access');
 const TalkPage = require('../../lib/talk/TalkPage');
 const wikiLanguage = require('../../lib/wikiLanguage');
+const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
 
 /**
  * The main application object reported when this module is required.
  */
 let app;
+
 /**
  * GET {domain}/v1/page/talk/{title}{/revision}{/tid}
  * Title redirection status: redirects based on parsoid output
  * Gets talk page info.
  */
-router.get('/talk/:title/:revision?/:tid?', (req, res) => {
+router.get('/talk/:title/:revision?/:tid?', projectAllowMiddlewares['page-talk'], (req, res) => {
 	// set cache-headers
 	res.setHeader('Cache-Control', req.app.conf.cache_headers['page-talk']);
 	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/talk/${ title }`;

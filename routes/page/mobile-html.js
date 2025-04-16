@@ -14,8 +14,8 @@ const parsoidApi = require('../../lib/parsoid-access');
 const sUtil = require('../../lib/util');
 const caching = require('../../lib/caching');
 const { addContentLangFromMeta } = require('../../lib/core-api-compat');
-const { defaultDomainsAllow } = require('../../lib/wmf-projects');
 const { makeOutgoingRequest } = require('axios-wmf-service-mesh');
+const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
 
 /**
  * The main router object
@@ -109,30 +109,33 @@ function getMobileHtmlFromMobileview(req, res) {
  * Gets page content in HTML. This is a more optimized for direct consumption by reading
  * clients.
  */
-router.get('/page/mobile-html/:title/:revision?/:tid?', defaultDomainsAllow, caching.defaultCacheMiddleware, (req, res) => {
-	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/mobile-html/${ title }`;
-	req.purgePaths = [
-		`/page/mobile-html/${ encodeURIComponent(req.params.title) }`,
-		...(req.params.revision ? [`/page/mobile-html/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
-	];
+router.get('/page/mobile-html/:title/:revision?/:tid?',
+	projectAllowMiddlewares['mobile-html'],
+	caching.defaultCacheMiddleware,
+	(req, res) => {
+		req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/mobile-html/${ title }`;
+		req.purgePaths = [
+			`/page/mobile-html/${ encodeURIComponent(req.params.title) }`,
+			...(req.params.revision ? [`/page/mobile-html/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
+		];
 
-	// Configure cache headers
-	res.setHeader('Cache-Control', req.app.conf.cache_headers['mobile-html']);
+		// Configure cache headers
+		res.setHeader('Cache-Control', req.app.conf.cache_headers['mobile-html']);
 
-	const buildMobileHtml = (title) => {
-		req.params.title = title;
-		if (!mobileviewHtml.shouldUseMobileview(req, app.conf.mobile_view_languages)) {
-			return getMobileHtmlFromParsoid(req, res);
-		} else {
-			return getMobileHtmlFromMobileview(req, res);
+		const buildMobileHtml = (title) => {
+			req.params.title = title;
+			if (!mobileviewHtml.shouldUseMobileview(req, app.conf.mobile_view_languages)) {
+				return getMobileHtmlFromParsoid(req, res);
+			} else {
+				return getMobileHtmlFromMobileview(req, res);
+			}
+		};
+
+		if (app.conf.pcs_handles_redirects) {
+			return buildMobileHtml(req.params.title);
 		}
-	};
-
-	if (app.conf.pcs_handles_redirects) {
-		return buildMobileHtml(req.params.title);
-	}
-	return BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(buildMobileHtml);
-});
+		return BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(buildMobileHtml);
+	});
 
 /**
  * POST {domain}/v1/transform/html/to/mobile-html/{title}
@@ -146,27 +149,29 @@ router.post('/transform/html/to/mobile-html/:title', (req, res) => getMobileHtml
  * Title redirection status: POST requests should not be redirected
  * Previews page content in HTML. POST body should be wikitext
  */
-router.post('/transform/wikitext/to/mobile-html/:title', (req, res) => {
-	// Set cache control headers
-	res.setHeader('Cache-Control', req.app.conf.cache_headers['wikitext-to-mobile-html']);
+router.post('/transform/wikitext/to/mobile-html/:title',
+	projectAllowMiddlewares['wikitext-to-mobile-html'],
+	(req, res) => {
+		// Set cache control headers
+		res.setHeader('Cache-Control', req.app.conf.cache_headers['wikitext-to-mobile-html']);
 
-	// 1st step: Request wikitext to html conversion from MW REST
-	const restReq = req.app.wikitexttohtml_tpl.expand({
-		request: {
-			headers: {
-				'accept-language': req.get('accept-language')
-			},
-			body: req.body,
-			params: req.params
-		}
+		// 1st step: Request wikitext to html conversion from MW REST
+		const restReq = req.app.wikitexttohtml_tpl.expand({
+			request: {
+				headers: {
+					'accept-language': req.get('accept-language')
+				},
+				body: req.body,
+				params: req.params
+			}
+		});
+		return makeOutgoingRequest(restReq, req).then((htmlRes) => {
+			req.headers['content-type'] = htmlRes.headers['content-type'];
+			req.body = htmlRes.data;
+			res.set('content-language', htmlRes.headers['content-language']);
+			getMobileHtmlFromPOST(req, res);
+		});
 	});
-	return makeOutgoingRequest(restReq, req).then((htmlRes) => {
-		req.headers['content-type'] = htmlRes.headers['content-type'];
-		req.body = htmlRes.data;
-		res.set('content-language', htmlRes.headers['content-language']);
-		getMobileHtmlFromPOST(req, res);
-	});
-});
 
 /**
  * GET {domain}/v1/page/mobile-html-offline-resources/{title}/{revision}/{tid}
@@ -174,27 +179,29 @@ router.post('/transform/wikitext/to/mobile-html/:title', (req, res) => {
  * Title redirection status: Doesn't redirect content is static
  * Returns the URLs for offline resources
  */
-router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?', (req, res) => {
-	res.status(200);
-	mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtmlOfflineResources);
+router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?',
+	projectAllowMiddlewares['mobile-html-offline-resources'],
+	(req, res) => {
+		res.status(200);
+		mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtmlOfflineResources);
 
-	// Get external API URI
-	const externalApiUri = apiUtilConstants.getExternalRestApiUri(req.params.domain);
-	const metawikiApiUri = mUtil.getMetaWikiRESTBaseAPIURI(app, req);
-	const localApiUri = mUtil.getLocalRESTBaseAPIURI(app, req);
+		// Get external API URI
+		const externalApiUri = apiUtilConstants.getExternalRestApiUri(req.params.domain);
+		const metawikiApiUri = mUtil.getMetaWikiRESTBaseAPIURI(app, req);
+		const localApiUri = mUtil.getLocalRESTBaseAPIURI(app, req);
 
-	const offlineResources = [
-		`${ metawikiApiUri }data/css/mobile/base`,
-		`${ metawikiApiUri }data/css/mobile/pcs`,
-		`${ metawikiApiUri }data/javascript/mobile/pcs`,
-		`${ externalApiUri }data/css/mobile/site`,
-		`${ localApiUri }data/i18n/pcs`
-	];
+		const offlineResources = [
+			`${ metawikiApiUri }data/css/mobile/base`,
+			`${ metawikiApiUri }data/css/mobile/pcs`,
+			`${ metawikiApiUri }data/javascript/mobile/pcs`,
+			`${ externalApiUri }data/css/mobile/site`,
+			`${ localApiUri }data/i18n/pcs`
+		];
 
-	// Enable caching since this endpoint is heavily requested
-	res.setHeader('cache-control', req.app.conf.cache_headers['mobile-html-offline-resources']);
-	res.send(offlineResources).end();
-});
+		// Enable caching since this endpoint is heavily requested
+		res.setHeader('cache-control', req.app.conf.cache_headers['mobile-html-offline-resources']);
+		res.send(offlineResources).end();
+	});
 
 module.exports = function(appObj) {
 	app = appObj;

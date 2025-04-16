@@ -11,6 +11,7 @@
 const mUtil = require('../../lib/mobile-util');
 const sUtil = require('../../lib/util');
 const getDefinitions = require('../../lib/definition');
+const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
 
 /**
  * The main router object
@@ -27,7 +28,7 @@ let app;
  * Title redirection status: redirects based on parsoid output
  * Gets the Wiktionary definition for a given term (and optional revision and tid).
  */
-router.get('/definition/:title/:revision?/:tid?', (req, res) => {
+router.get('/definition/:title/:revision?/:tid?', projectAllowMiddlewares['word-definition'], (req, res) => {
 	res.setHeader('Cache-Control', req.app.conf.cache_headers['word-definition']);
 	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/definition/${ title }`;
 	return getDefinitions(app, req)
