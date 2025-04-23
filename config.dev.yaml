@@ -132,3 +132,4 @@ services:
         cassandra:
           keyspace: tests
           storageTable: storage
+      restrict_domains: false

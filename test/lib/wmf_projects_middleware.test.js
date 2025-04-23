@@ -7,6 +7,11 @@ describe('Default wmf projects middleware', () => {
 		const req = {
 			params: {
 				domain: 'en.wikipedia.org'
+			},
+			app: {
+				conf: {
+					restrict_domains: true
+				}
 			}
 		};
 
@@ -27,6 +32,11 @@ describe('Default wmf projects middleware', () => {
 		const req = {
 			params: {
 				domain: 'foo.org'
+			},
+			app: {
+				conf: {
+					restrict_domains: true
+				}
 			}
 		};
 
@@ -51,6 +61,11 @@ describe('Summary wmf projects middleware', () => {
 		const req = {
 			params: {
 				domain: 'en.wikipedia.org'
+			},
+			app: {
+				conf: {
+					restrict_domains: true
+				}
 			}
 		};
 
@@ -71,6 +86,11 @@ describe('Summary wmf projects middleware', () => {
 		const req = {
 			params: {
 				domain: 'foo.org'
+			},
+			app: {
+				conf: {
+					restrict_domains: true
+				}
 			}
 		};
 

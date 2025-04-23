@@ -187,6 +187,7 @@ function initApp(options) {
 		'static-assets': 'public, max-age=86400, s-maxage=86400'
 	};
 	app.conf.cache_headers = app.conf.cache_headers || default_cache_headers;
+	app.conf.restrict_domains = app.conf.restrict_domains !== undefined ? app.conf.restrict_domains : true;
 
 	return BBPromise.resolve(app);
 
