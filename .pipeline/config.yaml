@@ -1,3 +1,4 @@
+# Last manual image build: Mon May 5 17:57:37 EEST 2025
 pipelines:
   test:
     blubberfile: blubber.yaml
