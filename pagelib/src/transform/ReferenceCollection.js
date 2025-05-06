@@ -359,9 +359,9 @@ const collectNearbyReferenceForReferenceElement = ( document, referenceElement )
  * @return {!NearbyReferences}
  */
 const collectNearbyReferences = ( document, sourceNode ) => {
-	// The clicked node is the <span> tag, so the actual reference element we need
-	// is the <sup> tag, which is the grandparent of the tag.
-	const sourceNodeParent = sourceNode.parentElement.parentElement; 
+	// The element that was actually clicked was likely a <span> tag inside the reference,
+	// but these spans can be nested. We need to find the closest ancestor that is our reference node.
+	const sourceNodeParent = ElementUtilities.findClosestAncestor( sourceNode, REFERENCE_SELECTOR );
 	return collectNearbyReferenceForReferenceElement( document, sourceNodeParent );
 };
 
