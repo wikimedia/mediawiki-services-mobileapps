@@ -8,7 +8,9 @@ const ReferenceCollection = pagelib.ReferenceCollection;
 
 const referenceGroupHTML = `
   <sup id='cite_ref-a' class='reference'><a id='a1' href='#cite_note-a'>[4]</a></sup>
-  <sup id='cite_ref-b' class='reference'><a id='a2' href='#cite_note-b'>[6]</a></sup>
+  <sup id='cite_ref-b' class='reference'><a id='a2' href='#cite_note-b'>
+   <span class="mw-reflink-text"><span class="cite-bracket">[</span>6<span class="cite-bracket">]</span></span>
+  </a></sup>
   <sup id='cite_ref-c' class='reference'><a id='a3' href='#cite_note-c'>[7]</a></sup>
   <sup id='cite_ref-d' class='reference'><a id='a4' href='#cite_note-d'>[8]</a></sup>
   <span id='cite_note-a'><span class='mw-reference-text'>0 1 2</span></span>
@@ -54,7 +56,7 @@ describe( 'ReferenceCollection', () => {
 			// backfill it for testing methods which call it.
 			domino.impl.Element.prototype.getBoundingClientRect = () => MOCK_RECT;
 
-			const secondAnchor = document.querySelector( '#a2' );
+			const secondAnchor = document.querySelector( '#a2' ).querySelector( 'span' );
 			const nearbyReferences = ReferenceCollection.collectNearbyReferences( document, secondAnchor );
 
 			assert.strictEqual( nearbyReferences.selectedIndex, 1 );

@@ -181,7 +181,7 @@ class ReferenceLinkItem {
 const referenceItemForNode = ( document, node ) => new ReferenceItem(
 	closestReferenceClassElement( node ).id,
 	NodeUtilities.getBoundingClientRectAsPlainObject( node ),
-	node.textContent,
+	node.textContent.trim(),
 	collectRefText( document, node ),
 	node.querySelector( 'A' ).getAttribute( 'href' )
 );
@@ -195,7 +195,7 @@ const referenceItemForNode = ( document, node ) => new ReferenceItem(
  */
 const referenceLinkItemForNode = ( document, node ) => new ReferenceLinkItem(
 	node.querySelector( 'A' ).getAttribute( 'href' ),
-	node.textContent
+	node.textContent.trim()
 );
 
 /**
@@ -359,7 +359,9 @@ const collectNearbyReferenceForReferenceElement = ( document, referenceElement )
  * @return {!NearbyReferences}
  */
 const collectNearbyReferences = ( document, sourceNode ) => {
-	const sourceNodeParent = sourceNode.parentElement; // reference is the parent of the <a> tag
+	// The clicked node is the <span> tag, so the actual reference element we need
+	// is the <sup> tag, which is the grandparent of the tag.
+	const sourceNodeParent = sourceNode.parentElement.parentElement; 
 	return collectNearbyReferenceForReferenceElement( document, sourceNodeParent );
 };
 
