@@ -216,7 +216,7 @@ const postMessageForBackLinkWithTarget = ( target, href ) => {
 const postMessageForClickedItem = ( item ) => {
 	switch ( item.type() ) {
 		case ItemType.link:
-			postMessageForLink( item.target.closest( 'a' ), item.href );
+			postMessageForLink( item.target.closest( 'a' ) || item.target, item.href );
 			break;
 		case ItemType.image:
 			postMessageForImage( item.target, item.href );
@@ -248,7 +248,7 @@ const handleClickEvent = ( event ) => {
 		return;
 	}
 	// Find anchor for non-anchor targets - like images.
-	const anchorForTarget = target.closest( 'A' );
+	const anchorForTarget = target.closest( 'A' ) || target.closest( 'AREA' );
 	if ( !anchorForTarget ) {
 		return;
 	}
