@@ -90,6 +90,7 @@ services:
         headers:
           user-agent: "{{user-agent}}"
           accept-language: "{{accept-language}}"
+          content-type: application/x-www-form-urlencoded
         body: "{{ default(request.query, {}) }}"
       # the template used for requesting ResourceLoader module content from load.php
       mw_resource_loader_req:
@@ -97,6 +98,7 @@ services:
         uri: https://{{domain}}/w/load.php
         headers:
           user-agent: "{{user-agent}}"
+          content-type: application/x-www-form-urlencoded
         body: "{{ default(request.query, {}) }}"
       # the template used for contacting RESTBase
       restbase_req:

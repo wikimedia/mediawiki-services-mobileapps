@@ -6,6 +6,12 @@ const preq   = require('preq');
 const util = require('../../utils/testUtil');
 const getFlaggedOrLatestRevision = require('../../../lib/mwapi').getFlaggedOrLatestRevision;
 
+const logger = require('bunyan').createLogger({
+	name: 'test-logger',
+	level: 'warn'
+});
+logger.log = function(a, b) {};
+
 describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 
 	const tests = [
@@ -29,6 +35,7 @@ describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 			const req = util.getMockedServiceReq({
 				params: { title: args[1], domain },
 			});
+			req.logger = logger;
 			return BBPromise.resolve(getFlaggedOrLatestRevision(req)).then(revision => {
 				assert.equal(!!revision, expected);
 			});
@@ -47,6 +54,7 @@ describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 		const req = util.getMockedServiceReq({
 			params: { title, domain },
 		});
+		req.logger = logger;
 		return BBPromise.join(
 			getLatestRevision(),
 			getFlaggedOrLatestRevision(req),
@@ -67,6 +75,7 @@ describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 		const req = util.getMockedServiceReq({
 			params: { title, domain },
 		});
+		req.logger = logger;
 		return BBPromise.join(
 			getLatestRevision(),
 			getFlaggedOrLatestRevision(req),

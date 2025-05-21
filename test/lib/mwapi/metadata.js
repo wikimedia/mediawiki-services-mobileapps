@@ -11,6 +11,12 @@ const responseBuilder = (page, siteinfo, title, description) => ({
 	description,
 });
 
+const logger = require('bunyan').createLogger({
+	name: 'test-logger',
+	level: 'warn'
+});
+logger.log = function(a, b) {};
+
 describe('lib:mwapi:queryForMetadata', () => {
 	it('ensure that displaytitle is always requested', () => {
 		const req = util.getMockedServiceReq({
@@ -26,7 +32,7 @@ describe('lib:mwapi:queryForMetadata', () => {
 			piprop: 'original',
 			titles: req.params.title,
 		};
-
+		req.logger = logger;
 		return queryForMetadata(req, query, responseBuilder).then(metadata => {
 			assert.deepEqual(metadata.title.display, '<span class="mw-page-title-main">Β-lactam antibiotic</span>');
 		});

@@ -5,6 +5,7 @@
  */
 
 const router = require('../../lib/util').router();
+const mwapi = require('../../lib/mwapi');
 const mUtil = require('../../lib/mobile-util');
 const parsoidApi = require('../../lib/parsoid-access');
 const TalkPage = require('../../lib/talk/TalkPage');
@@ -26,7 +27,7 @@ router.get('/talk/:title/:revision?/:tid?', projectAllowMiddlewares['page-talk']
 	res.setHeader('Cache-Control', req.app.conf.cache_headers['page-talk']);
 	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/talk/${ title }`;
 	const lang = wikiLanguage.getLanguageCode(req.params.domain);
-	return parsoidApi.getParsoidHtml(req)
+	const buildTalk = ( _req ) => parsoidApi.getParsoidHtml(_req)
 		.then(parsoidRsp => mUtil.createDocument(parsoidRsp.body)
 			.then(doc => TalkPage.promise(doc, lang)
 				.then(talkPage => {
@@ -46,6 +47,10 @@ router.get('/talk/:title/:revision?/:tid?', projectAllowMiddlewares['page-talk']
 						app.metrics.timing('page_talk.processing', processingTime);
 					}
 				})));
+	return mwapi.resolveTitleRedirect(req).then((title) => {
+		req.params.title = title;
+		return buildTalk(req);
+	});
 });
 
 module.exports = function(appObj) {
