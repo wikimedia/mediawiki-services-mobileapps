@@ -91,7 +91,7 @@
 		"@babel/types": "7.24.5",
 		"@wikimedia/less-plugin-clean-css": "^1.5.2",
 		"ajv": "^8.13.0",
-		"eslint-config-wikimedia": "0.29.1",
+		"eslint-config-wikimedia": "0.30.0",
 		"extend": "^3.0.2",
 		"js-beautify": "^1.15.1",
 		"jsdoc": "4.0.4",
