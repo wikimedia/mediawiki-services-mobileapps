@@ -33,7 +33,13 @@ router.get('/summary/:title/:revision?/:tid?', projectAllowMiddlewares['page-sum
 	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/summary/${ title }`;
 	req.purgePaths = [
 		`/page/summary/${ encodeURIComponent(req.params.title) }`,
-		...(req.params.revision ? [`/page/summary/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
+		`/page/definition/${ encodeURIComponent(req.params.title) }`,
+		...(
+			req.params.revision ? [
+				`/page/summary/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`,
+				`/page/definition/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`
+			] : []
+		),
 	];
 
 	// Configure cache headers
