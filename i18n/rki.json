@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tejoebāsa"
+		]
+	},
+	"description-add-link-title": "ဆောင်းပါးဖော်ပြချက် ပေါင်းထည့်ပါ",
+	"article-read-more-title": "ပိုဖတ်ရှုပါ",
+	"table-title-other": "နောက်ထပ် အချက်အလက်",
+	"page-edit-history": "တီးဖြတ်မှုမှတ်တမ်း အပြည့်အစုံ",
+	"info-box-close-text": "ပိတ်ပါ",
+	"page-talk-page-subtitle": "ဒေဆောင်းပါးအတွက် တိုးတက်မှုတိကို ဆွီးနွီးပါ",
+	"page-issues-subtitle": "ပြဿနာဟိရေအကြောင်းအရာကို အသိပီးပါ",
+	"page-talk-page": "ဆွေးနွီးမှုစာမျက်နှာကို ကြေ့ပါ",
+	"info-box-title": "အချက်တိုတိ",
+	"view-in-browser-footer-link": "ဆောင်းပါးကို ဘရောက်ဆာတွင် ‌‌ကြေ့ပါ",
+	"page-location": "မြေပုံမာ ကြေ့ပါ",
+	"page-similar-titles": "ဆင်တူစာမျက်နှာတိ",
+	"page-last-edited": "{{PLURAL:$1|ညကတီးဖြတ်ခရေ|$1 ရက်အကြာက တီးဖြတ်ခရေ|0=ဂနိန့်တီးဖြတ်ခဲ့ရေ}}",
+	"article-about-title": "ဒေဆောင်းပါးအကြောင်း",
+	"page-issues": "စာမျက်နှာ ကိစ္စရပ်တိ",
+	"license-footer-text": "အကြောင်းအရာတိကို အခြားမှတ်ချက်မဟိပါကေ $1 အောက်တွင် ရဟိနိုင်ပါရေ။",
+	"page-read-in-other-languages": "{{PLURAL:$1|$1 အခြားဘာသာစကား|$1 အခြားဘာသာစကားတိ}}မာ ရဟိနိုင်ရေ",
+	"article-edit-button": "အပိုင်းလိုက် ပြင်ဆင်ပါ",
+	"article-edit-protected-button": "ကာကွယ်ထားရေစာမျက်နှာမာ အပိုင်းလိုက်ပြင်ဆင်ပါ",
+	"article-section-expand": "အပိုင်းလိုက် ချဲ့ကားပါ",
+	"article-section-collapse": "အပိုင်းလိုက် ချုံ့ပါ",
+	"table-expand": "ဇယားကို ချဲ့ကားပါ",
+	"table-collapse": "ဇယားကို ချုံ့ပါ",
+	"references-preview-header": "အကိုးအကားတိဧ့ အကြိုမြင်ကွင်း"
+}
