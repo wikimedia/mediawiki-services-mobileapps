@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Geraki"
+			"Geraki",
+			"Jimkats"
 		]
 	},
 	"description-add-link-title": "Προσθήκη περιγραφής λήμματος",
@@ -15,9 +16,16 @@
 	"view-in-browser-footer-link": "Προβολή άρθρου στο φυλλομετρητή",
 	"page-location": "Προβολή σε έναν χάρτη",
 	"page-similar-titles": "Παρόμοιες σελίδες",
-	"page-last-edited": "Επεξεργάστηκε $1 ημέρες πριν",
+	"page-last-edited": "{{PLURAL:$1|Ενημερώθηκε χθες|Ενημερώθηκε $1 ημέρες πριν|0=Ενημερώθηκε σήμερα}}",
 	"article-about-title": "Σχετικά με αυτό το άρθρο",
 	"page-issues": "Ζητήματα με τη σελίδα",
 	"license-footer-text": "Το περιεχόμενο είναι διαθέσιμο σύμφωνα με την $1 εκτός αν αναφέρεται διαφορετικά.",
-	"page-read-in-other-languages": "Διαθέσιμο σε $1 άλλες γλώσσες"
+	"page-read-in-other-languages": "Διαθέσιμο σε $1 άλλες γλώσσες",
+	"article-edit-button": "Επεξεργασία ενότητας",
+	"article-edit-protected-button": "Επεξεργασία ενότητας σε προστατευμένη σελίδα",
+	"article-section-expand": "Επέκταση ενότητας",
+	"article-section-collapse": "Σύμπτυξη ενότητας",
+	"table-expand": "Επέκταση πίνακα",
+	"table-collapse": "Σύμπτυξη πίνακα",
+	"references-preview-header": "Προεπισκόπηση των παραπομπών"
 }
