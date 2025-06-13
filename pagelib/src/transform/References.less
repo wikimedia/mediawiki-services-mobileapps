@@ -31,26 +31,39 @@ ol.mw-references {
 }
 
 /* Groups with special appearance */
+
+// TODO: No longer override the structure and style of markers.
+
+ol.mw-references[ data-mw-group='decimal' ],
+ol.mw-references[ data-mw-group='lower-alpha' ],
+ol.mw-references[ data-mw-group='upper-alpha' ],
+ol.mw-references[ data-mw-group='lower-greek' ],
+ol.mw-references[ data-mw-group='lower-roman' ],
+ol.mw-references[ data-mw-group='lower-alpha' ],
+ol.mw-references[ data-mw-group='upper-roman' ] {
+    counter-reset: pcs-ref-back-link;
+}
 a.pcs-ref-back-link[ data-mw-group='decimal' ]:after {
-    content: '[' counter( mw-Ref, decimal ) ']';
+    counter-increment: pcs-ref-back-link;
+    content: '[' counter( pcs-ref-back-link, decimal ) ']';
 }
-
 a.pcs-ref-back-link[ data-mw-group='lower-alpha' ]:after {
-    content: '[' counter( mw-Ref, lower-alpha ) ']';
+    counter-increment: pcs-ref-back-link;
+    content: '[' counter( pcs-ref-back-link, lower-alpha ) ']';
 }
-
 a.pcs-ref-back-link[ data-mw-group='upper-alpha' ]:after {
-    content: '[' counter( mw-Ref, upper-alpha ) ']';
+    counter-increment: pcs-ref-back-link;
+    content: '[' counter( pcs-ref-back-link, upper-alpha ) ']';
 }
-
 a.pcs-ref-back-link[ data-mw-group='lower-greek' ]:after {
-    content: '[' counter( mw-Ref, lower-greek ) ']';
+    counter-increment: pcs-ref-back-link;
+    content: '[' counter( pcs-ref-back-link, lower-greek ) ']';
 }
-
 a.pcs-ref-back-link[ data-mw-group='lower-roman' ]:after {
-    content: '[' counter( mw-Ref, lower-roman ) ']';
+    counter-increment: pcs-ref-back-link;
+    content: '[' counter( pcs-ref-back-link, lower-roman ) ']';
 }
-
 a.pcs-ref-back-link[ data-mw-group='upper-roman' ]:after {
-    content: '[' counter( mw-Ref, upper-roman ) ']';
+    counter-increment: pcs-ref-back-link;
+    content: '[' counter( pcs-ref-back-link, upper-roman ) ']';
 }
