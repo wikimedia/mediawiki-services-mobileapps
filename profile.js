@@ -6,7 +6,7 @@ const os = require('os');
 
 async function capture (serverPath, configPath) {
 	const opts = {
-		argv: [serverPath, configPath],
+		argv: [serverPath, '-c', configPath],
 		workingDir: os.tmpdir()
 	};
 	try {
