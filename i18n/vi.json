@@ -1,11 +1,14 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Chaiwan2009"
+		]
 	},
 	"article-read-more-title": "Đọc tiếp",
 	"table-title-other": "Thêm thông tin",
 	"page-edit-history": "Toàn bộ lịch sử sửa đổi",
 	"info-box-close-text": "Đóng",
+	"page-talk-page-subtitle": "Thảo luận về những cải tiến cho bài viết này",
 	"page-talk-page": "Xem trang thảo luận",
 	"info-box-title": "Thông tin Nhanh",
 	"view-in-browser-footer-link": "Xem bài trong trình duyệt",
