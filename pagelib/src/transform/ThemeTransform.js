@@ -63,6 +63,8 @@ const setTheme = ( document, theme ) => {
 
 	if ( theme === THEME.DARK || theme === THEME.BLACK ) {
 		document.documentElement.classList.add( 'skin-theme-clientpref-night' );
+	} else {
+		document.documentElement.classList.remove( 'skin-theme-clientpref-night' );
 	}
 
 	// the pcs element is necessary to allow

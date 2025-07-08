@@ -1,0 +1,15 @@
+@import (inline) 'base_main.css';
+
+/*
+This is a space to add style overrides that will be included in base.css.
+Styles added here are for extreme edge cases, e.g. cases where base.css is loaded,
+but pcs.css is not.
+*/
+
+/* Fix for older app versions that display link previews in a WebView with old styles. */
+/* https://phabricator.wikimedia.org/T399025 */
+/* TODO: Remove in July 2026. */
+body:not(.mw-parser-output) {
+    background-color: transparent;
+    margin: 8px;
+}

@@ -30,5 +30,5 @@ fetch(url)
 			throw new Error('Problematic modules found: ' + problematicModules[1]);
 		}
 
-		return writeFile(path.join(__dirname, '../private/base.css'), css);
+		return writeFile(path.join(__dirname, '../private/base_main.css'), css);
 	});

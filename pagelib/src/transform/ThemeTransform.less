@@ -25,19 +25,6 @@ body[dir='rtl'] .mw-parser-output a.external {
   background-image: var(--rtl-external-link-icon);
 }
 
-/* baseline mid background */
-table,
-td,
-tr,
-th,
-li.gallerybox div.thumb {
-  .nonDefaultThemes({
-    background: @background-color-neutral-subtle !important;
-    color: @color-base;
-    border-color: @border-color-subtle;
-  });
-}
-
 hr:not(.notheme) {
   border: none;
   height: 1px;
@@ -60,13 +47,6 @@ hr:not(.notheme) {
     margin-bottom: 1px;
     overflow: hidden;
     font-style: italic;
-}
-
-.pcs-collapse-table-container td {
-  .darkThemesOnly({
-    color: @color-base;
-    background: unset;
-  });
 }
 
 sup>a.reference-link {
