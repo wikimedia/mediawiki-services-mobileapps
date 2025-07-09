@@ -24,13 +24,7 @@ const router = sUtil.router();
  */
 let app;
 
-/**
- * GET {domain}/v1/page/summary/{title}{/revision?}{/tid?}
- * Title redirection status: redirects based on parsoid output
- * Extracts a summary of a given wiki page limited to one paragraph of text
- */
-router.get('/summary/:title/:revision?/:tid?', projectAllowMiddlewares['page-summary'], caching.defaultCacheMiddleware, (req, res) => {
-	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/summary/${ title }`;
+const purgePathsMiddleware = (req, res, next) => {
 	req.purgePaths = [
 		`/page/summary/${ encodeURIComponent(req.params.title) }`,
 		`/page/definition/${ encodeURIComponent(req.params.title) }`,
@@ -41,6 +35,22 @@ router.get('/summary/:title/:revision?/:tid?', projectAllowMiddlewares['page-sum
 			] : []
 		),
 	];
+	next();
+};
+
+const summaryMiddlewares = [
+	purgePathsMiddleware,
+	projectAllowMiddlewares['page-summary'],
+	caching.defaultCacheMiddleware
+];
+
+/**
+ * GET {domain}/v1/page/summary/{title}{/revision?}{/tid?}
+ * Title redirection status: redirects based on parsoid output
+ * Extracts a summary of a given wiki page limited to one paragraph of text
+ */
+router.get('/summary/:title/:revision?/:tid?', summaryMiddlewares, (req, res) => {
+	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/summary/${ title }`;
 
 	// Configure cache headers
 	res.setHeader('Cache-Control', req.app.conf.cache_headers['page-summary']);

@@ -16,20 +16,25 @@ const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
 const router = sUtil.router();
 let app;
 
+const purgePathsMiddleware = (req, res, next) => {
+	req.purgePaths = [
+		`/page/media-list/${ encodeURIComponent(req.params.title) }`,
+		...(req.params.revision ? [`/page/media-list/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
+	];
+	next();
+};
+
 /**
  * GET {domain}/v1/page/media-list/{title}{/revision}{/tid}
  * Title redirection status: Redirects based on parsoid output
  * Returns the non-UI media files used on the given page.
  */
 router.get('/media-list/:title/:revision?/:tid?',
+	purgePathsMiddleware,
 	projectAllowMiddlewares['media-list'],
 	caching.defaultCacheMiddleware,
 	(req, res) => {
 		req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/media-list/${ title }`;
-		req.purgePaths = [
-			`/page/media-list/${ encodeURIComponent(req.params.title) }`,
-			...(req.params.revision ? [`/page/media-list/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
-		];
 
 		// Configure cache headers
 		res.setHeader('Cache-Control', req.app.conf.cache_headers['media-list']);

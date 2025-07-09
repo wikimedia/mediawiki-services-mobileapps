@@ -103,6 +103,14 @@ function getMobileHtmlFromMobileview(req, res) {
 		});
 }
 
+const purgePathsMiddleware = (req, res, next) => {
+	req.purgePaths = [
+		`/page/mobile-html/${ encodeURIComponent(req.params.title) }`,
+		...(req.params.revision ? [`/page/mobile-html/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
+	];
+	next();
+};
+
 /**
  * GET {domain}/v1/page/mobile-html/{title}{/revision}{/tid}
  * Title redirection status: redirects based on parsoid output
@@ -110,14 +118,11 @@ function getMobileHtmlFromMobileview(req, res) {
  * clients.
  */
 router.get('/page/mobile-html/:title/:revision?/:tid?',
+	purgePathsMiddleware,
 	projectAllowMiddlewares['mobile-html'],
 	caching.defaultCacheMiddleware,
 	(req, res) => {
 		req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/mobile-html/${ title }`;
-		req.purgePaths = [
-			`/page/mobile-html/${ encodeURIComponent(req.params.title) }`,
-			...(req.params.revision ? [`/page/mobile-html/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
-		];
 
 		// Configure cache headers
 		res.setHeader('Cache-Control', req.app.conf.cache_headers['mobile-html']);
