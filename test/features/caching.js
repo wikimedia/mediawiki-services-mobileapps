@@ -142,15 +142,11 @@ describe('Caching events', () => {
 
 		// Assert that uri/stream are properly set
 		const events = purgeEvents(exampleReq);
-		assert.equal(events.length, 4);
+		assert.equal(events.length, 2);
 		assert.equal(events[0].meta.uri, 'http://en.wikipedia.org/api/rest_v1/example/path/1');
-		assert.equal(events[0].meta.stream, 'example_change');
+		assert.equal(events[0].meta.stream, 'example_purge');
 		assert.equal(events[1].meta.uri, 'http://en.wikipedia.org/api/rest_v1/example/path/2');
-		assert.equal(events[1].meta.stream, 'example_change');
-		assert.equal(events[2].meta.uri, 'http://en.wikipedia.org/api/rest_v1/example/path/1');
-		assert.equal(events[2].meta.stream, 'example_purge');
-		assert.equal(events[3].meta.uri, 'http://en.wikipedia.org/api/rest_v1/example/path/2');
-		assert.equal(events[3].meta.stream, 'example_purge');
+		assert.equal(events[1].meta.stream, 'example_purge');
 
 		// Assert that events are validate against resource change schema
 		const schemaURL = 'https://schema.wikimedia.org/repositories/primary/jsonschema/resource_change/latest.yaml';
