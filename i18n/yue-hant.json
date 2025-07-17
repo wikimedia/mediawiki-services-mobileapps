@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"JeffreyKim",
+			"Winston Sung"
+		]
+	},
+	"description-add-link-title": "加入文章描述",
+	"article-read-more-title": "睇多啲",
+	"table-title-other": "知多啲",
+	"page-edit-history": "睇返編輯記錄",
+	"info-box-close-text": "閂",
+	"page-talk-page-subtitle": "討論呢篇文章嘅改進",
+	"page-issues-subtitle": "有關低於標準或者有問題嘅內容嘅警示",
+	"page-talk-page": "睇吓討論頁",
+	"info-box-title": "快速事實",
+	"view-in-browser-footer-link": "喺瀏覽器入面睇文章",
+	"page-location": "喺地圖上面睇",
+	"page-similar-titles": "類似嘅頁面",
+	"page-last-edited": "{{PLURAL:$1|Updated yesterday|Updated $1 days ago|0=今日更新咗}}",
+	"article-about-title": "關於呢篇文章",
+	"page-issues": "頁面問題",
+	"license-footer-text": "除非另有註明，否則內容嘅價錢係$1以下。",
+	"page-read-in-other-languages": "有得用喺{{PLURAL:$1|$1 other language|$1 其他語言}}",
+	"article-edit-button": "編輯部分",
+	"article-edit-protected-button": "喺受保護頁面嘅編輯部分",
+	"article-section-expand": "展開部分",
+	"article-section-collapse": "收埋部分",
+	"table-expand": "全部攤開",
+	"table-collapse": "全部摺埋",
+	"references-preview-header": "參考文獻嘅預覽"
+}
