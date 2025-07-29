@@ -281,6 +281,5 @@ export default {
     getSectionOffsets,
     prepareForHiding,
     setHidden,
-    getControlIdForSectionId,
-    isMediaWikiSectionElement
+    getControlIdForSectionId
 }

@@ -6,7 +6,6 @@ import './CollapseTable.less';
 import ElementUtilities from './ElementUtilities';
 import NodeUtilities from './NodeUtilities';
 import Polyfill from './Polyfill';
-import SectionUtilities from './SectionUtilities';
 import { ARIA } from './HTMLUtilities';
 
 /** @type {Object} */
@@ -422,38 +421,12 @@ const replaceNodeInSection = ( nodeToReplace, replacementNode ) => {
 	if ( !nodeToReplace || !replacementNode ) {
 		return;
 	}
-	let childOfSectionTag = nodeToReplace;
-	let sectionTag = nodeToReplace.parentNode;
-	if ( !sectionTag ) {
+	let parentNode = nodeToReplace.parentNode;
+	if ( !parentNode ) {
 		return;
 	}
-	let foundSectionTag = false;
-	while ( sectionTag ) {
-		if ( SectionUtilities.isMediaWikiSectionElement( sectionTag ) ) {
-			foundSectionTag = true;
-			break;
-		}
-		childOfSectionTag = sectionTag;
-		sectionTag = sectionTag.parentNode;
-	}
-	if ( !foundSectionTag ) {
-		childOfSectionTag = nodeToReplace;
-		sectionTag = nodeToReplace.parentNode;
-	}
-	// T279432 - Handle the case when the table is inside References list
-	if ( nodeToReplace.closest( '.mw-references' ) ) {
-		const nodeToReplaceParent = nodeToReplace.parentNode;
-		replacementNode.appendChild( nodeToReplace );
-		nodeToReplaceParent.appendChild( replacementNode );
-	} else {
-		if ( sectionTag.tagName === 'TABLE' ) {
-			sectionTag.insertBefore( replacementNode, childOfSectionTag );
-			sectionTag.removeChild( childOfSectionTag );
-		} else {
-			sectionTag.insertBefore( replacementNode, childOfSectionTag );
-		}
-	}
-
+	parentNode.insertBefore( replacementNode, nodeToReplace );
+	parentNode.removeChild( nodeToReplace );
 };
 
 /**
