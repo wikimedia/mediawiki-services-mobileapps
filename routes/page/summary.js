@@ -70,7 +70,7 @@ router.get('/summary/:title/:revision?/:tid?', summaryMiddlewares, (req, res) =>
 				mwapi.getMetadataForSummary(req, mwapiConstants.LEAD_IMAGE_S),
 				mwapi.getSiteInfo(req),
 				(response, meta, siteinfo) => {
-					const revTid = lib.createRevTid(shouldUseMobileview, response, meta);
+					const revTid = lib.createRevTid(shouldUseMobileview, response);
 					const htmlContent = lib.extractHtmlContent(shouldUseMobileview, response);
 					return lib.buildSummary(req.params.domain, req.params.title,
 						htmlContent, revTid, meta, siteinfo,
