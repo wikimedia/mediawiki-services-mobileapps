@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"JeffreyKim",
-			"Winston Sung"
+			"Winston Sung",
+			"Yueman"
 		]
 	},
 	"description-add-link-title": "加入文章描述",
@@ -17,7 +18,7 @@
 	"view-in-browser-footer-link": "喺瀏覽器入面睇文章",
 	"page-location": "喺地圖上面睇",
 	"page-similar-titles": "類似嘅頁面",
-	"page-last-edited": "{{PLURAL:$1|Updated yesterday|Updated $1 days ago|0=今日更新咗}}",
+	"page-last-edited": "{{PLURAL:$1|尋日更新咗|$1日前更新咗|0=今日更新咗}}",
 	"article-about-title": "關於呢篇文章",
 	"page-issues": "頁面問題",
 	"license-footer-text": "除非另有註明，否則內容嘅價錢係$1以下。",
