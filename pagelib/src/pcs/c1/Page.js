@@ -55,6 +55,13 @@ const waitForNextPaint = ( onSuccess ) => {
 const setup = ( optionalSettings, onSuccess ) => {
 	const settings = optionalSettings || {};
 
+	// Explicitly add the ns-0 class to main-namespace articles, since certain upstream styles
+	// require it for improved rendering.
+	const nsTag = document.querySelector( 'meta[property="mw:pageNamespace"]' );
+	if ( nsTag && nsTag.content ) {
+		document.body.classList.add( 'ns-' + nsTag.content );
+	}
+
 	PlatformTransform.setVersion( document, settings.version );
 
 	if ( settings.platform !== undefined ) {
