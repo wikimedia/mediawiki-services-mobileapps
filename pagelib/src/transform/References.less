@@ -3,11 +3,30 @@ ol.mw-references {
     padding: 0em;
 }
 
-.pcs-ref {
+.pcs-ref .mw-subreference-list {
+    margin-top: 1.5em;
+}
+
+.pcs-ref .mw-subreference-list > li::before {
+    content: none;
+}
+
+// For compatibility with existing (unpurged) mobile-html structure.
+// TODO: remove when a sufficient number of cached articles no longer has this structure.
+.pcs-ref:has(> .pcs-ref-body) {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+}
+
+.pcs-ref {
     margin-bottom: 1.5em;
+}
+
+.pcs-ref-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
 .pcs-ref-backlink-container {

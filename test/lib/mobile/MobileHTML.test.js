@@ -4,8 +4,10 @@ const assert = require('assert');
 const MobileHTML = require('../../../lib/mobile/MobileHTML');
 const constants = require('../../../lib/mobile/MobileHTMLConstants');
 const fixtures = require('../../utils/fixtures');
+const path = require('path');
 const perf = require('../../utils/performance');
 const Reference = require('../../../lib/mobile/Reference');
+const PAGELIB_FIXTURES = 'pagelib/test/fixtures';
 
 describe('lib:MobileHTML', () => {
 	it('does not block the event loop', () => {
@@ -133,41 +135,56 @@ describe('lib:MobileHTML', () => {
 	});
 
 	describe('handles sub-references', () => {
-		const subRefDocument = fixtures.readIntoDocument('SubReferences.html');
+		const subRefDocument = fixtures.readIntoDocument(path.resolve(PAGELIB_FIXTURES, 'SubReferences.html'));
 
 		it('formats sub-references', () => MobileHTML.promise(subRefDocument).then(
 			mobileHTML => {
 				assert.strictEqual(
 					mobileHTML.doc.getElementById('cite_note-main1-1').querySelector('.pcs-ref-backlink-container').textContent,
-					'↑',
-					'FIXME: Main+details backlink has no number'
+					'[1]',
+					'Main+details backlink has a number despite being unused'
 				);
 				assert.strictEqual(
 					mobileHTML.doc.getElementById('cite_note-main1-1').querySelector('.pcs-ref-body').textContent,
 					'main plus details (body)',
 					'Main plus details footnote body is correct'
 				);
-
 				assert.strictEqual(
-					mobileHTML.doc.getElementById('cite_ref-2').textContent,
+					mobileHTML.doc.getElementById('cite_note-2').querySelector('.pcs-ref-backlink-container').textContent,
 					'[1.1]',
-					'Subref footnote marker is intact'
+					'Main+details subref backlink marker is correct'
 				);
 				assert.strictEqual(
-					mobileHTML.doc.getElementById('cite_note-2'),
-					null,
-					'FIXME: Subref reflist item is missing'
+					mobileHTML.doc.getElementById('cite_note-2').querySelector('.pcs-ref-body').textContent,
+					'p. 123',
+					'Main+details subref reflist item is correct'
+				);
+
+				assert.strictEqual(
+					mobileHTML.doc.getElementById('cite_ref-4').textContent,
+					'[2.1]',
+					'Subref footnote marker has two parts'
+				);
+				assert.strictEqual(
+					mobileHTML.doc.getElementById('cite_note-4').querySelector('.pcs-ref-backlink-container').textContent,
+					'[2.1]',
+					'Subref reflist item has a marker-like backref'
+				);
+				assert.strictEqual(
+					mobileHTML.doc.getElementById('cite_note-4').querySelector('.pcs-ref-body').textContent,
+					'Subreference (body)',
+					'Subref footnote body is correct'
 				);
 
 				assert.strictEqual(
 					mobileHTML.doc.getElementById('cite_note-:0-3').querySelector('.pcs-ref-backlink-container').textContent,
 					'[2]',
-					'Normal reflist item has a marker-like backref'
+					'Parent reflist item has a marker-like backref'
 				);
 				assert.strictEqual(
 					mobileHTML.doc.getElementById('cite_note-:0-3').querySelector('.pcs-ref-body').textContent,
 					'Named ref (body)',
-					'Normal ref footnote body is correct'
+					'Parent ref footnote body is correct'
 				);
 			})
 		);

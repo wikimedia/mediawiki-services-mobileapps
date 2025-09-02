@@ -20,6 +20,7 @@ const CLASS = {
 	BODY: 'pcs-ref-body',
 	BODY_HEADER: 'pcs-ref-body-header',
 	BODY_CONTENT: 'pcs-ref-body-content',
+	ITEM: 'pcs-ref-item',
 	REF: 'pcs-ref'
 };
 
@@ -85,10 +86,10 @@ const hasCitationLink = ( element ) => {
 };
 
 /**
- * Get the reference text container.
+ * Find the reflist <li> from a given footnote marker by following its link
  *
  * @param {!Document} document
- * @param {!Element} source
+ * @param {!Element} source footnote marker element containing an anchor
  * @return {?HTMLElement}
  */
 const getRefTextContainer = ( document, source ) => {
@@ -98,6 +99,24 @@ const getRefTextContainer = ( document, source ) => {
 
 	return refTextContainer;
 };
+
+/**
+ * Extract footnote body HTML from a <li>
+ *
+ * @private
+ * @param {*} node references list item container element
+ * @return {!string} Raw HTML of the footnote body.
+ */
+const getFootnoteBodyForListItem = ( node ) => {
+	if ( !node ) {
+		return '';
+	}
+	const refTextSpan = node.querySelector( 'span.mw-reference-text,span.reference-text' );
+	if ( !refTextSpan ) {
+		return '';
+	}
+	return refTextSpan.innerHTML.trim();
+}
 
 /**
  * Extract reference text free of backlinks.
@@ -111,12 +130,15 @@ const collectRefText = ( document, source ) => {
 	if ( !refTextContainer ) {
 		return '';
 	}
-	// span.reference-text is for action=parse output
-	const refTextSpan = refTextContainer.querySelector( 'span.mw-reference-text,span.reference-text' );
-	if ( !refTextSpan ) {
-		return '';
+	const refHtml = getFootnoteBodyForListItem( refTextContainer );
+	const parentList = refTextContainer.parentElement;
+	const isSubRef = parentList.classList.contains('mw-subreference-list');
+	if (isSubRef) {
+		const mainRef = parentList.closest( 'li' );
+		const mainRefHtml = getFootnoteBodyForListItem( mainRef );
+		return `<div>${mainRefHtml}</div><div>${refHtml}</div>`;
 	}
-	return refTextSpan.innerHTML.trim();
+	return refHtml;
 };
 
 /**

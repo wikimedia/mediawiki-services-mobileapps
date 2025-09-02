@@ -1,6 +1,7 @@
 import assert from 'assert';
 import domino from 'domino';
 import pagelib from '../../build/wikimedia-page-library-transform.js';
+import fixtureIO from '../utilities/FixtureIO.mjs';
 
 let document;
 
@@ -293,6 +294,71 @@ describe( 'ReferenceCollection', () => {
 		it( 'correctly affirms child anchor does not have citation link', () => {
 			const element = document.querySelector( '#cite_ref-b' );
 			assert.strictEqual( hasCitationLink( element ), false );
+		} );
+	} );
+
+	describe( 'sub-referencing', () => {
+		let subrefDocument;
+		const MOCK_RECT = { top: 0, left: 1, right: 4, bottom: 0, width: 2, height: 3, x: 0, y: 0 };
+
+		before( () => {
+			subrefDocument = fixtureIO.documentFromFixtureFile( 'SubReferences.html' );
+			// mock method for stable output
+			domino.impl.Element.prototype.getBoundingClientRect = () => MOCK_RECT;
+		} );
+
+		it( '.collectNearbyReferences handles sub-references', () => {
+			const subRef = subrefDocument.getElementById( 'cite_ref-2' );
+			assert.ok( subRef );
+			assert.deepEqual( {
+				selectedIndex: 0,
+				referencesGroup: [
+					{
+						id: 'cite_ref-2',
+						rect: MOCK_RECT,
+						text: '[1.1]',
+						html: '<div>main plus details (body)</div><div>p. 123</div>',
+						href: './CiteDetails#cite_note-2'
+					}
+				]
+			},
+			ReferenceCollection.collectNearbyReferences( subrefDocument,
+				subRef.querySelector( '.mw-reflink-text' ) )
+			);
+		} );
+
+		it( '.collectNearbyReferences handles main ref reuse when sub-references are present', () => {
+			const mainReuse = subrefDocument.getElementById( 'cite_ref-:0_3-1' );
+			assert.ok( mainReuse );
+			assert.deepEqual( {
+				selectedIndex: 0,
+				referencesGroup: [
+					{
+						id: 'cite_ref-:0_3-1',
+						rect: MOCK_RECT,
+						text: '[2]',
+						html: 'Named ref (body)',
+						href: './CiteDetails#cite_note-:0-3'
+					},
+					{
+						id: 'cite_ref-:0_3-2',
+						rect: MOCK_RECT,
+						text: '[2]',
+						html: 'Named ref (body)',
+						href: './CiteDetails#cite_note-:0-3'
+					},
+					{
+						id: 'cite_ref-:0_3-3',
+						rect: MOCK_RECT,
+						text: '[2]',
+						html: 'Named ref (body)',
+						href: './CiteDetails#cite_note-:0-3'
+					}
+				]
+			},
+			ReferenceCollection.collectNearbyReferences( subrefDocument,
+				mainReuse.querySelector( '.mw-reflink-text' ) )
+			);
 		} );
 	} );
 } );
