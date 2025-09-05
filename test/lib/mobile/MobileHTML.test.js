@@ -131,4 +131,45 @@ describe('lib:MobileHTML', () => {
 		assert.strictEqual(Reference.truncateLinkText('[1001]'), '[..01]');
 		assert.strictEqual(Reference.truncateLinkText('[10001]'), '[...01]');
 	});
+
+	describe('handles sub-references', () => {
+		const subRefDocument = fixtures.readIntoDocument('SubReferences.html');
+
+		it('formats sub-references', () => MobileHTML.promise(subRefDocument).then(
+			mobileHTML => {
+				assert.strictEqual(
+					mobileHTML.doc.getElementById('cite_note-main1-1').querySelector('.pcs-ref-backlink-container').textContent,
+					'↑',
+					'FIXME: Main+details backlink has no number'
+				);
+				assert.strictEqual(
+					mobileHTML.doc.getElementById('cite_note-main1-1').querySelector('.pcs-ref-body').textContent,
+					'main plus details (body)',
+					'Main plus details footnote body is correct'
+				);
+
+				assert.strictEqual(
+					mobileHTML.doc.getElementById('cite_ref-2').textContent,
+					'[1.1]',
+					'Subref footnote marker is intact'
+				);
+				assert.strictEqual(
+					mobileHTML.doc.getElementById('cite_note-2'),
+					null,
+					'FIXME: Subref reflist item is missing'
+				);
+
+				assert.strictEqual(
+					mobileHTML.doc.getElementById('cite_note-:0-3').querySelector('.pcs-ref-backlink-container').textContent,
+					'[2]',
+					'Normal reflist item has a marker-like backref'
+				);
+				assert.strictEqual(
+					mobileHTML.doc.getElementById('cite_note-:0-3').querySelector('.pcs-ref-body').textContent,
+					'Named ref (body)',
+					'Normal ref footnote body is correct'
+				);
+			})
+		);
+	});
 });
