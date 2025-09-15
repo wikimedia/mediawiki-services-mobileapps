@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jagwar"
+		]
+	},
+	"description-add-link-title": "Hanampy famaritana lahatsoratra",
+	"article-read-more-title": "Hamaky bebe kokoa",
+	"table-title-other": "Torohay fanampiny",
+	"page-edit-history": "Hijery ny tantaram-pejy",
+	"info-box-close-text": "Hidina",
+	"page-talk-page-subtitle": "Hiresaka momba ny fanatsarana an'ity lahatsoratra ity",
+	"page-issues-subtitle": "Fampitandremana momba ny votoatiny tsy ampy na misy olana",
+	"page-talk-page": "Hijery ny pejin-dresaka",
+	"info-box-title": "Zava-misy haingana",
+	"view-in-browser-footer-link": "Jereo ny lahatsoratra amin'ny mpitety tranonkala",
+	"page-location": "Jerena amin'ny sarintany",
+	"page-similar-titles": "Pejy mitovitovy",
+	"page-last-edited": "{{PLURAL:$1|Nohavaozina omaly|Nohavaozina $1 andro lasa|0=Nohavaozina androany}}",
+	"article-about-title": "Momba ity lahatsoratra ity",
+	"page-issues": "Olana momba ny pejy",
+	"license-footer-text": "Mitondra ny lisansa $1 ny votoatiny raha tsy misy zava-kafa ambara.",
+	"page-read-in-other-languages": "Misy amin'ny {{PLURAL:}}fiteny $1 hafa",
+	"article-edit-button": "Hanova fizaràna",
+	"article-edit-protected-button": "Hanova fizaràna amina pejy voaaro",
+	"article-section-expand": "Hanitatra fizarana",
+	"article-section-collapse": "Hamoritra fizarana",
+	"table-expand": "Hanitatra tabilao",
+	"table-collapse": "Hamoritra tabilao",
+	"references-preview-header": "Topi-mason'ny tsiahy"
+}
