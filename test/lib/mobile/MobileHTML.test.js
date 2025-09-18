@@ -139,25 +139,36 @@ describe('lib:MobileHTML', () => {
 
 		it('formats sub-references', () => MobileHTML.promise(subRefDocument).then(
 			mobileHTML => {
+				const reflist_item_1 = mobileHTML.doc.getElementById('cite_note-main1-1');
+				const backlink_1 = reflist_item_1.querySelector('.pcs-ref-backlink-container');
 				assert.strictEqual(
-					mobileHTML.doc.getElementById('cite_note-main1-1').querySelector('.pcs-ref-backlink-container').textContent,
-					'[1]',
-					'Main+details backlink has a number despite being unused'
+					backlink_1.textContent, '[1]',
+					'Main+details main backlink has a number despite being unused'
 				);
 				assert.strictEqual(
-					mobileHTML.doc.getElementById('cite_note-main1-1').querySelector('.pcs-ref-body').textContent,
+					backlink_1.querySelector('a').href, '/wiki/CiteDetails#pcs-ref-back-link-cite_note-main1-1',
+					'BROKEN: Main+details main backlink is not a link'
+				);
+				assert.strictEqual(
+					reflist_item_1.querySelector('.pcs-ref-body').textContent,
 					'main plus details (body)',
 					'Main plus details footnote body is correct'
 				);
+
+				const reflist_item_1_1 = mobileHTML.doc.getElementById('cite_note-2');
 				assert.strictEqual(
-					mobileHTML.doc.getElementById('cite_note-2').querySelector('.pcs-ref-backlink-container').textContent,
-					'[1.1]',
+					reflist_item_1_1.querySelector('.pcs-ref-body').textContent,
+					'p. 123',
+					'Main+details subref reflist item is correct'
+				);
+				const backlink_1_1 = reflist_item_1_1.querySelector('.pcs-ref-backlink-container');
+				assert.strictEqual(
+					backlink_1_1.textContent, '[1.1]',
 					'Main+details subref backlink marker is correct'
 				);
 				assert.strictEqual(
-					mobileHTML.doc.getElementById('cite_note-2').querySelector('.pcs-ref-body').textContent,
-					'p. 123',
-					'Main+details subref reflist item is correct'
+					backlink_1_1.querySelector('a').href, '/wiki/CiteDetails#pcs-ref-back-link-cite_note-2',
+					'Main+details backlink is a link'
 				);
 
 				assert.strictEqual(
