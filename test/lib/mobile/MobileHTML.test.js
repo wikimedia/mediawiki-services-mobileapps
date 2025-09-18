@@ -146,8 +146,8 @@ describe('lib:MobileHTML', () => {
 					'Main+details main backlink has a number despite being unused'
 				);
 				assert.strictEqual(
-					backlink_1.querySelector('a').href, '/wiki/CiteDetails#pcs-ref-back-link-cite_note-main1-1',
-					'BROKEN: Main+details main backlink is not a link'
+					backlink_1.querySelector('a'), undefined,
+					'Main+details main backlink is not a link'
 				);
 				assert.strictEqual(
 					reflist_item_1.querySelector('.pcs-ref-body').textContent,
