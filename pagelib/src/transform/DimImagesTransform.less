@@ -1,3 +1,25 @@
 .pcs-dim-images img:not(.mwe-math-fallback-image-inline):not(.mwe-math-fallback-image-display) {
-  opacity: 0.65;
+  --img-brightness-dark: 0.8;
+}
+
+// Temporary workaround for overriding the default image dimming introduced in MW core.
+// Keep in sync with:
+// https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/core/+/refs/heads/master/resources/src/mediawiki.skinning/content.media-dark.less
+// https://phabricator.wikimedia.org/T400838
+//
+// Remove this when a proper Codex token for image brightness is introduced:
+// https://phabricator.wikimedia.org/T401654
+.mw-parser-output,
+section .mw-heading ~ div,
+section,
+dd,
+p {
+  > span.mw-default-size,
+  > figure[ typeof^='mw:File' ] {
+    &:not( .skin-invert-image ) {
+      img {
+        filter: brightness( var( --img-brightness-dark, 1 ) ) !important;
+      }
+    }
+  }
 }
