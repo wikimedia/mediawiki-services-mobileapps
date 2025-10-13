@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bapham123",
 			"Chaiwan2009",
 			"Dytran"
 		]
 	},
+	"description-add-link-title": "Thêm mô tả bài viết",
 	"article-read-more-title": "Đọc tiếp",
 	"table-title-other": "Thêm thông tin",
 	"page-edit-history": "Toàn bộ lịch sử sửa đổi",
@@ -19,5 +21,8 @@
 	"article-about-title": "Thông tin về bài viết",
 	"page-issues": "Vấn đề trang",
 	"license-footer-text": "Nội dung được phát hành theo $1, trừ khi có ghi chú khác.",
-	"page-read-in-other-languages": "Có sẵn trong $1 ngôn ngữ khác"
+	"page-read-in-other-languages": "Có sẵn trong $1 ngôn ngữ khác",
+	"article-edit-button": "Sửa đổi đề mục",
+	"article-edit-protected-button": "Sửa đổi đề mục trên trang được khóa",
+	"references-preview-header": "Xem trước chú thích"
 }

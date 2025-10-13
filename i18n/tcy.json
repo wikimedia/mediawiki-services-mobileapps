@@ -1,16 +1,31 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Vishwanatha Badikana"
+		]
 	},
+	"description-add-link-title": "ಲೇಕನೊದ ವಿವರಣೆನ್ ಸೇರಾವೊಡು",
 	"article-read-more-title": "ನನಲಾ ಓದುಲೇ",
 	"table-title-other": "ಜಾಸ್ತಿ ಮಾಹಿತಿ",
+	"page-edit-history": "ಸಂಪೊಲ್ತಿನ ಇತಿಯಾಸೊನು ತೂಲೆ",
 	"info-box-close-text": "ಮುಚ್ಚಿಲೆ",
+	"page-talk-page-subtitle": "ಈ ಲೇಕನೊದ ಸುದಾರಣೆಲೆನ್ ಚರ್ಚೆ ಮಲ್ಪುಲೆ",
+	"page-issues-subtitle": "ಗುಣಮಟ್ಟೊ ಅತ್ತಂದೆ ಸಮಸ್ಯೆದ ವಿಸಯೊದ ಬಗೆಟ್ ಎಚ್ಚರಿಕೆಲು",
 	"page-talk-page": "ಚರ್ಚೆ ಪುಟೊನು ತೂಲೆ",
-	"info-box-title": "ಇತ್ತೆತ ವಿಸಯೊ.",
+	"info-box-title": "ವೇಗೊದ ಸತ್ಯೊ",
+	"view-in-browser-footer-link": "ವೀಕ್ಷಕ ತಂತ್ರಾಂಸೊಡು ಲೇಕನೊನು ತೂಲೆ",
+	"page-location": "ಬೂಪಟೊಡು ತೂಲೆ",
 	"page-similar-titles": "ಇಂಚಿನವೇ ಪುಟಕುಲು",
-	"page-last-edited": "$1 ದಿನ ದುಂದು ಸೇರ್ಸಾಯಿನಾ",
+	"page-last-edited": "{{PLURAL:$1|ಕೋಡೆದ ಪರಿಷ್ಕರಣೆ|ಒಂಜಿ ದಿನೊತ ಪರಿಷ್ಕರಣೆ $1 |0=ಇತನಿತ್ತ ಪರಿಷ್ಕರಣೆ}}",
 	"article-about-title": "ಈ ಲೇಕನೋತ ಬಗ್ಗೆ",
 	"page-issues": "ಪುಟೊತ್ತಾ ಸಮಸ್ಯೆ",
 	"license-footer-text": "ಪ್ರತ್ಯೇಕವಾದ್ ಉಲ್ಲೇಕ ಮಲ್ಪಂದೆ ಇತ್ತ್ಂಡ, ವಿಸಯ \"$1\" ದಡಿಟ್ ಲಭ್ಯ ಉಂಡು.",
-	"page-read-in-other-languages": "$1 ಬಾಸೆಲೆಡ್ ಉಂಡು"
+	"page-read-in-other-languages": "$1 ಬಾಸೆಲೆಡ್ ಉಂಡು",
+	"article-edit-button": "ವಿಬಾಗೊನು ಸಂಪೊಲಿಪುಲೆ",
+	"article-edit-protected-button": "ರಕ್ಷಣೆ ಮಲ್ತಿನ ಪುಟೊಡು ವಿಬಾಗೊನು ಸಂಪೊಲಿಪುಲೆ",
+	"article-section-expand": "ವಿಬಾಗೊನು ವಿಸ್ತಾರ ಮಲ್ಪುಲೆ",
+	"article-section-collapse": "ವಿಬಾಗೊನು ಎಲ್ಯೆ ಮಲ್ಪುಲೆ",
+	"table-expand": "ಪಟ್ಟಿನ್ ವಿಸ್ತಾರ ಮಲ್ಪುಲೆ",
+	"table-collapse": "ಪಟ್ಟಿನ್ ಎಲ್ಯೆ ಮಲ್ಪುಲೆ",
+	"references-preview-header": "ಉಲ್ಲೇಕೊಲೆ ಮುನ್ನೋಟ"
 }

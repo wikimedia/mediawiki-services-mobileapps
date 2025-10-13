@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"ITZQing"
+		]
+	},
+	"description-add-link-title": "Dodaj opis članka",
+	"article-read-more-title": "Pročitajte više",
+	"table-title-other": "Više informacija",
+	"page-edit-history": "Prikaži istoriju izmjena",
+	"info-box-close-text": "Zatvori",
+	"page-talk-page-subtitle": "Razgovarajte o poboljšanjima ovog članka",
+	"page-issues-subtitle": "Upozorenja o ispodprosječnom ili problematičnom sadržaju",
+	"page-talk-page": "Prikaži stranicu za razgovor",
+	"info-box-title": "Kratke činjenice",
+	"view-in-browser-footer-link": "Prikaži članak u pregledaču",
+	"page-location": "Prikaži na mapi",
+	"page-similar-titles": "Slične stranice",
+	"page-last-edited": "{{PLURAL:$1|0=Ažurirano danas|1=Ažurirano juče|Ažurirano pre $1 dana}}",
+	"article-about-title": "O ovom članku",
+	"page-issues": "Problemi na stranici",
+	"license-footer-text": "Sadržaj je dostupan pod licencom $1 ako nije drugačije naznačeno.",
+	"page-read-in-other-languages": "Dostupno na još $1 jezika",
+	"article-edit-button": "Uredi odeljak",
+	"article-edit-protected-button": "Uredi odjeljak na zaštićenoj stranici",
+	"article-section-expand": "Proširi odjeljak",
+	"article-section-collapse": "Skupi odjeljak",
+	"table-expand": "Proširi tabelu",
+	"table-collapse": "Skupi tabelu",
+	"references-preview-header": "Pregled referenci"
+}
