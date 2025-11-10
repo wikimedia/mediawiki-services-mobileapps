@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bennylin"
+		]
+	},
+	"description-add-link-title": "ꦠꦩ꧀ꦧꦃ​ꦢꦺꦱ꧀ꦏꦿꦶꦥ꧀ꦱꦶ​ꦲꦂꦠꦶꦏꦼꦭ꧀",
+	"article-read-more-title": "ꦩꦕ​ꦭꦸꦮꦶꦃ​ꦲꦏꦺꦃ",
+	"table-title-other": "ꦲꦶꦤ꧀ꦥ꦳ꦺꦴꦂꦩꦱꦶ​ꦭꦸꦮꦶꦃ​ꦲꦏꦺꦃ",
+	"page-edit-history": "ꦢꦼꦊꦁ​ꦱꦗꦫꦃ​ꦧꦼꦱꦸꦠ꧀ꦠꦤ꧀",
+	"info-box-close-text": "ꦠꦸꦠꦸꦥ꧀",
+	"page-talk-page-subtitle": "ꦉꦩ꧀ꦧꦸꦒ꧀ꦏꦁꦒꦺꦴ​ꦩ꧀ꦧꦼꦤꦏ꧀ꦏꦏꦺ​ꦲꦂꦠꦶꦏꦺꦭ꧀ꦲꦶꦏꦶ",
+	"page-issues-subtitle": "ꦉꦩ꧀ꦧꦸꦒ꧀ꦧꦧꦒꦤ꧀ꦏꦺꦴꦤ꧀ꦠꦺꦤ꧀ꦱꦶꦁ​ꦏꦸꦫꦁ​ꦲꦥꦶꦏ꧀ꦲꦸꦠꦮ​ꦲꦤ​ꦩꦱꦭꦃ",
+	"page-talk-page": "ꦢꦼꦊꦁ​ꦏꦕ​ꦉꦩ꧀ꦧꦸꦒ꧀ꦒꦤ꧀",
+	"info-box-title": "ꦥ꦳ꦏ꧀ꦠ​ꦕꦼꦥꦼꦠ꧀",
+	"view-in-browser-footer-link": "ꦢꦼꦊꦁ​ꦲꦂꦠꦶꦏꦼꦭ꧀ꦲꦶꦁ​ꦥꦼꦫꦩ꧀ꦧꦤ꧀",
+	"page-location": "ꦢꦼꦊꦁ​ꦲꦶꦁ​ꦥꦺꦠ",
+	"page-similar-titles": "ꦏꦕ​ꦱꦶꦁ​ꦩꦺꦩ꧀ꦥꦼꦂ",
+	"page-last-edited": "{{PLURAL:$1|ꦢꦶꦧꦼꦱꦸꦠ꧀ꦮꦶꦔꦶ|ꦢꦶꦧꦼꦱꦸꦠ꧀$1ꦢꦶꦤꦏꦼꦥꦸꦁꦏꦸꦂ|0=ꦢꦶꦧꦼꦱꦸꦠ꧀ꦢꦶꦤ​ꦲꦶꦏꦶ}}",
+	"article-about-title": "ꦧꦧꦒ꧀ꦒꦤ꧀ꦲꦂꦠꦶꦏꦼꦭ꧀ꦲꦶꦏꦶ",
+	"page-issues": "ꦩꦱꦭꦃ​ꦏꦕ",
+	"license-footer-text": "ꦲꦶꦱꦶ​ꦕꦸꦩꦼꦥꦏ꧀ꦏꦤ꧀ꦛꦶ​ꦥꦔꦪꦺꦴꦩ꧀ꦩꦤ꧀$1꧈ꦏꦗꦧ​ꦲꦤ​ꦏꦠꦼꦫꦁꦔꦤ꧀ꦭꦶꦪꦤꦺ꧉",
+	"page-read-in-other-languages": "ꦕꦸꦩꦼꦥꦏ꧀ꦏꦤ꧀ꦛꦶ{{PLURAL:$1|$1ꦧꦱ​ꦭꦶꦪꦤꦺ}}",
+	"article-edit-button": "ꦧꦼꦱꦸꦠ꧀ꦧꦒꦺꦪꦤ꧀",
+	"article-edit-protected-button": "ꦧꦼꦱꦸꦠ꧀ꦧꦒꦺꦪꦤ꧀ꦲꦶꦁ​ꦏꦕ​ꦱꦶꦁ​ꦢꦶꦭꦶꦤ꧀ꦢꦸꦔꦶ",
+	"article-section-expand": "ꦧꦸꦏꦏ꧀ꦧꦒꦺꦪꦤ꧀",
+	"article-section-collapse": "ꦠꦸꦠꦸꦥ꧀ꦧꦒꦺꦪꦤ꧀",
+	"table-expand": "ꦧꦸꦏꦏ꧀ꦠꦧꦺꦭ꧀",
+	"table-collapse": "ꦠꦸꦠꦸꦥ꧀ꦠꦧꦺꦭ꧀",
+	"references-preview-header": "ꦥꦿꦠꦪꦁ​ꦫꦺꦥ꦳ꦼꦫꦺꦤ꧀ꦱꦶ"
+}
