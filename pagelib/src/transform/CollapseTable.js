@@ -301,6 +301,10 @@ const newCollapsedHeaderDiv = ( document, content ) => {
 	const div = document.createElement( 'div' );
 	div.classList.add( CLASS.COLLAPSED_CONTAINER );
 	div.classList.add( CLASS.EXPANDED );
+	// https://phabricator.wikimedia.org/T409964
+	// Explicitly invert images in collapsed header to ensure visibility on dark mode, since
+	// the images are highly likely to be math formulas with black text on transparent background.
+	div.classList.add( 'skin-invert-image' );
 	/* DOM sink status: risk? - content come from newCaptionFragment which is potentially risky */
 	div.appendChild( content );
 	return div;
