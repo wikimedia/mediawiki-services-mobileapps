@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Michawiki"
+		]
+	},
+	"description-add-link-title": "Wopisanje nastawka pśidaś",
+	"article-read-more-title": "Wěcej cytaś",
+	"table-title-other": "Dalšne informacije",
+	"page-edit-history": "Historiju změnow pokazaś",
+	"info-box-close-text": "Zacyniś",
+	"page-talk-page-subtitle": "Pólěpšenja na toś tom nastawku diskutěrowaś",
+	"page-issues-subtitle": "Warnowanja wó pódpśerěznem abo problematiskem wopśimjeśu",
+	"page-talk-page": "Diskusijny bok pokazaś",
+	"info-box-title": "Zakładne fakty",
+	"view-in-browser-footer-link": "Nastawk we wobglědowaku se woglědaś",
+	"page-location": "Na kórśe pokazaś",
+	"page-similar-titles": "Pódobne boki",
+	"page-last-edited": "{{PLURAL:$1|Jo se cora zaktualizěrował|Jo se pśed $1 dnjoma zaktualizěrował|Jo se pśed $1 dnjami zaktualizěrował|0=Jo se źinsa zaktualizěrował}}",
+	"article-about-title": "Wó toś tom nastawku",
+	"page-issues": "Problemy boka",
+	"license-footer-text": "Wopśimjeśe stoj pód $1 k dispoziciji, jolic njejo se hynac pódało.",
+	"page-read-in-other-languages": "W {{PLURAL:$1|$1 dalšnej rěcy|$1 dalšnyma rěcoma|$1 dalšnych rěcach}} k dispoziciji",
+	"article-edit-button": "Wótrězk wobźěłaś",
+	"article-edit-protected-button": "Wótrězk na šćitanem boku wobźěłaś",
+	"article-section-expand": "Wótrězk rozšyriś",
+	"article-section-collapse": "Wótrězk schowaś",
+	"table-expand": "Tabelu rozšyriś",
+	"table-collapse": "Tabelu schowaś",
+	"references-preview-header": "Pśeglěd dokładow"
+}

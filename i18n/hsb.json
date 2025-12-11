@@ -1,10 +1,31 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Michawiki"
+		]
 	},
+	"description-add-link-title": "Wopisanje nastawka přidać",
 	"article-read-more-title": "Wjace čitać",
 	"table-title-other": "Dalše informacije",
+	"page-edit-history": "Historiju změnow pokazać",
 	"info-box-close-text": "Začinić",
+	"page-talk-page-subtitle": "Polěpšenja na tutym nastawku diskutować",
+	"page-issues-subtitle": "Warnowanja wo podpřerěznym abo problematiskim wobsahu",
+	"page-talk-page": "Diskusijnu stronu pokazać",
 	"info-box-title": "Zakładne fakty",
-	"page-similar-titles": "Podobne strony"
+	"view-in-browser-footer-link": "Nastawk we wobhladowaku wobhladać",
+	"page-location": "Na karće pokazać",
+	"page-similar-titles": "Podobne strony",
+	"page-last-edited": "{{PLURAL:$1|Je so wčera zaktualizował|Je so před $1 dnjomaj zaktualizował|Je so před $1 dnjemi zaktualizował|0=Je so dźensa zaktualizował}}",
+	"article-about-title": "Wo tutym nastawku",
+	"page-issues": "Problemy strony",
+	"license-footer-text": "Wobsah pod $1 k dispoziciji steji, jeli njeje so hinak podało.",
+	"page-read-in-other-languages": "W {{PLURAL:$1|$1 dalšej rěči|$1 dalšimaj rěčomaj|$1 dalšich rěčach}} k dispoziciji",
+	"article-edit-button": "Wotrězk wobdźěłać",
+	"article-edit-protected-button": "Wotrězk na škitanej stronje wobdźěłać",
+	"article-section-expand": "Wotrězk rozšěrić",
+	"article-section-collapse": "Wotrězk schować",
+	"table-expand": "Tabelu rozšěrić",
+	"table-collapse": "Tabelu schować",
+	"references-preview-header": "Přehlad dokładow"
 }
