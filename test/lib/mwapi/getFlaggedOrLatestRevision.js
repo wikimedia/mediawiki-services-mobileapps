@@ -6,6 +6,7 @@ const preq   = require('preq');
 const util = require('../../utils/testUtil');
 const getFlaggedOrLatestRevision = require('../../../lib/mwapi').getFlaggedOrLatestRevision;
 
+const user_agent = 'pcs-unittest/0.1 (https://www.mediawiki.org/wiki/Content_Transform_Team)';
 const logger = require('bunyan').createLogger({
 	name: 'test-logger',
 	level: 'warn'
@@ -46,7 +47,12 @@ describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 		const domain = 'test2.wikipedia.org';
 		const title = 'FlaggedRevsTest';
 		const uri = `https://${ domain }/api/rest_v1/page/title/${ title }`;
-		const getLatestRevision = () => preq.get({ uri })
+		const getLatestRevision = () => preq.get({
+			uri,
+			headers: {
+				'user-agent': user_agent
+			}
+		})
 			.then((res) => res.body.items[0].rev, (err) => {
 				throw new Error(`Error fetching latest revision for ${ title }: ${ err }`);
 			});
@@ -68,7 +74,12 @@ describe('lib:mwapi:getFlaggedOrLatestRevision', () => {
 		const domain = 'test2.wikipedia.org';
 		const title = 'PendingChangeFlaggedRevsTest';
 		const uri = `https://${ domain }/api/rest_v1/page/title/${ title }`;
-		const getLatestRevision = () => preq.get({ uri })
+		const getLatestRevision = () => preq.get({
+			uri,
+			headers: {
+				'user-agent': user_agent
+			}
+		})
 			.then((res) => res.body.items[0].rev, (err) => {
 				throw new Error(`Error fetching latest revision for ${ title }: ${ err }`);
 			});

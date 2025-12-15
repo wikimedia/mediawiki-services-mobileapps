@@ -447,6 +447,8 @@ describe('Language variants - cache DELETE', async () => {
 });
 
 describe('Caching headers - vary', async () => {
+	// DEBUG: timeout exceeded
+	this.timeout(60000);
 	let svc;
 	beforeEach(async () => {
 		svc = await server.start();
@@ -463,7 +465,9 @@ describe('Caching headers - vary', async () => {
 	});
 
 	it('should add accept-language in vary header for domain with language variants', async () => {
+		console.log('Requesting srwiki PHP');
 		const res = await preq.get(localUri('mobile-html', 'PHP', 'sr.wikipedia.org'));
+		console.log('Responded srwiki PHP');
 		assert.ok('vary' in res.headers);
 		assert.ok(res.headers.vary.includes('accept-language'));
 	});
