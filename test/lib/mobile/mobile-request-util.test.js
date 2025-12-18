@@ -3,6 +3,7 @@
 const assert = require('../../utils/assert');
 const MobileHTML = require('../../../lib/mobile/MobileHTML');
 const mRequestUtil = require('../../../lib/mobile/mobile-request-util');
+const testUtil = require('../../utils/testUtil');
 
 describe('lib:mobile/mobile-request-util', () => {
 	it('getOutputMode should return defaults when provided nonsense string', () => {
@@ -29,4 +30,35 @@ describe('lib:mobile/mobile-request-util', () => {
 		assert.deepEqual(mRequestUtil.getOutputMode('editPreview'),
 			MobileHTML.OutputMode.editPreview);
 	});
+
+	it('isWikipediaApp should return true for Wikipedia apps', () => {
+		const mockReq = testUtil.getMockedServiceReq({
+			params: { title: 'Cat', domain: 'en.wikipedia.org' },
+			headers: {
+				'user-agents': 'WikipediaApp/Foobar'
+			},
+		});
+		mockReq.get.withArgs('user-agent').returns(mockReq.headers['user-agents']);
+		assert.deepEqual(mRequestUtil.isWikipediaApp(mockReq), true);
+	});
+
+	it('isWikipediaApp should return false for non Wikipedia apps', () => {
+		const mockReq = testUtil.getMockedServiceReq({
+			params: { title: 'Cat', domain: 'en.wikipedia.org' },
+			headers: {
+				'user-agents': 'Foo/Bar'
+			},
+		});
+		mockReq.get.withArgs('user-agent').returns(mockReq.headers['user-agents']);
+		assert.deepEqual(mRequestUtil.isWikipediaApp(mockReq), false);
+	});
+
+	it('isWikipediaApp should return false for missing ua', () => {
+		const mockReq = testUtil.getMockedServiceReq({
+			params: { title: 'Cat', domain: 'en.wikipedia.org' }
+		});
+		mockReq.get.withArgs('user-agent').returns(undefined);
+		assert.deepEqual(mRequestUtil.isWikipediaApp(mockReq), false);
+	});
+
 });

@@ -149,12 +149,35 @@ describe('mobile-html', function() {
 		});
 	});
 
+	it('mobile-html from parse should have x-analytics set', () => {
+		const uri = localUri('%E5%9C%B0%E7%90%83', 'zh.wikipedia.org');
+		return preq.get({ uri, headers: { 'user-agent': 'WikipediaApp/PCS-unittest' } }).then((res) => {
+			assert.deepEqual(res.headers['x-analytics'], 'pageid=5414300;ns=0;');
+		});
+	});
+
 	it('mobile-html should not enable edit talk page button by default', () => {
 		const uri = localUri('Cat');
 		return preq.get({ uri })
 			.then((res) => {
 				const document = domino.createDocument(res.body);
 				assert.selectorDoesNotExist(document, '.pcs-title-icon-talk-page', 'Document contains talk page button by default');
+			});
+	});
+
+	it('mobile-html should set x-analytics header', () => {
+		const uri = localUri('Cat');
+		return preq.get({ uri, headers: { 'user-agent': 'WikipediaApp/PCS-unittest' } })
+			.then((res) => {
+				assert.deepEqual(res.headers['x-analytics'], 'pageid=6678;ns=0;');
+			});
+	});
+
+	it('mobile-html should not set x-analytics header when no app header in req', () => {
+		const uri = localUri('Cat');
+		return preq.get({ uri, headers: { 'user-agent': 'foobar/1.0' } })
+			.then((res) => {
+				assert.ok(!('x-analytics' in res.headers), 'x-analytics header should not be set');
 			});
 	});
 
