@@ -46,7 +46,7 @@ testUtil.readTestFixtureDoc = fixtures.readIntoDocument;
 testUtil.getMockedApp = (options = {}) => {
 	const mockedApp = Object.assign({
 		conf: {
-			user_agent: 'WMF Mobile Content Service dev test',
+			user_agent: 'pcs-unittest/0.1 (https://www.mediawiki.org/wiki/Content_Transform_Team)',
 		}
 	}, options);
 	aUtil.setupApiTemplates(mockedApp);

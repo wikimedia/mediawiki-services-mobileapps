@@ -72,7 +72,7 @@ services:
       #   - user-agent
       #   - x-request-id
       # the user agent to use when issuing requests
-      user_agent: WMF Mobile Content Service dev
+      user_agent: WMF Mobile Content Service dev (https://www.mediawiki.org/wiki/Content_Transform_Team)
       # REST API base URIs
       use_request_host: true
       mobile_html_rest_api_base_uri: "//{{host}}/api/v1/"

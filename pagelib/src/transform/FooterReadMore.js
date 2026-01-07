@@ -169,7 +169,7 @@ const readMoreQueryURL = ( title, count, baseURL ) => {
 		prop: 'pageimages|description|info',
 		inprop: 'varianttitles',
 		piprop: 'thumbnail',
-		pithumbsize: 160,
+		pithumbsize: 250,
 		pilimit: count,
 		generator: 'search',
 		gsrsearch: `morelike:${ title }`,
