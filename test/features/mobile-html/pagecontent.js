@@ -4,6 +4,9 @@ const domino = require('domino');
 const preq   = require('preq');
 const assert = require('../../utils/assert.js');
 const server = require('../../utils/server.js');
+const { setXAnalytics } = require('../../../lib/mobile/mobile-request-util');
+const { mockReq } = require('sinon-express-mock');
+const sinon = require('sinon');
 
 describe('mobile-html', function() {
 
@@ -179,6 +182,36 @@ describe('mobile-html', function() {
 			.then((res) => {
 				assert.ok(!('x-analytics' in res.headers), 'x-analytics header should not be set');
 			});
+	});
+
+	it( "set X-Analytics shouldn't add header when missing data", () => {
+		const metadata = {
+			mw: {}
+		};
+		const req = mockReq();
+		req.get.returns('WikipediaApp/PCS-unittest');
+		const res = sinon.mock({
+			setHeader: function() {}
+		});
+		res.expects('setHeader').never();
+		setXAnalytics(req, res, metadata);
+		res.verify();
+	});
+
+	it( 'set X-Analytics should add headers when metadata exist', () => {
+		const metadata = {
+			mw: {
+				pageid: 123,
+				ns:123
+			}
+		};
+		const req = mockReq();
+		req.get.returns('WikipediaApp/PCS-unittest');
+		const res = {
+			setHeader: sinon.stub()
+		};
+		setXAnalytics(req, res, metadata);
+		sinon.assert.calledWith(res.setHeader, 'X-Analytics', 'pageid=123;ns=123;');
 	});
 
 });

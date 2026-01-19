@@ -28,29 +28,6 @@ const router = sUtil.router();
 let app;
 
 /**
- * Sets the X-Analytics header based on the MW metadata
- *
- * @param req
- * @param res
- * @param metadata
- */
-function setXAnalytics(req, res, metadata) {
-	if (!mRequestUtil.isWikipediaApp(req)) {
-		return;
-	}
-	const parts = [];
-	if (metadata.mw.pageid !== undefined) {
-		parts.push(`pageid=${ metadata.mw.pageid }`);
-	}
-	if (metadata.mw.ns !== undefined) {
-		parts.push(`ns=${ metadata.mw.ns }`);
-	}
-	if (parts) {
-		res.setHeader('X-Analytics', `${ parts.join(';') };`);
-	}
-}
-
-/**
  * @param {!Object} req
  * @param {!Object} res
  * @return {Promise}
@@ -71,7 +48,7 @@ function getMobileHtmlFromPOST(req, res) {
 		mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
 		mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
 		mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-		setXAnalytics(req, res, mobileHTML.metadata);
+		mRequestUtil.setXAnalytics(req, res, mobileHTML.metadata);
 		res.send(mobileHTML.doc.outerHTML).end();
 		if (mobileHTML.processingTime) {
 			app.metrics.timing('transform_html_to_mobile-html.processing', mobileHTML.processingTime);
@@ -98,7 +75,7 @@ function getMobileHtmlFromParsoid(req, res) {
 		mUtil.setETag(res, mobileHTML.metadata.revision);
 		mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
 		mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-		setXAnalytics(req, res, mobileHTML.metadata);
+		mRequestUtil.setXAnalytics(req, res, mobileHTML.metadata);
 		res.send(mobileHTML.doc.outerHTML).end();
 		if (mobileHTML.processingTime) {
 			app.metrics.timing('page_mobile-html.processing', mobileHTML.processingTime);
@@ -121,7 +98,7 @@ function getMobileHtmlFromMobileview(req, res) {
 			mUtil.setETag(res, mobileHTML.metadata.revision);
 			mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
 			mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-			setXAnalytics(req, res, mobileHTML.metadata);
+			mRequestUtil.setXAnalytics(req, res, mobileHTML.metadata);
 			res.send(mobileHTML.doc.outerHTML).end();
 			if (mobileHTML.processingTime) {
 				app.metrics.timing('page_mobile-html.mobileview_processing', mobileHTML.processingTime);
