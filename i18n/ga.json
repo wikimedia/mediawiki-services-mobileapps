@@ -1,20 +1,31 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Aindriu80"
+		]
 	},
-	"description-add-link-title": "Cuir sainchuntas teidil leis",
+	"description-add-link-title": "Cuir cur síos ar an alt leis",
 	"article-read-more-title": "Léigh a thuilleadh",
 	"table-title-other": "Tuilleadh eolais",
 	"page-edit-history": "Stair iomlán eagarthóireachta",
 	"info-box-close-text": "Dún",
+	"page-talk-page-subtitle": "Pléigh feabhsuithe ar an alt seo",
+	"page-issues-subtitle": "Foláirimh faoi ábhar faoi bhun caighdeáin nó fadhbach",
 	"page-talk-page": "Féach ar leathanach plé",
-	"info-box-title": "Fíricí Gasta",
+	"info-box-title": "Fíricí gasta",
 	"view-in-browser-footer-link": "Féach ar alt i mbrabhsálaí",
 	"page-location": "Féach ar léarscáil",
 	"page-similar-titles": "Leathanaigh den chineál céanna",
-	"page-last-edited": "Curtha in eagar $1 lá ó shin",
+	"page-last-edited": "{{PLURAL:$1|Nuashonraithe inné|Nuashonraithe $1 lá ó shin|0=Nuashonraithe inniu}}",
 	"article-about-title": "Maidir leis an alt seo",
 	"page-issues": "Ceisteanna le reitiu",
 	"license-footer-text": "Inneachar ar fáil faoi $1 mura luaitear a mhalairt.",
-	"page-read-in-other-languages": "Ar fáil i {{PLURAL:$1|dteanga amháin eile|$1 teanga eile}}"
+	"page-read-in-other-languages": "Ar fáil i {{PLURAL:$1|dteanga amháin eile|$1 teanga eile}}",
+	"article-edit-button": "Cuir an chuid in eagar",
+	"article-edit-protected-button": "Cuir an chuid ar leathanach faoi chosaint in eagar",
+	"article-section-expand": "Leathnaigh an chuid",
+	"article-section-collapse": "Laghdaigh an chuid",
+	"table-expand": "Leathnaigh an tábla",
+	"table-collapse": "Laghdaigh an tábla",
+	"references-preview-header": "Réamhamharc ar thagairtí"
 }
