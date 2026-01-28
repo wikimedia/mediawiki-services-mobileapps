@@ -3,6 +3,7 @@
 const assert = require('../../utils/assert.js');
 const buildUrls = require('../../../lib/mwapi').buildLeadImageUrls;
 const scale = require('../../../lib/thumbnail').scaleURL;
+const { findClosestWidthIndex, adjustSrcSet, ALLOWED_THUMB_WIDTHS } = require('../../../lib/thumbnail');
 
 const path = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0';
 
@@ -107,5 +108,52 @@ describe('lib:mwapi buildLeadImageUrls', () => {
 			960: thumb(960, '9999px-Foo.jpg', 'qlow-'),
 			1280: thumb(1280, '9999px-Foo.jpg', 'qlow-')
 		});
+	});
+});
+
+describe('lib:thumbnail adjustSrcSet', () => {
+	it('should use consecutive buckets for 1x, 1.5x, and 2x', () => {
+		const srcSet = `${ thumb(640) } 1x, ${ thumb(960) } 1.5x, ${ thumb(1280) } 2x`;
+		const origWidth = 2000;
+		const candidateBucketWidth = 500;
+
+		const result = adjustSrcSet(srcSet, origWidth, candidateBucketWidth);
+
+		// 500 is at index 6, so 1x->500, 1.5x->960, 2x->1280
+		assert.deepEqual(result, `${ thumb(500) } 1x, ${ thumb(960) } 1.5x, ${ thumb(1280) } 2x`);
+	});
+
+	it('should handle srcset entries in any order', () => {
+		const srcSet = `${ thumb(1280) } 2x, ${ thumb(640) } 1x, ${ thumb(960) } 1.5x`;
+		const origWidth = 2000;
+		const candidateBucketWidth = 500;
+
+		const result = adjustSrcSet(srcSet, origWidth, candidateBucketWidth);
+
+		assert.deepEqual(result, `${ thumb(1280) } 2x, ${ thumb(500) } 1x, ${ thumb(960) } 1.5x`);
+	});
+});
+
+describe('lib:thumbnail findClosestWidthIndex', () => {
+	it('should return index 0 when value is below lower limit', () => {
+		const index = findClosestWidthIndex(5);
+		assert.deepEqual(index, 0);
+		assert.deepEqual(ALLOWED_THUMB_WIDTHS[index], 20);
+	});
+
+	it('should return last index when value is above upper limit', () => {
+		const index = findClosestWidthIndex(5000);
+		assert.deepEqual(index, ALLOWED_THUMB_WIDTHS.length - 1);
+		assert.deepEqual(ALLOWED_THUMB_WIDTHS[index], 3840);
+	});
+
+	it('should return correct index when value matches an allowed width', () => {
+		const index = findClosestWidthIndex(500);
+		assert.deepEqual(ALLOWED_THUMB_WIDTHS[index], 500);
+	});
+
+	it('should return index of closest allowed width for in-between values', () => {
+		const index = findClosestWidthIndex(750);
+		assert.deepEqual(ALLOWED_THUMB_WIDTHS[index], 960);
 	});
 });
