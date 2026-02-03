@@ -1,6 +1,6 @@
 # syntax=docker-registry.wikimedia.org/repos/releng/blubber:v0.12.1
 version: v4
-base: docker-registry.wikimedia.org/nodejs18-slim
+base: docker-registry.wikimedia.org/nodejs22-slim
 lives:
   in: /srv/service
 runs:
@@ -8,12 +8,12 @@ runs:
 
 variants:
   dev:
-    base: docker-registry.wikimedia.org/nodejs18-devel
+    base: docker-registry.wikimedia.org/nodejs22-slim
     apt: { packages: [git, build-essential] }
     node: { requirements: [package.json, package-lock.json] }
     entrypoint: [npm, run, dev]
   build:
-    base: docker-registry.wikimedia.org/nodejs18-devel
+    base: docker-registry.wikimedia.org/nodejs22-slim
     copies: [local]
     apt: { packages: [git, build-essential, python3, pkg-config] }
     node: { requirements: [package.json] }
