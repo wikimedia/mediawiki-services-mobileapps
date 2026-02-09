@@ -155,7 +155,7 @@ describe('mobile-html', function() {
 	it('mobile-html from parse should have x-analytics set', () => {
 		const uri = localUri('%E5%9C%B0%E7%90%83', 'zh.wikipedia.org');
 		return preq.get({ uri, headers: { 'user-agent': 'WikipediaApp/PCS-unittest' } }).then((res) => {
-			assert.deepEqual(res.headers['x-analytics'], 'pageid=5414300;ns=0;');
+			assert.deepEqual(res.headers['x-analytics'], 'page_id=5414300;ns=0;');
 		});
 	});
 
@@ -172,7 +172,7 @@ describe('mobile-html', function() {
 		const uri = localUri('Cat');
 		return preq.get({ uri, headers: { 'user-agent': 'WikipediaApp/PCS-unittest' } })
 			.then((res) => {
-				assert.deepEqual(res.headers['x-analytics'], 'pageid=6678;ns=0;');
+				assert.deepEqual(res.headers['x-analytics'], 'page_id=6678;ns=0;');
 			});
 	});
 
@@ -211,7 +211,7 @@ describe('mobile-html', function() {
 			setHeader: sinon.stub()
 		};
 		setXAnalytics(req, res, metadata);
-		sinon.assert.calledWith(res.setHeader, 'X-Analytics', 'pageid=123;ns=123;');
+		sinon.assert.calledWith(res.setHeader, 'X-Analytics', 'page_id=123;ns=123;');
 	});
 
 });
