@@ -5,6 +5,7 @@ paths:
       tags:
         - Page content
       summary: Get page description
+      operationId: getPageDescription
       description: |
         Returns a description of a page. A page description is a short, plain-text phrase
         summarizing the topic of a page.
@@ -23,9 +24,9 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        "200":
           $ref: "#/components/responses/description"
-        404:
+        "404":
           description: Unknown page title or revision, or description not available
           content:
             application/problem+json:
@@ -55,6 +56,7 @@ paths:
       tags:
         - Page content
       summary: Update page description
+      operationId: updatePageDescription
       description: |
         Updates or creates a page description. Page descriptions contributed to English Wikipedia
         are licensed under the same license as Wikipedia articles. Page descriptions contributed
@@ -71,6 +73,7 @@ paths:
             type: string
       requestBody:
         required: true
+        description: Page description to update or create
         content:
           application/json:
             schema:
@@ -87,11 +90,11 @@ paths:
               required:
                 - description
       responses:
-        201:
+        "201":
           $ref: "#/components/responses/description"
-        401:
+        "401":
           $ref: "#/components/responses/problem"
-        501:
+        "501":
           $ref: "#/components/responses/problem"
         default:
           $ref: "#/components/responses/problem"
@@ -101,6 +104,7 @@ paths:
       tags:
         - Page content
       summary: Delete page description
+      operationId: deletePageDescription
       description: |
         Deletes a page description from Wikidata or, for English Wikipedia,
         from the local description.
@@ -115,11 +119,11 @@ paths:
           schema:
             type: string
       responses:
-        204:
+        "204":
           description: Success. Description deleted
-        401:
+        "401":
           $ref: "#/components/responses/problem"
-        501:
+        "501":
           $ref: "#/components/responses/problem"
         default:
           $ref: "#/components/responses/problem"
