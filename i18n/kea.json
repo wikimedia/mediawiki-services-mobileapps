@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"GrogeXaKaba"
+		]
+	},
+	"description-add-link-title": "Kirsenta diskrison di artigu",
+	"article-read-more-title": "Le más",
+	"table-title-other": "Más nfurmason",
+	"page-edit-history": "Udja stóriku di idisons",
+	"info-box-close-text": "Fitxa",
+	"page-talk-page-subtitle": "Diskuti midjorias pa es artigu",
+	"page-issues-subtitle": "Alértas sobri kuntiúdu prublemátiku o di kolidadi baxu",
+	"page-talk-page": "Udja pájina di kunbérsu",
+	"info-box-title": "Fatus rápidu",
+	"view-in-browser-footer-link": "Udja artigu na nabegador",
+	"page-location": "Udja na un mapa",
+	"page-similar-titles": "Pájinas similianti",
+	"page-last-edited": "{{PLURAL:$1|Atualizadu ónti|Atualizadu $1 dia dipatrás|0=Atualizadu oxi}}",
+	"article-about-title": "Sobri es artigu",
+	"page-issues": "Prabulémas di pájina",
+	"license-footer-text": "Kuntiúdu dispunibilizadu na térmus di $1, isétu si ndikadu ukontrári.",
+	"page-read-in-other-languages": "Dispunívi na {{PLURAL:$1|$1 otu linga}}",
+	"article-edit-button": "Idita sekson",
+	"article-edit-protected-button": "Idita sekson di pájina purtejidu",
+	"article-section-expand": "Spandi sekson",
+	"article-section-collapse": "Rakodji sekson",
+	"table-expand": "Spandi tabéla",
+	"table-collapse": "Rakodji tabéla",
+	"references-preview-header": "Privizualizason di rafirénsas"
+}
