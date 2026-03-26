@@ -16,6 +16,13 @@ class DimensionUnit {
 	 * @return {?DimensionUnit}
 	 */
 	static fromElement( element, property ) {
+		// HACK: fix UBN T421359
+		if ( element.tagName === 'IMG' && element.hasAttribute( 'style' ) ) {
+			const style = element.getAttribute( 'style' );
+			if ( style.includes( '--mw-file-upright' ) ) {
+				element.setAttribute( 'style', '' );
+			}
+		}
 		return element.style.getPropertyValue( property ) &&
       DimensionUnit.fromStyle( element.style.getPropertyValue( property ) ) ||
       element.hasAttribute( property ) && new DimensionUnit( element.getAttribute( property ) ) ||
