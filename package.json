@@ -64,7 +64,7 @@
 		"bunyan": "^1.8.15",
 		"cassandra-uuid": "^0.1.0",
 		"compression": "^1.7.4",
-		"domino": "^2.1.6",
+		"domino": "^2.1.7",
 		"express": "^4.19.2",
 		"http-shutdown": "^1.2.2",
 		"js-yaml": "^4.1.0",
