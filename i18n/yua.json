@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Brenda Yezeña Cámara Cen",
+			"Cohuoucan",
 			"Estefania de los angeles romero chim",
 			"Kikis14",
 			"Tita1973",
@@ -25,9 +26,10 @@
 	"page-issues": "taalamil ti' le paginao'",
 	"license-footer-text": "Le ba'axo'ob ku taasik yáan ichil u pajtalil $1, wa ku ya'alal wa mae'.",
 	"page-read-in-other-languages": "Yaan ti' {{PLURAL:$1| $1 uláak' t'aan| $1 uláak' t'aano'ob}}",
-	"article-edit-button": "K'ex le xoot",
+	"article-edit-button": "K'eex le xoot",
 	"article-edit-protected-button": "Editar sección ti' le linki kaambal protegida",
 	"article-section-expand": "Kóochkinsik le jaats",
+	"article-section-collapse": "p'atik chichan sección",
 	"table-expand": "je'el tuláakal",
 	"table-collapse": "u láaj níikil.",
 	"references-preview-header": "U yila'al referencias"
