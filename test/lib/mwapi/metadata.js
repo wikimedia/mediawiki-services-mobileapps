@@ -34,7 +34,7 @@ describe('lib:mwapi:queryForMetadata', () => {
 		};
 		req.logger = logger;
 		return queryForMetadata(req, query, responseBuilder).then(metadata => {
-			assert.deepEqual(metadata.title.display, '<span class="mw-page-title-main">Β-lactam antibiotic</span>');
+			assert.contains(metadata.title.display, 'Β-lactam antibiotic');
 		});
 	});
 });

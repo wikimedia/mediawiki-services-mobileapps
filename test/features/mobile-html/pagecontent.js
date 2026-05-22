@@ -116,10 +116,8 @@ describe('mobile-html', function() {
 				const document = domino.createDocument(res.body);
 				const section0 = document.querySelector('section[data-mw-section-id=0]');
 				// children[0] edit button
-				// children[1] 1st hatnote
-				// children[2] 2nd hatnote
-				// children[3] 3nd hatnote
-				assert.ok(section0.children[4].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
+				// children[1..4] hatnotes
+				assert.ok(section0.children[5].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
 			});
 	});
 
