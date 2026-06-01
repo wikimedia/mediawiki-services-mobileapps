@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"description-add-link-title": "Ku dar sharaxaad maqaal",
+	"article-read-more-title": "Akhri wax badan",
+	"table-title-other": "Macluumaad dheeraad ah",
+	"page-edit-history": "Eeg taariikhda tafatirka",
+	"info-box-close-text": "Xir",
+	"page-talk-page-subtitle": "Ka wada hadal hagaajinta maqaalka",
+	"page-issues-subtitle": "Digniino ku saabsan waxyaabo tayadoodu liidato ama dhibaato leh",
+	"page-talk-page": "Eeg bogga wadahadalka",
+	"info-box-title": "Xog degdeg ah",
+	"view-in-browser-footer-link": "Eeg maqaalka biraawsarka",
+	"page-location": "Ka eeg khariidadda",
+	"page-similar-titles": "Bogag la mid ah",
+	"page-last-edited": "{{PLURAL:$1|Shalay la cusboonaysiiyay|$1 maalmood ka hor la cusboonaysiiyay|0=Maanta la cusboonaysiiyay}}",
+	"article-about-title": "Ku saabsan maqaalka",
+	"page-issues": "Dhibaatooyinka bogga",
+	"license-footer-text": "Waxyaabaha waxaa lagu heli karaa $1 haddii aan si kale loo xusin.",
+	"page-read-in-other-languages": "Waxaa lagu heli karaa {{PLURAL:$1|$1 luqad kale|$1 luqadood oo kale}}",
+	"article-edit-button": "Tafatir qaybta",
+	"article-edit-protected-button": "Tafatir qaybta bogga la ilaaliyay",
+	"article-section-expand": "Ballaari qaybta",
+	"article-section-collapse": "Isku laab qaybta",
+	"table-expand": "Ballaari jadwalka",
+	"table-collapse": "Isku laab jadwalka",
+	"references-preview-header": "Hordhaca tixraacyada"
+}
