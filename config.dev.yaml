@@ -108,6 +108,21 @@ services:
         headers: "{{request.headers}}"
         body: "{{request.body}}"
         timeout: 60000 # 60 * 1000
+      # the template used to fetch an article's predicted topics. This points at
+      # the public Lift Wing outlink-topic-model endpoint, which is reachable
+      # outside production. On production infrastructure this is overridden (via
+      # deployment-charts) with the internal endpoint, which is a GET keyed on
+      # the page and revision ids, e.g.:
+      #   method: get
+      #   uri: https://linked-artifacts.discovery.wmnet:30443/revisions/v1/article_topics/{{wikiId}}/{{pageId}}/{{revisionId}}
+      predicted_topics_req:
+        method: post
+        uri: https://api.wikimedia.org/service/lw/inference/v1/models/outlink-topic-model:predict
+        headers:
+          user-agent: "{{user-agent}}"
+          content-type: application/json
+        body: "{{request.body}}"
+        timeout: 5000
       # whether to print extra debug info
       debug: true
       use_coreparsoid_endpoint: true

@@ -511,7 +511,13 @@ const onBodyEnd = () => {
 	 * @return {void}
 	 */
 	const finalSetupComplete = () => {
-		InteractionHandling.finalSetupComplete();
+		InteractionHandling.finalSetupComplete( {
+			ns: parseInt(document.head.querySelector('meta[property="mw:pageNamespace"]')?.getAttribute('content') || '0'),
+			pageId: parseInt(document.head.querySelector('meta[property="mw:pageId"]')?.getAttribute('content') || '0'),
+			modified: document.head.querySelector('meta[property="dc:modified"]')?.getAttribute('content'),
+			leadImage: getLeadImageFromMetaTags( getMetaTags() ),
+			topics: JSON.parse(document.head.querySelector('meta[property="pcs:topics"]')?.getAttribute('content') || '[]')
+		} );
 	};
 	if ( document.pcsSetupSettings ) {
 		const postSettings = document.pcsSetupSettings;

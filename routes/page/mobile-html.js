@@ -11,6 +11,7 @@ const mRequestUtil = require('../../lib/mobile/mobile-request-util');
 const mobileviewHtml = require('../../lib/mobileview-html');
 const apiUtilConstants = require('../../lib/api-util-constants');
 const parsoidApi = require('../../lib/parsoid-access');
+const topics = require('../../lib/topics');
 const sUtil = require('../../lib/util');
 const caching = require('../../lib/caching');
 const { addContentLangFromMeta } = require('../../lib/core-api-compat');
@@ -58,52 +59,26 @@ function getMobileHtmlFromPOST(req, res) {
 
 /**
  * @param {!Object} req
- * @param {!Object} res
- * @return {Promise}
+ * @return {Promise} a promise resolving to the built MobileHTML
  */
-function getMobileHtmlFromParsoid(req, res) {
+function getMobileHtmlFromParsoid(req) {
 	return BBPromise.props({
 		mobileHTML: parsoidApi.mobileHTMLPromise(app, req),
 		mw: mwapi.getMetadataForMobileHtml(req)
 	}).then((response) => {
 		response.mobileHTML.addMediaWikiMetadata(response.mw);
 		return response.mobileHTML;
-	}).then((mobileHTML) => {
-		res.status(200);
-		addContentLangFromMeta(res, mobileHTML.doc);
-		mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
-		mUtil.setETag(res, mobileHTML.metadata.revision);
-		mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
-		mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-		mRequestUtil.setXAnalytics(req, res, mobileHTML.metadata);
-		res.send(mobileHTML.doc.outerHTML).end();
-		if (mobileHTML.processingTime) {
-			app.metrics.timing('page_mobile-html.processing', mobileHTML.processingTime);
-		}
 	});
 }
 
 /**
  * @param {!Object} req
- * @param {!Object} res
- * @return {Promise}
+ * @return {Promise} a promise resolving to the built MobileHTML
  */
-function getMobileHtmlFromMobileview(req, res) {
+function getMobileHtmlFromMobileview(req) {
 	const scripts = [];
 	const baseURI = mUtil.getMetaWikiRESTBaseAPIURI(app, req);
-	return mobileviewHtml.requestAndProcessPageIntoMobileHTML(req, scripts, baseURI)
-		.then((mobileHTML) => {
-			res.status(200);
-			mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
-			mUtil.setETag(res, mobileHTML.metadata.revision);
-			mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
-			mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-			mRequestUtil.setXAnalytics(req, res, mobileHTML.metadata);
-			res.send(mobileHTML.doc.outerHTML).end();
-			if (mobileHTML.processingTime) {
-				app.metrics.timing('page_mobile-html.mobileview_processing', mobileHTML.processingTime);
-			}
-		});
+	return mobileviewHtml.requestAndProcessPageIntoMobileHTML(req, scripts, baseURI);
 }
 
 const purgePathsMiddleware = (req, res, next) => {
@@ -132,13 +107,37 @@ router.get('/page/mobile-html/:title/:revision?/:tid?',
 
 		const buildMobileHtml = (title) => {
 			req.params.title = title;
-			if (!mobileviewHtml.shouldUseMobileview(req, app.conf.mobile_view_languages)) {
-				return getMobileHtmlFromParsoid(req, res);
-			} else {
-				return getMobileHtmlFromMobileview(req, res);
-			}
+			const useMobileview = mobileviewHtml.shouldUseMobileview(req, app.conf.mobile_view_languages);
+			return BBPromise.props({
+				mobileHTML: useMobileview ?
+					getMobileHtmlFromMobileview(req) : getMobileHtmlFromParsoid(req),
+				topics: topics.getPredictedTopics(req, req.mwPageInfo?.pageid, req.mwPageInfo?.lastrevid)
+			}).then((response) => {
+				const mobileHTML = response.mobileHTML;
+				mobileHTML.addPredictedTopics(response.topics);
+				res.status(200);
+				if (!useMobileview) {
+					addContentLangFromMeta(res, mobileHTML.doc);
+				}
+				mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
+				mUtil.setETag(res, mobileHTML.metadata.revision);
+				mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
+				mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
+				mRequestUtil.setXAnalytics(req, res, mobileHTML.metadata);
+				res.send(mobileHTML.doc.outerHTML).end();
+				if (mobileHTML.processingTime) {
+					app.metrics.timing(
+						useMobileview ?
+							'page_mobile-html.mobileview_processing' : 'page_mobile-html.processing',
+						mobileHTML.processingTime
+					);
+				}
+			});
 		};
 
+		// Note: if pcs_handles_redirects is enabled, then mwapi.resolveTitleRedirect() will not
+		// be called, and will not populate the pageid and revisionid, which are used in certain
+		// downstream calls, e.g. getting article topics.
 		if (app.conf.pcs_handles_redirects) {
 			return buildMobileHtml(req.params.title);
 		}

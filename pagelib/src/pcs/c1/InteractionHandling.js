@@ -341,8 +341,8 @@ const initialSetupComplete = () => {
 /**
  * @return {void}
  */
-const finalSetupComplete = () => {
-	postMessage( new Interaction( Actions.FinalSetup ) );
+const finalSetupComplete = ( metadata ) => {
+	postMessage( new Interaction( Actions.FinalSetup, metadata ) );
 };
 
 /**
