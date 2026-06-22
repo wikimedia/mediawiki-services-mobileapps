@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"B722N"
+		]
+	},
+	"description-add-link-title": "Yongerako ennyonyola y'ekiwandiiko",
+	"article-read-more-title": "Soma ebisingawo",
+	"table-title-other": "Manya ebisingawo",
+	"page-edit-history": "Laba ebyafaayo by'okulongoosa",
+	"info-box-close-text": "Ggalawo",
+	"page-talk-page-subtitle": "Teesa ku nnongoosereza ezikoleddwa mu kitundu kino",
+	"page-issues-subtitle": "Okulabula ku bintu ebitalabika bulungi oba ebizibu",
+	"page-talk-page": "Laba omuko gw'emboozi",
+	"view-in-browser-footer-link": "Laba ekiwandiiko mu browser",
+	"page-location": "Laba ku maapu",
+	"page-similar-titles": "Empapula ezifaanagana",
+	"page-last-edited": "{{PLURAL:$1| Updated yesterday|Yalongoosebwa $1 ennaku eziyise|0=Ekyusiddwa leero}}",
+	"article-about-title": "Ebikwata ku kiwandiiko kino",
+	"license-footer-text": "Ebirimu bifunibwa wansi wa $1 okuggyako nga kiragiddwa ngeri endala.",
+	"page-read-in-other-languages": "Esangibwa mu {{PLURAL:$1| $1 olulimi olulala| $1 ennimi endala}}",
+	"article-edit-button": "Kyuusa ekitundu",
+	"article-edit-protected-button": "Kyuusa ekitundu ku lupapula olukuumibwa",
+	"article-section-expand": "Gaziya ekitundu",
+	"article-section-collapse": "Siba ekitundu"
+}
