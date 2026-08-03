@@ -38,11 +38,7 @@ paths:
               x-frame-options: SAMEORIGIN
             body:
               topics:
-                - id: /.+/
-                  replies:
-                    - sha: /.+/
-                      depth: /.+/
-                      html: /.*/
+                - id: /^-?\d+$/
                   depth: /.+/
                   html: /.*/
                   shas:

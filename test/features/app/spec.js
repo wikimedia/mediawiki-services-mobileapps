@@ -14,6 +14,8 @@ const addFormats = require('ajv-formats');
 
 const baseUri = `${ server.config.uri }en.wikipedia.org/v1/`;
 
+const defaultReqHeaders = { 'user-agent': 'pcs-unittest/0.1 (https://www.mediawiki.org/wiki/Content_Transform_Team)' };
+
 function getServiceConfig() {
 	return server.config.conf.services[server.config.conf.services.length - 1]
 		.conf;
@@ -75,7 +77,7 @@ function constructTestCase(title, path, method, request, response) {
 		request: {
 			uri: server.config.uri + (path[0] === '/' ? path.slice(1) : path),
 			method,
-			headers: request.headers || {},
+			headers: Object.assign({}, defaultReqHeaders, request.headers || {}),
 			query: request.query,
 			body: request.body,
 			followRedirect: false,
@@ -252,7 +254,10 @@ describe('Swagger spec', function () {
 		await svc.stop();
 	});
 
-	it('get the spec', () => preq.get(`${ server.config.uri }?spec`).then((res) => {
+	it('get the spec', () => preq.get({
+		uri: `${ server.config.uri }?spec`,
+		headers: defaultReqHeaders,
+	}).then((res) => {
 		assert.status(200);
 		assert.contentType(res, 'application/json');
 		assert.notDeepEqual(res.body, undefined, 'No body received!');
@@ -304,7 +309,10 @@ describe('validate responses against schema', function () {
 	const ajv = new Ajv({});
 	addFormats(ajv, { formats: ['date-time'] });
 	ajv.addKeyword({ keyword: 'example', type: 'string' });
-	const assertValidSchema = (uri, schemaPath) => preq.get({ uri }).then((res) => {
+	const assertValidSchema = (uri, schemaPath) => preq.get({
+		uri,
+		headers: defaultReqHeaders,
+	}).then((res) => {
 		if (!ajv.validate(schemaPath, res.body)) {
 			throw new assert.AssertionError({ message: ajv.errorsText() });
 		}
@@ -369,7 +377,7 @@ describe('validate spec examples', () => {
 		await svc.stop();
 	});
 
-	it('Should validate tests', async function (done) {
+	it('Should validate tests', async function () {
 		this.timeout(20000);
 		for (const testCase of constructTests(spec.paths, defParams, defHeaders)) {
 			try {
@@ -397,6 +405,5 @@ describe('validate spec examples', () => {
 				}
 			}
 		}
-		done();
 	});
 });
