@@ -71,11 +71,13 @@ describe('Cached endpoints', function () {
 
 			sinon.stub(cassandra, 'Engine').returns(engineStubbedInstance);
 			const svc = await server.start({ caching: { enabled: true } });
-			return preq.get({ uri }).then((res) => {
+			try {
+				const res = await preq.get({ uri });
 				assert.equal(res.body, expectedBody);
+			} finally {
 				sinon.restore();
-				svc.stop();
-			});
+				await svc.stop();
+			}
 		});
 
 		it(`should call cache set for non-cached ${ endpoint } page`, async () => {
@@ -89,7 +91,8 @@ describe('Cached endpoints', function () {
 			sinon.stub(cassandra, 'Engine').returns(engineStubbedInstance);
 			const svc = await server.start({ caching: { enabled: true, ttl: 0 } });
 
-			return preq.get({ uri }).then((res) => {
+			try {
+				const res = await preq.get({ uri });
 				sinon.assert.calledOnce(setStub);
 				const callArgs = setStub.getCall(0).args;
 				const expectedBody = isObject(res.body)
@@ -105,9 +108,10 @@ describe('Cached endpoints', function () {
 				);
 				assert.equal(callArgs[3].equals(Buffer.from(expectedBody)), true);
 				assert.equal(callArgs[4], 0);
+			} finally {
 				sinon.restore();
-				svc.stop();
-			});
+				await svc.stop();
+			}
 		});
 	}
 });
@@ -451,8 +455,7 @@ describe('Language variants - cache DELETE', async () => {
 
 });
 
-describe('Caching headers - vary', async () => {
-	// DEBUG: timeout exceeded
+describe('Caching headers - vary', function () {
 	this.timeout(60000);
 	let svc;
 	beforeEach(async () => {
