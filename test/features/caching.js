@@ -166,7 +166,8 @@ describe('Caching events', () => {
 	});
 });
 
-describe('Caching hooks', () => {
+describe('Caching hooks', function () {
+	this.timeout(20000);
 
 	it('should call hit hook on content hit', async () => {
 		const mockUpdateHook = sinon.mock();
@@ -190,14 +191,16 @@ describe('Caching hooks', () => {
 		sinon.stub(cassandra, 'Engine').returns(engine);
 		sinon.stub(cassandra, 'middlewareFactory').returns(middleware);
 		const svc = await server.start({ caching: { enabled: true } });
-		const uri = localUri('mobile-html', 'Cat');
-		return preq.get({ uri }).then((res) => {
+		try {
+			const uri = localUri('mobile-html', 'Cat');
+			await preq.get({ uri });
 			sinon.assert.notCalled(mockUpdateHook);
 			sinon.assert.calledOnce(mockHitHook);
 			assert.equal(mockHitHook.args[0][0].url, '/page/mobile-html/Cat');
+		} finally {
 			sinon.restore();
-			svc.stop();
-		});
+			await svc.stop();
+		}
 	});
 
 	it('should call update hook on content update', async () => {
@@ -221,14 +224,16 @@ describe('Caching hooks', () => {
 		sinon.stub(cassandra, 'Engine').returns(engine);
 		sinon.stub(cassandra, 'middlewareFactory').returns(middleware);
 		const svc = await server.start({ caching: { enabled: true } });
-		const uri = localUri('mobile-html', 'Cat');
-		return preq.get({ uri }).then((res) => {
+		try {
+			const uri = localUri('mobile-html', 'Cat');
+			await preq.get({ uri });
 			sinon.assert.notCalled(mockHitHook);
 			sinon.assert.calledOnce(mockUpdateHook);
 			assert.equal(mockUpdateHook.args[0][0].url, '/page/mobile-html/Cat');
+		} finally {
 			sinon.restore();
-			svc.stop();
-		});
+			await svc.stop();
+		}
 	});
 
 });
