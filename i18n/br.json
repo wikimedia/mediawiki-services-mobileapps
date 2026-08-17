@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ar choler",
 			"Fulup",
 			"Huñvreüs"
 		]
@@ -11,19 +12,19 @@
 	"page-edit-history": "Istor klok ar c'hemmoù",
 	"info-box-close-text": "Serriñ",
 	"page-talk-page-subtitle": "Kaozeal diwar-benn gwellaennoù da zegas d'ar pennad-mañ",
-	"page-issues-subtitle": "Disklêriañ danvezioù kudennek pe izel e live betek re.",
+	"page-issues-subtitle": "Disklêriañ un endalc'had izel e live pe kudennek.",
 	"page-talk-page": "Gwelet ar bajenn gaozeal",
 	"info-box-title": "Fedoù berr-ha-berr",
 	"view-in-browser-footer-link": "Gwelet ar pennad er merdeer",
 	"page-location": "Diskwel war ur gartenn",
 	"page-similar-titles": "Pajennoù damheñvel",
-	"page-last-edited": "{{PLURAL:$1|Kemmet dec’h|Kemmet $1 deiz zo|0=Kemmet hiziv}}",
+	"page-last-edited": "{{PLURAL:$1|Hizivaet dec’h|Hizivaet $1 deiz zo|0=Hizivaet hiziv}}",
 	"article-about-title": "Diwar-benn ar pennad-mañ",
-	"page-issues": "Kudennoù war ar bajenn",
+	"page-issues": "Kudennoù er bajenn",
 	"license-footer-text": "An endalc'had a c'haller kavout dindan $1, nemet e vefe spisaet ar c'hontrol.",
-	"page-read-in-other-languages": "A c'haller kaout e $1 yezh all",
+	"page-read-in-other-languages": "Hegerz e {{PLURAL:$1|$1 yezh all}}",
 	"article-edit-button": "Kemmañ ar rann",
-	"article-edit-protected-button": "Kemmañ ar rannbennad war ar bajenn warezet",
+	"article-edit-protected-button": "Kemmañ ar rannbennad en ur bajenn warezet",
 	"article-section-expand": "Dispakañ ar rannbennad",
 	"article-section-collapse": "Dastum ar rannbennad",
 	"table-expand": "Dispakañ an daolenn",
