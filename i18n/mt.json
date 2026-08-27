@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"JiodoJ"
+		]
+	},
+	"description-add-link-title": "Żid deskrizzjoni tal-artiklu",
+	"article-read-more-title": "Aqra iżjed",
+	"table-title-other": "Iktar tagħrif",
+	"page-edit-history": "Ara l-kronoloġija tal-modifiki",
+	"info-box-close-text": "Agħlaq",
+	"page-talk-page-subtitle": "Iddiskuti t-titjib għal dal-artiklu",
+	"page-issues-subtitle": "Allerti fuq kontenut medjokru jew problematiku",
+	"page-talk-page": "Ara l-paġna tad-diskussjoni",
+	"info-box-title": "Fatti rapidi",
+	"view-in-browser-footer-link": "Ara l-artiklu fil-brawżer",
+	"page-location": "Ara fuq il-mappa",
+	"page-similar-titles": "Paġni simili",
+	"page-last-edited": "{{PLURAL:$1|Aġġornat ilbieraħ|few=$1 jiem ilu|many=$1-il jum ilu|other=$1 jum ilu|0=Aġġornat ilbieraħ}}",
+	"article-about-title": "Dwar dan l-artiklu",
+	"page-issues": "Problemi fil-paġna",
+	"license-footer-text": "Il-kontenut huwa disponibbli taħt $1 sakemm mhux indikat mod ieħor.",
+	"page-read-in-other-languages": "Disponibbli f'{{PLURAL:$1|one=lingwa oħra language|few=$1 lingwi oħra|many=$1-il lingwa oħra|other=$1 lingwa oħra}}",
+	"article-edit-button": "Immodifika biċċa",
+	"article-edit-protected-button": "Immodifika biċċa fuq paġna protetta",
+	"article-section-expand": "Iftaħ biċċa",
+	"article-section-collapse": "Agħlaq biċċa",
+	"table-expand": "Iftaħ tabella",
+	"table-collapse": "Agħlaq tabella",
+	"references-preview-header": "Previżjoni ta' referenzi"
+}
