@@ -113,6 +113,26 @@ describe('Cached endpoints', function () {
 				await svc.stop();
 			}
 		});
+
+		it(`should not call cache set for mathmode=mathjax ${ endpoint } page`, async () => {
+			const uri = localUri(endpoint, 'Cat').concat('?mathmode=mathjax');
+			const setStub = sinon.stub();
+			const engineStubbedInstance = sinon.createStubInstance(cassandra.Engine, {
+				get: sinon.stub().resolves(null),
+				set: setStub.resolves(null),
+			});
+
+			sinon.stub(cassandra, 'Engine').returns(engineStubbedInstance);
+			const svc = await server.start({ caching: { enabled: true, ttl: 0 } });
+
+			try {
+				await preq.get({ uri });
+				sinon.assert.notCalled(setStub);
+			} finally {
+				sinon.restore();
+				await svc.stop();
+			}
+		});
 	}
 });
 

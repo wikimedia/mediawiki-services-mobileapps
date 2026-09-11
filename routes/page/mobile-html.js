@@ -17,6 +17,7 @@ const caching = require('../../lib/caching');
 const { addContentLangFromMeta } = require('../../lib/core-api-compat');
 const { makeOutgoingRequest } = require('axios-wmf-service-mesh');
 const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
+const { MATHJAX_MAP_NAMES, MATHJAX_FONT_NAMES } = require('../../lib/mathjax-files');
 
 /**
  * The main router object
@@ -107,6 +108,7 @@ router.get('/page/mobile-html/:title/:revision?/:tid?',
 
 		const buildMobileHtml = (title) => {
 			req.params.title = title;
+			req.query = req.query || {};
 			const useMobileview = mobileviewHtml.shouldUseMobileview(req, app.conf.mobile_view_languages);
 			return BBPromise.props({
 				mobileHTML: useMobileview ?
@@ -201,9 +203,17 @@ router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?',
 			`${ metawikiApiUri }data/css/mobile/base`,
 			`${ metawikiApiUri }data/css/mobile/pcs`,
 			`${ metawikiApiUri }data/javascript/mobile/pcs`,
+			`${ metawikiApiUri }data/javascript/mobile/mathjax`,
+			`${ metawikiApiUri }data/javascript/mobile/mathjax/sre/speech-worker.js`,
 			`${ externalApiUri }data/css/mobile/site`,
 			`${ localApiUri }data/i18n/pcs`
 		];
+		MATHJAX_FONT_NAMES.forEach((font) => {
+			offlineResources.push( `${ metawikiApiUri }data/javascript/mobile/mathjax/fonts/mathjax-newcm-font/svg/dynamic/${ font }`);
+		});
+		MATHJAX_MAP_NAMES.forEach((map) => {
+			offlineResources.push( `${ metawikiApiUri }data/javascript/mobile/mathjax/sre/mathmaps/${ map }`);
+		});
 
 		// Enable caching since this endpoint is heavily requested
 		res.setHeader('cache-control', req.app.conf.cache_headers['mobile-html-offline-resources']);

@@ -52,6 +52,8 @@ services:
         img-src *.wikimedia.org wikimedia.org *.wikipedia.org wikipedia.org 'self' data:;
         object-src 'none';
         script-src 'self' 'unsafe-inline';
+        worker-src 'self' blob:;
+        font-src 'self' data:;
         style-src *.wikipedia.org 'self' 'unsafe-inline';
         frame-ancestors 'self'
         "
