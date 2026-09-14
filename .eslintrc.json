@@ -31,6 +31,7 @@
 		"n/no-unsupported-features/node-builtins": "warn",
 		"implicit-arrow-linebreak": "warn",
 		"no-mixed-spaces-and-tabs": "warn",
-		"semi-style": "warn"
+		"semi-style": "warn",
+		"n/no-missing-require": "warn"
 	}
 }

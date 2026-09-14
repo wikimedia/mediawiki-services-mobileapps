@@ -5,8 +5,7 @@ const assert = require('../../../utils/assert.js');
 const head = require('../../../../lib/transformations/pcs/head');
 
 describe('lib:head:addPredictedTopics', () => {
-	const getTopicsMeta = (document) =>
-		document.head.querySelector('meta[property="pcs:topics"]');
+	const getTopicsMeta = (document) => document.head.querySelector('meta[property="pcs:topics"]');
 
 	it('adds a meta tag with the topics serialized as JSON', () => {
 		const document = domino.createDocument('<html><head></head><body></body></html>');
