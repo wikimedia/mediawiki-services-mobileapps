@@ -270,13 +270,13 @@ function loadPreProcessingScripts( app, dir ) {
 	}
 
 	app.conf.processing_scripts = {};
-	return fs.readdirAsync( dir ).map( filename => BBPromise.try( () => {
+	return fs.readdirAsync( dir ).map( ( filename ) => BBPromise.try( () => {
 		const name = filename.split( '.' )[ 0 ];
 		const script = yaml.load( fs.readFileSync( `${ dir }/${ filename }` ) );
 		_validate( script );
 		app.conf.processing_scripts[ name ] = script;
 	} )
-		.catch( e => app.logger.log( 'warn/loading', `Error loading processing scripts: ${ e }` ) ) )
+		.catch( ( e ) => app.logger.log( 'warn/loading', `Error loading processing scripts: ${ e }` ) ) )
 		.then( () => BBPromise.resolve( app ) );
 }
 
@@ -325,8 +325,8 @@ function createServer( app ) {
  * @return {bluebird} HTTP server
  */
 module.exports = ( options ) => initApp( options )
-	.then( app => loadRoutes( app, `${ __dirname }/routes` ) )
-	.then( app => loadPreProcessingScripts( app, `${ __dirname }/processing` ) )
+	.then( ( app ) => loadRoutes( app, `${ __dirname }/routes` ) )
+	.then( ( app ) => loadPreProcessingScripts( app, `${ __dirname }/processing` ) )
 	.then( ( app ) => {
 		const setJsdocHeaders = ( req, res, next ) => {
 			res.removeHeader( 'Content-Security-Policy' );

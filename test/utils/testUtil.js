@@ -46,7 +46,7 @@ testUtil.readTestFixtureDoc = fixtures.readIntoDocument;
 testUtil.getMockedApp = ( options = {} ) => {
 	const mockedApp = Object.assign( {
 		conf: {
-			user_agent: 'pcs-unittest/0.1 (https://www.mediawiki.org/wiki/Content_Transform_Team)',
+			user_agent: 'pcs-unittest/0.1 (https://www.mediawiki.org/wiki/Content_Transform_Team)'
 		}
 	}, options );
 	aUtil.setupApiTemplates( mockedApp );
@@ -60,7 +60,7 @@ testUtil.getMockedApp = ( options = {} ) => {
 testUtil.getMockedServiceReq = ( options ) => {
 	options = Object.assign( {
 		headers: {},
-		app: testUtil.getMockedApp(),
+		app: testUtil.getMockedApp()
 	}, options );
 
 	const req = mockReq( options );

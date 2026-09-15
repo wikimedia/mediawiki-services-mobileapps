@@ -34,10 +34,10 @@ describe( 'lib:mwapi:getFlaggedOrLatestRevision', () => {
 		const domain = `${ args[ 2 ] }.${ args[ 3 ] }.org`;
 		it( `Test ${ domain } ${ args[ 0 ] } flagged revision extension`, () => {
 			const req = util.getMockedServiceReq( {
-				params: { title: args[ 1 ], domain },
+				params: { title: args[ 1 ], domain }
 			} );
 			req.logger = logger;
-			return BBPromise.resolve( getFlaggedOrLatestRevision( req ) ).then( revision => {
+			return BBPromise.resolve( getFlaggedOrLatestRevision( req ) ).then( ( revision ) => {
 				assert.equal( !!revision, expected );
 			} );
 		} );
@@ -58,7 +58,7 @@ describe( 'lib:mwapi:getFlaggedOrLatestRevision', () => {
 			} );
 
 		const req = util.getMockedServiceReq( {
-			params: { title, domain },
+			params: { title, domain }
 		} );
 		req.logger = logger;
 		return BBPromise.join(
@@ -84,7 +84,7 @@ describe( 'lib:mwapi:getFlaggedOrLatestRevision', () => {
 				throw new Error( `Error fetching latest revision for ${ title }: ${ err }` );
 			} );
 		const req = util.getMockedServiceReq( {
-			params: { title, domain },
+			params: { title, domain }
 		} );
 		req.logger = logger;
 		return BBPromise.join(

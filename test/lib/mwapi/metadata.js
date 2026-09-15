@@ -8,7 +8,7 @@ const responseBuilder = ( page, siteinfo, title, description ) => ( {
 	page,
 	siteinfo,
 	title,
-	description,
+	description
 } );
 
 const logger = require( 'bunyan' ).createLogger( {
@@ -20,7 +20,7 @@ logger.log = function ( a, b ) {};
 describe( 'lib:mwapi:queryForMetadata', () => {
 	it( 'ensure that displaytitle is always requested', () => {
 		const req = util.getMockedServiceReq( {
-			params: { title: 'Β-lactam_antibiotic', domain: 'en.wikipedia.org' },
+			params: { title: 'Β-lactam_antibiotic', domain: 'en.wikipedia.org' }
 		} );
 		const query = {
 			format: 'json',
@@ -30,10 +30,10 @@ describe( 'lib:mwapi:queryForMetadata', () => {
 			inprop: 'protection',
 			pilicense: 'any',
 			piprop: 'original',
-			titles: req.params.title,
+			titles: req.params.title
 		};
 		req.logger = logger;
-		return queryForMetadata( req, query, responseBuilder ).then( metadata => {
+		return queryForMetadata( req, query, responseBuilder ).then( ( metadata ) => {
 			assert.contains( metadata.title.display, 'Β-lactam antibiotic' );
 		} );
 	} );

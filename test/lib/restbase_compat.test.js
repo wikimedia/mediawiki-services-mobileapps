@@ -120,7 +120,7 @@ describe( 'should exclude traffic', () => {
 		req.get.withArgs( 'user-agent' ).returns( req.headers[ 'user-agent' ] );
 		req.app = {
 			conf: {
-				excludedUserAgents: [ 'excluded-ua' ],
+				excludedUserAgents: [ 'excluded-ua' ]
 			}
 		};
 		isRequestCachable( req, res );

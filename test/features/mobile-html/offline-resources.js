@@ -41,7 +41,7 @@ describe( 'mobile-html-offline-resources', function () {
 			`${ metawikiApiUri }data/javascript/mobile/mathjax/sre/mathmaps/en.json`,
 			`${ metawikiApiUri }data/javascript/mobile/mathjax/fonts/mathjax-newcm-font/svg/dynamic/calligraphic.js`,
 			`${ metawikiApiUri }data/javascript/mobile/mathjax/fonts/mathjax-newcm-font/svg/dynamic/double-struck.js`,
-			`${ localApiUri }data/i18n/pcs`,
+			`${ localApiUri }data/i18n/pcs`
 		];
 
 		return preq.get( { uri } )
@@ -49,7 +49,7 @@ describe( 'mobile-html-offline-resources', function () {
 				const response = res.body;
 				const headers = res.headers;
 				assert.ok( Array.isArray( response ) );
-				assert.ok( expected.every( val => response.includes( val ) ) );
+				assert.ok( expected.every( ( val ) => response.includes( val ) ) );
 				assert.ok( 'cache-control' in headers );
 				assert.deepEqual( headers[ 'cache-control' ], 's-maxage=1209600, max-age=86400' );
 			} );

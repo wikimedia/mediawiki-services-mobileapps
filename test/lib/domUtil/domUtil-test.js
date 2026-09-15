@@ -5,15 +5,15 @@ const assert = require( '../../utils/assert' );
 const testUtil = require( '../../utils/testUtil' );
 const lib = require( '../../../lib/domUtil' );
 
-const headHtml1
-    = `<html><head>
+const headHtml1 =
+    `<html><head>
         <base href="//en.wikipedia.org/wiki/"/>
         <title>Hope (painting)</title>
         <link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/Hope_(painting)"/>
     </head></html>`;
 
-const headHtml2
-    = `<html>
+const headHtml2 =
+    `<html>
         <head>
             <base href="//test.wikipedia.org/wiki/"/>
             <link rel="dc:isVersionOf"

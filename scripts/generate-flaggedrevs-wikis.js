@@ -26,7 +26,7 @@ const convertDbData = ( dbnamesData, wikislistData ) => {
 	// Remove non-dbname elems (comment line and empty line) from the array
 	const flaggedRevsDbList = dbnamesData.body.toString()
 			.split( '\n' )
-			.filter( s => !/^\s*#|^\s*$/.test( s ) ),
+			.filter( ( s ) => !/^\s*#|^\s*$/.test( s ) ),
 
 		wikislistDataSitematrix = wikislistData.body.sitematrix,
 
@@ -39,7 +39,7 @@ const convertDbData = ( dbnamesData, wikislistData ) => {
 			...wikislistDataSitematrix.specials
 		];
 
-	return flaggedRevsDbList.map( flaggedWiki => sites.find( siteProp => flaggedWiki === siteProp.dbname ).url.replace( 'https://', '' ) );
+	return flaggedRevsDbList.map( ( flaggedWiki ) => sites.find( ( siteProp ) => flaggedWiki === siteProp.dbname ).url.replace( 'https://', '' ) );
 };
 
 const fetchExtract = ( dbnamesUrl, listUrl ) => BBPromise.join(

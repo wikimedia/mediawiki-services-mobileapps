@@ -36,7 +36,7 @@ describe( 'lib:mobile/mobile-request-util', () => {
 			params: { title: 'Cat', domain: 'en.wikipedia.org' },
 			headers: {
 				'user-agents': 'WikipediaApp/Foobar'
-			},
+			}
 		} );
 		mockReq.get.withArgs( 'user-agent' ).returns( mockReq.headers[ 'user-agents' ] );
 		assert.deepEqual( mRequestUtil.isWikipediaApp( mockReq ), true );
@@ -47,7 +47,7 @@ describe( 'lib:mobile/mobile-request-util', () => {
 			params: { title: 'Cat', domain: 'en.wikipedia.org' },
 			headers: {
 				'user-agents': 'Foo/Bar'
-			},
+			}
 		} );
 		mockReq.get.withArgs( 'user-agent' ).returns( mockReq.headers[ 'user-agents' ] );
 		assert.deepEqual( mRequestUtil.isWikipediaApp( mockReq ), false );

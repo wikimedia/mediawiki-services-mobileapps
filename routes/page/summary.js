@@ -34,7 +34,7 @@ const purgePathsMiddleware = ( req, res, next ) => {
 				`/page/summary/${ encodeURIComponent( req.params.title ) }/${ req.params.revision }`,
 				`/page/definition/${ encodeURIComponent( req.params.title ) }/${ req.params.revision }`
 			] : []
-		),
+		)
 	];
 	next();
 };
@@ -59,7 +59,7 @@ router.get( '/summary/:title/:revision?/:tid?', summaryMiddlewares, ( req, res )
 	const buildSummary = ( title ) => {
 		req.params.title = title;
 		// Check flagged revision for wikis that have enabled FlaggedRevs extension
-		return BBPromise.resolve( mwapi.getFlaggedOrLatestRevision( req ) ).then( revision => {
+		return BBPromise.resolve( mwapi.getFlaggedOrLatestRevision( req ) ).then( ( revision ) => {
 			req.params.revision = revision;
 			const shouldUseMobileview = mobileviewHtml.shouldUseMobileview( req,
 				app.conf.mobile_view_languages );

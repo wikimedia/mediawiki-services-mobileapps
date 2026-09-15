@@ -14,11 +14,11 @@ describe( 'lib:moveReferenceListStyles', () => {
 
 	it( 'one list, one template style', () => {
 		const doc = domino.createDocument(
-			'<ol typeof="mw:Extension/references" class="mw-references references">'
-            + '<li><span>foo A1</span><cite>foo</cite>'
-            + '<style data-mw-deduplicate="123"></style>'
-            + '</li>'
-            + '</ol>' );
+			'<ol typeof="mw:Extension/references" class="mw-references references">' +
+            '<li><span>foo A1</span><cite>foo</cite>' +
+            '<style data-mw-deduplicate="123"></style>' +
+            '</li>' +
+            '</ol>' );
 
 		assert.selectorExistsNTimes( doc, 'ol.mw-references style', 1 );
 		moveReferenceListStyles( doc );
@@ -28,10 +28,10 @@ describe( 'lib:moveReferenceListStyles', () => {
 
 	it( 'style outside ref list stays', () => {
 		const doc = domino.createDocument(
-			'<style data-mw-deduplicate="123"></style>'
-            + '<ol typeof="mw:Extension/references" class="mw-references references">'
-            + '<li><span>foo A1</span><cite>foo</cite></li>'
-            + '</ol>' );
+			'<style data-mw-deduplicate="123"></style>' +
+            '<ol typeof="mw:Extension/references" class="mw-references references">' +
+            '<li><span>foo A1</span><cite>foo</cite></li>' +
+            '</ol>' );
 
 		assert.selectorExistsNTimes( doc, 'ol.mw-references style', 0 );
 		assert.selectorExistsNTimes( doc, 'style', 1 );
@@ -42,14 +42,14 @@ describe( 'lib:moveReferenceListStyles', () => {
 
 	it( 'one list, two template styles; +basic deduplication', () => {
 		const doc = domino.createDocument(
-			'<ol typeof="mw:Extension/references" class="mw-references references">'
-            + '<li><span>foo A1</span><cite>foo</cite>'
-            + '<style data-mw-deduplicate="123"></style>'
-            + '</li>'
-            + '<li><span>foo A2</span><cite>foo</cite>'
-            + '<style data-mw-deduplicate="123"></style>'
-            + '</li>'
-            + '</ol>' );
+			'<ol typeof="mw:Extension/references" class="mw-references references">' +
+            '<li><span>foo A1</span><cite>foo</cite>' +
+            '<style data-mw-deduplicate="123"></style>' +
+            '</li>' +
+            '<li><span>foo A2</span><cite>foo</cite>' +
+            '<style data-mw-deduplicate="123"></style>' +
+            '</li>' +
+            '</ol>' );
 
 		assert.selectorExistsNTimes( doc, 'ol.mw-references style', 2 );
 		moveReferenceListStyles( doc );
@@ -59,22 +59,22 @@ describe( 'lib:moveReferenceListStyles', () => {
 
 	it( 'two lists, two template styles; +basic deduplication', () => {
 		const doc = domino.createDocument(
-			'<ol typeof="mw:Extension/references" class="mw-references references">'
-            + '<li><span>foo A1</span><cite>foo</cite>'
-            + '<style data-mw-deduplicate="123"></style>'
-            + '</li>'
-            + '<li><span>foo A2</span><cite>foo</cite>'
-            + '<style data-mw-deduplicate="123"></style>'
-            + '</li>'
-            + '</ol>'
-            + '<ol typeof="mw:Extension/references" class="mw-references references">'
-            + '<li><span>foo B1</span><cite>foo</cite>'
-            + '<style data-mw-deduplicate="123"></style>'
-            + '</li>'
-            + '<li><span>foo B2</span><cite>foo</cite>'
-            + '<style data-mw-deduplicate="123"></style>'
-            + '</li>'
-            + '</ol>'
+			'<ol typeof="mw:Extension/references" class="mw-references references">' +
+            '<li><span>foo A1</span><cite>foo</cite>' +
+            '<style data-mw-deduplicate="123"></style>' +
+            '</li>' +
+            '<li><span>foo A2</span><cite>foo</cite>' +
+            '<style data-mw-deduplicate="123"></style>' +
+            '</li>' +
+            '</ol>' +
+            '<ol typeof="mw:Extension/references" class="mw-references references">' +
+            '<li><span>foo B1</span><cite>foo</cite>' +
+            '<style data-mw-deduplicate="123"></style>' +
+            '</li>' +
+            '<li><span>foo B2</span><cite>foo</cite>' +
+            '<style data-mw-deduplicate="123"></style>' +
+            '</li>' +
+            '</ol>'
 		);
 
 		assert.selectorExistsNTimes( doc, 'ol.mw-references style', 4 );

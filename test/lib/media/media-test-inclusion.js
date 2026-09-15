@@ -55,9 +55,9 @@ describe( 'lib:media expected items are included or excluded', () => {
 		const page = validItems.join( '' );
 		const result = media.getMediaItemInfoFromPage( page );
 		assert.deepEqual( result.length, validItems.length );
-		assert.deepEqual( result.filter( i => i.type === image ).length, images.length );
-		assert.deepEqual( result.filter( i => i.type === video ).length, videos.length );
-		assert.deepEqual( result.filter( i => i.type === audio ).length, audios.length );
+		assert.deepEqual( result.filter( ( i ) => i.type === image ).length, images.length );
+		assert.deepEqual( result.filter( ( i ) => i.type === video ).length, videos.length );
+		assert.deepEqual( result.filter( ( i ) => i.type === audio ).length, audios.length );
 	} );
 
 	it( 'items should not be found for other selectors', () => {

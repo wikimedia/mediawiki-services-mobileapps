@@ -41,7 +41,7 @@ router.get( '/media-list/:title/:revision?/:tid?',
 
 		const buildMediaList = ( title ) => {
 			req.params.title = title;
-			return parsoid.getParsoidHtml( req ).then( parsoidRsp => mUtil.createDocument( parsoidRsp.body ).then( doc => BBPromise.props( {
+			return parsoid.getParsoidHtml( req ).then( ( parsoidRsp ) => mUtil.createDocument( parsoidRsp.body ).then( ( doc ) => BBPromise.props( {
 				pageMediaList: lib.getMediaItemInfoFromDoc( doc ),
 				mw: mwapi.getMetadataForMobileHtml( req )
 			} ).then( ( response ) => {

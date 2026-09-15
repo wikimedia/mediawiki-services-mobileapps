@@ -29,19 +29,19 @@ describe( 'lib:definitions', () => {
 
 	describe( 'parts of speech', () => {
 		it( 'is set', () => {
-			assert.deepEqual( avere.it.map( e => e.partOfSpeech ), [ 'Verb', 'Noun' ] );
+			assert.deepEqual( avere.it.map( ( e ) => e.partOfSpeech ), [ 'Verb', 'Noun' ] );
 		} );
 	} );
 
 	describe( 'language', () => {
 		it( 'is set on each entry', () => {
-			avere.it.forEach( e => assert.deepEqual( e.language, 'Italian' ) );
+			avere.it.forEach( ( e ) => assert.deepEqual( e.language, 'Italian' ) );
 		} );
 	} );
 
 	describe( 'definitions', () => {
 		const definitions = kuulua.fi[ 0 ].definitions;
-		assert.deepEqual( definitions.map( d => toText( d.definition ) ), [
+		assert.deepEqual( definitions.map( ( d ) => toText( d.definition ) ), [
 			'to be heard/audible',
 			'to be said',
 			"Used to refer to the state of one's life.",
@@ -74,7 +74,7 @@ describe( 'lib:definitions', () => {
 
 			describe( 'formatted with microformats', () => {
 				it( 'extracts usage examples', () => {
-					const examples = avere.it.find( e => e.partOfSpeech === 'Verb' )
+					const examples = avere.it.find( ( e ) => e.partOfSpeech === 'Verb' )
 						.definitions[ 0 ].parsedExamples;
 
 					assert.deepEqual( examples, [
@@ -110,7 +110,7 @@ describe( 'lib:definitions', () => {
 
 			describe( 'formatted with microformats', () => {
 				it( 'extracts usage examples', () => {
-					const examples = avere.it.find( e => e.partOfSpeech === 'Verb' )
+					const examples = avere.it.find( ( e ) => e.partOfSpeech === 'Verb' )
 						.definitions[ 0 ].examples;
 
 					assert.deepEqual( examples, [

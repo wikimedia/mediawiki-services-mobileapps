@@ -201,7 +201,7 @@ describe( 'Following redirects should stop after max redirects', async () => {
 		incomingRequest.app.conf.maxRedirects = 10;
 		incomingRequest.app.conf.corepagehtml_req = {
 			method: 'GET',
-			uri: 'http://localhost:8888/v1/page/{{title}}/with_html',
+			uri: 'http://localhost:8888/v1/page/{{title}}/with_html'
 		};
 		incomingRequest.app.corepagehtml_tpl = new Template(
 			incomingRequest.app.conf.corepagehtml_req
@@ -220,7 +220,7 @@ describe( 'Following redirects should stop after max redirects', async () => {
 		incomingRequest.app.conf.maxRedirects = 10;
 		incomingRequest.app.conf.corepagehtml_req = {
 			method: 'GET',
-			uri: 'http://localhost:8888/v1/page/{{title}}/with_html',
+			uri: 'http://localhost:8888/v1/page/{{title}}/with_html'
 		};
 		incomingRequest.app.corepagehtml_tpl = new Template(
 			incomingRequest.app.conf.corepagehtml_req

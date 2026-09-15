@@ -23,13 +23,13 @@ describe( 'lib:mobile-util', () => {
 
 	it( 'createDocument should accept an empty string', () => {
 		const expected = '<html><head></head><body></body></html>';
-		mUtil.createDocument( '' ).then( doc => assert.deepEqual( doc.outerHTML, expected ) );
+		mUtil.createDocument( '' ).then( ( doc ) => assert.deepEqual( doc.outerHTML, expected ) );
 	} );
 
 	it( 'createDocument should not block the event loop', () => {
 		const html = fixtures.readFileSync( 'United_States.html' );
 		const docPromise = mUtil.createDocument( html );
-		return perf.measure( docPromise, 1000 ).then( doc => {
+		return perf.measure( docPromise, 1000 ).then( ( doc ) => {
 			assert.equal( doc.querySelector( 'section[data-mw-section-id="20"]' ).firstChild.outerHTML, '<h3 id="Health">Health</h3>' );
 		} );
 	} );
@@ -59,7 +59,7 @@ describe( 'lib:mobile-util', () => {
 		it( "strips 'accept' from vary value with other values present", () => {
 			const res = new MockResponse();
 			mUtil.setLanguageHeaders( res, {
-				vary: 'accept, accept-language',
+				vary: 'accept, accept-language'
 			} );
 			assert.deepEqual( res.get( 'Vary' ), 'accept-language' );
 		} );
@@ -67,7 +67,7 @@ describe( 'lib:mobile-util', () => {
 		it( "strips 'Accept' from vary value with other values present", () => {
 			const res = new MockResponse();
 			mUtil.setLanguageHeaders( res, {
-				Vary: 'Accept, Accept-Language',
+				Vary: 'Accept, Accept-Language'
 			} );
 			assert.deepEqual( res.get( 'Vary' ), 'Accept-Language' );
 		} );
@@ -75,7 +75,7 @@ describe( 'lib:mobile-util', () => {
 		it( "strips vary header if set to 'Accept' only", () => {
 			const res = new MockResponse();
 			mUtil.setLanguageHeaders( res, {
-				Vary: 'Accept',
+				Vary: 'Accept'
 			} );
 			assert.deepEqual( res.get( 'Vary' ), undefined );
 		} );
@@ -83,7 +83,7 @@ describe( 'lib:mobile-util', () => {
 		it( "strips vary header if set to 'accept' only", () => {
 			const res = new MockResponse();
 			mUtil.setLanguageHeaders( res, {
-				Vary: 'accept',
+				Vary: 'accept'
 			} );
 			assert.deepEqual( res.get( 'Vary' ), undefined );
 		} );

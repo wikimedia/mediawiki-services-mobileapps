@@ -9,56 +9,56 @@ const preprocessParsoidHtml = require( '../../../lib/processing' );
 const transforms = require( '../../../lib/transforms' );
 
 describe( 'lib:transforms', () => {
-	const buildHtml = title => domino.createDocument( '<html>'
-        + '<head>'
-        + '<base href="//en.wikipedia.org/wiki/"/>'
-        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${ encodeURIComponent( title ) }">`
-        + '</head>'
-        + '<body>'
-        + '<sup class="mw-ref">'
-        + `<a href="${ title }#cite_note-foo"><span>[1]</span></a>`
-        + '</sup>'
-        + '<sup class="mw-ref">'
-        + `<a href="${ title }#cite_note-foo"><span>[2]</span></a>`
-        + '</sup>'
-        + '<sup class="mw-ref">'
-        + `<a href="anythingElse${ title }#cite_note-foo"><span>[2]</span></a>`
-        + '</sup>'
-        + '</body>'
-        + '</html>' );
+	const buildHtml = ( title ) => domino.createDocument( '<html>' +
+        '<head>' +
+        '<base href="//en.wikipedia.org/wiki/"/>' +
+        `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${ encodeURIComponent( title ) }">` +
+        '</head>' +
+        '<body>' +
+        '<sup class="mw-ref">' +
+        `<a href="${ title }#cite_note-foo"><span>[1]</span></a>` +
+        '</sup>' +
+        '<sup class="mw-ref">' +
+        `<a href="${ title }#cite_note-foo"><span>[2]</span></a>` +
+        '</sup>' +
+        '<sup class="mw-ref">' +
+        `<a href="anythingElse${ title }#cite_note-foo"><span>[2]</span></a>` +
+        '</sup>' +
+        '</body>' +
+        '</html>' );
 
-	const buildHtml2 = title => domino.createDocument( '<html>'
-        + '<head>'
-        + '<base href="//en.wikipedia.org/wiki/"/>'
-        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${ encodeURIComponent( title ) }">`
-        + '</head>'
-        + '<body>'
-        + '<sup class="mw-ref">'
-        + '<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[1]</span></a>'
-        + '</sup>'
-        + '<sup class="mw-ref">'
-        + '<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>'
-        + '</sup>'
-        + '<sup class="mw-ref">'
-        + '<a href="anythingElseA_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>'
-        + '</sup>'
-        + '</body>'
-        + '</html>' );
+	const buildHtml2 = ( title ) => domino.createDocument( '<html>' +
+        '<head>' +
+        '<base href="//en.wikipedia.org/wiki/"/>' +
+        `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${ encodeURIComponent( title ) }">` +
+        '</head>' +
+        '<body>' +
+        '<sup class="mw-ref">' +
+        '<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[1]</span></a>' +
+        '</sup>' +
+        '<sup class="mw-ref">' +
+        '<a href="A_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>' +
+        '</sup>' +
+        '<sup class="mw-ref">' +
+        '<a href="anythingElseA_&quot;B&quot;_C#cite_note-foo"><span>[2]</span></a>' +
+        '</sup>' +
+        '</body>' +
+        '</html>' );
 
-	const buildHtml3 = title => domino.createDocument( '<html>'
-        + '<head>'
-        + '<base href="//en.wikipedia.org/wiki/"/>'
-        + `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${ encodeURIComponent( title ) }">`
-        + '</head>'
-        + '<body>'
-        + '<span class="mw-reference-text">'
-        + '<a href="./Seven_Years\'_War#cite_note-foo">Fish 2003</a>'
-        + '</span>'
-        + '<span class="mw-reference-text">'
-        + '<a href="./Seven_Years\'_War#cite_note-foo">Fish 2003</a>'
-        + '</span>'
-        + '</body>'
-        + '</html>' );
+	const buildHtml3 = ( title ) => domino.createDocument( '<html>' +
+        '<head>' +
+        '<base href="//en.wikipedia.org/wiki/"/>' +
+        `<link rel="dc:isVersionOf" href="//en.wikipedia.org/wiki/${ encodeURIComponent( title ) }">` +
+        '</head>' +
+        '<body>' +
+        '<span class="mw-reference-text">' +
+        '<a href="./Seven_Years\'_War#cite_note-foo">Fish 2003</a>' +
+        '</span>' +
+        '<span class="mw-reference-text">' +
+        '<a href="./Seven_Years\'_War#cite_note-foo">Fish 2003</a>' +
+        '</span>' +
+        '</body>' +
+        '</html>' );
 
 	const testShortenPageInternalLinks = ( doc, selectorTitle ) => {
 		assert.selectorExistsNTimes( doc, `a[href^=${ selectorTitle }]`, 2,

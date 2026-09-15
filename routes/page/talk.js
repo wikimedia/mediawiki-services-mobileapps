@@ -28,9 +28,9 @@ router.get( '/talk/:title/:revision?/:tid?', projectAllowMiddlewares[ 'page-talk
 	req.getTitleRedirectLocation = ( domain, title ) => `/${ domain }/v1/page/talk/${ title }`;
 	const lang = wikiLanguage.getLanguageCode( req.params.domain );
 	const buildTalk = ( _req ) => parsoidApi.getParsoidHtml( _req )
-		.then( parsoidRsp => mUtil.createDocument( parsoidRsp.body )
-			.then( doc => TalkPage.promise( doc, lang )
-				.then( talkPage => {
+		.then( ( parsoidRsp ) => mUtil.createDocument( parsoidRsp.body )
+			.then( ( doc ) => TalkPage.promise( doc, lang )
+				.then( ( talkPage ) => {
 					res.status( 200 );
 					const revTid = parsoidApi.getRevAndTidFromEtag( parsoidRsp.headers );
 					// Store the processing time to read after the response is sent

@@ -28,7 +28,7 @@ describe( 'lib:metadata', () => {
 
 		it( 'creates augmented langlink if input is good', () => {
 			assert.deepEqual( lib.augmentLangLinks( [
-				{ lang: 'test', title: 'Foo' },
+				{ lang: 'test', title: 'Foo' }
 			], 'en.wikipedia.org', ENWIKI_SITEINFO ), [
 				{
 					lang: 'test',

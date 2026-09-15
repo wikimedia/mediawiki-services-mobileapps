@@ -94,7 +94,7 @@ describe( 'description', function () {
 			rvslots: 'main',
 			rvprop: 'ids|content',
 			format: 'json',
-			formatversion: 2,
+			formatversion: 2
 		}, request ) )
 			.reply( 200, result );
 	}
@@ -136,7 +136,7 @@ describe( 'description', function () {
 		const api = nock( 'https://en.wikipedia.org', {
 			reqheaders: {
 				authorization: 'Basic Auth Header'
-			},
+			}
 		} );
 		setUpTokenMock( api, {
 			query: {
@@ -214,7 +214,7 @@ describe( 'description', function () {
 			const api = nock( 'https://www.wikidata.org', {
 				reqheaders: {
 					authorization: 'Basic Auth Header'
-				},
+				}
 			} );
 			setUpTokenMock( api, {
 				query: {
@@ -263,7 +263,7 @@ describe( 'description', function () {
 			const api = nock( 'https://www.wikidata.org', {
 				reqheaders: {
 					authorization: 'Basic Auth Header'
-				},
+				}
 			} );
 			setUpTokenMock( api, {
 				query: {
@@ -319,7 +319,7 @@ describe( 'description', function () {
 			const api = nock( 'https://www.wikidata.org', {
 				reqheaders: {
 					authorization: 'Basic Auth Header'
-				},
+				}
 			} );
 			setUpTokenMock( api, {
 				query: {
@@ -333,7 +333,7 @@ describe( 'description', function () {
 				value: 'Test description',
 				summary: 'Test comment',
 				site: 'srwiki',
-				language: 'sr-Latn',
+				language: 'sr-Latn'
 			}, {
 				entity: {
 					descriptions: {
@@ -377,7 +377,7 @@ describe( 'description', function () {
 			const api = nock( 'https://en.wikipedia.org', {
 				reqheaders: {
 					authorization: 'Basic Auth Header'
-				},
+				}
 			} );
 			setUpTokenMock( api, {
 				query: {
@@ -514,7 +514,7 @@ describe( 'description', function () {
 		const api = nock( 'https://en.wikipedia.org', {
 			reqheaders: {
 				authorization: 'Basic Auth Header'
-			},
+			}
 		} );
 		setUpTokenMock( api, {
 			query: {

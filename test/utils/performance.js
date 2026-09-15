@@ -26,7 +26,7 @@ class Performance {
 	}
 
 	static measure( promise, max = -1, maxblock = DEFAULT_MAX_BLOCK ) {
-		const perfPromise = new P( res => {
+		const perfPromise = new P( ( res ) => {
 			const start = process.hrtime();
 			Performance.checkEventLoopBlockingTime( promise, 0, start, ( ns, blockns ) => {
 				assert.ok( ns < max * MS_PER_NS, `Should take less than ${ max }ms. It took ${ Math.round( ns / MS_PER_NS ) }ms` );
@@ -35,7 +35,7 @@ class Performance {
 				res();
 			} );
 		} );
-		return P.join( promise, perfPromise ).then( results => results[ 0 ] );
+		return P.join( promise, perfPromise ).then( ( results ) => results[ 0 ] );
 	}
 
 	// Marks the start and returns the object to send to finish

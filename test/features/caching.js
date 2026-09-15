@@ -25,7 +25,7 @@ describe( 'Cache config', () => {
 					local_dc: 'datacenter1',
 					authentication: {
 						username: 'cassandra',
-						password: 'cassandra',
+						password: 'cassandra'
 					},
 					tls: {
 						ca: '/path/to/file'
@@ -36,10 +36,10 @@ describe( 'Cache config', () => {
 					ttl: 0,
 					cassandra: {
 						keyspace: 'tests',
-						storageTable: 'storage',
-					},
-				},
-			},
+						storageTable: 'storage'
+					}
+				}
+			}
 		};
 		const engineStubbedInstance = sinon.createStubInstance( cassandra.Engine );
 		sinon.stub( cassandra, 'Engine' ).returns( engineStubbedInstance );
@@ -64,9 +64,9 @@ describe( 'Cached endpoints', function () {
 					Promise.resolve( {
 						headers: {},
 						value: Buffer.from( expectedBody ),
-						cached: new Date(),
+						cached: new Date()
 					} )
-				),
+				)
 			} );
 
 			sinon.stub( cassandra, 'Engine' ).returns( engineStubbedInstance );
@@ -85,7 +85,7 @@ describe( 'Cached endpoints', function () {
 			const setStub = sinon.stub();
 			const engineStubbedInstance = sinon.createStubInstance( cassandra.Engine, {
 				get: sinon.stub().resolves( null ),
-				set: setStub.resolves( null ),
+				set: setStub.resolves( null )
 			} );
 
 			sinon.stub( cassandra, 'Engine' ).returns( engineStubbedInstance );
@@ -95,9 +95,9 @@ describe( 'Cached endpoints', function () {
 				const res = await preq.get( { uri } );
 				sinon.assert.calledOnce( setStub );
 				const callArgs = setStub.getCall( 0 ).args;
-				const expectedBody = isObject( res.body )
-					? JSON.stringify( res.body )
-					: res.body;
+				const expectedBody = isObject( res.body ) ?
+					JSON.stringify( res.body ) :
+					res.body;
 				assert.equal( callArgs[ 0 ], `/en.wikipedia.org/v1/page/${ endpoint }/Cat` );
 				assert.equal( callArgs[ 1 ], 'en.wikipedia.org' );
 				assert.equal(
@@ -119,7 +119,7 @@ describe( 'Cached endpoints', function () {
 			const setStub = sinon.stub();
 			const engineStubbedInstance = sinon.createStubInstance( cassandra.Engine, {
 				get: sinon.stub().resolves( null ),
-				set: setStub.resolves( null ),
+				set: setStub.resolves( null )
 			} );
 
 			sinon.stub( cassandra, 'Engine' ).returns( engineStubbedInstance );
@@ -208,9 +208,9 @@ describe( 'Caching hooks', function () {
 				Promise.resolve( {
 					headers: {},
 					value: Buffer.from( 'Mocked content get' ),
-					cached: new Date(),
+					cached: new Date()
 				} )
-			),
+			)
 		} );
 		sinon.stub( cassandra, 'Engine' ).returns( engine );
 		sinon.stub( cassandra, 'middlewareFactory' ).returns( middleware );
@@ -272,9 +272,9 @@ describe( 'Language variants - cache GET', async () => {
 				Promise.resolve( {
 					headers: {},
 					value: Buffer.from( 'Mocked response' ),
-					cached: new Date(),
+					cached: new Date()
 				} )
-			),
+			)
 		} );
 		sandbox.stub( cassandra, 'Engine' ).returns( engineStubbedInstance );
 		svc = await server.start( { caching: { enabled: true } } );
@@ -352,7 +352,7 @@ describe( 'Language variants - cache DELETE', async () => {
 		engineStubbedInstance = sandbox.createStubInstance( cassandra.Engine, {
 			delete: sandbox.stub().returns(
 				Promise.resolve( {} )
-			),
+			)
 		} );
 		sandbox.stub( cassandra, 'Engine' ).returns( engineStubbedInstance );
 		svc = await server.start( { caching: { enabled: true } } );
@@ -368,7 +368,7 @@ describe( 'Language variants - cache DELETE', async () => {
 			params: { title: 'Cat', domain: 'en.wikipedia.org' },
 			headers: {
 				'cache-control': 'no-cache'
-			},
+			}
 		} );
 		purgeLanguageVariants( mockReq );
 		sinon.assert.notCalled( engineStubbedInstance.delete );
@@ -379,7 +379,7 @@ describe( 'Language variants - cache DELETE', async () => {
 			params: { title: 'PHP', domain: 'sr.wikipedia.org' },
 			headers: {
 				'cache-control': 'no-cache'
-			},
+			}
 		} );
 		mockReq.originalUrl = '/bogus-path';
 		mockReq.get.returns( 'no-cache' );
@@ -404,7 +404,7 @@ describe( 'Language variants - cache DELETE', async () => {
 			headers: {
 				'cache-control': 'no-cache',
 				'accept-language': 'sr-Latn'
-			},
+			}
 		} );
 		mockReq.originalUrl = '/bogus-path';
 		mockReq.get.returns( 'no-cache' );
@@ -429,7 +429,7 @@ describe( 'Language variants - cache DELETE', async () => {
 			headers: {
 				'cache-control': 'no-cache',
 				'accept-language': 'xxx'
-			},
+			}
 		} );
 		mockReq.originalUrl = '/bogus-path';
 		mockReq.get.returns( 'no-cache' );
@@ -454,7 +454,7 @@ describe( 'Language variants - cache DELETE', async () => {
 			headers: {
 				'cache-control': 'no-cache',
 				'accept-language': 'sr-xxx'
-			},
+			}
 		} );
 		mockReq.originalUrl = '/bogus-path';
 		mockReq.get.returns( 'no-cache' );

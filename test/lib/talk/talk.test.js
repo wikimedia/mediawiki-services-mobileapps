@@ -210,7 +210,7 @@ describe( 'lib:talk', () => {
 		it( 'does not block the event loop', () => {
 			const doc = fixtures.readIntoDocument( 'User_talk-Koavf.html' );
 			const talkPagePromise = TalkPage.promise( doc, 'en' );
-			return perf.measure( talkPagePromise, 150 ).then( talkPage => {
+			return perf.measure( talkPagePromise, 150 ).then( ( talkPage ) => {
 				const topic = talkPage.topics[ 2 ];
 				assert.equal( topic.html, '<i>The Midnight Snack</i>' );
 				const reply = topic.replies[ 10 ];

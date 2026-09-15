@@ -89,7 +89,7 @@ function getLanguageLinks() {
 		'uk',
 		'vi',
 		'zh'
-	].map( _lang => `<a href="./${ _lang }.html">${ _lang }</a>` ).join( ' ' );
+	].map( ( _lang ) => `<a href="./${ _lang }.html">${ _lang }</a>` ).join( ' ' );
 }
 
 const uriForWikiLink = ( domain, title, rev ) => `https://${ domain }/wiki/${ title }?oldid=${ rev }`;

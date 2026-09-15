@@ -15,7 +15,7 @@ describe( 'lib:MobileHTML', () => {
 	it( 'does not block the event loop', () => {
 		const doc = fixtures.readIntoDocument( 'United_States.html' );
 		const mobileHTMLPromise = MobileHTML.promise( doc );
-		return perf.measure( mobileHTMLPromise, 1000 ).then( mobileHTML => {
+		return perf.measure( mobileHTMLPromise, 1000 ).then( ( mobileHTML ) => {
 			assert.equal( mobileHTML.doc.querySelector( 'section[data-mw-section-id="1"]' ).firstChild.outerHTML, '<div class="pcs-edit-section-header v2"><h2 id="Etymology" class="pcs-edit-section-title">Etymology</h2><span class="pcs-edit-section-link-container"><a href="/w/index.php?title=United_States&amp;action=edit&amp;section=1" data-id="1" data-action="edit_section" aria-labelledby="pcs-edit-section-aria-normal" class="pcs-edit-section-link"></a></span></div>' );
 		} );
 	} );
@@ -167,7 +167,7 @@ describe( 'lib:MobileHTML', () => {
 		const subRefDocument = fixtures.readIntoDocument( path.resolve( PAGELIB_FIXTURES, 'SubReferences.html' ) );
 
 		it( 'formats sub-references', () => MobileHTML.promise( subRefDocument ).then(
-			mobileHTML => {
+			( mobileHTML ) => {
 				const reflist_item_1 = mobileHTML.doc.getElementById( 'cite_note-main1-1' );
 				const backlink_1 = reflist_item_1.querySelector( '.pcs-ref-backlink-container' );
 				assert.strictEqual(

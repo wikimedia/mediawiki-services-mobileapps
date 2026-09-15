@@ -37,7 +37,7 @@ describe( 'lib:apiUtil', () => {
 
 	it( 'order is preserved when Array.reduce is called on resolved BBPromise.all batches', () => {
 		const batches = api._batch( [ 0, 1, 2, 3, 4 ], 2 );
-		const promises = BBPromise.all( batches.map( ( batch ) => new BBPromise( resolve => setTimeout( () => resolve( batch ), batch.length * 10 ) ) ) );
+		const promises = BBPromise.all( batches.map( ( batch ) => new BBPromise( ( resolve ) => setTimeout( () => resolve( batch ), batch.length * 10 ) ) ) );
 		promises.then( ( response ) => {
 			const result = response.reduce( ( arr, batch ) => arr.concat( batch ), [] );
 			assert.deepEqual( result[ 0 ], 0 );
@@ -97,7 +97,7 @@ describe( 'lib:apiUtil', () => {
 	it( 'Checks header for explicit parsoid backend doesnt exist', () => {
 		const testReq = new MockExpressRequest( {
 			headers: {
-				'Content-type': 'application/json',
+				'Content-type': 'application/json'
 			}
 		} );
 		assert.deepEqual( isExplicitCoreParsoidReq( testReq ), false );

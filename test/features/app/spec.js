@@ -33,7 +33,7 @@ async function staticSpecLoad() {
 		return {
 			paths: {},
 			'x-default-params': {},
-			'x-restbase-compatibility-headers': {},
+			'x-restbase-compatibility-headers': {}
 		};
 	}
 }
@@ -80,13 +80,13 @@ function constructTestCase( title, path, method, request, response ) {
 			headers: Object.assign( {}, defaultReqHeaders, request.headers || {} ),
 			query: request.query,
 			body: request.body,
-			followRedirect: false,
+			followRedirect: false
 		},
 		response: {
 			status: response.status || 200,
 			headers: response.headers || {},
-			body: response.body,
-		},
+			body: response.body
+		}
 	};
 }
 
@@ -122,7 +122,7 @@ function constructTests( paths, defParams, defHeaders ) {
 					constructTestCase(
 						ex.title,
 						uri.toString( {
-							params: Object.assign( {}, defParams, ex.request.params || {} ),
+							params: Object.assign( {}, defParams, ex.request.params || {} )
 						} ),
 						method,
 						ex.request,
@@ -256,7 +256,7 @@ describe( 'Swagger spec', function () {
 
 	it( 'get the spec', () => preq.get( {
 		uri: `${ server.config.uri }?spec`,
-		headers: defaultReqHeaders,
+		headers: defaultReqHeaders
 	} ).then( ( res ) => {
 		assert.status( 200 );
 		assert.contentType( res, 'application/json' );
@@ -311,7 +311,7 @@ describe( 'validate responses against schema', function () {
 	ajv.addKeyword( { keyword: 'example', type: 'string' } );
 	const assertValidSchema = ( uri, schemaPath ) => preq.get( {
 		uri,
-		headers: defaultReqHeaders,
+		headers: defaultReqHeaders
 	} ).then( ( res ) => {
 		if ( !ajv.validate( schemaPath, res.body ) ) {
 			throw new assert.AssertionError( { message: ajv.errorsText() } );
@@ -350,13 +350,13 @@ describe( 'validate spec examples', () => {
 		'retrieve test page via mobile-sections',
 		'Get media list from test page',
 		'Get page content HTML for test page',
-		'Get summary for test page',
+		'Get summary for test page'
 	];
 
 	const expectedFailure = {
 		withErr: ( err ) => err.message === 'Header content-language not found in response!',
 		forTest: ( testCase ) => expectedFailureTests.includes( testCase.title ),
-		description: 'Missing upstream implementation of language variants',
+		description: 'Missing upstream implementation of language variants'
 	};
 
 	before( async () => {

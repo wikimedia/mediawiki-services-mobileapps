@@ -12,7 +12,7 @@ const router = sUtil.router();
 
 router.get( '/pcs', projectAllowMiddlewares[ 'static-assets' ], ( req, res ) => {
 	const locales = Localizer.getLocalesFromReq( req );
-	Localizer.getMessagesAndFallbacksForLocales( locales ).then( messages => {
+	Localizer.getMessagesAndFallbacksForLocales( locales ).then( ( messages ) => {
 		const result = { locale: locales[ 0 ], messages };
 		const resultString = JSON.stringify( result );
 		res.status( 200 );

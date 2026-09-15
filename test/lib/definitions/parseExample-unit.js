@@ -19,7 +19,7 @@ describe( 'lib:definitions:parseExamples', () => {
 			assert.deepEqual( example, {
 				example: 'Example',
 				translation: 'Translation',
-				literally: 'Literally',
+				literally: 'Literally'
 			} );
 		} );
 	} );
@@ -40,7 +40,7 @@ describe( 'lib:definitions:parseExamples', () => {
 
 			assert.deepEqual( examples, {
 				example: '<i>Example</i>',
-				translation: 'Translation',
+				translation: 'Translation'
 			} );
 		} );
 	} );

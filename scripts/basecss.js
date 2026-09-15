@@ -15,14 +15,14 @@ const modules = [
 	'ext.cite.parsoid.styles',
 	'ext.math.styles',
 	'ext.pygments',
-	'ext.timeline.styles',
+	'ext.timeline.styles'
 ];
 
 const url = 'https://en.m.wikipedia.org/w/load.php?modules=' + modules.join( '|' ) + '&only=styles&skin=minerva';
 
 fetch( url )
-	.then( res => res.text() )
-	.then( body => {
+	.then( ( res ) => res.text() )
+	.then( ( body ) => {
 		const css = body;
 
 		const problematicModules = css.match( /Problematic modules: (.+)/ );

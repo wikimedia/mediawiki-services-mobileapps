@@ -13,7 +13,7 @@ describe( 'lib:addPageHeader', () => {
 			mw: {
 				displaytitle: 'Dog',
 				description: 'short desc',
-				description_source: 'central',
+				description_source: 'central'
 			},
 			pronunciation: { url: 'foo' }
 		}, 0 );
