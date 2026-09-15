@@ -17,7 +17,7 @@ router.get( '/mathjax/fonts/mathjax-newcm-font/svg/dynamic/:font', ( req, res ) 
 router.get( '/mathjax/sre/mathmaps/:map', ( req, res ) => js.fetchMathjaxMathmap( req, res ) );
 router.get( '/mathjax/sre/speech-worker.js', ( req, res ) => js.fetchMathjaxSpeechWorker( req, res ) );
 
-module.exports = function ( appObj ) {
+module.exports = function ( _appObj ) {
 	return {
 		path: '/data/javascript/mobile',
 		api_version: 1,

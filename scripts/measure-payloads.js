@@ -29,12 +29,12 @@ const processEndpoint = ( endpointLabel, baseUri, page, measurement ) => {
 	const fileName = requestTitle;
 	const cmd = `curl -s "${ uri }" -o "${ fileName }"`;
 	return exec( cmd )
-		.then( ( rsp ) => {
+		.then( ( _rsp ) => {
 			const stats = fs.statSync( fileName );
 			measurement.push( stats.size );
 			return exec( `${ GZIP } "${ fileName }"` );
 		} )
-		.then( ( rsp ) => {
+		.then( ( _rsp ) => {
 			const stats = fs.statSync( `${ fileName }.gz` );
 			measurement.push( stats.size );
 			fs.unlinkSync( `${ fileName }.gz` );

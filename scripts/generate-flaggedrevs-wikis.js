@@ -32,7 +32,7 @@ const convertDbData = ( dbnamesData, wikislistData ) => {
 
 		flattenSites = _.flatten(
 			_.map( Object.entries( wikislistDataSitematrix )
-				.filter( ( [ key, val ] ) => !isNaN( parseInt( key ) ) ), ( [ key, val ] ) => val.site ) ),
+				.filter( ( [ key, _val ] ) => !isNaN( parseInt( key ) ) ), ( [ _key, val ] ) => val.site ) ),
 
 		sites = [
 			...flattenSites,

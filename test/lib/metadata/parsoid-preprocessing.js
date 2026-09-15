@@ -41,7 +41,7 @@ describe( 'metadata:preprocessing', () => {
 	it( 'strips span:empty', () => {
 		const doc = domino.createDocument( html );
 		preprocessParsoidHtml( doc, [ script ] )
-			.then( ( res ) => {
+			.then( ( _res ) => {
 				assert.selectorDoesNotExist( doc, 'span:empty' );
 			} );
 	} );

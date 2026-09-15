@@ -89,7 +89,7 @@ router.delete( '/description/:title', ( req, res ) => {
 		} );
 } );
 
-module.exports = function ( appObj ) {
+module.exports = function ( _appObj ) {
 	return {
 		path: '/page',
 		api_version: 1,

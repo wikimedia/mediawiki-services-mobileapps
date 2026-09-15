@@ -26,7 +26,7 @@ function isWikipediaLanguage( lang ) {
 function processOneLanguage( _script, lang ) {
 	const cmd = `${ _script } ${ lang }`;
 	return execSync( cmd, { stdio: [ 0, 1, 2 ] } )
-		.then( ( rsp ) => BBPromise.resolve() ).catch( ( err ) => {
+		.then( ( _rsp ) => BBPromise.resolve() ).catch( ( err ) => {
 			process.stderr.write( `ERROR processing language ${ lang }: ${ err }` );
 			return BBPromise.resolve();
 		} );

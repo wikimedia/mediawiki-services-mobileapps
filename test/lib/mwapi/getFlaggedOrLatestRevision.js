@@ -11,7 +11,7 @@ const logger = require( 'bunyan' ).createLogger( {
 	name: 'test-logger',
 	level: 'warn'
 } );
-logger.log = function ( a, b ) {};
+logger.log = function ( _a, _b ) {};
 
 describe( 'lib:mwapi:getFlaggedOrLatestRevision', () => {
 

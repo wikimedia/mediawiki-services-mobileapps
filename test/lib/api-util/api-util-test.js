@@ -15,7 +15,7 @@ const logger = require( 'bunyan' ).createLogger( {
 	level: 'warn'
 } );
 
-logger.log = function ( a, b ) {};
+logger.log = function ( _a, _b ) {};
 
 describe( 'lib:apiUtil', () => {
 

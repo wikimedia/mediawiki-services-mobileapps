@@ -23,7 +23,7 @@ router.get( '/pcs', projectAllowMiddlewares[ 'static-assets' ], ( req, res ) => 
 	} );
 } );
 
-module.exports = function ( appObj ) {
+module.exports = function ( _appObj ) {
 	return {
 		path: '/data/i18n',
 		api_version: 1,

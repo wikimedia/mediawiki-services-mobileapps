@@ -10,7 +10,7 @@ function logStream( logStdout ) {
 		level: 'warn'
 	} );
 
-	function write( chunk, encoding, callback ) {
+	function write( chunk, _encoding, _callback ) {
 		try {
 			const entry = JSON.parse( chunk );
 			const levelMatch = /^(\w+)/.exec( entry.levelPath );
@@ -28,7 +28,7 @@ function logStream( logStdout ) {
 	}
 
 	// to implement the stream writer interface
-	function end( chunk, encoding, callback ) {
+	function end( _chunk, _encoding, _callback ) {
 	}
 
 	function get() {
