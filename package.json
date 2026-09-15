@@ -54,6 +54,9 @@
 		"url": "https://phabricator.wikimedia.org/tag/mobile_content_service/"
 	},
 	"homepage": "https://www.mediawiki.org/wiki/RESTBase_services_for_apps",
+	"engines": {
+		"node": ">=22"
+	},
 	"dependencies": {
 		"@wikimedia/cassandra-storage": "^1.0.8",
 		"0x": "^5.8.0",

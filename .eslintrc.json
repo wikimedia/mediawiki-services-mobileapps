@@ -13,7 +13,6 @@
 		"jsdoc/require-param": "off",
 		"jsdoc/require-param-type": "off",
 		"jsdoc/require-returns": "off",
-		"jsdoc/require-returns-check": "off",
-		"n/no-unsupported-features/node-builtins": "warn"
+		"jsdoc/require-returns-check": "off"
 	}
 }
