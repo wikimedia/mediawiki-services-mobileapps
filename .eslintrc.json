@@ -9,13 +9,9 @@
 		"comma-spacing": "off",
 		"computed-property-spacing": "off",
 		"key-spacing": "off",
-		"max-statements-per-line": "off",
 		"no-multi-spaces": "off",
 		"no-underscore-dangle": "off",
-		"no-unused-expressions": "off",
-		"no-restricted-syntax": "off",
 		"no-unused-vars": "off",
-		"one-var": "off",
 		"operator-linebreak": "off",
 		"space-before-function-paren": "off",
 		"space-in-parens": "off",
@@ -30,8 +26,6 @@
 		"jsdoc/require-returns-check": "off",
 		"n/no-unsupported-features/node-builtins": "warn",
 		"implicit-arrow-linebreak": "warn",
-		"no-mixed-spaces-and-tabs": "warn",
-		"semi-style": "warn",
-		"n/no-missing-require": "warn"
+		"no-mixed-spaces-and-tabs": "warn"
 	}
 }
