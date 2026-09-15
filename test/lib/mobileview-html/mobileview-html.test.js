@@ -45,7 +45,7 @@ describe( 'lib:mobileview-html', () => {
 	describe( 'rewriteWikiLinks', () => {
 		it( 'single link', () => {
 			const document = domino.createDocument( '<p><a href="/wiki/A"></a></p>' );
-			const result = lib.testing.rewriteWikiLinks( document, 'a', 'href' );
+			lib.testing.rewriteWikiLinks( document, 'a', 'href' );
 			assert.deepEqual( document.body.innerHTML, '<p><a href="./A"></a></p>' );
 		} );
 	} );
@@ -54,7 +54,7 @@ describe( 'lib:mobileview-html', () => {
 		it( 'single image', () => {
 			const document = domino.createDocument(
 				'<p><a class="image" href="target"><img src="foo"/></a></p>' );
-			const result = lib.testing.wrapImagesInSpanElements( document,
+			lib.testing.wrapImagesInSpanElements( document,
 				{ id: 0, text: 'lead' } );
 			assert.deepEqual( document.body.innerHTML,
 				'<p><span class="mw-default-size"><a class="image" href="target"><img src="foo"></a></span></p>' );

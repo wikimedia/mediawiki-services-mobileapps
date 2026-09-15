@@ -2,7 +2,6 @@
 
 const assert = require( '../../utils/assert' );
 const axios = require( 'axios' );
-const fixtures = require( '../../utils/fixtures' );
 const lib = require( '../../../lib/transformations/wrapSections' );
 
 const user_agent = 'pcs-unittest/0.1 (https://www.mediawiki.org/wiki/Content_Transform_Team)';

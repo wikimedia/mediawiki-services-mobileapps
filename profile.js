@@ -1,7 +1,6 @@
 'use strict';
 
 const zeroEks = require( '0x' );
-const yargs = require( 'yargs' );
 const os = require( 'os' );
 
 async function capture( serverPath, configPath ) {

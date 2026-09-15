@@ -33,7 +33,7 @@ describe( 'lib:core-api-compat unit tests', () => {
 		};
 		const next = sinon.stub();
 
-		const result = httpTitleRedirectErrorMiddleware( error, req, res, next );
+		httpTitleRedirectErrorMiddleware( error, req, res, next );
 		assert.ok( res.redirect.calledOnce );
 		assert.equal( res.redirect.args, 'en.wikipedia.org/test/path/test' );
 	} );
@@ -49,7 +49,7 @@ describe( 'lib:core-api-compat unit tests', () => {
 		const next = sinon.stub();
 
 		assert.throws( () => {
-			const result = httpTitleRedirectErrorMiddleware( error, req, res, next );
+			httpTitleRedirectErrorMiddleware( error, req, res, next );
 			assert.ok( res.redirect.notCalled );
 			assert.ok( next.calledOnce );
 			assert.equal( next.args, error );
@@ -65,7 +65,7 @@ describe( 'lib:core-api-compat unit tests', () => {
 		const next = sinon.stub();
 
 		assert.throws( () => {
-			const result = httpTitleRedirectErrorMiddleware( error, req, res, next );
+			httpTitleRedirectErrorMiddleware( error, req, res, next );
 			assert.ok( res.redirect.notCalled );
 			assert.ok( next.calledOnce );
 			assert.equal( next.args, error );

@@ -30,7 +30,6 @@ describe( 'mathjax', function () {
 		const meta = doc.head.querySelector( 'meta[property="mw:generalModules"]' );
 		const modules = meta ? meta.getAttribute( 'content' ).split( '|' ) : [];
 		assert.contains( modules, 'ext.math.mathjax' );
-		const script = doc.head.querySelector( '#MathJax-script' );
 		assert.selectorExistsOnce( doc.head, '#MathJax-script' );
 	} ) );
 

@@ -310,7 +310,7 @@ describe( 'Language variants - cache GET', async () => {
 
 	it( 'should call cache GET with language variants for language with variants', async () => {
 		const uri = localUri( 'mobile-html', 'PHP', 'sr.wikipedia.org' );
-		const res = await preq.get( { uri } );
+		await preq.get( { uri } );
 		sinon.assert.calledOnce( engineStubbedInstance.get );
 		sinon.assert.calledWith(
 			engineStubbedInstance.get,

@@ -7,7 +7,6 @@ const BBPromise = require( 'bluebird' );
 const ServiceRunner = require( 'service-runner' );
 const logStream = require( './logStream' );
 const fs = require( 'fs' );
-const assert = require( './assert' );
 const yaml = require( 'js-yaml' );
 const extend = require( 'extend' );
 const sepia = require( 'sepia' );

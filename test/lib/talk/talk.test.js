@@ -5,7 +5,6 @@ const TalkPage = require( '../../../lib/talk/TalkPage' );
 const domino = require( 'domino' );
 const fixtures = require( '../../utils/fixtures' );
 const perf = require( '../../utils/performance' );
-const P = require( 'bluebird' );
 
 describe( 'lib:talk', () => {
 	describe( 'parseUserTalkPageDocIntoTopicsWithReplies', () => {

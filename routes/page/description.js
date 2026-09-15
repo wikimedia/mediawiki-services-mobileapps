@@ -4,7 +4,6 @@
  * @module routes/page/description
  */
 
-const BBPromise = require( 'bluebird' );
 const sUtil = require( '../../lib/util' );
 const HTTPError = sUtil.HTTPError;
 const mwapi = require( '../../lib/mwapi' );
@@ -26,11 +25,6 @@ const ENWIKI_REGEX = /^en\.wikipedia(?:\.beta\.wmflabs)?\.org$/;
 function isEnWiki( domain ) {
 	return ENWIKI_REGEX.test( domain );
 }
-
-/**
- * The main application object reported when this module is require()d
- */
-let app;
 
 /**
  * Get page description
@@ -96,7 +90,6 @@ router.delete( '/description/:title', ( req, res ) => {
 } );
 
 module.exports = function ( appObj ) {
-	app = appObj;
 	return {
 		path: '/page',
 		api_version: 1,

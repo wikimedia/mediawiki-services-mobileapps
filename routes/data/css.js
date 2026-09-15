@@ -14,8 +14,6 @@ const { projectAllowMiddlewares } = require( '../../lib/wmf-projects' );
 
 const router = sUtil.router();
 
-let app;
-
 /**
  * Gets the base CSS for the mobile apps
  */
@@ -37,7 +35,6 @@ router.get( '/pcs', projectAllowMiddlewares[ 'static-assets' ], ( req, res ) => 
 router.get( '/site', projectAllowMiddlewares[ 'static-assets' ], ( req, res ) => fetchMobileSiteCss( req, res ) );
 
 module.exports = function ( appObj ) {
-	app = appObj;
 	return {
 		path: '/data/css/mobile',
 		api_version: 1,
