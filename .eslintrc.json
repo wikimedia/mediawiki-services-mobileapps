@@ -14,8 +14,6 @@
 		"jsdoc/require-param-type": "off",
 		"jsdoc/require-returns": "off",
 		"jsdoc/require-returns-check": "off",
-		"n/no-unsupported-features/node-builtins": "warn",
-		"implicit-arrow-linebreak": "warn",
-		"no-mixed-spaces-and-tabs": "warn"
+		"n/no-unsupported-features/node-builtins": "warn"
 	}
 }
