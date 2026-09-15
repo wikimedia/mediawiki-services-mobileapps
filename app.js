@@ -176,7 +176,7 @@ function initApp( options ) {
 	}
 
 	// Default cache headers
-	const default_cache_headers = {
+	const defaultCacheHeaders = {
 		'mobile-html': 's-maxage=1209600, max-age=0',
 		'media-list': 's-maxage=1209600, max-age=0',
 		'page-summary': 's-maxage=1209600, max-age=300',
@@ -186,7 +186,7 @@ function initApp( options ) {
 		'wikitext-to-mobile-html': 'private, max-age=0, s-maxage=0, must-revalidate',
 		'static-assets': 'public, max-age=86400, s-maxage=86400'
 	};
-	app.conf.cache_headers = app.conf.cache_headers || default_cache_headers;
+	app.conf.cache_headers = app.conf.cache_headers || defaultCacheHeaders;
 	app.conf.restrict_domains = app.conf.restrict_domains !== undefined ? app.conf.restrict_domains : true;
 
 	return BBPromise.resolve( app );

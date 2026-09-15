@@ -4,14 +4,14 @@ const assert = require( '../../utils/assert' );
 const axios = require( 'axios' );
 const lib = require( '../../../lib/transformations/wrapSections' );
 
-const user_agent = 'pcs-unittest/0.1 (https://www.mediawiki.org/wiki/Content_Transform_Team)';
+const userAgent = 'pcs-unittest/0.1 (https://www.mediawiki.org/wiki/Content_Transform_Team)';
 
 describe( 'lib:wrapSections', () => {
 	it( 'should expand into multiple sections when action=parse (en)', () => {
 		const baseURL = 'https://en.wikipedia.org/w/api.php';
 		const query = 'action=parse&page=User%3AJGiannelos_(WMF)%2Ftest-sections&format=json';
 		const url = `${ baseURL }?${ query }`;
-		return axios.get( url, { headers: { 'user-agent': user_agent } } ).then( ( response ) => {
+		return axios.get( url, { headers: { 'user-agent': userAgent } } ).then( ( response ) => {
 			const html = response.data.parse.text[ '*' ];
 			const sections = lib.makeSections( html );
 			assert.equal( sections.length, 5 );
@@ -22,7 +22,7 @@ describe( 'lib:wrapSections', () => {
 		const baseURL = 'https://zh.wikipedia.org/w/api.php';
 		const query = 'action=parse&page=User%3AJGiannelos_(WMF)%2Ftest-sections&format=json';
 		const url = `${ baseURL }?${ query }`;
-		return axios.get( url, { headers: { 'user-agent': user_agent } } ).then( ( response ) => {
+		return axios.get( url, { headers: { 'user-agent': userAgent } } ).then( ( response ) => {
 			const html = response.data.parse.text[ '*' ];
 			const sections = lib.makeSections( html );
 			assert.equal( sections.length, 5 );

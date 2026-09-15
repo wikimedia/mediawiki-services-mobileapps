@@ -168,35 +168,35 @@ describe( 'lib:MobileHTML', () => {
 
 		it( 'formats sub-references', () => MobileHTML.promise( subRefDocument ).then(
 			( mobileHTML ) => {
-				const reflist_item_1 = mobileHTML.doc.getElementById( 'cite_note-main1-1' );
-				const backlink_1 = reflist_item_1.querySelector( '.pcs-ref-backlink-container' );
+				const mainReflistItem = mobileHTML.doc.getElementById( 'cite_note-main1-1' );
+				const mainBacklink = mainReflistItem.querySelector( '.pcs-ref-backlink-container' );
 				assert.strictEqual(
-					backlink_1.textContent, '[1]',
+					mainBacklink.textContent, '[1]',
 					'Main+details main backlink has a number despite being unused'
 				);
 				assert.strictEqual(
-					backlink_1.querySelector( 'a' ), undefined,
+					mainBacklink.querySelector( 'a' ), undefined,
 					'Main+details main backlink is not a link'
 				);
 				assert.strictEqual(
-					reflist_item_1.querySelector( '.pcs-ref-body' ).textContent,
+					mainReflistItem.querySelector( '.pcs-ref-body' ).textContent,
 					'main plus details (body)',
 					'Main plus details footnote body is correct'
 				);
 
-				const reflist_item_1_1 = mobileHTML.doc.getElementById( 'cite_note-2' );
+				const subrefReflistItem = mobileHTML.doc.getElementById( 'cite_note-2' );
 				assert.strictEqual(
-					reflist_item_1_1.querySelector( '.pcs-ref-body' ).textContent,
+					subrefReflistItem.querySelector( '.pcs-ref-body' ).textContent,
 					'p. 123',
 					'Main+details subref reflist item is correct'
 				);
-				const backlink_1_1 = reflist_item_1_1.querySelector( '.pcs-ref-backlink-container' );
+				const subrefBacklink = subrefReflistItem.querySelector( '.pcs-ref-backlink-container' );
 				assert.strictEqual(
-					backlink_1_1.textContent, '[1.1]',
+					subrefBacklink.textContent, '[1.1]',
 					'Main+details subref backlink marker is correct'
 				);
 				assert.strictEqual(
-					backlink_1_1.querySelector( 'a' ).href, '/wiki/CiteDetails#pcs-ref-back-link-cite_note-2',
+					subrefBacklink.querySelector( 'a' ).href, '/wiki/CiteDetails#pcs-ref-back-link-cite_note-2',
 					'Main+details backlink is a link'
 				);
 
