@@ -36,9 +36,9 @@ router.get( '/definition/:title/:revision?/:tid?', projectAllowMiddlewares[ 'wor
 			res.status( 200 );
 			mUtil.setETag( res, response.meta.revision );
 			mUtil.setContentType( res, mUtil.CONTENT_TYPES.definition );
-			mUtil.setLanguageHeaders( res, response._headers );
-			// Don't poison the client response with the internal _headers object
-			delete response._headers;
+			mUtil.setLanguageHeaders( res, response.internalHeaders );
+			// Do not send the internalHeaders object to the client.
+			delete response.internalHeaders;
 
 			res.json( response.payload ).end();
 		} );

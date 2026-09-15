@@ -263,7 +263,7 @@ function loadPreProcessingScripts( app, dir ) {
 	 * @param {!Array} script processing script
 	 * @throws error if script format is invalid
 	 */
-	function _validate( script ) {
+	function validate( script ) {
 		if ( script.filter( ( i ) => typeof i === 'object' && Object.keys( i ).length !== 1 ).length ) {
 			throw new Error( 'Invalid processing script format' );
 		}
@@ -273,7 +273,7 @@ function loadPreProcessingScripts( app, dir ) {
 	return fs.readdirAsync( dir ).map( ( filename ) => BBPromise.try( () => {
 		const name = filename.split( '.' )[ 0 ];
 		const script = yaml.load( fs.readFileSync( `${ dir }/${ filename }` ) );
-		_validate( script );
+		validate( script );
 		app.conf.processing_scripts[ name ] = script;
 	} )
 		.catch( ( e ) => app.logger.log( 'warn/loading', `Error loading processing scripts: ${ e }` ) ) )

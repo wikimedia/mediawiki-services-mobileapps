@@ -28,7 +28,7 @@ describe( 'lib:apiUtil', () => {
 	} ) );
 
 	it( 'batching works correctly', () => {
-		const batches = api._batch( [ 0, 1, 2, 3, 4 ], 2 );
+		const batches = api.splitIntoBatches( [ 0, 1, 2, 3, 4 ], 2 );
 		assert.deepEqual( batches.length, 3 );
 		assert.deepEqual( batches[ 0 ].length, 2 );
 		assert.deepEqual( batches[ 1 ].length, 2 );
@@ -36,7 +36,7 @@ describe( 'lib:apiUtil', () => {
 	} );
 
 	it( 'order is preserved when Array.reduce is called on resolved BBPromise.all batches', () => {
-		const batches = api._batch( [ 0, 1, 2, 3, 4 ], 2 );
+		const batches = api.splitIntoBatches( [ 0, 1, 2, 3, 4 ], 2 );
 		const promises = BBPromise.all( batches.map( ( batch ) => new BBPromise( ( resolve ) => setTimeout( () => resolve( batch ), batch.length * 10 ) ) ) );
 		promises.then( ( response ) => {
 			const result = response.reduce( ( arr, batch ) => arr.concat( batch ), [] );

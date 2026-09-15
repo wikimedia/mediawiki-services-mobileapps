@@ -3,7 +3,7 @@
 	"extends": "wikimedia/server",
 	"rules": {
 		"camelcase": "off",
-		"no-underscore-dangle": "off",
+		"no-underscore-dangle": [ "error", { "allowAfterThis": true } ],
 		"no-unused-vars": [ "error", { "argsIgnorePattern": "^_", "caughtErrorsIgnorePattern": "^_" } ],
 		"jsdoc/no-undefined-types": "off",
 		"jsdoc/valid-types": "off",

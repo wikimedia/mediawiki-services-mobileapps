@@ -48,7 +48,7 @@ function getMobileHtmlFromPOST( req, res ) {
 	} ).then( ( mobileHTML ) => {
 		res.status( 200 );
 		mUtil.setContentType( res, mUtil.CONTENT_TYPES.mobileHtml );
-		mUtil.setLanguageHeaders( res, mobileHTML.metadata._headers );
+		mUtil.setLanguageHeaders( res, mobileHTML.metadata.internalHeaders );
 		mUtil.setContentSecurityPolicy( res, app.conf.mobile_html_csp );
 		mRequestUtil.setXAnalytics( req, res, mobileHTML.metadata );
 		res.send( mobileHTML.doc.outerHTML ).end();
@@ -123,7 +123,7 @@ router.get( '/page/mobile-html/:title/:revision?/:tid?',
 				}
 				mUtil.setContentType( res, mUtil.CONTENT_TYPES.mobileHtml );
 				mUtil.setETag( res, mobileHTML.metadata.revision );
-				mUtil.setLanguageHeaders( res, mobileHTML.metadata._headers );
+				mUtil.setLanguageHeaders( res, mobileHTML.metadata.internalHeaders );
 				mUtil.setContentSecurityPolicy( res, app.conf.mobile_html_csp );
 				mRequestUtil.setXAnalytics( req, res, mobileHTML.metadata );
 				res.send( mobileHTML.doc.outerHTML ).end();

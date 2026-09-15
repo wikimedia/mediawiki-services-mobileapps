@@ -364,9 +364,12 @@ describe( 'validate spec examples', () => {
 		svc = await server.start();
 		defParams = spec[ 'x-default-params' ] || {};
 		defHeaders = {};
+		// service-runner keeps the loaded config on an internal property.
+		// eslint-disable-next-line no-underscore-dangle
+		const svcConf = svc._impl.config.services[ 0 ].conf;
 		if (
-			svc._impl.config.services[ 0 ].conf.restbase_compatibility &&
-			svc._impl.config.services[ 0 ].conf.restbase_compatibility.security_headers
+			svcConf.restbase_compatibility &&
+			svcConf.restbase_compatibility.security_headers
 		) {
 			// default headers, if given
 			defHeaders = spec[ 'x-restbase-compatibility-headers' ] || {};
