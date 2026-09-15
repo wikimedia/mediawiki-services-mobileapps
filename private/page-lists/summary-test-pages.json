@@ -89,49 +89,49 @@
 	{ "domain": "en.wikipedia.org", "title": "Darth_Vader", "rev": "", "note": "spaces before ," },
 	{ "domain": "en.wikipedia.org", "title": "Azerbaijan", "rev": "827080382", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Aurora,_Colorado", "rev": "826201781", "note": "(, )" },
-	{ "domain": "en.wikipedia.org", "title": "Brasília", "rev": "" , "note": "" },
+	{ "domain": "en.wikipedia.org", "title": "Brasília", "rev": "", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Hong_Kong", "rev": "822985682", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Iberian_Peninsula", "rev": "", "note": "" },
-	{ "domain": "en.wikipedia.org", "title": "Iceland", "rev": "822239280" , "note": "" },
+	{ "domain": "en.wikipedia.org", "title": "Iceland", "rev": "822239280", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Iran", "rev": "823036598", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Italy", "rev": "823041259", "note": "" },
-	{ "domain": "en.wikipedia.org", "title": "Kyoto", "rev": "823102615" , "note": "" },
+	{ "domain": "en.wikipedia.org", "title": "Kyoto", "rev": "823102615", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "London", "rev": "822677492", "note": "double spaces" },
-	{ "domain": "en.wikipedia.org", "title": "Los_Angeles", "rev": "823082297" , "note": "" },
-	{ "domain": "en.wikipedia.org", "title": "Louisiana", "rev": "851051478" , "note": "T198264: (, )" },
-	{ "domain": "en.wikipedia.org", "title": "Malta", "rev": "822607207" , "note": "" },
+	{ "domain": "en.wikipedia.org", "title": "Los_Angeles", "rev": "823082297", "note": "" },
+	{ "domain": "en.wikipedia.org", "title": "Louisiana", "rev": "851051478", "note": "T198264: (, )" },
+	{ "domain": "en.wikipedia.org", "title": "Malta", "rev": "822607207", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Ottoman_Empire", "rev": "822890778", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Phoenicia", "rev": "", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Reggio_Calabria", "rev": "", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Spain", "rev": "", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Switzerland", "rev": "822990856", "note": "" },
-	{ "domain": "en.wikipedia.org", "title": "Thailand", "rev": "822949878" , "note": "" },
+	{ "domain": "en.wikipedia.org", "title": "Thailand", "rev": "822949878", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Tunisia", "rev": "828293214", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "United_States", "rev": "823073039", "note": "" },
 	{ "domain": "en.wikipedia.org", "title": "Valle,_Norway", "rev": "818990273", "note": "box plus help info string" },
 
 	{ "domain": "es.wikipedia.org", "title": "Cambio_climático", "rev": "105201387", "note": "consider not stripping () with contents in (\"\")" },
-	{ "domain": "es.wikipedia.org", "title": "Célula", "rev": "105100890" , "note": "space before semicolon" },
-	{ "domain": "es.wikipedia.org", "title": "Cristiano_Ronaldo", "rev": "" , "note": "space before comma" },
-	{ "domain": "es.wikipedia.org", "title": "Grecia", "rev": "105177728" , "note": "space before comma" },
+	{ "domain": "es.wikipedia.org", "title": "Célula", "rev": "105100890", "note": "space before semicolon" },
+	{ "domain": "es.wikipedia.org", "title": "Cristiano_Ronaldo", "rev": "", "note": "space before comma" },
+	{ "domain": "es.wikipedia.org", "title": "Grecia", "rev": "105177728", "note": "space before comma" },
 	{ "domain": "es.wikipedia.org", "title": "María_I_de_Escocia", "rev": "105110472", "note": ",," },
 	{ "domain": "es.wikipedia.org", "title": "Número_áureo", "rev": "105154269", "note": "consider not stripping () with contents in bold" },
 	{ "domain": "es.wikipedia.org", "title": "Will_Smith", "rev": "105231673", "note": ",," },
 
-	{ "domain": "he.wikipedia.org", "title": "LSD", "rev": "22148766" , "note": "" },
+	{ "domain": "he.wikipedia.org", "title": "LSD", "rev": "22148766", "note": "" },
 
-	{ "domain": "it.wikipedia.org", "title": "Mino_Raiola", "rev": "93869330" , "note": "" },
+	{ "domain": "it.wikipedia.org", "title": "Mino_Raiola", "rev": "93869330", "note": "" },
 
-	{ "domain": "ja.wikipedia.org", "title": "台湾", "rev": "" , "note": "" },
+	{ "domain": "ja.wikipedia.org", "title": "台湾", "rev": "", "note": "" },
 
-	{ "domain": "ro.wikipedia.org", "title": "Logaritm", "rev": "11405532" , "note": "" },
+	{ "domain": "ro.wikipedia.org", "title": "Logaritm", "rev": "11405532", "note": "" },
 
-	{ "domain": "sk.wikipedia.org", "title": "James_Hunt", "rev": "6540169" , "note": "(d) not sure we can do anything about it" },
+	{ "domain": "sk.wikipedia.org", "title": "James_Hunt", "rev": "6540169", "note": "(d) not sure we can do anything about it" },
 
-	{ "domain": "tr.wikipedia.org", "title": "Kerem_Çatay", "rev": "19429271" , "note": "" },
+	{ "domain": "tr.wikipedia.org", "title": "Kerem_Çatay", "rev": "19429271", "note": "" },
 
-	{ "domain": "uk.wikipedia.org", "title": "Ботулізм", "rev": "21889503" , "note": "" },
-	{ "domain": "uk.wikipedia.org", "title": "Угода_про_асоціацію_між_Україною_та_Європейським_Союзом", "rev": "21497629" , "note": "" },
+	{ "domain": "uk.wikipedia.org", "title": "Ботулізм", "rev": "21889503", "note": "" },
+	{ "domain": "uk.wikipedia.org", "title": "Угода_про_асоціацію_між_Україною_та_Європейським_Союзом", "rev": "21497629", "note": "" },
 
-	{ "domain": "zh.wikipedia.org", "title": "台北101", "rev": "" , "note": "" }
+	{ "domain": "zh.wikipedia.org", "title": "台北101", "rev": "", "note": "" }
 ] }

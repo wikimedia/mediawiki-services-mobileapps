@@ -1,27 +1,27 @@
 'use strict';
 
-const assert = require('../../utils/assert.js');
-const queryForMetadata = require('../../../lib/mwapi').queryForMetadata;
-const util = require('../../utils/testUtil');
+const assert = require( '../../utils/assert.js' );
+const queryForMetadata = require( '../../../lib/mwapi' ).queryForMetadata;
+const util = require( '../../utils/testUtil' );
 
-const responseBuilder = (page, siteinfo, title, description) => ({
+const responseBuilder = ( page, siteinfo, title, description ) => ( {
 	page,
 	siteinfo,
 	title,
 	description,
-});
+} );
 
-const logger = require('bunyan').createLogger({
+const logger = require( 'bunyan' ).createLogger( {
 	name: 'test-logger',
 	level: 'warn'
-});
-logger.log = function(a, b) {};
+} );
+logger.log = function ( a, b ) {};
 
-describe('lib:mwapi:queryForMetadata', () => {
-	it('ensure that displaytitle is always requested', () => {
-		const req = util.getMockedServiceReq({
+describe( 'lib:mwapi:queryForMetadata', () => {
+	it( 'ensure that displaytitle is always requested', () => {
+		const req = util.getMockedServiceReq( {
 			params: { title: 'Β-lactam_antibiotic', domain: 'en.wikipedia.org' },
-		});
+		} );
 		const query = {
 			format: 'json',
 			formatversion: 2,
@@ -33,8 +33,8 @@ describe('lib:mwapi:queryForMetadata', () => {
 			titles: req.params.title,
 		};
 		req.logger = logger;
-		return queryForMetadata(req, query, responseBuilder).then(metadata => {
-			assert.contains(metadata.title.display, 'Β-lactam antibiotic');
-		});
-	});
-});
+		return queryForMetadata( req, query, responseBuilder ).then( metadata => {
+			assert.contains( metadata.title.display, 'Β-lactam antibiotic' );
+		} );
+	} );
+} );

@@ -1,74 +1,74 @@
 'use strict';
 
-const assert = require('../../utils/assert.js');
-const preq   = require('preq');
-const server = require('../../utils/server.js');
+const assert = require( '../../utils/assert.js' );
+const preq = require( 'preq' );
+const server = require( '../../utils/server.js' );
 
-describe('definition', function() {
+describe( 'definition', function () {
 
-	this.timeout(20000);
+	this.timeout( 20000 );
 
 	let svc;
-	before(async () => {
+	before( async () => {
 		svc = await server.start();
-	});
-	after(async () => await svc.stop());
+	} );
+	after( async () => await svc.stop() );
 
-	it('missing definitions', () => {
+	it( 'missing definitions', () => {
 		const uri = `${ server.config.uri }en.wiktionary.org/v1/page/definition/Dssjbkrt`;
-		return preq.get({ uri })
-			.then((res) => {
-				throw new Error(`Expected an error, but got status: ${ res.status }`);
-			}, (err) => {
-				assert.status(err, 404);
-			});
-	});
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				throw new Error( `Expected an error, but got status: ${ res.status }` );
+			}, ( err ) => {
+				assert.status( err, 404 );
+			} );
+	} );
 
-	it('non-term page', () => {
+	it( 'non-term page', () => {
 		const uri = `${ server.config.uri }en.wiktionary.org/v1/page/definition/Main_page`;
-		return preq.get({ uri })
-			.then((res) => {
-				throw new Error(`Expected an error, but got status: ${ res.status }`);
-			}, (err) => {
-				assert.status(err, 404);
-			});
-	});
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				throw new Error( `Expected an error, but got status: ${ res.status }` );
+			}, ( err ) => {
+				assert.status( err, 404 );
+			} );
+	} );
 
-	it('unsupported language', () => {
+	it( 'unsupported language', () => {
 		const uri = `${ server.config.uri }ru.wiktionary.org/v1/page/definition/Baba`;
-		return preq.get({ uri })
-			.then((res) => {
-				throw new Error(`Expected an error, but got status: ${ res.status }`);
-			}, (err) => {
-				assert.status(err, 501);
-			});
-	});
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				throw new Error( `Expected an error, but got status: ${ res.status }` );
+			}, ( err ) => {
+				assert.status( err, 501 );
+			} );
+	} );
 
-	it('non-English term on English Wiktionary returns valid results', () => {
+	it( 'non-English term on English Wiktionary returns valid results', () => {
 		const uri = `${ server.config.uri }en.wiktionary.org/v1/page/definition/%E4%B8%AD%E5%9B%BD`;
-		return preq.get({ uri })
-			.then((res) => {
-				assert.status(res, 200);
-				assert.ok(Object.keys(res).length !== 0);
-			});
-	});
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				assert.status( res, 200 );
+				assert.ok( Object.keys( res ).length !== 0 );
+			} );
+	} );
 
-	it('translingual term', () => {
+	it( 'translingual term', () => {
 		const uri = `${ server.config.uri }en.wiktionary.org/v1/page/definition/Toxicodendron`;
-		return preq.get({ uri })
-			.then((res) => {
-				assert.status(res, 200);
-				assert.ok(Object.keys(res).length !== 0);
-			});
-	});
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				assert.status( res, 200 );
+				assert.ok( Object.keys( res ).length !== 0 );
+			} );
+	} );
 
-	it('sets content-language header', () => {
+	it( 'sets content-language header', () => {
 		const uri = `${ server.config.uri }en.wiktionary.org/v1/page/definition/Dog`;
-		return preq.get({ uri })
-			.then((res) => {
-				assert.status(res, 200);
-				assert.deepEqual(res.headers['content-language'], 'en');
-			});
-	});
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				assert.status( res, 200 );
+				assert.deepEqual( res.headers[ 'content-language' ], 'en' );
+			} );
+	} );
 
-});
+} );

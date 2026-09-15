@@ -1,36 +1,36 @@
 'use strict';
 
-const domino = require('domino');
-const preq   = require('preq');
-const assert = require('../../utils/assert.js');
-const server = require('../../utils/server.js');
-const { setXAnalytics } = require('../../../lib/mobile/mobile-request-util');
-const { mockReq } = require('sinon-express-mock');
-const sinon = require('sinon');
+const domino = require( 'domino' );
+const preq = require( 'preq' );
+const assert = require( '../../utils/assert.js' );
+const server = require( '../../utils/server.js' );
+const { setXAnalytics } = require( '../../../lib/mobile/mobile-request-util' );
+const { mockReq } = require( 'sinon-express-mock' );
+const sinon = require( 'sinon' );
 
-describe('mobile-html', function() {
+describe( 'mobile-html', function () {
 
-	this.timeout(20000);
+	this.timeout( 20000 );
 
 	let svc;
-	before(async () => {
+	before( async () => {
 		svc = await server.start();
-	});
-	after(async () => await svc.stop());
+	} );
+	after( async () => await svc.stop() );
 
-	const localUri = (title, domain = 'en.wikipedia.org') => `${ server.config.uri }${ domain }/v1/page/mobile-html/${ title }`;
+	const localUri = ( title, domain = 'en.wikipedia.org' ) => `${ server.config.uri }${ domain }/v1/page/mobile-html/${ title }`;
 
-	it('HTML should be sectioned', () => {
-		const uri = localUri('Foobar/788941783');
-		return preq.get({ uri })
-			.then((res) => {
-				const document = domino.createDocument(res.body);
-				assert.selectorExistsNTimes(document, 'section', 7, 'should have 7 sections');
-			});
-	});
+	it( 'HTML should be sectioned', () => {
+		const uri = localUri( 'Foobar/788941783' );
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				const document = domino.createDocument( res.body );
+				assert.selectorExistsNTimes( document, 'section', 7, 'should have 7 sections' );
+			} );
+	} );
 
-	it('mobile-html headers not compatible with restbase output', () => {
-		const uri = localUri('Foobar/788941783');
+	it( 'mobile-html headers not compatible with restbase output', () => {
+		const uri = localUri( 'Foobar/788941783' );
 		const defaultHeaders = [
 			'access-control-allow-origin',
 			'access-control-allow-headers',
@@ -53,17 +53,17 @@ describe('mobile-html', function() {
 			'x-request-id'
 		];
 
-		return preq.get({ uri })
-			.then((res) => {
-				assert.deepEqual(defaultHeaders.length, Object.keys(res.headers).length);
-				defaultHeaders.forEach((header) => {
-					assert.deepEqual(!!res.headers[header], true, `Header ${ header } not present`);
-				});
-			});
-	});
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				assert.deepEqual( defaultHeaders.length, Object.keys( res.headers ).length );
+				defaultHeaders.forEach( ( header ) => {
+					assert.deepEqual( !!res.headers[ header ], true, `Header ${ header } not present` );
+				} );
+			} );
+	} );
 
-	it('mobile-html headers compatible with restbase output', () => {
-		const uri = localUri('Foobar/788941783');
+	it( 'mobile-html headers compatible with restbase output', () => {
+		const uri = localUri( 'Foobar/788941783' );
 		const restbaseHeaders = [
 			'access-control-allow-origin',
 			'access-control-allow-methods',
@@ -88,128 +88,128 @@ describe('mobile-html', function() {
 			'x-request-id'
 		];
 
-		return preq.get({ uri, headers: { 'X-RESTBase-Compat': true } })
-			.then((res) => {
-				assert.deepEqual(restbaseHeaders.length, Object.keys(res.headers).length);
-				restbaseHeaders.forEach((header) => {
-					assert.deepEqual(!!res.headers[header], true, `Header ${ header } not present`);
-				});
-			});
-	});
+		return preq.get( { uri, headers: { 'X-RESTBase-Compat': true } } )
+			.then( ( res ) => {
+				assert.deepEqual( restbaseHeaders.length, Object.keys( res.headers ).length );
+				restbaseHeaders.forEach( ( header ) => {
+					assert.deepEqual( !!res.headers[ header ], true, `Header ${ header } not present` );
+				} );
+			} );
+	} );
 
-	it('mobile-html should have css links + viewport set', () => {
-		const uri = localUri('Foobar/788941783');
-		return preq.get({ uri })
-			.then((res) => {
-				const document = domino.createDocument(res.body);
-				assert.selectorExistsNTimes(document, 'html > head > link[rel=stylesheet]', 3,
-					'should have 3 css files');
-				assert.selectorExistsNTimes(document, 'html > head > meta[name=viewport]', 1,
-					'should have 1 meta element setting viewport');
-			});
-	});
+	it( 'mobile-html should have css links + viewport set', () => {
+		const uri = localUri( 'Foobar/788941783' );
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				const document = domino.createDocument( res.body );
+				assert.selectorExistsNTimes( document, 'html > head > link[rel=stylesheet]', 3,
+					'should have 3 css files' );
+				assert.selectorExistsNTimes( document, 'html > head > meta[name=viewport]', 1,
+					'should have 1 meta element setting viewport' );
+			} );
+	} );
 
-	it('mobile-html should have lead paragraph moved up', () => {
-		const uri = localUri('Dog/844680047');
-		return preq.get({ uri })
-			.then((res) => {
-				const document = domino.createDocument(res.body);
-				const section0 = document.querySelector('section[data-mw-section-id=0]');
+	it( 'mobile-html should have lead paragraph moved up', () => {
+		const uri = localUri( 'Dog/844680047' );
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				const document = domino.createDocument( res.body );
+				const section0 = document.querySelector( 'section[data-mw-section-id=0]' );
 				// children[0] edit button
 				// children[1..4] hatnotes
-				assert.ok(section0.children[5].outerHTML.startsWith('<p>The <b>domestic dog</b>'));
-			});
-	});
+				assert.ok( section0.children[ 5 ].outerHTML.startsWith( '<p>The <b>domestic dog</b>' ) );
+			} );
+	} );
 
-	it('mobile-html should not have navboxes', () => {
-		const uri = localUri('Cat');
-		return preq.get({ uri })
-			.then((res) => {
-				const document = domino.createDocument(res.body);
-				assert.selectorDoesNotExist(document, 'div.navbox', 'Document contains navboxes');
-			});
-	});
+	it( 'mobile-html should not have navboxes', () => {
+		const uri = localUri( 'Cat' );
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				const document = domino.createDocument( res.body );
+				assert.selectorDoesNotExist( document, 'div.navbox', 'Document contains navboxes' );
+			} );
+	} );
 
-	it('mobile-html should have meta tags indicating page protection', () => {
-		const uri = localUri('Protected_page', 'test.wikipedia.org');
-		return preq.get(uri).then((res) => {
-			const document = domino.createDocument(res.body);
-			const edit = document.querySelector('meta[property=mw:pageProtection:edit]');
-			assert.deepEqual(edit.getAttribute('content'), 'sysop');
-			const move = document.querySelector('meta[property=mw:pageProtection:move]');
-			assert.deepEqual(move.getAttribute('content'), 'sysop');
-		});
-	});
+	it( 'mobile-html should have meta tags indicating page protection', () => {
+		const uri = localUri( 'Protected_page', 'test.wikipedia.org' );
+		return preq.get( uri ).then( ( res ) => {
+			const document = domino.createDocument( res.body );
+			const edit = document.querySelector( 'meta[property=mw:pageProtection:edit]' );
+			assert.deepEqual( edit.getAttribute( 'content' ), 'sysop' );
+			const move = document.querySelector( 'meta[property=mw:pageProtection:move]' );
+			assert.deepEqual( move.getAttribute( 'content' ), 'sysop' );
+		} );
+	} );
 
-	it('mobile-html from parse should have meta tags indicating page protection', () => {
-		const uri = localUri('%E9%97%87%E5%BD%B1%E4%B9%8B%E5%BF%83/54664518', 'zh.wikipedia.org');
-		return preq.get(uri).then((res) => {
-			const document = domino.createDocument(res.body);
-			const meta = document.querySelector('meta[property=mw:pageProtection:edit]');
-			assert.deepEqual(meta.getAttribute('content'), 'autoconfirmed');
-		});
-	});
+	it( 'mobile-html from parse should have meta tags indicating page protection', () => {
+		const uri = localUri( '%E9%97%87%E5%BD%B1%E4%B9%8B%E5%BF%83/54664518', 'zh.wikipedia.org' );
+		return preq.get( uri ).then( ( res ) => {
+			const document = domino.createDocument( res.body );
+			const meta = document.querySelector( 'meta[property=mw:pageProtection:edit]' );
+			assert.deepEqual( meta.getAttribute( 'content' ), 'autoconfirmed' );
+		} );
+	} );
 
-	it('mobile-html from parse should have x-analytics set', () => {
-		const uri = localUri('%E5%9C%B0%E7%90%83', 'zh.wikipedia.org');
-		return preq.get({ uri, headers: { 'user-agent': 'WikipediaApp/PCS-unittest' } }).then((res) => {
-			assert.deepEqual(res.headers['x-analytics'], 'page_id=5414300;ns=0;');
-		});
-	});
+	it( 'mobile-html from parse should have x-analytics set', () => {
+		const uri = localUri( '%E5%9C%B0%E7%90%83', 'zh.wikipedia.org' );
+		return preq.get( { uri, headers: { 'user-agent': 'WikipediaApp/PCS-unittest' } } ).then( ( res ) => {
+			assert.deepEqual( res.headers[ 'x-analytics' ], 'page_id=5414300;ns=0;' );
+		} );
+	} );
 
-	it('mobile-html should not enable edit talk page button by default', () => {
-		const uri = localUri('Cat');
-		return preq.get({ uri })
-			.then((res) => {
-				const document = domino.createDocument(res.body);
-				assert.selectorDoesNotExist(document, '.pcs-title-icon-talk-page', 'Document contains talk page button by default');
-			});
-	});
+	it( 'mobile-html should not enable edit talk page button by default', () => {
+		const uri = localUri( 'Cat' );
+		return preq.get( { uri } )
+			.then( ( res ) => {
+				const document = domino.createDocument( res.body );
+				assert.selectorDoesNotExist( document, '.pcs-title-icon-talk-page', 'Document contains talk page button by default' );
+			} );
+	} );
 
-	it('mobile-html should set x-analytics header', () => {
-		const uri = localUri('Cat');
-		return preq.get({ uri, headers: { 'user-agent': 'WikipediaApp/PCS-unittest' } })
-			.then((res) => {
-				assert.deepEqual(res.headers['x-analytics'], 'page_id=6678;ns=0;');
-			});
-	});
+	it( 'mobile-html should set x-analytics header', () => {
+		const uri = localUri( 'Cat' );
+		return preq.get( { uri, headers: { 'user-agent': 'WikipediaApp/PCS-unittest' } } )
+			.then( ( res ) => {
+				assert.deepEqual( res.headers[ 'x-analytics' ], 'page_id=6678;ns=0;' );
+			} );
+	} );
 
-	it('mobile-html should not set x-analytics header when no app header in req', () => {
-		const uri = localUri('Cat');
-		return preq.get({ uri, headers: { 'user-agent': 'foobar/1.0' } })
-			.then((res) => {
-				assert.ok(!('x-analytics' in res.headers), 'x-analytics header should not be set');
-			});
-	});
+	it( 'mobile-html should not set x-analytics header when no app header in req', () => {
+		const uri = localUri( 'Cat' );
+		return preq.get( { uri, headers: { 'user-agent': 'foobar/1.0' } } )
+			.then( ( res ) => {
+				assert.ok( !( 'x-analytics' in res.headers ), 'x-analytics header should not be set' );
+			} );
+	} );
 
 	it( "set X-Analytics shouldn't add header when missing data", () => {
 		const metadata = {
 			mw: {}
 		};
 		const req = mockReq();
-		req.get.returns('WikipediaApp/PCS-unittest');
-		const res = sinon.mock({
-			setHeader: function() {}
-		});
-		res.expects('setHeader').never();
-		setXAnalytics(req, res, metadata);
+		req.get.returns( 'WikipediaApp/PCS-unittest' );
+		const res = sinon.mock( {
+			setHeader: function () {}
+		} );
+		res.expects( 'setHeader' ).never();
+		setXAnalytics( req, res, metadata );
 		res.verify();
-	});
+	} );
 
 	it( 'set X-Analytics should add headers when metadata exist', () => {
 		const metadata = {
 			mw: {
 				pageid: 123,
-				ns:123
+				ns: 123
 			}
 		};
 		const req = mockReq();
-		req.get.returns('WikipediaApp/PCS-unittest');
+		req.get.returns( 'WikipediaApp/PCS-unittest' );
 		const res = {
 			setHeader: sinon.stub()
 		};
-		setXAnalytics(req, res, metadata);
-		sinon.assert.calledWith(res.setHeader, 'X-Analytics', 'page_id=123;ns=123;');
-	});
+		setXAnalytics( req, res, metadata );
+		sinon.assert.calledWith( res.setHeader, 'X-Analytics', 'page_id=123;ns=123;' );
+	} );
 
-});
+} );

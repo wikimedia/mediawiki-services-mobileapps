@@ -8,7 +8,7 @@
 			"./pagelib",
 			"./js-pcs-notated/*.js"
 		],
-		"exclude": ["./pagelib/build"],
+		"exclude": [ "./pagelib/build" ],
 		"includePattern": ".+\\.(js|ts)$",
 		"excludePattern": "(node_modules/|docs)",
 		"recurse": true

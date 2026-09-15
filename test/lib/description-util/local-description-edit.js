@@ -1,9 +1,9 @@
 'use strict';
 
-const descriptionUtil = require('../../../lib/description-util');
-const assert = require('../../utils/assert');
+const descriptionUtil = require( '../../../lib/description-util' );
+const assert = require( '../../utils/assert' );
 
-describe('Local description template editing', () => {
+describe( 'Local description template editing', () => {
 
 	const NEW_DESCRIPTION = 'replacement!';
 
@@ -58,38 +58,38 @@ describe('Local description template editing', () => {
 		}
 	];
 
-	tests.forEach((test) => {
-		it(test.name, () => {
-			assert.deepEqual(true, descriptionUtil.containsLocalDescription(test.wikitext));
+	tests.forEach( ( test ) => {
+		it( test.name, () => {
+			assert.deepEqual( true, descriptionUtil.containsLocalDescription( test.wikitext ) );
 			assert.deepEqual(
 				test.expected_replaced,
-				descriptionUtil.replaceLocalDescription(test.wikitext, NEW_DESCRIPTION)
+				descriptionUtil.replaceLocalDescription( test.wikitext, NEW_DESCRIPTION )
 			);
 			assert.deepEqual(
 				test.expected_deleted,
-				descriptionUtil.deleteLocalDescription(test.wikitext)
+				descriptionUtil.deleteLocalDescription( test.wikitext )
 			);
-		});
-	});
+		} );
+	} );
 
-	it('Empty wikitext', () => {
+	it( 'Empty wikitext', () => {
 		assert.deepEqual(
 			false,
-			descriptionUtil.containsLocalDescription('')
+			descriptionUtil.containsLocalDescription( '' )
 		);
-	});
+	} );
 
-	it('Respects lowercase', () => {
+	it( 'Respects lowercase', () => {
 		assert.deepEqual(
 			false,
-			descriptionUtil.containsLocalDescription('{{Short Description|test}}')
+			descriptionUtil.containsLocalDescription( '{{Short Description|test}}' )
 		);
-	});
+	} );
 
-	it('no template', () => {
+	it( 'no template', () => {
 		assert.deepEqual(
 			false,
-			descriptionUtil.containsLocalDescription('==Section 1==\n\n{{Other template|a|b}}')
+			descriptionUtil.containsLocalDescription( '==Section 1==\n\n{{Other template|a|b}}' )
 		);
-	});
-});
+	} );
+} );

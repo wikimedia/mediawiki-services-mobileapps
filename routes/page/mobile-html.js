@@ -4,20 +4,20 @@
  * @module routes/page/mobile-html
  */
 
-const BBPromise = require('bluebird');
-const mwapi = require('../../lib/mwapi');
-const mUtil = require('../../lib/mobile-util');
-const mRequestUtil = require('../../lib/mobile/mobile-request-util');
-const mobileviewHtml = require('../../lib/mobileview-html');
-const apiUtilConstants = require('../../lib/api-util-constants');
-const parsoidApi = require('../../lib/parsoid-access');
-const topics = require('../../lib/topics');
-const sUtil = require('../../lib/util');
-const caching = require('../../lib/caching');
-const { addContentLangFromMeta } = require('../../lib/core-api-compat');
-const { makeOutgoingRequest } = require('axios-wmf-service-mesh');
-const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
-const { MATHJAX_MAP_NAMES, MATHJAX_FONT_NAMES } = require('../../lib/mathjax-files');
+const BBPromise = require( 'bluebird' );
+const mwapi = require( '../../lib/mwapi' );
+const mUtil = require( '../../lib/mobile-util' );
+const mRequestUtil = require( '../../lib/mobile/mobile-request-util' );
+const mobileviewHtml = require( '../../lib/mobileview-html' );
+const apiUtilConstants = require( '../../lib/api-util-constants' );
+const parsoidApi = require( '../../lib/parsoid-access' );
+const topics = require( '../../lib/topics' );
+const sUtil = require( '../../lib/util' );
+const caching = require( '../../lib/caching' );
+const { addContentLangFromMeta } = require( '../../lib/core-api-compat' );
+const { makeOutgoingRequest } = require( 'axios-wmf-service-mesh' );
+const { projectAllowMiddlewares } = require( '../../lib/wmf-projects' );
+const { MATHJAX_MAP_NAMES, MATHJAX_FONT_NAMES } = require( '../../lib/mathjax-files' );
 
 /**
  * The main router object
@@ -34,58 +34,58 @@ let app;
  * @param {!Object} res
  * @return {Promise}
  */
-function getMobileHtmlFromPOST(req, res) {
+function getMobileHtmlFromPOST( req, res ) {
 	const html = req.body && req.body.html || req.body;
-	const outputHeader = req.header('output-mode');
-	const outputMode = mRequestUtil.getOutputMode(outputHeader);
-	const mobileHtmlPromise = parsoidApi.mobileHTMLPromiseFromHTML(app, req, res, html, outputMode);
-	return BBPromise.props({
+	const outputHeader = req.header( 'output-mode' );
+	const outputMode = mRequestUtil.getOutputMode( outputHeader );
+	const mobileHtmlPromise = parsoidApi.mobileHTMLPromiseFromHTML( app, req, res, html, outputMode );
+	return BBPromise.props( {
 		mobileHTML: mobileHtmlPromise,
-		mw: mwapi.getMetadataForMobileHtml(req)
-	}).then((response) => {
-		response.mobileHTML.addMediaWikiMetadata(response.mw);
+		mw: mwapi.getMetadataForMobileHtml( req )
+	} ).then( ( response ) => {
+		response.mobileHTML.addMediaWikiMetadata( response.mw );
 		return response.mobileHTML;
-	}).then((mobileHTML) => {
-		res.status(200);
-		mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
-		mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
-		mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-		mRequestUtil.setXAnalytics(req, res, mobileHTML.metadata);
-		res.send(mobileHTML.doc.outerHTML).end();
-		if (mobileHTML.processingTime) {
-			app.metrics.timing('transform_html_to_mobile-html.processing', mobileHTML.processingTime);
+	} ).then( ( mobileHTML ) => {
+		res.status( 200 );
+		mUtil.setContentType( res, mUtil.CONTENT_TYPES.mobileHtml );
+		mUtil.setLanguageHeaders( res, mobileHTML.metadata._headers );
+		mUtil.setContentSecurityPolicy( res, app.conf.mobile_html_csp );
+		mRequestUtil.setXAnalytics( req, res, mobileHTML.metadata );
+		res.send( mobileHTML.doc.outerHTML ).end();
+		if ( mobileHTML.processingTime ) {
+			app.metrics.timing( 'transform_html_to_mobile-html.processing', mobileHTML.processingTime );
 		}
-	});
+	} );
 }
 
 /**
  * @param {!Object} req
  * @return {Promise} a promise resolving to the built MobileHTML
  */
-function getMobileHtmlFromParsoid(req) {
-	return BBPromise.props({
-		mobileHTML: parsoidApi.mobileHTMLPromise(app, req),
-		mw: mwapi.getMetadataForMobileHtml(req)
-	}).then((response) => {
-		response.mobileHTML.addMediaWikiMetadata(response.mw);
+function getMobileHtmlFromParsoid( req ) {
+	return BBPromise.props( {
+		mobileHTML: parsoidApi.mobileHTMLPromise( app, req ),
+		mw: mwapi.getMetadataForMobileHtml( req )
+	} ).then( ( response ) => {
+		response.mobileHTML.addMediaWikiMetadata( response.mw );
 		return response.mobileHTML;
-	});
+	} );
 }
 
 /**
  * @param {!Object} req
  * @return {Promise} a promise resolving to the built MobileHTML
  */
-function getMobileHtmlFromMobileview(req) {
+function getMobileHtmlFromMobileview( req ) {
 	const scripts = [];
-	const baseURI = mUtil.getMetaWikiRESTBaseAPIURI(app, req);
-	return mobileviewHtml.requestAndProcessPageIntoMobileHTML(req, scripts, baseURI);
+	const baseURI = mUtil.getMetaWikiRESTBaseAPIURI( app, req );
+	return mobileviewHtml.requestAndProcessPageIntoMobileHTML( req, scripts, baseURI );
 }
 
-const purgePathsMiddleware = (req, res, next) => {
+const purgePathsMiddleware = ( req, res, next ) => {
 	req.purgePaths = [
-		`/page/mobile-html/${ encodeURIComponent(req.params.title) }`,
-		...(req.params.revision ? [`/page/mobile-html/${ encodeURIComponent(req.params.title) }/${ req.params.revision }`] : [])
+		`/page/mobile-html/${ encodeURIComponent( req.params.title ) }`,
+		...( req.params.revision ? [ `/page/mobile-html/${ encodeURIComponent( req.params.title ) }/${ req.params.revision }` ] : [] )
 	];
 	next();
 };
@@ -96,91 +96,91 @@ const purgePathsMiddleware = (req, res, next) => {
  * Gets page content in HTML. This is a more optimized for direct consumption by reading
  * clients.
  */
-router.get('/page/mobile-html/:title/:revision?/:tid?',
+router.get( '/page/mobile-html/:title/:revision?/:tid?',
 	purgePathsMiddleware,
-	projectAllowMiddlewares['mobile-html'],
+	projectAllowMiddlewares[ 'mobile-html' ],
 	caching.defaultCacheMiddleware,
-	(req, res) => {
-		req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/mobile-html/${ title }`;
+	( req, res ) => {
+		req.getTitleRedirectLocation = ( domain, title ) => `/${ domain }/v1/page/mobile-html/${ title }`;
 
 		// Configure cache headers
-		res.setHeader('Cache-Control', req.app.conf.cache_headers['mobile-html']);
+		res.setHeader( 'Cache-Control', req.app.conf.cache_headers[ 'mobile-html' ] );
 
-		const buildMobileHtml = (title) => {
+		const buildMobileHtml = ( title ) => {
 			req.params.title = title;
 			req.query = req.query || {};
-			const useMobileview = mobileviewHtml.shouldUseMobileview(req, app.conf.mobile_view_languages);
-			return BBPromise.props({
+			const useMobileview = mobileviewHtml.shouldUseMobileview( req, app.conf.mobile_view_languages );
+			return BBPromise.props( {
 				mobileHTML: useMobileview ?
-					getMobileHtmlFromMobileview(req) : getMobileHtmlFromParsoid(req),
-				topics: topics.getPredictedTopics(req, req.mwPageInfo?.pageid, req.mwPageInfo?.lastrevid)
-			}).then((response) => {
+					getMobileHtmlFromMobileview( req ) : getMobileHtmlFromParsoid( req ),
+				topics: topics.getPredictedTopics( req, req.mwPageInfo?.pageid, req.mwPageInfo?.lastrevid )
+			} ).then( ( response ) => {
 				const mobileHTML = response.mobileHTML;
-				mobileHTML.addPredictedTopics(response.topics);
-				res.status(200);
-				if (!useMobileview) {
-					addContentLangFromMeta(res, mobileHTML.doc);
+				mobileHTML.addPredictedTopics( response.topics );
+				res.status( 200 );
+				if ( !useMobileview ) {
+					addContentLangFromMeta( res, mobileHTML.doc );
 				}
-				mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtml);
-				mUtil.setETag(res, mobileHTML.metadata.revision);
-				mUtil.setLanguageHeaders(res, mobileHTML.metadata._headers);
-				mUtil.setContentSecurityPolicy(res, app.conf.mobile_html_csp);
-				mRequestUtil.setXAnalytics(req, res, mobileHTML.metadata);
-				res.send(mobileHTML.doc.outerHTML).end();
-				if (mobileHTML.processingTime) {
+				mUtil.setContentType( res, mUtil.CONTENT_TYPES.mobileHtml );
+				mUtil.setETag( res, mobileHTML.metadata.revision );
+				mUtil.setLanguageHeaders( res, mobileHTML.metadata._headers );
+				mUtil.setContentSecurityPolicy( res, app.conf.mobile_html_csp );
+				mRequestUtil.setXAnalytics( req, res, mobileHTML.metadata );
+				res.send( mobileHTML.doc.outerHTML ).end();
+				if ( mobileHTML.processingTime ) {
 					app.metrics.timing(
 						useMobileview ?
 							'page_mobile-html.mobileview_processing' : 'page_mobile-html.processing',
 						mobileHTML.processingTime
 					);
 				}
-			});
+			} );
 		};
 
 		// Note: if pcs_handles_redirects is enabled, then mwapi.resolveTitleRedirect() will not
 		// be called, and will not populate the pageid and revisionid, which are used in certain
 		// downstream calls, e.g. getting article topics.
-		if (app.conf.pcs_handles_redirects) {
-			return buildMobileHtml(req.params.title);
+		if ( app.conf.pcs_handles_redirects ) {
+			return buildMobileHtml( req.params.title );
 		}
-		return BBPromise.resolve(mwapi.resolveTitleRedirect(req)).then(buildMobileHtml);
-	});
+		return BBPromise.resolve( mwapi.resolveTitleRedirect( req ) ).then( buildMobileHtml );
+	} );
 
 /**
  * POST {domain}/v1/transform/html/to/mobile-html/{title}
  * Title redirection status: POST requests should not be redirected
  * Previews page content in HTML. POST body should be Parsoid HTML
  */
-router.post('/transform/html/to/mobile-html/:title', (req, res) => getMobileHtmlFromPOST(req, res));
+router.post( '/transform/html/to/mobile-html/:title', ( req, res ) => getMobileHtmlFromPOST( req, res ) );
 
 /**
  * POST {domain}/v1/transform/wikitext/to/mobile-html/{title}
  * Title redirection status: POST requests should not be redirected
  * Previews page content in HTML. POST body should be wikitext
  */
-router.post('/transform/wikitext/to/mobile-html/:title',
-	projectAllowMiddlewares['wikitext-to-mobile-html'],
-	(req, res) => {
+router.post( '/transform/wikitext/to/mobile-html/:title',
+	projectAllowMiddlewares[ 'wikitext-to-mobile-html' ],
+	( req, res ) => {
 		// Set cache control headers
-		res.setHeader('Cache-Control', req.app.conf.cache_headers['wikitext-to-mobile-html']);
+		res.setHeader( 'Cache-Control', req.app.conf.cache_headers[ 'wikitext-to-mobile-html' ] );
 
 		// 1st step: Request wikitext to html conversion from MW REST
-		const restReq = req.app.wikitexttohtml_tpl.expand({
+		const restReq = req.app.wikitexttohtml_tpl.expand( {
 			request: {
 				headers: {
-					'accept-language': req.get('accept-language')
+					'accept-language': req.get( 'accept-language' )
 				},
 				body: req.body,
 				params: req.params
 			}
-		});
-		return makeOutgoingRequest(restReq, req).then((htmlRes) => {
-			req.headers['content-type'] = htmlRes.headers['content-type'];
+		} );
+		return makeOutgoingRequest( restReq, req ).then( ( htmlRes ) => {
+			req.headers[ 'content-type' ] = htmlRes.headers[ 'content-type' ];
 			req.body = htmlRes.data;
-			res.set('content-language', htmlRes.headers['content-language']);
-			getMobileHtmlFromPOST(req, res);
-		});
-	});
+			res.set( 'content-language', htmlRes.headers[ 'content-language' ] );
+			getMobileHtmlFromPOST( req, res );
+		} );
+	} );
 
 /**
  * GET {domain}/v1/page/mobile-html-offline-resources/{title}/{revision}/{tid}
@@ -188,16 +188,16 @@ router.post('/transform/wikitext/to/mobile-html/:title',
  * Title redirection status: Doesn't redirect content is static
  * Returns the URLs for offline resources
  */
-router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?',
-	projectAllowMiddlewares['mobile-html-offline-resources'],
-	(req, res) => {
-		res.status(200);
-		mUtil.setContentType(res, mUtil.CONTENT_TYPES.mobileHtmlOfflineResources);
+router.get( '/page/mobile-html-offline-resources/:title/:revision?/:tid?',
+	projectAllowMiddlewares[ 'mobile-html-offline-resources' ],
+	( req, res ) => {
+		res.status( 200 );
+		mUtil.setContentType( res, mUtil.CONTENT_TYPES.mobileHtmlOfflineResources );
 
 		// Get external API URI
-		const externalApiUri = apiUtilConstants.getExternalRestApiUri(req.params.domain);
-		const metawikiApiUri = mUtil.getMetaWikiRESTBaseAPIURI(app, req);
-		const localApiUri = mUtil.getLocalRESTBaseAPIURI(app, req);
+		const externalApiUri = apiUtilConstants.getExternalRestApiUri( req.params.domain );
+		const metawikiApiUri = mUtil.getMetaWikiRESTBaseAPIURI( app, req );
+		const localApiUri = mUtil.getLocalRESTBaseAPIURI( app, req );
 
 		const offlineResources = [
 			`${ metawikiApiUri }data/css/mobile/base`,
@@ -208,19 +208,19 @@ router.get('/page/mobile-html-offline-resources/:title/:revision?/:tid?',
 			`${ externalApiUri }data/css/mobile/site`,
 			`${ localApiUri }data/i18n/pcs`
 		];
-		MATHJAX_FONT_NAMES.forEach((font) => {
-			offlineResources.push( `${ metawikiApiUri }data/javascript/mobile/mathjax/fonts/mathjax-newcm-font/svg/dynamic/${ font }`);
-		});
-		MATHJAX_MAP_NAMES.forEach((map) => {
-			offlineResources.push( `${ metawikiApiUri }data/javascript/mobile/mathjax/sre/mathmaps/${ map }`);
-		});
+		MATHJAX_FONT_NAMES.forEach( ( font ) => {
+			offlineResources.push( `${ metawikiApiUri }data/javascript/mobile/mathjax/fonts/mathjax-newcm-font/svg/dynamic/${ font }` );
+		} );
+		MATHJAX_MAP_NAMES.forEach( ( map ) => {
+			offlineResources.push( `${ metawikiApiUri }data/javascript/mobile/mathjax/sre/mathmaps/${ map }` );
+		} );
 
 		// Enable caching since this endpoint is heavily requested
-		res.setHeader('cache-control', req.app.conf.cache_headers['mobile-html-offline-resources']);
-		res.send(offlineResources).end();
-	});
+		res.setHeader( 'cache-control', req.app.conf.cache_headers[ 'mobile-html-offline-resources' ] );
+		res.send( offlineResources ).end();
+	} );
 
-module.exports = function(appObj) {
+module.exports = function ( appObj ) {
 	app = appObj;
 	return {
 		path: '/',

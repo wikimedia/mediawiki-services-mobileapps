@@ -1,7 +1,7 @@
 'use strict';
 
-const htmlDebug = require('./html-debug');
-const beautifyHtml = require('js-beautify').html;
+const htmlDebug = require( './html-debug' );
+const beautifyHtml = require( 'js-beautify' ).html;
 
 // To update the expected test results temporarily set the constant UPDATE_EXPECTED_RESULTS to true.
 // After the run consider updating the TestSpec constructors later in this file to paste in the
@@ -28,7 +28,7 @@ class TestSpec {
 	 * @param {?string} options.payloadFile file path to load a fixture for a POST request body
 	 * @param {?object} options.headers map of HTTP headers
 	 */
-	constructor(domain, route, parameters, options) {
+	constructor( domain, route, parameters, options ) {
 		this._domain = domain;
 		this._route = route;
 		this._parameters = parameters;
@@ -36,8 +36,8 @@ class TestSpec {
 		this._options.suffix = this._options.suffix || 'json';
 		this._options.method = this._options.method || 'GET';
 		this._options.headers = this._options.headers || { 'cache-control': 'no-cache' };
-		if (!this._options.headers['cache-control']) {
-			this._options.headers['cache-control'] = 'no-cache';
+		if ( !this._options.headers[ 'cache-control' ] ) {
+			this._options.headers[ 'cache-control' ] = 'no-cache';
 		}
 	}
 
@@ -47,8 +47,8 @@ class TestSpec {
 	 */
 	project() {
 		return this._domain
-			.replace('.wikipedia.org', 'wiki')
-			.replace('.wiktionary.org', 'wiktionary');
+			.replace( '.wikipedia.org', 'wiki' )
+			.replace( '.wiktionary.org', 'wiktionary' );
 	}
 
 	/**
@@ -57,15 +57,15 @@ class TestSpec {
 	 * @param {!string} input input string
 	 * @return {!string}
 	 */
-	static fsName(input) {
-		return input.replace(/\//g, '_');
+	static fsName( input ) {
+		return input.replace( /\//g, '_' );
 	}
 
 	/**
 	 * @return {!string} name of this test to print to the console
 	 */
 	testName() {
-		return TestSpec.fsName(`${ this._route }-${ this.project() }-${ this._parameters.join('-') }`);
+		return TestSpec.fsName( `${ this._route }-${ this.project() }-${ this._parameters.join( '-' ) }` );
 	}
 
 	/**
@@ -79,7 +79,7 @@ class TestSpec {
 	 * @return {!string} file name to store expected result in (without file extension)
 	 */
 	fileName() {
-		return encodeURIComponent(this.testName());
+		return encodeURIComponent( this.testName() );
 	}
 
 	/**
@@ -115,22 +115,22 @@ class TestSpec {
 	 */
 	uriPath() {
 		let path = `${ this._domain }/v1/${ this._route }`;
-		if (this._parameters) {
-			for (const param of this._parameters) {
-				path += `/${ encodeURIComponent(param) }`;
+		if ( this._parameters ) {
+			for ( const param of this._parameters ) {
+				path += `/${ encodeURIComponent( param ) }`;
 			}
 		}
 		return path;
 	}
 
-	introduceFixedValuesForJSON(input) {
+	introduceFixedValuesForJSON( input ) {
 		input = JSON.parse(
-			JSON.stringify(input)
-				.replace(/#mwt\d+/g, '#mwt_present')
-				.replace(/id=\\"mw[\w-]{2,3}\\"/g, 'id=\\"mw_id\\"')
+			JSON.stringify( input )
+				.replace( /#mwt\d+/g, '#mwt_present' )
+				.replace( /id=\\"mw[\w-]{2,3}\\"/g, 'id=\\"mw_id\\"' )
 		);
 
-		if (input.lead) {
+		if ( input.lead ) {
 			// value does not come from wikitext but from Wikidata links
 			delete input.lead.languagecount;
 
@@ -141,43 +141,43 @@ class TestSpec {
 			// to be able to generate a constructor with the revision
 			this._revision = input.lead.revision;
 
-			if (input.remaining) {
-				input.remaining.sections.forEach((section) => {
+			if ( input.remaining ) {
+				input.remaining.sections.forEach( ( section ) => {
 					// Simplify the numbers in:
 					// usemap=\"#ImageMap_1_922168371\"></a>
 					// <map name=\"ImageMap_1_922168371\" id=\"ImageMap_1_922168371\">
-					section.text = section.text.replace(/ImageMap_\w+/g, 'ImageMap_');
+					section.text = section.text.replace( /ImageMap_\w+/g, 'ImageMap_' );
 					// Simplify the revision numbers in:
 					// data-mw-deduplicate=\"TemplateStyles:r856303569\"
 					section.text = section.text.replace(
 						/(data-mw-deduplicate="TemplateStyles:r)\d+(")/g,
 						'$1_REV_$2'
 					);
-				});
+				} );
 			}
 
-			if (ENABLE_HTML_DEBUG) {
-				htmlDebug.htmlPostProcessing(input, `${ this.dir() }/${ this.fileName() }/`);
+			if ( ENABLE_HTML_DEBUG ) {
+				htmlDebug.htmlPostProcessing( input, `${ this.dir() }/${ this.fileName() }/` );
 			}
 		}
 
-		if (input.tid) {
+		if ( input.tid ) {
 			input.tid = 'present';
 		}
 
 		return input;
 	}
 
-	introduceFixedValuesForHTML(input) {
+	introduceFixedValuesForHTML( input ) {
 		input = input
-			.replace(/#mwt\d+/g, '#mwt_present')
-			.replace(/id=\\"mw[\w-]{2,3}\\"/g, 'id=\\"mw_id\\"');
+			.replace( /#mwt\d+/g, '#mwt_present' )
+			.replace( /id=\\"mw[\w-]{2,3}\\"/g, 'id=\\"mw_id\\"' );
 
 		input = input
 		// Simplify the numbers in:
 		// usemap=\"#ImageMap_1_922168371\"></a>
 		// <map name=\"ImageMap_1_922168371\" id=\"ImageMap_1_922168371\">
-			.replace(/ImageMap_\w+/g, 'ImageMap_')
+			.replace( /ImageMap_\w+/g, 'ImageMap_' )
 		// Simplify the revision numbers in:
 		// data-mw-deduplicate=\"TemplateStyles:r856303569\"
 			.replace(
@@ -192,19 +192,19 @@ class TestSpec {
 				'<meta property="mw:TimeUuid" content="FIXED_TIME_UUID"'
 			);
 
-		input = beautifyHtml(input, { indent_size: 2, html: { end_with_newline: true } });
+		input = beautifyHtml( input, { indent_size: 2, html: { end_with_newline: true } } );
 
 		return input;
 	}
 
-	postProcessing(rsp) {
-		if (this._options.suffix === 'json') {
+	postProcessing( rsp ) {
+		if ( this._options.suffix === 'json' ) {
 			let input = rsp.body;
-			input = this.introduceFixedValuesForJSON(input);
-			rsp.body = JSON.stringify(input, null, 2);
-		} else if (this._options.suffix === 'html') {
+			input = this.introduceFixedValuesForJSON( input );
+			rsp.body = JSON.stringify( input, null, 2 );
+		} else if ( this._options.suffix === 'html' ) {
 			let input = rsp.body;
-			input = this.introduceFixedValuesForHTML(input);
+			input = this.introduceFixedValuesForHTML( input );
 			rsp.body = input;
 		}
 		return rsp;
@@ -215,8 +215,8 @@ class TestSpec {
 	 * @param {!string} array input array
 	 * @return {!string} a string of JS code to make a array of strings
 	 */
-	static toStringArrayCode(array) {
-		return `['${ array.join("', '") }']`;
+	static toStringArrayCode( array ) {
+		return `['${ array.join( "', '" ) }']`;
 	}
 
 	/**
@@ -225,8 +225,8 @@ class TestSpec {
 	 * @return {string}
 	 */
 	generator() {
-		if (this._parameters) {
-			return `    new TestSpec('${ this._domain }', '${ this._route }', ${ TestSpec.toStringArrayCode(this._parameters) }),`;
+		if ( this._parameters ) {
+			return `    new TestSpec('${ this._domain }', '${ this._route }', ${ TestSpec.toStringArrayCode( this._parameters ) }),`;
 		} else {
 			return `    new TestSpec('${ this._domain }', '${ this._route }'),`;
 		}
@@ -234,23 +234,23 @@ class TestSpec {
 }
 
 const TEST_SPECS = [
-	new TestSpec('en.wikipedia.org', 'data/css/mobile', ['site'], { suffix: 'css' }),
+	new TestSpec( 'en.wikipedia.org', 'data/css/mobile', [ 'site' ], { suffix: 'css' } ),
 
-	new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682'], { suffix: 'html' }),
-	new TestSpec('en.wikipedia.org', 'page/mobile-html', ['User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613'], { suffix: 'html' }),
-	new TestSpec('en.wikipedia.org', 'transform/html/to/mobile-html', ['Dog'], { suffix: 'html', method: 'POST', headers: { 'Content-Type': 'text/html' }, payloadFile: 'test/fixtures/Dog.html' }),
+	new TestSpec( 'en.wikipedia.org', 'page/mobile-html', [ 'User:BSitzmann_(WMF)/MCS/Test/TitleLinkEncoding', '743079682' ], { suffix: 'html' } ),
+	new TestSpec( 'en.wikipedia.org', 'page/mobile-html', [ 'User:BSitzmann_(WMF)/MCS/Test/Frankenstein', '778666613' ], { suffix: 'html' } ),
+	new TestSpec( 'en.wikipedia.org', 'transform/html/to/mobile-html', [ 'Dog' ], { suffix: 'html', method: 'POST', headers: { 'Content-Type': 'text/html' }, payloadFile: 'test/fixtures/Dog.html' } ),
 	// zh-TW is the first relevant language variant in this list of accepted languages
-	new TestSpec('zh.wikipedia.org', 'page/mobile-html', ['天囷增十五', '44944947'], { suffix: 'html', headers: { 'accept-language': 'en-US,en;q=0.9,zh-TW;q=0.8,zh;q=0.7' } }),
+	new TestSpec( 'zh.wikipedia.org', 'page/mobile-html', [ '天囷增十五', '44944947' ], { suffix: 'html', headers: { 'accept-language': 'en-US,en;q=0.9,zh-TW;q=0.8,zh;q=0.7' } } ),
 
-	new TestSpec('en.wikipedia.org', 'page/media-list', ['Hummingbird', '810247947']),
+	new TestSpec( 'en.wikipedia.org', 'page/media-list', [ 'Hummingbird', '810247947' ] ),
 
-	new TestSpec('en.wiktionary.org', 'page/definition', ['cat', '50657469']),
+	new TestSpec( 'en.wiktionary.org', 'page/definition', [ 'cat', '50657469' ] ),
 
-	new TestSpec('en.wikipedia.org', 'page/summary', ['Tokyo', '871928272']),
+	new TestSpec( 'en.wikipedia.org', 'page/summary', [ 'Tokyo', '871928272' ] ),
 
-	new TestSpec('en.wikipedia.org', 'page/talk', ['User_talk:Brion_VIBBER', '895522398']),
-	new TestSpec('en.wikipedia.org', 'page/talk', ['User_talk:Montehurd', '899425787']),
-	new TestSpec('fr.wikipedia.org', 'page/talk', ['User_talk:Brion_VIBBER', '51609364'])
+	new TestSpec( 'en.wikipedia.org', 'page/talk', [ 'User_talk:Brion_VIBBER', '895522398' ] ),
+	new TestSpec( 'en.wikipedia.org', 'page/talk', [ 'User_talk:Montehurd', '899425787' ] ),
+	new TestSpec( 'fr.wikipedia.org', 'page/talk', [ 'User_talk:Brion_VIBBER', '51609364' ] )
 ];
 
 module.exports = {

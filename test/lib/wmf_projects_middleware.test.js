@@ -1,9 +1,9 @@
 'use strict';
-const sinon = require('sinon');
-const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
+const sinon = require( 'sinon' );
+const { projectAllowMiddlewares } = require( '../../lib/wmf-projects' );
 
-describe('Default wmf projects middleware', () => {
-	it('should allow an allowed domain', () => {
+describe( 'Default wmf projects middleware', () => {
+	it( 'should allow an allowed domain', () => {
 		const req = {
 			params: {
 				domain: 'en.wikipedia.org'
@@ -22,13 +22,13 @@ describe('Default wmf projects middleware', () => {
 
 		const next = sinon.stub();
 
-		projectAllowMiddlewares['mobile-html'](req, res, next);
-		sinon.assert.calledOnce(next);
-		sinon.assert.notCalled(res.status);
-		sinon.assert.notCalled(res.send);
-	});
+		projectAllowMiddlewares[ 'mobile-html' ]( req, res, next );
+		sinon.assert.calledOnce( next );
+		sinon.assert.notCalled( res.status );
+		sinon.assert.notCalled( res.send );
+	} );
 
-	it('should return 404 for a disallowed domain', () => {
+	it( 'should return 404 for a disallowed domain', () => {
 		const req = {
 			params: {
 				domain: 'foo.org'
@@ -47,17 +47,17 @@ describe('Default wmf projects middleware', () => {
 
 		const next = sinon.stub();
 
-		projectAllowMiddlewares['mobile-html'](req, res, next);
-		sinon.assert.notCalled(next);
-		sinon.assert.calledOnce(res.status);
-		sinon.assert.calledWith(res.status, 404);
-		sinon.assert.calledOnce(res.send);
-		sinon.assert.calledWith(res.send, 'Domain not allowed');
-	});
-});
+		projectAllowMiddlewares[ 'mobile-html' ]( req, res, next );
+		sinon.assert.notCalled( next );
+		sinon.assert.calledOnce( res.status );
+		sinon.assert.calledWith( res.status, 404 );
+		sinon.assert.calledOnce( res.send );
+		sinon.assert.calledWith( res.send, 'Domain not allowed' );
+	} );
+} );
 
-describe('Summary wmf projects middleware', () => {
-	it('should allow an allowed domain', () => {
+describe( 'Summary wmf projects middleware', () => {
+	it( 'should allow an allowed domain', () => {
 		const req = {
 			params: {
 				domain: 'en.wikipedia.org'
@@ -76,13 +76,13 @@ describe('Summary wmf projects middleware', () => {
 
 		const next = sinon.stub();
 
-		projectAllowMiddlewares['page-summary'](req, res, next);
-		sinon.assert.calledOnce(next);
-		sinon.assert.notCalled(res.status);
-		sinon.assert.notCalled(res.send);
-	});
+		projectAllowMiddlewares[ 'page-summary' ]( req, res, next );
+		sinon.assert.calledOnce( next );
+		sinon.assert.notCalled( res.status );
+		sinon.assert.notCalled( res.send );
+	} );
 
-	it('should return 404 for a disallowed domain', () => {
+	it( 'should return 404 for a disallowed domain', () => {
 		const req = {
 			params: {
 				domain: 'foo.org'
@@ -101,11 +101,11 @@ describe('Summary wmf projects middleware', () => {
 
 		const next = sinon.stub();
 
-		projectAllowMiddlewares['page-summary'](req, res, next);
-		sinon.assert.notCalled(next);
-		sinon.assert.calledOnce(res.status);
-		sinon.assert.calledWith(res.status, 404);
-		sinon.assert.calledOnce(res.send);
-		sinon.assert.calledWith(res.send, 'Domain not allowed');
-	});
-});
+		projectAllowMiddlewares[ 'page-summary' ]( req, res, next );
+		sinon.assert.notCalled( next );
+		sinon.assert.calledOnce( res.status );
+		sinon.assert.calledWith( res.status, 404 );
+		sinon.assert.calledOnce( res.send );
+		sinon.assert.calledWith( res.send, 'Domain not allowed' );
+	} );
+} );

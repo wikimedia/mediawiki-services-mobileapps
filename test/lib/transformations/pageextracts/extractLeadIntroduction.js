@@ -1,11 +1,11 @@
 'use strict';
 
-const domino = require('domino');
-const assert = require('./../../../utils/assert');
-const extractLeadIntroduction = require('./../../../../lib/transforms').extractLeadIntroduction;
+const domino = require( 'domino' );
+const assert = require( './../../../utils/assert' );
+const extractLeadIntroduction = require( './../../../../lib/transforms' ).extractLeadIntroduction;
 
-describe('extractLeadIntroduction', () => {
-	it('isEmptyChild', () => {
+describe( 'extractLeadIntroduction', () => {
+	it( 'isEmptyChild', () => {
 		const testCases = [
 			// noexcerpt elements are treated as empty nodes and ignored.
 			[
@@ -19,13 +19,13 @@ describe('extractLeadIntroduction', () => {
 			]
 		];
 
-		testCases.forEach((test, i) => {
-			const doc = domino.createDocument(test[0]);
-			const isEmpty = extractLeadIntroduction.test.isEmptyChild(doc.querySelector('p'));
-			assert.equal(isEmpty, test[1], `test ${ i }`);
-		});
-	});
-	it('matches the spec', () => {
+		testCases.forEach( ( test, i ) => {
+			const doc = domino.createDocument( test[ 0 ] );
+			const isEmpty = extractLeadIntroduction.test.isEmptyChild( doc.querySelector( 'p' ) );
+			assert.equal( isEmpty, test[ 1 ], `test ${ i }` );
+		} );
+	} );
+	it( 'matches the spec', () => {
 		const testCases = [
 			// noexcerpt elements are treated as empty nodes and ignored.
 			[
@@ -153,17 +153,17 @@ describe('extractLeadIntroduction', () => {
 			]
 		];
 
-		testCases.forEach((test) => {
-			const doc = domino.createDocument(test[0]);
-			const lead = extractLeadIntroduction(doc);
-			assert.equal(lead, test[1]);
-		});
-	});
+		testCases.forEach( ( test ) => {
+			const doc = domino.createDocument( test[ 0 ] );
+			const lead = extractLeadIntroduction( doc );
+			assert.equal( lead, test[ 1 ] );
+		} );
+	} );
 
-	it('Trailing text content is escaped', () => {
+	it( 'Trailing text content is escaped', () => {
 		const html = '<p>foo</p>&lt;script&gt;alert(1);&lt;/script&gt;';
-		const doc = domino.createDocument(html);
-		const lead = extractLeadIntroduction(doc);
-		assert.deepEqual(lead, html);
-	});
-});
+		const doc = domino.createDocument( html );
+		const lead = extractLeadIntroduction( doc );
+		assert.deepEqual( lead, html );
+	} );
+} );

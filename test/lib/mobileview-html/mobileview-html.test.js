@@ -1,63 +1,63 @@
 'use strict';
 
-const domino = require('domino');
-const assert = require('../../utils/assert');
-const lib = require('../../../lib/mobile/MobileViewHTML');
+const domino = require( 'domino' );
+const assert = require( '../../utils/assert' );
+const lib = require( '../../../lib/mobile/MobileViewHTML' );
 
-describe('lib:mobileview-html', () => {
-	describe('buildSection', () => {
-		it('section 0', () => {
-			const document = domino.createDocument('');
-			const result = lib.testing.buildSection(document,
-				{ id: 0, text: 'lead' });
-			assert.deepEqual(result.outerHTML,
-				'<section data-mw-section-id="0" id="content-block-0">lead</section>');
-		});
-		it('section 1', () => {
-			const document = domino.createDocument('');
-			const result = lib.testing.buildSection(document,
+describe( 'lib:mobileview-html', () => {
+	describe( 'buildSection', () => {
+		it( 'section 0', () => {
+			const document = domino.createDocument( '' );
+			const result = lib.testing.buildSection( document,
+				{ id: 0, text: 'lead' } );
+			assert.deepEqual( result.outerHTML,
+				'<section data-mw-section-id="0" id="content-block-0">lead</section>' );
+		} );
+		it( 'section 1', () => {
+			const document = domino.createDocument( '' );
+			const result = lib.testing.buildSection( document,
 				{
 					id: 1,
 					toclevel: 1,
 					line: 'My section heading',
 					anchor: 'heading_anchor',
 					text: '<p>Foo Bar</p>'
-				});
-			assert.deepEqual(result.outerHTML,
-				'<section data-mw-section-id="1"><h2 id="heading_anchor">My section heading</h2><p>Foo Bar</p></section>');
-		});
+				} );
+			assert.deepEqual( result.outerHTML,
+				'<section data-mw-section-id="1"><h2 id="heading_anchor">My section heading</h2><p>Foo Bar</p></section>' );
+		} );
 		// T306876 - Test anchor in Chinese wiki
-		it('Chinese heading', () => {
-			const document = domino.createDocument('');
-			const result = lib.testing.buildSection(document,
+		it( 'Chinese heading', () => {
+			const document = domino.createDocument( '' );
+			const result = lib.testing.buildSection( document,
 				{
 					id: 2,
 					toclevel: 1,
 					line: '交通',
 					anchor: '交通',
 					text: '<ul><li>开平市内现有「開平市公共汽車」。</li></ul>'
-				});
-			assert.deepEqual(result.outerHTML,
-				'<section data-mw-section-id="2"><h2 id="交通">交通</h2><ul><li>开平市内现有「開平市公共汽車」。</li></ul></section>');
-		});
-	});
+				} );
+			assert.deepEqual( result.outerHTML,
+				'<section data-mw-section-id="2"><h2 id="交通">交通</h2><ul><li>开平市内现有「開平市公共汽車」。</li></ul></section>' );
+		} );
+	} );
 
-	describe('rewriteWikiLinks', () => {
-		it('single link', () => {
-			const document = domino.createDocument('<p><a href="/wiki/A"></a></p>');
-			const result = lib.testing.rewriteWikiLinks(document, 'a', 'href');
-			assert.deepEqual(document.body.innerHTML, '<p><a href="./A"></a></p>');
-		});
-	});
+	describe( 'rewriteWikiLinks', () => {
+		it( 'single link', () => {
+			const document = domino.createDocument( '<p><a href="/wiki/A"></a></p>' );
+			const result = lib.testing.rewriteWikiLinks( document, 'a', 'href' );
+			assert.deepEqual( document.body.innerHTML, '<p><a href="./A"></a></p>' );
+		} );
+	} );
 
-	describe('wrapImagesInSpanElements', () => {
-		it('single image', () => {
+	describe( 'wrapImagesInSpanElements', () => {
+		it( 'single image', () => {
 			const document = domino.createDocument(
-				'<p><a class="image" href="target"><img src="foo"/></a></p>');
-			const result = lib.testing.wrapImagesInSpanElements(document,
-				{ id: 0, text: 'lead' });
-			assert.deepEqual(document.body.innerHTML,
-				'<p><span class="mw-default-size"><a class="image" href="target"><img src="foo"></a></span></p>');
-		});
-	});
-});
+				'<p><a class="image" href="target"><img src="foo"/></a></p>' );
+			const result = lib.testing.wrapImagesInSpanElements( document,
+				{ id: 0, text: 'lead' } );
+			assert.deepEqual( document.body.innerHTML,
+				'<p><span class="mw-default-size"><a class="image" href="target"><img src="foo"></a></span></p>' );
+		} );
+	} );
+} );

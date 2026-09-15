@@ -1,7 +1,7 @@
 'use strict';
 
-const assert = require('../../utils/assert');
-const media = require('../../../lib/media');
+const assert = require( '../../utils/assert' );
+const media = require( '../../../lib/media' );
 const image = media.testing.imageName;
 const video = media.testing.videoName;
 const audio = media.testing.audioName;
@@ -39,36 +39,36 @@ const falsePositive = '<figure typeof="mw:File" class="noviewer"><img resource="
 const mapframeFramed = '<figure typeof="mw:File/Thumb mw:Extension/mapframe"><a><img width="250" height="260"/></a></figure>';
 const mapframeFrameless = '<a typeof="mw:Extension/mapframe"><img width="250" height="200"/></a>';
 
-const images = [imageFigure, imageSpan, oldImageFigure, imageThumbFigure, mathImage, timelineImage];
-const videos = [videoFigure, videoSpan, oldVideoFigure, videoThumbFigure];
-const audios = [audioFigure, audioSpan, oldAudioFigure];
-const validItems = images.concat(videos).concat(audios);
+const images = [ imageFigure, imageSpan, oldImageFigure, imageThumbFigure, mathImage, timelineImage ];
+const videos = [ videoFigure, videoSpan, oldVideoFigure, videoThumbFigure ];
+const audios = [ audioFigure, audioSpan, oldAudioFigure ];
+const validItems = images.concat( videos ).concat( audios );
 
-const noType = [noTypeFigure, noTypeSpan];
-const disallowed = [imageNoViewer, imageMetadata];
-const maps = [mapframeFramed, mapframeFrameless];
-const invalidItems = noType.concat(disallowed).concat(maps);
+const noType = [ noTypeFigure, noTypeSpan ];
+const disallowed = [ imageNoViewer, imageMetadata ];
+const maps = [ mapframeFramed, mapframeFrameless ];
+const invalidItems = noType.concat( disallowed ).concat( maps );
 
-describe('lib:media expected items are included or excluded', () => {
+describe( 'lib:media expected items are included or excluded', () => {
 
-	it('items should be found for expected selectors', () => {
-		const page = validItems.join('');
-		const result = media.getMediaItemInfoFromPage(page);
-		assert.deepEqual(result.length, validItems.length);
-		assert.deepEqual(result.filter(i => i.type === image).length, images.length);
-		assert.deepEqual(result.filter(i => i.type === video).length, videos.length);
-		assert.deepEqual(result.filter(i => i.type === audio).length, audios.length);
-	});
+	it( 'items should be found for expected selectors', () => {
+		const page = validItems.join( '' );
+		const result = media.getMediaItemInfoFromPage( page );
+		assert.deepEqual( result.length, validItems.length );
+		assert.deepEqual( result.filter( i => i.type === image ).length, images.length );
+		assert.deepEqual( result.filter( i => i.type === video ).length, videos.length );
+		assert.deepEqual( result.filter( i => i.type === audio ).length, audios.length );
+	} );
 
-	it('items should not be found for other selectors', () => {
-		const page = invalidItems.join('');
-		const result = media.getMediaItemInfoFromPage(page);
-		assert.deepEqual(result.length, 0);
-	});
+	it( 'items should not be found for other selectors', () => {
+		const page = invalidItems.join( '' );
+		const result = media.getMediaItemInfoFromPage( page );
+		assert.deepEqual( result.length, 0 );
+	} );
 
-	it('false positives should be filtered', () => {
-		const result = media.getMediaItemInfoFromPage(falsePositive);
-		assert.deepEqual(result.length, 0);
-	});
+	it( 'false positives should be filtered', () => {
+		const result = media.getMediaItemInfoFromPage( falsePositive );
+		assert.deepEqual( result.length, 0 );
+	} );
 
-});
+} );

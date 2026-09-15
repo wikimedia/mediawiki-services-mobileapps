@@ -4,13 +4,13 @@
  * @module routes/page/talk
  */
 
-const router = require('../../lib/util').router();
-const mwapi = require('../../lib/mwapi');
-const mUtil = require('../../lib/mobile-util');
-const parsoidApi = require('../../lib/parsoid-access');
-const TalkPage = require('../../lib/talk/TalkPage');
-const wikiLanguage = require('../../lib/wikiLanguage');
-const { projectAllowMiddlewares } = require('../../lib/wmf-projects');
+const router = require( '../../lib/util' ).router();
+const mwapi = require( '../../lib/mwapi' );
+const mUtil = require( '../../lib/mobile-util' );
+const parsoidApi = require( '../../lib/parsoid-access' );
+const TalkPage = require( '../../lib/talk/TalkPage' );
+const wikiLanguage = require( '../../lib/wikiLanguage' );
+const { projectAllowMiddlewares } = require( '../../lib/wmf-projects' );
 
 /**
  * The main application object reported when this module is required.
@@ -22,38 +22,38 @@ let app;
  * Title redirection status: redirects based on parsoid output
  * Gets talk page info.
  */
-router.get('/talk/:title/:revision?/:tid?', projectAllowMiddlewares['page-talk'], (req, res) => {
+router.get( '/talk/:title/:revision?/:tid?', projectAllowMiddlewares[ 'page-talk' ], ( req, res ) => {
 	// set cache-headers
-	res.setHeader('Cache-Control', req.app.conf.cache_headers['page-talk']);
-	req.getTitleRedirectLocation = (domain, title) => `/${ domain }/v1/page/talk/${ title }`;
-	const lang = wikiLanguage.getLanguageCode(req.params.domain);
-	const buildTalk = ( _req ) => parsoidApi.getParsoidHtml(_req)
-		.then(parsoidRsp => mUtil.createDocument(parsoidRsp.body)
-			.then(doc => TalkPage.promise(doc, lang)
-				.then(talkPage => {
-					res.status(200);
-					const revTid = parsoidApi.getRevAndTidFromEtag(parsoidRsp.headers);
+	res.setHeader( 'Cache-Control', req.app.conf.cache_headers[ 'page-talk' ] );
+	req.getTitleRedirectLocation = ( domain, title ) => `/${ domain }/v1/page/talk/${ title }`;
+	const lang = wikiLanguage.getLanguageCode( req.params.domain );
+	const buildTalk = ( _req ) => parsoidApi.getParsoidHtml( _req )
+		.then( parsoidRsp => mUtil.createDocument( parsoidRsp.body )
+			.then( doc => TalkPage.promise( doc, lang )
+				.then( talkPage => {
+					res.status( 200 );
+					const revTid = parsoidApi.getRevAndTidFromEtag( parsoidRsp.headers );
 					// Store the processing time to read after the response is sent
 					const processingTime = talkPage.processingTime;
 					// Set the processing time to undefined on the talk page so that
 					// it's not included in the response
 					talkPage.processingTime = undefined;
-					const result = Object.assign({ revision: parseInt(revTid.revision) }, talkPage);
-					mUtil.setETag(res, revTid.revision, revTid.tid);
-					mUtil.setContentType(res, mUtil.CONTENT_TYPES.talk);
-					mUtil.setLanguageHeaders(res, parsoidRsp.headers);
-					res.json(result).end();
-					if (processingTime) {
-						app.metrics.timing('page_talk.processing', processingTime);
+					const result = Object.assign( { revision: parseInt( revTid.revision ) }, talkPage );
+					mUtil.setETag( res, revTid.revision, revTid.tid );
+					mUtil.setContentType( res, mUtil.CONTENT_TYPES.talk );
+					mUtil.setLanguageHeaders( res, parsoidRsp.headers );
+					res.json( result ).end();
+					if ( processingTime ) {
+						app.metrics.timing( 'page_talk.processing', processingTime );
 					}
-				})));
-	return mwapi.resolveTitleRedirect(req).then((title) => {
+				} ) ) );
+	return mwapi.resolveTitleRedirect( req ).then( ( title ) => {
 		req.params.title = title;
-		return buildTalk(req);
-	});
-});
+		return buildTalk( req );
+	} );
+} );
 
-module.exports = function(appObj) {
+module.exports = function ( appObj ) {
 	app = appObj;
 	return {
 		path: '/page',

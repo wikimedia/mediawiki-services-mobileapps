@@ -1,11 +1,11 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
-const yaml = require('js-yaml');
-const domino = require('domino');
-const assert = require('../../utils/assert');
-const preprocessParsoidHtml = require('../../../lib/processing');
+const fs = require( 'fs' );
+const path = require( 'path' );
+const yaml = require( 'js-yaml' );
+const domino = require( 'domino' );
+const assert = require( '../../utils/assert' );
+const preprocessParsoidHtml = require( '../../../lib/processing' );
 
 // https://en.wikipedia.org/api/rest_v1/page/html/Barack_Obama/827516503
 const html = '<h2 id="Presidency_(2009–2017)">' +
@@ -13,36 +13,36 @@ const html = '<h2 id="Presidency_(2009–2017)">' +
                'Presidency (2009–2<!--Do not remove "20", per MOS-->017)' +
              '</h2>';
 
-describe('metadata:preprocessing', () => {
+describe( 'metadata:preprocessing', () => {
 
 	let script;
 
-	before(() => {
-		const processing = path.join(__dirname, '../../../processing/metadata.yaml');
-		script = yaml.load(fs.readFileSync(processing));
-	});
+	before( () => {
+		const processing = path.join( __dirname, '../../../processing/metadata.yaml' );
+		script = yaml.load( fs.readFileSync( processing ) );
+	} );
 
-	it('strips comments', () => {
-		const doc = domino.createDocument(html);
-		preprocessParsoidHtml(doc, [ script ])
-			.then((res) => {
-				assert.notContains(res.body.textContent, '<!--Do not remove "20", per MOS-->');
-			});
-	});
+	it( 'strips comments', () => {
+		const doc = domino.createDocument( html );
+		preprocessParsoidHtml( doc, [ script ] )
+			.then( ( res ) => {
+				assert.notContains( res.body.textContent, '<!--Do not remove "20", per MOS-->' );
+			} );
+	} );
 
-	it('strips span[typeof=mw:FallbackId]', () => {
-		const doc = domino.createDocument(html);
-		preprocessParsoidHtml(doc, [ script ])
-			.then((res) => {
-				assert.selectorDoesNotExist(res, 'span[typeof=mw:FallbackId]');
-			});
-	});
+	it( 'strips span[typeof=mw:FallbackId]', () => {
+		const doc = domino.createDocument( html );
+		preprocessParsoidHtml( doc, [ script ] )
+			.then( ( res ) => {
+				assert.selectorDoesNotExist( res, 'span[typeof=mw:FallbackId]' );
+			} );
+	} );
 
-	it('strips span:empty', () => {
-		const doc = domino.createDocument(html);
-		preprocessParsoidHtml(doc, [ script ])
-			.then((res) => {
-				assert.selectorDoesNotExist(doc, 'span:empty');
-			});
-	});
-});
+	it( 'strips span:empty', () => {
+		const doc = domino.createDocument( html );
+		preprocessParsoidHtml( doc, [ script ] )
+			.then( ( res ) => {
+				assert.selectorDoesNotExist( doc, 'span:empty' );
+			} );
+	} );
+} );

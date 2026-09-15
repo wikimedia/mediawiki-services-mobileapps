@@ -1,34 +1,34 @@
 'use strict';
 
-const preq   = require('preq');
-const assert = require('../../utils/assert.js');
-const server = require('../../utils/server.js');
+const preq = require( 'preq' );
+const assert = require( '../../utils/assert.js' );
+const server = require( '../../utils/server.js' );
 
-describe('mobile-html-offline-resources', function() {
+describe( 'mobile-html-offline-resources', function () {
 
-	this.timeout(20000);
+	this.timeout( 20000 );
 
 	let svc;
-	before(async () => {
+	before( async () => {
 		svc = await server.start();
-	});
-	after(async () => await svc.stop());
+	} );
+	after( async () => await svc.stop() );
 
-	const metawikiApiUri = server.config.conf.services[0].conf.mobile_html_rest_api_base_uri
-		.replace('{{host}}', 'localhost:8888')
-		.replace(/(https|http):\/\//, '//');
+	const metawikiApiUri = server.config.conf.services[ 0 ].conf.mobile_html_rest_api_base_uri
+		.replace( '{{host}}', 'localhost:8888' )
+		.replace( /(https|http):\/\//, '//' );
 
 	const domain = 'en.wikipedia.org';
 
-	const localApiUri = server.config.conf.services[0]
+	const localApiUri = server.config.conf.services[ 0 ]
 		.conf.mobile_html_local_rest_api_base_uri_template
-		.replace('{{host}}', 'localhost:8888')
-		.replace('{{domain}}', domain);
+		.replace( '{{host}}', 'localhost:8888' )
+		.replace( '{{domain}}', domain );
 
-	const localUri = (title, dmn = 'en.wikipedia.org') => `${ server.config.uri }${ dmn }/v1/page/mobile-html-offline-resources/${ title }`;
+	const localUri = ( title, dmn = 'en.wikipedia.org' ) => `${ server.config.uri }${ dmn }/v1/page/mobile-html-offline-resources/${ title }`;
 
-	it('Response should be array with JS and CSS resources', () => {
-		const uri = localUri('Foobar/788941783', domain);
+	it( 'Response should be array with JS and CSS resources', () => {
+		const uri = localUri( 'Foobar/788941783', domain );
 
 		const expected = [
 			`${ metawikiApiUri }data/css/mobile/base`,
@@ -44,14 +44,14 @@ describe('mobile-html-offline-resources', function() {
 			`${ localApiUri }data/i18n/pcs`,
 		];
 
-		return preq.get({ uri })
-			.then((res) => {
+		return preq.get( { uri } )
+			.then( ( res ) => {
 				const response = res.body;
 				const headers = res.headers;
-				assert.ok(Array.isArray(response));
-				assert.ok(expected.every(val => response.includes(val)));
-				assert.ok('cache-control' in headers);
-				assert.deepEqual(headers['cache-control'], 's-maxage=1209600, max-age=86400');
-			});
-	});
-});
+				assert.ok( Array.isArray( response ) );
+				assert.ok( expected.every( val => response.includes( val ) ) );
+				assert.ok( 'cache-control' in headers );
+				assert.deepEqual( headers[ 'cache-control' ], 's-maxage=1209600, max-age=86400' );
+			} );
+	} );
+} );

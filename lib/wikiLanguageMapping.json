@@ -118,7 +118,7 @@
 		"default": {
 			"default": "shi-Tfng",
 			"latn": "shi-Latn",
-			"tfng":  "shi-Tfng"
+			"tfng": "shi-Tfng"
 		},
 		"latn": {
 			"default": "shi-Latn"
@@ -130,7 +130,7 @@
 	"tg": {
 		"default": {
 			"default": "tg",
-			"latn":  "tg-Latn"
+			"latn": "tg-Latn"
 		},
 		"latn": {
 			"default": "tg-Latn"
