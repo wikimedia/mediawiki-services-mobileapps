@@ -35,6 +35,10 @@ const imageMetadata = '<span class="metadata"><figure typeof="mw:File"><img reso
 
 const falsePositive = '<figure typeof="mw:File" class="noviewer"><img resource="./File:S"/></figure>';
 
+// Kartographer (T434524) special handling for frameless mapframes
+const mapframeFramed = '<figure typeof="mw:File/Thumb mw:Extension/mapframe"><a><img width="250" height="260"/></a></figure>';
+const mapframeFrameless = '<a typeof="mw:Extension/mapframe"><img width="250" height="200"/></a>';
+
 const images = [imageFigure, imageSpan, oldImageFigure, imageThumbFigure, mathImage, timelineImage];
 const videos = [videoFigure, videoSpan, oldVideoFigure, videoThumbFigure];
 const audios = [audioFigure, audioSpan, oldAudioFigure];
@@ -42,7 +46,8 @@ const validItems = images.concat(videos).concat(audios);
 
 const noType = [noTypeFigure, noTypeSpan];
 const disallowed = [imageNoViewer, imageMetadata];
-const invalidItems = noType.concat(disallowed);
+const maps = [mapframeFramed, mapframeFrameless];
+const invalidItems = noType.concat(disallowed).concat(maps);
 
 describe('lib:media expected items are included or excluded', () => {
 
