@@ -127,6 +127,40 @@ To just run the unit tests (faster), use:
 npm run test:unit
 ```
 
+### Local cassandra DB
+
+The default development environment doesn't use caching (and there is no config for cassandra locally).
+To prepare an env with cassandra here are the steps
+
+#### Setup cassandra instance
+```
+# Run docker container with cassandra with localhost:9042 forwarded and wait until its running
+> docker run -p 9042:9042 -d --name cassandra-local cassandra:4
+
+# Set up the tables
+> docker exec -it cassandra-local bash
+> cqlsh
+>
+CREATE KEYSPACE IF NOT EXISTS tests
+  WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1};
+
+CREATE TABLE IF NOT EXISTS tests.storage (
+  project text,
+  key     text,
+  headers map<text, text>,
+  cached  timestamp,
+  value   blob,
+  PRIMARY KEY ((project, key))
+);
+> exit
+```
+
+The default cassandra image from docker hub doesn't use any auth by default so any client can connect.
+
+#### Update config
+
+Under you local app config switch the `caching.enabled` value to True.
+
 #### HTTP Recording
 
 This project takes advantage of HTTP request recording provided by the
