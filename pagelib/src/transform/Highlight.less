@@ -1,0 +1,58 @@
+/* Styles for pcs.c1.Highlight (src/pcs/c1/Highlight.js). This file lives in the transform
+   bundle because its CSS is the stylesheet mobile-html loads. */
+
+// Highlighted text uses #f7d779 at 70% opacity. Only the active find-in-page match uses the
+// solid color, so it stands out from the other matches.
+@highlight-background: #f7d779b3;
+@highlight-background-active: #f7d779;
+@highlight-color: #000;
+
+/* Text matched by pcs.c1.Highlight.jumpToHighlightOrSection(), via the CSS Custom Highlight API. */
+::highlight(pcs-highlight) {
+  background-color: @highlight-background;
+  color: @highlight-color;
+}
+
+a::highlight(pcs-highlight) {
+  text-decoration: underline;
+}
+
+/* Fallback for engines without the CSS Custom Highlight API. */
+mark.pcs-highlight {
+  background-color: @highlight-background !important;
+  color: @highlight-color !important;
+}
+
+a mark.pcs-highlight,
+mark.pcs-highlight a {
+  text-decoration: underline !important;
+}
+
+/* Find-in-page matches. :current is the active match. */
+:root::search-text {
+  background-color: @highlight-background !important;
+  color: @highlight-color !important;
+}
+
+:root::search-text:current {
+  background-color: @highlight-background-active !important;
+  color: @highlight-color !important;
+}
+
+a::search-text {
+  text-decoration: underline !important;
+}
+
+a::search-text:current {
+  text-decoration: underline !important;
+}
+
+/* Text fragment (#:~:text=) matches */
+::target-text {
+  background-color: @highlight-background;
+  color: @highlight-color;
+}
+
+a::target-text {
+  text-decoration: underline;
+}

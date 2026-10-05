@@ -325,6 +325,37 @@ Example:
 pcs.c1.Sections.getOffsets()
 ```
 
+### Highlight
+
+Utilities to highlight a piece of text, e.g. a search result snippet, and jump to it.
+
+#### jumpToHighlightOrSection(highlightText, sectionId, options)
+
+Highlights the first occurrence of `highlightText` in the section whose heading id is `sectionId`, and returns its position. If `highlightText` is empty or not found, the section heading is used instead. If the target is in a collapsed section or table, that section or table is expanded first. Any previous highlight is cleared.
+
+`highlightText` is the text to find. Matching ignores case, whitespace, invisible characters, curly vs. straight quotes, inline markup (links, bold, etc.) and reference markers like `[1]`.
+`sectionId` is the id of the section heading, not its title: words are joined by underscores, e.g. `Etymology_and_naming` for the section "Etymology and naming". This is the same as the section anchor in the page URL. If it is empty or not found, the whole page is searched.
+`options` is an optional object. `{ scroll: true }` scrolls the page so the target is vertically centered. Without it, the page is not scrolled and the client can scroll its own way using the returned rect.
+
+Returns `{ type, rect }`, or `null` if neither the text nor the section was found:
+- `type` is `'highlight'` if the text was found, `'section'` if the section heading was used.
+- `rect` is the [bounding client rect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) of the target, relative to the viewport after any scrolling.
+
+The highlight uses the [CSS Custom Highlight API](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Custom_Highlight_API) when available (Chrome/Android WebView 105+, iOS 17.2+), which does not modify the DOM. Otherwise the matched text is wrapped in `<mark class="pcs-highlight">` elements.
+
+Example:
+
+```javascript
+// iOS: get the rect and scroll natively
+pcs.c1.Highlight.jumpToHighlightOrSection('founded in 1850', 'History')
+// Android: scroll inside the page
+pcs.c1.Highlight.jumpToHighlightOrSection('founded in 1850', 'History', { scroll: true })
+```
+
+#### clearHighlight()
+
+Removes the highlight added by `jumpToHighlightOrSection()`, if any.
+
 ### Footer
 
 #### add()

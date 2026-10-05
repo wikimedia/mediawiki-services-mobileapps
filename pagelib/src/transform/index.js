@@ -32,6 +32,7 @@ import './OrderedList.less';
 import './Sections.less';
 import './References.less';
 import './Interaction.less';
+import './Highlight.less';
 
 export default {
 	AdjustTextSize,

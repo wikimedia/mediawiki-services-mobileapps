@@ -1,4 +1,5 @@
 import Footer from './Footer';
+import Highlight from './Highlight';
 import InteractionHandling from './InteractionHandling';
 import Page from './Page';
 import Platforms from './Platforms';
@@ -7,6 +8,7 @@ import Themes from './Themes';
 
 export default {
 	Footer,
+	Highlight,
 	InteractionHandling,
 	Platforms,
 	Page,
