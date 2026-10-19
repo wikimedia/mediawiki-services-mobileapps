@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Saraiki"
+			"Saraiki",
+			"Tauqeerkhansurani"
 		]
 	},
 	"description-add-link-title": "مضمون دی تفصیل شامل کرو",
@@ -10,11 +11,13 @@
 	"page-edit-history": " تبدیلی دا تاریخچہ ݙیکھو",
 	"info-box-close-text": "بند کرو",
 	"page-talk-page-subtitle": "ایں مضمون وچ بہتریاں کیتے بحث کرو",
+	"page-issues-subtitle": "گھٹ درجے یا مسئلے آلی مواد دے الرٹس",
 	"page-talk-page": "ڳالھ مہاڑ ورقہ ݙیکھو",
 	"info-box-title": "فوری حقائق",
 	"view-in-browser-footer-link": "مضمون براؤزر وچ ݙیکھو",
 	"page-location": "نقشے تے ݙیکھو",
 	"page-similar-titles": "ہکوجہے ورقے",
+	"page-last-edited": "{{PLURAL:$1|کل اپݙیٹ تھیا|$1 ݙینہہ پہلے اپݙیٹ تھیا|0=اڄ اپݙیٹ تھیا}}",
 	"article-about-title": "ایں مضمون بارے",
 	"page-issues": "ورقے دے مسئلے",
 	"license-footer-name": " کریئیٹیو کامنز انتساب / یکساں-شراکت اجازت نامہ 3.0",
