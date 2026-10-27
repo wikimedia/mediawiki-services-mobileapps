@@ -77,7 +77,7 @@ describe('transform/wikitext/to/mobile-html', () => {
 		const res = await preq.post(req);
 		assert.ok(res.status === 200);
 		assert.ok(/private/.test(res.headers['cache-control']));
-		assert.ok(/<h2 id="Heading".*class="(:?[^"]+)">Heading<\/h2>/.test(res.body));
+		assert.ok(/<h2[^>]* id="Heading".*class="(:?[^"]+)">Heading<\/h2>/.test(res.body));
 		assert.ok(/pcs-edit-section-link-container/.test(res.body));
 	});
 
@@ -95,7 +95,7 @@ describe('transform/wikitext/to/mobile-html', () => {
 		const res = await preq.post(req);
 		assert.ok(res.status === 200);
 		assert.ok(/private/.test(res.headers['cache-control']));
-		assert.ok(/<h2 id="Heading".*class="(:?[^"]+)">Heading<\/h2>/.test(res.body));
+		assert.ok(/<h2[^>]* id="Heading".*class="(:?[^"]+)">Heading<\/h2>/.test(res.body));
 		assert.ok(!/pcs-edit-section-link-container/.test(res.body));
 	});
 
