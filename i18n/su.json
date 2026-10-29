@@ -1,19 +1,31 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Rafka Aditia"
+		]
 	},
+	"description-add-link-title": "Tambahkeun pedaran artikel",
 	"article-read-more-title": "Baca leuwih jero",
 	"table-title-other": "Informasi leuwih jero",
 	"page-edit-history": "Sakumna jujutan édit",
 	"info-box-close-text": "Tutup",
+	"page-talk-page-subtitle": "Sawalakeun perbaikan kana artikel ieu",
+	"page-issues-subtitle": "Perhatosan ngeunaan eusi nu kurang atawa masalah",
 	"page-talk-page": "Tempo kaca obrolan",
-	"info-box-title": "Fakta Singget",
+	"info-box-title": "Fakta singget",
 	"view-in-browser-footer-link": "Tempo artikel di panyungsi",
 	"page-location": "Tempo dina péta",
 	"page-similar-titles": "Kaca nu sarua",
-	"page-last-edited": "Diédit $1 poé katukang",
+	"page-last-edited": "{{PLURAL:$1|Diropéa kamari|Diropéa $1 poé katukang|0=Diropéa ayeuna}}",
 	"article-about-title": "Ngeunaan ieu artikel",
 	"page-issues": "Masalah kaca",
 	"license-footer-text": "Eusi nu nyangkaruk ditangtayungan ku $1 iwal lamun disebutkeun béda.",
-	"page-read-in-other-languages": "Nyangkaruk dina $1 basa séjén"
+	"page-read-in-other-languages": "Nyangkaruk dina $1 basa séjén",
+	"article-edit-button": "Édit bagéan",
+	"article-edit-protected-button": "Édit bagéan dina kaca nu ditangtayungan",
+	"article-section-expand": "Amparkeun bagéan",
+	"article-section-collapse": "Sumputkeun bagéan",
+	"table-expand": "Amparkeun tabél",
+	"table-collapse": "Sumputkeun tabél",
+	"references-preview-header": "Pramidang réferénsi"
 }
