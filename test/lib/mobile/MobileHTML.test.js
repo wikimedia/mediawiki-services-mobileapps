@@ -1,9 +1,11 @@
 'use strict';
 
 const assert = require('assert');
+const domino = require('domino');
 const MobileHTML = require('../../../lib/mobile/MobileHTML');
 const constants = require('../../../lib/mobile/MobileHTMLConstants');
 const fixtures = require('../../utils/fixtures');
+const pagelib = require('../../../pagelib/build/wikimedia-page-library-transform');
 const path = require('path');
 const perf = require('../../utils/performance');
 const Reference = require('../../../lib/mobile/Reference');
@@ -15,6 +17,33 @@ describe('lib:MobileHTML', () => {
 		const mobileHTMLPromise = MobileHTML.promise(doc);
 		return perf.measure(mobileHTMLPromise, 1000).then(mobileHTML => {
 			assert.equal(mobileHTML.doc.querySelector('section[data-mw-section-id="1"]').firstChild.outerHTML, '<div class="pcs-edit-section-header v2"><h2 id="Etymology" class="pcs-edit-section-title">Etymology</h2><span class="pcs-edit-section-link-container"><a href="/w/index.php?title=United_States&amp;action=edit&amp;section=1" data-id="1" data-action="edit_section" aria-labelledby="pcs-edit-section-aria-normal" class="pcs-edit-section-link"></a></span></div>');
+		});
+	});
+	it('encodes quotes in reference ids, and keeps back links to them', () => {
+		const doc = domino.createDocument(
+			'<section data-mw-section-id="0"><p>A' +
+			'<sup class="mw-ref reference" id="cite_ref-O&#39;Brien_1-0">' +
+			'<a href="./T#cite_note-O\'Brien-1">[1]</a></sup> B' +
+			'<sup class="mw-ref reference" id="cite_ref-O&#39;Brien_1-1">' +
+			'<a href="./T#cite_note-O\'Brien-1">[1]</a></sup></p>' +
+			'<div class="mw-references-wrap"><ol class="mw-references references">' +
+			'<li id="cite_note-O&#39;Brien-1" data-mw-footnote-number="1">' +
+			'<span class="mw-cite-backlink"><a href="./T#cite_ref-O\'Brien_1-0">1</a> ' +
+			'<a href="./T#cite_ref-O\'Brien_1-1">2</a></span> ' +
+			'<span id="mw-reference-text-cite_note-O&#39;Brien-1" class="mw-reference-text">R</span></li>' +
+			'</ol></div></section>' +
+			'<section data-mw-section-id="1"><h2 id="Children&#39;s_books">H</h2></section>'
+		);
+		return MobileHTML.promise(doc, { linkTitle: 'T' }).then((mobileHTML) => {
+			const out = mobileHTML.doc;
+			const ids = Array.from(out.querySelectorAll('sup')).map((sup) => sup.id);
+			assert.deepStrictEqual(ids, ['cite_ref-O%27Brien_1-0', 'cite_ref-O%27Brien_1-1']);
+			const backLink = out.querySelector('a.pcs-ref-back-link');
+			const { backLinks } = pagelib.ReferenceCollection.collectReferencesForBackLink(
+				out, backLink, backLink.getAttribute('href')
+			);
+			assert.deepStrictEqual(backLinks.map((link) => link.id), ids);
+			assert.strictEqual(out.querySelector('h2').id, 'Children\'s_books');
 		});
 	});
 	it('detects mwids', () => {

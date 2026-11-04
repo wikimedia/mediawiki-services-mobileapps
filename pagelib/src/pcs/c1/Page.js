@@ -320,7 +320,7 @@ const prepareForScrollToAnchor = ( anchor, options ) => {
 	if ( !document ) {
 		return undefined;
 	}
-	const element = document.getElementById( anchor );
+	const element = document.getElementById( anchor ) || document.getElementById( HTMLUtilities.encodeUnsafeId( anchor ) );
 	if ( !element ) {
 		return undefined;
 	}
