@@ -21,7 +21,7 @@ describe('mathjax', function() {
 
 	const localUri = (title, domain = DOMAIN) => `${ server.config.uri }${ domain }/v1/page/mobile-html/${ title }`;
 
-	it('page without mathmode parameter does not include mathjax', () => preq.get({
+	it('page without mathmode parameter includes mathjax', () => preq.get({
 		uri: localUri(TITLE_WITH_MATH),
 		headers: { 'user-agent': 'WikipediaApp/PCS-unittest' }
 	}).then((res) => {
@@ -29,9 +29,9 @@ describe('mathjax', function() {
 		const doc = domino.createDocument(res.body);
 		const meta = doc.head.querySelector('meta[property="mw:generalModules"]' );
 		const modules = meta ? meta.getAttribute('content').split('|') : [];
-		assert.notContains( modules, 'ext.math.mathjax' );
+		assert.contains( modules, 'ext.math.mathjax' );
 		const script = doc.head.querySelector( '#MathJax-script' );
-		assert.equal( script, null );
+		assert.selectorExistsOnce( doc.head, '#MathJax-script' );
 	}));
 
 	it('page with mathmode but no math content does not include mathjax', () => preq.get({
@@ -45,17 +45,5 @@ describe('mathjax', function() {
 		assert.notContains( modules, 'ext.math.mathjax' );
 		const script = doc.head.querySelector( '#MathJax-script' );
 		assert.equal( script, null );
-	}));
-
-	it('page with mathmode and math content should include mathjax', () => preq.get({
-		uri: localUri(TITLE_WITH_MATH).concat('?mathmode=mathjax'),
-		headers: { 'user-agent': 'WikipediaApp/PCS-unittest' }
-	}).then((res) => {
-		assert.deepEqual(res.status, 200);
-		const doc = domino.createDocument(res.body);
-		const meta = doc.head.querySelector('meta[property="mw:generalModules"]' );
-		const modules = meta ? meta.getAttribute('content').split('|') : [];
-		assert.contains( modules, 'ext.math.mathjax' );
-		assert.selectorExistsOnce( doc.head, '#MathJax-script' );
 	}));
 });
