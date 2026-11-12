@@ -1,17 +1,31 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Panasko"
+		]
 	},
+	"description-add-link-title": "Dodaj opis članka",
 	"article-read-more-title": "Također pogledajte",
 	"table-title-other": "Više informacija",
 	"page-edit-history": "Cjelokupna historija izmjena",
 	"info-box-close-text": "Zatvori",
+	"page-talk-page-subtitle": "Raspravite o poboljšanjima ovog članka",
+	"page-issues-subtitle": "Obavještenja o lošem ili problematičnom sadržaju",
+	"page-talk-page": "Prikaži stranicu za razgovor",
 	"info-box-title": "Kratke činjenice",
+	"view-in-browser-footer-link": "Pogledajte članak u pregledniku",
 	"page-location": "Pogledaj na karti",
 	"page-similar-titles": "Slične stranice",
-	"page-last-edited": "Izmijenjeno prije $1 dana",
+	"page-last-edited": "{{PLURAL:$1|Ažurirano jučer|Ažurirano prije $1 dana|0=Ažurirano danas}}",
 	"article-about-title": "O ovom članku",
 	"page-issues": "Problemi sa sadržajem",
 	"license-footer-text": "Sadržaj je dostupan pod $1 osim ako je drukčije navedeno.",
-	"page-read-in-other-languages": "Dostupno na još $1 jezika"
+	"page-read-in-other-languages": "Dostupno na još $1 jezika",
+	"article-edit-button": "Uredi odjeljak",
+	"article-edit-protected-button": "Uredi odjeljak na zaštićenoj stranici",
+	"article-section-expand": "Proširi odjeljak",
+	"article-section-collapse": "Sažmi odjeljak",
+	"table-expand": "Proširi tabelu",
+	"table-collapse": "Sažmi tabelu",
+	"references-preview-header": "Pregled referenci"
 }
