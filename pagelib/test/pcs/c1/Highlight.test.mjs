@@ -221,12 +221,32 @@ describe( 'pcs.c1.Highlight', () => {
 			assert.strictEqual( jump( 'Quick facts', 'Natural_history' ).type, 'section' );
 		} );
 
-		it( 'scrolls the target to the center of the viewport and adjusts the rect', () => {
+		it( 'scrolls the top of the target a third of the way down the viewport and adjusts the rect', () => {
 			setUp();
 			const result = jump( 'founded', 'History', { scroll: true } );
-			// 1000 + 500 + 20 / 2 - 800 / 2
-			assert.strictEqual( window.pageYOffset, 1110 );
-			assert.deepStrictEqual( result.rect, rect( 390, 20 ) );
+			// round( 1000 + 500 - 800 / 3 )
+			assert.strictEqual( window.pageYOffset, 1233 );
+			assert.deepStrictEqual( result.rect, rect( 267, 20 ) );
+		} );
+
+		it( 'keeps the start of a target taller than the viewport on screen', () => {
+			setUp();
+			const createRange = document.createRange;
+			document.createRange = () =>
+				Object.assign( createRange(), { getBoundingClientRect: () => rect( 500, 1000 ) } );
+			const result = jump( 'founded', 'History', { scroll: true } );
+			assert.strictEqual( window.pageYOffset, 1233 );
+			assert.deepStrictEqual( result.rect, rect( 267, 1000 ) );
+		} );
+
+		it( 'does not scroll above the top of the page', () => {
+			setUp();
+			window.pageYOffset = 0;
+			window.innerHeight = 2000;
+			const result = jump( 'founded', 'History', { scroll: true } );
+			// 0 + 500 - 2000 / 3 is negative
+			assert.strictEqual( window.pageYOffset, 0 );
+			assert.deepStrictEqual( result.rect, rect( 500, 20 ) );
 		} );
 
 		it( 'does not scroll by default', () => {

@@ -18,6 +18,14 @@ import SectionUtilities from '../../transform/SectionUtilities';
 const HIGHLIGHT_NAME = 'pcs-highlight';
 
 /**
+ * Where scrolling puts the top of the target, as a fraction of the viewport height from the
+ * top. Above the middle, so the reader sees the target followed by more of the text after it.
+ *
+ * @type {number}
+ */
+const SCROLL_POSITION = 1 / 3;
+
+/**
  * Subtrees whose text is not part of the readable article content, so is never matched.
  *
  * @type {string}
@@ -242,15 +250,16 @@ const highlightSegments = ( segments ) => {
 };
 
 /**
- * Scrolls so the rect is vertically centered in the viewport.
+ * Scrolls so the top of the rect is SCROLL_POSITION of the way down the viewport. Placing the
+ * top rather than the center keeps the start of a long passage on screen.
  *
  * @param {!Object<string, number>} rect viewport relative
  * @return {!Object<string, number>} rect, adjusted to be relative to the scrolled viewport
  */
-const scrollToCenter = ( rect ) => {
+const scrollToReadingPosition = ( rect ) => {
 	const scrollY = window.pageYOffset;
-	const top = scrollY + rect.top + rect.height / 2 - window.innerHeight / 2;
-	window.scrollTo( 0, Math.max( 0, top ) );
+	const top = scrollY + rect.top - window.innerHeight * SCROLL_POSITION;
+	window.scrollTo( 0, Math.max( 0, Math.round( top ) ) );
 	const delta = window.pageYOffset - scrollY;
 	return Object.assign( {}, rect, {
 		top: rect.top - delta,
@@ -279,7 +288,8 @@ const scrollToCenter = ( rect ) => {
  * @param {?string} sectionId id of the section heading to search in and fall back to. This is
  *   the id, not the title: words are joined by underscores, e.g. 'Etymology_and_naming'. The
  *   whole page is searched if it is empty or not found.
- * @param {?{scroll: ?boolean}} options scroll: scroll the page so the target is centered
+ * @param {?{scroll: ?boolean}} options scroll: scroll the page so the top of the target is a
+ *   third of the way down the viewport
  * @return {?JumpResult} null if neither the text nor the section was found
  */
 const jumpToHighlightOrSection = ( highlightText, sectionId, options ) => {
@@ -303,7 +313,7 @@ const jumpToHighlightOrSection = ( highlightText, sectionId, options ) => {
 		NodeUtilities.getBoundingClientRectAsPlainObject( target );
 	return {
 		type: segments ? 'highlight' : 'section',
-		rect: options && options.scroll ? scrollToCenter( rect ) : rect
+		rect: options && options.scroll ? scrollToReadingPosition( rect ) : rect
 	};
 };
 

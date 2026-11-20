@@ -335,7 +335,7 @@ Highlights the first occurrence of `highlightText` in the section whose heading 
 
 `highlightText` is the text to find. Matching ignores case, whitespace, invisible characters, curly vs. straight quotes, inline markup (links, bold, etc.) and reference markers like `[1]`.
 `sectionId` is the id of the section heading, not its title: words are joined by underscores, e.g. `Etymology_and_naming` for the section "Etymology and naming". This is the same as the section anchor in the page URL. If it is empty or not found, the whole page is searched.
-`options` is an optional object. `{ scroll: true }` scrolls the page so the target is vertically centered. Without it, the page is not scrolled and the client can scroll its own way using the returned rect.
+`options` is an optional object. `{ scroll: true }` scrolls the page so the top of the target is a third of the way down the viewport, leaving more room for the text that follows it. Without it, the page is not scrolled and the client can scroll its own way using the returned rect.
 
 Returns `{ type, rect }`, or `null` if neither the text nor the section was found:
 - `type` is `'highlight'` if the text was found, `'section'` if the section heading was used.
